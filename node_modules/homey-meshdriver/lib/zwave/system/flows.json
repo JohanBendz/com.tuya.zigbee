@@ -1,0 +1,46 @@
+{
+  "flow": {
+    "triggers": [
+      {
+        "id": "lockJammed",
+        "zwaveDevice": "ZwaveLockDevice",
+        "title": {
+          "en": "The lock is jammed",
+          "nl": "Het slot is geblokkeerd"
+        },
+        "hint": {
+          "en": "While trying to close the lock something obstructed the lock from closing completely.",
+          "nl": "Tijdens het sluiten van het slot blokkeerde er iets waardoor het slot niet kon worden gesloten."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=<driver_id>"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "resetMeter",
+        "zwaveDevice": "ZwaveMeteringDevice",
+        "title": {
+          "en": "Reset meter values",
+          "nl": "Meter waarden opnieuw instellen"
+        },
+        "hint": {
+          "en": "Reset the accumulated power usage value (kWh), note that this can not be reversed.",
+          "nl": "Stel geaccumuleerde stroomverbruik waarde (kWh) opnieuw in, dit kan niet worden teruggedraaid."
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "<driver_id>"
+          }
+        ]
+      }
+    ]
+  }
+}

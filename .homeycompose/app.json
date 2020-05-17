@@ -1,0 +1,43 @@
+{
+  "id": "com.tuya.zigbee",
+  "version": "0.0.1",
+  "compatibility": ">=3.2.0",
+  "sdk": 2,
+  "name": {
+    "en": "Tuya Zigbee"
+  },
+  "description": {
+    "en": "Adds support for Tuya Zigbee devices"
+  },
+  "tags": {
+    "en": [
+      "Tuya",
+      "Zigbee",
+      "Sensor",
+      "Temperature"
+    ]
+  },
+  "category": [
+    "appliances",
+    "security"
+  ],
+  "brandColor": "#FF4800",
+  "permissions": [
+    "homey:wireless:zigbee"
+  ],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Johan Bendz",
+    "email": "johan_bendz@hotmail.com"
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "JohanBendz"
+      }
+    }
+  }
+}
