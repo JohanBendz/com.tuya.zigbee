@@ -2,7 +2,7 @@
   "0.0.1": {
     "en": "Added support for Tuya Zigbee Temperature & Humidity Sensor"
   },
-  "0.0.2": {
+  "0.0.3": {
     "en": "Added support for Tuya Zigbee LCD Temperature & Humidity Sensor"
   }
 }
