@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "compatibility": ">=3.2.0",
   "sdk": 2,
   "name": {
@@ -12,9 +12,12 @@
   "tags": {
     "en": [
       "Tuya",
+      "Malmbergs",
+      "Alecto",
       "Zigbee",
       "Sensor",
-      "Temperature"
+      "Temperature",
+      "Humidity"
     ]
   },
   "category": [
