@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "compatibility": ">=3.2.0",
   "sdk": 2,
   "name": {
@@ -12,9 +12,12 @@
   "tags": {
     "en": [
       "Tuya",
+      "Malmbergs",
+      "Alecto",
       "Zigbee",
       "Sensor",
-      "Temperature"
+      "Temperature",
+      "Humidity"
     ]
   },
   "category": [
@@ -73,9 +76,8 @@
         "deviceId": 770,
         "profileId": 260,
         "learnmode": {
-          "image": "drivers/lcdtemphumidsensor/assets/learn.svg",
           "instruction": {
-            "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
+            "en": "Press the button on the side of the unit for 5 seconds."
           }
         }
       },
@@ -181,7 +183,8 @@
       "zigbee": {
         "manufacturerName": [
           "TUYATEC-g3gl6cgy",
-          "TUYATEC-Bfq2i2Sy"
+          "TUYATEC-Bfq2i2Sy",
+          "TUYATEC-abkehqus"
         ],
         "productId": [
           "RH3052"
