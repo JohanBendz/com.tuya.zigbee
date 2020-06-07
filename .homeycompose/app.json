@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "compatibility": ">=3.2.0",
   "sdk": 2,
   "name": {
@@ -14,6 +14,7 @@
       "Tuya",
       "Malmbergs",
       "Alecto",
+      "Smart9",
       "Zigbee",
       "Sensor",
       "Temperature",

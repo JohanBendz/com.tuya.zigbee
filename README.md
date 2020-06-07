@@ -4,6 +4,7 @@ Adds support for Tuya Zigbee devices
 Supported White Label Brands:
 - Malmbergs
 - Alecto
+- Smart9
 
 Supported devices:
 - Temperature and Humidity Sensor
