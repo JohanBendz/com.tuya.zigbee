@@ -1,19 +1,20 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "compatibility": ">=3.2.0",
   "sdk": 2,
   "name": {
     "en": "Tuya Zigbee"
   },
   "description": {
-    "en": "Adds support for Tuya Zigbee devices"
+    "en": "Control your white label Zigbee devices made by Tuya"
   },
   "tags": {
     "en": [
       "Tuya",
       "Malmbergs",
       "Alecto",
+      "Smart9",
       "Zigbee",
       "Sensor",
       "Temperature",
@@ -68,7 +69,9 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ2000_a476raq2"
+          "_TZ2000_a476raq2",
+          "_TYZB01_a476raq2",
+          "_TYZB01_hjsgdkfl"
         ],
         "productId": [
           "TS0201"

@@ -5,6 +5,7 @@ Supported White Label Brands:
 - Malmbergs
 - Alecto
 - Smart9
+- Blitzwolf
 
 Supported devices:
 - Temperature and Humidity Sensor
