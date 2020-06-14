@@ -38,10 +38,13 @@ module.exports = {
 		return null;
 	},
 	reportParserV4: report => {
-		if (report && report.hasOwnProperty('Current Value (Raw)')) {
-			if (report['Current Value (Raw)'][0] === 255) return 1;
-			return report['Current Value (Raw)'][0] / 99;
-		}
+	  if (report) {
+      if (report.hasOwnProperty('Current Value')) {
+        if (typeof report['Current Value'] === 'number') return report['Current Value'] > 0;
+        if (typeof report['Current Value'] === 'string') return report['Current Value'] === 'on/enable';
+      }
+      if (report.hasOwnProperty('Current Value (Raw)')) return report['Current Value (Raw)'][0] > 0;
+    }
 		return null;
 	},
 };

@@ -1,13 +1,13 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "compatibility": ">=3.2.0",
   "sdk": 2,
   "name": {
     "en": "Tuya Zigbee"
   },
   "description": {
-    "en": "Adds support for Tuya Zigbee devices"
+    "en": "Control your white label Zigbee devices made by Tuya"
   },
   "tags": {
     "en": [
