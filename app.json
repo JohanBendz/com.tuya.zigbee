@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "compatibility": ">=3.2.0",
   "sdk": 2,
   "name": {
@@ -15,6 +15,8 @@
       "Malmbergs",
       "Alecto",
       "Smart9",
+      "Blitzwolf",
+      "Zemismart",
       "Zigbee",
       "Sensor",
       "Temperature",
@@ -70,6 +72,7 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ2000_a476raq2",
+          "_TZ2000_xogb73am",
           "_TYZB01_a476raq2",
           "_TYZB01_hjsgdkfl"
         ],
