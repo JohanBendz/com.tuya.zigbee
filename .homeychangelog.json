@@ -16,5 +16,8 @@
   },
   "0.0.6": {
     "en": "Added support for Blitzwolf White Label Brand"
+  },
+  "0.0.7": {
+    "en": "Added support for Zemismart White Label Brand"
   }
 }

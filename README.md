@@ -6,6 +6,7 @@ Supported White Label Brands:
 - Alecto
 - Smart9
 - Blitzwolf
+- Zemismart
 
 Supported devices:
 - Temperature and Humidity Sensor
