@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "compatibility": ">=3.2.0",
   "sdk": 2,
   "name": {
@@ -190,7 +190,8 @@
         "manufacturerName": [
           "TUYATEC-g3gl6cgy",
           "TUYATEC-Bfq2i2Sy",
-          "TUYATEC-abkehqus"
+          "TUYATEC-abkehqus",
+          "TUYATEC-yg5dcbfu"
         ],
         "productId": [
           "RH3052"

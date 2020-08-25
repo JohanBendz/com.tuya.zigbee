@@ -22,5 +22,8 @@
   },
   "0.0.8": {
     "en": "Added support for Tuya Brand"
+  },
+  "0.0.9": {
+    "en": "Added unknown white label support (_TZ2000_avdnvykf)"
   }
 }
