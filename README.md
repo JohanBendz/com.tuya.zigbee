@@ -11,5 +11,7 @@ Supported White Label Brands:
 Supported devices:
 - Temperature and Humidity Sensor
 - LCD Temperature and Humidity Sensor
+- Windows / Door Sensor
+- PIR
 
 To request additional devices, please use Athom Homey Community Forum: https://community.athom.com/t/tuya-zigbee-app/26439

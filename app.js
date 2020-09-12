@@ -2,6 +2,10 @@
 
 const Homey = require('homey');
 
+// Enable zigbee-cluster logging
+const { Util } = require('homey-zigbeedriver');
+Util.debugZigbeeClusters(true);
+
 class tuyazigbee extends Homey.App {
 	
 	onInit() {

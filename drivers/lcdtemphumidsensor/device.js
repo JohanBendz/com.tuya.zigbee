@@ -1,75 +1,86 @@
 'use strict';
 
-const { ZigBeeDevice } = require('homey-meshdriver');
+const Homey = require('homey');
+const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { CLUSTER } = require('zigbee-clusters');
 
 class lcdtemphumidsensor extends ZigBeeDevice {
+	
+	async onNodeInit({zclNode}) {
 
-	async onMeshInit() {
+		const minReportTemp = this.getSetting('minReportTemp') || 60;
+		const maxReportTemp = this.getSetting('maxReportTemp') || 300;
+		const minReportHum = this.getSetting('minReportHum') || 60;
+		const maxReportHum = this.getSetting('maxReportHum') || 300;
+		const batteryThreshold = this.getSetting('batteryThreshold') || 20;
 
-		// Developer tools
-		// this.enableDebug();
-		this.printNode();
+		if (this.isFirstInit()){
+
+			// measure_temperature
+			await this.configureAttributeReporting([
+				{
+				endpointId: 1,
+				cluster: CLUSTER.TEMPERATURE_MEASUREMENT,
+				attributeName: 'measuredValue',
+				minInterval: minReportTemp,
+				maxInterval: maxReportTemp,
+				minChange: 1,
+				}
+			]);
+
+			// measure_humidity
+			await this.configureAttributeReporting([
+				{
+				endpointId: 1,
+				cluster: CLUSTER.RELATIVE_HUMIDITY_MEASUREMENT,
+				attributeName: 'measuredValue',
+				minInterval: minReportHum,
+				maxInterval: maxReportHum,
+				minChange: 1,
+				},
+			]);
+
+			// measure_battery
+			await this.configureAttributeReporting([
+				{
+				endpointId: 1,
+				cluster: CLUSTER.POWER_CONFIGURATION,
+				attributeName: 'batteryPercentageRemaining',
+				minInterval: 60,
+				maxInterval: 3600,
+				minChange: 1,
+				}
+			]);
 			
-		// Register capabilities and listeners
-
-		// Temperature
-		if (this.hasCapability('measure_temperature')) {
-		 this.registerCapability('measure_temperature', 'msTemperatureMeasurement');
-		 this.registerAttrReportListener('msTemperatureMeasurement', 'measuredValue', 10, 300, null,
-			this.measure_temperature_Report.bind(this))
-			.catch(err => {
-				this.error('failed to register report listener msTemperatureMeasurement', err);
-			});
 		}
 
-		// Battery
-		if (this.hasCapability('measure_battery')) {
-		 this.registerCapability('measure_battery', 'genPowerCfg');
-		 this.registerAttrReportListener('genPowerCfg', 'batteryPercentageRemaining', 10, 300, null,
-			this.measure_battery_Report.bind(this))
-			.catch(err => {
-			this.error('failed to register report listener genPowerCfg', err);
-			});
-		}
+		// measure_temperature
+		await zclNode.endpoints[1].clusters[CLUSTER.TEMPERATURE_MEASUREMENT.NAME]
+		.on('attr.measuredValue', (currentTempValue) => {
+			this.log('Current temp: ', currentTempValue);
+			const temperature = this.getSetting('temperature_decimals') === '2' ? Math.round((currentTempValue / 100) * 100) / 100 : Math.round((currentTempValue / 100) * 10) / 10;
+			const temperatureOffset = this.getSetting('temperature_offset') || 0;
+			this.log('Temperature: ', temperature, ', Offset: ', temperatureOffset);
+			this.setCapabilityValue('measure_temperature', temperature + temperatureOffset);
+		});
 
-		// Humidity
-		if (this.hasCapability('measure_humidity')) {
-			this.registerCapability('measure_humidity', 'msRelativeHumidity');
-			await this.registerAttrReportListener('msRelativeHumidity', 'measuredValue', 10, 300, null,
-				this.measure_humidity_Report.bind(this))
-				.catch(err => {
-				this.error('failed to register report listener msRelativeHumidity', err);
-				});
-			}
+		// measure_humidity
+		await zclNode.endpoints[1].clusters[CLUSTER.RELATIVE_HUMIDITY_MEASUREMENT.NAME]
+		.on('attr.measuredValue', (currentHumValue) => {
+			const humidity = this.getSetting('humidity_decimals') === '2' ? Math.round((currentHumValue / 100) * 100) / 100 : Math.round((currentHumValue / 100) * 10) / 10;
+			this.log('Humidity: ', humidity);
+			this.setCapabilityValue('measure_humidity', humidity);
+		});
 
-		// end Register capabilities and listeners
-
-		this.log('Temperature & Humidity Sensor Driver has been inited');
+		// measure_battery / alarm_battery
+		await zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
+		.on('attr.batteryPercentageRemaining', (batteryPercentage) => {
+			this.log('Battery Percentage Remaining: ', batteryPercentage/2);
+			this.setCapabilityValue('measure_battery', batteryPercentage/2);
+			this.setCapabilityValue('alarm_battery', (batteryPercentage/2 < batteryThreshold) ? true : false)
+		});
 
 	}
-
-		// Handle reports
-		measure_temperature_Report(value) {
-			const parsedValue = this.getSetting('temperature_decimals') === '2' ? Math.round((value / 100) * 100) / 100 : Math.round((value / 100) * 10) / 10;
-			const temperatureOffset = this.getSetting('temperature_offset') || 0;
-			this.log('msTemperatureMeasurement - measuredValue (temperature):', parsedValue, '+ temperature offset', temperatureOffset);
-			this.setCapabilityValue('measure_temperature', parsedValue + temperatureOffset);
-		}
-		
-		measure_battery_Report(value) {
-			const parsedValue = (value/2);
-			this.log('Battery level, genPowerCfg', value, parsedValue);
-			this.setCapabilityValue('measure_battery', parsedValue);
-			this.setCapabilityValue('alarm_battery', parsedValue < (this.getSetting('battery_threshold') || 20));
-		}
-
-		measure_humidity_Report(value) {
-			const parsedValue = this.getSetting('humidity_decimals') === '2' ? Math.round((value / 100) * 100) / 100 : Math.round((value / 100) * 10) / 10;
-			this.log('msRelativeHumidity - measuredValue (humidity):', parsedValue);
-			this.setCapabilityValue('measure_humidity', parsedValue);
-		}
-		
-		// end Handle reports
 
 }
 

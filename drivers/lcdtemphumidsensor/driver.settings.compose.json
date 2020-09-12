@@ -1,0 +1,77 @@
+[
+  {
+    "id": "temperature_offset",
+    "type": "number",
+    "label": {
+      "en": "Temperature offset (°C)"
+    },
+    "hint": {
+      "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]"
+    },
+    "value": 0,
+    "attr": {
+      "min": -10,
+      "max": 10,
+      "step": 0.1
+    }
+  },
+  {
+    "id": "temperature_decimals",
+    "type": "radio",
+    "label": {
+      "en": "Temperature reporting decimals"
+    },
+    "value": "1",
+    "values": [
+      {
+        "id": "1",
+        "label": {
+          "en": "Report temperature value with 1 decimal (21.4 °C)"
+        }
+      },
+      {
+        "id": "2",
+        "label": {
+          "en": "Report temperature value with 2 decimals (21.37 °C)"
+        }
+      }
+    ]
+  },
+  {
+    "id": "humidity_decimals",
+    "type": "radio",
+    "label": {
+      "en": "Humidity reporting"
+    },
+    "value": "1",
+    "values": [
+      {
+        "id": "1",
+        "label": {
+          "en": "Report humidity value with 1 decimal (35.2 %)"
+        }
+      },
+      {
+        "id": "2",
+        "label": {
+          "en": "Report humidity value with 2 decimals (35.19 %)"
+        }
+      }
+    ]
+  },
+  {
+    "id": "battery_threshold",
+    "type": "number",
+    "label": {
+      "en": "Battery alarm threshold (%)"
+    },
+    "hint": {
+      "en": "Battery level (%) below which the battery alarm will be activated.\nRange: 1 - 90, \ndefault: 20 [%]"
+    },
+    "value": 20,
+    "attr": {
+      "min": 1,
+      "max": 90
+    }
+  }
+]

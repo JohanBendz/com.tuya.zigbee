@@ -1,8 +1,8 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.0.7",
-  "compatibility": ">=3.2.0",
-  "sdk": 2,
+  "version": "0.1.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
   "name": {
     "en": "Tuya Zigbee"
   },
@@ -48,6 +48,75 @@
   },
   "drivers": [
     {
+      "id": "doorwindowsensor",
+      "name": {
+        "en": "Door & Window Sensor (ZigBee)"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/doorwindowsensor/assets/images/large.png",
+        "small": "/drivers/doorwindowsensor/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "TUYATEC-g3gl6cgy",
+          "TUYATEC-Bfq2i2Sy",
+          "TUYATEC-abkehqus",
+          "TUYATEC-sb6t7ett"
+        ],
+        "productId": [
+          "RH3001"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/doorwindowsensor/assets/learn.svg",
+          "instruction": {
+            "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "battery_threshold",
+          "type": "number",
+          "label": {
+            "en": "Battery alarm threshold (%)"
+          },
+          "hint": {
+            "en": "Battery level (%) below which the battery alarm will be activated.\nRange: 1 - 90, \ndefault: 20 [%]"
+          },
+          "value": 20,
+          "attr": {
+            "min": 1,
+            "max": 90
+          }
+        }
+      ]
+    },
+    {
       "id": "lcdtemphumidsensor",
       "name": {
         "en": "LCD Temperature & Humidity Sensor (ZigBee)"
@@ -66,21 +135,35 @@
         ]
       },
       "images": {
-        "large": "drivers/lcdtemphumidsensor/assets/images/large.png",
-        "small": "drivers/lcdtemphumidsensor/assets/images/small.png"
+        "large": "/drivers/lcdtemphumidsensor/assets/images/large.png",
+        "small": "/drivers/lcdtemphumidsensor/assets/images/small.png"
       },
       "zigbee": {
         "manufacturerName": [
           "_TZ2000_a476raq2",
           "_TZ2000_xogb73am",
+          "_TZ2000_avdnvykf",
           "_TYZB01_a476raq2",
           "_TYZB01_hjsgdkfl"
         ],
         "productId": [
           "TS0201"
         ],
-        "deviceId": 770,
-        "profileId": 260,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1026,
+              1029
+            ],
+            "bindings": [
+              1,
+              1026,
+              1029
+            ]
+          }
+        },
         "learnmode": {
           "instruction": {
             "en": "Press the button on the side of the unit for 5 seconds."
@@ -166,6 +249,71 @@
       ]
     },
     {
+      "id": "pirsensor",
+      "name": {
+        "en": "PIR Sensor (ZigBee)"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/pirsensor/assets/images/large.png",
+        "small": "/drivers/pirsensor/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "TUYATEC-lha8pbwd"
+        ],
+        "productId": [
+          "RH3040"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/pirsensor/assets/learn.svg",
+          "instruction": {
+            "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "battery_threshold",
+          "type": "number",
+          "label": {
+            "en": "Battery alarm threshold (%)"
+          },
+          "hint": {
+            "en": "Battery level (%) below which the battery alarm will be activated.\nRange: 1 - 90, \ndefault: 20 [%]"
+          },
+          "value": 20,
+          "attr": {
+            "min": 1,
+            "max": 90
+          }
+        }
+      ]
+    },
+    {
       "id": "temphumidsensor",
       "name": {
         "en": "Temperature & Humidity Sensor (ZigBee)"
@@ -183,22 +331,36 @@
         ]
       },
       "images": {
-        "large": "drivers/temphumidsensor/assets/images/large.png",
-        "small": "drivers/temphumidsensor/assets/images/small.png"
+        "large": "/drivers/temphumidsensor/assets/images/large.png",
+        "small": "/drivers/temphumidsensor/assets/images/small.png"
       },
       "zigbee": {
         "manufacturerName": [
           "TUYATEC-g3gl6cgy",
           "TUYATEC-Bfq2i2Sy",
-          "TUYATEC-abkehqus"
+          "TUYATEC-abkehqus",
+          "TUYATEC-yg5dcbfu"
         ],
         "productId": [
           "RH3052"
         ],
-        "deviceId": 770,
-        "profileId": 260,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1026,
+              1029
+            ],
+            "bindings": [
+              1,
+              1026,
+              1029
+            ]
+          }
+        },
         "learnmode": {
-          "image": "drivers/temphumidsensor/assets/learn.svg",
+          "image": "/drivers/temphumidsensor/assets/learn.svg",
           "instruction": {
             "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
           }

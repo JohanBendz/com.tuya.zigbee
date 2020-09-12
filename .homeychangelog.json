@@ -19,5 +19,8 @@
   },
   "0.0.7": {
     "en": "Added support for Zemismart White Label Brand"
+  },
+  "0.1.0": {
+    "en": "Rewrite for SDK3 / Homey Firmware v5"
   }
 }
