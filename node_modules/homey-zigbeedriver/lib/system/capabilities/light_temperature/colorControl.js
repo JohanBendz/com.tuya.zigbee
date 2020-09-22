@@ -8,6 +8,10 @@ const {
 /**
  * Cluster capability configuration for `light_temperature`.
  * @type {ClusterCapabilityConfiguration}
+ *
+ * Note: this system parser requires two store values to be set 'colorTempMin' and
+ * 'colorTempMax'. These can be retrieved by reading these respective attributes from the
+ * colorControl cluster (`readAttributes('colorTempMin', 'colorTempMax')).
  */
 module.exports = {
   set: 'moveToColorTemperature',

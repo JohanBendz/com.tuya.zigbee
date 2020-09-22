@@ -72,7 +72,8 @@
           "TUYATEC-g3gl6cgy",
           "TUYATEC-Bfq2i2Sy",
           "TUYATEC-abkehqus",
-          "TUYATEC-sb6t7ett"
+          "TUYATEC-sb6t7ett",
+          "TUYATEC-rkqiqvcs"
         ],
         "productId": [
           "RH3001"
@@ -143,8 +144,10 @@
           "_TZ2000_a476raq2",
           "_TZ2000_xogb73am",
           "_TZ2000_avdnvykf",
+          "_TZ2000_hjsgdkfl",
           "_TYZB01_a476raq2",
-          "_TYZB01_hjsgdkfl"
+          "_TYZB01_hjsgdkfl",
+          "_TYZB01_iuepbmpv"
         ],
         "productId": [
           "TS0201"
@@ -244,6 +247,70 @@
           "attr": {
             "min": 1,
             "max": 90
+          }
+        },
+        {
+          "id": "minReportTemp",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for Temperature (seconds)"
+          },
+          "hint": {
+            "en": "Set a value for min report interval.\nRange: 30 - 86400, step size 1, \ndefault: 60"
+          },
+          "value": 60,
+          "attr": {
+            "min": 30,
+            "max": 86400,
+            "step": 1
+          }
+        },
+        {
+          "id": "maxReportTemp",
+          "type": "number",
+          "label": {
+            "en": "Max report interval for Temperature (seconds)"
+          },
+          "hint": {
+            "en": "Set a value for max report interval.\nRange: 600 - 86400, step size 1 (Must be larger than Min report interval), \ndefault: 300"
+          },
+          "value": 300,
+          "attr": {
+            "min": 30,
+            "max": 86400,
+            "step": 1
+          }
+        },
+        {
+          "id": "minReportHum",
+          "type": "number",
+          "label": {
+            "en": "Max report interval for Humidity (seconds)"
+          },
+          "hint": {
+            "en": "Set a value for min report interval.\nRange: 30 - 86400, step size 1, \ndefault: 60"
+          },
+          "value": 60,
+          "attr": {
+            "min": 30,
+            "max": 86400,
+            "step": 1
+          }
+        },
+        {
+          "id": "maxReportHum",
+          "type": "number",
+          "label": {
+            "en": "Max report interval for Humidity (seconds)"
+          },
+          "hint": {
+            "en": "Set a value for max report interval.\nRange: 60 - 86400, step size 1 (Must be larger than Min report interval), \ndefault: 300"
+          },
+          "value": 300,
+          "attr": {
+            "min": 30,
+            "max": 86400,
+            "step": 1
           }
         }
       ]
@@ -440,6 +507,70 @@
           "attr": {
             "min": 1,
             "max": 90
+          }
+        },
+        {
+          "id": "minReportTemp",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for Temperature (seconds)"
+          },
+          "hint": {
+            "en": "Set a value for min report interval.\nRange: 30 - 86400, step size 1, \ndefault: 60"
+          },
+          "value": 60,
+          "attr": {
+            "min": 30,
+            "max": 86400,
+            "step": 1
+          }
+        },
+        {
+          "id": "maxReportTemp",
+          "type": "number",
+          "label": {
+            "en": "Max report interval for Temperature (seconds)"
+          },
+          "hint": {
+            "en": "Set a value for max report interval.\nRange: 600 - 86400, step size 1 (Must be larger than Min report interval), \ndefault: 300"
+          },
+          "value": 300,
+          "attr": {
+            "min": 30,
+            "max": 86400,
+            "step": 1
+          }
+        },
+        {
+          "id": "minReportHum",
+          "type": "number",
+          "label": {
+            "en": "Max report interval for Humidity (seconds)"
+          },
+          "hint": {
+            "en": "Set a value for min report interval.\nRange: 30 - 86400, step size 1, \ndefault: 60"
+          },
+          "value": 60,
+          "attr": {
+            "min": 30,
+            "max": 86400,
+            "step": 1
+          }
+        },
+        {
+          "id": "maxReportHum",
+          "type": "number",
+          "label": {
+            "en": "Max report interval for Humidity (seconds)"
+          },
+          "hint": {
+            "en": "Set a value for max report interval.\nRange: 60 - 86400, step size 1 (Must be larger than Min report interval), \ndefault: 300"
+          },
+          "value": 300,
+          "attr": {
+            "min": 30,
+            "max": 86400,
+            "step": 1
           }
         }
       ]

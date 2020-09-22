@@ -36,12 +36,13 @@ class pirsensor extends ZigBeeDevice {
 				maxInterval: 3600,
 				minChange: 1,
 				}
-			]);
+			])
+			.catch(err => this.error('Error: configureAttributeReporting failed', err));
 			
 		}
 
 		// measure_battery / alarm_battery
-		await zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
+		zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
 		.on('attr.batteryPercentageRemaining', (batteryPercentage) => {
 			this.log('Battery Percentage Remaining: ', batteryPercentage/2);
 			this.setCapabilityValue('measure_battery', batteryPercentage/2);

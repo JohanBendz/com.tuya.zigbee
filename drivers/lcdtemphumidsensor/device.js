@@ -26,7 +26,8 @@ class lcdtemphumidsensor extends ZigBeeDevice {
 				maxInterval: maxReportTemp,
 				minChange: 1,
 				}
-			]);
+			])
+			.catch(err => this.error('Error: configureAttributeReporting failed', err));
 
 			// measure_humidity
 			await this.configureAttributeReporting([
@@ -38,7 +39,8 @@ class lcdtemphumidsensor extends ZigBeeDevice {
 				maxInterval: maxReportHum,
 				minChange: 1,
 				},
-			]);
+			])
+			.catch(err => this.error('Error: configureAttributeReporting failed', err));
 
 			// measure_battery
 			await this.configureAttributeReporting([
@@ -50,12 +52,13 @@ class lcdtemphumidsensor extends ZigBeeDevice {
 				maxInterval: 3600,
 				minChange: 1,
 				}
-			]);
+			])
+			.catch(err => this.error('Error: configureAttributeReporting failed', err));
 			
 		}
 
 		// measure_temperature
-		await zclNode.endpoints[1].clusters[CLUSTER.TEMPERATURE_MEASUREMENT.NAME]
+		zclNode.endpoints[1].clusters[CLUSTER.TEMPERATURE_MEASUREMENT.NAME]
 		.on('attr.measuredValue', (currentTempValue) => {
 			this.log('Current temp: ', currentTempValue);
 			const temperature = this.getSetting('temperature_decimals') === '2' ? Math.round((currentTempValue / 100) * 100) / 100 : Math.round((currentTempValue / 100) * 10) / 10;
@@ -65,7 +68,7 @@ class lcdtemphumidsensor extends ZigBeeDevice {
 		});
 
 		// measure_humidity
-		await zclNode.endpoints[1].clusters[CLUSTER.RELATIVE_HUMIDITY_MEASUREMENT.NAME]
+		zclNode.endpoints[1].clusters[CLUSTER.RELATIVE_HUMIDITY_MEASUREMENT.NAME]
 		.on('attr.measuredValue', (currentHumValue) => {
 			const humidity = this.getSetting('humidity_decimals') === '2' ? Math.round((currentHumValue / 100) * 100) / 100 : Math.round((currentHumValue / 100) * 10) / 10;
 			this.log('Humidity: ', humidity);
@@ -73,7 +76,7 @@ class lcdtemphumidsensor extends ZigBeeDevice {
 		});
 
 		// measure_battery / alarm_battery
-		await zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
+		zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
 		.on('attr.batteryPercentageRemaining', (batteryPercentage) => {
 			this.log('Battery Percentage Remaining: ', batteryPercentage/2);
 			this.setCapabilityValue('measure_battery', batteryPercentage/2);

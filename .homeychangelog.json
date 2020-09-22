@@ -22,5 +22,8 @@
   },
   "0.1.0": {
     "en": "Rewrite for SDK3 / Homey Firmware v5"
+  },
+  "0.1.1": {
+    "en": "Added support for more white label devices and killed some bugs"
   }
 }

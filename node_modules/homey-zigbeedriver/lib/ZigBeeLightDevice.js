@@ -537,13 +537,11 @@ class ZigBeeLightDevice extends ZigBeeDevice {
       return this.colorControlCluster.moveToHueAndSaturation(moveToHueAndSaturationCommand);
     }
 
-    // Determine value with fallback to current dim capability value or 1
+    // Determine value with fallback to current dim capability value or 1, value should never be
+    // zero, this would result in colorX=0 and colorY=0 being sent to the device which makes
+    // some bulbs flicker when turned on again.
     if (typeof value !== 'number') {
-      if (typeof this.getCapabilityValue('dim') === 'number') {
-        value = this.getCapabilityValue('dim');
-      } else {
-        value = 1;
-      }
+      value = this.getCapabilityValue('dim') || 1;
     }
 
     // Convert to CIE color space
