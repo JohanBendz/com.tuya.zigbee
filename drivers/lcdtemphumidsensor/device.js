@@ -85,6 +85,10 @@ class lcdtemphumidsensor extends ZigBeeDevice {
 
 	}
 
+	onDeleted(){
+		this.log("lcdtemphumidsensor removed")
+	}
+
 }
 
 module.exports = lcdtemphumidsensor;

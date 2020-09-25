@@ -5,11 +5,11 @@ const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { CLUSTER } = require('zigbee-clusters');
 
 class doorwindowsensor extends ZigBeeDevice {
-
+		
 	async onNodeInit({zclNode}) {
 
 		// alarm_contact
- 		const node = await this.homey.zigbee.getNode(this);
+		const node = await this.homey.zigbee.getNode(this);
 		node.handleFrame = (endpointId, clusterId, frame, meta) => {
 			if (endpointId === 1 && clusterId === 1280) {
         	console.log("raw: ", frame);
@@ -50,7 +50,12 @@ class doorwindowsensor extends ZigBeeDevice {
 				this.setCapabilityValue('alarm_battery', (batteryPercentage/2 < batteryThreshold) ? true : false)
 			});
 
-	}  
+	}
+
+	onDeleted(){
+		this.log("doorwindowsensor removed")
+	}
+
 }
 
 module.exports = doorwindowsensor;

@@ -51,6 +51,10 @@ class pirsensor extends ZigBeeDevice {
 	
 	}
 
+	onDeleted(){
+		this.log("pirsensor removed")
+	}
+
 }
 
 module.exports = pirsensor;

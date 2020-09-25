@@ -572,21 +572,23 @@ class ZigBeeLightDevice extends ZigBeeDevice {
       return;
     }
 
+    let colorControlAttributes;
+    try {
+      colorControlAttributes = await colorControlCluster.readAttributes(
+        'currentSaturation', 'currentHue', 'colorMode', 'colorTemperatureMireds',
+      );
+      this.log('onEndDeviceAnnounce → read color control attributes', colorControlAttributes);
+    } catch (err) {
+      this.error('onEndDeviceAnnounce → Error: failed to read color control attributes', err);
+      return;
+    }
+
     const {
       currentSaturation,
       currentHue,
       colorMode,
       colorTemperatureMireds,
-    } = await colorControlCluster.readAttributes(
-      'currentSaturation', 'currentHue', 'colorMode', 'colorTemperatureMireds',
-    );
-
-    this.log('onEndDeviceAnnounce', {
-      currentSaturation,
-      currentHue,
-      colorMode,
-      colorTemperatureMireds,
-    });
+    } = colorControlAttributes;
 
     // If device supports hue and saturation fetch it and update the capability values
     if (this.supportsHueAndSaturation && typeof currentHue === 'number' && typeof currentSaturation === 'number') {

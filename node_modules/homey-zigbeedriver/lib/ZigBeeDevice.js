@@ -899,15 +899,6 @@ class ZigBeeDevice extends Homey.Device {
 
     const { token } = this.getData();
 
-    // Important: this is needed when migrating from zigbee-shepherd to node-zigbee. A device
-    // paired with the shepherd stack does not have the `zb_endpoint_descriptors` setting, which
-    // is required for the node-zigbee stack. If it is not available retrieve it from the
-    // manifest once and save it. TODO: re-enable if statement below once we are past experimental
-    // if (!this.getSetting('zb_endpoint_descriptors')) {
-    const { manifest } = this.driver;
-    await this.setSettings({ zb_endpoint_descriptors: manifest.zigbee.endpoints });
-    // }
-
     // Throw error if this device is a Zigbee sub device but its driver does not extend ZigBeeDriver
     if (this.isSubDevice() && !(this.driver instanceof ZigBeeDriver)) {
       this.error(`Error: Driver ${this.driver.id} must extend ZigBeeDriver when using Zigbee sub devices`);
