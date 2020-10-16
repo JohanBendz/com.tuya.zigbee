@@ -25,5 +25,8 @@
   },
   "0.1.1": {
     "en": "Added support for more white label devices and killed some bugs"
+  },
+  "0.1.2": {
+    "en": "Rewrite to use IASZone Cluster (Good job adding support for it TED!)"
   }
 }

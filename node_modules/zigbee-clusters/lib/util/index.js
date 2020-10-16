@@ -10,7 +10,19 @@ function getPropertyDescriptor(obj, name) {
     || getPropertyDescriptor(Object.getPrototypeOf(obj), name);
 }
 
+/**
+ * Return a log string for debugging purposes.
+ * @param {number} endpointId
+ * @param {string} clusterName
+ * @param {number} clusterId
+ * @returns {string}
+ */
+function getLogId(endpointId, clusterName, clusterId) {
+  return `ep: ${endpointId}, cl: ${clusterName} (${clusterId})`;
+}
+
 module.exports = {
   debug,
+  getLogId,
   getPropertyDescriptor,
 };

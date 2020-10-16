@@ -1,17 +1,1 @@
-[
-    {
-      "id": "battery_threshold",
-      "type": "number",
-      "label": {
-        "en": "Battery alarm threshold (%)"
-      },
-      "hint": {
-        "en": "Battery level (%) below which the battery alarm will be activated.\nRange: 1 - 90, \ndefault: 20 [%]"
-      },
-      "value": 20,
-      "attr": {
-        "min": 1,
-        "max": 90
-      }
-    }
-  ]
+[]

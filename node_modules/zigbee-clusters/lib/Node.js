@@ -3,7 +3,9 @@
 const EventEmitter = require('events');
 
 let { debug } = require('./util');
+const { getLogId } = require('./util');
 const Endpoint = require('./Endpoint');
+const Cluster = require('./Cluster');
 
 debug = debug.extend('node');
 
@@ -60,6 +62,18 @@ class Node extends EventEmitter {
   }
 
   /**
+   * Returns log id string for this node.
+   * @param {number} endpointId
+   * @param {number} clusterId
+   * @returns {string}
+   * @private
+   */
+  getLogId(endpointId, clusterId) {
+    const cluster = Cluster.getCluster(clusterId);
+    return getLogId(endpointId, cluster.NAME, clusterId);
+  }
+
+  /**
    * Forwards an incoming frame from the `Homey.ZigBeeNode` to the {@link Endpoint}.
    * @param endpointId
    * @param clusterId
@@ -71,16 +85,14 @@ class Node extends EventEmitter {
   async handleFrame(endpointId, clusterId, frame, meta) {
     if (!Buffer.isBuffer(frame)) {
       // eslint-disable-next-line prefer-rest-params
-      debug('invalid frame received', arguments, frame);
+      debug(`${this.getLogId(endpointId, clusterId)}, invalid frame received`, arguments, frame);
       return;
     }
 
     if (this.endpoints[endpointId]) {
       await this.endpoints[endpointId].handleFrame(clusterId, frame, meta);
     } else {
-      debug('error while handling frame, endpoint unavailable', {
-        endpointId, clusterId, meta, frame,
-      });
+      debug(`${this.getLogId(endpointId, clusterId)}, error while handling frame, endpoint unavailable`, { meta, frame });
     }
   }
 

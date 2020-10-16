@@ -1,8 +1,8 @@
 'use strict';
 
-const { ZCLDataType } = require('./zclTypes');
-const { getPropertyDescriptor } = require('./util');
 let { debug } = require('./util');
+const { ZCLDataType } = require('./zclTypes');
+const { getLogId, getPropertyDescriptor } = require('./util');
 
 debug = debug.extend('bound-cluster');
 
@@ -33,6 +33,14 @@ class BoundCluster {
   }
 
   /**
+   * Returns log id string for this bound cluster.
+   * @returns {string}
+   */
+  get logId() {
+    return getLogId(this.endpoint, this.cluster.NAME, this.cluster.ID);
+  }
+
+  /**
    * This method handles an incoming `readAttributes` command send from the remote node
    * to the controller. It assembles attribute values by reading `this[attr.name]` for all
    * supported attributes of this cluster and sends the response to the remote node.
@@ -41,7 +49,7 @@ class BoundCluster {
    * @returns {Promise<{attributes: Buffer}>}
    */
   async readAttributes({ attributes }) {
-    debug(this.cluster.NAME, 'received read attributes command');
+    debug(this.logId, 'received read attributes command');
     const result = Buffer.alloc(255);
     const attributeMap = attributes
       .map(aId => {
@@ -58,7 +66,7 @@ class BoundCluster {
             value,
           };
         } catch (e) {
-          debug('Failed to parse attribute:', attr ? attr.name || aId : aId, e.message);
+          debug(this.logId, 'Failed to parse attribute:', attr ? attr.name || aId : aId, e.message);
         }
 
         return {
@@ -69,7 +77,7 @@ class BoundCluster {
 
     const len = this.cluster.attributeArrayStatusDataType.toBuffer(result, attributeMap, 0);
     const attributesResult = { attributes: result.slice(0, len) };
-    debug(this.cluster.NAME, 'return read attributes response', attributesResult);
+    debug(this.logId, 'return read attributes response', attributesResult);
     return attributesResult;
   }
 
@@ -82,7 +90,7 @@ class BoundCluster {
    * @returns {Promise<{attributes}>}
    */
   async writeAttributes({ attributes } = {}) {
-    debug(this.cluster.NAME, 'received write attributes command', attributes);
+    debug(this.logId, 'received write attributes command', attributes);
     attributes = this.cluster.attributeArrayDataType.fromBuffer(attributes, 0);
 
     const attributeMap = attributes
@@ -103,7 +111,7 @@ class BoundCluster {
             status: 'SUCCESS',
           };
         } catch (e) {
-          debug('Error: failed to parse attribute:', attr ? attr.name || attrValue.id : attrValue.id, e.message);
+          debug(this.logId, 'Error: failed to parse attribute:', attr ? attr.name || attrValue.id : attrValue.id, e.message);
         }
 
         return {
@@ -125,7 +133,7 @@ class BoundCluster {
    * @returns {Promise<{commandIds: number[], lastResponse: boolean}>}
    */
   async discoverCommandsReceived({ startValue = 0, maxResults = 250 } = {}) {
-    debug(this.cluster.NAME, 'received discover commands received command');
+    debug(this.logId, 'received discover commands received command');
 
     const cmds = [].concat(...Object.values(this.cluster.commandsById))
       .filter(c => !c.global && !c.isResponse && this[c.name])
@@ -138,7 +146,7 @@ class BoundCluster {
       lastResponse: result.length === cmds.length,
       commandIds: result,
     };
-    debug(this.cluster.NAME, 'return discover commands received response', response);
+    debug(this.logId, 'return discover commands received response', response);
     return response;
   }
 
@@ -152,7 +160,7 @@ class BoundCluster {
    * @returns {Promise<{commandIds: number[], lastResponse: boolean}>}
    */
   async discoverCommandsGenerated({ startValue = 0, maxResults = 250 } = {}) {
-    debug(this.cluster.NAME, 'received discover commands generated command');
+    debug(this.logId, 'received discover commands generated command');
 
     const cmds = [].concat(...Object.values(this.cluster.commandsById))
       .filter(c => !c.global && c.response && this[c.name])
@@ -165,7 +173,7 @@ class BoundCluster {
       lastResponse: result.length === cmds.length,
       commandIds: result,
     };
-    debug(this.cluster.NAME, 'return discover commands generated response', response);
+    debug(this.logId, 'return discover commands generated response', response);
     return response;
   }
 
@@ -198,7 +206,7 @@ class BoundCluster {
       lastResponse: true,
       attributes: attributes.map(a => ({ id: a.id, dataTypeId: a.type.id })),
     };
-    debug(this.cluster.NAME, 'received discover attributes command, response:', response);
+    debug(this.logId, 'received discover attributes command, response:', response);
     return response;
   }
 
@@ -253,7 +261,7 @@ class BoundCluster {
         };
       }),
     };
-    debug(this.cluster.NAME, 'received discover attributes extended command, response:', response);
+    debug(this.logId, 'received discover attributes extended command, response:', response);
     return response;
   }
 
@@ -283,7 +291,7 @@ class BoundCluster {
         : undefined;
 
       if (this[command.name]) {
-        debug('received command', command.name, args);
+        debug(this.logId, 'received command', command.name, args);
         const result = await this[command.name](args, meta, frame, rawFrame);
         if (command.response && command.response.args) {
           // eslint-disable-next-line new-cap

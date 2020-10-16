@@ -1,6 +1,7 @@
 {
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -58,7 +59,6 @@
       "class": "sensor",
       "capabilities": [
         "alarm_contact",
-        "measure_battery",
         "alarm_battery"
       ],
       "energy": {
@@ -102,23 +102,7 @@
           }
         }
       },
-      "settings": [
-        {
-          "id": "battery_threshold",
-          "type": "number",
-          "label": {
-            "en": "Battery alarm threshold (%)"
-          },
-          "hint": {
-            "en": "Battery level (%) below which the battery alarm will be activated.\nRange: 1 - 90, \ndefault: 20 [%]"
-          },
-          "value": 20,
-          "attr": {
-            "min": 1,
-            "max": 90
-          }
-        }
-      ]
+      "settings": []
     },
     {
       "id": "lcdtemphumidsensor",
@@ -216,6 +200,28 @@
           ]
         },
         {
+          "id": "humidity_offset",
+          "type": "number",
+          "label": {
+            "en": "Humidity offset (%)",
+            "nl": "Luchtvochtigheids compensatie (%)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 1
+          },
+          "units": {
+            "en": "%",
+            "nl": "%"
+          }
+        },
+        {
           "id": "humidity_decimals",
           "type": "radio",
           "label": {
@@ -236,85 +242,6 @@
               }
             }
           ]
-        },
-        {
-          "id": "battery_threshold",
-          "type": "number",
-          "label": {
-            "en": "Battery alarm threshold (%)"
-          },
-          "hint": {
-            "en": "Battery level (%) below which the battery alarm will be activated.\nRange: 1 - 90, \ndefault: 20 [%]"
-          },
-          "value": 20,
-          "attr": {
-            "min": 1,
-            "max": 90
-          }
-        },
-        {
-          "id": "minReportTemp",
-          "type": "number",
-          "label": {
-            "en": "Min report interval for Temperature (seconds)"
-          },
-          "hint": {
-            "en": "Set a value for min report interval.\nRange: 30 - 86400, step size 1, \ndefault: 60"
-          },
-          "value": 60,
-          "attr": {
-            "min": 30,
-            "max": 86400,
-            "step": 1
-          }
-        },
-        {
-          "id": "maxReportTemp",
-          "type": "number",
-          "label": {
-            "en": "Max report interval for Temperature (seconds)"
-          },
-          "hint": {
-            "en": "Set a value for max report interval.\nRange: 600 - 86400, step size 1 (Must be larger than Min report interval), \ndefault: 300"
-          },
-          "value": 300,
-          "attr": {
-            "min": 30,
-            "max": 86400,
-            "step": 1
-          }
-        },
-        {
-          "id": "minReportHum",
-          "type": "number",
-          "label": {
-            "en": "Max report interval for Humidity (seconds)"
-          },
-          "hint": {
-            "en": "Set a value for min report interval.\nRange: 30 - 86400, step size 1, \ndefault: 60"
-          },
-          "value": 60,
-          "attr": {
-            "min": 30,
-            "max": 86400,
-            "step": 1
-          }
-        },
-        {
-          "id": "maxReportHum",
-          "type": "number",
-          "label": {
-            "en": "Max report interval for Humidity (seconds)"
-          },
-          "hint": {
-            "en": "Set a value for max report interval.\nRange: 60 - 86400, step size 1 (Must be larger than Min report interval), \ndefault: 300"
-          },
-          "value": 300,
-          "attr": {
-            "min": 30,
-            "max": 86400,
-            "step": 1
-          }
         }
       ]
     },
@@ -326,7 +253,6 @@
       "class": "sensor",
       "capabilities": [
         "alarm_motion",
-        "measure_battery",
         "alarm_battery"
       ],
       "energy": {
@@ -476,6 +402,28 @@
           ]
         },
         {
+          "id": "humidity_offset",
+          "type": "number",
+          "label": {
+            "en": "Humidity offset (%)",
+            "nl": "Luchtvochtigheids compensatie (%)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 1
+          },
+          "units": {
+            "en": "%",
+            "nl": "%"
+          }
+        },
+        {
           "id": "humidity_decimals",
           "type": "radio",
           "label": {
@@ -496,85 +444,6 @@
               }
             }
           ]
-        },
-        {
-          "id": "battery_threshold",
-          "type": "number",
-          "label": {
-            "en": "Battery alarm threshold (%)"
-          },
-          "hint": {
-            "en": "Battery level (%) below which the battery alarm will be activated.\nRange: 1 - 90, \ndefault: 20 [%]"
-          },
-          "value": 20,
-          "attr": {
-            "min": 1,
-            "max": 90
-          }
-        },
-        {
-          "id": "minReportTemp",
-          "type": "number",
-          "label": {
-            "en": "Min report interval for Temperature (seconds)"
-          },
-          "hint": {
-            "en": "Set a value for min report interval.\nRange: 30 - 86400, step size 1, \ndefault: 60"
-          },
-          "value": 60,
-          "attr": {
-            "min": 30,
-            "max": 86400,
-            "step": 1
-          }
-        },
-        {
-          "id": "maxReportTemp",
-          "type": "number",
-          "label": {
-            "en": "Max report interval for Temperature (seconds)"
-          },
-          "hint": {
-            "en": "Set a value for max report interval.\nRange: 600 - 86400, step size 1 (Must be larger than Min report interval), \ndefault: 300"
-          },
-          "value": 300,
-          "attr": {
-            "min": 30,
-            "max": 86400,
-            "step": 1
-          }
-        },
-        {
-          "id": "minReportHum",
-          "type": "number",
-          "label": {
-            "en": "Max report interval for Humidity (seconds)"
-          },
-          "hint": {
-            "en": "Set a value for min report interval.\nRange: 30 - 86400, step size 1, \ndefault: 60"
-          },
-          "value": 60,
-          "attr": {
-            "min": 30,
-            "max": 86400,
-            "step": 1
-          }
-        },
-        {
-          "id": "maxReportHum",
-          "type": "number",
-          "label": {
-            "en": "Max report interval for Humidity (seconds)"
-          },
-          "hint": {
-            "en": "Set a value for max report interval.\nRange: 60 - 86400, step size 1 (Must be larger than Min report interval), \ndefault: 300"
-          },
-          "value": 300,
-          "attr": {
-            "min": 30,
-            "max": 86400,
-            "step": 1
-          }
         }
       ]
     }

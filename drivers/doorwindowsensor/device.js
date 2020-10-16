@@ -2,58 +2,31 @@
 
 const Homey = require('homey');
 const { ZigBeeDevice } = require('homey-zigbeedriver');
-const { CLUSTER } = require('zigbee-clusters');
+const { debug, CLUSTER } = require('zigbee-clusters');
 
 class doorwindowsensor extends ZigBeeDevice {
 		
 	async onNodeInit({zclNode}) {
 
+		this.enableDebug();
+		debug(true);
+		this.printNode();
+
 		// alarm_contact
-		const node = await this.homey.zigbee.getNode(this);
-		node.handleFrame = (endpointId, clusterId, frame, meta) => {
-			if (endpointId === 1 && clusterId === 1280) {
-        	console.log("raw: ", frame);
-			const sensorStatus = (JSON.parse(JSON.stringify(frame)).data[3]);
-			console.log("parsed JSON: ", sensorStatus);
-			if (sensorStatus === 1){
-				this.setCapabilityValue('alarm_contact', true)
-				.catch(err => this.error('Error: could not set alarm_contact capability value', err));
-				} else {
-				this.setCapabilityValue('alarm_contact', false)
-				.catch(err => this.error('Error: could not set alarm_contact capability value', err));
-				}
-			}
-		};
+      zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME].onZoneStatusChangeNotification = payload => {
+        this.onIASZoneStatusChangeNoficiation(payload);
+      }
 
-		if (this.isFirstInit()){
-
-			// measure_battery
-			await this.configureAttributeReporting([
-				{
-				endpointId: 1,
-				cluster: CLUSTER.POWER_CONFIGURATION,
-				attributeName: 'batteryPercentageRemaining',
-				minInterval: 60,
-				maxInterval: 3600,
-				minChange: 1,
-				}
-			])
-			.catch(err => this.error('Error: configureAttributeReporting failed', err));
-
-		}
-
-		// measure_battery / alarm_battery
-			zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
-			.on('attr.batteryPercentageRemaining', (batteryPercentage) => {
-				this.log('Battery Percentage Remaining: ', batteryPercentage/2);
-				this.setCapabilityValue('measure_battery', batteryPercentage/2);
-				this.setCapabilityValue('alarm_battery', (batteryPercentage/2 < batteryThreshold) ? true : false)
-			});
-
-	}
+  }
+  
+  onIASZoneStatusChangeNoficiation({zoneStatus, extendedStatus, zoneId, delay,}) {
+    this.log('IASZoneStatusChangeNotification received:', zoneStatus, extendedStatus, zoneId, delay);
+    this.setCapabilityValue('alarm_contact', zoneStatus.alarm1);
+    this.setCapabilityValue('alarm_battery', zoneStatus.battery);
+  }
 
 	onDeleted(){
-		this.log("doorwindowsensor removed")
+		this.log("Door/Window Sensor removed")
 	}
 
 }

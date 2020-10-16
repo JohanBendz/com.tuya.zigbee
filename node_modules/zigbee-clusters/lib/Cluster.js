@@ -3,6 +3,7 @@
 const EventEmitter = require('events');
 
 let { debug } = require('./util');
+const { getLogId } = require('./util');
 
 debug = debug.extend('cluster');
 
@@ -304,6 +305,18 @@ class Cluster extends EventEmitter {
   }
 
   /**
+   * Returns log id string for this cluster.
+   * @returns {string}
+   */
+  get logId() {
+    let endpointId;
+    if (this._endpoint && typeof this._endpoint._endpointId === 'number') {
+      endpointId = this._endpoint._endpointId;
+    }
+    return getLogId(endpointId, this.constructor.NAME, this.constructor.ID);
+  }
+
+  /**
    * Command which requests the remote cluster to report its generated commands. Generated
    * commands are commands which may be sent by the remote cluster.
    *
@@ -334,7 +347,7 @@ class Cluster extends EventEmitter {
       .pop() || {})
       .name || cId);
 
-    debug(this.constructor.NAME, 'discoverCommandsGenerated', res);
+    debug(this.logId, 'discoverCommandsGenerated', res);
     return res;
   }
 
@@ -368,7 +381,7 @@ class Cluster extends EventEmitter {
       .pop() || {})
       .name || cId);
 
-    debug('discoverCommandsReceived', res);
+    debug(this.logId, 'discoverCommandsReceived', res);
     return res;
   }
 
@@ -397,14 +410,14 @@ class Cluster extends EventEmitter {
     while (attrIds.size) {
       // Check if command should get manufacturerSpecific flag
       const manufacturerId = this._checkForManufacturerSpecificAttributes(Array.from(attrIds));
-      debug(this.constructor.NAME, 'read attributes', [...attrIds], manufacturerId ? `manufacturer specific id ${manufacturerId}` : '');
+      debug(this.logId, 'read attributes', [...attrIds], manufacturerId ? `manufacturer specific id ${manufacturerId}` : '');
 
       const { attributes } = await super.readAttributes({
         attributes: [...attrIds],
         manufacturerId,
       });
 
-      debug(this.constructor.NAME, 'read attributes result', { attributes });
+      debug(this.logId, 'read attributes result', { attributes });
       const result = this.constructor.attributeArrayStatusDataType.fromBuffer(attributes, 0);
       if (!result.length) break;
 
@@ -446,7 +459,7 @@ class Cluster extends EventEmitter {
     let data = Buffer.alloc(1024);
     data = data.slice(0, this.constructor.attributeArrayDataType.toBuffer(data, arr, 0));
 
-    debug(this.constructor.NAME, 'write attributes', attributes, manufacturerId ? `manufacturer specific id ${manufacturerId}` : '');
+    debug(this.logId, 'write attributes', attributes, manufacturerId ? `manufacturer specific id ${manufacturerId}` : '');
 
     return super.writeAttributes({ attributes: data, manufacturerId });
   }
@@ -493,11 +506,11 @@ class Cluster extends EventEmitter {
         Object.keys(attributes).map(n => this.constructor.attributes[n].id),
       );
 
-      debug(this.constructor.NAME, 'configure reporting', req, manufacturerId ? `manufacturer specific id ${manufacturerId}` : '');
+      debug(this.logId, 'configure reporting', req, manufacturerId ? `manufacturer specific id ${manufacturerId}` : '');
 
       const { reports } = await super.configureReporting({ reports: req, manufacturerId });
 
-      debug(this.constructor.NAME, 'configured reporting', reports);
+      debug(this.logId, 'configured reporting', reports);
       for (const result of reports) {
         if (result.status !== 'SUCCESS') {
           throw new Error(result.status);
@@ -564,7 +577,7 @@ class Cluster extends EventEmitter {
         }),
     );
 
-    debug(this.constructor.NAME, 'read reporting configuration', req, manufacturerId ? `manufacturer specific id ${manufacturerId}` : '');
+    debug(this.logId, 'read reporting configuration', req, manufacturerId ? `manufacturer specific id ${manufacturerId}` : '');
 
     // If a request has been constructed execute it
     if (req.length) {
@@ -573,7 +586,7 @@ class Cluster extends EventEmitter {
         attributes: req,
         manufacturerId,
       });
-      debug(this.constructor.NAME, 'read reporting configuration result', reports);
+      debug(this.logId, 'read reporting configuration result', reports);
 
       // Return the parsed reports
       return reports;
@@ -612,7 +625,7 @@ class Cluster extends EventEmitter {
         ? this.constructor.attributesById[attr.id].name
         : attr.id);
     }
-    debug(this.constructor.NAME, 'discover attributes', result);
+    debug(this.logId, 'discover attributes', result);
     return result;
   }
 
@@ -656,7 +669,7 @@ class Cluster extends EventEmitter {
       }
       result.push(discoveredAttribute);
     }
-    debug(this.constructor.NAME, 'discover attributes extended', result);
+    debug(this.logId, 'discover attributes extended', result);
     return result;
   }
 
@@ -694,7 +707,7 @@ class Cluster extends EventEmitter {
         ? command.args.fromBuffer(frame.data, 0)
         : undefined;
 
-      debug(this.constructor.NAME, 'received frame', command.name, args);
+      debug(this.logId, 'received frame', command.name, args);
 
       // Invoke the right handler
       const handler = this._trxHandlers[frame.trxSequenceNumber] || this[handlerName];
@@ -710,7 +723,7 @@ class Cluster extends EventEmitter {
       }
     }
 
-    debug(this.constructor.NAME, 'unknown command received:', frame, meta);
+    debug(this.logId, 'unknown command received:', frame, meta);
 
     throw new Error('unknown_command_received');
   }
@@ -733,7 +746,7 @@ class Cluster extends EventEmitter {
     } else {
       data = new ZCLMfgSpecificHeader(data);
     }
-    debug(this.constructor.NAME, 'send frame', data);
+    debug(this.logId, 'send frame', data);
     return this._endpoint.sendFrame(this.constructor.ID, data.toBuffer());
   }
 
@@ -769,7 +782,7 @@ class Cluster extends EventEmitter {
       .filter(cId => cId >= startValue);
 
     const result = cmds.slice(0, maxResults);
-    debug('onDiscoverCommandsGenerated', {
+    debug(this.logId, 'onDiscoverCommandsGenerated', {
       lastResponse: result.length === cmds.length,
       commandIds: result,
     });
@@ -797,7 +810,7 @@ class Cluster extends EventEmitter {
       .filter(cId => cId >= startValue);
 
     const result = cmds.slice(0, maxResults);
-    debug('onDiscoverCommandsReceived', {
+    debug(this.logId, 'onDiscoverCommandsReceived', {
       lastResponse: result.length === cmds.length,
       commandIds: result,
     });
@@ -994,7 +1007,7 @@ class Cluster extends EventEmitter {
     for (const cmdName in commands) {
       Object.defineProperty(proto, cmdName, {
         value: {
-          async [cmdName](args) {
+          async [cmdName](args, opts = {}) {
             const cmd = commands[cmdName];
             const payload = {
               cmdId: cmd.id,
@@ -1032,6 +1045,10 @@ class Cluster extends EventEmitter {
             }
 
             if (payload.frameControl && payload.frameControl.includes('disableDefaultResponse')) {
+              return this.sendFrame(payload);
+            }
+
+            if (opts.waitForResponse === false) {
               return this.sendFrame(payload);
             }
 
@@ -1083,7 +1100,7 @@ class Cluster extends EventEmitter {
     // Show warning if a manufacturer specific attribute was found amongst non-manufacturer
     // specific attributes
     if (manufacturerIds.length > 0 && attrIdsSet.size !== manufacturerIds.length) {
-      debug(this.constructor.NAME, 'WARNING expected only manufacturer specific attributes got:', manufacturerIds);
+      debug(this.logId, 'WARNING expected only manufacturer specific attributes got:', manufacturerIds);
     }
 
     // Return the manufacturerId that was found in the attributes

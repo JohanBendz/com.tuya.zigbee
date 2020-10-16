@@ -7,6 +7,7 @@ const BoundCluster = require('./BoundCluster');
 const { ZCLStandardHeader, ZCLMfgSpecificHeader } = require('./zclFrames');
 
 let { debug } = require('./util');
+const { getLogId } = require('./util');
 
 debug = debug.extend('endpoint');
 
@@ -37,6 +38,17 @@ class Endpoint extends EventEmitter {
         this.clusters[InputCluster.NAME] = new InputCluster(this);
       }
     });
+  }
+
+  /**
+   * Returns log id string for this endpoint.
+   * @param {number} clusterId
+   * @returns {string}
+   * @private
+   */
+  getLogId(clusterId) {
+    const cluster = Cluster.getCluster(clusterId) || {};
+    return getLogId(this._endpointId, cluster.NAME, clusterId);
   }
 
   /**
@@ -97,9 +109,16 @@ class Endpoint extends EventEmitter {
       frame = ZCLMfgSpecificHeader.fromBuffer(rawFrame);
     } else frame = ZCLStandardHeader.fromBuffer(rawFrame);
 
-    const response = (frame.frameControl.disableDefaultResponse || (meta && meta.groupId))
-      ? null
-      : this._makeErrorResponse(frame);
+    // NOTE: we do not respond with a default response if:
+    // 1. The frame we received is a default response (frame.cmdId = 11)
+    // 2. Another command is sent in response to the received frame
+    // 3. The frame has the disableDefaultResponse flag set
+    // See ZCL specification 2.5.12.2.
+    const response = (
+      frame.frameControl.disableDefaultResponse
+      || (meta && meta.groupId)
+      || frame.cmdId === 11
+    ) ? null : this._makeErrorResponse(frame);
 
     try {
       const result = await this.handleZCLFrame(clusterId, frame, meta, rawFrame);
@@ -113,18 +132,14 @@ class Endpoint extends EventEmitter {
         response.data[1] = 0;
       }
     } catch (e) {
-      debug('error while handling frame', e.message, {
-        endpointId: this._endpointId, clusterId, meta, frame,
-      });
+      debug(`${this.getLogId(clusterId)}, error while handling frame`, e.message, { meta, frame });
     }
+    // If desired (disableDefaultResponse: false) try to respond to the incoming frame
     if (response) {
-      // If desired (disableDefaultResponse: false) try to respond to the incoming frame
       try {
         await this.sendFrame(clusterId, response.toBuffer());
       } catch (err) {
-        debug('error while responding with `send frame` to `handle frame`', err, {
-          endpointId: this._endpointId, clusterId, response,
-        });
+        debug(`${this.getLogId(clusterId)}, error while responding with \`send frame\` to \`handle frame\``, err, { response });
       }
     }
   }
