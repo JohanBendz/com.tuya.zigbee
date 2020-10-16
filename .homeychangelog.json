@@ -28,5 +28,8 @@
   },
   "0.1.2": {
     "en": "Rewrite to use IASZone Cluster (Good job adding support for it TED!)"
+  },
+  "0.1.3": {
+    "en": "Composer fix"
   }
 }
