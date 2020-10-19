@@ -14,12 +14,12 @@ class doorwindowsensor extends ZigBeeDevice {
 
 		// alarm_contact
       zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME].onZoneStatusChangeNotification = payload => {
-        this.onIASZoneStatusChangeNoficiation(payload);
+        this.onIASZoneStatusChangeNotification(payload);
       }
 
   }
   
-  onIASZoneStatusChangeNoficiation({zoneStatus, extendedStatus, zoneId, delay,}) {
+  onIASZoneStatusChangeNotification({zoneStatus, extendedStatus, zoneId, delay,}) {
     this.log('IASZoneStatusChangeNotification received:', zoneStatus, extendedStatus, zoneId, delay);
     this.setCapabilityValue('alarm_contact', zoneStatus.alarm1);
     this.setCapabilityValue('alarm_battery', zoneStatus.battery);

@@ -1,0 +1,49 @@
+{
+  "id": "smartplug",
+  "name": {
+    "en": "Smart Plug (ZigBee)"
+  },
+  "class": "socket",
+  "capabilities": [
+    "onoff",
+    "measure_power",
+    "meter_power"
+  ],
+  "capabilitiesOptions": {
+    "measure_power": {
+      "approximated": true
+    }
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_3ooaz3ng",
+      "_TYZB01_iuepbmpv"
+    ],
+    "productId": [
+      "TSO121"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          4,
+          5,
+          6,
+          1794
+        ],
+        "bindings": [
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/learn.svg",
+      "instruction": {
+        "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
+      }
+    }
+  }
+}

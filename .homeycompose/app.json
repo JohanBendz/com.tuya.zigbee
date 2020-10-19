@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -23,7 +23,8 @@
       "Humidity",
       "Door",
       "Window",
-      "PIR"
+      "PIR",
+      "Plug"
     ]
   },
   "category": [
