@@ -335,9 +335,8 @@
           }
         },
         "learnmode": {
-          "image": "/drivers/smartplug/assets/learn.svg",
           "instruction": {
-            "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
+            "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
           }
         }
       },
