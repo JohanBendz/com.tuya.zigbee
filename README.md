@@ -7,6 +7,7 @@ Supported White Label Brands:
 - Smart9
 - Blitzwolf
 - Zemismart
+- Samotech
 
 Supported devices:
 - Temperature and Humidity Sensor

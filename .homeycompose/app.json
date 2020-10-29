@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -17,6 +17,7 @@
       "Smart9",
       "Blitzwolf",
       "Zemismart",
+      "Samotech",
       "Zigbee",
       "Sensor",
       "Temperature",
