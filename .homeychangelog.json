@@ -40,5 +40,8 @@
   },
   "0.1.6": {
     "en": "Added support for 1 Gang Switch and 2 Gang Switch "
+  },
+  "0.1.7": {
+    "en": "Added product ID's and fixed 2 Gang Switch Channel 2 "
   }
 }

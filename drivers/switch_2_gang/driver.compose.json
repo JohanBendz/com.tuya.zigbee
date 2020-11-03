@@ -22,6 +22,10 @@
         "1": {
           "clusters": [0, 4, 5, 6],
           "bindings": [6]
+        },
+        "2": {
+          "clusters": [0, 4, 5, 6],
+          "bindings": [6]
         }
       }
     },
