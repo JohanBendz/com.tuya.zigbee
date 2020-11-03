@@ -15,5 +15,7 @@ Supported devices:
 - Windows / Door Sensor
 - PIR
 - Smart Plug
+- 1 Gang Switch
+- 2 Gang Switch
 
 To request additional devices, please use Athom Homey Community Forum: https://community.athom.com/t/tuya-zigbee-app/26439

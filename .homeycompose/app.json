@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -25,7 +25,8 @@
       "Door",
       "Window",
       "PIR",
-      "Plug"
+      "Plug",
+      "Switch"
     ]
   },
   "category": [

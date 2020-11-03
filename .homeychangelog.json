@@ -37,5 +37,8 @@
   },
   "0.1.5": {
     "en": "Added support for Samotech White Label Brand "
+  },
+  "0.1.6": {
+    "en": "Added support for 1 Gang Switch and 2 Gang Switch "
   }
 }
