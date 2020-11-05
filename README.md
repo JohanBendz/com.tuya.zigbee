@@ -21,5 +21,6 @@ Supported devices:
 - 2 Gang Switch Module
 - 1 Gang Dimmer Module
 - 2 Gang Dimmer Module
+- Valve Controller
 
 To request additional devices, please use Athom Homey Community Forum: https://community.athom.com/t/tuya-zigbee-app/26439

@@ -28,7 +28,10 @@
       "Window",
       "PIR",
       "Plug",
-      "Switch"
+      "Switch",
+      "Valve",
+      "Water",
+      "Gas"
     ]
   },
   "category": [

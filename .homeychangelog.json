@@ -46,5 +46,8 @@
   },
   "0.1.8": {
     "en": "Added 1 Gang Dimmer Module, 2 Gang Dimmer Module and added support for Lonsonho White Label Brand"
+  },
+  "0.1.9": {
+    "en": "Added Valve Controller (Gas/Water)"
   }
 }
