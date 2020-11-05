@@ -1,7 +1,7 @@
 {
   "id": "lcdtemphumidsensor",
   "name": {
-    "en": "LCD Temperature & Humidity Sensor (ZigBee)"
+    "en": "LCD Temperature & Humidity Sensor"
   },
   "class": "sensor",
   "capabilities": [

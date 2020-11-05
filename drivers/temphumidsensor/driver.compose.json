@@ -1,7 +1,7 @@
 {
   "id": "temphumidsensor",
   "name": {
-    "en": "Temperature & Humidity Sensor (ZigBee)"
+    "en": "Temperature & Humidity Sensor"
   },
   "class": "sensor",
   "capabilities": [

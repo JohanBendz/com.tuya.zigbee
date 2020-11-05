@@ -9,6 +9,7 @@ Supported White Label Brands:
 - Zemismart
 - Samotech
 - Lonsonho
+- Nedis
 
 Supported devices:
 - Temperature and Humidity Sensor

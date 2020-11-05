@@ -1,7 +1,7 @@
 {
   "id": "doorwindowsensor",
   "name": {
-    "en": "Door & Window Sensor (ZigBee)"
+    "en": "Door & Window Sensor"
   },
   "class": "sensor",
   "capabilities": [

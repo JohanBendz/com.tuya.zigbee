@@ -1,7 +1,7 @@
 {
     "id": "dimmer_2_gang",
     "name": {
-      "en": "2 Gang Dimmer - First channel (ZigBee)"
+      "en": "2 Gang Dimmer Module"
     },
     "class": "light",
     "capabilities": [
@@ -11,6 +11,12 @@
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",
       "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "energy": {
+      "approximation": {
+        "usageOn": 0,
+        "usageOff": 0
+      }
     },
     "zigbee": {
       "manufacturerName": [
@@ -37,7 +43,13 @@
             "dim"
           ],
           "name": {
-            "en": "2 Gang Dimmer - Second channel (ZigBee)"
+            "en": "2 Gang Dimmer Module"
+          },
+          "energy": {
+            "approximation": {
+              "usageOn": 0,
+              "usageOff": 0
+            }
           }
         }
       }
@@ -45,7 +57,7 @@
     "learnmode": {
       "image": "{{driverAssetsPath}}/icon.svg",
       "instruction": {
-        "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
       }
     }
 

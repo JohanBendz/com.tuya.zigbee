@@ -1,7 +1,7 @@
 {
     "id": "switch_1_gang",
     "name": {
-      "en": "1 Gang Switch (ZigBee)"
+      "en": "1 Gang Switch Module"
     },
     "class": "light",
     "capabilities": [
@@ -10,6 +10,12 @@
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",
       "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "energy": {
+      "approximation": {
+        "usageOn": 0,
+        "usageOff": 0
+      }
     },
     "zigbee": {
       "manufacturerName": [

@@ -1,7 +1,7 @@
 {
   "id": "smartplug",
   "name": {
-    "en": "Smart Plug (ZigBee)"
+    "en": "Smart Plug"
   },
   "class": "socket",
   "capabilities": [
