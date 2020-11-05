@@ -1,11 +1,12 @@
 {
-    "id": "switch_1_gang",
+    "id": "dimmer_2_gang",
     "name": {
-      "en": "1 Gang Switch (ZigBee)"
+      "en": "2 Gang Dimmer - First channel (ZigBee)"
     },
     "class": "light",
     "capabilities": [
-      "onoff"
+      "onoff",
+      "dim"
     ],
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",
@@ -13,15 +14,31 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TYZB01_ncutbjdi"
+        "_TYZB01_v8gtiaed"
       ],
       "productId": [
-        "TS0003"
+        "TS110F"
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 4, 5, 6],
-          "bindings": [6]
+          "clusters": [0, 1, 4, 5, 6, 8],
+          "bindings": [6, 8]
+        },
+        "2": {
+          "clusters": [6, 8],
+          "bindings": [6, 8]
+        }
+      },
+      "devices": {
+        "secondDimmer": {
+          "class": "light",
+          "capabilities": [
+            "onoff",
+            "dim"
+          ],
+          "name": {
+            "en": "2 Gang Dimmer - Second channel (ZigBee)"
+          }
         }
       }
     },

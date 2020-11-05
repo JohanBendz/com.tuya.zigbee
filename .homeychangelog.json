@@ -36,12 +36,15 @@
     "en": "Added support for Smart Plug (needs testing)"
   },
   "0.1.5": {
-    "en": "Added support for Samotech White Label Brand "
+    "en": "Added support for Samotech White Label Brand"
   },
   "0.1.6": {
-    "en": "Added support for 1 Gang Switch and 2 Gang Switch "
+    "en": "Added support for 1 Gang Switch Module and 2 Gang Switch Module"
   },
   "0.1.7": {
-    "en": "Added product ID's and fixed 2 Gang Switch Channel 2 "
+    "en": "Added product ID's and fixed 2 Gang Switch Module Channel 2"
+  },
+  "0.1.8": {
+    "en": "Added 1 Gang Dimmer Module, 2 Gang Dimmer Module and added support for Lonsonho White Label Brand"
   }
 }

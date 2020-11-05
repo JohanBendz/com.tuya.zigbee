@@ -8,6 +8,7 @@ Supported White Label Brands:
 - Blitzwolf
 - Zemismart
 - Samotech
+- Lonsonho
 
 Supported devices:
 - Temperature and Humidity Sensor
@@ -15,7 +16,9 @@ Supported devices:
 - Windows / Door Sensor
 - PIR
 - Smart Plug
-- 1 Gang Switch
-- 2 Gang Switch
+- 1 Gang Switch Module
+- 2 Gang Switch Module
+- 1 Gang Dimmer Module
+- 2 Gang Dimmer Module
 
 To request additional devices, please use Athom Homey Community Forum: https://community.athom.com/t/tuya-zigbee-app/26439

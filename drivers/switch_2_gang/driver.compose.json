@@ -24,24 +24,24 @@
           "bindings": [6]
         },
         "2": {
-          "clusters": [0, 4, 5, 6],
+          "clusters": [4, 5, 6],
           "bindings": [6]
+        }
+      },
+      "devices": {
+        "secondSwitch": {
+          "class": "light",
+          "capabilities": ["onoff"],
+          "name": {
+            "en": "2 Gang Switch - Second channel (ZigBee)"
+          }
         }
       }
     },
     "learnmode": {
-      "image": "{{driverAssetsPath}}/learn.svg",
+      "image": "{{driverAssetsPath}}/icon.svg",
       "instruction": {
-        "en": "Switch the unit on and off five times to enter pairing mode (the LED should blink green)."
-      }
-    },
-    "devices": {
-      "secondSwitch": {
-        "class": "light",
-        "capabilities": ["onoff"],
-        "name": {
-          "en": "2 Gang Switch - Second channel (ZigBee)"
-        }
+        "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
       }
     }
 
