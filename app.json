@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -20,6 +20,7 @@
       "Zemismart",
       "Samotech",
       "Lonsonho",
+      "Nedis",
       "Zigbee",
       "Sensor",
       "Temperature",
@@ -28,7 +29,10 @@
       "Window",
       "PIR",
       "Plug",
-      "Switch"
+      "Switch",
+      "Valve",
+      "Water",
+      "Gas"
     ]
   },
   "category": [
@@ -58,7 +62,7 @@
     {
       "id": "dimmer_1_gang",
       "name": {
-        "en": "1 Gang Dimmer (ZigBee)"
+        "en": "1 Gang Dimmer Module"
       },
       "class": "light",
       "capabilities": [
@@ -68,6 +72,12 @@
       "images": {
         "large": "/drivers/dimmer_1_gang/assets/images/large.png",
         "small": "/drivers/dimmer_1_gang/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
       },
       "zigbee": {
         "manufacturerName": [
@@ -104,7 +114,7 @@
     {
       "id": "dimmer_2_gang",
       "name": {
-        "en": "2 Gang Dimmer - First channel (ZigBee)"
+        "en": "2 Gang Dimmer Module"
       },
       "class": "light",
       "capabilities": [
@@ -114,6 +124,12 @@
       "images": {
         "large": "/drivers/dimmer_2_gang/assets/images/large.png",
         "small": "/drivers/dimmer_2_gang/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
       },
       "zigbee": {
         "manufacturerName": [
@@ -156,7 +172,13 @@
               "dim"
             ],
             "name": {
-              "en": "2 Gang Dimmer - Second channel (ZigBee)"
+              "en": "2 Gang Dimmer Module"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
             }
           }
         }
@@ -164,7 +186,7 @@
       "learnmode": {
         "image": "/drivers/dimmer_2_gang/assets/icon.svg",
         "instruction": {
-          "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
         }
       },
       "settings": []
@@ -172,7 +194,7 @@
     {
       "id": "doorwindowsensor",
       "name": {
-        "en": "Door & Window Sensor (ZigBee)"
+        "en": "Door & Window Sensor"
       },
       "class": "sensor",
       "capabilities": [
@@ -226,7 +248,7 @@
     {
       "id": "lcdtemphumidsensor",
       "name": {
-        "en": "LCD Temperature & Humidity Sensor (ZigBee)"
+        "en": "LCD Temperature & Humidity Sensor"
       },
       "class": "sensor",
       "capabilities": [
@@ -367,7 +389,7 @@
     {
       "id": "pirsensor",
       "name": {
-        "en": "PIR Sensor (ZigBee)"
+        "en": "PIR Sensor"
       },
       "class": "sensor",
       "capabilities": [
@@ -416,7 +438,7 @@
     {
       "id": "smartplug",
       "name": {
-        "en": "Smart Plug (ZigBee)"
+        "en": "Smart Plug"
       },
       "class": "socket",
       "capabilities": [
@@ -464,7 +486,7 @@
     {
       "id": "switch_1_gang",
       "name": {
-        "en": "1 Gang Switch (ZigBee)"
+        "en": "1 Gang Switch Module"
       },
       "class": "light",
       "capabilities": [
@@ -473,6 +495,12 @@
       "images": {
         "large": "/drivers/switch_1_gang/assets/images/large.png",
         "small": "/drivers/switch_1_gang/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
       },
       "zigbee": {
         "manufacturerName": [
@@ -506,7 +534,7 @@
     {
       "id": "switch_2_gang",
       "name": {
-        "en": "2 Gang Switch - First channel (ZigBee)"
+        "en": "2 Gang Switch Module"
       },
       "class": "light",
       "capabilities": [
@@ -515,6 +543,12 @@
       "images": {
         "large": "/drivers/switch_2_gang/assets/images/large.png",
         "small": "/drivers/switch_2_gang/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
       },
       "zigbee": {
         "manufacturerName": [
@@ -553,7 +587,13 @@
               "onoff"
             ],
             "name": {
-              "en": "2 Gang Switch - Second channel (ZigBee)"
+              "en": "2 Gang Switch Module"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
             }
           }
         }
@@ -561,7 +601,7 @@
       "learnmode": {
         "image": "/drivers/switch_2_gang/assets/icon.svg",
         "instruction": {
-          "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
         }
       },
       "settings": []
@@ -569,7 +609,7 @@
     {
       "id": "temphumidsensor",
       "name": {
-        "en": "Temperature & Humidity Sensor (ZigBee)"
+        "en": "Temperature & Humidity Sensor"
       },
       "class": "sensor",
       "capabilities": [
@@ -704,6 +744,55 @@
           ]
         }
       ]
+    },
+    {
+      "id": "valvecontroller",
+      "name": {
+        "en": "Valve Controller"
+      },
+      "class": "other",
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/valvecontroller/assets/images/large.png",
+        "small": "/drivers/valvecontroller/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TYZB01_ymcdbl3u"
+        ],
+        "productId": [
+          "TS0111"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        }
+      },
+      "learnmode": {
+        "image": "/drivers/valvecontroller/assets/icon.svg",
+        "instruction": {
+          "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        }
+      },
+      "settings": []
     }
   ]
 }
