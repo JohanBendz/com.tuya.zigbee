@@ -19,5 +19,35 @@
   },
   "0.0.7": {
     "en": "Added support for Zemismart White Label Brand"
+  },
+  "0.1.0": {
+    "en": "Rewrite for SDK3 / Homey Firmware v5"
+  },
+  "0.1.1": {
+    "en": "Added support for more white label devices and killed some bugs"
+  },
+  "0.1.2": {
+    "en": "Rewrite to use IASZone Cluster (Good job adding support for it TED!)"
+  },
+  "0.1.3": {
+    "en": "Composer fix"
+  },
+  "0.1.4": {
+    "en": "Added support for Smart Plug (needs testing)"
+  },
+  "0.1.5": {
+    "en": "Added support for Samotech White Label Brand"
+  },
+  "0.1.6": {
+    "en": "Added support for 1 Gang Switch Module and 2 Gang Switch Module"
+  },
+  "0.1.7": {
+    "en": "Added product ID's and fixed 2 Gang Switch Module Channel 2"
+  },
+  "0.1.8": {
+    "en": "Added 1 Gang Dimmer Module, 2 Gang Dimmer Module and added support for Lonsonho White Label Brand"
+  },
+  "0.1.9": {
+    "en": "Added Valve Controller (Gas/Water)"
   }
 }

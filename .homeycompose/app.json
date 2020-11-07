@@ -1,8 +1,8 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.0.7",
-  "compatibility": ">=3.2.0",
-  "sdk": 2,
+  "version": "0.1.9",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
   "name": {
     "en": "Tuya Zigbee"
   },
@@ -17,10 +17,21 @@
       "Smart9",
       "Blitzwolf",
       "Zemismart",
+      "Samotech",
+      "Lonsonho",
+      "Nedis",
       "Zigbee",
       "Sensor",
       "Temperature",
-      "Humidity"
+      "Humidity",
+      "Door",
+      "Window",
+      "PIR",
+      "Plug",
+      "Switch",
+      "Valve",
+      "Water",
+      "Gas"
     ]
   },
   "category": [

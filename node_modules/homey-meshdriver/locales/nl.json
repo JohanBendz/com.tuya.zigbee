@@ -1,8 +1,0 @@
-{
-  "error": {
-    "missing_cc_configuration": "Apparaat is niet in staat instellingen aan te passen, voeg opnieuw toe aan Homey en probeer opnieuw.",
-    "invalid_ieeeaddr": "Apparaat niet gevonden in netwerk",
-    "could_not_find_zigbee_shepherd_device": "Apparaat lijkt te zijn verwijderd van het netwerk",
-    "unknown": "Onbekend probleem"
-  }
-}

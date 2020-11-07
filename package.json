@@ -1,6 +1,6 @@
 {
   "name": "com.tuya.zigbee",
-  "version": "0.0.7",
+  "version": "0.1.9",
   "description": "Adds support for Tuya Zigbee devices to Homey",
   "main": "app.js",
   "scripts": {
@@ -13,6 +13,7 @@
   "author": "Johan Bendz",
   "license": "MIT",
   "dependencies": {
-    "homey-meshdriver": "^1.3.24"
+    "homey-zigbeedriver": "^1.6.2",
+    "zigbee-clusters": "^1.4.0"
   }
 }
