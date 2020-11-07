@@ -1,8 +1,0 @@
-{
-  "error": {
-    "missing_cc_configuration": "Device is not capable of changing settings, re-add it to Homey and try again.",
-    "invalid_ieeeaddr": "Device not found in network",
-    "could_not_find_zigbee_shepherd_device": "Device seems to be removed from the network",
-    "unknown": "Unknown error"
-  }
-}
