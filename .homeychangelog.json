@@ -49,5 +49,8 @@
   },
   "0.1.9": {
     "en": "Added Valve Controller (Gas/Water)"
+  },
+  "0.1.10": {
+    "en": "Added 1 Gang Wall Switch, 2 Gang Wall Switch and 3 Gang Wall Switch"
   }
 }

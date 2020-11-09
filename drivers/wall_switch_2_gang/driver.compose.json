@@ -1,20 +1,12 @@
 {
-    "id": "dimmer_2_gang",
+    "id": "wall_switch_2_gang",
     "name": {
-      "en": "2 Gang Dimmer Module"
+      "en": "2 Gang Wall Switch"
     },
     "class": "light",
     "capabilities": [
-      "onoff",
-      "dim"
+      "onoff"
     ],
-    "capabilitiesOptions": {
-      "dim": {
-          "opts": {
-          "duration": true
-          }
-      }
-    },
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",
       "small": "{{driverAssetsPath}}/images/small.png"
@@ -27,30 +19,30 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TYZB01_v8gtiaed"
+        "_TYZB01_mtlhqn48",
+        "_TZ3000_4js9lo5d",
+        "_TYZB01_6sadkhcy"
       ],
       "productId": [
-        "TS110F"
+        "TS0012",
+        "TS0002"
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 1, 4, 5, 6, 8],
-          "bindings": [6, 8]
+          "clusters": [0, 4, 5, 6],
+          "bindings": [6]
         },
         "2": {
-          "clusters": [6, 8],
-          "bindings": [6, 8]
+          "clusters": [4, 5, 6],
+          "bindings": [6]
         }
       },
       "devices": {
-        "secondDimmer": {
+        "secondSwitch": {
           "class": "light",
-          "capabilities": [
-            "onoff",
-            "dim"
-          ],
+          "capabilities": ["onoff"],
           "name": {
-            "en": "2 Gang Dimmer Module"
+            "en": "2 Gang Wall Switch"
           },
           "energy": {
             "approximation": {
@@ -64,7 +56,7 @@
     "learnmode": {
       "image": "{{driverAssetsPath}}/icon.svg",
       "instruction": {
-        "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        "en": "A tile for each button will be created. Remove the front and press the setup button for 10 seconds (the LED should start blinking)."
       }
     }
 
