@@ -1,20 +1,12 @@
 {
-    "id": "dimmer_1_gang",
+    "id": "wall_switch_1_gang",
     "name": {
-      "en": "1 Gang Dimmer Module"
+      "en": "1 Gang Wall Switch"
     },
     "class": "light",
     "capabilities": [
-      "onoff",
-      "dim"
+      "onoff"
     ],
-    "capabilitiesOptions": {
-      "dim": {
-          "opts": {
-          "duration": true
-          }
-      }
-    },
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",
       "small": "{{driverAssetsPath}}/images/small.png"
@@ -27,22 +19,23 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TYZB01_qezuin6k"
+        "_TYZB01_xfpdrwvc"
       ],
       "productId": [
-        "TS110F"
+        "TS0011",
+        "TS0001"
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 1, 4, 5, 6, 8],
-          "bindings": [6, 8]
+          "clusters": [0, 4, 5, 6],
+          "bindings": [6]
         }
       }
     },
     "learnmode": {
       "image": "{{driverAssetsPath}}/icon.svg",
       "instruction": {
-        "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        "en": "Press the button for 10 seconds (the LED should start blinking)."
       }
     }
 
