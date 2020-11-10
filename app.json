@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -37,7 +37,8 @@
   },
   "category": [
     "appliances",
-    "security"
+    "security",
+    "lights"
   ],
   "brandColor": "#FF4800",
   "permissions": [
@@ -69,6 +70,13 @@
         "onoff",
         "dim"
       ],
+      "capabilitiesOptions": {
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
       "images": {
         "large": "/drivers/dimmer_1_gang/assets/images/large.png",
         "small": "/drivers/dimmer_1_gang/assets/images/small.png"
@@ -121,6 +129,13 @@
         "onoff",
         "dim"
       ],
+      "capabilitiesOptions": {
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
       "images": {
         "large": "/drivers/dimmer_2_gang/assets/images/large.png",
         "small": "/drivers/dimmer_2_gang/assets/images/small.png"
@@ -790,6 +805,234 @@
         "image": "/drivers/valvecontroller/assets/icon.svg",
         "instruction": {
           "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "wall_switch_1_gang",
+      "name": {
+        "en": "1 Gang Wall Switch"
+      },
+      "class": "light",
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/wall_switch_1_gang/assets/images/large.png",
+        "small": "/drivers/wall_switch_1_gang/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TYZB01_xfpdrwvc"
+        ],
+        "productId": [
+          "TS0011",
+          "TS0001"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        }
+      },
+      "learnmode": {
+        "image": "/drivers/wall_switch_1_gang/assets/icon.svg",
+        "instruction": {
+          "en": "Press the button for 10 seconds (the LED should start blinking)."
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "wall_switch_2_gang",
+      "name": {
+        "en": "2 Gang Wall Switch"
+      },
+      "class": "light",
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/wall_switch_2_gang/assets/images/large.png",
+        "small": "/drivers/wall_switch_2_gang/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TYZB01_mtlhqn48",
+          "_TZ3000_4js9lo5d",
+          "_TYZB01_6sadkhcy"
+        ],
+        "productId": [
+          "TS0012",
+          "TS0002"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "light",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "2 Gang Wall Switch"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        }
+      },
+      "learnmode": {
+        "image": "/drivers/wall_switch_2_gang/assets/icon.svg",
+        "instruction": {
+          "en": "A tile for each button will be created. Remove the front and press the setup button for 10 seconds (the LED should start blinking)."
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "wall_switch_3_gang",
+      "name": {
+        "en": "3 Gang Wall Switch"
+      },
+      "class": "light",
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/wall_switch_3_gang/assets/images/large.png",
+        "small": "/drivers/wall_switch_3_gang/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TYZB01_xiuox57i"
+        ],
+        "productId": [
+          "TS0013",
+          "TS0003"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "light",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "3 Gang Wall Switch"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "thirdSwitch": {
+            "class": "light",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "3 Gang Wall Switch"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        }
+      },
+      "learnmode": {
+        "image": "/drivers/wall_switch_3_gang/assets/icon.svg",
+        "instruction": {
+          "en": "A tile for each button will be created. Remove the front and press the setup button for 10 seconds (the LED should start blinking)."
         }
       },
       "settings": []
