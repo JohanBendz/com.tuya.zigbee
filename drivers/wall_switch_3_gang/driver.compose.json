@@ -19,22 +19,24 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TYZB01_xiuox57i"
+        "_TYZB01_xiuox57i",
+        "_TZ3000_a7ouggvs"
       ],
       "productId": [
-        "TS0013"
+        "TS0013",
+        "TS0043"
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 4, 5, 6],
+          "clusters": [0, 6],
           "bindings": [6]
         },
         "2": {
-          "clusters": [4, 5, 6],
+          "clusters": [6],
           "bindings": [6]
         },
         "3": {
-          "clusters": [4, 5, 6],
+          "clusters": [6],
           "bindings": [6]
         }
       },
