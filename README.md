@@ -53,11 +53,16 @@ Supported devices:
     _TYZB01_ymcdbl3u / TS0111
 - 1 Gang Wall Switch
     _TYZB01_xfpdrwvc / TS0011
+    _TZ3000_9hpxg80k / TS0011
 - 2 Gang Wall Switch
     _TYZB01_mtlhqn48 / TS0012
     _TYZB01_6sadkhcy / TS0002
     _TZ3000_fvh3pjaz / TS0012
+    _TZ3000_owgcnkrh / TS0042
 - 3 Gang Wall Switch
     _TYZB01_xiuox57i / TS0013
+    _TZ3000_a7ouggvs / TS0043
+- RGB LED Strip Controller
+    _TZ3000_obacbukl / TS0503A
 
 To request additional devices, please use Athom Homey Community Forum: https://community.athom.com/t/tuya-zigbee-app/26439

@@ -21,19 +21,21 @@
       "manufacturerName": [
         "_TYZB01_mtlhqn48",
         "_TYZB01_6sadkhcy",
-        "_TZ3000_fvh3pjaz"
+        "_TZ3000_fvh3pjaz",
+        "_TZ3000_owgcnkrh"
       ],
       "productId": [
         "TS0012",
-        "TS0002"
+        "TS0002",
+        "TS0042"
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 4, 5, 6],
+          "clusters": [0, 6],
           "bindings": [6]
         },
         "2": {
-          "clusters": [4, 5, 6],
+          "clusters": [6],
           "bindings": [6]
         }
       },

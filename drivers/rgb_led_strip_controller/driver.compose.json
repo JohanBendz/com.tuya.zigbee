@@ -1,12 +1,24 @@
 {
-    "id": "wall_switch_1_gang",
+    "id": "rgb_led_strip_controller",
     "name": {
-      "en": "1 Gang Wall Switch"
+      "en": "RGB LED Strip Controller"
     },
     "class": "light",
     "capabilities": [
-      "onoff"
+      "onoff",
+      "dim",
+      "light_hue",
+      "light_saturation",
+      "light_temperature",
+      "light_mode"
     ],
+    "capabilitiesOptions": {
+      "dim": {
+          "opts": {
+            "duration": true
+          }
+      }
+    },
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",
       "small": "{{driverAssetsPath}}/images/small.png"
@@ -19,23 +31,22 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TYZB01_xfpdrwvc",
-        "_TZ3000_9hpxg80k"
+        "_TZ3000_obacbukl"
       ],
       "productId": [
-        "TS0011"
+        "TS0503A"
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 4, 5, 6],
-          "bindings": [6]
+          "clusters": [0, 3, 4, 5, 6, 8, 768],
+          "bindings": []
         }
       }
     },
     "learnmode": {
       "image": "{{driverAssetsPath}}/icon.svg",
       "instruction": {
-        "en": "Press the button for 10 seconds (the LED should start blinking)."
+        "en": "Press the setup button for 10 seconds to enter pairing mode (the LED should blink green)."
       }
     }
 
