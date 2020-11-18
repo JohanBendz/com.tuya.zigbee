@@ -29,12 +29,12 @@
           "clusters": [0, 3, 4, 5, 6],
           "bindings": [6]
         }
-      }
-    },
-    "learnmode": {
-      "image": "{{driverAssetsPath}}/icon.svg",
-      "instruction": {
-        "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        }
       }
     }
 

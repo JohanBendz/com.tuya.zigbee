@@ -30,12 +30,12 @@
           "clusters": [0, 4, 5, 6],
           "bindings": [6]
         }
-      }
-    },
-    "learnmode": {
-      "image": "{{driverAssetsPath}}/icon.svg",
-      "instruction": {
-        "en": "Press the button for 10 seconds (the LED should start blinking)."
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Press the button for 10 seconds (the LED should start blinking)."
+        }
       }
     }
 

@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -32,7 +32,8 @@
       "Switch",
       "Valve",
       "Water",
-      "Gas"
+      "Gas",
+      "LED"
     ]
   },
   "category": [
@@ -109,12 +110,12 @@
               8
             ]
           }
-        }
-      },
-      "learnmode": {
-        "image": "/drivers/dimmer_1_gang/assets/icon.svg",
-        "instruction": {
-          "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        },
+        "learnmode": {
+          "image": "/drivers/dimmer_1_gang/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
         }
       },
       "settings": []
@@ -196,12 +197,12 @@
               }
             }
           }
-        }
-      },
-      "learnmode": {
-        "image": "/drivers/dimmer_2_gang/assets/icon.svg",
-        "instruction": {
-          "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        },
+        "learnmode": {
+          "image": "/drivers/dimmer_2_gang/assets/icon.svg",
+          "instruction": {
+            "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
         }
       },
       "settings": []
@@ -452,6 +453,67 @@
       "settings": []
     },
     {
+      "id": "rgb_led_strip_controller",
+      "name": {
+        "en": "RGB LED Strip Controller"
+      },
+      "class": "light",
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation",
+        "light_temperature",
+        "light_mode"
+      ],
+      "capabilitiesOptions": {
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
+      "images": {
+        "large": "/drivers/rgb_led_strip_controller/assets/images/large.png",
+        "small": "/drivers/rgb_led_strip_controller/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_obacbukl"
+        ],
+        "productId": [
+          "TS0503A"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8,
+              768
+            ],
+            "bindings": []
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/rgb_led_strip_controller/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button for 10 seconds to enter pairing mode (the LED should blink green)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "smartplug",
       "name": {
         "en": "Smart Plug"
@@ -537,12 +599,12 @@
               6
             ]
           }
-        }
-      },
-      "learnmode": {
-        "image": "/drivers/switch_1_gang/assets/icon.svg",
-        "instruction": {
-          "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        },
+        "learnmode": {
+          "image": "/drivers/switch_1_gang/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
         }
       },
       "settings": []
@@ -614,12 +676,12 @@
               }
             }
           }
-        }
-      },
-      "learnmode": {
-        "image": "/drivers/switch_2_gang/assets/icon.svg",
-        "instruction": {
-          "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        },
+        "learnmode": {
+          "image": "/drivers/switch_2_gang/assets/icon.svg",
+          "instruction": {
+            "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
         }
       },
       "settings": []
@@ -802,12 +864,12 @@
               6
             ]
           }
-        }
-      },
-      "learnmode": {
-        "image": "/drivers/valvecontroller/assets/icon.svg",
-        "instruction": {
-          "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        },
+        "learnmode": {
+          "image": "/drivers/valvecontroller/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
         }
       },
       "settings": []
@@ -833,7 +895,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TYZB01_xfpdrwvc"
+          "_TYZB01_xfpdrwvc",
+          "_TZ3000_9hpxg80k"
         ],
         "productId": [
           "TS0011"
@@ -850,12 +913,12 @@
               6
             ]
           }
-        }
-      },
-      "learnmode": {
-        "image": "/drivers/wall_switch_1_gang/assets/icon.svg",
-        "instruction": {
-          "en": "Press the button for 10 seconds (the LED should start blinking)."
+        },
+        "learnmode": {
+          "image": "/drivers/wall_switch_1_gang/assets/icon.svg",
+          "instruction": {
+            "en": "Press the button for 10 seconds (the LED should start blinking)."
+          }
         }
       },
       "settings": []
@@ -883,18 +946,18 @@
         "manufacturerName": [
           "_TYZB01_mtlhqn48",
           "_TYZB01_6sadkhcy",
-          "_TZ3000_fvh3pjaz"
+          "_TZ3000_fvh3pjaz",
+          "_TZ3000_owgcnkrh"
         ],
         "productId": [
           "TS0012",
-          "TS0002"
+          "TS0002",
+          "TS0042"
         ],
         "endpoints": {
           "1": {
             "clusters": [
               0,
-              4,
-              5,
               6
             ],
             "bindings": [
@@ -903,8 +966,6 @@
           },
           "2": {
             "clusters": [
-              4,
-              5,
               6
             ],
             "bindings": [
@@ -928,12 +989,12 @@
               }
             }
           }
-        }
-      },
-      "learnmode": {
-        "image": "/drivers/wall_switch_2_gang/assets/icon.svg",
-        "instruction": {
-          "en": "A tile for each button will be created. Remove the front and press the setup button for 10 seconds (the LED should start blinking)."
+        },
+        "learnmode": {
+          "image": "/drivers/wall_switch_2_gang/assets/icon.svg",
+          "instruction": {
+            "en": "A tile for each button will be created. Remove the front and press the setup button for 10 seconds (the LED should start blinking)."
+          }
         }
       },
       "settings": []
@@ -959,17 +1020,17 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TYZB01_xiuox57i"
+          "_TYZB01_xiuox57i",
+          "_TZ3000_a7ouggvs"
         ],
         "productId": [
-          "TS0013"
+          "TS0013",
+          "TS0043"
         ],
         "endpoints": {
           "1": {
             "clusters": [
               0,
-              4,
-              5,
               6
             ],
             "bindings": [
@@ -978,8 +1039,6 @@
           },
           "2": {
             "clusters": [
-              4,
-              5,
               6
             ],
             "bindings": [
@@ -988,8 +1047,6 @@
           },
           "3": {
             "clusters": [
-              4,
-              5,
               6
             ],
             "bindings": [
@@ -1028,12 +1085,12 @@
               }
             }
           }
-        }
-      },
-      "learnmode": {
-        "image": "/drivers/wall_switch_3_gang/assets/icon.svg",
-        "instruction": {
-          "en": "A tile for each button will be created. Remove the front and press the setup button for 10 seconds (the LED should start blinking)."
+        },
+        "learnmode": {
+          "image": "/drivers/wall_switch_3_gang/assets/icon.svg",
+          "instruction": {
+            "en": "A tile for each button will be created. Remove the front and press the setup button for 10 seconds (the LED should start blinking)."
+          }
         }
       },
       "settings": []
