@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -31,7 +31,8 @@
       "Switch",
       "Valve",
       "Water",
-      "Gas"
+      "Gas",
+      "LED"
     ]
   },
   "category": [

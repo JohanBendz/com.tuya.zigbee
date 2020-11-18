@@ -67,12 +67,12 @@
             }
           }
         }
-      }
-    },
-    "learnmode": {
-      "image": "{{driverAssetsPath}}/icon.svg",
-      "instruction": {
-        "en": "A tile for each button will be created. Remove the front and press the setup button for 10 seconds (the LED should start blinking)."
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "A tile for each button will be created. Remove the front and press the setup button for 10 seconds (the LED should start blinking)."
+        }
       }
     }
 

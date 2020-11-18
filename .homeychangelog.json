@@ -58,5 +58,8 @@
   },
   "0.1.12": {
     "en": "Added some more product id's"
+  },
+  "0.1.13": {
+    "en": "Added support for LED Strip Controller"
   }
 }
