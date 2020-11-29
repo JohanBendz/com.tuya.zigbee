@@ -67,5 +67,8 @@
   },
   "0.1.15": {
     "en": "Fix: Power Strip only triggered socket 1"
+  },
+  "0.1.16": {
+    "en": "Added Smart Door/Window Sensor (Lidl)"
   }
 }

@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -259,6 +259,55 @@
         },
         "learnmode": {
           "image": "/drivers/doorwindowsensor/assets/learn.svg",
+          "instruction": {
+            "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "doorwindowsensor2",
+      "name": {
+        "en": "Door & Window Sensor (Lidl)"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/doorwindowsensor2/assets/images/large.png",
+        "small": "/drivers/doorwindowsensor2/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ1800_ejwkn2h2"
+        ],
+        "productId": [
+          "TY0203"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/doorwindowsensor2/assets/icon.svg",
           "instruction": {
             "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
           }
@@ -1367,10 +1416,10 @@
       },
       "zigbee": {
         "manufacturerName": [
-          ""
+          "_TZ3000_oborybow"
         ],
         "productId": [
-          ""
+          "TS0502A"
         ],
         "endpoints": {
           "1": {
