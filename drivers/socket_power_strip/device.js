@@ -12,11 +12,12 @@ class socket_power_strip extends ZigBeeDevice {
 		debug(true);
 		this.printNode();
 
-      this.registerCapability('onoff', CLUSTER.ON_OFF, {
-        getOpts: {
-          getOnStart: true
-        },
-      });
+        const { subDeviceId } = this.getData();
+        this.log("Device data: ", subDeviceId);
+
+        this.registerCapability('onoff', CLUSTER.ON_OFF, {
+            endpoint: subDeviceId === 'socket2' ? 2 : subDeviceId === 'socket3' ? 3 : 1,
+        });
 
   }
 
