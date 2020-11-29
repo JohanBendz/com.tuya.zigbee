@@ -1,7 +1,7 @@
 {
-  "id": "smartplug",
+  "id": "plug",
   "name": {
-    "en": "Smart Plug"
+    "en": "Smart Plug without metering"
   },
   "class": "socket",
   "capabilities": [
