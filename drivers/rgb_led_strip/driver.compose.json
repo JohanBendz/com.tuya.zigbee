@@ -1,7 +1,7 @@
 {
-    "id": "rgb_led_strip_controller",
+    "id": "rgb_led_strip",
     "name": {
-      "en": "RGB LED Strip Controller"
+      "en": "RGB LED Strip"
     },
     "class": "light",
     "capabilities": [
@@ -49,10 +49,10 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TZ3000_obacbukl"
+        "_TZ3000_riwp3k79"
       ],
       "productId": [
-        "TS0503A"
+        "TS0505A"
       ],
       "endpoints": {
         "1": {
@@ -63,7 +63,7 @@
       "learnmode": {
         "image": "{{driverAssetsPath}}/icon.svg",
         "instruction": {
-          "en": "Press the setup button for 10 seconds to enter pairing mode (the LED should blink green)."
+          "en": "Power on to enter pairing mode."
         }
       }
     }

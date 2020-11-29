@@ -1,29 +1,16 @@
 {
-    "id": "rgb_led_strip_controller",
+    "id": "tunable_spot_GU10",
     "name": {
-      "en": "RGB LED Strip Controller"
+      "en": "Tunable Spot GU10"
     },
     "class": "light",
     "capabilities": [
       "onoff",
       "dim",
-      "light_hue",
-      "light_saturation",
-      "light_temperature",
-      "light_mode"
+      "light_temperature"
     ],
     "capabilitiesOptions": {
       "dim": {
-          "opts": {
-          "duration": true
-          }
-      },
-      "light_hue": {
-          "opts": {
-          "duration": true
-          }
-      },
-      "light_saturation": {
           "opts": {
           "duration": true
           }
@@ -43,16 +30,16 @@
     },
     "energy": {
       "approximation": {
-        "usageOn": 0,
-        "usageOff": 0
+        "usageOn": 5,
+        "usageOff": 1
       }
     },
     "zigbee": {
       "manufacturerName": [
-        "_TZ3000_obacbukl"
+        "_TZ3000_el5kt5im"
       ],
       "productId": [
-        "TS0503A"
+        "TS0502A"
       ],
       "endpoints": {
         "1": {
@@ -63,7 +50,7 @@
       "learnmode": {
         "image": "{{driverAssetsPath}}/icon.svg",
         "instruction": {
-          "en": "Press the setup button for 10 seconds to enter pairing mode (the LED should blink green)."
+          "en": "Power on to enter pairing mode."
         }
       }
     }

@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -20,6 +20,8 @@
       "Samotech",
       "Lonsonho",
       "Nedis",
+      "Neo",
+      "Lidl",
       "Zigbee",
       "Sensor",
       "Temperature",
@@ -32,7 +34,9 @@
       "Valve",
       "Water",
       "Gas",
-      "LED"
+      "LED",
+      "Light",
+      "RGB"
     ]
   },
   "category": [
