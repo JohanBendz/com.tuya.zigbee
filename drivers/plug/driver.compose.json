@@ -5,9 +5,7 @@
   },
   "class": "socket",
   "capabilities": [
-    "onoff",
-    "measure_power",
-    "meter_power"
+    "onoff"
   ],
   "capabilitiesOptions": {
     "measure_power": {
@@ -20,11 +18,10 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TZ3000_3ooaz3ng",
-      "_TYZB01_iuepbmpv"
+      "_TZ3000_kdi2o9m6"
     ],
     "productId": [
-      "TSO121"
+      "TS011F"
     ],
     "endpoints": {
       "1": {
@@ -32,8 +29,7 @@
           0,
           4,
           5,
-          6,
-          1794
+          6
         ],
         "bindings": [
           6

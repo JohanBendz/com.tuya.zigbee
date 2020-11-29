@@ -37,7 +37,7 @@ Supported devices:
     TUYATEC-rkqiqvcs / RH3001
     TUYATEC-crr8qb0p / RH3001
     _TZ3000_ebar6ljy / TS0203
-- Smart Plug
+- Smart Plug, with metering
     _TZ3000_3ooaz3ng / TSO021
     _TYZB01_iuepbmpv / TSO021
 - 1 Gang Switch Module
@@ -64,5 +64,24 @@ Supported devices:
     _TZ3000_a7ouggvs / TS0043
 - RGB LED Strip Controller
     _TZ3000_obacbukl / TS0503A
+- RGB Bulb E27
+    _TZ3000_dbou1ap4 / TS0505A (Lidl)
+- RGB Bulb E14
+    _TZ3000_odygigth / TS0505A (Lidl)
+- RGB Spot GU10
+    _TZ3000_kdpxju99 / TS0505A (Lidl)
+- RGB LED Strip
+    _TZ3000_riwp3k79 / TS0505A (Lidl)
+- Tunable Bulb E27
+    _TZ3000_49qchf10 / TS0502A (Lidl)
+- Tunable Bulb E14
+    _TZ3000_missinginfo / TS0502A (Lidl)
+- Tunable Spot GU10
+    _TZ3000_el5kt5im / TS0502A (Lidl)
+- Smart Plug, without metering
+    _TZ3000_kdi2o9m6 / TS011F (Lidl)
+- 3 Socket Power Strip
+    _TZ3000_1obwwnmq / TS011F (Lidl)
+
 
 To request additional devices, please use Athom Homey Community Forum: https://community.athom.com/t/tuya-zigbee-app/26439

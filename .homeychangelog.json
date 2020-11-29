@@ -61,5 +61,8 @@
   },
   "0.1.13": {
     "en": "Added support for LED Strip Controller"
+  },
+  "0.1.14": {
+    "en": "Added support for RGB Bulb E27, RGB Bulb R14, RGB Spot GU10, RGB LED Strip, Tunable Bulb E27, Tunable Bulb E14, Tunable Spot GU10, Plug, 3 Socket Power Strip"
   }
 }
