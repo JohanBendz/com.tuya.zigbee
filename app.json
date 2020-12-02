@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -562,7 +562,6 @@
         "dim",
         "light_hue",
         "light_saturation",
-        "light_temperature",
         "light_mode"
       ],
       "capabilitiesOptions": {
@@ -645,7 +644,6 @@
         "dim",
         "light_hue",
         "light_saturation",
-        "light_temperature",
         "light_mode"
       ],
       "capabilitiesOptions": {
@@ -728,7 +726,6 @@
         "dim",
         "light_hue",
         "light_saturation",
-        "light_temperature",
         "light_mode"
       ],
       "capabilitiesOptions": {
@@ -811,7 +808,6 @@
         "dim",
         "light_hue",
         "light_saturation",
-        "light_temperature",
         "light_mode"
       ],
       "capabilitiesOptions": {
@@ -894,7 +890,6 @@
         "dim",
         "light_hue",
         "light_saturation",
-        "light_temperature",
         "light_mode"
       ],
       "capabilitiesOptions": {

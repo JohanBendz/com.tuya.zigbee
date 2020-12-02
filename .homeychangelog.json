@@ -70,5 +70,8 @@
   },
   "0.1.16": {
     "en": "Added Smart Door/Window Sensor (Lidl)"
+  },
+  "0.1.17": {
+    "en": "Fix for RGB Bulb/LED Brightness issues"
   }
 }
