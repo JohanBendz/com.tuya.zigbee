@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -238,7 +238,8 @@
           "TUYATEC-sb6t7ett",
           "TUYATEC-rkqiqvcs",
           "TUYATEC-crr8qb0p",
-          "_TZ3000_ebar6ljy"
+          "_TZ3000_ebar6ljy",
+          "TUYATEC-kbqf60nt"
         ],
         "productId": [
           "RH3001",
@@ -274,7 +275,8 @@
       "class": "sensor",
       "capabilities": [
         "alarm_contact",
-        "alarm_battery"
+        "alarm_battery",
+        "alarm_tamper"
       ],
       "energy": {
         "batteries": [
@@ -580,11 +582,6 @@
             "duration": true
           }
         },
-        "light_temperature": {
-          "opts": {
-            "duration": true
-          }
-        },
         "onoff": {
           "setOnDim": false
         }
@@ -662,11 +659,6 @@
             "duration": true
           }
         },
-        "light_temperature": {
-          "opts": {
-            "duration": true
-          }
-        },
         "onoff": {
           "setOnDim": false
         }
@@ -726,6 +718,7 @@
         "dim",
         "light_hue",
         "light_saturation",
+        "light_temperature",
         "light_mode"
       ],
       "capabilitiesOptions": {
@@ -826,11 +819,6 @@
             "duration": true
           }
         },
-        "light_temperature": {
-          "opts": {
-            "duration": true
-          }
-        },
         "onoff": {
           "setOnDim": false
         }
@@ -904,11 +892,6 @@
           }
         },
         "light_saturation": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_temperature": {
           "opts": {
             "duration": true
           }
@@ -1031,7 +1014,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_1obwwnmq"
+          "_TZ3000_1obwwnmq",
+          "_TZ3000_vzopcetz"
         ],
         "productId": [
           "TS011F"

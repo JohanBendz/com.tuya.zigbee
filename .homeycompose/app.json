@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -40,9 +40,9 @@
     ]
   },
   "category": [
-    "appliances",
+    "lights",
     "security",
-    "lights"
+    "appliances"
   ],
   "brandColor": "#FF4800",
   "permissions": [

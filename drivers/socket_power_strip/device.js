@@ -12,6 +12,11 @@ class socket_power_strip extends ZigBeeDevice {
 		debug(true);
 		this.printNode();
 
+/* 		const node = await this.homey.zigbee.getNode(this);
+		node.handleFrame = (endpointId, clusterId, frame, meta) => {
+      		this.log("frame data! endpointId:", endpointId,", clusterId:", clusterId,", frame:", frame, ", meta:", meta);
+    	}; */
+
         const { subDeviceId } = this.getData();
         this.log("Device data: ", subDeviceId);
 
