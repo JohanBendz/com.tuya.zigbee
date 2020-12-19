@@ -10,6 +10,7 @@ Supported White Label Brands:
 - Samotech
 - Lonsonho
 - Nedis
+- Lidl
 
 Supported devices:
 - Temperature and Humidity Sensor
@@ -36,10 +37,12 @@ Supported devices:
     TUYATEC-sb6t7ett / RH3001
     TUYATEC-rkqiqvcs / RH3001
     TUYATEC-crr8qb0p / RH3001
+    TUYATEC-kbqf60nt / RH3001
     _TZ3000_ebar6ljy / TS0203
 - Smart Plug, with metering
     _TZ3000_3ooaz3ng / TSO021
     _TYZB01_iuepbmpv / TSO021
+    _TZ3000_g5xawfcq / TSO121
 - 1 Gang Switch Module
     _TYZB01_ncutbjdi / TS0003
 - 2 Gang Switch Module
@@ -75,13 +78,14 @@ Supported devices:
 - Tunable Bulb E27
     _TZ3000_49qchf10 / TS0502A (Lidl)
 - Tunable Bulb E14
-    _TZ3000_missinginfo / TS0502A (Lidl)
+    _TZ3000_oborybow / TS0502A (Lidl)
 - Tunable Spot GU10
     _TZ3000_el5kt5im / TS0502A (Lidl)
 - Smart Plug, without metering
     _TZ3000_kdi2o9m6 / TS011F (Lidl)
 - 3 Socket Power Strip
     _TZ3000_1obwwnmq / TS011F (Lidl)
+    _TZ3000_vzopcetz / TS011F (Lidl)
 
 
 To request additional devices, please use Athom Homey Community Forum: https://community.athom.com/t/tuya-zigbee-app/26439

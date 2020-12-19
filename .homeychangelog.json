@@ -73,5 +73,8 @@
   },
   "0.1.17": {
     "en": "Fix for RGB Bulb/LED Brightness issues"
+  },
+  "0.1.18": {
+    "en": "Fix for Door/Window Sensor (Lidl)"
   }
 }

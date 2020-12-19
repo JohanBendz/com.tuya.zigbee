@@ -15,7 +15,14 @@ class plug extends ZigBeeDevice {
     this.registerCapability('onoff', CLUSTER.ON_OFF, {
       getOpts: {
         getOnStart: true,
-        pollInterval: 3600,
+//        pollInterval: 3600,
+	  },
+      reportOpts: {
+        configureAttributeReporting: {
+          minInterval: 0,
+          maxInterval: 36000,
+          minChange: 1,
+        },
       },
     });
 
