@@ -1,0 +1,12 @@
+{
+    "title" : {"en":"Mode"},
+    "getable": true,
+    "setable": true,
+    "type" : "enum",
+    "uiComponent": "picker",
+    "values" : [
+        {"id": "white", "title":{"en":"White","nl": "Wit"}},
+        {"id": "color", "title":{"en":"Color", "nl":  "Kleur"}},
+        {"id": "effect", "title":{"en":"Effect","nl": "Effect"}}
+    ]
+}

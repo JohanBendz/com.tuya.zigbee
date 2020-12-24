@@ -30,6 +30,8 @@ Supported devices:
 - PIR Sensor
     TUYATEC-lha8pbwd / RH3040
     TUYATEC-zn9wyqtr / RH3040
+- Smart Motion Sensor
+    _TZ1800_fcdjzz3s / TY0202 (Lidl)
 - Door/Windows Sensor
     TUYATEC-g3gl6cgy / RH3001
     TUYATEC-Bfq2i2Sy / RH3001
@@ -39,10 +41,17 @@ Supported devices:
     TUYATEC-crr8qb0p / RH3001
     TUYATEC-kbqf60nt / RH3001
     _TZ3000_ebar6ljy / TS0203
+- Smart Door/Windows Sensor
+    _TZ1800_ejwkn2h2 / TY0203 (Lidl)
 - Smart Plug, with metering
     _TZ3000_3ooaz3ng / TSO021
     _TYZB01_iuepbmpv / TSO021
     _TZ3000_g5xawfcq / TSO121
+- Smart Plug, without metering
+    _TZ3000_kdi2o9m6 / TS011F (Lidl)
+- 3 Socket Power Strip
+    _TZ3000_1obwwnmq / TS011F (Lidl)
+    _TZ3000_vzopcetz / TS011F (Lidl)
 - 1 Gang Switch Module
     _TYZB01_ncutbjdi / TS0003
 - 2 Gang Switch Module
@@ -81,11 +90,5 @@ Supported devices:
     _TZ3000_oborybow / TS0502A (Lidl)
 - Tunable Spot GU10
     _TZ3000_el5kt5im / TS0502A (Lidl)
-- Smart Plug, without metering
-    _TZ3000_kdi2o9m6 / TS011F (Lidl)
-- 3 Socket Power Strip
-    _TZ3000_1obwwnmq / TS011F (Lidl)
-    _TZ3000_vzopcetz / TS011F (Lidl)
-
 
 To request additional devices, please use Athom Homey Community Forum: https://community.athom.com/t/tuya-zigbee-app/26439

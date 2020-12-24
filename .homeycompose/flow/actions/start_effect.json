@@ -1,0 +1,55 @@
+{
+    "title": {
+    "en": "Start effect"
+    },
+    "args": [
+    {
+        "name": "christmas_lights_device",
+        "type": "device",
+        "filter": "driver_id=christmas_lights"
+    },
+    {
+        "type": "dropdown",
+        "name": "effect_name",
+        "title": {
+        "en": "Effect"
+        },
+        "values": [
+            {"id": "steady","label": {"en": "steady"}},
+            {"id": "snow","label": {"en": "snow"}},
+            {"id": "rainbow","label": {"en": "rainbow"}},
+            {"id": "snake","label": {"en": "snake"}},
+            {"id": "twinkle","label": {"en": "twinkle"}},
+            {"id": "firework","label": {"en": "firework"}},
+            {"id": "horizontal_flag","label": {"en": "horizontal_flag"}},
+            {"id": "waves","label": {"en": "waves"}},
+            {"id": "updown","label": {"en": "updown"}},
+            {"id": "vintage","label": {"en": "vintage"}},
+            {"id": "fading","label": {"en": "fading"}},
+            {"id": "collide","label": {"en": "collide"}},
+            {"id": "strobe","label": {"en": "strobe"}},
+            {"id": "sparkles","label": {"en": "sparkles"}},
+            {"id": "carnaval","label": {"en": "carnaval"}},
+            {"id": "glow","label": {"en": "glow"}}
+        ]
+    },
+    {
+        "type": "range",
+        "name": "effect_speed",
+        "title": {"en": "Speed"},
+        "label": "/64",
+        "min": 0,
+        "max": 64,
+        "step": 1
+    },
+    { "type": "color", "name": "effect_color_0" },
+    { "type": "color", "name": "effect_color_1" },
+    { "type": "color", "name": "effect_color_2" },
+    { "type": "color", "name": "effect_color_3" },
+    { "type": "color", "name": "effect_color_4" },
+    { "type": "color", "name": "effect_color_5" },
+    { "type": "color", "name": "effect_color_6" },
+    { "type": "color", "name": "effect_color_7" },
+    { "type": "color", "name": "effect_color_8" }
+    ]
+}
