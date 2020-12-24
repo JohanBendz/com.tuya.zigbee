@@ -27,7 +27,8 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TYZB01_v8gtiaed"
+        "_TYZB01_v8gtiaed",
+        "_TZ3000_92chsky7"
       ],
       "productId": [
         "TS110F"

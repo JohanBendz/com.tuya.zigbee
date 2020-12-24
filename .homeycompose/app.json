@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.1.18",
+  "version": "0.1.20",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -22,10 +22,12 @@
       "Nedis",
       "Neo",
       "Lidl",
+      "Silvercrest",
       "Zigbee",
       "Sensor",
       "Temperature",
       "Humidity",
+      "motion",
       "Door",
       "Window",
       "PIR",
@@ -36,7 +38,9 @@
       "Gas",
       "LED",
       "Light",
-      "RGB"
+      "RGB",
+      "Christmas",
+      "Socket"
     ]
   },
   "category": [
@@ -62,5 +66,17 @@
         "username": "JohanBendz"
       }
     }
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Johan Bendz",
+        "email": "johan_bendz@hotmail.com"
+      },
+      {
+        "name": "Martijn Aben",
+        "email": "lidl@escabe.org"
+      }
+    ]
   }
 }

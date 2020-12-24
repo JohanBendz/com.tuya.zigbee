@@ -76,5 +76,11 @@
   },
   "0.1.18": {
     "en": "Fix for Door/Window Sensor (Lidl)"
+  },
+  "0.1.19": {
+    "en": "Added support for Christmas Lights (Lidl)"
+  },
+  "0.1.20": {
+    "en": "Added support for Lidl Smart Motion Sensor and Lidl Smart Door/Window Sensor (old driver for Lidl Smart Door/Window Sensor removed)"
   }
 }

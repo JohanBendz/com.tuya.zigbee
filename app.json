@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.18",
+  "version": "0.1.20",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -23,10 +23,12 @@
       "Nedis",
       "Neo",
       "Lidl",
+      "Silvercrest",
       "Zigbee",
       "Sensor",
       "Temperature",
       "Humidity",
+      "motion",
       "Door",
       "Window",
       "PIR",
@@ -37,13 +39,15 @@
       "Gas",
       "LED",
       "Light",
-      "RGB"
+      "RGB",
+      "Christmas",
+      "Socket"
     ]
   },
   "category": [
-    "appliances",
+    "lights",
     "security",
-    "lights"
+    "appliances"
   ],
   "brandColor": "#FF4800",
   "permissions": [
@@ -64,7 +68,239 @@
       }
     }
   },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Johan Bendz",
+        "email": "johan_bendz@hotmail.com"
+      },
+      {
+        "name": "Martijn Aben",
+        "email": "lidl@escabe.org"
+      }
+    ]
+  },
+  "flow": {
+    "actions": [
+      {
+        "title": {
+          "en": "Start effect"
+        },
+        "args": [
+          {
+            "name": "christmas_lights_device",
+            "type": "device",
+            "filter": "driver_id=christmas_lights"
+          },
+          {
+            "type": "dropdown",
+            "name": "effect_name",
+            "title": {
+              "en": "Effect"
+            },
+            "values": [
+              {
+                "id": "steady",
+                "label": {
+                  "en": "steady"
+                }
+              },
+              {
+                "id": "snow",
+                "label": {
+                  "en": "snow"
+                }
+              },
+              {
+                "id": "rainbow",
+                "label": {
+                  "en": "rainbow"
+                }
+              },
+              {
+                "id": "snake",
+                "label": {
+                  "en": "snake"
+                }
+              },
+              {
+                "id": "twinkle",
+                "label": {
+                  "en": "twinkle"
+                }
+              },
+              {
+                "id": "firework",
+                "label": {
+                  "en": "firework"
+                }
+              },
+              {
+                "id": "horizontal_flag",
+                "label": {
+                  "en": "horizontal_flag"
+                }
+              },
+              {
+                "id": "waves",
+                "label": {
+                  "en": "waves"
+                }
+              },
+              {
+                "id": "updown",
+                "label": {
+                  "en": "updown"
+                }
+              },
+              {
+                "id": "vintage",
+                "label": {
+                  "en": "vintage"
+                }
+              },
+              {
+                "id": "fading",
+                "label": {
+                  "en": "fading"
+                }
+              },
+              {
+                "id": "collide",
+                "label": {
+                  "en": "collide"
+                }
+              },
+              {
+                "id": "strobe",
+                "label": {
+                  "en": "strobe"
+                }
+              },
+              {
+                "id": "sparkles",
+                "label": {
+                  "en": "sparkles"
+                }
+              },
+              {
+                "id": "carnaval",
+                "label": {
+                  "en": "carnaval"
+                }
+              },
+              {
+                "id": "glow",
+                "label": {
+                  "en": "glow"
+                }
+              }
+            ]
+          },
+          {
+            "type": "range",
+            "name": "effect_speed",
+            "title": {
+              "en": "Speed"
+            },
+            "label": "/64",
+            "min": 0,
+            "max": 64,
+            "step": 1
+          },
+          {
+            "type": "color",
+            "name": "effect_color_0"
+          },
+          {
+            "type": "color",
+            "name": "effect_color_1"
+          },
+          {
+            "type": "color",
+            "name": "effect_color_2"
+          },
+          {
+            "type": "color",
+            "name": "effect_color_3"
+          },
+          {
+            "type": "color",
+            "name": "effect_color_4"
+          },
+          {
+            "type": "color",
+            "name": "effect_color_5"
+          },
+          {
+            "type": "color",
+            "name": "effect_color_6"
+          },
+          {
+            "type": "color",
+            "name": "effect_color_7"
+          },
+          {
+            "type": "color",
+            "name": "effect_color_8"
+          }
+        ],
+        "id": "start_effect"
+      }
+    ]
+  },
   "drivers": [
+    {
+      "id": "christmas_lights",
+      "name": {
+        "en": "Christmas Lights"
+      },
+      "class": "light",
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation",
+        "lidl_xmas_mode"
+      ],
+      "images": {
+        "large": "/drivers/christmas_lights/assets/images/large.png",
+        "small": "/drivers/christmas_lights/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_s8gkrkxk"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              6,
+              61184
+            ],
+            "bindings": [
+              6,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/christmas_lights/assets/icon.svg",
+          "instruction": {
+            "en": "Push the F button on the Christmas Lights controller for aprox 5-10 seconds and release, lights should start to flash slowly."
+          }
+        }
+      }
+    },
     {
       "id": "dimmer_1_gang",
       "name": {
@@ -153,7 +389,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TYZB01_v8gtiaed"
+          "_TYZB01_v8gtiaed",
+          "_TZ3000_92chsky7"
         ],
         "productId": [
           "TS110F"
@@ -260,56 +497,6 @@
         },
         "learnmode": {
           "image": "/drivers/doorwindowsensor/assets/learn.svg",
-          "instruction": {
-            "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
-          }
-        }
-      },
-      "settings": []
-    },
-    {
-      "id": "doorwindowsensor2",
-      "name": {
-        "en": "Door & Window Sensor (Lidl)"
-      },
-      "class": "sensor",
-      "capabilities": [
-        "alarm_contact",
-        "alarm_battery",
-        "alarm_tamper"
-      ],
-      "energy": {
-        "batteries": [
-          "AAA",
-          "AAA"
-        ]
-      },
-      "images": {
-        "large": "/drivers/doorwindowsensor2/assets/images/large.png",
-        "small": "/drivers/doorwindowsensor2/assets/images/small.png"
-      },
-      "zigbee": {
-        "manufacturerName": [
-          "_TZ1800_ejwkn2h2"
-        ],
-        "productId": [
-          "TY0203"
-        ],
-        "endpoints": {
-          "1": {
-            "clusters": [
-              0,
-              1,
-              1280
-            ],
-            "bindings": [
-              1,
-              1280
-            ]
-          }
-        },
-        "learnmode": {
-          "image": "/drivers/doorwindowsensor2/assets/icon.svg",
           "instruction": {
             "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
           }
@@ -945,6 +1132,141 @@
       "settings": []
     },
     {
+      "id": "smart_door_window_sensor",
+      "name": {
+        "en": "Smart Door & Window Sensor (Lidl)"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_battery",
+        "alarm_contact",
+        "alarm_battery",
+        "alarm_tamper"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/smart_door_window_sensor/assets/images/large.png",
+        "small": "/drivers/smart_door_window_sensor/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ1800_ejwkn2h2"
+        ],
+        "productId": [
+          "TY0203"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smart_door_window_sensor/assets/icon.svg",
+          "instruction": {
+            "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 5 seconds until the LED blinks rapidly. If the pairing does not start, press the setup button again for 10-15 seconds until the led stops blinking and then try again."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "batteryThreshold",
+          "type": "number",
+          "label": {
+            "en": "Battery Low Alarm Voltage Threshold (%)"
+          },
+          "hint": {
+            "en": "This setting determines the threshold before a battery alarm is given."
+          },
+          "value": 20,
+          "attr": {
+            "step": 1,
+            "min": 1,
+            "max": 99
+          }
+        }
+      ]
+    },
+    {
+      "id": "smart_motion_sensor",
+      "name": {
+        "en": "Smart Motion Sensor (Lidl)"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_battery",
+        "alarm_motion",
+        "alarm_battery",
+        "alarm_tamper"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "images": {
+        "large": "/drivers/smart_motion_sensor/assets/images/large.png",
+        "small": "/drivers/smart_motion_sensor/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ1800_fcdjzz3s"
+        ],
+        "productId": [
+          "TY0202"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "image": "/drivers/smart_motion_sensor/assets/icon.svg",
+            "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 5 seconds until the LED blinks rapidly. If the pairing does not start, press the setup button again for 10-15 seconds until the led stops blinking and then try again."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "batteryThreshold",
+          "type": "number",
+          "label": {
+            "en": "Battery Low Alarm Voltage Threshold (%)"
+          },
+          "hint": {
+            "en": "This setting determines the threshold before a battery alarm is given."
+          },
+          "value": 20,
+          "attr": {
+            "step": 1,
+            "min": 1,
+            "max": 99
+          }
+        }
+      ]
+    },
+    {
       "id": "smartplug",
       "name": {
         "en": "Smart Plug with metering"
@@ -967,9 +1289,11 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_3ooaz3ng",
-          "_TYZB01_iuepbmpv"
+          "_TYZB01_iuepbmpv",
+          "_TZ3000_g5xawfcq"
         ],
         "productId": [
+          "TS0121",
           "TSO121"
         ],
         "endpoints": {
@@ -1837,5 +2161,39 @@
       },
       "settings": []
     }
-  ]
+  ],
+  "capabilities": {
+    "lidl_xmas_mode": {
+      "title": {
+        "en": "Mode"
+      },
+      "getable": true,
+      "setable": true,
+      "type": "enum",
+      "uiComponent": "picker",
+      "values": [
+        {
+          "id": "white",
+          "title": {
+            "en": "White",
+            "nl": "Wit"
+          }
+        },
+        {
+          "id": "color",
+          "title": {
+            "en": "Color",
+            "nl": "Kleur"
+          }
+        },
+        {
+          "id": "effect",
+          "title": {
+            "en": "Effect",
+            "nl": "Effect"
+          }
+        }
+      ]
+    }
+  }
 }
