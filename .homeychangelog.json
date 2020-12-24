@@ -83,7 +83,7 @@
   "0.1.20": {
     "en": "Added support for Lidl Smart Motion Sensor and Lidl Smart Door/Window Sensor (old driver for Lidl Smart Door/Window Sensor removed)"
   },
-  "0.1.21": {
+  "0.1.22": {
     "en": "Fix for Smart Plug with Metering"
   }
 }
