@@ -16,13 +16,19 @@ class smartplug extends ZigBeeDevice {
       this.registerCapability('onoff', CLUSTER.ON_OFF, {
         getOpts: {
           getOnStart: true,
-          pollInterval: 3600,
+      },
+        reportOpts: {
+          configureAttributeReporting: {
+            minInterval: 0,
+            maxInterval: 36000,
+            minChange: 1,
+          },
         },
       });
     }
 
     if (this.hasCapability('measure_power')) {
-      this.registerCapability('measure_power', CLUSTER.METERING, {
+      this.registerCapability('measure_power', CLUSTER.ELECTRICAL_MEASUREMENT, {
         getOpts: {
           getOnStart: true,
         },
