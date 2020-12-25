@@ -85,5 +85,8 @@
   },
   "0.1.22": {
     "en": "Fix for Smart Plug with Metering"
-  }
+  },
+  "0.1.23": {
+    "en": "Fix for Smart Door / Window and Smart Motion Sensors"
+  },
 }
