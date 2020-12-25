@@ -3,13 +3,12 @@
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { debug, CLUSTER } = require('zigbee-clusters');
 
-debug(true);
-
 class smart_door_window_sensor extends ZigBeeDevice {
 		
 	async onNodeInit({zclNode}) {
 
 		this.printNode();
+		debug(true);
 
 		if (this.isFirstInit()){
 			await this.configureAttributeReporting([

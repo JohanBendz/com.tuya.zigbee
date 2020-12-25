@@ -52,6 +52,8 @@ Supported devices:
 - 3 Socket Power Strip
     _TZ3000_1obwwnmq / TS011F (Lidl)
     _TZ3000_vzopcetz / TS011F (Lidl)
+- 4 Socket Power Strip
+    _TYZB01_vkwryfdr / TS0115
 - 1 Gang Switch Module
     _TYZB01_ncutbjdi / TS0003
 - 2 Gang Switch Module
