@@ -12,29 +12,55 @@ class smartplug extends ZigBeeDevice {
 		debug(true);
 		this.printNode();
 
-    if (this.hasCapability('onoff')) {
-      this.registerCapability('onoff', CLUSTER.ON_OFF, {
-        getOpts: {
-          getOnStart: true,
+    this.registerCapability('onoff', CLUSTER.ON_OFF, {
+      get: onOff,
+      getOpts: {
+        getOnStart: true,
+      },
+      endpoint: this.getClusterEndpoint(CLUSTER.ON_OFF),
+      report: onOff,
+      reportOpts: {
+        configureAttributeReporting: {
+          minInterval: 0,
+          maxInterval: 300,
+          minChange: 1,
         },
-        endpointId: this.getClusterEndpoint(CLUSTER.ON_OFF),
-        reportOpts: {
-          configureAttributeReporting: {
-            minInterval: 0,
-            maxInterval: 36000,
-            minChange: 1,
-          },
-        },
-      });
-    }
+      },
+    });
 
-    if (this.hasCapability('measure_power')) {
-      this.registerCapability('meter_power', CLUSTER.METERING, {
-        getOpts: {
-          getOnStart: true,
+    this.registerCapability('meter_power', CLUSTER.METERING, {
+      get: 'currentSummationDelivered',
+      getOpts: {
+        getOnStart: true,
+      },
+      endpoint: this.getClusterEndpoint(CLUSTER.METERING),
+      report: 'currentSummationDelivered',
+      reportOpts: {
+        configureAttributeReporting: {
+          minInterval: 0,
+          maxInterval: 600,
+          minChange: 1,
         },
-        endpointId: this.getClusterEndpoint(CLUSTER.METERING),
-      });
+      },
+    });
+
+    this.registerCapability('measure_power', CLUSTER.METERING, {
+      get: 'instantaneousDemand',
+      getOpts: {
+        getOnStart: true,
+      },
+      endpoint: this.getClusterEndpoint(CLUSTER.METERING),
+      report: 'instantaneousDemand',
+      reportOpts: {
+        configureAttributeReporting: {
+          minInterval: 0,
+          maxInterval: 600,
+          minChange: 1,
+        },
+      },
+    });
+
+/*     if (this.isFirstInit()){
       await this.configureAttributeReporting([
         {
           endpointId: this.getClusterEndpoint(CLUSTER.METERING),
@@ -44,17 +70,6 @@ class smartplug extends ZigBeeDevice {
           maxInterval: 600,
           minChange: 1,
         },
-      ]);
-    }
-
-    if (this.hasCapability('meter_power')) {
-      this.registerCapability('meter_power', CLUSTER.METERING, {
-        getOpts: {
-          getOnStart: true,
-        },
-        endpointId: this.getClusterEndpoint(CLUSTER.METERING),
-      });
-      await this.configureAttributeReporting([
         {
           endpointId: this.getClusterEndpoint(CLUSTER.METERING),
           cluster: CLUSTER.METERING,
@@ -64,8 +79,8 @@ class smartplug extends ZigBeeDevice {
           minChange: 1,
         },
       ]);
-    }
-
+    } */
+    
   }
 
 	onDeleted(){

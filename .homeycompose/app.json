@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.1.23",
+  "version": "0.1.24",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -21,6 +21,7 @@
       "Lonsonho",
       "Nedis",
       "Neo",
+      "Ejlink",
       "Lidl",
       "Silvercrest",
       "Zigbee",
