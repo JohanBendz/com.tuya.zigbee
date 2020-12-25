@@ -10,23 +10,25 @@ class smart_motion_sensor extends ZigBeeDevice {
 		this.printNode();
 		debug(true);
 
-		await this.configureAttributeReporting([
-			{
-				endpointId: 1,
-				cluster: CLUSTER.IAS_ZONE,
-				attributeName: 'zoneStatus',
-				minInterval: 65535,
-				maxInterval: 0,
-				minChange: 1,
-			},{
-				endpointId: 1,
-				cluster: CLUSTER.POWER_CONFIGURATION,
-				attributeName: 'batteryPercentageRemaining',
-				minInterval: 65535,
-				maxInterval: 0,
-				minChange: 1,
-			}
-		]);
+		if (this.isFirstInit()){
+			await this.configureAttributeReporting([
+				{
+					endpointId: 1,
+					cluster: CLUSTER.IAS_ZONE,
+					attributeName: 'zoneStatus',
+					minInterval: 65535,
+					maxInterval: 0,
+					minChange: 1,
+				},{
+					endpointId: 1,
+					cluster: CLUSTER.POWER_CONFIGURATION,
+					attributeName: 'batteryPercentageRemaining',
+					minInterval: 65535,
+					maxInterval: 0,
+					minChange: 1,
+				}
+			]);
+		}
 
 		// alarm_motion & alarm_tamper
 		zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME]
