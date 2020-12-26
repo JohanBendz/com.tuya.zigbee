@@ -18,7 +18,7 @@ class smartplug extends ZigBeeDevice {
         getOnStart: true,
       },
       endpoint: this.getClusterEndpoint(CLUSTER.ON_OFF),
-      report: onOff,
+      report: 'onOff',
       reportOpts: {
         configureAttributeReporting: {
           minInterval: 0,
@@ -90,3 +90,4 @@ class smartplug extends ZigBeeDevice {
 }
 
 module.exports = smartplug;
+

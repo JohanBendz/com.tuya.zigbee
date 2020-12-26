@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.24",
+  "version": "0.1.25",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -22,6 +22,7 @@
       "Lonsonho",
       "Nedis",
       "Neo",
+      "Ejlink",
       "Lidl",
       "Silvercrest",
       "Zigbee",
@@ -1306,7 +1307,8 @@
               1794
             ],
             "bindings": [
-              6
+              6,
+              1794
             ]
           }
         },
@@ -1400,6 +1402,129 @@
             ],
             "name": {
               "en": "Power Strip Socket 3"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "A tile for each socket will be created. Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "socket_power_strip_four",
+      "name": {
+        "en": "Power Strip Socket 1/4"
+      },
+      "class": "socket",
+      "capabilities": [
+        "onoff"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/socket_power_strip_four/assets/images/large.png",
+        "small": "/drivers/socket_power_strip_four/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TYZB01_vkwryfdr"
+        ],
+        "productId": [
+          "TS0115"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "4": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "socket2": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "Power Strip Socket 2/4"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "socket3": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "Power Strip Socket 3/4"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "socket4": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "Power Strip Socket 4/4"
             },
             "energy": {
               "approximation": {
@@ -1962,10 +2087,12 @@
       "zigbee": {
         "manufacturerName": [
           "_TYZB01_xfpdrwvc",
-          "_TZ3000_9hpxg80k"
+          "_TZ3000_9hpxg80k",
+          "_TZ3000_f8tmviy0"
         ],
         "productId": [
-          "TS0011"
+          "TS0011",
+          "TS0001"
         ],
         "endpoints": {
           "1": {
