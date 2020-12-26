@@ -13,7 +13,7 @@ class smartplug extends ZigBeeDevice {
 		this.printNode();
 
     this.registerCapability('onoff', CLUSTER.ON_OFF, {
-      get: onOff,
+      get: 'onOff',
       getOpts: {
         getOnStart: true,
       },

@@ -91,5 +91,8 @@
   },
   "0.1.24": {
     "en": "Added support for 4 Socket Power Strip and added product ID's to some devices (and some changes to Smart Plug)"
+  },
+  "0.1.26": {
+    "en": "Typo correction"
   }
 }
