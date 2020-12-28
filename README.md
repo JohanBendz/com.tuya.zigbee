@@ -44,9 +44,10 @@ Supported devices:
 - Smart Door/Windows Sensor
     _TZ1800_ejwkn2h2 / TY0203 (Lidl)
 - Smart Plug, with metering
-    _TZ3000_3ooaz3ng / TSO021
-    _TYZB01_iuepbmpv / TSO021
-    _TZ3000_g5xawfcq / TSO121
+    _TZ3000_3ooaz3ng / TS0121
+    _TYZB01_iuepbmpv / TS0121
+    _TZ3000_g5xawfcq / TS0121
+    _TZ3000_vtscrpmw / TS0121
 - Smart Plug, without metering
     _TZ3000_kdi2o9m6 / TS011F (Lidl)
 - 3 Socket Power Strip

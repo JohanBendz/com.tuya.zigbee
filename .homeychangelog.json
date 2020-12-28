@@ -96,6 +96,6 @@
     "en": "Typo correction"
   },
   "0.1.27": {
-    "en": "Extended use of Composer templates"
+    "en": "Extended use of Composer templates. Fix for Smart Plug with metering"
   }
 }
