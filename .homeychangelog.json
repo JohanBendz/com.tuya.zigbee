@@ -94,5 +94,8 @@
   },
   "0.1.26": {
     "en": "Typo correction"
+  },
+  "0.1.27": {
+    "en": "Extended use of Composer templates"
   }
 }
