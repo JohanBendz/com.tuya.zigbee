@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.26",
+  "version": "0.1.27",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -87,6 +87,9 @@
         "title": {
           "en": "Start effect"
         },
+        "hint": {
+          "en": "Choose a light pattern and a speed for it. You can also choose what colors the pattern should have, this is not mandatory."
+        },
         "args": [
           {
             "name": "christmas_lights_device",
@@ -103,97 +106,97 @@
               {
                 "id": "steady",
                 "label": {
-                  "en": "steady"
+                  "en": "Steady"
                 }
               },
               {
                 "id": "snow",
                 "label": {
-                  "en": "snow"
+                  "en": "Snow"
                 }
               },
               {
                 "id": "rainbow",
                 "label": {
-                  "en": "rainbow"
+                  "en": "Rainbow"
                 }
               },
               {
                 "id": "snake",
                 "label": {
-                  "en": "snake"
+                  "en": "Snake"
                 }
               },
               {
                 "id": "twinkle",
                 "label": {
-                  "en": "twinkle"
+                  "en": "Twinkle"
                 }
               },
               {
                 "id": "firework",
                 "label": {
-                  "en": "firework"
+                  "en": "Firework"
                 }
               },
               {
                 "id": "horizontal_flag",
                 "label": {
-                  "en": "horizontal_flag"
+                  "en": "Horizontal Flag"
                 }
               },
               {
                 "id": "waves",
                 "label": {
-                  "en": "waves"
+                  "en": "Waves"
                 }
               },
               {
                 "id": "updown",
                 "label": {
-                  "en": "updown"
+                  "en": "Up and Down"
                 }
               },
               {
                 "id": "vintage",
                 "label": {
-                  "en": "vintage"
+                  "en": "Vintage"
                 }
               },
               {
                 "id": "fading",
                 "label": {
-                  "en": "fading"
+                  "en": "Fading"
                 }
               },
               {
                 "id": "collide",
                 "label": {
-                  "en": "collide"
+                  "en": "Collide"
                 }
               },
               {
                 "id": "strobe",
                 "label": {
-                  "en": "strobe"
+                  "en": "Strobe"
                 }
               },
               {
                 "id": "sparkles",
                 "label": {
-                  "en": "sparkles"
+                  "en": "Sparkles"
                 }
               },
               {
                 "id": "carnaval",
                 "label": {
-                  "en": "carnaval"
+                  "en": "Carnaval"
                 }
               },
               {
                 "id": "glow",
                 "label": {
-                  "en": "glow"
+                  "en": "Glow"
                 }
               }
             ]
@@ -1242,8 +1245,8 @@
           }
         },
         "learnmode": {
+          "image": "/drivers/smart_motion_sensor/assets/icon.svg",
           "instruction": {
-            "image": "/drivers/smart_motion_sensor/assets/icon.svg",
             "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 5 seconds until the LED blinks rapidly. If the pairing does not start, press the setup button again for 10-15 seconds until the led stops blinking and then try again."
           }
         }

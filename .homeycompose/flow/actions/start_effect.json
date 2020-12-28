@@ -2,6 +2,9 @@
     "title": {
     "en": "Start effect"
     },
+    "hint": {
+        "en": "Choose a light pattern and a speed for it. You can also choose what colors the pattern should have, this is not mandatory."
+    },
     "args": [
     {
         "name": "christmas_lights_device",
@@ -11,26 +14,24 @@
     {
         "type": "dropdown",
         "name": "effect_name",
-        "title": {
-        "en": "Effect"
-        },
+        "title": {"en": "Effect"},
         "values": [
-            {"id": "steady","label": {"en": "steady"}},
-            {"id": "snow","label": {"en": "snow"}},
-            {"id": "rainbow","label": {"en": "rainbow"}},
-            {"id": "snake","label": {"en": "snake"}},
-            {"id": "twinkle","label": {"en": "twinkle"}},
-            {"id": "firework","label": {"en": "firework"}},
-            {"id": "horizontal_flag","label": {"en": "horizontal_flag"}},
-            {"id": "waves","label": {"en": "waves"}},
-            {"id": "updown","label": {"en": "updown"}},
-            {"id": "vintage","label": {"en": "vintage"}},
-            {"id": "fading","label": {"en": "fading"}},
-            {"id": "collide","label": {"en": "collide"}},
-            {"id": "strobe","label": {"en": "strobe"}},
-            {"id": "sparkles","label": {"en": "sparkles"}},
-            {"id": "carnaval","label": {"en": "carnaval"}},
-            {"id": "glow","label": {"en": "glow"}}
+            {"id": "steady","label": {"en": "Steady"}},
+            {"id": "snow","label": {"en": "Snow"}},
+            {"id": "rainbow","label": {"en": "Rainbow"}},
+            {"id": "snake","label": {"en": "Snake"}},
+            {"id": "twinkle","label": {"en": "Twinkle"}},
+            {"id": "firework","label": {"en": "Firework"}},
+            {"id": "horizontal_flag","label": {"en": "Horizontal Flag"}},
+            {"id": "waves","label": {"en": "Waves"}},
+            {"id": "updown","label": {"en": "Up and Down"}},
+            {"id": "vintage","label": {"en": "Vintage"}},
+            {"id": "fading","label": {"en": "Fading"}},
+            {"id": "collide","label": {"en": "Collide"}},
+            {"id": "strobe","label": {"en": "Strobe"}},
+            {"id": "sparkles","label": {"en": "Sparkles"}},
+            {"id": "carnaval","label": {"en": "Carnaval"}},
+            {"id": "glow","label": {"en": "Glow"}}
         ]
     },
     {

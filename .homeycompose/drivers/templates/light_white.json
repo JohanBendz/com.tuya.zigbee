@@ -1,0 +1,27 @@
+{
+    "class": "light",
+    "capabilities": [
+    "onoff",
+    "dim",
+    "light_temperature"
+    ],
+    "capabilitiesOptions": {
+    "dim": {
+        "opts": {
+        "duration": true
+        }
+    },
+    "light_temperature": {
+        "opts": {
+        "duration": true
+        }
+    },
+    "onoff": {
+        "setOnDim": false
+        }
+    },
+    "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+    }
+}
