@@ -745,10 +745,6 @@
       "settings": []
     },
     {
-      "id": "rgb_bulb_E14",
-      "name": {
-        "en": "RGB Bulb E14"
-      },
       "class": "light",
       "capabilities": [
         "onoff",
@@ -780,6 +776,10 @@
       "images": {
         "large": "/drivers/rgb_bulb_E14/assets/images/large.png",
         "small": "/drivers/rgb_bulb_E14/assets/images/small.png"
+      },
+      "id": "rgb_bulb_E14",
+      "name": {
+        "en": "RGB Bulb E14"
       },
       "energy": {
         "approximation": {
@@ -822,10 +822,6 @@
       "settings": []
     },
     {
-      "id": "rgb_bulb_E27",
-      "name": {
-        "en": "RGB Bulb E27"
-      },
       "class": "light",
       "capabilities": [
         "onoff",
@@ -857,6 +853,10 @@
       "images": {
         "large": "/drivers/rgb_bulb_E27/assets/images/large.png",
         "small": "/drivers/rgb_bulb_E27/assets/images/small.png"
+      },
+      "id": "rgb_bulb_E27",
+      "name": {
+        "en": "RGB Bulb E27"
       },
       "energy": {
         "approximation": {
@@ -899,17 +899,12 @@
       "settings": []
     },
     {
-      "id": "rgb_led_strip",
-      "name": {
-        "en": "RGB LED Strip"
-      },
       "class": "light",
       "capabilities": [
         "onoff",
         "dim",
         "light_hue",
         "light_saturation",
-        "light_temperature",
         "light_mode"
       ],
       "capabilitiesOptions": {
@@ -928,11 +923,6 @@
             "duration": true
           }
         },
-        "light_temperature": {
-          "opts": {
-            "duration": true
-          }
-        },
         "onoff": {
           "setOnDim": false
         }
@@ -940,6 +930,10 @@
       "images": {
         "large": "/drivers/rgb_led_strip/assets/images/large.png",
         "small": "/drivers/rgb_led_strip/assets/images/small.png"
+      },
+      "id": "rgb_led_strip",
+      "name": {
+        "en": "RGB LED Strip"
       },
       "energy": {
         "approximation": {
@@ -1059,10 +1053,6 @@
       "settings": []
     },
     {
-      "id": "rgb_spot_GU10",
-      "name": {
-        "en": "RGB Spot GU10"
-      },
       "class": "light",
       "capabilities": [
         "onoff",
@@ -1094,6 +1084,10 @@
       "images": {
         "large": "/drivers/rgb_spot_GU10/assets/images/large.png",
         "small": "/drivers/rgb_spot_GU10/assets/images/small.png"
+      },
+      "id": "rgb_spot_GU10",
+      "name": {
+        "en": "RGB Spot GU10"
       },
       "energy": {
         "approximation": {
@@ -1294,7 +1288,8 @@
         "manufacturerName": [
           "_TZ3000_3ooaz3ng",
           "_TYZB01_iuepbmpv",
-          "_TZ3000_g5xawfcq"
+          "_TZ3000_g5xawfcq",
+          "_TZ3000_vtscrpmw"
         ],
         "productId": [
           "TS0121",
@@ -1810,10 +1805,6 @@
       ]
     },
     {
-      "id": "tunable_bulb_E14",
-      "name": {
-        "en": "Tunable Bulb E14"
-      },
       "class": "light",
       "capabilities": [
         "onoff",
@@ -1838,6 +1829,10 @@
       "images": {
         "large": "/drivers/tunable_bulb_E14/assets/images/large.png",
         "small": "/drivers/tunable_bulb_E14/assets/images/small.png"
+      },
+      "id": "tunable_bulb_E14",
+      "name": {
+        "en": "Tunable Bulb E14"
       },
       "energy": {
         "approximation": {
@@ -1880,10 +1875,6 @@
       "settings": []
     },
     {
-      "id": "tunable_bulb_E27",
-      "name": {
-        "en": "Tunable Bulb E27"
-      },
       "class": "light",
       "capabilities": [
         "onoff",
@@ -1908,6 +1899,10 @@
       "images": {
         "large": "/drivers/tunable_bulb_E27/assets/images/large.png",
         "small": "/drivers/tunable_bulb_E27/assets/images/small.png"
+      },
+      "id": "tunable_bulb_E27",
+      "name": {
+        "en": "Tunable Bulb E27"
       },
       "energy": {
         "approximation": {
@@ -1950,10 +1945,6 @@
       "settings": []
     },
     {
-      "id": "tunable_spot_GU10",
-      "name": {
-        "en": "Tunable Spot GU10"
-      },
       "class": "light",
       "capabilities": [
         "onoff",
@@ -1978,6 +1969,10 @@
       "images": {
         "large": "/drivers/tunable_spot_GU10/assets/images/large.png",
         "small": "/drivers/tunable_spot_GU10/assets/images/small.png"
+      },
+      "id": "tunable_spot_GU10",
+      "name": {
+        "en": "Tunable Spot GU10"
       },
       "energy": {
         "approximation": {
