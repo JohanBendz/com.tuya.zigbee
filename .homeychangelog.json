@@ -97,5 +97,8 @@
   },
   "0.1.27": {
     "en": "Extended use of Composer templates. Fix for Smart Plug with metering"
+  },
+  "0.1.28": {
+    "en": "Fix for Smart Plug with metering"
   }
 }

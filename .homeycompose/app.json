@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.1.27",
+  "version": "0.1.28",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
