@@ -57,6 +57,7 @@ Supported devices:
     _TYZB01_vkwryfdr / TS0115
 - 1 Gang Switch Module
     _TYZB01_ncutbjdi / TS0003
+    _TYZB01_aneiicmq / TS0003
 - 2 Gang Switch Module
     _TYZB01_zsl6z0pw / TS0003
     _TZ3000_4js9lo5d / TS0012
