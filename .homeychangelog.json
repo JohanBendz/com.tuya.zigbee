@@ -100,5 +100,8 @@
   },
   "0.1.28": {
     "en": "Fix for Smart Plug with metering"
+  },
+  "0.1.29": {
+    "en": "Added support for BlitzWolf Smart Light Switch Module 1 Gang"
   }
 }
