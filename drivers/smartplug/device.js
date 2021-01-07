@@ -1,61 +1,40 @@
 'use strict';
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
-const { debug, CLUSTER } = require('zigbee-clusters');
+const { CLUSTER } = require('zigbee-clusters');
 
 class smartplug extends ZigBeeDevice {
 		
 	async onNodeInit({zclNode}) {
 
-		debug(true);
-		this.printNode();
+    this.enableDebug();
+    this.printNode();
 
+    // onOff
     this.registerCapability('onoff', CLUSTER.ON_OFF, {
-      get: 'onOff',
       getOpts: {
         getOnStart: true,
-      },
-      endpoint: this.getClusterEndpoint(CLUSTER.ON_OFF),
-      report: 'onOff',
-      reportOpts: {
-        configureAttributeReporting: {
-          minInterval: 0,
-          maxInterval: 300,
-          minChange: 1,
-        },
-      },
+        pollInterval: 15000,
+				getOnOnline: true,
+	    }
     });
 
+    // meter_power
     this.registerCapability('meter_power', CLUSTER.METERING, {
-      get: 'currentSummationDelivered',
       getOpts: {
         getOnStart: true,
-      },
-      endpoint: this.getClusterEndpoint(CLUSTER.METERING),
-      report: 'currentSummationDelivered',
-      reportOpts: {
-        configureAttributeReporting: {
-          minInterval: 0,
-          maxInterval: 600,
-          minChange: 1,
-        },
-      },
+        pollInterval: 15000,
+				getOnOnline: true,
+	    }
     });
 
+    // measure_power
     this.registerCapability('measure_power', CLUSTER.ELECTRICAL_MEASUREMENT, {
-      get: 'activePower',
       getOpts: {
         getOnStart: true,
-      },
-      endpoint: this.getClusterEndpoint(CLUSTER.ELECTRICAL_MEASUREMENT),
-      report: 'activePower',
-      reportOpts: {
-        configureAttributeReporting: {
-          minInterval: 0,
-          maxInterval: 300,
-          minChange: 1,
-        },
-      },
+        pollInterval: 15000,
+				getOnOnline: true,
+	    }
     });
     
   }

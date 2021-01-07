@@ -103,5 +103,11 @@
   },
   "0.1.29": {
     "en": "Added support for BlitzWolf Smart Light Switch Module 1 Gang"
+  },
+  "0.1.31": {
+    "en": "Troubleshooting Smart Plug with metering"
+  },
+  "0.1.32": {
+    "en": "Test Device - Wall Remote 3 Gang"
   }
 }
