@@ -10,8 +10,8 @@ class smartplug extends ZigBeeDevice {
     this.enableDebug();
     this.printNode();
 
-    const meteringOffset = getSetting('metering_offset');
-    const measureOffset = getSetting('measure_offset') * 100;
+    const meteringOffset = this.getSetting('metering_offset');
+    const measureOffset = this.getSetting('measure_offset') * 100;
 
     // onOff
     this.registerCapability('onoff', CLUSTER.ON_OFF, {
