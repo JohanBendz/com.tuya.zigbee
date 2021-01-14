@@ -10,6 +10,9 @@ class smartplug extends ZigBeeDevice {
     this.enableDebug();
     this.printNode();
 
+    const meteringOffset = getSetting('metering_offset');
+    const measureOffset = getSetting('measure_offset') * 100;
+
     // onOff
     this.registerCapability('onoff', CLUSTER.ON_OFF, {
       getOpts: {
@@ -19,8 +22,30 @@ class smartplug extends ZigBeeDevice {
 	    }
     });
 
+    // Catch Power Factors - if those exists
+    if (typeof this.activePowerFactor !== 'number') {
+      const { acPowerMultiplier, acPowerDivisor } = await zclNode.endpoints[
+        this.getClusterEndpoint(CLUSTER.ELECTRICAL_MEASUREMENT)
+      ]
+      .clusters[CLUSTER.ELECTRICAL_MEASUREMENT.NAME]
+      .readAttributes('acPowerMultiplier', 'acPowerDivisor');
+      this.activePowerFactor = acPowerMultiplier / acPowerDivisor;
+      this.log("Active Power Factor: ", this.meteringFactor);
+    }
+    if (typeof this.meteringFactor !== 'number') {
+      const { multiplier, divisor } = await zclNode.endpoints[
+        this.getClusterEndpoint(CLUSTER.METERING)
+      ]
+      .clusters[CLUSTER.METERING.NAME]
+      .readAttributes('multiplier', 'divisor');
+      this.meteringFactor = multiplier / divisor;
+      this.log("Metering Factor: ", this.meteringFactor);
+    }
+
     // meter_power
     this.registerCapability('meter_power', CLUSTER.METERING, {
+      reportParser: value => value * meteringOffset,
+      getParser: value => value * meteringOffset,
       getOpts: {
         getOnStart: true,
         pollInterval: 15000,
@@ -30,12 +55,24 @@ class smartplug extends ZigBeeDevice {
 
     // measure_power
     this.registerCapability('measure_power', CLUSTER.ELECTRICAL_MEASUREMENT, {
+      reportParser: value => value / measureOffset,
+      getParser: value => value / measureOffset,
       getOpts: {
         getOnStart: true,
         pollInterval: 15000,
 				getOnOnline: true,
 	    }
     });
+
+    // button.reset_meter
+    if (!this.hasCapability('button.reset_meter')) await this.addCapability('button.reset_meter');
+    if (this.hasCapability('button.reset_meter')) {
+      this.registerCapabilityListener('button.reset_meter', async () => {
+        if (typeof this.meterReset === 'function') return this.meterReset();
+        this.error('Reset meter failed');
+        throw new Error('Reset meter not supported');
+      });
+    }
     
   }
 

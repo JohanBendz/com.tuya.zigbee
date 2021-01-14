@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.32",
+  "version": "0.1.34",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -480,7 +480,8 @@
           "TUYATEC-rkqiqvcs",
           "TUYATEC-crr8qb0p",
           "_TZ3000_ebar6ljy",
-          "TUYATEC-kbqf60nt"
+          "TUYATEC-kbqf60nt",
+          "TUYATEC-r9hgssol"
         ],
         "productId": [
           "RH3001",
@@ -1020,7 +1021,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_obacbukl"
+          "_TZ3000_obacbukl",
+          "_TZ3000_dl4pxp1r"
         ],
         "productId": [
           "TS0503A"
@@ -1273,11 +1275,21 @@
       "capabilities": [
         "onoff",
         "measure_power",
-        "meter_power"
+        "meter_power",
+        "button.reset_meter"
       ],
       "capabilitiesOptions": {
         "measure_power": {
           "approximated": true
+        },
+        "button.reset_meter": {
+          "maintenanceAction": true,
+          "title": {
+            "en": "Reset power meter"
+          },
+          "desc": {
+            "en": "Reset the accumulated power usage (kWh), note that this can not be reversed."
+          }
         }
       },
       "images": {
@@ -1318,7 +1330,40 @@
           }
         }
       },
-      "settings": []
+      "settings": [
+        {
+          "id": "metering_offset",
+          "type": "number",
+          "label": {
+            "en": "Metering Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "measure_offset",
+          "type": "number",
+          "label": {
+            "en": "Measure Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        }
+      ]
     },
     {
       "id": "socket_power_strip",
