@@ -7,12 +7,22 @@
   "capabilities": [
     "onoff",
     "measure_power",
-    "meter_power"
+    "meter_power",
+    "button.reset_meter"
   ],
   "capabilitiesOptions": {
     "measure_power": {
       "approximated": true
-    }
+    },
+    "button.reset_meter": { 
+      "maintenanceAction": true,
+      "title": { 
+         "en": "Reset power meter"
+      },
+      "desc": { 
+         "en": "Reset the accumulated power usage (kWh), note that this can not be reversed."
+      }
+   }
   },
   "images": {
     "large": "{{driverAssetsPath}}/images/large.png",

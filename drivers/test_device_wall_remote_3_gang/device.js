@@ -11,10 +11,7 @@ class test_device_wall_remote_3_gang extends ZigBeeDevice {
         this.enableDebug();
         this.printNode();
 
-        const node = await this.homey.zigbee.getNode(this);
-        node.handleFrame = (endpointId, clusterId, frame, meta) => {
-          this.log("frame data! endpointId:", endpointId,", clusterId:", clusterId,", frame:", frame, ", meta:", meta);
-        };
+        await super.onNodeInit({zclNode});
 
         zclNode.endpoints[1].bind(CLUSTER.ON_OFF.NAME, new OnOffBoundCluster({
             onSetOn: this.log("Left button pressed On"),
