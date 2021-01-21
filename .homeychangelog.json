@@ -113,7 +113,10 @@
   "0.1.34": {
     "en": "Fix for Christmas Lights firework effect. Fix for Smart Plug. Added some Device ID's."
   },
-  "0.1.36": {
+  "0.1.37": {
     "en": "Fix for Smart Plug."
+  },
+  "0.1.38": {
+    "en": "Support for Curtain Switch Module and additional PIR Sensor."
   }
 }

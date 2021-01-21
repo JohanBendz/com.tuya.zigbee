@@ -44,19 +44,19 @@ class smartplug extends ZigBeeDevice {
 
     // meter_power
     this.registerCapability('meter_power', CLUSTER.METERING, {
-      reportParser: value => value / meteringOffset,
-      getParser: value => value / meteringOffset,
+      reportParser: value => (value * meteringOffset)/100,
+      getParser: value => (value * meteringOffset)/100,
       getOpts: {
         getOnStart: true,
-        pollInterval: 15000,
+        pollInterval: 60000,
 				getOnOnline: true,
 	    }
     });
 
     // measure_power
     this.registerCapability('measure_power', CLUSTER.ELECTRICAL_MEASUREMENT, {
-      reportParser: value => value * measureOffset,
-      getParser: value => value * measureOffset,
+      reportParser: value => (value * measureOffset)/100,
+      getParser: value => (value * measureOffset)/100,
       getOpts: {
         getOnStart: true,
         pollInterval: 15000,
