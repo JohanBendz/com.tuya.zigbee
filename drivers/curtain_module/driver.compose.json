@@ -1,11 +1,11 @@
 {
-    "id": "switch_1_gang",
+    "id": "curtainmodule",
     "name": {
-      "en": "1 Gang Switch Module"
+      "en": "Curtain Module"
     },
-    "class": "light",
+    "class": "curtain",
     "capabilities": [
-      "onoff"
+      "windowcoverings_set"
     ],
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",
@@ -19,18 +19,15 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TYZB01_ncutbjdi",
-        "_TYZB01_aneiicmq",
-        "_TZ3000_zmy1waw6"
+        "_TZ3000_vd43bbfq"
       ],
       "productId": [
-        "TS0003",
-        "TS011F"
+        "TS130F"
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 4, 5, 6],
-          "bindings": [6]
+          "clusters": [0, 4, 5, 258],
+          "bindings": [258]
         }
       },
       "learnmode": {
@@ -40,4 +37,5 @@
         }
       }
     }
+
 }
