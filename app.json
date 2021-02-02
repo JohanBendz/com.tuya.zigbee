@@ -1249,6 +1249,89 @@
       "settings": []
     },
     {
+      "class": "light",
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation",
+        "light_temperature",
+        "light_mode"
+      ],
+      "capabilitiesOptions": {
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "light_hue": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "light_saturation": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "light_temperature": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "images": {
+        "large": "/drivers/rgb_spot_GardenLight/assets/images/large.png",
+        "small": "/drivers/rgb_spot_GardenLight/assets/images/small.png"
+      },
+      "id": "rgb_spot_GardenLight",
+      "name": {
+        "en": "RGB Spot Garden light"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 8,
+          "usageOff": 1
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_h1jnz6l8"
+        ],
+        "productId": [
+          "TS0505A"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8,
+              768
+            ],
+            "bindings": [
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/rgb_spot_GardenLight/assets/icon.svg",
+          "instruction": {
+            "en": "Power on to enter pairing mode."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "smart_door_window_sensor",
       "name": {
         "en": "Smart Door & Window Sensor (Lidl)"

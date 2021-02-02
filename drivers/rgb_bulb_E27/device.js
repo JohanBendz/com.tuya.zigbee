@@ -1,8 +1,8 @@
 'use strict';
 
-const { ZigBeeLightDevice } = require('homey-zigbeedriver');
+const TuyaZigBeeLightDevice = require('../../lib/TuyaZigBeeLightDevice');
 
-class rgb_bulb_E27 extends ZigBeeLightDevice {
+class rgb_bulb_E27 extends TuyaZigBeeLightDevice {
 
 /*     async onNodeInit({zclNode}) {
 

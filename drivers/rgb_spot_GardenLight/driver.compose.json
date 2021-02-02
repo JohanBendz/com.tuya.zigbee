@@ -1,7 +1,7 @@
 {
-  "id": "rgb_bulb_E14",
+  "id": "rgb_spot_GardenLight",
   "name": {
-    "en": "RGB Bulb E14"
+    "en": "RGB Spot Garden light"
   },
   "$extends": [ "light_color" ],
   "capabilities": [
@@ -14,13 +14,13 @@
   ],
   "energy": {
     "approximation": {
-      "usageOn": 7,
+      "usageOn": 8,
       "usageOff": 1
     }
   },
   "zigbee": {
     "manufacturerName": [
-      "_TZ3000_odygigth"
+      "_TZ3000_h1jnz6l8"
     ],
     "productId": [
       "TS0505A"
