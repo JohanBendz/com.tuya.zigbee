@@ -1,57 +1,8 @@
 'use strict';
 
-const { ZigBeeLightDevice } = require('homey-zigbeedriver');
-// const { ZCLNode, Cluster, debug, CLUSTER } = require('zigbee-clusters');
+const TuyaZigBeeLightDevice = require('../../lib/TuyaZigBeeLightDevice');
 
-class rgb_led_strip extends ZigBeeLightDevice {
-
-/*     async onNodeInit({ zclNode }) {
-        
-        await super.onNodeInit({zclNode});
-
-        this.enableDebug();
-        debug(true);
-        this.printNode();
-
-        this.registerCapability('onoff', CLUSTER.ON_OFF);
-        this.registerCapability('dim', CLUSTER.LEVEL_CONTROL);
-        this.registerCapability('light_hue', CLUSTER.COLOR_CONTROL);
-        this.registerCapability('light_saturation', CLUSTER.COLOR_CONTROL);
-        this.registerCapability('light_temperature', CLUSTER.COLOR_CONTROL);
-        this.registerCapability('light_mode', CLUSTER.COLOR_CONTROL);
-        // this.registerCapability('color_mode', mode);
-
-        // Handler for switching modes
-        this.registerCapabilityListener('color_mode', async (mode) => {
-            // Actually switch modes
-            const valMap = {white: 0, temperature: 1, color: 2};
-            // Then call methods to also set last chosen dim level or color
-            switch (mode) {
-                case 'color':
-                    return this.setColor(this);
-                case 'white':
-                    return this.setWhite(this);
-                case 'temperature':
-                    return this.setTemperature(this);
-            }
-        });
-
-    }
-
-    async setColor(){
-        await this.setCapabilityValue('light_mode', 'color');
-        await this.zclNode.endpoints[1].clusters.colorControl.writeAttributes({colorMode: 'currentXAndCurrentY'});
-    }
-    async setWhite(){
-        await this.setCapabilityValue('light_mode', 'temperature');
-        await this.zclNode.endpoints[1].clusters.colorControl.writeAttributes({colorMode: 'colorTemperatureMireds'});
-    }
-    async setTemperature(){
-        await this.setCapabilityValue('light_mode', 'temperature');
-        await this.zclNode.endpoints[1].clusters.colorControl.writeAttributes({colorMode: 'currentXAndCurrentY'});
-    } */
-
-}
+class rgb_led_strip extends TuyaZigBeeLightDevice {}
 
 module.exports = rgb_led_strip;
 

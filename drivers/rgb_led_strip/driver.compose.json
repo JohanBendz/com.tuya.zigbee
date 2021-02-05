@@ -3,7 +3,7 @@
   "name": {
     "en": "RGB LED Strip"
   },
-  "$extends": ["light_color"],
+  "$extends": ["light_color_ambiance"],
   "energy": {
     "approximation": {
       "usageOn": 0,

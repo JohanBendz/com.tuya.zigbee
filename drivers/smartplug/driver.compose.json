@@ -7,22 +7,12 @@
   "capabilities": [
     "onoff",
     "measure_power",
-    "meter_power",
-    "button.reset_meter"
+    "meter_power"
   ],
   "capabilitiesOptions": {
     "measure_power": {
       "approximated": true
-    },
-    "button.reset_meter": { 
-      "maintenanceAction": true,
-      "title": { 
-         "en": "Reset power meter"
-      },
-      "desc": { 
-         "en": "Reset the accumulated power usage (kWh), note that this can not be reversed."
-      }
-   }
+    }
   },
   "images": {
     "large": "{{driverAssetsPath}}/images/large.png",
@@ -33,7 +23,8 @@
       "_TZ3000_3ooaz3ng",
       "_TYZB01_iuepbmpv",
       "_TZ3000_g5xawfcq",
-      "_TZ3000_vtscrpmw"
+      "_TZ3000_vtscrpmw",
+      "_TZ3000_rdtixbnu"
     ],
     "productId": [
       "TS0121",

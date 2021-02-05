@@ -1,26 +1,26 @@
 {
-  "id": "rgb_spot_GU10",
+  "id": "rgb_spot_GardenLight",
   "name": {
-    "en": "RGB Spot GU10"
+    "en": "RGB Spot Garden light"
   },
-  "$extends": ["light_color_ambiance"],
+  "$extends": [ "light_color_ambiance" ],
   "energy": {
     "approximation": {
-      "usageOn": 5,
+      "usageOn": 8,
       "usageOff": 1
     }
   },
   "zigbee": {
     "manufacturerName": [
-      "_TZ3000_kdpxju99"
+      "_TZ3000_h1jnz6l8"
     ],
     "productId": [
       "TS0505A"
     ],
     "endpoints": {
       "1": {
-        "clusters": [0, 3, 4, 5, 6, 8, 768],
-        "bindings": [6, 8, 768]
+        "clusters": [ 0, 3, 4, 5, 6, 8, 768 ],
+        "bindings": [ 6, 8, 768 ]
       }
     },
     "learnmode": {

@@ -21,7 +21,7 @@ class socket_power_strip_four extends ZigBeeDevice {
         this.log("Device data: ", subDeviceId);
 
         this.registerCapability('onoff', CLUSTER.ON_OFF, {
-            endpoint: subDeviceId === 'socket2' ? 2 : subDeviceId === 'socket3' ? 3 : subDeviceId === 'socket4' ? 4 : 1,
+            endpoint: subDeviceId === 'usb' ? 7 : subDeviceId === 'socket2' ? 2 : subDeviceId === 'socket3' ? 3 : subDeviceId === 'socket4' ? 4 : 1,
         });
 
   }

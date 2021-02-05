@@ -39,6 +39,10 @@
       "4": {
         "clusters": [4, 5, 6],
         "bindings": [6]
+      },
+      "7": {
+        "clusters": [4, 5, 6],
+        "bindings": [6]
       }
     },
     "devices": {
@@ -73,6 +77,19 @@
         "capabilities": ["onoff"],
         "name": {
           "en": "Power Strip Socket 4/4"
+        },
+        "energy": {
+          "approximation": {
+            "usageOn": 0,
+            "usageOff": 0
+          }
+        }
+      },
+      "usb": {
+        "class": "socket",
+        "capabilities": ["onoff"],
+        "name": {
+          "en": "Power Strip USB"
         },
         "energy": {
           "approximation": {
