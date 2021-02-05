@@ -1,1 +1,24 @@
-[]
+[
+    {
+        "id": "reverse",
+        "type": "radio",
+        "label": {
+          "en": "Motor moves in reverse direction"
+        },
+        "value": "0",
+        "values": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Off"
+            }
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "On"
+            }
+          }
+        ]
+    }
+]

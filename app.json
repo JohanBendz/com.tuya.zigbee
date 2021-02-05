@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.38",
+  "version": "0.1.39",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -25,6 +25,7 @@
       "Ejlink",
       "Lidl",
       "Silvercrest",
+      "livarno",
       "Zigbee",
       "Sensor",
       "Temperature",
@@ -54,6 +55,11 @@
   "permissions": [
     "homey:wireless:zigbee"
   ],
+  "homeyCommunityTopicId": 26439,
+  "source": "https://github.com/JohanBendz/com.tuya.zigbee",
+  "bugs": {
+    "url": "https://github.com/JohanBendz/com.tuya.zigbee/issues"
+  },
   "images": {
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
@@ -78,6 +84,10 @@
       {
         "name": "Martijn Aben",
         "email": "lidl@escabe.org"
+      },
+      {
+        "name": "Jurgen Heine",
+        "email": "jurgen2.heine@gmail.com"
       }
     ]
   },
@@ -312,8 +322,30 @@
       },
       "class": "curtain",
       "capabilities": [
-        "windowcoverings_set"
+        "windowcoverings_set",
+        "button.start_calibration",
+        "button.stop_calibration"
       ],
+      "capabilitiesOptions": {
+        "button.start_calibration": {
+          "maintenanceAction": true,
+          "title": {
+            "en": "Start Calibration"
+          },
+          "desc": {
+            "en": "Make sure the curtain is fully closed before starting the calibration. Using physical buttons; Move the curtain to the the point where it should stop and then close it again. Push the Stop Calibration button when finished."
+          }
+        },
+        "button.stop_calibration": {
+          "maintenanceAction": true,
+          "title": {
+            "en": "Stop Calibration"
+          },
+          "desc": {
+            "en": "Finalized the calibration, please wait a minute before using the unit."
+          }
+        }
+      },
       "images": {
         "large": "/drivers/curtain_module/assets/images/large.png",
         "small": "/drivers/curtain_module/assets/images/small.png"
@@ -351,7 +383,30 @@
           }
         }
       },
-      "settings": []
+      "settings": [
+        {
+          "id": "reverse",
+          "type": "radio",
+          "label": {
+            "en": "Motor moves in reverse direction"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "dimmer_1_gang",
@@ -849,6 +904,7 @@
         "dim",
         "light_hue",
         "light_saturation",
+        "light_temperature",
         "light_mode"
       ],
       "capabilitiesOptions": {
@@ -931,6 +987,7 @@
         "dim",
         "light_hue",
         "light_saturation",
+        "light_temperature",
         "light_mode"
       ],
       "capabilitiesOptions": {
@@ -1013,6 +1070,7 @@
         "dim",
         "light_hue",
         "light_saturation",
+        "light_temperature",
         "light_mode"
       ],
       "capabilitiesOptions": {
@@ -1089,10 +1147,6 @@
       "settings": []
     },
     {
-      "id": "rgb_led_strip_controller",
-      "name": {
-        "en": "RGB LED Strip Controller"
-      },
       "class": "light",
       "capabilities": [
         "onoff",
@@ -1102,6 +1156,9 @@
         "light_mode"
       ],
       "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        },
         "dim": {
           "opts": {
             "duration": true
@@ -1116,14 +1173,15 @@
           "opts": {
             "duration": true
           }
-        },
-        "onoff": {
-          "setOnDim": false
         }
       },
       "images": {
         "large": "/drivers/rgb_led_strip_controller/assets/images/large.png",
         "small": "/drivers/rgb_led_strip_controller/assets/images/small.png"
+      },
+      "id": "rgb_led_strip_controller",
+      "name": {
+        "en": "RGB LED Strip Controller"
       },
       "energy": {
         "approximation": {
@@ -1173,6 +1231,7 @@
         "dim",
         "light_hue",
         "light_saturation",
+        "light_temperature",
         "light_mode"
       ],
       "capabilitiesOptions": {
@@ -1241,6 +1300,89 @@
         },
         "learnmode": {
           "image": "/drivers/rgb_spot_GU10/assets/icon.svg",
+          "instruction": {
+            "en": "Power on to enter pairing mode."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "class": "light",
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation",
+        "light_temperature",
+        "light_mode"
+      ],
+      "capabilitiesOptions": {
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "light_hue": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "light_saturation": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "light_temperature": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "images": {
+        "large": "/drivers/rgb_spot_GardenLight/assets/images/large.png",
+        "small": "/drivers/rgb_spot_GardenLight/assets/images/small.png"
+      },
+      "id": "rgb_spot_GardenLight",
+      "name": {
+        "en": "RGB Spot Garden light"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 8,
+          "usageOff": 1
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_h1jnz6l8"
+        ],
+        "productId": [
+          "TS0505A"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8,
+              768
+            ],
+            "bindings": [
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/rgb_spot_GardenLight/assets/icon.svg",
           "instruction": {
             "en": "Power on to enter pairing mode."
           }
@@ -1392,21 +1534,11 @@
       "capabilities": [
         "onoff",
         "measure_power",
-        "meter_power",
-        "button.reset_meter"
+        "meter_power"
       ],
       "capabilitiesOptions": {
         "measure_power": {
           "approximated": true
-        },
-        "button.reset_meter": {
-          "maintenanceAction": true,
-          "title": {
-            "en": "Reset power meter"
-          },
-          "desc": {
-            "en": "Reset the accumulated power usage (kWh), note that this can not be reversed."
-          }
         }
       },
       "images": {
@@ -1418,7 +1550,8 @@
           "_TZ3000_3ooaz3ng",
           "_TYZB01_iuepbmpv",
           "_TZ3000_g5xawfcq",
-          "_TZ3000_vtscrpmw"
+          "_TZ3000_vtscrpmw",
+          "_TZ3000_rdtixbnu"
         ],
         "productId": [
           "TS0121",
@@ -1647,6 +1780,16 @@
             "bindings": [
               6
             ]
+          },
+          "7": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
           }
         },
         "devices": {
@@ -1687,6 +1830,21 @@
             ],
             "name": {
               "en": "Power Strip Socket 4/4"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "usb": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "Power Strip USB"
             },
             "energy": {
               "approximation": {
@@ -1861,7 +2019,8 @@
           "TUYATEC-Bfq2i2Sy",
           "TUYATEC-abkehqus",
           "TUYATEC-yg5dcbfu",
-          "TUYATEC-prhs1rsd"
+          "TUYATEC-prhs1rsd",
+          "TUYATEC-gqhxixyk"
         ],
         "productId": [
           "RH3052"
@@ -2258,10 +2417,12 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TYZB01_ymcdbl3u"
+          "_TYZB01_ymcdbl3u",
+          "_TZ3000_o4cjetlm"
         ],
         "productId": [
-          "TS0111"
+          "TS0111",
+          "TS0001"
         ],
         "endpoints": {
           "1": {
@@ -2320,8 +2481,6 @@
           "1": {
             "clusters": [
               0,
-              4,
-              5,
               6
             ],
             "bindings": [
@@ -2516,35 +2675,6 @@
     }
   ],
   "capabilities": {
-    "color_mode": {
-      "title": {
-        "en": "Mode"
-      },
-      "getable": true,
-      "setable": true,
-      "type": "enum",
-      "uiComponent": "picker",
-      "values": [
-        {
-          "id": "white",
-          "title": {
-            "en": "White"
-          }
-        },
-        {
-          "id": "temperature",
-          "title": {
-            "en": "Temperature"
-          }
-        },
-        {
-          "id": "color",
-          "title": {
-            "en": "Color"
-          }
-        }
-      ]
-    },
     "lidl_xmas_mode": {
       "title": {
         "en": "Mode"

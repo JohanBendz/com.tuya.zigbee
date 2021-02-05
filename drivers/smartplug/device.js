@@ -17,12 +17,11 @@ class smartplug extends ZigBeeDevice {
     this.registerCapability('onoff', CLUSTER.ON_OFF, {
       getOpts: {
         getOnStart: true,
-        pollInterval: 15000,
-				getOnOnline: true,
+        pollInterval: 60000
 	    }
     });
 
-    // Catch Power Factors - if those exists
+/*     // Catch Power Factors - if those exists
     if (typeof this.activePowerFactor !== 'number') {
       const { acPowerMultiplier, acPowerDivisor } = await zclNode.endpoints[
         this.getClusterEndpoint(CLUSTER.ELECTRICAL_MEASUREMENT)
@@ -40,7 +39,7 @@ class smartplug extends ZigBeeDevice {
       .readAttributes('multiplier', 'divisor');
       this.meteringFactor = multiplier / divisor;
       this.log("Metering Factor: ", this.meteringFactor);
-    }
+    } */
 
     // meter_power
     this.registerCapability('meter_power', CLUSTER.METERING, {
@@ -48,8 +47,7 @@ class smartplug extends ZigBeeDevice {
       getParser: value => (value * meteringOffset)/100,
       getOpts: {
         getOnStart: true,
-        pollInterval: 60000,
-				getOnOnline: true,
+        pollInterval: 300000
 	    }
     });
 
@@ -59,20 +57,9 @@ class smartplug extends ZigBeeDevice {
       getParser: value => (value * measureOffset)/100,
       getOpts: {
         getOnStart: true,
-        pollInterval: 15000,
-				getOnOnline: true,
+        pollInterval: 60000
 	    }
     });
-
-    // button.reset_meter
-    if (!this.hasCapability('button.reset_meter')) await this.addCapability('button.reset_meter');
-    if (this.hasCapability('button.reset_meter')) {
-      this.registerCapabilityListener('button.reset_meter', async () => {
-        if (typeof this.meterReset === 'function') return this.meterReset();
-        this.error('Reset meter failed');
-        throw new Error('Reset meter not supported');
-      });
-    }
     
   }
 

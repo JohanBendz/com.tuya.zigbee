@@ -6,8 +6,7 @@
       "light_hue",
       "light_saturation",
       "light_temperature",
-      "light_mode",
-      "color_mode"
+      "light_mode"
     ],
     "capabilitiesOptions": {
       "dim": {

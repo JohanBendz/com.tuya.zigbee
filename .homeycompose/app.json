@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.1.38",
+  "version": "0.1.39",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -24,6 +24,7 @@
       "Ejlink",
       "Lidl",
       "Silvercrest",
+      "livarno",
       "Zigbee",
       "Sensor",
       "Temperature",
@@ -53,6 +54,11 @@
   "permissions": [
     "homey:wireless:zigbee"
   ],
+  "homeyCommunityTopicId": 26439,
+  "source": "https://github.com/JohanBendz/com.tuya.zigbee",
+  "bugs": {
+    "url": "https://github.com/JohanBendz/com.tuya.zigbee/issues"
+  },
   "images": {
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
@@ -77,6 +83,10 @@
       {
         "name": "Martijn Aben",
         "email": "lidl@escabe.org"
+      },
+      {
+        "name": "Jurgen Heine",
+        "email": "jurgen2.heine@gmail.com"
       }
     ]
   }

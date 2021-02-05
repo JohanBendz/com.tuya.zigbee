@@ -1,7 +1,7 @@
 'use strict';
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
-const { CLUSTER } = require('zigbee-clusters');
+const { debug, CLUSTER } = require('zigbee-clusters');
 const OnOffBoundCluster = require('../../lib/OnOffBoundCluster');
 
 class test_device_wall_remote_3_gang extends ZigBeeDevice {
@@ -10,6 +10,7 @@ class test_device_wall_remote_3_gang extends ZigBeeDevice {
 
         this.enableDebug();
         this.printNode();
+        debug(true);
 
         await super.onNodeInit({zclNode});
 
@@ -59,3 +60,12 @@ class test_device_wall_remote_3_gang extends ZigBeeDevice {
 }
 
 module.exports = test_device_wall_remote_3_gang;
+
+// Findings
+//
+// Command ID 0xFD sends message/body
+// 0x00 or 0x01 = single press
+// 0x01 or 0x02 = double press
+// 0x02 or 0x03 = long press
+//
+// 

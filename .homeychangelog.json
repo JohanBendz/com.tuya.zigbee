@@ -118,5 +118,8 @@
   },
   "0.1.38": {
     "en": "Support for Curtain Switch Module and additional PIR Sensor."
+  },
+  "0.1.39": {
+    "en": "Fix for RGB lights. Added support for Lidl/Livarno Spot GardenLight. Added calibration to Curtain Module. Added some Id's to already supported units."
   }
 }
