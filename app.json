@@ -2675,35 +2675,6 @@
     }
   ],
   "capabilities": {
-    "color_mode": {
-      "title": {
-        "en": "Mode"
-      },
-      "getable": true,
-      "setable": true,
-      "type": "enum",
-      "uiComponent": "picker",
-      "values": [
-        {
-          "id": "white",
-          "title": {
-            "en": "White"
-          }
-        },
-        {
-          "id": "temperature",
-          "title": {
-            "en": "Temperature"
-          }
-        },
-        {
-          "id": "color",
-          "title": {
-            "en": "Color"
-          }
-        }
-      ]
-    },
     "lidl_xmas_mode": {
       "title": {
         "en": "Mode"
