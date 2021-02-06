@@ -3,15 +3,7 @@
   "name": {
     "en": "RGB Bulb E14"
   },
-  "$extends": [ "light_color" ],
-  "capabilities": [
-    "onoff",
-    "dim",
-    "light_hue",
-    "light_saturation",
-    "light_temperature",
-    "light_mode"
-  ],
+  "$extends": ["light_color_ambiance"],
   "energy": {
     "approximation": {
       "usageOn": 7,
@@ -27,8 +19,8 @@
     ],
     "endpoints": {
       "1": {
-        "clusters": [ 0, 3, 4, 5, 6, 8, 768 ],
-        "bindings": [ 6, 8, 768 ]
+        "clusters": [0, 3, 4, 5, 6, 8, 768],
+        "bindings": [6, 8, 768]
       }
     },
     "learnmode": {

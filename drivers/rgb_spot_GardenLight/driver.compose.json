@@ -3,15 +3,7 @@
   "name": {
     "en": "RGB Spot Garden light"
   },
-  "$extends": [ "light_color" ],
-  "capabilities": [
-    "onoff",
-    "dim",
-    "light_hue",
-    "light_saturation",
-    "light_temperature",
-    "light_mode"
-  ],
+  "$extends": [ "light_color_ambiance" ],
   "energy": {
     "approximation": {
       "usageOn": 8,

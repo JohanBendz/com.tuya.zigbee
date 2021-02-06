@@ -5,27 +5,33 @@
       "dim",
       "light_hue",
       "light_saturation",
+      "light_temperature",
       "light_mode"
     ],
     "capabilitiesOptions": {
-      "onoff": {
-        "setOnDim": false
-      },
       "dim": {
-        "opts": {
+          "opts": {
           "duration": true
-        }
+          }
       },
       "light_hue": {
-        "opts": {
+          "opts": {
           "duration": true
-        }
+          }
       },
       "light_saturation": {
-        "opts": {
+          "opts": {
           "duration": true
+          }
+      },
+      "light_temperature": {
+        "opts": {
+        "duration": true
         }
-      }
+      },
+      "onoff": {
+          "setOnDim": false
+        }
     },
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",

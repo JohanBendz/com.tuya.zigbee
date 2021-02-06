@@ -3,38 +3,7 @@
     "name": {
       "en": "RGB LED Strip Controller"
     },
-    "class": "light",
-    "capabilities": [
-      "onoff",
-      "dim",
-      "light_hue",
-      "light_saturation",
-      "light_mode"
-    ],
-    "capabilitiesOptions": {
-      "dim": {
-          "opts": {
-          "duration": true
-          }
-      },
-      "light_hue": {
-          "opts": {
-          "duration": true
-          }
-      },
-      "light_saturation": {
-          "opts": {
-          "duration": true
-          }
-      },
-      "onoff": {
-          "setOnDim": false
-        }
-    },
-    "images": {
-      "large": "{{driverAssetsPath}}/images/large.png",
-      "small": "{{driverAssetsPath}}/images/small.png"
-    },
+    "$extends": ["light_color"],
     "energy": {
       "approximation": {
         "usageOn": 0,
