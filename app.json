@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.39",
+  "version": "0.1.40",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -25,7 +25,7 @@
       "Ejlink",
       "Lidl",
       "Silvercrest",
-      "livarno",
+      "Livarno",
       "Zigbee",
       "Sensor",
       "Temperature",
@@ -908,6 +908,9 @@
         "light_mode"
       ],
       "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        },
         "dim": {
           "opts": {
             "duration": true
@@ -927,9 +930,6 @@
           "opts": {
             "duration": true
           }
-        },
-        "onoff": {
-          "setOnDim": false
         }
       },
       "images": {
@@ -991,6 +991,9 @@
         "light_mode"
       ],
       "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        },
         "dim": {
           "opts": {
             "duration": true
@@ -1010,9 +1013,6 @@
           "opts": {
             "duration": true
           }
-        },
-        "onoff": {
-          "setOnDim": false
         }
       },
       "images": {
@@ -1074,6 +1074,9 @@
         "light_mode"
       ],
       "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        },
         "dim": {
           "opts": {
             "duration": true
@@ -1093,9 +1096,6 @@
           "opts": {
             "duration": true
           }
-        },
-        "onoff": {
-          "setOnDim": false
         }
       },
       "images": {
@@ -1235,6 +1235,9 @@
         "light_mode"
       ],
       "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        },
         "dim": {
           "opts": {
             "duration": true
@@ -1254,9 +1257,6 @@
           "opts": {
             "duration": true
           }
-        },
-        "onoff": {
-          "setOnDim": false
         }
       },
       "images": {
@@ -1318,6 +1318,9 @@
         "light_mode"
       ],
       "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        },
         "dim": {
           "opts": {
             "duration": true
@@ -1337,9 +1340,6 @@
           "opts": {
             "duration": true
           }
-        },
-        "onoff": {
-          "setOnDim": false
         }
       },
       "images": {

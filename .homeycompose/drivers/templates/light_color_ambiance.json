@@ -9,6 +9,9 @@
       "light_mode"
     ],
     "capabilitiesOptions": {
+      "onoff": {
+        "setOnDim": false
+      },
       "dim": {
           "opts": {
           "duration": true
@@ -28,10 +31,7 @@
         "opts": {
         "duration": true
         }
-      },
-      "onoff": {
-          "setOnDim": false
-        }
+      }
     },
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",
