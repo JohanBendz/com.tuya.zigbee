@@ -3,7 +3,7 @@
   "name": {
     "en": "Tunable Spot GU10"
   },
-  "$extends": ["light_white"],
+  "$extends": ["light_white_ambiance"],
   "energy": {
     "approximation": {
       "usageOn": 5,
