@@ -1,7 +1,7 @@
 'use strict';
 
-const { ZigBeeLightDevice } = require('homey-zigbeedriver');
+const TuyaZigBeeLightDevice = require('../../lib/TuyaZigBeeLightDevice');
 
-class tunable_bulb_E27 extends ZigBeeLightDevice {}
+class tunable_bulb_E27 extends TuyaZigBeeLightDevice {}
 
 module.exports = tunable_bulb_E27;
