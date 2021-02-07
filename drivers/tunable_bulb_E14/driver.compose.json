@@ -3,7 +3,7 @@
   "name": {
     "en": "Tunable Bulb E14"
   },
-  "$extends": ["light_white"],
+  "$extends": ["light_white_ambiance"],
   "energy": {
     "approximation": {
       "usageOn": 7,
