@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.1.39",
+  "version": "0.1.40",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -24,7 +24,7 @@
       "Ejlink",
       "Lidl",
       "Silvercrest",
-      "livarno",
+      "Livarno",
       "Zigbee",
       "Sensor",
       "Temperature",
