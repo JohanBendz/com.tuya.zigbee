@@ -21,11 +21,13 @@
       "manufacturerName": [
         "_TYZB01_ncutbjdi",
         "_TYZB01_aneiicmq",
-        "_TZ3000_zmy1waw6"
+        "_TZ3000_zmy1waw6",
+        "_TZ3000_pmvbt5hh"
       ],
       "productId": [
         "TS0003",
-        "TS011F"
+        "TS011F",
+        "TS0011"
       ],
       "endpoints": {
         "1": {

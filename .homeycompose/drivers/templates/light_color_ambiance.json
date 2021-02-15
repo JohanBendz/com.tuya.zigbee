@@ -1,40 +1,20 @@
 {
-    "class": "light",
-    "capabilities": [
-      "onoff",
-      "dim",
-      "light_hue",
-      "light_saturation",
-      "light_temperature",
-      "light_mode"
-    ],
-    "capabilitiesOptions": {
-      "onoff": {
-        "setOnDim": false
-      },
-      "dim": {
-          "opts": {
-          "duration": true
-          }
-      },
-      "light_hue": {
-          "opts": {
-          "duration": true
-          }
-      },
-      "light_saturation": {
-          "opts": {
-          "duration": true
-          }
-      },
-      "light_temperature": {
-        "opts": {
-        "duration": true
-        }
-      }
-    },
-    "images": {
-      "large": "{{driverAssetsPath}}/images/large.png",
-      "small": "{{driverAssetsPath}}/images/small.png"
+  "class": "light",
+  "capabilities": [
+    "onoff",
+    "dim",
+    "light_hue",
+    "light_saturation",
+    "light_temperature",
+    "light_mode"
+  ],
+  "capabilitiesOptions": {
+    "onoff": {
+      "setOnDim": false
     }
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  }
 }

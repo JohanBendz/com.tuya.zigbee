@@ -5,13 +5,8 @@
     "dim"
     ],
     "capabilitiesOptions": {
-    "dim": {
-        "opts": {
-        "duration": true
-        }
-    },
-    "onoff": {
-        "setOnDim": false
+        "onoff": {
+            "setOnDim": false
         }
     },
     "images": {

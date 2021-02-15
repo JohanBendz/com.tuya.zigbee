@@ -1,0 +1,27 @@
+{
+  "capabilitiesOptions": {
+    "onoff": {
+      "setOnDim": false
+    },
+    "dim": {
+        "opts": {
+        "duration": true
+        }
+    },
+    "light_hue": {
+        "opts": {
+        "duration": true
+        }
+    },
+    "light_saturation": {
+        "opts": {
+        "duration": true
+        }
+    },
+    "light_temperature": {
+      "opts": {
+      "duration": true
+      }
+    }
+  }
+}
