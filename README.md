@@ -1,7 +1,7 @@
 ### Tuya Zigbee
 Adds support for Tuya Zigbee devices
 
-Supported White Label Brands:
+Some of the supported White Label Brands:
 - Malmbergs
 - Alecto
 - Smart9
@@ -81,6 +81,7 @@ In-Wall
     _TYZB01_ncutbjdi / TS0003
     _TYZB01_aneiicmq / TS0003
     _TZ3000_zmy1waw6 / TS011F
+    _TZ3000_pmvbt5hh / TS0011
 
 - 2 Gang Switch Module
     _TYZB01_zsl6z0pw / TS0003
@@ -108,11 +109,13 @@ On-Wall
     _TZ3000_owgcnkrh / TS0042
     _TZ3000_svoqrno4 / TS0002
     TUYATEC-O6SNCwd6 / TS0012
+    _TYZB01_vzrytttn / TS0012 - Moes
 
 - 3 Gang Wall Switch
     _TYZB01_xiuox57i / TS0013
     _TZ3000_a7ouggvs / TS0043
     _TYZB01_b8cr31hp / TS0003
+    _TZ3000_wyhuocal / TS0013
 
 Lights
 - Christmas Tree Lights
@@ -121,6 +124,7 @@ Lights
 - RGB LED Strip Controller
     _TZ3000_obacbukl / TS0503A
     _TZ3000_dl4pxp1r / TS0503A
+    _TZ3000_qqjaziws / TS0505B
 
 - RGB Bulb E27
     _TZ3000_dbou1ap4 / TS0505A (Lidl)

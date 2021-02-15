@@ -910,26 +910,6 @@
       "capabilitiesOptions": {
         "onoff": {
           "setOnDim": false
-        },
-        "dim": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_hue": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_saturation": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_temperature": {
-          "opts": {
-            "duration": true
-          }
         }
       },
       "images": {
@@ -993,26 +973,6 @@
       "capabilitiesOptions": {
         "onoff": {
           "setOnDim": false
-        },
-        "dim": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_hue": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_saturation": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_temperature": {
-          "opts": {
-            "duration": true
-          }
         }
       },
       "images": {
@@ -1076,26 +1036,6 @@
       "capabilitiesOptions": {
         "onoff": {
           "setOnDim": false
-        },
-        "dim": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_hue": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_saturation": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_temperature": {
-          "opts": {
-            "duration": true
-          }
         }
       },
       "images": {
@@ -1158,21 +1098,6 @@
       "capabilitiesOptions": {
         "onoff": {
           "setOnDim": false
-        },
-        "dim": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_hue": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_saturation": {
-          "opts": {
-            "duration": true
-          }
         }
       },
       "images": {
@@ -1192,10 +1117,12 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_obacbukl",
-          "_TZ3000_dl4pxp1r"
+          "_TZ3000_dl4pxp1r",
+          "_TZ3000_qqjaziws"
         ],
         "productId": [
-          "TS0503A"
+          "TS0503A",
+          "TS0505B"
         ],
         "endpoints": {
           "1": {
@@ -1237,26 +1164,6 @@
       "capabilitiesOptions": {
         "onoff": {
           "setOnDim": false
-        },
-        "dim": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_hue": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_saturation": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_temperature": {
-          "opts": {
-            "duration": true
-          }
         }
       },
       "images": {
@@ -1320,26 +1227,6 @@
       "capabilitiesOptions": {
         "onoff": {
           "setOnDim": false
-        },
-        "dim": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_hue": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_saturation": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_temperature": {
-          "opts": {
-            "duration": true
-          }
         }
       },
       "images": {
@@ -1885,11 +1772,13 @@
         "manufacturerName": [
           "_TYZB01_ncutbjdi",
           "_TYZB01_aneiicmq",
-          "_TZ3000_zmy1waw6"
+          "_TZ3000_zmy1waw6",
+          "_TZ3000_pmvbt5hh"
         ],
         "productId": [
           "TS0003",
-          "TS011F"
+          "TS011F",
+          "TS0011"
         ],
         "endpoints": {
           "1": {
@@ -2194,16 +2083,6 @@
         "light_temperature"
       ],
       "capabilitiesOptions": {
-        "dim": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_temperature": {
-          "opts": {
-            "duration": true
-          }
-        },
         "onoff": {
           "setOnDim": false
         }
@@ -2264,16 +2143,6 @@
         "light_temperature"
       ],
       "capabilitiesOptions": {
-        "dim": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_temperature": {
-          "opts": {
-            "duration": true
-          }
-        },
         "onoff": {
           "setOnDim": false
         }
@@ -2334,16 +2203,6 @@
         "light_temperature"
       ],
       "capabilitiesOptions": {
-        "dim": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "light_temperature": {
-          "opts": {
-            "duration": true
-          }
-        },
         "onoff": {
           "setOnDim": false
         }
@@ -2523,7 +2382,8 @@
           "_TZ3000_fvh3pjaz",
           "_TZ3000_owgcnkrh",
           "_TZ3000_svoqrno4",
-          "TUYATEC-O6SNCwd6"
+          "TUYATEC-O6SNCwd6",
+          "_TYZB01_vzrytttn"
         ],
         "productId": [
           "TS0002",
@@ -2598,7 +2458,8 @@
         "manufacturerName": [
           "_TYZB01_xiuox57i",
           "_TZ3000_a7ouggvs",
-          "_TYZB01_b8cr31hp"
+          "_TYZB01_b8cr31hp",
+          "_TZ3000_wyhuocal"
         ],
         "productId": [
           "TS0003",
