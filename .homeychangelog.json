@@ -124,5 +124,8 @@
   },
   "0.1.41": {
     "en": "Fix for RGB and Tunable White lights."
+  },
+  "0.1.42": {
+    "en": "Polished code for release to app store. Already paired lights MUST be removed and paired again to get color/temperature functionality."
   }
 }

@@ -8,8 +8,6 @@ class switch_1_gang extends ZigBeeDevice {
 
     async onNodeInit({zclNode}) {
 
-        this.enableDebug();
-        debug(true);
         this.printNode();
 
         this.registerCapability('onoff', CLUSTER.ON_OFF);

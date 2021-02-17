@@ -8,8 +8,6 @@ class doorwindowsensor extends ZigBeeDevice {
 		
 	async onNodeInit({zclNode}) {
 
-		this.enableDebug();
-		debug(true);
 		this.printNode();
 
 		// alarm_contact

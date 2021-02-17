@@ -8,8 +8,6 @@ class lcdtemphumidsensor extends ZigBeeDevice {
 	
 	async onNodeInit({zclNode}) {
 
-		this.enableDebug();
-		debug(true);
 		this.printNode();
 
 		// measure_temperature

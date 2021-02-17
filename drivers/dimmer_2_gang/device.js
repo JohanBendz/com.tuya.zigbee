@@ -8,8 +8,6 @@ class dimmer_2_gang extends ZigBeeDevice {
 
     async onNodeInit({zclNode}) {
 
-        this.enableDebug();
-        debug(true);
         this.printNode();
 
         const { subDeviceId } = this.getData();
