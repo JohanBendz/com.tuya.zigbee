@@ -12,7 +12,6 @@ class christmas_lights extends ZigBeeDevice {
     async onNodeInit({ zclNode }) {
         //this.zclNode = zclNode;
         
-        debug(true);
         this.printNode();
 
         // Handler for on/off

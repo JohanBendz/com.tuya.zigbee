@@ -7,7 +7,6 @@ class smartplug extends ZigBeeDevice {
 		
 	async onNodeInit({zclNode}) {
 
-    this.enableDebug();
     this.printNode();
 
     const meteringOffset = this.getSetting('metering_offset');

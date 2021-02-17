@@ -9,31 +9,6 @@ class smart_door_window_sensor extends ZigBeeDevice {
 	async onNodeInit({zclNode}) {
 
 		this.printNode();
-		debug(true);
-
-/*
-		// Enrollment test start
-
-		// const state = await Homey.zigBee.getState();
-		// const controllerIEEEAddress = state.controllerState.IEEEAddress;
-		const controllerIEEEAddress = '00:12:4b:00:14:d7:03:32';
-		this.log("Controller IEEE Address: ", controllerIEEEAddress);
-		
- 		await zclNode.endpoints[this.getClusterEndpoint(CLUSTER.IAS_ZONE)]
-		  .clusters[CLUSTER.IAS_ZONE]
-		  .writeAttributes({iasCIEAddress: controllerIEEEAddress});
-		
-		await zclNode.endpoints[this.getClusterEndpoint(CLUSTER.IAS_ZONE)]
-		  .clusters[CLUSTER.IAS_ZONE]
-		  .writeAttributes({zoneState: 1});
-
- 		const { zoneState, iasCIEAddress } = await zclNode.endpoints[this.getClusterEndpoint(CLUSTER.IAS_ZONE)]
-		  .clusters[CLUSTER.IAS_ZONE]
-		  .readAttributes('zoneState', 'iasCIEAddress');
-		this.log('zoneState: ', zoneState, ' iasCIEAddress: ', iasCIEAddress)
-		
-		// Enrollment test stop
-*/
 
 		if (this.isFirstInit()){
 			await this.configureAttributeReporting([

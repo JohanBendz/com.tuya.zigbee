@@ -8,8 +8,6 @@ class wall_switch_3_gang extends ZigBeeDevice {
 
     async onNodeInit({zclNode}) {
 
-        this.enableDebug();
-        debug(true);
         this.printNode();
 
         const { subDeviceId } = this.getData();

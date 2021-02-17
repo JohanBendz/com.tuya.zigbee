@@ -12,6 +12,8 @@ Some of the supported White Label Brands:
 - Nedis
 - Lidl
 - Livarno LUX
+- MOES
+- UseeLink
 
 Supported devices:
 
@@ -73,8 +75,9 @@ Plugs and Socket Strips
     _TZ3000_1obwwnmq / TS011F (Lidl)
     _TZ3000_vzopcetz / TS011F (Lidl)
 
-- 4 Socket Power Strip
+- 4 Socket Power Strip + USB
     _TYZB01_vkwryfdr / TS0115
+    _TZ3000_o005nuxx / TS011F (UseeLink)
 
 In-Wall
 - 1 Gang Switch Module
@@ -101,6 +104,7 @@ On-Wall
     _TZ3000_9hpxg80k / TS0011
     _TZ3000_f8tmviy0 / TS0001
     _TZ3000_gidy6sjs / TS0001
+    _TYZB01_qeqvmvti / TS0011 (MOES)
 
 - 2 Gang Wall Switch
     _TYZB01_mtlhqn48 / TS0012
@@ -109,7 +113,7 @@ On-Wall
     _TZ3000_owgcnkrh / TS0042
     _TZ3000_svoqrno4 / TS0002
     TUYATEC-O6SNCwd6 / TS0012
-    _TYZB01_vzrytttn / TS0012 - Moes
+    _TYZB01_vzrytttn / TS0012 (MOES)
 
 - 3 Gang Wall Switch
     _TYZB01_xiuox57i / TS0013
