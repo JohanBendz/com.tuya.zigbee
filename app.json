@@ -2176,7 +2176,8 @@
       "capabilities": [
         "onoff",
         "dim",
-        "light_temperature"
+        "light_temperature",
+        "light_mode"
       ],
       "capabilitiesOptions": {
         "onoff": {
@@ -2236,7 +2237,8 @@
       "capabilities": [
         "onoff",
         "dim",
-        "light_temperature"
+        "light_temperature",
+        "light_mode"
       ],
       "capabilitiesOptions": {
         "onoff": {
@@ -2296,7 +2298,8 @@
       "capabilities": [
         "onoff",
         "dim",
-        "light_temperature"
+        "light_temperature",
+        "light_mode"
       ],
       "capabilitiesOptions": {
         "onoff": {
