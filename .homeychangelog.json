@@ -133,5 +133,8 @@
   },
   "0.1.44": {
     "en": "Potential fix for Tunable White lights."
+  },
+  "0.1.45": {
+    "en": "Fix for Tunable White lights deployed to Live version in App Store."
   }
 }
