@@ -129,6 +129,9 @@
     "en": "Polished code for release to app store. Already paired lights MUST be removed and paired again to get color/temperature functionality."
   },
   "0.1.43": {
-    "en": "Potential fix for Tunable lights. Added some device id's to already supported devices."
+    "en": "Potential fix for Tunable White lights. Added some device id's to already supported devices."
+  },
+  "0.1.44": {
+    "en": "Potential fix for Tunable White lights."
   }
 }

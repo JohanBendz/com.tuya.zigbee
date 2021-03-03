@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.42",
+  "version": "0.1.43",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -824,7 +824,8 @@
       "zigbee": {
         "manufacturerName": [
           "TUYATEC-lha8pbwd",
-          "TUYATEC-zn9wyqtr"
+          "TUYATEC-zn9wyqtr",
+          "TUYATEC-53o41joc"
         ],
         "productId": [
           "RH3040"
@@ -1440,7 +1441,8 @@
           "_TYZB01_iuepbmpv",
           "_TZ3000_g5xawfcq",
           "_TZ3000_vtscrpmw",
-          "_TZ3000_rdtixbnu"
+          "_TZ3000_rdtixbnu",
+          "_TZ3000_8nkb7mof"
         ],
         "productId": [
           "TS0121",
@@ -2176,8 +2178,7 @@
       "capabilities": [
         "onoff",
         "dim",
-        "light_temperature",
-        "light_mode"
+        "light_temperature"
       ],
       "capabilitiesOptions": {
         "onoff": {
@@ -2237,8 +2238,7 @@
       "capabilities": [
         "onoff",
         "dim",
-        "light_temperature",
-        "light_mode"
+        "light_temperature"
       ],
       "capabilitiesOptions": {
         "onoff": {
@@ -2298,8 +2298,7 @@
       "capabilities": [
         "onoff",
         "dim",
-        "light_temperature",
-        "light_mode"
+        "light_temperature"
       ],
       "capabilitiesOptions": {
         "onoff": {
@@ -2430,7 +2429,8 @@
           "_TZ3000_9hpxg80k",
           "_TZ3000_f8tmviy0",
           "_TZ3000_gidy6sjs",
-          "_TYZB01_qeqvmvti"
+          "_TYZB01_qeqvmvti",
+          "_TYZB01_seqwasot"
         ],
         "productId": [
           "TS0001",
@@ -2559,7 +2559,8 @@
           "_TYZB01_xiuox57i",
           "_TZ3000_a7ouggvs",
           "_TYZB01_b8cr31hp",
-          "_TZ3000_wyhuocal"
+          "_TZ3000_wyhuocal",
+          "_TZ3000_cdamjqm9"
         ],
         "productId": [
           "TS0003",
