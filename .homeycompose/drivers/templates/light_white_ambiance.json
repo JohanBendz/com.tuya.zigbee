@@ -3,8 +3,7 @@
     "capabilities": [
     "onoff",
     "dim",
-    "light_temperature",
-    "light_mode"
+    "light_temperature"
     ],
     "capabilitiesOptions": {
         "onoff": {

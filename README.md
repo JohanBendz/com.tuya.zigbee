@@ -38,6 +38,7 @@ Sensors
 - PIR Sensor (Cylinder shaped)
     TUYATEC-lha8pbwd / RH3040
     TUYATEC-zn9wyqtr / RH3040
+    TUYATEC-53o41joc / RH3040
 
 - PIR Sensor (Globe shaped)
     _TYZB01_jytabjkb / TS0202
@@ -67,6 +68,7 @@ Plugs and Socket Strips
     _TZ3000_g5xawfcq / TS0121
     _TZ3000_vtscrpmw / TS0121
     _TZ3000_rdtixbnu / TS0121
+    _TZ3000_8nkb7mof / TS0121
 
 - Smart Plug, without metering
     _TZ3000_kdi2o9m6 / TS011F (Lidl)
@@ -105,6 +107,7 @@ On-Wall
     _TZ3000_f8tmviy0 / TS0001
     _TZ3000_gidy6sjs / TS0001
     _TYZB01_qeqvmvti / TS0011 (MOES)
+    _TYZB01_seqwasot / TS0001
 
 - 2 Gang Wall Switch
     _TYZB01_mtlhqn48 / TS0012
@@ -120,6 +123,7 @@ On-Wall
     _TZ3000_a7ouggvs / TS0043
     _TYZB01_b8cr31hp / TS0003
     _TZ3000_wyhuocal / TS0013
+    _TZ3000_cdamjqm9 / TS0003 (Zemismart ZM-L03E-Z)
 
 Lights
 - Christmas Tree Lights
