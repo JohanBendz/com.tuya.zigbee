@@ -56,6 +56,7 @@ Sensors
     _TZ3000_ebar6ljy / TS0203
     TUYATEC-kbqf60nt / RH3001
     TUYATEC-r9hgssol / RH3001
+    TUYATEC-0l6xaqmi / RH3001
 
 - Smart Door/Windows Sensor
     _TZ1800_ejwkn2h2 / TY0203 (Lidl)
@@ -92,6 +93,7 @@ In-Wall
     _TYZB01_zsl6z0pw / TS0003
     _TZ3000_4js9lo5d / TS0012
     _TZ3000_pmz6mjyu / TS011F
+    _TYZB01_digziiav / TS0003
 
 - 1 Gang Dimmer Module
     _TYZB01_qezuin6k / TS110F
@@ -117,6 +119,7 @@ On-Wall
     _TZ3000_svoqrno4 / TS0002
     TUYATEC-O6SNCwd6 / TS0012
     _TYZB01_vzrytttn / TS0012 (MOES)
+    _TZ3000_nta0gb8h / TS0002
 
 - 3 Gang Wall Switch
     _TYZB01_xiuox57i / TS0013
@@ -129,40 +132,47 @@ Lights
 - Christmas Tree Lights
     _TZE200_s8gkrkxk / TS0601
 
+- RGB LED Bar Light
+    _TZ3000_gek6snaj / TS0505A (Lidl / LIVARNO LUX)
+
+- RGB Bulb E27
+    _TZ3000_dbou1ap4 / TS0505A (Lidl / LIVARNO LUX)
+
+- RGB Bulb E14
+    _TZ3000_odygigth / TS0505A (Lidl / LIVARNO LUX)
+
+- RGB Mood Light
+    _TZ3000_9cpuaca6 / TS0505A (Lidl / LIVARNO LUX)
+
+- RGB Spot GU10
+    _TZ3000_kdpxju99 / TS0505A (Lidl / LIVARNO LUX)
+
+- RGB LED Strip
+    _TZ3000_riwp3k79 / TS0505A (Lidl / LIVARNO LUX)
+
 - RGB LED Strip Controller
     _TZ3000_obacbukl / TS0503A
     _TZ3000_dl4pxp1r / TS0503A
     _TZ3000_qqjaziws / TS0505B
-
-- RGB Bulb E27
-    _TZ3000_dbou1ap4 / TS0505A (Lidl)
-
-- RGB Bulb E14
-    _TZ3000_odygigth / TS0505A (Lidl)
-
-- RGB Spot GU10
-    _TZ3000_kdpxju99 / TS0505A (Lidl)
-
-- RGB LED Strip
-    _TZ3000_riwp3k79 / TS0505A (Lidl)
-
+    
 - RGB Spot GardenLight
-   _TZ3000_h1jnz6l8 / TS0505A (Lidl)
+   _TZ3000_h1jnz6l8 / TS0505A (Lidl / LIVARNO LUX)
 
 - Tunable Bulb E27
-    _TZ3000_49qchf10 / TS0502A (Lidl)
+    _TZ3000_49qchf10 / TS0502A (Lidl / LIVARNO LUX)
 
 - Tunable Bulb E14
-    _TZ3000_oborybow / TS0502A (Lidl)
+    _TZ3000_oborybow / TS0502A (Lidl / LIVARNO LUX)
 
 - Tunable Spot GU10
-    _TZ3000_el5kt5im / TS0502A (Lidl)
+    _TZ3000_el5kt5im / TS0502A (Lidl / LIVARNO LUX)
 
 Other
 - Valve Controller
     _TYZB01_ymcdbl3u / TS0111
     _TZ3000_o4cjetlm / TS0001
-
+    _TYZB01_4tlksk8a / TS0001
+ 
 - Curtain Module
     _TZ3000_vd43bbfq / TS130F
 
