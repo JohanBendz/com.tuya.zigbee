@@ -139,5 +139,8 @@
   },
   "0.1.46": {
     "en": "Added support for LED Mood Light and LED Bar Light by Livarno LUX/Lidl."
+  },
+  "0.1.47": {
+    "en": "Added support for Water Detector and Zigbee Repeater."
   }
 }

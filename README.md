@@ -61,6 +61,9 @@ Sensors
 - Smart Door/Windows Sensor
     _TZ1800_ejwkn2h2 / TY0203 (Lidl)
 
+- Water Detector
+    _TYZB01_sqmd19i1 / TS0207
+
 
 Plugs and Socket Strips
 - Smart Plug, with metering
@@ -175,6 +178,9 @@ Other
  
 - Curtain Module
     _TZ3000_vd43bbfq / TS130F
+
+- Zigbee Repeater
+    _TZ3000_m0vaazab / TS0207
 
 To request additional devices, please use Athom Homey Community Forum: https://community.athom.com/t/tuya-zigbee-app/26439
 
