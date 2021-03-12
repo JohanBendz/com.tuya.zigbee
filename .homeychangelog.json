@@ -136,5 +136,8 @@
   },
   "0.1.45": {
     "en": "Fix for Tunable White lights deployed to Live version in App Store."
+  },
+  "0.1.46": {
+    "en": "Added support for LED Mood Light and LED Bar Light by Livarno LUX/Lidl."
   }
 }

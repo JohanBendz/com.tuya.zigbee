@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.45",
+  "version": "0.1.46",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -584,7 +584,8 @@
           "TUYATEC-crr8qb0p",
           "_TZ3000_ebar6ljy",
           "TUYATEC-kbqf60nt",
-          "TUYATEC-r9hgssol"
+          "TUYATEC-r9hgssol",
+          "TUYATEC-0l6xaqmi"
         ],
         "productId": [
           "RH3001",
@@ -1040,6 +1041,69 @@
         }
       },
       "images": {
+        "large": "/drivers/rgb_led_light_bar/assets/images/large.png",
+        "small": "/drivers/rgb_led_light_bar/assets/images/small.png"
+      },
+      "id": "rgb_led_light_bar",
+      "name": {
+        "en": "RGB Led Light Bar"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 8,
+          "usageOff": 0.2
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_gek6snaj"
+        ],
+        "productId": [
+          "TS0505A"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8,
+              768
+            ],
+            "bindings": [
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/rgb_led_light_bar/assets/icon.svg",
+          "instruction": {
+            "en": "Power on to enter pairing mode."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "class": "light",
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation",
+        "light_temperature",
+        "light_mode"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "images": {
         "large": "/drivers/rgb_led_strip/assets/images/large.png",
         "small": "/drivers/rgb_led_strip/assets/images/small.png"
       },
@@ -1149,6 +1213,69 @@
           "image": "/drivers/rgb_led_strip_controller/assets/icon.svg",
           "instruction": {
             "en": "Press the setup button for 10 seconds to enter pairing mode (the LED should blink green)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "class": "light",
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation",
+        "light_temperature",
+        "light_mode"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "images": {
+        "large": "/drivers/rgb_mood_light/assets/images/large.png",
+        "small": "/drivers/rgb_mood_light/assets/images/small.png"
+      },
+      "id": "rgb_mood_light",
+      "name": {
+        "en": "RGB Mood Light"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 8,
+          "usageOff": 0.2
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_9cpuaca6"
+        ],
+        "productId": [
+          "TS0505A"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8,
+              768
+            ],
+            "bindings": [
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/rgb_mood_light/assets/icon.svg",
+          "instruction": {
+            "en": "Power on to enter pairing mode."
           }
         }
       },
@@ -1977,7 +2104,8 @@
         "manufacturerName": [
           "_TYZB01_zsl6z0pw",
           "_TZ3000_4js9lo5d",
-          "_TZ3000_pmz6mjyu"
+          "_TZ3000_pmz6mjyu",
+          "_TYZB01_digziiav"
         ],
         "productId": [
           "TS0003",
@@ -2375,7 +2503,8 @@
       "zigbee": {
         "manufacturerName": [
           "_TYZB01_ymcdbl3u",
-          "_TZ3000_o4cjetlm"
+          "_TZ3000_o4cjetlm",
+          "_TYZB01_4tlksk8a"
         ],
         "productId": [
           "TS0111",
@@ -2483,7 +2612,8 @@
           "_TZ3000_owgcnkrh",
           "_TZ3000_svoqrno4",
           "TUYATEC-O6SNCwd6",
-          "_TYZB01_vzrytttn"
+          "_TYZB01_vzrytttn",
+          "_TZ3000_nta0gb8h"
         ],
         "productId": [
           "TS0002",
@@ -2560,7 +2690,8 @@
           "_TZ3000_a7ouggvs",
           "_TYZB01_b8cr31hp",
           "_TZ3000_wyhuocal",
-          "_TZ3000_cdamjqm9"
+          "_TZ3000_cdamjqm9",
+          "_TYZB01_mqel1whf"
         ],
         "productId": [
           "TS0003",
