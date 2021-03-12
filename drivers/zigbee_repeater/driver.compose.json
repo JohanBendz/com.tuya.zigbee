@@ -1,0 +1,35 @@
+{
+  "id": "zigbeerepeater",
+  "name": {
+    "en": "Zigbee Repeater"
+  },
+  "class": "other",
+  "capabilities": [
+  ],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_m0vaazab"
+    ],
+    "productId": [
+      "TS0207"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          3
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Put the device in a USB slot and let it power up."
+      }
+    }
+  }
+}
