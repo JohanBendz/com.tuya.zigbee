@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.46",
+  "version": "0.1.47",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -407,6 +407,54 @@
           ]
         }
       ]
+    },
+    {
+      "id": "diagnostic",
+      "name": {
+        "en": "Diagnostic driver"
+      },
+      "class": "other",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/diagnostic/assets/images/large.png",
+        "small": "/drivers/diagnostic/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_bi6lpsew",
+          "_TZ3000_qzjcsmar",
+          "_TZ3000_vp6clf9d",
+          "_TYZB01_bngwdjsr"
+        ],
+        "productId": [
+          "TS0043",
+          "TS0044",
+          "TS1001"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8
+            ],
+            "bindings": [
+              6,
+              8
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/diagnostic/assets/icon.svg",
+          "instruction": {
+            "en": "Set your device in pair mode according to the manufacturers instructions."
+          }
+        }
+      },
+      "settings": []
     },
     {
       "id": "dimmer_1_gang",
@@ -2807,7 +2855,7 @@
           }
         },
         "learnmode": {
-          "image": "/drivers/water_detector/assets/learn.svg",
+          "image": "/drivers/water_detector/assets/icon.svg",
           "instruction": {
             "en": "Push the button for aprox 10 seconds until the LED blinks rapidly. If nothing happens; put two fingers against the detectors and repeat."
           }
@@ -2844,7 +2892,7 @@
         "learnmode": {
           "image": "/drivers/zigbee_repeater/assets/icon.svg",
           "instruction": {
-            "en": "If the device does not pair when powered; insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
+            "en": "Put the device in a USB slot and let it power up."
           }
         }
       },

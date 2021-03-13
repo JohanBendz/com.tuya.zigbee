@@ -1,0 +1,40 @@
+{
+    "id": "diagnostic",
+    "name": {
+      "en": "Diagnostic driver"
+    },
+    "class": "other",
+    "capabilities": [
+    ],
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TZ3000_bi6lpsew",
+        "_TZ3000_qzjcsmar",
+        "_TZ3000_vp6clf9d",
+        "_TYZB01_bngwdjsr"
+
+      ],
+      "productId": [
+        "TS0043",
+        "TS0044",
+        "TS1001"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 3, 4, 5, 6, 8],
+          "bindings": [6, 8]
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Set your device in pair mode according to the manufacturers instructions."
+        }
+      }
+    }
+
+}
