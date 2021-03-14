@@ -1,0 +1,77 @@
+{
+  "triggers": [
+    {
+      "id": "wall_remote_2_gang_buttons",
+      "title": {
+        "en": "Button Action"
+      },
+      "args": [
+        {
+          "name": "action",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "Left-oneClick",
+              "label": {
+                "en": "Left Button: 1 Click"
+              }
+            },
+            {
+              "id": "Left-twoClicks",
+              "label": {
+                "en": "Left Button: 2 Clicks"
+              }
+            },
+            {
+              "id": "Left-longPress",
+              "label": {
+                "en": "Left Button: Long press"
+              }
+            },
+            {
+              "id": "Left-shortRelease",
+              "label": {
+                "en": "Left Button: Release after short press"
+              }
+            },
+            {
+              "id": "Left-longRelease",
+              "label": {
+                "en": "Left Button: Release after long press"
+              }
+            },
+            {
+              "id": "Right-oneClick",
+              "label": {
+                "en": "Right Button: 1 Click"
+              }
+            },
+            {
+              "id": "Right-twoClicks",
+              "label": {
+                "en": "Right Button: 2 Clicks"
+              }
+            },
+            {
+              "id": "Right-longPress",
+              "label": {
+                "en": "Right Button: Long press"
+              }
+            },            {
+              "id": "Right-shortRelease",
+              "label": {
+                "en": "Right Button: Release after short press"
+              }
+            },
+            {
+              "id": "Right-longRelease",
+              "label": {
+                "en": "Right Button: Release after long press"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

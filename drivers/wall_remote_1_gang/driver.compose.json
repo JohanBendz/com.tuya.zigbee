@@ -1,30 +1,38 @@
 {
-    "id": "diagnostic",
+    "id": "wall_remote_1_gang",
     "name": {
-      "en": "Diagnostic driver"
+      "en": "1 Gang Wall Remote"
     },
-    "class": "other",
+    "class": "remote",
     "capabilities": [
+      "alarm_battery"
     ],
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",
       "small": "{{driverAssetsPath}}/images/small.png"
     },
+    "energy": {
+      "batteries": [
+        "CR2032"
+      ]
+    },
     "zigbee": {
       "manufacturerName": [
+        "_TYZB02_keyjqthh"
       ],
       "productId": [
+        "TS0041"
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 3, 4, 5, 6],
+          "clusters": [0, 3, 6],
           "bindings": [6]
         }
       },
       "learnmode": {
         "image": "{{driverAssetsPath}}/icon.svg",
         "instruction": {
-          "en": "Set your device in pair mode according to the manufacturers instructions."
+          "en": "Press the button for aprox 10 seconds (the LED should start blinking)."
         }
       }
     }
