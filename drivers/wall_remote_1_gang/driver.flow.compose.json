@@ -1,0 +1,48 @@
+{
+  "triggers": [
+    {
+      "id": "wall_remote_1_gang_buttons",
+      "title": {
+        "en": "Button Action"
+      },
+      "args": [
+        {
+          "name": "action",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "oneClick",
+              "label": {
+                "en": "1 Click"
+              }
+            },
+            {
+              "id": "twoClicks",
+              "label": {
+                "en": "2 Clicks"
+              }
+            },
+            {
+              "id": "longPress",
+              "label": {
+                "en": "Long press"
+              }
+            },
+            {
+              "id": "shortRelease",
+              "label": {
+                "en": "Release after short press"
+              }
+            },
+            {
+              "id": "longRelease",
+              "label": {
+                "en": "Release after long press"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

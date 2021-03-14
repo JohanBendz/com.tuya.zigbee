@@ -145,5 +145,8 @@
   },
   "0.1.49": {
     "en": "Added Diagnostic Driver - for use when your device is not yet supported and the developer needs data to be able to add it. Always talk to the developer in Athom Community Forum before using this driver."
+  },
+  "0.1.50": {
+    "en": "Added support for 1 Gang, 2 Gang and 3 Gang Wall Remotes (battery operated)."
   }
 }

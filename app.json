@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.49",
+  "version": "0.1.50",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -261,6 +261,245 @@
         ],
         "id": "start_effect"
       }
+    ],
+    "triggers": [
+      {
+        "id": "wall_remote_1_gang_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_1_gang"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "oneClick",
+                "label": {
+                  "en": "1 Click"
+                }
+              },
+              {
+                "id": "twoClicks",
+                "label": {
+                  "en": "2 Clicks"
+                }
+              },
+              {
+                "id": "longPress",
+                "label": {
+                  "en": "Long press"
+                }
+              },
+              {
+                "id": "shortRelease",
+                "label": {
+                  "en": "Release after short press"
+                }
+              },
+              {
+                "id": "longRelease",
+                "label": {
+                  "en": "Release after long press"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall_remote_2_gang_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_2_gang"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "Left-oneClick",
+                "label": {
+                  "en": "Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "Left-twoClicks",
+                "label": {
+                  "en": "Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "Left-longPress",
+                "label": {
+                  "en": "Left Button: Long press"
+                }
+              },
+              {
+                "id": "Left-shortRelease",
+                "label": {
+                  "en": "Left Button: Release after short press"
+                }
+              },
+              {
+                "id": "Left-longRelease",
+                "label": {
+                  "en": "Left Button: Release after long press"
+                }
+              },
+              {
+                "id": "Right-oneClick",
+                "label": {
+                  "en": "Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "Right-twoClicks",
+                "label": {
+                  "en": "Right Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "Right-longPress",
+                "label": {
+                  "en": "Right Button: Long press"
+                }
+              },
+              {
+                "id": "Right-shortRelease",
+                "label": {
+                  "en": "Right Button: Release after short press"
+                }
+              },
+              {
+                "id": "Right-longRelease",
+                "label": {
+                  "en": "Right Button: Release after long press"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall_remote_3_gang_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_3_gang"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "Left-oneClick",
+                "label": {
+                  "en": "Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "Left-twoClicks",
+                "label": {
+                  "en": "Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "Left-longPress",
+                "label": {
+                  "en": "Left Button: Long press"
+                }
+              },
+              {
+                "id": "Left-shortRelease",
+                "label": {
+                  "en": "Left Button: Release after short press"
+                }
+              },
+              {
+                "id": "Left-longRelease",
+                "label": {
+                  "en": "Left Button: Release after long press"
+                }
+              },
+              {
+                "id": "Middle-oneClick",
+                "label": {
+                  "en": "Middle Button: 1 Click"
+                }
+              },
+              {
+                "id": "Middle-twoClicks",
+                "label": {
+                  "en": "Middle Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "Middle-longPress",
+                "label": {
+                  "en": "Middle Button: Long press"
+                }
+              },
+              {
+                "id": "Middle-shortRelease",
+                "label": {
+                  "en": "Middle Button: Release after short press"
+                }
+              },
+              {
+                "id": "Middle-longRelease",
+                "label": {
+                  "en": "Middle Button: Release after long press"
+                }
+              },
+              {
+                "id": "Right-oneClick",
+                "label": {
+                  "en": "Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "Right-twoClicks",
+                "label": {
+                  "en": "Right Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "Right-longPress",
+                "label": {
+                  "en": "Right Button: Long press"
+                }
+              },
+              {
+                "id": "Right-shortRelease",
+                "label": {
+                  "en": "Right Button: Release after short press"
+                }
+              },
+              {
+                "id": "Right-longRelease",
+                "label": {
+                  "en": "Right Button: Release after long press"
+                }
+              }
+            ]
+          }
+        ]
+      }
     ]
   },
   "drivers": [
@@ -420,18 +659,8 @@
         "small": "/drivers/diagnostic/assets/images/small.png"
       },
       "zigbee": {
-        "manufacturerName": [
-          "_TZ3000_bi6lpsew",
-          "_TZ3000_qzjcsmar",
-          "_TZ3000_vp6clf9d",
-          "_TYZB01_bngwdjsr",
-          "_TZ3000_a7ouggvs"
-        ],
-        "productId": [
-          "TS0043",
-          "TS0044",
-          "TS1001"
-        ],
+        "manufacturerName": [],
+        "productId": [],
         "endpoints": {
           "1": {
             "clusters": [
@@ -439,12 +668,10 @@
               3,
               4,
               5,
-              6,
-              8
+              6
             ],
             "bindings": [
-              6,
-              8
+              6
             ]
           }
         },
@@ -2577,6 +2804,173 @@
           "image": "/drivers/valvecontroller/assets/icon.svg",
           "instruction": {
             "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "wall_remote_1_gang",
+      "name": {
+        "en": "1 Gang Wall Remote"
+      },
+      "class": "remote",
+      "capabilities": [
+        "alarm_battery"
+      ],
+      "images": {
+        "large": "/drivers/wall_remote_1_gang/assets/images/large.png",
+        "small": "/drivers/wall_remote_1_gang/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TYZB02_keyjqthh"
+        ],
+        "productId": [
+          "TS0041"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_remote_1_gang/assets/icon.svg",
+          "instruction": {
+            "en": "Press the button for aprox 10 seconds (the LED should start blinking)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "wall_remote_2_gang",
+      "name": {
+        "en": "2 Gang Wall Remote"
+      },
+      "class": "remote",
+      "capabilities": [
+        "alarm_battery"
+      ],
+      "images": {
+        "large": "/drivers/wall_remote_2_gang/assets/images/large.png",
+        "small": "/drivers/wall_remote_2_gang/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_owgcnkrh",
+          "_TYZB02_keyjhapk"
+        ],
+        "productId": [
+          "TS0042"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              3,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_remote_2_gang/assets/icon.svg",
+          "instruction": {
+            "en": "Press the left button for aprox 10 seconds (the LED should start blinking). A tile for each button will be created. "
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "wall_remote_3_gang",
+      "name": {
+        "en": "3 Gang Wall Remote"
+      },
+      "class": "remote",
+      "capabilities": [
+        "alarm_battery"
+      ],
+      "images": {
+        "large": "/drivers/wall_remote_3_gang/assets/images/large.png",
+        "small": "/drivers/wall_remote_3_gang/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_a7ouggvs",
+          "_TYZB02_key8kk7r",
+          "_TZ3000_qzjcsmar"
+        ],
+        "productId": [
+          "TS0043"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              3,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_remote_3_gang/assets/icon.svg",
+          "instruction": {
+            "en": "Press the left button for aprox 10 seconds (the LED should start blinking)."
           }
         }
       },
