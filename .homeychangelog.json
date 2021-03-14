@@ -143,7 +143,7 @@
   "0.1.47": {
     "en": "Added support for Water Detector and Zigbee Repeater."
   },
-  "0.1.48": {
+  "0.1.49": {
     "en": "Added Diagnostic Driver - for use when your device is not yet supported and the developer needs data to be able to add it. Always talk to the developer in Athom Community Forum before using this driver."
   }
 }
