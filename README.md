@@ -63,6 +63,7 @@ Sensors
 
 - Water Detector
     _TYZB01_sqmd19i1 / TS0207
+    _TYST11_qq9mpfhw / q9mpfhw (Neo)
 
 
 Plugs and Socket Strips
@@ -169,6 +170,19 @@ Lights
 
 - Tunable Spot GU10
     _TZ3000_el5kt5im / TS0502A (Lidl / LIVARNO LUX)
+
+Remotes
+- 1 Gang Wall Remote
+    _TYZB02_keyjqthh / TS0041
+
+- 2 Gang Wall Remote
+    _TZ3000_owgcnkrh / TS0042
+    _TYZB02_keyjhapk / TS0042
+
+- 3 Gang Wall Remote
+    _TZ3000_a7ouggvs / TS0043
+    _TYZB02_key8kk7r / TS0043
+    _TZ3000_qzjcsmar / TS0043
 
 Other
 - Valve Controller
