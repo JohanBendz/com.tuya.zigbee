@@ -19,10 +19,12 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TYZB01_sqmd19i1"
+      "_TYZB01_sqmd19i1",
+      "_TYST11_qq9mpfhw"
     ],
     "productId": [
-      "TS0207"
+      "TS0207",
+      "q9mpfhw"
     ],
     "endpoints": {
       "1": {

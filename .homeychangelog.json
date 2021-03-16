@@ -148,5 +148,11 @@
   },
   "0.1.50": {
     "en": "Added support for 1 Gang, 2 Gang and 3 Gang Wall Remotes (battery operated)."
+  },
+  "0.1.51": {
+    "en": "Added a few device Id's for already supported units."
+  },
+  "0.1.52": {
+    "en": "Fix for 1,2,3 Gang Wall Remotes."
   }
 }

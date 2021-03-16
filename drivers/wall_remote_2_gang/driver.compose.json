@@ -26,11 +26,11 @@
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 3, 6],
+          "clusters": [0, 1, 6],
           "bindings": [6]
         },
         "2": {
-          "clusters": [3, 6],
+          "clusters": [1, 6],
           "bindings": [6]
         }
       },
