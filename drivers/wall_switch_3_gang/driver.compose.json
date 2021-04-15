@@ -3,7 +3,7 @@
     "name": {
       "en": "3 Gang Wall Switch"
     },
-    "class": "light",
+    "class": "socket",
     "capabilities": [
       "onoff"
     ],

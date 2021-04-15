@@ -1,9 +1,9 @@
 {
-    "id": "diagnostic",
+    "id": "smart_remote_4_buttons",
     "name": {
-      "en": "Diagnostic driver"
+      "en": "4 button Smart Remote Controller"
     },
-    "class": "other",
+    "class": "remote",
     "capabilities": [
     ],
     "images": {
@@ -12,21 +12,24 @@
     },
     "zigbee": {
       "manufacturerName": [
+        "_TZ3000_fsiepnrh"
       ],
       "productId": [
+        "TS0215A"
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 3, 4, 5, 6],
-          "bindings": [6]
+          "clusters": [0, 1, 1280, 1281],
+          "bindings": [1281]
         }
       },
       "learnmode": {
         "image": "{{driverAssetsPath}}/icon.svg",
         "instruction": {
-          "en": "Set your device in pair mode according to the manufacturers instructions."
+          "en": "Push a pin gently into the reset hole on the backside of the unit for aprox 10 seconds until the led on the front blinks rapidly."
         }
       }
     }
 
 }
+

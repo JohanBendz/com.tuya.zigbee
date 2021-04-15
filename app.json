@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.1.52",
+  "version": "0.1.53",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "name": {
@@ -264,6 +264,49 @@
     ],
     "triggers": [
       {
+        "id": "smart_remote_4_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_remote_4_buttons"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "leftUp",
+                "label": {
+                  "en": "Upper Left Button Pressed"
+                }
+              },
+              {
+                "id": "rightUp",
+                "label": {
+                  "en": "Upper Right Button Pressed"
+                }
+              },
+              {
+                "id": "leftDown",
+                "label": {
+                  "en": "Lower Left Button Pressed"
+                }
+              },
+              {
+                "id": "rightDown",
+                "label": {
+                  "en": "Lower Right Button Pressed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "wall_remote_1_gang_buttons",
         "title": {
           "en": "Button Action"
@@ -289,24 +332,6 @@
                 "label": {
                   "en": "2 Clicks"
                 }
-              },
-              {
-                "id": "longPress",
-                "label": {
-                  "en": "Long press"
-                }
-              },
-              {
-                "id": "shortRelease",
-                "label": {
-                  "en": "Release after short press"
-                }
-              },
-              {
-                "id": "longRelease",
-                "label": {
-                  "en": "Release after long press"
-                }
               }
             ]
           }
@@ -328,63 +353,27 @@
             "type": "dropdown",
             "values": [
               {
-                "id": "Left-oneClick",
+                "id": "left-oneClick",
                 "label": {
                   "en": "Left Button: 1 Click"
                 }
               },
               {
-                "id": "Left-twoClicks",
+                "id": "left-twoClicks",
                 "label": {
                   "en": "Left Button: 2 Clicks"
                 }
               },
               {
-                "id": "Left-longPress",
-                "label": {
-                  "en": "Left Button: Long press"
-                }
-              },
-              {
-                "id": "Left-shortRelease",
-                "label": {
-                  "en": "Left Button: Release after short press"
-                }
-              },
-              {
-                "id": "Left-longRelease",
-                "label": {
-                  "en": "Left Button: Release after long press"
-                }
-              },
-              {
-                "id": "Right-oneClick",
+                "id": "right-oneClick",
                 "label": {
                   "en": "Right Button: 1 Click"
                 }
               },
               {
-                "id": "Right-twoClicks",
+                "id": "right-twoClicks",
                 "label": {
                   "en": "Right Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "Right-longPress",
-                "label": {
-                  "en": "Right Button: Long press"
-                }
-              },
-              {
-                "id": "Right-shortRelease",
-                "label": {
-                  "en": "Right Button: Release after short press"
-                }
-              },
-              {
-                "id": "Right-longRelease",
-                "label": {
-                  "en": "Right Button: Release after long press"
                 }
               }
             ]
@@ -407,93 +396,106 @@
             "type": "dropdown",
             "values": [
               {
-                "id": "Left-oneClick",
+                "id": "left-oneClick",
                 "label": {
                   "en": "Left Button: 1 Click"
                 }
               },
               {
-                "id": "Left-twoClicks",
+                "id": "left-twoClicks",
                 "label": {
                   "en": "Left Button: 2 Clicks"
                 }
               },
               {
-                "id": "Left-longPress",
-                "label": {
-                  "en": "Left Button: Long press"
-                }
-              },
-              {
-                "id": "Left-shortRelease",
-                "label": {
-                  "en": "Left Button: Release after short press"
-                }
-              },
-              {
-                "id": "Left-longRelease",
-                "label": {
-                  "en": "Left Button: Release after long press"
-                }
-              },
-              {
-                "id": "Middle-oneClick",
-                "label": {
-                  "en": "Middle Button: 1 Click"
-                }
-              },
-              {
-                "id": "Middle-twoClicks",
-                "label": {
-                  "en": "Middle Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "Middle-longPress",
-                "label": {
-                  "en": "Middle Button: Long press"
-                }
-              },
-              {
-                "id": "Middle-shortRelease",
-                "label": {
-                  "en": "Middle Button: Release after short press"
-                }
-              },
-              {
-                "id": "Middle-longRelease",
-                "label": {
-                  "en": "Middle Button: Release after long press"
-                }
-              },
-              {
-                "id": "Right-oneClick",
+                "id": "right-oneClick",
                 "label": {
                   "en": "Right Button: 1 Click"
                 }
               },
               {
-                "id": "Right-twoClicks",
+                "id": "right-twoClicks",
                 "label": {
                   "en": "Right Button: 2 Clicks"
                 }
               },
               {
-                "id": "Right-longPress",
+                "id": "center-oneClick",
                 "label": {
-                  "en": "Right Button: Long press"
+                  "en": "Center Button: 1 Click"
                 }
               },
               {
-                "id": "Right-shortRelease",
+                "id": "center-twoClicks",
                 "label": {
-                  "en": "Right Button: Release after short press"
+                  "en": "Center Button: 2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall_remote_4_gang_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_4_gang"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "leftUp-oneClick",
+                "label": {
+                  "en": "Upper Left Button: 1 Click"
                 }
               },
               {
-                "id": "Right-longRelease",
+                "id": "leftUp-twoClicks",
                 "label": {
-                  "en": "Right Button: Release after long press"
+                  "en": "Upper Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "rightUp-oneClick",
+                "label": {
+                  "en": "Upper Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "rightUp-twoClicks",
+                "label": {
+                  "en": "Upper Right Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "leftDown-oneClick",
+                "label": {
+                  "en": "Lower Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "leftDown-twoClicks",
+                "label": {
+                  "en": "Lower Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "rightDown-oneClick",
+                "label": {
+                  "en": "Lower Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "rightDown-twoClicks",
+                "label": {
+                  "en": "Lower Right Button: 2 Clicks"
                 }
               }
             ]
@@ -646,43 +648,6 @@
           ]
         }
       ]
-    },
-    {
-      "id": "diagnostic",
-      "name": {
-        "en": "Diagnostic driver"
-      },
-      "class": "other",
-      "capabilities": [],
-      "images": {
-        "large": "/drivers/diagnostic/assets/images/large.png",
-        "small": "/drivers/diagnostic/assets/images/small.png"
-      },
-      "zigbee": {
-        "manufacturerName": [],
-        "productId": [],
-        "endpoints": {
-          "1": {
-            "clusters": [
-              0,
-              3,
-              4,
-              5,
-              6
-            ],
-            "bindings": [
-              6
-            ]
-          }
-        },
-        "learnmode": {
-          "image": "/drivers/diagnostic/assets/icon.svg",
-          "instruction": {
-            "en": "Set your device in pair mode according to the manufacturers instructions."
-          }
-        }
-      },
-      "settings": []
     },
     {
       "id": "dimmer_1_gang",
@@ -861,7 +826,8 @@
           "_TZ3000_ebar6ljy",
           "TUYATEC-kbqf60nt",
           "TUYATEC-r9hgssol",
-          "TUYATEC-0l6xaqmi"
+          "TUYATEC-0l6xaqmi",
+          "TUYATEC-trhrga6p"
         ],
         "productId": [
           "RH3001",
@@ -1027,6 +993,207 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "lcdtemphumidsensor_2",
+      "name": {
+        "en": "LCD Temperature & Humidity Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2450"
+        ]
+      },
+      "images": {
+        "large": "/drivers/lcdtemphumidsensor_2/assets/images/large.png",
+        "small": "/drivers/lcdtemphumidsensor_2/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TYZB01_cbiezpds"
+        ],
+        "productId": [
+          "SM0201"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1026,
+              1029
+            ],
+            "bindings": [
+              1,
+              1026,
+              1029
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Open the backside of the unit and press the button inside for 5 seconds."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "temperature_offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset (°C)"
+          },
+          "hint": {
+            "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "temperature_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Temperature reporting decimals"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report temperature value with 1 decimal (21.4 °C)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report temperature value with 2 decimals (21.37 °C)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "humidity_offset",
+          "type": "number",
+          "label": {
+            "en": "Humidity offset (%)",
+            "nl": "Luchtvochtigheids compensatie (%)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 1
+          },
+          "units": {
+            "en": "%",
+            "nl": "%"
+          }
+        },
+        {
+          "id": "humidity_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Humidity reporting"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report humidity value with 1 decimal (35.2 %)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report humidity value with 2 decimals (35.19 %)"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "motion_sensor",
+      "name": {
+        "en": "Motion Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_battery",
+        "alarm_motion",
+        "alarm_battery",
+        "alarm_tamper"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2450"
+        ]
+      },
+      "images": {
+        "large": "/drivers/motion_sensor/assets/images/large.png",
+        "small": "/drivers/motion_sensor/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "TUYATEC-bd5faf9p"
+        ],
+        "productId": [
+          "RH3040"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/motion_sensor/assets/icon.svg",
+          "instruction": {
+            "en": "Push the setup button on the side of the device for aprox 5 seconds until the LED blinks rapidly. If the pairing does not start, press the setup button again for 10-15 seconds until the led stops blinking and then try again."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "batteryThreshold",
+          "type": "number",
+          "label": {
+            "en": "Battery Low Alarm Voltage Threshold (%)"
+          },
+          "hint": {
+            "en": "This setting determines the threshold before a battery alarm is given."
+          },
+          "value": 20,
+          "attr": {
+            "step": 1,
+            "min": 1,
+            "max": 99
+          }
         }
       ]
     },
@@ -1819,6 +1986,46 @@
       ]
     },
     {
+      "id": "smart_remote_4_buttons",
+      "name": {
+        "en": "4 button Smart Remote Controller"
+      },
+      "class": "remote",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/smart_remote_4_buttons/assets/images/large.png",
+        "small": "/drivers/smart_remote_4_buttons/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_fsiepnrh"
+        ],
+        "productId": [
+          "TS0215A"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1280,
+              1281
+            ],
+            "bindings": [
+              1281
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smart_remote_4_buttons/assets/icon.svg",
+          "instruction": {
+            "en": "Push a pin gently into the reset hole on the backside of the unit for aprox 10 seconds until the led on the front blinks rapidly."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "smartplug",
       "name": {
         "en": "Smart Plug with metering"
@@ -2309,7 +2516,7 @@
       "name": {
         "en": "1 Gang Switch Module"
       },
-      "class": "light",
+      "class": "socket",
       "capabilities": [
         "onoff"
       ],
@@ -2362,7 +2569,7 @@
       "name": {
         "en": "2 Gang Switch Module"
       },
-      "class": "light",
+      "class": "socket",
       "capabilities": [
         "onoff"
       ],
@@ -2465,7 +2672,9 @@
           "TUYATEC-abkehqus",
           "TUYATEC-yg5dcbfu",
           "TUYATEC-prhs1rsd",
-          "TUYATEC-gqhxixyk"
+          "TUYATEC-gqhxixyk",
+          "TUYATEC-vmgh3fxd",
+          "TUYATEC-ojmxeikg"
         ],
         "productId": [
           "RH3052"
@@ -2815,9 +3024,7 @@
         "en": "1 Gang Wall Remote"
       },
       "class": "remote",
-      "capabilities": [
-        "alarm_battery"
-      ],
+      "capabilities": [],
       "images": {
         "large": "/drivers/wall_remote_1_gang/assets/images/large.png",
         "small": "/drivers/wall_remote_1_gang/assets/images/small.png"
@@ -2838,7 +3045,6 @@
           "1": {
             "clusters": [
               0,
-              1,
               6
             ],
             "bindings": [
@@ -2861,9 +3067,7 @@
         "en": "2 Gang Wall Remote"
       },
       "class": "remote",
-      "capabilities": [
-        "alarm_battery"
-      ],
+      "capabilities": [],
       "images": {
         "large": "/drivers/wall_remote_2_gang/assets/images/large.png",
         "small": "/drivers/wall_remote_2_gang/assets/images/small.png"
@@ -2885,7 +3089,6 @@
           "1": {
             "clusters": [
               0,
-              1,
               6
             ],
             "bindings": [
@@ -2894,7 +3097,6 @@
           },
           "2": {
             "clusters": [
-              1,
               6
             ],
             "bindings": [
@@ -2917,9 +3119,7 @@
         "en": "3 Gang Wall Remote"
       },
       "class": "remote",
-      "capabilities": [
-        "alarm_battery"
-      ],
+      "capabilities": [],
       "images": {
         "large": "/drivers/wall_remote_3_gang/assets/images/large.png",
         "small": "/drivers/wall_remote_3_gang/assets/images/small.png"
@@ -2942,7 +3142,6 @@
           "1": {
             "clusters": [
               0,
-              1,
               6
             ],
             "bindings": [
@@ -2951,7 +3150,6 @@
           },
           "2": {
             "clusters": [
-              1,
               6
             ],
             "bindings": [
@@ -2977,11 +3175,78 @@
       "settings": []
     },
     {
+      "id": "wall_remote_4_gang",
+      "name": {
+        "en": "4 Gang Wall Remote"
+      },
+      "class": "remote",
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/wall_remote_4_gang/assets/images/large.png",
+        "small": "/drivers/wall_remote_4_gang/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2450"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_vp6clf9d"
+        ],
+        "productId": [
+          "TS0044"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "4": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_remote_4_gang/assets/icon.svg",
+          "instruction": {
+            "en": "Press the lower left button for aprox 10 seconds (all LED should start blinking)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "wall_switch_1_gang",
       "name": {
         "en": "1 Gang Wall Switch"
       },
-      "class": "light",
+      "class": "socket",
       "capabilities": [
         "onoff"
       ],
@@ -3033,7 +3298,7 @@
       "name": {
         "en": "2 Gang Wall Switch"
       },
-      "class": "light",
+      "class": "socket",
       "capabilities": [
         "onoff"
       ],
@@ -3112,7 +3377,7 @@
       "name": {
         "en": "3 Gang Wall Switch"
       },
-      "class": "light",
+      "class": "socket",
       "capabilities": [
         "onoff"
       ],
@@ -3229,7 +3494,8 @@
       "zigbee": {
         "manufacturerName": [
           "_TYZB01_sqmd19i1",
-          "_TYST11_qq9mpfhw"
+          "_TYST11_qq9mpfhw",
+          "_TZ3000_fxvjhdyl"
         ],
         "productId": [
           "TS0207",

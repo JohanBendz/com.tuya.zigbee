@@ -152,7 +152,7 @@
   "0.1.51": {
     "en": "Added a few device Id's for already supported units."
   },
-  "0.1.52": {
-    "en": "Fix for 1,2,3 Gang Wall Remotes."
+  "0.1.53": {
+    "en": "1 / 2 / 3 / 4 (added) Gang Wall Remotes now working. Added support for 4 button Smart Remote Controller."
   }
 }
