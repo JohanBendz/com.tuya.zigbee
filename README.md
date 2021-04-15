@@ -34,6 +34,7 @@ Sensors
     _TYZB01_a476raq2 / TS0201
     _TYZB01_hjsgdkfl / TS0201
     _TYZB01_iuepbmpv / TS0201
+    _TYZB01_cbiezpds / SM0201
 
 - PIR Sensor (Cylinder shaped)
     TUYATEC-lha8pbwd / RH3040
@@ -42,6 +43,9 @@ Sensors
 
 - PIR Sensor (Globe shaped)
     _TYZB01_jytabjkb / TS0202
+
+. Motion Sensor
+    TUYATEC-bd5faf9p / RH3040 (Nedis)
 
 - Smart Motion Sensor
     _TZ1800_fcdjzz3s / TY0202 (Lidl)
@@ -57,6 +61,7 @@ Sensors
     TUYATEC-kbqf60nt / RH3001
     TUYATEC-r9hgssol / RH3001
     TUYATEC-0l6xaqmi / RH3001
+    TUYATEC-trhrga6p / RH3001
 
 - Smart Door/Windows Sensor
     _TZ1800_ejwkn2h2 / TY0203 (Lidl)
@@ -64,6 +69,7 @@ Sensors
 - Water Detector
     _TYZB01_sqmd19i1 / TS0207
     _TYST11_qq9mpfhw / q9mpfhw (Neo)
+    _TZ3000_fxvjhdyl / TS0207
 
 
 Plugs and Socket Strips
@@ -183,6 +189,12 @@ Remotes
     _TZ3000_a7ouggvs / TS0043
     _TYZB02_key8kk7r / TS0043
     _TZ3000_qzjcsmar / TS0043
+
+- 4 Gang Wall Remote
+    _TZ3000_vp6clf9d / TS0044
+
+- 4 Button Smart Remote Controller
+    _TZ3000_fsiepnrh / TS0215A (Nedis)
 
 Other
 - Valve Controller

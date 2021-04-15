@@ -1,0 +1,42 @@
+{
+  "triggers": [
+    {
+      "id": "smart_remote_4_buttons",
+      "title": {
+        "en": "Button Action"
+      },
+      "args": [
+        {
+          "name": "action",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "leftUp",
+              "label": {
+                "en": "Upper Left Button Pressed"
+              }
+            },
+            {
+              "id": "rightUp",
+              "label": {
+                "en": "Upper Right Button Pressed"
+              }
+            },
+            {
+              "id": "leftDown",
+              "label": {
+                "en": "Lower Left Button Pressed"
+              }
+            },
+            {
+              "id": "rightDown",
+              "label": {
+                "en": "Lower Right Button Pressed"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

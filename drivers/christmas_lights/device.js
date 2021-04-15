@@ -127,6 +127,7 @@ class christmas_lights extends ZigBeeDevice {
         return this._transactionID;
     }
 
+    // Boolean
     async writeBool(dp, value) {
         const data = Buffer.alloc(1);
         data.writeUInt8(value ? 0x01 : 0x00,0);
@@ -140,6 +141,7 @@ class christmas_lights extends ZigBeeDevice {
         });
     }
 
+    // enum
     async writeEnum(dp, value) {
         const data = Buffer.alloc(1);
         data.writeUInt8(value, 0);
@@ -153,6 +155,7 @@ class christmas_lights extends ZigBeeDevice {
         });
     }
 
+    // int type value
     async writeData32 (dp, value) {
         const data = Buffer.alloc(4);
         data.writeUInt32BE(value,0);
@@ -166,6 +169,7 @@ class christmas_lights extends ZigBeeDevice {
         });
     }
 
+    // string
     async writeString(dp, value) {
         const data = Buffer.from(String(value),'latin1');
         return this.zclNode.endpoints[1].clusters.tuya.datapoint({

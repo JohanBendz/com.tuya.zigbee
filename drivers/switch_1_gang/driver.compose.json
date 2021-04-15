@@ -3,7 +3,7 @@
     "name": {
       "en": "1 Gang Switch Module"
     },
-    "class": "light",
+    "class": "socket",
     "capabilities": [
       "onoff"
     ],

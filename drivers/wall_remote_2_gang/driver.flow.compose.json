@@ -11,62 +11,27 @@
           "type": "dropdown",
           "values": [
             {
-              "id": "Left-oneClick",
+              "id": "left-oneClick",
               "label": {
                 "en": "Left Button: 1 Click"
               }
             },
             {
-              "id": "Left-twoClicks",
+              "id": "left-twoClicks",
               "label": {
                 "en": "Left Button: 2 Clicks"
               }
             },
             {
-              "id": "Left-longPress",
-              "label": {
-                "en": "Left Button: Long press"
-              }
-            },
-            {
-              "id": "Left-shortRelease",
-              "label": {
-                "en": "Left Button: Release after short press"
-              }
-            },
-            {
-              "id": "Left-longRelease",
-              "label": {
-                "en": "Left Button: Release after long press"
-              }
-            },
-            {
-              "id": "Right-oneClick",
+              "id": "right-oneClick",
               "label": {
                 "en": "Right Button: 1 Click"
               }
             },
             {
-              "id": "Right-twoClicks",
+              "id": "right-twoClicks",
               "label": {
                 "en": "Right Button: 2 Clicks"
-              }
-            },
-            {
-              "id": "Right-longPress",
-              "label": {
-                "en": "Right Button: Long press"
-              }
-            },            {
-              "id": "Right-shortRelease",
-              "label": {
-                "en": "Right Button: Release after short press"
-              }
-            },
-            {
-              "id": "Right-longRelease",
-              "label": {
-                "en": "Right Button: Release after long press"
               }
             }
           ]

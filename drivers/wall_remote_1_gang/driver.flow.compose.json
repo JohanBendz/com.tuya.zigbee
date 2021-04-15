@@ -21,24 +21,6 @@
               "label": {
                 "en": "2 Clicks"
               }
-            },
-            {
-              "id": "longPress",
-              "label": {
-                "en": "Long press"
-              }
-            },
-            {
-              "id": "shortRelease",
-              "label": {
-                "en": "Release after short press"
-              }
-            },
-            {
-              "id": "longRelease",
-              "label": {
-                "en": "Release after long press"
-              }
             }
           ]
         }
