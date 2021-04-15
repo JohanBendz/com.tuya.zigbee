@@ -154,5 +154,8 @@
   },
   "0.1.53": {
     "en": "1 / 2 / 3 / 4 (added) Gang Wall Remotes now working. Added support for 4 button Smart Remote Controller."
+  },
+  "0.1.54": {
+    "en": "Added more device ID's to the Wall Remotes."
   }
 }

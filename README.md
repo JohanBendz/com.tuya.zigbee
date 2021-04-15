@@ -180,6 +180,8 @@ Lights
 Remotes
 - 1 Gang Wall Remote
     _TYZB02_keyjqthh / TS0041
+    _TZ3000_tk3s5tyg / TS0041
+    _TZ3000_fkp5zyho / TS0041
 
 - 2 Gang Wall Remote
     _TZ3000_owgcnkrh / TS0042
