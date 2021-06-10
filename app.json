@@ -2535,12 +2535,14 @@
           "_TYZB01_ncutbjdi",
           "_TYZB01_aneiicmq",
           "_TZ3000_zmy1waw6",
-          "_TZ3000_pmvbt5hh"
+          "_TZ3000_pmvbt5hh",
+          "_TZ3000_hktqahrq"
         ],
         "productId": [
           "TS0003",
           "TS011F",
-          "TS0011"
+          "TS0011",
+          "TS0001"
         ],
         "endpoints": {
           "1": {
@@ -3325,14 +3327,12 @@
           "_TZ3000_svoqrno4",
           "TUYATEC-O6SNCwd6",
           "_TYZB01_vzrytttn",
-          "_TZ3000_nta0gb8h",
-          "_TZ3000_hktqahrq"
+          "_TZ3000_nta0gb8h"
         ],
         "productId": [
           "TS0002",
           "TS0012",
-          "TS0042",
-          "TS0001"
+          "TS0042"
         ],
         "endpoints": {
           "1": {
