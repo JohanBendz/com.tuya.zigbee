@@ -157,5 +157,8 @@
   },
   "0.1.54": {
     "en": "Added more device ID's to the Wall Remotes."
+  },
+  "0.1.55": {
+    "en": "Added Tuya Moes 3 and 4 gang wall remote."
   }
 }
