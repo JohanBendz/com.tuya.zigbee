@@ -25,12 +25,14 @@
         "_TZ3000_svoqrno4",
         "TUYATEC-O6SNCwd6",
         "_TYZB01_vzrytttn",
-        "_TZ3000_nta0gb8h"
+        "_TZ3000_nta0gb8h",
+        "_TZ3000_hktqahrq"
       ],
       "productId": [
         "TS0002",
         "TS0012",
-        "TS0042"
+        "TS0042",
+        "TS0001"
       ],
       "endpoints": {
         "1": {
