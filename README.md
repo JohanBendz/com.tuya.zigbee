@@ -70,6 +70,7 @@ Sensors
     _TYZB01_sqmd19i1 / TS0207
     _TYST11_qq9mpfhw / q9mpfhw (Neo)
     _TZ3000_fxvjhdyl / TS0207
+    _TZ3000_eit7p838 / TS0207 (Blitzwolf)
 
 
 Plugs and Socket Strips
