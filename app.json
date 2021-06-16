@@ -3486,7 +3486,7 @@
       },
       "class": "sensor",
       "capabilities": [
-        "alarm_contact",
+        "alarm_water",
         "alarm_battery"
       ],
       "energy": {
