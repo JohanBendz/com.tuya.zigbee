@@ -70,6 +70,7 @@ Sensors
     _TYZB01_sqmd19i1 / TS0207
     _TYST11_qq9mpfhw / q9mpfhw (Neo)
     _TZ3000_fxvjhdyl / TS0207
+    _TZ3000_eit7p838 / TS0207 (Blitzwolf)
 
 
 Plugs and Socket Strips
@@ -130,6 +131,7 @@ On-Wall
     TUYATEC-O6SNCwd6 / TS0012
     _TYZB01_vzrytttn / TS0012 (MOES)
     _TZ3000_nta0gb8h / TS0002
+    _TZ3000_hktqahrq / TD0001
 
 - 3 Gang Wall Switch
     _TYZB01_xiuox57i / TS0013
@@ -191,9 +193,12 @@ Remotes
     _TZ3000_a7ouggvs / TS0043
     _TYZB02_key8kk7r / TS0043
     _TZ3000_qzjcsmar / TS0043
+    _TZ3000_w8jwkczz / TS0043 (MOES)
 
 - 4 Gang Wall Remote
     _TZ3000_vp6clf9d / TS0044
+    _TZ3000_xabckq1v / TS004F (MOES)
+
 
 - 4 Button Smart Remote Controller
     _TZ3000_fsiepnrh / TS0215A (Nedis)

@@ -18,7 +18,7 @@ class waterdetector extends ZigBeeDevice {
   
   onIASZoneStatusChangeNotification({zoneStatus, extendedStatus, zoneId, delay,}) {
     this.log('IASZoneStatusChangeNotification received:', zoneStatus, extendedStatus, zoneId, delay);
-    this.setCapabilityValue('alarm_contact', zoneStatus.alarm1);
+    this.setCapabilityValue('alarm_water', zoneStatus.alarm1);
     this.setCapabilityValue('alarm_battery', zoneStatus.battery);
   }
 
