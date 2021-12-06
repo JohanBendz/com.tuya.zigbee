@@ -1,9 +1,11 @@
 {
     "title": {
-    "en": "Start effect"
+    "en": "Start effect",
+    "it": "Avvia effetto"
     },
     "hint": {
-        "en": "Choose a light pattern and a speed for it. You can also choose what colors the pattern should have, this is not mandatory."
+        "en": "Choose a light pattern and a speed for it. You can also choose what colors the pattern should have, this is not mandatory.",
+        "it": "Scegli uno schema luminoso ed una velocità. Puoi anche scegliere il colore che lo schema deve avere, questo non è obblicatorio."
     },
     "args": [
     {
@@ -14,24 +16,24 @@
     {
         "type": "dropdown",
         "name": "effect_name",
-        "title": {"en": "Effect"},
+        "title": {"en": "Effect","it":"Effetto"},
         "values": [
-            {"id": "steady","label": {"en": "Steady"}},
-            {"id": "snow","label": {"en": "Snow"}},
-            {"id": "rainbow","label": {"en": "Rainbow"}},
-            {"id": "snake","label": {"en": "Snake"}},
-            {"id": "twinkle","label": {"en": "Twinkle"}},
-            {"id": "firework","label": {"en": "Firework"}},
-            {"id": "horizontal_flag","label": {"en": "Horizontal Flag"}},
-            {"id": "waves","label": {"en": "Waves"}},
-            {"id": "updown","label": {"en": "Up and Down"}},
-            {"id": "vintage","label": {"en": "Vintage"}},
-            {"id": "fading","label": {"en": "Fading"}},
-            {"id": "collide","label": {"en": "Collide"}},
-            {"id": "strobe","label": {"en": "Strobe"}},
-            {"id": "sparkles","label": {"en": "Sparkles"}},
-            {"id": "carnaval","label": {"en": "Carnaval"}},
-            {"id": "glow","label": {"en": "Glow"}}
+            {"id": "steady","label": {"en": "Steady","it":"Fisso"}},
+            {"id": "snow","label": {"en": "Snow","it":"Neve"}},
+            {"id": "rainbow","label": {"en": "Rainbow","it":"Arcobaleno"}},
+            {"id": "snake","label": {"en": "Snake","it":"Serpente"}},
+            {"id": "twinkle","label": {"en": "Twinkle","it":"Luccichio"}},
+            {"id": "firework","label": {"en": "Firework","it":"Fuochi d'artificio"}},
+            {"id": "horizontal_flag","label": {"en": "Horizontal Flag","it":"Bandiera orizzontale"}},
+            {"id": "waves","label": {"en": "Waves","it":"Onde"}},
+            {"id": "updown","label": {"en": "Up and Down","it":"Su e giù"}},
+            {"id": "vintage","label": {"en": "Vintage","it":"Vintage"}},
+            {"id": "fading","label": {"en": "Fading","it":"Dissolvenza"}},
+            {"id": "collide","label": {"en": "Collide","it":"Collidere"}},
+            {"id": "strobe","label": {"en": "Strobe","it":"Strobo"}},
+            {"id": "sparkles","label": {"en": "Sparkles","it":"Scintillio"}},
+            {"id": "carnaval","label": {"en": "Carnaval","it":"Carnevale"}},
+            {"id": "glow","label": {"en": "Glow","it":"Bagliore"}}
         ]
     },
     {

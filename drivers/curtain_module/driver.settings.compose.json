@@ -3,20 +3,23 @@
         "id": "reverse",
         "type": "radio",
         "label": {
-          "en": "Motor moves in reverse direction"
+          "en": "Motor moves in reverse direction",
+          "it": "Il motore si muove in senso inverso"
         },
         "value": "0",
         "values": [
           {
             "id": "0",
             "label": {
-              "en": "Off"
+              "en": "Off",
+              "it":"Off"
             }
           },
           {
             "id": "1",
             "label": {
-              "en": "On"
+              "en": "On",
+              "it":"On"
             }
           }
         ]

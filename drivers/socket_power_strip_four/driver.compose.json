@@ -1,7 +1,8 @@
 {
   "id": "socket_power_strip_four",
   "name": {
-    "en": "Power Strip Socket 1/4"
+    "en": "Power Strip Socket 1/4",
+    "it": "Presa 1/4"
   },
   "class": "socket",
   "capabilities": [
@@ -50,7 +51,8 @@
         "class": "socket",
         "capabilities": ["onoff"],
         "name": {
-          "en": "Power Strip Socket 2/4"
+          "en": "Power Strip Socket 2/4",
+          "it": "Presa 2/4"
         },
         "energy": {
           "approximation": {
@@ -63,7 +65,8 @@
         "class": "socket",
         "capabilities": ["onoff"],
         "name": {
-          "en": "Power Strip Socket 3/4"
+          "en": "Power Strip Socket 3/4",
+          "it": "Presa 3/4"
         },
         "energy": {
           "approximation": {
@@ -76,7 +79,8 @@
         "class": "socket",
         "capabilities": ["onoff"],
         "name": {
-          "en": "Power Strip Socket 4/4"
+          "en": "Power Strip Socket 4/4",
+          "it": "Presa 4/4"
         },
         "energy": {
           "approximation": {
@@ -89,7 +93,8 @@
         "class": "socket",
         "capabilities": ["onoff"],
         "name": {
-          "en": "Power Strip USB"
+          "en": "Power Strip USB",
+          "it": "Porte USB"
         },
         "energy": {
           "approximation": {
@@ -101,7 +106,8 @@
     },
     "learnmode": {
       "instruction": {
-        "en": "A tile for each socket will be created. Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+        "en": "A tile for each socket will be created. Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly.",
+        "it":"Verrà creato un riquadro per ogni presa. Tenere premuto l'interruttore di accensione/spegnimento per circa 5 secondi finché il LED non lampeggia rapidamente."
       }
     }
   }

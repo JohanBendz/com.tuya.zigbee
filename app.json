@@ -8,7 +8,8 @@
     "en": "Tuya Zigbee"
   },
   "description": {
-    "en": "Control your white label Zigbee devices made by Tuya"
+    "en": "Control your white label Zigbee devices made by Tuya",
+    "it": "Controlla i tuoi dispositivi senza marchio prodotti da Tuya"
   },
   "tags": {
     "en": [
@@ -44,6 +45,40 @@
       "RGB",
       "Christmas",
       "Socket"
+    ],
+    "it": [
+      "Tuya",
+      "Malmbergs",
+      "Alecto",
+      "Smart9",
+      "Blitzwolf",
+      "Zemismart",
+      "Samotech",
+      "Lonsonho",
+      "Nedis",
+      "Neo",
+      "Ejlink",
+      "Lidl",
+      "Silvercrest",
+      "Livarno",
+      "Zigbee",
+      "Sensore",
+      "Temperatura",
+      "Umidità",
+      "Movimento",
+      "Porta",
+      "Finestra",
+      "PIR",
+      "Spina",
+      "Interrutore",
+      "Valvola",
+      "Acqua",
+      "Gas",
+      "LED",
+      "Luce",
+      "RGB",
+      "Natale",
+      "Presa"
     ]
   },
   "category": [
@@ -88,6 +123,10 @@
       {
         "name": "Jurgen Heine",
         "email": "jurgen2.heine@gmail.com"
+      },
+      {
+        "name": "Raffaele De Lauri",
+        "email": "raffdelauri@gmail.com"
       }
     ]
   },
@@ -95,10 +134,12 @@
     "actions": [
       {
         "title": {
-          "en": "Start effect"
+          "en": "Start effect",
+          "it": "Avvia effetto"
         },
         "hint": {
-          "en": "Choose a light pattern and a speed for it. You can also choose what colors the pattern should have, this is not mandatory."
+          "en": "Choose a light pattern and a speed for it. You can also choose what colors the pattern should have, this is not mandatory.",
+          "it": "Scegli uno schema luminoso ed una velocità. Puoi anche scegliere il colore che lo schema deve avere, questo non è obblicatorio."
         },
         "args": [
           {
@@ -110,103 +151,120 @@
             "type": "dropdown",
             "name": "effect_name",
             "title": {
-              "en": "Effect"
+              "en": "Effect",
+              "it": "Effetto"
             },
             "values": [
               {
                 "id": "steady",
                 "label": {
-                  "en": "Steady"
+                  "en": "Steady",
+                  "it": "Fisso"
                 }
               },
               {
                 "id": "snow",
                 "label": {
-                  "en": "Snow"
+                  "en": "Snow",
+                  "it": "Neve"
                 }
               },
               {
                 "id": "rainbow",
                 "label": {
-                  "en": "Rainbow"
+                  "en": "Rainbow",
+                  "it": "Arcobaleno"
                 }
               },
               {
                 "id": "snake",
                 "label": {
-                  "en": "Snake"
+                  "en": "Snake",
+                  "it": "Serpente"
                 }
               },
               {
                 "id": "twinkle",
                 "label": {
-                  "en": "Twinkle"
+                  "en": "Twinkle",
+                  "it": "Luccichio"
                 }
               },
               {
                 "id": "firework",
                 "label": {
-                  "en": "Firework"
+                  "en": "Firework",
+                  "it": "Fuochi d'artificio"
                 }
               },
               {
                 "id": "horizontal_flag",
                 "label": {
-                  "en": "Horizontal Flag"
+                  "en": "Horizontal Flag",
+                  "it": "Bandiera orizzontale"
                 }
               },
               {
                 "id": "waves",
                 "label": {
-                  "en": "Waves"
+                  "en": "Waves",
+                  "it": "Onde"
                 }
               },
               {
                 "id": "updown",
                 "label": {
-                  "en": "Up and Down"
+                  "en": "Up and Down",
+                  "it": "Su e giù"
                 }
               },
               {
                 "id": "vintage",
                 "label": {
-                  "en": "Vintage"
+                  "en": "Vintage",
+                  "it": "Vintage"
                 }
               },
               {
                 "id": "fading",
                 "label": {
-                  "en": "Fading"
+                  "en": "Fading",
+                  "it": "Dissolvenza"
                 }
               },
               {
                 "id": "collide",
                 "label": {
-                  "en": "Collide"
+                  "en": "Collide",
+                  "it": "Collidere"
                 }
               },
               {
                 "id": "strobe",
                 "label": {
-                  "en": "Strobe"
+                  "en": "Strobe",
+                  "it": "Strobo"
                 }
               },
               {
                 "id": "sparkles",
                 "label": {
-                  "en": "Sparkles"
+                  "en": "Sparkles",
+                  "it": "Scintillio"
                 }
               },
               {
                 "id": "carnaval",
                 "label": {
-                  "en": "Carnaval"
+                  "en": "Carnaval",
+                  "it": "Carnevale"
                 }
               },
               {
                 "id": "glow",
                 "label": {
-                  "en": "Glow"
+                  "en": "Glow",
+                  "it": "Bagliore"
                 }
               }
             ]
@@ -629,20 +687,23 @@
           "id": "reverse",
           "type": "radio",
           "label": {
-            "en": "Motor moves in reverse direction"
+            "en": "Motor moves in reverse direction",
+            "it": "Il motore si muove in senso inverso"
           },
           "value": "0",
           "values": [
             {
               "id": "0",
               "label": {
-                "en": "Off"
+                "en": "Off",
+                "it": "Off"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "On"
+                "en": "On",
+                "it": "On"
               }
             }
           ]
@@ -799,7 +860,8 @@
     {
       "id": "doorwindowsensor",
       "name": {
-        "en": "Door & Window Sensor"
+        "en": "Door & Window Sensor",
+        "it": "Sensore porta e finestra"
       },
       "class": "sensor",
       "capabilities": [
@@ -849,7 +911,8 @@
         "learnmode": {
           "image": "/drivers/doorwindowsensor/assets/learn.svg",
           "instruction": {
-            "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
+            "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly.",
+            "it": "Inserire uno spillo nel buco singolo sul lato del dispositivo e premi per circa 10 secondi finchè il LED non inizia a lampeggiare rapidamente."
           }
         }
       },
@@ -858,7 +921,8 @@
     {
       "id": "lcdtemphumidsensor",
       "name": {
-        "en": "LCD Temperature & Humidity Sensor"
+        "en": "LCD Temperature & Humidity Sensor",
+        "it": "Sensore di temperatura e umidità LCD"
       },
       "class": "sensor",
       "capabilities": [
@@ -907,7 +971,8 @@
         },
         "learnmode": {
           "instruction": {
-            "en": "Press the button on the side of the unit for 5 seconds."
+            "en": "Press the button on the side of the unit for 5 seconds.",
+            "it": "Tenere premuto il pulsante sul lato dell'unità per 5 secondi."
           }
         }
       },
@@ -999,7 +1064,8 @@
     {
       "id": "lcdtemphumidsensor_2",
       "name": {
-        "en": "LCD Temperature & Humidity Sensor"
+        "en": "LCD Temperature & Humidity Sensor",
+        "it": "Sensore di temperatura e umidità LCD"
       },
       "class": "sensor",
       "capabilities": [
@@ -1041,7 +1107,8 @@
         },
         "learnmode": {
           "instruction": {
-            "en": "Open the backside of the unit and press the button inside for 5 seconds."
+            "en": "Open the backside of the unit and press the button inside for 5 seconds.",
+            "it": "Aprire la parte posteriore dell'unità e premere il pulsante interno per 5 secondi."
           }
         }
       },
@@ -1919,6 +1986,81 @@
       ]
     },
     {
+      "name": {
+        "en": "Smart Garden Irrigation Control"
+      },
+      "class": "other",
+      "capabilities": [
+        "onoff",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA",
+          "AA",
+          "AA"
+        ]
+      },
+      "images": {
+        "small": "/drivers/smart_garden_irrigation_control/assets/images/small.png",
+        "large": "/drivers/smart_garden_irrigation_control/assets/images/large.png",
+        "xlarge": "/drivers/smart_garden_irrigation_control/assets/images/xlarge.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3210_eymunffl"
+        ],
+        "productId": [
+          "TS0101"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6,
+              61184,
+              1
+            ],
+            "bindings": [
+              1,
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smart_garden_irrigation_control/assets/icon.svg",
+          "instruction": {
+            "en": "Ensure the indicator light is flashing. If the indicatore light isn't flashing: press and hold the reset butto for 5 seconds untli the indicator light starts to flashing.",
+            "it": "Assicurarsi che la spia lampeggi. Se la spia non lampeggia: premere il pulsante di ripristino per 5 secondi fino a quado la spia non inizia a lampeggiare"
+          }
+        }
+      },
+      "id": "smart_garden_irrigation_control",
+      "settings": [
+        {
+          "id": "batteryThreshold",
+          "type": "number",
+          "label": {
+            "en": "Battery Low Alarm Voltage Threshold (%)",
+            "it": "Soglia dell'allarme di batteria scarica "
+          },
+          "hint": {
+            "en": "This setting determines the threshold before a battery alarm is given.",
+            "it": "Quest'impostazione determina la soglia alla quale l'allarme di batteria scarica viene dato"
+          },
+          "value": 20,
+          "attr": {
+            "step": 1,
+            "min": 1,
+            "max": 99
+          }
+        }
+      ]
+    },
+    {
       "id": "smart_motion_sensor",
       "name": {
         "en": "Smart Motion Sensor (Lidl)"
@@ -2218,7 +2360,8 @@
     {
       "id": "socket_power_strip_four",
       "name": {
-        "en": "Power Strip Socket 1/4"
+        "en": "Power Strip Socket 1/4",
+        "it": "Presa 1/4"
       },
       "class": "socket",
       "capabilities": [
@@ -2300,7 +2443,8 @@
               "onoff"
             ],
             "name": {
-              "en": "Power Strip Socket 2/4"
+              "en": "Power Strip Socket 2/4",
+              "it": "Presa 2/4"
             },
             "energy": {
               "approximation": {
@@ -2315,7 +2459,8 @@
               "onoff"
             ],
             "name": {
-              "en": "Power Strip Socket 3/4"
+              "en": "Power Strip Socket 3/4",
+              "it": "Presa 3/4"
             },
             "energy": {
               "approximation": {
@@ -2330,7 +2475,8 @@
               "onoff"
             ],
             "name": {
-              "en": "Power Strip Socket 4/4"
+              "en": "Power Strip Socket 4/4",
+              "it": "Presa 4/4"
             },
             "energy": {
               "approximation": {
@@ -2345,7 +2491,8 @@
               "onoff"
             ],
             "name": {
-              "en": "Power Strip USB"
+              "en": "Power Strip USB",
+              "it": "Porte USB"
             },
             "energy": {
               "approximation": {
@@ -2357,7 +2504,8 @@
         },
         "learnmode": {
           "instruction": {
-            "en": "A tile for each socket will be created. Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+            "en": "A tile for each socket will be created. Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly.",
+            "it": "Verrà creato un riquadro per ogni presa. Tenere premuto l'interruttore di accensione/spegnimento per circa 5 secondi finché il LED non lampeggia rapidamente."
           }
         }
       },
@@ -2366,7 +2514,8 @@
     {
       "id": "socket_power_strip_four_two",
       "name": {
-        "en": "Power Strip Socket 1/4"
+        "en": "Power Strip Socket 1/4",
+        "it": "Presa 1/4"
       },
       "class": "socket",
       "capabilities": [
@@ -2383,7 +2532,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_o005nuxx"
+          "_TZ3000_o005nuxx",
+          "_TZ3000_air9m6af"
         ],
         "productId": [
           "TS011F"
@@ -2448,7 +2598,8 @@
               "onoff"
             ],
             "name": {
-              "en": "Power Strip Socket 2/4"
+              "en": "Power Strip Socket 2/4",
+              "it": "Presa 2/4"
             },
             "energy": {
               "approximation": {
@@ -2463,7 +2614,8 @@
               "onoff"
             ],
             "name": {
-              "en": "Power Strip Socket 3/4"
+              "en": "Power Strip Socket 3/4",
+              "it": "Presa 3/4"
             },
             "energy": {
               "approximation": {
@@ -2478,7 +2630,8 @@
               "onoff"
             ],
             "name": {
-              "en": "Power Strip Socket 4/4"
+              "en": "Power Strip Socket 4/4",
+              "it": "Presa 4/4"
             },
             "energy": {
               "approximation": {
@@ -2493,7 +2646,8 @@
               "onoff"
             ],
             "name": {
-              "en": "Power Strip USB"
+              "en": "Power Strip USB",
+              "it": "Porte USB"
             },
             "energy": {
               "approximation": {
@@ -2505,7 +2659,8 @@
         },
         "learnmode": {
           "instruction": {
-            "en": "A tile for each socket will be created. Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+            "en": "A tile for each socket will be created. Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly.",
+            "it": "Verrà creato un riquadro per ogni presa. Tenere premuto l'interruttore di accensione/spegnimento per circa 5 secondi finché il LED non lampeggia rapidamente."
           }
         }
       },
@@ -3565,7 +3720,8 @@
   "capabilities": {
     "lidl_xmas_mode": {
       "title": {
-        "en": "Mode"
+        "en": "Mode",
+        "it": "Modalità"
       },
       "getable": true,
       "setable": true,
@@ -3576,21 +3732,24 @@
           "id": "white",
           "title": {
             "en": "White",
-            "nl": "Wit"
+            "nl": "Wit",
+            "it": "Bianco"
           }
         },
         {
           "id": "color",
           "title": {
             "en": "Color",
-            "nl": "Kleur"
+            "nl": "Kleur",
+            "it": "Colore"
           }
         },
         {
           "id": "effect",
           "title": {
             "en": "Effect",
-            "nl": "Effect"
+            "nl": "Effect",
+            "it": "Effetto"
           }
         }
       ]
