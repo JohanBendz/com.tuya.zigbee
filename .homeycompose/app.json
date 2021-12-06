@@ -7,7 +7,8 @@
     "en": "Tuya Zigbee"
   },
   "description": {
-    "en": "Control your white label Zigbee devices made by Tuya"
+    "en": "Control your white label Zigbee devices made by Tuya",
+    "it": "Controlla i tuoi dispositivi senza marchio prodotti da Tuya"
   },
   "tags": {
     "en": [
@@ -43,6 +44,40 @@
       "RGB",
       "Christmas",
       "Socket"
+    ],
+    "it": [
+      "Tuya",
+      "Malmbergs",
+      "Alecto",
+      "Smart9",
+      "Blitzwolf",
+      "Zemismart",
+      "Samotech",
+      "Lonsonho",
+      "Nedis",
+      "Neo",
+      "Ejlink",
+      "Lidl",
+      "Silvercrest",
+      "Livarno",
+      "Zigbee",
+      "Sensore",
+      "Temperatura",
+      "Umidità",
+      "Movimento",
+      "Porta",
+      "Finestra",
+      "PIR",
+      "Spina",
+      "Interrutore",
+      "Valvola",
+      "Acqua",
+      "Gas",
+      "LED",
+      "Luce",
+      "RGB",
+      "Natale",
+      "Presa"
     ]
   },
   "category": [
@@ -87,6 +122,10 @@
       {
         "name": "Jurgen Heine",
         "email": "jurgen2.heine@gmail.com"
+      },
+      {
+        "name": "Raffaele De Lauri",
+        "email": "raffdelauri@gmail.com"
       }
     ]
   }

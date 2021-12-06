@@ -1,7 +1,8 @@
 {
     "id": "motion_sensor",
     "name": {
-      "en": "Motion Sensor"
+      "en": "Motion Sensor",
+      "it": "Sensore di movimento"
     },
     "class": "sensor",
     "capabilities": [
@@ -29,7 +30,8 @@
       "learnmode": {
         "image": "{{driverAssetsPath}}/icon.svg",
         "instruction": {
-          "en": "Push the setup button on the side of the device for aprox 5 seconds until the LED blinks rapidly. If the pairing does not start, press the setup button again for 10-15 seconds until the led stops blinking and then try again."
+          "en": "Push the setup button on the side of the device for aprox 5 seconds until the LED blinks rapidly. If the pairing does not start, press the setup button again for 10-15 seconds until the led stops blinking and then try again.",
+          "it": "Premere il pulsante setup sul lato del dispositivo per circa 5 secondi finchè il LED non lampeggia velocemente. Se il pairing non inizia, premere il pulsante setup di nuovo per 10-15 secondi finchè il LED non smette di lampeggiare e quindi riprovare."
         }
       }
     }

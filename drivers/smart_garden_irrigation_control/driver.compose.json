@@ -1,0 +1,39 @@
+{
+  "name": {
+    "en": "Smart Garden Irrigation Control"
+  },
+  "class": "other",
+  "capabilities": [
+    "onoff",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": ["AA", "AA", "AA", "AA"]
+  },
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3210_eymunffl"
+    ],
+    "productId": [
+      "TS0101"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [0,4,5,6,61184,1],
+        "bindings": [1,6]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Ensure the indicator light is flashing. If the indicatore light isn't flashing: press and hold the reset butto for 5 seconds untli the indicator light starts to flashing.",
+        "it": "Assicurarsi che la spia lampeggi. Se la spia non lampeggia: premere il pulsante di ripristino per 5 secondi fino a quado la spia non inizia a lampeggiare"
+      }
+    }
+  }
+}

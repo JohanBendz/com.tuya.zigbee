@@ -1,7 +1,8 @@
 {
   "id": "lcdtemphumidsensor2",
   "name": {
-    "en": "LCD Temperature & Humidity Sensor"
+    "en": "LCD Temperature & Humidity Sensor",
+    "it": "Sensore di temperatura e umidità LCD"
   },
   "class": "sensor",
   "capabilities": [
@@ -43,7 +44,8 @@
     },
     "learnmode": {
       "instruction": {
-        "en": "Open the backside of the unit and press the button inside for 5 seconds."
+        "en": "Open the backside of the unit and press the button inside for 5 seconds.",
+        "it": "Aprire la parte posteriore dell'unità e premere il pulsante interno per 5 secondi."
       }
     }
   }
