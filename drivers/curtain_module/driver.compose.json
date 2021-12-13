@@ -10,21 +10,21 @@
       "button.stop_calibration"
     ],
     "capabilitiesOptions": {
-      "button.start_calibration": { 
+      "button.start_calibration": {
         "maintenanceAction": true,
-        "title": { 
+        "title": {
            "en": "Start Calibration"
         },
-        "desc": { 
+        "desc": {
            "en": "Make sure the curtain is fully closed before starting the calibration. Using physical buttons; Move the curtain to the the point where it should stop and then close it again. Push the Stop Calibration button when finished."
         }
       },
-      "button.stop_calibration": { 
+      "button.stop_calibration": {
         "maintenanceAction": true,
-        "title": { 
+        "title": {
            "en": "Stop Calibration"
         },
-        "desc": { 
+        "desc": {
            "en": "Finalized the calibration, please wait a minute before using the unit."
         }
       }
@@ -41,7 +41,8 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TZ3000_vd43bbfq"
+        "_TZ3000_vd43bbfq",
+        "_TZ3000_ke7pzj5d"
       ],
       "productId": [
         "TS130F"
