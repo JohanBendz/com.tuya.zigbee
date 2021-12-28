@@ -1343,6 +1343,131 @@
       "settings": []
     },
     {
+      "id": "relay_board_4_channel",
+      "name": {
+        "en": "4 Channel Relay Board"
+      },
+      "class": "light",
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/relay_board_4_channel/assets/images/large.png",
+        "small": "/drivers/relay_board_4_channel/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_hdlpifbk"
+        ],
+        "productId": [
+          "TS0004"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "4": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "light",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Channel Relay Board"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "thirdSwitch": {
+            "class": "light",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Channel Relay Board"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "fourthSwitch": {
+            "class": "light",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Channel Relay Board"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/relay_board_4_channel/assets/icon.svg",
+          "instruction": {
+            "en": "Four tiles will be created, one for each channel of the device. Press the setup button combined with 1 channel button for 10 seconds (the LED should blink blue)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "class": "light",
       "capabilities": [
         "onoff",
@@ -2052,11 +2177,13 @@
           "_TZ3000_g5xawfcq",
           "_TZ3000_vtscrpmw",
           "_TZ3000_rdtixbnu",
-          "_TZ3000_8nkb7mof"
+          "_TZ3000_8nkb7mof",
+          "_TZ3000_cphmq0q7"
         ],
         "productId": [
           "TS0121",
-          "TSO121"
+          "TSO121",
+          "TS011F"
         ],
         "endpoints": {
           "1": {
