@@ -4,6 +4,8 @@
       "en": "2 Gang Wall Switch"
     },
     "class": "socket",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
     "capabilities": [
       "onoff"
     ],

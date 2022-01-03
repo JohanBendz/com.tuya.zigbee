@@ -4,6 +4,8 @@
     "en": "Temperature & Humidity Sensor"
   },
   "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
   "capabilities": [
     "measure_temperature",
     "measure_humidity",
@@ -28,10 +30,16 @@
       "TUYATEC-prhs1rsd",
       "TUYATEC-gqhxixyk",
       "TUYATEC-vmgh3fxd",
-      "TUYATEC-ojmxeikg"
+      "TUYATEC-ojmxeikg",
+      "TUYATEC-1g3tawnp",
+      "_TZ3000_i8jfiezr",
+      "TUYATEC-v3uxbuxy",
+      "_TZ3000_bguser20",
+      "_TZ3000_dowj6gyi"
     ],
     "productId": [
-      "RH3052"
+      "RH3052",
+      "TS0201"
     ],
     "endpoints": {
       "1": {

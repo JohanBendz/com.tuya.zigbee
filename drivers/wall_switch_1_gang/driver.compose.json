@@ -4,6 +4,8 @@
       "en": "1 Gang Wall Switch"
     },
     "class": "socket",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
     "capabilities": [
       "onoff"
     ],
@@ -24,7 +26,9 @@
         "_TZ3000_f8tmviy0",
         "_TZ3000_gidy6sjs",
         "_TYZB01_qeqvmvti",
-        "_TYZB01_seqwasot"
+        "_TYZB01_seqwasot",
+        "_TZ3000_hktqahrq",
+        "_TZ3000_yl3zuyaw"
       ],
       "productId": [
         "TS0001",

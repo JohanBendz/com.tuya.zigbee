@@ -4,8 +4,11 @@
     "en": "Water Detector"
   },
   "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
   "capabilities": [
     "alarm_contact",
+    "alarm_water",
     "alarm_battery"
   ],
   "energy": {
@@ -21,7 +24,8 @@
     "manufacturerName": [
       "_TYZB01_sqmd19i1",
       "_TYST11_qq9mpfhw",
-      "_TZ3000_fxvjhdyl"
+      "_TZ3000_fxvjhdyl",
+      "_TZ3000_eit7p838"
     ],
     "productId": [
       "TS0207",

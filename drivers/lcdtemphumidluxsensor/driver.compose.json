@@ -1,0 +1,51 @@
+{
+  "id": "lcdtemphumidluxsensor",
+  "name": {
+    "en": "LCD Temperature, Humidity and Luminance Sensor"
+  },
+  "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "measure_luminance",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "AAA", "AAA"
+    ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_qaaysllp"
+    ],
+    "productId": [
+      "TS0201"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          1024,
+          57346
+        ],
+        "bindings": [
+          1,
+          1024,
+          57346
+        ]
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press the reset button on the top of the unit for 10 seconds."
+      }
+    }
+  }
+}

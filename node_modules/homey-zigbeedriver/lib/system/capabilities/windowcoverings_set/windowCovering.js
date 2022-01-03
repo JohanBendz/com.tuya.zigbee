@@ -28,7 +28,7 @@ module.exports = {
     if (this._reportPercentageDebounce) {
       this._reportPercentageDebounce.refresh();
     } else {
-      this._reportPercentageDebounce = setTimeout(() => {
+      this._reportPercentageDebounce = this.homey.setTimeout(() => {
         this._reportDebounceEnabled = false;
         this._reportPercentageDebounce = null;
       }, REPORT_DEBOUNCER);

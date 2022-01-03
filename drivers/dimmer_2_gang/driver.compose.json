@@ -4,6 +4,8 @@
       "en": "2 Gang Dimmer Module"
     },
     "class": "light",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
     "capabilities": [
       "onoff",
       "dim"

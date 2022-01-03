@@ -1,10 +1,10 @@
 'use strict';
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
-const { debug, CLUSTER } = require('zigbee-clusters');
-const TuyaWindowCoveringCluster = require('../../lib/TuyaWindowCoveringCluster')
+const { Cluster, debug, CLUSTER } = require('zigbee-clusters');
+// const TuyaWindowCoveringCluster = require('../../lib/TuyaWindowCoveringCluster')
 
-Cluster.addCluster(TuyaWindowCoveringCluster);
+// Cluster.addCluster(TuyaWindowCoveringCluster);
 
 class curtainmodule extends ZigBeeDevice {
 
@@ -24,23 +24,6 @@ class curtainmodule extends ZigBeeDevice {
             },
         });
 
-        // Calibration
-        if (!this.hasCapability('button.start_calibration')) await this.addCapability('button.start_calibration');
-        if (!this.hasCapability('button.stop_calibration')) await this.addCapability('button.stop_calibration');
-        
-        if (this.hasCapability('button.start_calibration')) {
-            this.registerCapabilityListener('button.start_calibration', async () => {
-                await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes({calibration: 1});
-                this.log("Calibration start, status: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(calibration));
-                return;
-            });
-            this.registerCapabilityListener('button.stop_calibration', async () => {
-                await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes({calibration: 0});
-                this.log("Calibration stopped, status: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(calibration));
-                return;
-            });
-        }
-
     }
 
     async onSettings({ oldSettings, newSettings, changedKeys }) {
@@ -50,10 +33,10 @@ class curtainmodule extends ZigBeeDevice {
             const motorReversed = newSettings['reverse'];
             if (motorReversed === 0) {
                 await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes({motorReversal: 0});
-                this.log("Calibration stopped, status: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(motorReversal));
+                this.log("Motor set to normal mode: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(motorReversal));
             } else {
                 await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes({motorReversal: 1});
-                this.log("Calibration stopped, status: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(motorReversal));
+                this.log("Motor set to reverse: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(motorReversal));
             }
 
         }

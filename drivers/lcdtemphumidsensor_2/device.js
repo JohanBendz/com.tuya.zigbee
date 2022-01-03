@@ -18,7 +18,7 @@ class lcdtemphumidsensor2 extends ZigBeeDevice {
 					attributeName: 'batteryPercentageRemaining',
 					minInterval: 65535,
 					maxInterval: 0,
-					minChange: 1,
+					minChange: 0,
 				}
 			]);
 		}

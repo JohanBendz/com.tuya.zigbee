@@ -4,6 +4,8 @@
       "en": "1 Gang Dimmer Module"
     },
     "class": "light",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
     "capabilities": [
       "onoff",
       "dim"
@@ -27,10 +29,13 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TYZB01_qezuin6k"
+        "_TYZB01_qezuin6k",
+        "_TZ3210_ngqk6jia",
+        "_TZ3000_ktuoyvt5"
       ],
       "productId": [
-        "TS110F"
+        "TS110F",
+        "TS110E"
       ],
       "endpoints": {
         "1": {

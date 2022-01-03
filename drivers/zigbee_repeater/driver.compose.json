@@ -4,6 +4,8 @@
     "en": "Zigbee Repeater"
   },
   "class": "other",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
   "capabilities": [
   ],
   "images": {
@@ -12,7 +14,8 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TZ3000_m0vaazab"
+      "_TZ3000_m0vaazab",
+      "_TZ3000_5k5vh43t"
     ],
     "productId": [
       "TS0207"

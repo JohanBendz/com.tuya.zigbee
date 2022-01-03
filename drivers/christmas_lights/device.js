@@ -2,7 +2,7 @@
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { Cluster, debug, CLUSTER } = require('zigbee-clusters');
-const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster')
+const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
 
 Cluster.addCluster(TuyaSpecificCluster);
 

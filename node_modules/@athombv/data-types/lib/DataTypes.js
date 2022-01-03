@@ -18,7 +18,8 @@ function boolToBuf(buf, v, i) {
   if (v == null) v = 0xff;
   else if (v) v = 0x01;
   else v = 0x00;
-  return buf.writeUInt8(v, i);
+  buf.writeUInt8(v, i);
+  return this.length;
 }
 
 function boolFromBuf(buf, i) {

@@ -4,6 +4,8 @@
       "en": "2 Gang Wall Remote"
     },
     "class": "remote",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
     "capabilities": [
     ],
     "images": {
@@ -18,7 +20,10 @@
     "zigbee": {
       "manufacturerName": [
         "_TZ3000_owgcnkrh",
-        "_TYZB02_keyjhapk"
+        "_TYZB02_keyjhapk",
+        "_TZ3000_oikiyf3b",
+        "_TZ3000_dfgbtub0",
+        "_TZ3000_h1c2eamp"
       ],
       "productId": [
         "TS0042"

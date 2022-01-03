@@ -157,5 +157,11 @@
   },
   "0.1.54": {
     "en": "Added more device ID's to the Wall Remotes."
+  },
+  "0.1.55": {
+    "en": "Added extra logging for some devices with issues."
+  },
+  "0.2.0": {
+    "en": "Added support for 71 new device ID's and 8 new devices. Upgraded Homey Zigbee Driver"
   }
 }

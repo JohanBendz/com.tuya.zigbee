@@ -4,6 +4,8 @@
       "en": "Smart Motion Sensor (Lidl)"
     },
     "class": "sensor",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
     "capabilities": [
       "measure_battery",
       "alarm_motion",

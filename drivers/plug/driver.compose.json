@@ -4,6 +4,8 @@
     "en": "Smart Plug without metering"
   },
   "class": "socket",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
   "capabilities": [
     "onoff"
   ],
@@ -18,7 +20,13 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TZ3000_kdi2o9m6"
+      "_TZ3000_kdi2o9m6",
+      "_TZ3000_ew31dmgx",
+      "_TZ3000_mraovvmm",
+      "_TZ3000_dpo1ysak",
+      "_TZ3000_plyvnuf5",
+      "_TZ3000_hyfvrar3",
+      "_TZ3000_cymsnfvf"
     ],
     "productId": [
       "TS011F"

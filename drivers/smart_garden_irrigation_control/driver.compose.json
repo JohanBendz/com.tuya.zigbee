@@ -1,0 +1,40 @@
+{
+  "id": "IrrigationController",
+  "name": {
+    "en": "Smart Garden Irrigation Controller"
+  },
+  "class": "other",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "onoff",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": ["AA", "AA", "AA", "AA"]
+  },
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3210_eymunffl"
+    ],
+    "productId": [
+      "TS0101"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 4, 5, 6, 61184, 1],
+        "bindings": [1, 6]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Ensure the indicator light is flashing. If the indicatore light isn't flashing: press and hold the reset butto for 5 seconds until the indicator light starts to flashing."
+      }
+    }
+  }
+}

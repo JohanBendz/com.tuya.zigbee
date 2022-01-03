@@ -4,6 +4,8 @@
       "en": "Valve Controller"
     },
     "class": "other",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
     "capabilities": [
       "onoff"
     ],
@@ -21,11 +23,15 @@
       "manufacturerName": [
         "_TYZB01_ymcdbl3u",
         "_TZ3000_o4cjetlm",
-        "_TYZB01_4tlksk8a"
+        "_TYZB01_4tlksk8a",
+        "_TZ3000_tvuarksa",
+        "_TZ3000_j9568h44",
+        "_TZ3000_iedbgyxt"
       ],
       "productId": [
         "TS0111",
-        "TS0001"
+        "TS0001",
+        "TS011F"
       ],
       "endpoints": {
         "1": {

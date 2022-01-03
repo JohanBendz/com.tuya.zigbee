@@ -4,6 +4,8 @@
     "en": "Power Strip Socket 1/4"
   },
   "class": "socket",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
   "capabilities": [
     "onoff"
   ],
@@ -15,6 +17,12 @@
   "images": {
     "large": "{{driverAssetsPath}}/images/large.png",
     "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "energy": {
+    "approximation": {
+      "usageOn": 0,
+      "usageOff": 0
+    }
   },
   "zigbee": {
     "manufacturerName": [

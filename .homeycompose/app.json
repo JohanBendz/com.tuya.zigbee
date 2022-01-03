@@ -1,7 +1,8 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.1.54",
+  "version": "0.2.0",
   "compatibility": ">=5.0.0",
+  "platforms": ["local"],
   "sdk": 3,
   "name": {
     "en": "Tuya Zigbee"
@@ -42,7 +43,8 @@
       "Light",
       "RGB",
       "Christmas",
-      "Socket"
+      "Socket",
+      "Woox"
     ]
   },
   "category": [
@@ -56,6 +58,7 @@
   ],
   "homeyCommunityTopicId": 26439,
   "source": "https://github.com/JohanBendz/com.tuya.zigbee",
+  "support": "mailto:johan_bendz@hotmail.com",
   "bugs": {
     "url": "https://github.com/JohanBendz/com.tuya.zigbee/issues"
   },

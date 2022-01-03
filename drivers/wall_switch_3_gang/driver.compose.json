@@ -4,6 +4,8 @@
       "en": "3 Gang Wall Switch"
     },
     "class": "socket",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
     "capabilities": [
       "onoff"
     ],
@@ -23,7 +25,9 @@
         "_TYZB01_b8cr31hp",
         "_TZ3000_wyhuocal",
         "_TZ3000_cdamjqm9",
-        "_TYZB01_mqel1whf"
+        "_TYZB01_mqel1whf",
+        "_TZ3000_hlwm8e96",
+        "_TZ3000_odzoiovu"
       ],
       "productId": [
         "TS0003",
