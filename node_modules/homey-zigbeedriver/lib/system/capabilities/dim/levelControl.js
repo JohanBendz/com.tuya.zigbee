@@ -15,12 +15,8 @@ module.exports = {
    * @param {object} opts
    * @returns {{transitionTime: number, level: number}}
    */
-  setParser(value, opts = {}) {
-    if (value === 0) {
-      this.setCapabilityValue('onoff', false);
-    } else if (this.getCapabilityValue('onoff') === false && value > 0) {
-      this.setCapabilityValue('onoff', true);
-    }
+  async setParser(value, opts = {}) {
+    await this.setCapabilityValue('onoff', value > 0);
 
     return {
       level: Math.round(value * MAX_DIM),

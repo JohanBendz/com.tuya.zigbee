@@ -4,6 +4,8 @@
     "en": "LCD Temperature & Humidity Sensor"
   },
   "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
   "capabilities": [
     "measure_temperature",
     "measure_humidity",

@@ -4,6 +4,8 @@
       "en": "4 button Smart Remote Controller"
     },
     "class": "remote",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
     "capabilities": [
     ],
     "images": {

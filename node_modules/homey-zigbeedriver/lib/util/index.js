@@ -212,14 +212,14 @@ function debounce(fn, interval, immediate = false) {
       timeout = null;
 
       // Do not trigger immediately (trailing debounce)
-      if (!immediate) fn.apply(context, ...args);
+      if (!immediate) fn.apply(context, args);
     };
 
     // Trigger immediately (leading debounce)
     const callNow = immediate && !timeout;
     clearTimeout(timeout);
     timeout = setTimeout(later, interval);
-    if (callNow) fn.apply(context, ...args);
+    if (callNow) fn.apply(context, args);
   };
 }
 

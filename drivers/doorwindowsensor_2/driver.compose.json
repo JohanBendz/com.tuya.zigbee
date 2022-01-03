@@ -1,0 +1,50 @@
+{
+  "id": "doorwindowsensor2",
+  "name": {
+    "en": "Door & Window Sensor"
+  },
+  "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "alarm_contact",
+    "alarm_tamper",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "CR2032"
+    ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "TUYATEC-0l6xaqmi"
+    ],
+    "productId": [
+      "RH3001"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          1280
+        ],
+        "bindings": [
+          1,
+          1280
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Open the device and press the reset button gently for aprox 10 seconds until the LED blinks rapidly."
+      }
+    }
+  }
+}

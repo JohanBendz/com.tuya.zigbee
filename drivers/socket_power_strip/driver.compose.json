@@ -4,6 +4,8 @@
     "en": "3 Socket Power Strip"
   },
   "class": "socket",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
   "capabilities": [
     "onoff"
   ],
@@ -19,7 +21,8 @@
   "zigbee": {
     "manufacturerName": [
       "_TZ3000_1obwwnmq",
-      "_TZ3000_vzopcetz"
+      "_TZ3000_vzopcetz",
+      "_TZ3000_4uf3d0ax"
     ],
     "productId": [
       "TS011F"

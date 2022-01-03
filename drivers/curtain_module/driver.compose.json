@@ -4,31 +4,11 @@
       "en": "Curtain Module"
     },
     "class": "curtain",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
     "capabilities": [
-      "windowcoverings_set",
-      "button.start_calibration",
-      "button.stop_calibration"
+      "windowcoverings_set"
     ],
-    "capabilitiesOptions": {
-      "button.start_calibration": { 
-        "maintenanceAction": true,
-        "title": { 
-           "en": "Start Calibration"
-        },
-        "desc": { 
-           "en": "Make sure the curtain is fully closed before starting the calibration. Using physical buttons; Move the curtain to the the point where it should stop and then close it again. Push the Stop Calibration button when finished."
-        }
-      },
-      "button.stop_calibration": { 
-        "maintenanceAction": true,
-        "title": { 
-           "en": "Stop Calibration"
-        },
-        "desc": { 
-           "en": "Finalized the calibration, please wait a minute before using the unit."
-        }
-      }
-    },
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",
       "small": "{{driverAssetsPath}}/images/small.png"
@@ -41,7 +21,10 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TZ3000_vd43bbfq"
+        "_TZ3000_vd43bbfq",
+        "_TZ3000_1dd0d5yi",
+        "_TZ3000_ke7pzj5d",
+        "_TZ3000_fccpjz5z"
       ],
       "productId": [
         "TS130F"
@@ -55,7 +38,7 @@
       "learnmode": {
         "image": "{{driverAssetsPath}}/icon.svg",
         "instruction": {
-          "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          "en": "Press the setup button for 10 seconds or power on/off 5 times to enter pairing mode (the LED should blink / device starts beeping)."
         }
       }
     }

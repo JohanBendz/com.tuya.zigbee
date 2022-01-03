@@ -4,6 +4,8 @@
       "en": "1 Gang Wall Remote"
     },
     "class": "remote",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
     "capabilities": [
     ],
     "images": {
@@ -19,7 +21,11 @@
       "manufacturerName": [
         "_TYZB02_keyjqthh",
         "_TZ3000_tk3s5tyg",
-        "_TZ3000_fkp5zyho"
+        "_TZ3000_fkp5zyho",
+        "_TZ3000_axpdxqgu",
+        "_TZ3000_peszejy7",
+        "_TZ3000_pzui3skt",
+        "_TZ3000_f97vq5mn"
       ],
       "productId": [
         "TS0041"

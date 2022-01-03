@@ -4,6 +4,8 @@
       "en": "Motion Sensor"
     },
     "class": "sensor",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
     "capabilities": [
       "measure_battery",
       "alarm_motion",

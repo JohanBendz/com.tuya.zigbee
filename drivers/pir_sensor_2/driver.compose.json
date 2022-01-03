@@ -4,6 +4,8 @@
     "en": "Smart PIR Motion Sensor"
   },
   "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
   "capabilities": [
     "alarm_motion",
     "alarm_battery"
@@ -19,7 +21,9 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TYZB01_jytabjkb"
+      "_TYZB01_jytabjkb",
+      "_TYZB01_dl7cejts",
+      "_TZ3000_mmtwjmaq"
     ],
     "productId": [
       "TS0202"

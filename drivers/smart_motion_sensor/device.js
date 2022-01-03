@@ -17,14 +17,14 @@ class smart_motion_sensor extends ZigBeeDevice {
 					attributeName: 'zoneStatus',
 					minInterval: 65535,
 					maxInterval: 0,
-					minChange: 1,
+					minChange: 0,
 				},{
 					endpointId: 1,
 					cluster: CLUSTER.POWER_CONFIGURATION,
 					attributeName: 'batteryPercentageRemaining',
 					minInterval: 65535,
 					maxInterval: 0,
-					minChange: 1,
+					minChange: 0,
 				}
 			]);
 		}

@@ -1,0 +1,45 @@
+{
+    "id": "wallcurtainswitch",
+    "name": {
+      "en": "Wall mounted Curtain Switch"
+    },
+    "class": "curtain",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "windowcoverings_set"
+    ],
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "energy": {
+      "approximation": {
+        "usageOn": 0,
+        "usageOff": 0
+      }
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TZ3000_dph3rpss",
+        "_TZ3000_8kzqqzu4",
+        "_TZ3000_ltiqubue"
+      ],
+      "productId": [
+        "TS130F"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 4, 5, 258],
+          "bindings": [258]
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Power on/off 5 times to enter pairing mode (the LED should blink / device starts beeping)."
+        }
+      }
+    }
+
+}

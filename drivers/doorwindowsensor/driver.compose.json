@@ -4,6 +4,8 @@
     "en": "Door & Window Sensor"
   },
   "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
   "capabilities": [
     "alarm_contact",
     "alarm_battery"
@@ -28,8 +30,11 @@
       "_TZ3000_ebar6ljy",
       "TUYATEC-kbqf60nt",
       "TUYATEC-r9hgssol",
-      "TUYATEC-0l6xaqmi",
-      "TUYATEC-trhrga6p"
+      "TUYATEC-trhrga6p",
+      "TUYATEC-ip9ganvw",
+      "_TYZB01_xph99wvr",
+      "_TZ3000_2mbfxlzr",
+      "_TZ3000_402jjyro"
     ],
     "productId": [
       "RH3001",

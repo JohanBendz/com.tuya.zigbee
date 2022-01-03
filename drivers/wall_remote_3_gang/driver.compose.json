@@ -4,6 +4,8 @@
       "en": "3 Gang Wall Remote"
     },
     "class": "remote",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
     "capabilities": [
     ],
     "images": {
@@ -19,7 +21,9 @@
       "manufacturerName": [
         "_TZ3000_a7ouggvs",
         "_TYZB02_key8kk7r",
-        "_TZ3000_qzjcsmar"
+        "_TZ3000_qzjcsmar",
+        "_TZ3000_rrjr1q0u",
+        "_TZ3000_w8jwkczz"
       ],
       "productId": [
         "TS0043"

@@ -4,6 +4,8 @@
       "en": "2 Gang Switch Module"
     },
     "class": "socket",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
     "capabilities": [
       "onoff"
     ],
@@ -22,12 +24,17 @@
         "_TYZB01_zsl6z0pw",
         "_TZ3000_4js9lo5d",
         "_TZ3000_pmz6mjyu",
-        "_TYZB01_digziiav"
+        "_TYZB01_digziiav",
+        "_TZ3000_fisb3ajo",
+        "_TZ3000_bvrlqyj7",
+        "_TZ3000_jl7qyupf"
       ],
       "productId": [
         "TS0003",
         "TS0012",
-        "TS011F"
+        "TS011F",
+        "TS0002",
+        "TS0013"
       ],
       "endpoints": {
         "1": {

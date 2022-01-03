@@ -3,7 +3,7 @@
         "id": "reverse",
         "type": "radio",
         "label": {
-          "en": "Motor moves in reverse direction"
+          "en": "FUNCTION UNDER DEVELOPMENT, NOT WORKING - Motor moves in reverse direction"
         },
         "value": "0",
         "values": [
