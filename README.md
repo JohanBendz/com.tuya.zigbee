@@ -104,6 +104,7 @@ Plugs and Socket Strips
     _TZ3000_vtscrpmw / TS0121
     _TZ3000_rdtixbnu / TS0121
     _TZ3000_8nkb7mof / TS0121
+    _TZ3000_mraovvmm / TS011F (Blitzwolf)
     _TZ3000_cphmq0q7 / TS011F
     _TZ3000_ew3ldmgx / TS011F
     _TZ3000_dpo1ysak / TS011F
@@ -113,7 +114,6 @@ Plugs and Socket Strips
 - Smart Plug, without metering
     _TZ3000_kdi2o9m6 / TS011F (Lidl)
     _TZ3000_ew31dmgx / TS011F
-    _TZ3000_mraovvmm / TS011F
     _TZ3000_dpo1ysak / TS011F
     _TZ3000_plyvnuf5 / TS011F (Lidl)
     _TZ3000_hyfvrar3 / TS011F (Zemismart)
