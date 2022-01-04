@@ -163,5 +163,8 @@
   },
   "0.2.0": {
     "en": "Added support for 71 new device ID's and 8 new devices. Upgraded Homey Zigbee Driver"
+  },
+  "0.2.1": {
+    "en": "Fix for LCD Temp/Hum/Lux sensor"
   }
 }
