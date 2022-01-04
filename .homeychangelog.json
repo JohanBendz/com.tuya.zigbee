@@ -166,5 +166,8 @@
   },
   "0.2.1": {
     "en": "Fix for LCD Temp/Hum/Lux sensor"
+  },
+  "0.2.2": {
+    "en": "Added metering capability to _TZ3000_mraovvmm / TS011F (Blitzwolf)"
   }
 }
