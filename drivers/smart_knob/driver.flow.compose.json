@@ -1,0 +1,42 @@
+{
+  "triggers": [
+    {
+      "id": "smart_knob",
+      "title": {
+        "en": "Knob Action"
+      },
+      "args": [
+        {
+          "name": "action",
+          "type": "dropdown",
+          "values": [
+            {
+              "id": "turnLeft",
+              "label": {
+                "en": "Turn Left"
+              }
+            },
+            {
+              "id": "turnRight",
+              "label": {
+                "en": "Turn Right"
+              }
+            },
+            {
+              "id": "oneClick",
+              "label": {
+                "en": "1 Click"
+              }
+            },
+            {
+              "id": "longClick",
+              "label": {
+                "en": "Long Click"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
