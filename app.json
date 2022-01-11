@@ -708,6 +708,106 @@
       ]
     },
     {
+      "id": "curtain_motor",
+      "name": {
+        "en": "Curtain Motor",
+        "nl": "Gordijn Motor"
+      },
+      "class": "curtain",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "windowcoverings_set"
+      ],
+      "images": {
+        "large": "/drivers/curtain_motor/assets/images/large.png",
+        "small": "/drivers/curtain_motor/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_5zbp6j0u",
+          "_TZE200_nkoabg8w",
+          "_TZE200_xuzcvlku",
+          "_TZE200_4vobcgd3",
+          "_TZE200_nogaemzt",
+          "_TZE200_r0jdjrvi",
+          "_TZE200_pk0sfzvr",
+          "_TZE200_fdtjuw7u",
+          "_TZE200_zpzndjez",
+          "_TZE200_wmcdj3aq",
+          "_TZE200_cowvfni3",
+          "_TZE200_rddyvrci",
+          "_TZE200_nueqqe6k",
+          "_TZE200_xaabybja",
+          "_TZE200_rmymn92d",
+          "_TZE200_3i3exuay"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              10,
+              4,
+              5,
+              258,
+              61184
+            ],
+            "bindings": [
+              258,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/curtain_motor/assets/icon.svg",
+          "instruction": {
+            "en": "Press the reset button 3 times, then press and hold the reset button until the light is on.",
+            "nl": "Druk 3 keer op de reset knop. Druk daarna nog een keer en houd de knop vast tot dat de led blijft branden."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "reverse",
+          "type": "radio",
+          "label": {
+            "en": "Motor moves in reverse direction",
+            "nl": "Motor beweegt in omgekeerde richting"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off",
+                "nl": "Uit"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On",
+                "nl": "Aan"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "dimmer_1_gang",
       "name": {
         "en": "1 Gang Dimmer Module"
