@@ -32,6 +32,7 @@ Sensors
     TUYATEC-1g3tawnp / RH3052
     _TZ3000_i8jfiezr / TS0201
     TUYATEC-v3uxbuxy / RH3052
+    _TZ3000_fllyghyj / TS0201
 
 - LCD Temperature and Humidity Sensor
     _TZ2000_a476raq2 / TS0201
@@ -140,6 +141,7 @@ In-Wall
     _TZ3000_sjpl9eg3 / TS0011
     _TZ3000_m9af2l6g / TS000F
     _TZ3000_ji4araar / TS0011
+    _TZ3000_npzfdcof / TS0001
 
 - 2 Gang Switch Module
     _TYZB01_zsl6z0pw / TS0003

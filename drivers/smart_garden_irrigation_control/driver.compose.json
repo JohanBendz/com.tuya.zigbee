@@ -1,7 +1,8 @@
 {
   "id": "IrrigationController",
   "name": {
-    "en": "Smart Garden Irrigation Controller"
+    "en": "Smart Garden Irrigation Controller",
+    "it": "Programmatore per irrigazione smart"
   },
   "class": "other",
   "platforms": ["local"],
@@ -33,7 +34,8 @@
     "learnmode": {
       "image": "{{driverAssetsPath}}/icon.svg",
       "instruction": {
-        "en": "Ensure the indicator light is flashing. If the indicatore light isn't flashing: press and hold the reset butto for 5 seconds until the indicator light starts to flashing."
+        "en": "Ensure the indicator light is flashing. If the indicatore light isn't flashing: press and hold the reset button for 5 seconds until the indicator light starts to flashing.",
+        "it": "Assicurarsi che l'indicatore lampeggi. Se l'indicatore non lampegga: tenere premuto il pulsante di reset per 5 secondi finchè l'indicatore non inizia a lampeggiare."
       }
     }
   }
