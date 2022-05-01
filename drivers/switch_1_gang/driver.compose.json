@@ -22,12 +22,14 @@
         "_TYZB01_ncutbjdi",
         "_TYZB01_aneiicmq",
         "_TZ3000_zmy1waw6",
-        "_TZ3000_pmvbt5hh"
+        "_TZ3000_pmvbt5hh",
+        "_TZ3000_npzfdcof"
       ],
       "productId": [
         "TS0003",
         "TS011F",
-        "TS0011"
+        "TS0011",
+        "TS0001"
       ],
       "endpoints": {
         "1": {
@@ -38,7 +40,8 @@
       "learnmode": {
         "image": "{{driverAssetsPath}}/icon.svg",
         "instruction": {
-          "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green).",
+          "it": "Tenere premuto il bottone di setup èer 10 secondi o accendere e spegnere l'unità 5 volte per entrare in modalità accoppiamento (il LED dovrebbe lampeggiare verde)."
         }
       }
     }
