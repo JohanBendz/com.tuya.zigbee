@@ -1,0 +1,95 @@
+[
+  {
+    "id": "temperature_offset",
+    "type": "number",
+    "label": {
+      "en": "Temperature offset (°C)",
+      "it": "Offset della temperatura (°C)"
+    },
+    "hint": {
+      "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]",
+      "it": "Imposta un valore per compensare lo scostamento della temperatura.\nRange: -10 - 10, step ze 0.1, \ndefault: 0 [°C]"
+    },
+    "value": 0,
+    "attr": {
+      "min": -10,
+      "max": 10,
+      "step": 0.1
+    }
+  },
+  {
+    "id": "temperature_decimals",
+    "type": "radio",
+    "label": {
+      "en": "Temperature reporting decimals",
+      "it": "Decimali del report della temperatura"
+    },
+    "value": "1",
+    "values": [
+      {
+        "id": "1",
+        "label": {
+          "en": "Report temperature value with 1 decimal (21.4 °C)",
+          "it": "Valore del report della temperatura con 1 decimale (21.4 °C)"
+        }
+      },
+      {
+        "id": "2",
+        "label": {
+          "en": "Report temperature value with 2 decimals (21.37 °C)",
+          "it": "Valore del report della temperatura con 2 decimale (21.31 °C)"
+        }
+      }
+    ]
+  },
+  {
+    "id": "humidity_offset",
+    "type": "number",
+    "label": {
+      "en": "Humidity offset (%)",
+      "nl": "Luchtvochtigheids compensatie (%)",
+      "it": "Offset dell'umidità (%)"
+    },
+    "hint": {
+      "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+      "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]",
+      "it": "Imposta un valore per compensare lo scostamento dell'umidità.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]"
+    },
+    "value": 0,
+    "attr": {
+      "min": -10,
+      "max": 10,
+      "step": 1
+    },
+    "units": {
+       "en": "%",
+       "nl": "%"
+    }
+  },
+  {
+    "id": "humidity_decimals",
+    "type": "radio",
+    "label": {
+      "en": "Humidity reporting",
+      "it": "Report dell'umidità"
+    },
+    "value": "1",
+    "values": [
+      {
+        "id": "1",
+        "label": {
+          "en": "Report humidity value with 1 decimal (35.2 %)",
+          "it": "Valore del report dell'umidità con 1 decimale (35.2 %)"
+        }
+      },
+      {
+        "id": "2",
+        "label": {
+          "en": "Report humidity value with 2 decimals (35.19 %)",
+          "it": "Valore del report dell'umidità con 2 decimale (35.19 %)"
+        }
+      }
+    ]
+  }
+
+]
