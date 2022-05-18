@@ -110,6 +110,7 @@ Plugs and Socket Strips
     _TZ3000_dpo1ysak / TS011F
     _TZ3000_w0qqde0g / TS011F (Neo)
     _TZ3000_u5u4cakc / TS011F (Blitzwolf)
+    _TZ3000_gjnozsaz / TS011F
 
 - Smart Plug, without metering
     _TZ3000_kdi2o9m6 / TS011F (Lidl)
