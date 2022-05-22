@@ -11,6 +11,13 @@
     "onoff",
     "alarm_battery"
   ],
+  "capabilitiesOptions": {
+    "onoff": {
+      "opts": {
+        "duration": true
+      }
+    }
+  },
   "energy": {
     "batteries": ["AA", "AA", "AA", "AA"]
   },
