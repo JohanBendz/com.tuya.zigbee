@@ -1,17 +1,18 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
-  "id": "com.tuya.zigbee",
-  "version": "0.2.2",
+  "id": "b.com.tuya.zigbee",
+  "version": "0.3.0",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
   ],
   "sdk": 3,
   "name": {
-    "en": "Tuya Zigbee"
+    "en": "B Tuya Zigbee"
   },
   "description": {
-    "en": "Control your white label Zigbee devices made by Tuya"
+    "en": "Control your white label Zigbee devices made by Tuya",
+    "it": "Controlla i tuoi device Zigbee senza marca creati da Tuya"
   },
   "tags": {
     "en": [
@@ -2552,7 +2553,8 @@
     {
       "id": "smart_garden_irrigation_control",
       "name": {
-        "en": "Smart Garden Irrigation Controller"
+        "en": "Smart Garden Irrigation Controller",
+        "it": "Programmatore per irrigazione smart"
       },
       "class": "other",
       "platforms": [
@@ -2565,6 +2567,13 @@
         "onoff",
         "alarm_battery"
       ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
       "energy": {
         "batteries": [
           "AA",
@@ -2603,7 +2612,8 @@
         "learnmode": {
           "image": "/drivers/smart_garden_irrigation_control/assets/icon.svg",
           "instruction": {
-            "en": "Ensure the indicator light is flashing. If the indicatore light isn't flashing: press and hold the reset butto for 5 seconds until the indicator light starts to flashing."
+            "en": "Ensure the indicator light is flashing. If the indicatore light isn't flashing: press and hold the reset button for 5 seconds until the indicator light starts to flashing.",
+            "it": "Assicurarsi che l'indicatore lampeggi. Se l'indicatore non lampegga: tenere premuto il pulsante di reset per 5 secondi finchè l'indicatore non inizia a lampeggiare."
           }
         }
       },
@@ -3408,13 +3418,15 @@
           "_TZ3000_pmvbt5hh",
           "_TZ3000_sjpl9eg3",
           "_TZ3000_m9af2l6g",
-          "_TZ3000_ji4araar"
+          "_TZ3000_ji4araar",
+          "_TZ3000_npzfdcof"
         ],
         "productId": [
           "TS0003",
           "TS011F",
           "TS0011",
-          "TS000F"
+          "TS000F",
+          "TS0001"
         ],
         "endpoints": {
           "1": {
@@ -3432,7 +3444,8 @@
         "learnmode": {
           "image": "/drivers/switch_1_gang/assets/icon.svg",
           "instruction": {
-            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green).",
+            "it": "Premere il pulsante di setup per 10 secondi o spegnere ed accendere l'unità 5 volte per entrare in modalità accoppiamento (il LED dovrebbe lampeggiare verde)."
           }
         }
       },
@@ -3677,6 +3690,160 @@
               "id": "2",
               "label": {
                 "en": "Report humidity value with 2 decimals (35.19 %)"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "temphumidsensor-two",
+      "name": {
+        "en": "Temperature & Humidity Sensor",
+        "it": "Sensore di temperatura ed umidità"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_battery",
+        "alarm_battery",
+        "measure_humidity",
+        "measure_temperature"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/temphumidsensor-two/assets/images/small.png",
+        "large": "/drivers/temphumidsensor-two/assets/images/large.png",
+        "xlarge": "/drivers/temphumidsensor-two/assets/images/xlarge.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_fllyghyj"
+        ],
+        "productId": [
+          "TS0201"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1026,
+              1029
+            ],
+            "bindings": [
+              1,
+              1026,
+              1029
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the button inside the battery compartment for aprox 5 seconds until the LED blinks rapidly.",
+            "it": "Tenere premuto il pulsante all'interno del vano batteria per cicrca 5 secondi finchè il LED non lampeggia rapidamente."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "temperature_offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset (°C)",
+            "it": "Offset della temperatura (°C)"
+          },
+          "hint": {
+            "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]",
+            "it": "Imposta un valore per compensare lo scostamento della temperatura.\nRange: -10 - 10, step ze 0.1, \ndefault: 0 [°C]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "temperature_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Temperature reporting decimals",
+            "it": "Decimali del report della temperatura"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report temperature value with 1 decimal (21.4 °C)",
+                "it": "Valore del report della temperatura con 1 decimale (21.4 °C)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report temperature value with 2 decimals (21.37 °C)",
+                "it": "Valore del report della temperatura con 2 decimale (21.31 °C)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "humidity_offset",
+          "type": "number",
+          "label": {
+            "en": "Humidity offset (%)",
+            "nl": "Luchtvochtigheids compensatie (%)",
+            "it": "Offset dell'umidità (%)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]",
+            "it": "Imposta un valore per compensare lo scostamento dell'umidità.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 1
+          },
+          "units": {
+            "en": "%",
+            "nl": "%"
+          }
+        },
+        {
+          "id": "humidity_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Humidity reporting",
+            "it": "Report dell'umidità"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report humidity value with 1 decimal (35.2 %)",
+                "it": "Valore del report dell'umidità con 1 decimale (35.2 %)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report humidity value with 2 decimals (35.19 %)",
+                "it": "Valore del report dell'umidità con 2 decimale (35.19 %)"
               }
             }
           ]

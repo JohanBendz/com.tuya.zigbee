@@ -1,14 +1,17 @@
 {
-  "id": "com.tuya.zigbee",
-  "version": "0.2.2",
+  "id": "b.com.tuya.zigbee",
+  "version": "0.3.0",
   "compatibility": ">=5.0.0",
-  "platforms": ["local"],
+  "platforms": [
+    "local"
+  ],
   "sdk": 3,
   "name": {
-    "en": "Tuya Zigbee"
+    "en": "B Tuya Zigbee"
   },
   "description": {
-    "en": "Control your white label Zigbee devices made by Tuya"
+    "en": "Control your white label Zigbee devices made by Tuya",
+    "it": "Controlla i tuoi device Zigbee senza marca creati da Tuya"
   },
   "tags": {
     "en": [

@@ -169,5 +169,8 @@
   },
   "0.2.2": {
     "en": "Added metering capability to _TZ3000_mraovvmm / TS011F (Blitzwolf)"
+  },
+  "0.3.0": {
+    "en": "Added new temperature and humidity meter, new 1 gang switch module and duration option to smart garden irrigator"
   }
 }
