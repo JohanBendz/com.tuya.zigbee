@@ -17,9 +17,14 @@ class IrrigationController extends ZigBeeDevice {
     this.registerCapabilityListener("onoff", async (value, options) =>{
       this.log("value "+value);
       this.log("options "+options.duration);
-      await zclNode.endpoints[1].clusters['onOff'].toggle();
-      await new Promise(resolve => setTimeout(resolve, options.duration));
-      await zclNode.endpoints[1].clusters['onOff'].toggle();
+      if (options.duration != undefined){
+        await zclNode.endpoints[1].clusters['onOff'].toggle();
+        await new Promise(resolve => setTimeout(resolve, options.duration));
+        await zclNode.endpoints[1].clusters['onOff'].toggle();
+      }else{
+        await zclNode.endpoints[1].clusters['onOff'].toggle();
+      }
+      
     });
     // measure_battery // alarm_battery
 		zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME].on('attr.batteryPercentageRemaining', this.onBatteryPercentageRemainingAttributeReport.bind(this));
