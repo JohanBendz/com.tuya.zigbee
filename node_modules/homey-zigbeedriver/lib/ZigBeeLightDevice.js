@@ -73,10 +73,10 @@ const lightModeCapabilityDefinition = {
  * const { ZigBeeLightDevice } = require('homey-zigbeedriver');
  *
  * class ZigBeeBulb extends ZigBeeLightDevice {
- *    async onNodeInit({zclNode, node}) {
- *      await super.onNodeInit({zclNode, node});
- *      // Do custom stuff here
- *    }
+ *   async onNodeInit({zclNode, node}) {
+ *     await super.onNodeInit({zclNode, node});
+ *     // Do custom stuff here
+ *   }
  * }
  */
 class ZigBeeLightDevice extends ZigBeeDevice {

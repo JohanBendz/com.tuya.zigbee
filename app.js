@@ -2,7 +2,7 @@
 
 const Homey = require('homey');
 const { debug } = require('zigbee-clusters');
-debug(true);
+debug(false);
 
 class tuyazigbee extends Homey.App {
 	

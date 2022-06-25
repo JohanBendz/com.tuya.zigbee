@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "compatibility": ">=5.0.0",
   "platforms": ["local"],
   "sdk": 3,
@@ -90,6 +90,10 @@
       {
         "name": "Jurgen Heine",
         "email": "jurgen2.heine@gmail.com"
+      },
+      {
+        "name": "Robin de Gruijter",
+        "email": "gruijter@hotmail.com"
       }
     ]
   }

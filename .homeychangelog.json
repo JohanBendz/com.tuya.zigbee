@@ -169,5 +169,8 @@
   },
   "0.2.2": {
     "en": "Added metering capability to _TZ3000_mraovvmm / TS011F (Blitzwolf)"
+  },
+  "0.2.3": {
+    "en": "Added door sensor _TZ3000_oxslv1c9/_bzxloft / TS0203. Added smart plug _TZ3000_gjnozsaz / TS011F. Homey zigbeedriver@1.6.11. zigbee-clusters @1.5.1. Debug mode off."
   }
 }
