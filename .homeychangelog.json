@@ -169,5 +169,8 @@
   },
   "0.2.2": {
     "en": "Added metering capability to _TZ3000_mraovvmm / TS011F (Blitzwolf)"
+  },
+  "0.2.3": {
+    "en": "Added support for a number of devices"
   }
 }

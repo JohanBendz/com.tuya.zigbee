@@ -43,6 +43,21 @@ function mapValueRange(originalRangeStart, originalRangeEnd, newRangeStart, newR
 }
 
 /**
+ * Limit a value between min and max.
+ * @param {number} value
+ * @param {number} min
+ * @param {number} max
+ * @returns {number}
+ * @memberof Util
+ */
+function limitValue(value, min, max) {
+  if (typeof value !== 'number') throw new TypeError('expected_value_number');
+  if (typeof min !== 'number') throw new TypeError('expected_min_number');
+  if (typeof max !== 'number') throw new TypeError('expected_max_number');
+  return Math.min(Math.max(value, min), max);
+}
+
+/**
  * Calculate a transitionTime value for the level control cluster, it takes one parameter: the
  * `opts` object provided by a {@link Homey.Device.registerCapabilityListener} which can hold a
  * `duration` property (in milliseconds).
@@ -356,6 +371,7 @@ function recursiveDeepCopy(object, visited = new Set()) {
 module.exports = {
   ...color,
   mapValueRange,
+  limitValue,
   calculateLevelControlTransitionTime,
   calculateColorControlTransitionTime,
   calculateZigBeeDimDuration,

@@ -22,10 +22,12 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "TUYATEC-0l6xaqmi"
+      "TUYATEC-0l6xaqmi",
+      "_TZ3000_7tbsruql"
     ],
     "productId": [
-      "RH3001"
+      "RH3001",
+      "TS0203"
     ],
     "endpoints": {
       "1": {

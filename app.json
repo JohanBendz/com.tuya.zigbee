@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -47,7 +47,8 @@
       "RGB",
       "Christmas",
       "Socket",
-      "Woox"
+      "Woox",
+      "Curtain"
     ]
   },
   "category": [
@@ -657,7 +658,9 @@
           "_TZ3000_vd43bbfq",
           "_TZ3000_1dd0d5yi",
           "_TZ3000_ke7pzj5d",
-          "_TZ3000_fccpjz5z"
+          "_TZ3000_fccpjz5z",
+          "_TZ3000_4uuaja4a",
+          "_TZ3000_zirycpws"
         ],
         "productId": [
           "TS130F"
@@ -708,6 +711,110 @@
       ]
     },
     {
+      "id": "curtain_motor",
+      "name": {
+        "en": "Curtain Motor",
+        "nl": "Gordijn Motor"
+      },
+      "class": "curtain",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "windowcoverings_set"
+      ],
+      "images": {
+        "large": "/drivers/curtain_motor/assets/images/large.png",
+        "small": "/drivers/curtain_motor/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_5zbp6j0u",
+          "_TZE200_nkoabg8w",
+          "_TZE200_xuzcvlku",
+          "_TZE200_4vobcgd3",
+          "_TZE200_nogaemzt",
+          "_TZE200_r0jdjrvi",
+          "_TZE200_pk0sfzvr",
+          "_TZE200_fdtjuw7u",
+          "_TZE200_zpzndjez",
+          "_TZE200_wmcdj3aq",
+          "_TZE200_cowvfni3",
+          "_TZE200_rddyvrci",
+          "_TZE200_nueqqe6k",
+          "_TZE200_xaabybja",
+          "_TZE200_rmymn92d",
+          "_TZE200_3i3exuay",
+          "_TZE200_nogaemzt",
+          "_TZE200_zah67ekd",
+          "_TZE200_cowvfni3",
+          "_TZE200_hsgrhjpf"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              10,
+              4,
+              5,
+              258,
+              61184
+            ],
+            "bindings": [
+              258,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/curtain_motor/assets/icon.svg",
+          "instruction": {
+            "en": "Press the reset button 3 times, then press and hold the reset button until the led lights up.",
+            "nl": "Druk 3 keer op de reset knop. Druk daarna nog een keer en houd de knop vast tot dat de led blijft branden."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "reverse",
+          "type": "radio",
+          "label": {
+            "en": "Motor moves in reverse direction",
+            "nl": "Motor beweegt in omgekeerde richting"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off",
+                "nl": "Uit"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On",
+                "nl": "Aan"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "dimmer_1_gang",
       "name": {
         "en": "1 Gang Dimmer Module"
@@ -744,7 +851,8 @@
         "manufacturerName": [
           "_TYZB01_qezuin6k",
           "_TZ3210_ngqk6jia",
-          "_TZ3000_ktuoyvt5"
+          "_TZ3000_ktuoyvt5",
+          "_TZ3210_zxbtub8r"
         ],
         "productId": [
           "TS110F",
@@ -909,7 +1017,13 @@
           "TUYATEC-ip9ganvw",
           "_TYZB01_xph99wvr",
           "_TZ3000_2mbfxlzr",
-          "_TZ3000_402jjyro"
+          "_TZ3000_402jjyro",
+          "_TZ3000_6jeesvrt",
+          "_TZ3000_26fmupbb",
+          "_TZ3000_bmg14ax2",
+          "_TZ3000_oxslv1c9",
+          "_TZ3000_bzxlofth",
+          "_TZ3000_bzxloft"
         ],
         "productId": [
           "RH3001",
@@ -965,10 +1079,12 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "TUYATEC-0l6xaqmi"
+          "TUYATEC-0l6xaqmi",
+          "_TZ3000_7tbsruql"
         ],
         "productId": [
-          "RH3001"
+          "RH3001",
+          "TS0203"
         ],
         "endpoints": {
           "1": {
@@ -1641,7 +1757,9 @@
         "manufacturerName": [
           "_TYZB01_jytabjkb",
           "_TYZB01_dl7cejts",
-          "_TZ3000_mmtwjmaq"
+          "_TZ3000_mmtwjmaq",
+          "_TZ3000_kmh5qpmb",
+          "_TZ3000_msl6wxk9"
         ],
         "productId": [
           "TS0202"
@@ -1699,7 +1817,8 @@
           "TUYATEC-lha8pbwd",
           "TUYATEC-zn9wyqtr",
           "TUYATEC-53o41joc",
-          "TUYATEC-deetibst"
+          "TUYATEC-deetibst",
+          "TUYATEC-dgtxmihe"
         ],
         "productId": [
           "RH3040"
@@ -1810,7 +1929,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_hdlpifbk"
+          "_TZ3000_hdlpifbk",
+          "_TZ3000_excgg5kb"
         ],
         "productId": [
           "TS0004"
@@ -1860,7 +1980,7 @@
         },
         "devices": {
           "secondSwitch": {
-            "class": "light",
+            "class": "socket",
             "capabilities": [
               "onoff"
             ],
@@ -1875,7 +1995,7 @@
             }
           },
           "thirdSwitch": {
-            "class": "light",
+            "class": "socket",
             "capabilities": [
               "onoff"
             ],
@@ -1890,7 +2010,7 @@
             }
           },
           "fourthSwitch": {
-            "class": "light",
+            "class": "socket",
             "capabilities": [
               "onoff"
             ],
@@ -2022,7 +2142,8 @@
         "manufacturerName": [
           "_TZ3000_dbou1ap4",
           "_TZ3000_keabpigv",
-          "_TZ3000_12sxjap4"
+          "_TZ3000_12sxjap4",
+          "_TZ3000_hlijwsai"
         ],
         "productId": [
           "TS0505A",
@@ -2720,7 +2841,9 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_fsiepnrh"
+          "_TZ3000_fsiepnrh",
+          "_TYZB01_qm6djpta",
+          "_TZ3000_p6ju8myv"
         ],
         "productId": [
           "TS0215A"
@@ -2838,7 +2961,17 @@
           "_TZ3000_dpo1ysak",
           "_TZ3000_w0qqde0g",
           "_TZ3000_mraovvmm",
-          "_TZ3000_u5u4cakc"
+          "_TZ3000_u5u4cakc",
+          "_TZ3000_typdpdpg",
+          "_TZ3000_gjnozsaz",
+          "_TZ3000_amdymr7l",
+          "_TZ3000_amdymr71",
+          "_TZ3000_typdpbpg",
+          "_TZ3000_ksw8qtmt",
+          "_TZ3000_zloso4jk",
+          "_TZ3000_5f43h46b",
+          "_TZ3000_cehuw1l2",
+          "_TZ3000_5f43h46b"
         ],
         "productId": [
           "TS0121",
@@ -2983,7 +3116,8 @@
         "manufacturerName": [
           "_TZ3000_1obwwnmq",
           "_TZ3000_vzopcetz",
-          "_TZ3000_4uf3d0ax"
+          "_TZ3000_4uf3d0ax",
+          "_TZ3000_wzauvbcs"
         ],
         "productId": [
           "TS011F"
@@ -3408,13 +3542,19 @@
           "_TZ3000_pmvbt5hh",
           "_TZ3000_sjpl9eg3",
           "_TZ3000_m9af2l6g",
-          "_TZ3000_ji4araar"
+          "_TZ3000_ji4araar",
+          "_TZ3000_qmi1cfuq",
+          "_TZ3000_npzfdcof",
+          "_TZ3000_tqlv4ug4",
+          "_TZ3000_rmjr4ufz",
+          "_TZ3000_mx3vgyea"
         ],
         "productId": [
           "TS0003",
           "TS011F",
           "TS0011",
-          "TS000F"
+          "TS000F",
+          "TS0001"
         ],
         "endpoints": {
           "1": {
@@ -3471,7 +3611,8 @@
           "_TYZB01_digziiav",
           "_TZ3000_fisb3ajo",
           "_TZ3000_bvrlqyj7",
-          "_TZ3000_jl7qyupf"
+          "_TZ3000_jl7qyupf",
+          "_TZ3000_7ed9cqgi"
         ],
         "productId": [
           "TS0003",
@@ -3570,7 +3711,10 @@
           "_TZ3000_i8jfiezr",
           "TUYATEC-v3uxbuxy",
           "_TZ3000_bguser20",
-          "_TZ3000_dowj6gyi"
+          "_TZ3000_dowj6gyi",
+          "_TZ3000_fllyghyj",
+          "_TZ3000_8ybe88nf",
+          "_TZ3000_fie1dpkm"
         ],
         "productId": [
           "RH3052",
@@ -4082,7 +4226,10 @@
           "_TYZB02_keyjhapk",
           "_TZ3000_oikiyf3b",
           "_TZ3000_dfgbtub0",
-          "_TZ3000_h1c2eamp"
+          "_TZ3000_h1c2eamp",
+          "_TZ3400_keyjhapk",
+          "_TZ3000_5e235jpa",
+          "_TZ3000_fkvaniuu"
         ],
         "productId": [
           "TS0042"
@@ -4143,7 +4290,8 @@
           "_TYZB02_key8kk7r",
           "_TZ3000_qzjcsmar",
           "_TZ3000_rrjr1q0u",
-          "_TZ3000_w8jwkczz"
+          "_TZ3000_w8jwkczz",
+          "_TZ3000_gbm10jnj"
         ],
         "productId": [
           "TS0043"
@@ -4203,13 +4351,16 @@
       },
       "energy": {
         "batteries": [
-          "CR2450"
+          "CR2032"
         ]
       },
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_vp6clf9d",
-          "_TZ3000_xabckq1v"
+          "_TZ3000_xabckq1v",
+          "_TZ3000_wkai4ga5",
+          "_TZ3000_ufhtxr59",
+          "_TZ3000_ee8nrt2l"
         ],
         "productId": [
           "TS0044",
@@ -4293,7 +4444,10 @@
           "_TYZB01_qeqvmvti",
           "_TYZB01_seqwasot",
           "_TZ3000_hktqahrq",
-          "_TZ3000_yl3zuyaw"
+          "_TZ3000_yl3zuyaw",
+          "_TZ3000_3wkqni6o",
+          "_TZ3000_oex7egmt",
+          "_TZ3000_hafsqare"
         ],
         "productId": [
           "TS0001",
@@ -4352,7 +4506,11 @@
           "_TZ3000_svoqrno4",
           "TUYATEC-O6SNCwd6",
           "_TYZB01_vzrytttn",
-          "_TZ3000_nta0gb8h"
+          "_TZ3000_nta0gb8h",
+          "_TZ3000_lupfd8zu",
+          "_TZ3000_yhagrqmd",
+          "_TZ3000_5vujyute",
+          "_TYZB01_2athzhfr"
         ],
         "productId": [
           "TS0002",
@@ -4437,7 +4595,8 @@
           "_TZ3000_cdamjqm9",
           "_TYZB01_mqel1whf",
           "_TZ3000_hlwm8e96",
-          "_TZ3000_odzoiovu"
+          "_TZ3000_odzoiovu",
+          "_TZ3000_thhxrept"
         ],
         "productId": [
           "TS0003",
@@ -4539,10 +4698,12 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_r0pmi2p3"
+          "_TZ3000_r0pmi2p3",
+          "_TZ3000_dku2cfsc"
         ],
         "productId": [
-          "TS0014"
+          "TS0014",
+          "TS0044"
         ],
         "endpoints": {
           "1": {
@@ -4666,7 +4827,10 @@
           "_TYZB01_sqmd19i1",
           "_TYST11_qq9mpfhw",
           "_TZ3000_fxvjhdyl",
-          "_TZ3000_eit7p838"
+          "_TZ3000_eit7p838",
+          "_TZ3000_t6jriawg",
+          "_TZ3000_85czd6fy",
+          "_TZ3000_kyb656no"
         ],
         "productId": [
           "TS0207",

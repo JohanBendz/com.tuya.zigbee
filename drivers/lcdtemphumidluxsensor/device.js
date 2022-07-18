@@ -2,13 +2,28 @@
 
 const Homey = require('homey');
 const { ZigBeeDevice } = require('homey-zigbeedriver');
-const { CLUSTER } = require('zigbee-clusters');
+const { debug, CLUSTER } = require('zigbee-clusters');
 
 class lcdtemphumidluxsensor extends ZigBeeDevice {
 	
 	async onNodeInit({zclNode}) {
 
+    debug(true);
+
 		this.printNode();
+
+    if (this.isFirstInit()){
+			await this.configureAttributeReporting([
+				{
+					endpointId: 1,
+					cluster: CLUSTER.POWER_CONFIGURATION,
+					attributeName: 'batteryPercentageRemaining',
+					minInterval: 65535,
+					maxInterval: 0,
+					minChange: 0,
+				}
+			]);
+		}
 
  		// measure_temperature
 		zclNode.endpoints[2].clusters[CLUSTER.TEMPERATURE_MEASUREMENT.NAME]
@@ -32,27 +47,27 @@ class lcdtemphumidluxsensor extends ZigBeeDevice {
 		const temperatureOffset = this.getSetting('temperature_offset') || 0;
 		const parsedValue = this.getSetting('temperature_decimals') === '2' ? Math.round((measuredValue / 100) * 100) / 100 : Math.round((measuredValue / 100) * 10) / 10;
 		this.log('measure_temperature | temperatureMeasurement - measuredValue (temperature):', parsedValue, '+ temperature offset', temperatureOffset);
-		this.setCapabilityValue('measure_temperature', parsedValue + temperatureOffset);
+		this.setCapabilityValue('measure_temperature', parsedValue + temperatureOffset).catch(this.error);
 	}
 
 	onRelativeHumidityMeasuredAttributeReport(measuredValue) {
 		const humidityOffset = this.getSetting('humidity_offset') || 0;
 		const parsedValue = this.getSetting('humidity_decimals') === '2' ? Math.round((measuredValue / 100) * 100) / 100 : Math.round((measuredValue / 100) * 10) / 10;
 		this.log('measure_humidity | relativeHumidity - measuredValue (humidity):', parsedValue, '+ humidity offset', humidityOffset);
-		this.setCapabilityValue('measure_humidity', parsedValue + humidityOffset);
+		this.setCapabilityValue('measure_humidity', parsedValue + humidityOffset).catch(this.error);
 	}
 
 	onIlluminanceMeasuredAttributeReport(measuredValue) {
     const parsedValue = 10 ** ((measuredValue - 1) / 10000);
 		this.log('measure_luminance | Luminance - measuredValue (lux):', parsedValue);
-		this.setCapabilityValue('measure_luminance', parsedValue);
+		this.setCapabilityValue('measure_luminance', parsedValue).catch(this.error);
 	}
 
 	onBatteryPercentageRemainingAttributeReport(batteryPercentageRemaining) {
 		const batteryThreshold = this.getSetting('batteryThreshold') || 20;
 		this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", batteryPercentageRemaining/2);
-		this.setCapabilityValue('measure_battery', batteryPercentageRemaining/2);
-		this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining/2 < batteryThreshold) ? true : false)
+		this.setCapabilityValue('measure_battery', batteryPercentageRemaining/2).catch(this.error);
+		this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining/2 < batteryThreshold) ? true : false).catch(this.error);
 	}
 
 	onDeleted(){

@@ -14,7 +14,9 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TZ3000_fsiepnrh"
+        "_TZ3000_fsiepnrh",
+        "_TYZB01_qm6djpta",
+        "_TZ3000_p6ju8myv"
       ],
       "productId": [
         "TS0215A"

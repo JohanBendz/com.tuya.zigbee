@@ -207,7 +207,7 @@ zclNode.endpoints[1].bind(CLUSTER.LEVEL_CONTROL.NAME, new LevelControlBoundClust
 ```
 
 ### Implementing a custom cluster
-There are cases where it is required to implement a custom cluster, for example to handle manufacturer specific cluster implementations. Often these manufacturer specific cluster implementations are extensions of existing clusters. An example is the `IkeaSpecificSceneCluster` ([complete implementation](https://github.com/athombv/com.ikea.tradfri/tree/master/lib/IkeaSpecificSceneCluster.js)):
+There are cases where it is required to implement a custom cluster, for example to handle manufacturer specific cluster implementations. Often these manufacturer specific cluster implementations are extensions of existing clusters. An example is the `IkeaSpecificSceneCluster` ([complete implementation](https://github.com/athombv/com.ikea.tradfri-example/tree/master/lib/IkeaSpecificSceneCluster.js)):
 
 `lib/IkeaSpecificSceneCluster.js`
 ```js
@@ -267,7 +267,7 @@ zclNode.endpoints[1].clusters['scenes'].ikeaSceneMove({mode: 0, transitionTime: 
 
 ```
 
-This also works for `BoundClusters`, if a node sends commands to Homey using a custom cluster it is necessary to implement a custom `BoundCluster` and bind it to the `ZCLNode` instance. For an example check the implementation in the `com.ikea.tradfri` driver [remote_control](https://github.com/athombv/com.ikea.tradfri/tree/master/drivers/remote_control/device.js).
+This also works for `BoundClusters`, if a node sends commands to Homey using a custom cluster it is necessary to implement a custom `BoundCluster` and bind it to the `ZCLNode` instance. For an example check the implementation in the `com.ikea.tradfri` driver [remote_control](https://github.com/athombv/com.ikea.tradfri-example/tree/master/drivers/remote_control/device.js).
 
 ## Contributing
 Great if you'd like to contribute to this project, a few things to take note of before submitting a PR:
