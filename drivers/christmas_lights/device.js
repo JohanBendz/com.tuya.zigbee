@@ -1,16 +1,14 @@
 'use strict';
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
-const { Cluster, debug, CLUSTER } = require('zigbee-clusters');
+const { Cluster } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
+const TuyaSpecificClusterDevice = require("../../lib/TuyaSpecificClusterDevice");
 
 Cluster.addCluster(TuyaSpecificCluster);
 
-class christmas_lights extends ZigBeeDevice {
-//    zclNode;
+class christmas_lights extends TuyaSpecificClusterDevice {
 
     async onNodeInit({ zclNode }) {
-        //this.zclNode = zclNode;
         
         this.printNode();
 
@@ -30,7 +28,7 @@ class christmas_lights extends ZigBeeDevice {
                     return this.setColor({});
                 case 'white':
                     // Update light_saturation such that color in App is white
-                    await this.setCapabilityValue('light_saturation',0);
+                    await this.setCapabilityValue('light_saturation',0).catch(this.error);
                     return this.setWhiteDim({});
                 case 'effect':
                     return this.writeString(6,'0e32ff0000fe7023ffc836d4ff421efe4312d3fc004ef9e80ff9');
@@ -53,7 +51,7 @@ class christmas_lights extends ZigBeeDevice {
         // Handler for color
         this.registerMultipleCapabilityListener(['light_hue','light_saturation'],(values,options) => {
             // When choosing a color, actually switch to color mode
-            this.setCapabilityValue('lidl_xmas_mode','color');
+            this.setCapabilityValue('lidl_xmas_mode','color').catch(this.error);
             // Then set the color based on newly selected value
             return this.setColor(values);
         },500);
@@ -94,7 +92,7 @@ class christmas_lights extends ZigBeeDevice {
     async StartEffect(args) {
         // Switch to effect mode
         await this.writeEnum(2,2);
-        this.setCapabilityValue('lidl_xmas_mode', 'effect');
+        this.setCapabilityValue('lidl_xmas_mode', 'effect').catch(this.error);
         let es = this.effectMap[args.effect_name];
         const speed = String(args.effect_speed);
         if (speed.length == 1) es += '0';
@@ -107,7 +105,7 @@ class christmas_lights extends ZigBeeDevice {
         return this.writeString(6,es);
     }
 
-    //region String Helper Functions
+    // String Helper Functions
     make4String(v) {
         let s = Math.round(v).toString(16);
         if(s.length===4) return s;
@@ -116,72 +114,6 @@ class christmas_lights extends ZigBeeDevice {
         else if(s.length===1) return '000' + s;
         else return '0000';
     }
-    //endregion
-
-    //region Tuya Datapoint Functions
-    _transactionID = 0;
-    set transactionID(val) {
-        this._transactionID = val % 256;
-    }
-    get transactionID() {
-        return this._transactionID;
-    }
-
-    // Boolean
-    async writeBool(dp, value) {
-        const data = Buffer.alloc(1);
-        data.writeUInt8(value ? 0x01 : 0x00,0);
-        return this.zclNode.endpoints[1].clusters.tuya.datapoint({
-            status: 0,
-            transid: this.transactionID++,
-            dp,
-            datatype: 1,
-            length: 1,
-            data
-        });
-    }
-
-    // enum
-    async writeEnum(dp, value) {
-        const data = Buffer.alloc(1);
-        data.writeUInt8(value, 0);
-        return this.zclNode.endpoints[1].clusters.tuya.datapoint({
-            status: 0,
-            transid: this.transactionID++,
-            dp,
-            datatype: 4,
-            length: 1,
-            data
-        });
-    }
-
-    // int type value
-    async writeData32 (dp, value) {
-        const data = Buffer.alloc(4);
-        data.writeUInt32BE(value,0);
-        return this.zclNode.endpoints[1].clusters.tuya.datapoint({
-            status: 0,
-            transid: this.transactionID++,
-            dp,
-            datatype: 2,
-            length: 4,
-            data
-        });
-    }
-
-    // string
-    async writeString(dp, value) {
-        const data = Buffer.from(String(value),'latin1');
-        return this.zclNode.endpoints[1].clusters.tuya.datapoint({
-            status: 0,
-            transid: this.transactionID++,
-            dp,
-            datatype: 3,
-            length: value.length,
-            data
-        });
-    }
-    //endregion
 
     onDeleted(){
 		this.log("Christmas Lights removed")

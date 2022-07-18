@@ -13,13 +13,17 @@ class wall_remote_4_gang extends ZigBeeDevice {
       const node = await this.homey.zigbee.getNode(this);
       node.handleFrame = (endpointId, clusterId, frame, meta) => {
         if (clusterId === 6) {
-          this.log("endpointId:", endpointId,", clusterId:", clusterId,", frame:", frame, ", meta:", meta);
-          this.log("Frame JSON data:", frame.toJSON());
-          debounce = debounce+1;
-          if (debounce===1){
+          // this.log("endpointId:", endpointId,", clusterId:", clusterId,", frame:", frame, ", meta:", meta);
+          // this.log("Frame JSON data:", frame.toJSON());
+          if (endpointId === 1) {
             this.buttonCommandParser(endpointId, frame);
           } else {
-            debounce=0;
+            debounce = debounce+1;
+            if (debounce===1){
+              this.buttonCommandParser(endpointId, frame);
+            } else {
+              debounce=0;
+            }
           }
         }
       };
@@ -388,3 +392,6 @@ module.exports = wall_remote_4_gang;
       }
     }
   } */
+
+
+  

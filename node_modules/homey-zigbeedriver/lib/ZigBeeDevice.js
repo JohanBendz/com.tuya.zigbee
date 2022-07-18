@@ -140,16 +140,16 @@ class ZigBeeDevice extends Homey.Device {
    *        'TRADFRI bulb E14 W op/ch 400lm': {
    *          approximation: {
    *            usageOff: 0,
-   *            usageOn: 10
-   *          }
+   *            usageOn: 10,
+   *          },
    *        },
    *        'TRADFRI bulb E27 RGB 1000lm': {
    *          approximation: {
    *            usageOff: 0,
-   *            usageOn: 18
-   *          }
-   *        }
-   *      }
+   *            usageOn: 18,
+   *          },
+   *        },
+   *      };
    *    }
    *  }
    */
@@ -268,30 +268,29 @@ class ZigBeeDevice extends Homey.Device {
    * this.registerCapability('onoff', CLUSTER.ON_OFF, {
    *  // This is often just a string, but can be a function as well
    *  set: value => (value ? 'setOn' : 'setOff'),
-   *    function setParser(setValue) {
-   *      return setValue ? 'setOn' : 'setOff'; // This could also be an object for more complex
-   *      // commands
+   *  setParser(setValue) {
+   *    // In case a "set command" takes an argument you can return it from the setParser
+   *  },
+   *  get: 'onOff',
+   *  report: 'onOff',
+   *  reportParser(report) {
+   *    if (report && report.onOff === true) return true;
+   *    return false;
+   *  },
+   *  reportOpts: {
+   *    configureAttributeReporting: {
+   *      minInterval: 3600, // Minimally once every hour
+   *      maxInterval: 60000, // Maximally once every ~16 hours
+   *      minChange: 1,
    *    },
-   *    get: 'onOff'
-   *    report: 'onOff'
-   *    function reportParser(report) {
-   *      if (report && report.onOff === true) return true;
-   *      return false;
-   *    },
-   *    reportOpts: {
-   *      configureAttributeReporting: {
-   *        minInterval: 3600, // Minimally once every hour
-   *        maxInterval: 60000, // Maximally once every ~16 hours
-   *        minChange: 1,
-   *      }
-   *    },
-   *    endpoint: 1, // Default is 1
-   *    getOpts: {
-   *      getOnStart: true,
-   *      getOnOnline: true,
-   *      pollInterval: 30000, // in ms
-   *    }
-   * })
+   *  },
+   *  endpoint: 1, // Default is 1
+   *  getOpts: {
+   *    getOnStart: true,
+   *    getOnOnline: true,
+   *    pollInterval: 30000, // in ms
+   *  },
+   * });
    */
   registerCapability(capabilityId, cluster, clusterCapabilityConfiguration) {
     assertClusterSpecification(cluster);
@@ -335,24 +334,24 @@ class ZigBeeDevice extends Homey.Device {
    * const { CLUSTER } = require('zigbee-clusters');
    *
    * this.registerMultipleCapabilities([
-   *  {
-   *    // This one will extend the system capability and override the `setParser`
-   *    capabilityId: 'onoff',
-   *    cluster: CLUSTER.ON_OFF,
-   *    userOpts: {
-   *      function setParser(setValue) {
-   *        // do something different here
-   *      }
-   *    }
-   *  },
-   *  {
-   *    // This one will extend the system capability
-   *    capabilityId: 'dim',
-   *    cluster: CLUSTER.LEVEL_CONTROL,
-   *  }
+   *   {
+   *     // This one will extend the system capability and override the `setParser`
+   *     capabilityId: 'onoff',
+   *     cluster: CLUSTER.ON_OFF,
+   *     userOpts: {
+   *       setParser(setValue) {
+   *         // do something different here
+   *       },
+   *     },
+   *   },
+   *   {
+   *     // This one will extend the system capability
+   *     capabilityId: 'dim',
+   *     cluster: CLUSTER.LEVEL_CONTROL,
+   *   }
    * ], event => {
    *    // Debounced event when one or more capabilities have changed
-   * })
+   * });
    */
   registerMultipleCapabilities(
     multipleCapabilitiesConfiguration = [], multipleCapabilitiesListener,
@@ -457,10 +456,11 @@ class ZigBeeDevice extends Homey.Device {
    * @deprecated since v1.0.0 - Use a {@link BoundCluster} instead (see example below).
    * @example
    * class CustomBoundCluster extends BoundCluster {
-   *  function setOn() {
-   *    // This method will be called when the `setOn` command is received
-   *  }
+   *   setOn() {
+   *     // This method will be called when the `setOn` command is received
+   *   }
    * }
+   *
    * zclNode.endpoints[1].clusters.bind('onOff', new CustomBoundCluster());
    */
   registerReportListener() {
@@ -543,9 +543,9 @@ class ZigBeeDevice extends Homey.Device {
    *
    * // In order to handle the attribute reports, bind a listener
    * zclNode.endpoints[1].clusters[CLUSTER.COLOR_CONTROL.NAME]
-   *  .on('attr.currentSaturation', (currentSaturation) => {
+   *   .on('attr.currentSaturation', (currentSaturation) => {
    *      // handle reported attribute value
-   *  });
+   *   });
    */
   async configureAttributeReporting(attributeReportingConfigurations) {
     // Convert input object to an object sorted by endpoint and cluster, this is needed because
@@ -562,17 +562,17 @@ class ZigBeeDevice extends Homey.Device {
 
       // This creates an object of the following structure
       // {
-      //  <endpointId>: {
-      //    <clusterName>: {
-      //      <attributeName>: {
-      //        cluster: <clusterName>
-      //        attributeName: <attributeName>
-      //        minInterval: <minInterval>
-      //        maxInterval: <maxInterval>
-      //        minChange: <minChange>
-      //      }
-      //    }
-      //  }
+      //   <endpointId>: {
+      //     <clusterName>: {
+      //       <attributeName>: {
+      //         cluster: <clusterName>
+      //         attributeName: <attributeName>
+      //         minInterval: <minInterval>
+      //         maxInterval: <maxInterval>
+      //         minChange: <minChange>
+      //       }
+      //     }
+      //   }
       // }
       sortedConfig[endpointId] = {
         ...(sortedConfig[endpointId] || {}),
@@ -686,7 +686,7 @@ class ZigBeeDevice extends Homey.Device {
    * const { CLUSTER } = require('zigbee-clusters');
    *
    * zclNode.endpoints[1].clusters.onOff.on('attr.onOff', value => {
-   *   return this.parseAttributeReport('onoff', CLUSTER.ON_OFF, {onOff: value});
+   *   return this.parseAttributeReport('onoff', CLUSTER.ON_OFF, { onOff: value });
    * });
    */
   async parseAttributeReport(capabilityId, cluster, payload) {
@@ -723,8 +723,10 @@ class ZigBeeDevice extends Homey.Device {
    * @example
    * const { CLUSTER } = require('zigbee-clusters');
    *
-   * const measureLuminance = await this.getClusterCapabilityValue('measure_luminance',
-   * CLUSTER.ILLUMINANCE_MEASUREMENT);
+   * const measureLuminance = await this.getClusterCapabilityValue(
+   *   'measure_luminance',
+   *   CLUSTER.ILLUMINANCE_MEASUREMENT,
+   * );
    */
   async getClusterCapabilityValue(capabilityId, cluster) {
     assertClusterSpecification(cluster);
@@ -770,7 +772,7 @@ class ZigBeeDevice extends Homey.Device {
    * @example
    * const { CLUSTER } = require('zigbee-clusters');
    *
-   * await this.setClusterCapabilityValue('dim', CLUSTER.LEVEL_CONTROL, 0.6, {duration: 500});
+   * await this.setClusterCapabilityValue('dim', CLUSTER.LEVEL_CONTROL, 0.6, { duration: 500 });
    */
   async setClusterCapabilityValue(capabilityId, cluster, value, opts = {}) {
     assertClusterSpecification(cluster);

@@ -56,9 +56,12 @@ class Node extends EventEmitter {
     };
 
     this.endpoints = {};
-    node.endpointDescriptors.forEach(ep => {
-      this.endpoints[ep.endpointId] = new Endpoint(this, ep);
-    });
+
+    if (Array.isArray(node.endpointDescriptors)) {
+      node.endpointDescriptors.forEach(ep => {
+        this.endpoints[ep.endpointId] = new Endpoint(this, ep);
+      });
+    }
   }
 
   /**

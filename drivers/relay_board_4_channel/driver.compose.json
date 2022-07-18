@@ -21,7 +21,8 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TZ3000_hdlpifbk"
+        "_TZ3000_hdlpifbk",
+        "_TZ3000_excgg5kb"
       ],
       "productId": [
         "TS0004"
@@ -46,7 +47,7 @@
       },
       "devices": {
         "secondSwitch": {
-          "class": "light",
+          "class": "socket",
           "capabilities": ["onoff"],
           "name": {
             "en": "4 Channel Relay Board"
@@ -59,7 +60,7 @@
           }
         },
         "thirdSwitch": {
-          "class": "light",
+          "class": "socket",
           "capabilities": ["onoff"],
           "name": {
             "en": "4 Channel Relay Board"
@@ -72,7 +73,7 @@
           }
         },
         "fourthSwitch": {
-          "class": "light",
+          "class": "socket",
           "capabilities": ["onoff"],
           "name": {
             "en": "4 Channel Relay Board"

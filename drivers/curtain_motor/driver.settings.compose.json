@@ -1,0 +1,27 @@
+[
+    {
+        "id": "reverse",
+        "type": "radio",
+        "label": {
+          "en": "Motor moves in reverse direction",
+          "nl": "Motor beweegt in omgekeerde richting"
+        },
+        "value": "0",
+        "values": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Off",
+              "nl": "Uit"
+            }
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "On",
+              "nl": "Aan"
+            }
+          }
+        ]
+    }
+]

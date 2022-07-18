@@ -24,8 +24,8 @@ class IrrigationController extends ZigBeeDevice {
   onBatteryPercentageRemainingAttributeReport(batteryPercentageRemaining) {
 		const batteryThreshold = this.getSetting('batteryThreshold') || 20;
 		this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", batteryPercentageRemaining/2);
-		this.setCapabilityValue('measure_battery', batteryPercentageRemaining/2);
-		this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining/2 < batteryThreshold) ? true : false)
+		this.setCapabilityValue('measure_battery', batteryPercentageRemaining/2).catch(this.error);
+		this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining/2 < batteryThreshold) ? true : false).catch(this.error);
 	}
 
 }

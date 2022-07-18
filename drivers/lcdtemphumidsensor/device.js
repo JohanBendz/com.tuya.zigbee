@@ -41,21 +41,21 @@ class lcdtemphumidsensor extends ZigBeeDevice {
 		const temperatureOffset = this.getSetting('temperature_offset') || 0;
 		const parsedValue = this.getSetting('temperature_decimals') === '2' ? Math.round((measuredValue / 100) * 100) / 100 : Math.round((measuredValue / 100) * 10) / 10;
 		this.log('measure_temperature | temperatureMeasurement - measuredValue (temperature):', parsedValue, '+ temperature offset', temperatureOffset);
-		this.setCapabilityValue('measure_temperature', parsedValue + temperatureOffset);
+		this.setCapabilityValue('measure_temperature', parsedValue + temperatureOffset).catch(this.error);
 	}
 
 	onRelativeHumidityMeasuredAttributeReport(measuredValue) {
 		const humidityOffset = this.getSetting('humidity_offset') || 0;
 		const parsedValue = this.getSetting('humidity_decimals') === '2' ? Math.round((measuredValue / 100) * 100) / 100 : Math.round((measuredValue / 100) * 10) / 10;
 		this.log('measure_humidity | relativeHumidity - measuredValue (humidity):', parsedValue, '+ humidity offset', humidityOffset);
-		this.setCapabilityValue('measure_humidity', parsedValue + humidityOffset);
+		this.setCapabilityValue('measure_humidity', parsedValue + humidityOffset).catch(this.error);
 	}
 
 	onBatteryPercentageRemainingAttributeReport(batteryPercentageRemaining) {
 		const batteryThreshold = this.getSetting('batteryThreshold') || 20;
 		this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", batteryPercentageRemaining/2);
-		this.setCapabilityValue('measure_battery', batteryPercentageRemaining/2);
-		this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining/2 < batteryThreshold) ? true : false)
+		this.setCapabilityValue('measure_battery', batteryPercentageRemaining/2).catch(this.error);
+		this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining/2 < batteryThreshold) ? true : false).catch(this.error);
 	}
 
 	onDeleted(){
