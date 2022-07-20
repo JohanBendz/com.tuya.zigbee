@@ -198,7 +198,7 @@ On-Wall
     _TZ3000_f8tmviy0 / TS0001
     _TZ3000_gidy6sjs / TS0001
     _TYZB01_qeqvmvti / TS0011 (MOES)
-    _TZ3000_hhiodade / TS0012 (MOES)
+    _TZ3000_hhiodade / TS0011 (MOES)
     _TYZB01_seqwasot / TS0001
     _TZ3000_hktqahrq / TD0001
     _TZ3000_yl3zuyaw / TS0001
@@ -214,7 +214,7 @@ On-Wall
     _TZ3000_svoqrno4 / TS0002
     TUYATEC-O6SNCwd6 / TS0012
     _TYZB01_vzrytttn / TS0012 (MOES)
-    _TZ3000_18ejxno0 / TS0011 (MOES)
+    _TZ3000_18ejxno0 / TS0012 (MOES)
     _TZ3000_nta0gb8h / TS0002
     _TZ3000_lupfd8zu / TS0012
     _TZ3000_yhagrqmd / TS0002
