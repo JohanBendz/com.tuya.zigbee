@@ -48,6 +48,7 @@ Sensors
     _TYZB01_iuepbmpv / TS0201
     _TZ3000_rusu2vzb / TS0201
     _TYZB01_cbiezpds / SM0201
+    _TZE200_bjawzodf / TS0601
     
 - LCD Temperature, Humidity and Luminance Sensor
     _TZ3000_qaaysllp / TS0201
