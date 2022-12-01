@@ -386,5 +386,6 @@ Contributors:
 - Tim Koos and Tom van der Geer, 4 Channel Relay Board
 - Raffaele De Lauri, Smart Garden Irrigation Controller
 - Bert van Hoekelen, Curtain Motors
+- Łukasz Krutul, better measuring functionality for plugs and Tuya specific reporting
 
 I would also like to thank everyone who contributes with device information, testing and beer!
