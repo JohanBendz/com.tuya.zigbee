@@ -175,5 +175,8 @@
   },
   "0.2.4": {
     "en": "Added support for one more type of LCD Temperature & Humidity Sensor. Added better power measuring functionality to some devices."
+  },
+  "0.2.5": {
+    "en": "Corrected typo that resulted in smart plugs not working"
   }
 }

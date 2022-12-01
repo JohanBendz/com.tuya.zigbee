@@ -19,11 +19,11 @@ class smartplug extends ZigBeeDevice {
     this.minReportVoltage = this.getSetting('minReportVoltage') * 1000;
 
     if (!this.hasCapability('measure_current')) {
-      await this.addCapability('measure_current');
+      await this.addCapability('measure_current').catch(this.error);;
     }
 
     if (!this.hasCapability('measure_voltage')) {
-      await this.addCapability('measure_current');
+      await this.addCapability('measure_voltage').catch(this.error);;
     }
 
     // onOff
