@@ -1,16 +1,30 @@
 'use strict';
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
-const { CLUSTER } = require('zigbee-clusters');
+const { CLUSTER, Cluster, ZCLDataTypes} = require('zigbee-clusters');
+const TuyaOnOffCluster = require('../../lib/TuyaOnOffCluster');
+
+Cluster.addCluster(TuyaOnOffCluster);
 
 class smartplug extends ZigBeeDevice {
-		
-	async onNodeInit({zclNode}) {
+
+  async onNodeInit({zclNode}) {
 
     this.printNode();
 
-    const meteringOffset = this.getSetting('metering_offset');
-    const measureOffset = this.getSetting('measure_offset') * 100;
+    this.meteringOffset = this.getSetting('metering_offset');
+    this.measureOffset = this.getSetting('measure_offset') * 100;
+    this.minReportPower= this.getSetting('minReportPower') * 1000;
+    this.minReportCurrent = this.getSetting('minReportCurrent') * 1000;
+    this.minReportVoltage = this.getSetting('minReportVoltage') * 1000;
+
+    if (!this.hasCapability('measure_current')) {
+      await this.addCapability('measure_current');
+    }
+
+    if (!this.hasCapability('measure_voltage')) {
+      await this.addCapability('measure_current');
+    }
 
     // onOff
     this.registerCapability('onoff', CLUSTER.ON_OFF, {
@@ -40,10 +54,26 @@ class smartplug extends ZigBeeDevice {
       this.log("Metering Factor: ", this.meteringFactor);
     } */
 
+    try {
+      const relayStatus = await this.zclNode.endpoints[1].clusters.onOff.readAttributes('relayStatus');
+      const childLock = await this.zclNode.endpoints[1].clusters.onOff.readAttributes('childLock');
+      const indicatorMode = await this.zclNode.endpoints[1].clusters.onOff.readAttributes('indicatorMode');
+
+      this.log("Relay Status supported by device");
+
+      await this.setSettings({
+        relay_status : ZCLDataTypes.enum8RelayStatus.args[0][relayStatus.relayStatus].toString(),
+        indicator_mode: ZCLDataTypes.enum8IndicatorMode.args[0][indicatorMode.indicatorMode].toString(),
+        child_lock: childLock.childLock ? "1" : "0",
+      });
+    } catch (error) {
+      this.log("This device does not support Relay Control", error);
+    }
+
     // meter_power
     this.registerCapability('meter_power', CLUSTER.METERING, {
-      reportParser: value => (value * meteringOffset)/100,
-      getParser: value => (value * meteringOffset)/100,
+      reportParser: value => (value * this.meteringOffset)/100.0,
+      getParser: value => (value * this.meteringOffset)/100.0,
       getOpts: {
         getOnStart: true,
         pollInterval: 300000
@@ -52,20 +82,58 @@ class smartplug extends ZigBeeDevice {
 
     // measure_power
     this.registerCapability('measure_power', CLUSTER.ELECTRICAL_MEASUREMENT, {
-      reportParser: value => (value * measureOffset)/100,
-      getParser: value => (value * measureOffset)/100,
+      reportParser: value => {
+        return (value * this.measureOffset)/100;
+      },
       getOpts: {
         getOnStart: true,
-        pollInterval: 60000
+        pollInterval: this.minReportPower
 	    }
     });
-    
+
+    this.registerCapability('measure_current', CLUSTER.ELECTRICAL_MEASUREMENT, {
+      reportParser: value => {
+        return value/1000;
+      },
+      getOpts: {
+        getOnStart: true,
+        pollInterval: this.minReportCurrent
+      }
+    });
+
+    this.registerCapability('measure_voltage', CLUSTER.ELECTRICAL_MEASUREMENT, {
+      reportParser: value => {
+        return value;
+      },
+      getOpts: {
+        getOnStart: true,
+        pollInterval: this.minReportVoltage
+      }
+    });
   }
 
-	onDeleted(){
-		this.log("Smart Plug removed")
-	}
+  onDeleted() {
+    this.log("Smart Plug removed")
+  }
 
+  async onSettings({oldSettings, newSettings, changedKeys}) {
+    let parsedValue = 0;
+
+    if (changedKeys.includes('relay_status')) {
+      parsedValue = parseInt(newSettings.relay_status);
+      await this.zclNode.endpoints[1].clusters.onOff.writeAttributes({ relayStatus: parsedValue });
+    }
+
+    if (changedKeys.includes('indicator_mode')) {
+      parsedValue = parseInt(newSettings.indicator_mode);
+      await this.zclNode.endpoints[1].clusters.onOff.writeAttributes({ indicatorMode: parsedValue });
+    }
+
+    if (changedKeys.includes('child_lock')) {
+      parsedValue = parseInt(newSettings.child_lock);
+      await this.zclNode.endpoints[1].clusters.onOff.writeAttributes({ childLock: parsedValue });
+    }
+  }
 }
 
 module.exports = smartplug;
