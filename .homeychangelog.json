@@ -178,5 +178,8 @@
   },
   "0.2.5": {
     "en": "Corrected typo that resulted in smart plugs not working"
+  },
+  "0.2.6": {
+    "en": "Added support for a number of devices"
   }
 }

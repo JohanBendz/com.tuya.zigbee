@@ -4,24 +4,13 @@ const Homey = require('homey');
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { debug, CLUSTER } = require('zigbee-clusters');
 
-class temphumidsensor extends ZigBeeDevice {
+class temphumidsensor2 extends ZigBeeDevice {
 
 	async onNodeInit({zclNode}) {
 
-		this.printNode();
+		debug(true);
 
-		if (this.isFirstInit()){
-			await this.configureAttributeReporting([
-				{
-					endpointId: 1,
-					cluster: CLUSTER.POWER_CONFIGURATION,
-					attributeName: 'batteryPercentageRemaining',
-					minInterval: 65535,
-					maxInterval: 0,
-					minChange: 0,
-				}
-			]).catch(this.error);
-		}
+		this.printNode();
 
 		// measure_temperature
 		zclNode.endpoints[1].clusters[CLUSTER.TEMPERATURE_MEASUREMENT.NAME]
@@ -64,4 +53,4 @@ class temphumidsensor extends ZigBeeDevice {
 
 }
 
-module.exports = temphumidsensor;
+module.exports = temphumidsensor2;

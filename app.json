@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -1856,7 +1856,8 @@
           "_TYZB01_dl7cejts",
           "_TZ3000_mmtwjmaq",
           "_TZ3000_kmh5qpmb",
-          "_TZ3000_msl6wxk9"
+          "_TZ3000_msl6wxk9",
+          "_TZ3000_mcxw5ehu"
         ],
         "productId": [
           "TS0202"
@@ -2240,7 +2241,8 @@
           "_TZ3000_dbou1ap4",
           "_TZ3000_keabpigv",
           "_TZ3000_12sxjap4",
-          "_TZ3000_hlijwsai"
+          "_TZ3000_hlijwsai",
+          "_TZ3000_qd7hej8u"
         ],
         "productId": [
           "TS0505A",
@@ -2310,10 +2312,12 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_gek6snaj"
+          "_TZ3000_gek6snaj",
+          "_TZ3210_iystcadi"
         ],
         "productId": [
-          "TS0505A"
+          "TS0505A",
+          "TS0505B"
         ],
         "endpoints": {
           "1": {
@@ -3070,7 +3074,10 @@
           "_TZ3000_zloso4jk",
           "_TZ3000_5f43h46b",
           "_TZ3000_cehuw1l2",
-          "_TZ3000_5f43h46b"
+          "_TZ3000_5f43h46b",
+          "_TZ3000_fqoynhku",
+          "_TZ3000_ynmowqk2",
+          "_TZ3000_kx0pris5"
         ],
         "productId": [
           "TS0121",
@@ -3772,7 +3779,8 @@
           "_TZ3000_npzfdcof",
           "_TZ3000_tqlv4ug4",
           "_TZ3000_rmjr4ufz",
-          "_TZ3000_mx3vgyea"
+          "_TZ3000_mx3vgyea",
+          "_TZ3000_hhiodade"
         ],
         "productId": [
           "TS0003",
@@ -3837,7 +3845,8 @@
           "_TZ3000_fisb3ajo",
           "_TZ3000_bvrlqyj7",
           "_TZ3000_jl7qyupf",
-          "_TZ3000_7ed9cqgi"
+          "_TZ3000_7ed9cqgi",
+          "_TZ3000_18ejxno0"
         ],
         "productId": [
           "TS0003",
@@ -3936,7 +3945,6 @@
           "_TZ3000_i8jfiezr",
           "TUYATEC-v3uxbuxy",
           "_TZ3000_bguser20",
-          "_TZ3000_dowj6gyi",
           "_TZ3000_fllyghyj",
           "_TZ3000_8ybe88nf",
           "_TZ3000_fie1dpkm"
@@ -3962,6 +3970,148 @@
         },
         "learnmode": {
           "image": "/drivers/temphumidsensor/assets/learn.svg",
+          "instruction": {
+            "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "temperature_offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset (°C)"
+          },
+          "hint": {
+            "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "temperature_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Temperature reporting decimals"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report temperature value with 1 decimal (21.4 °C)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report temperature value with 2 decimals (21.37 °C)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "humidity_offset",
+          "type": "number",
+          "label": {
+            "en": "Humidity offset (%)",
+            "nl": "Luchtvochtigheids compensatie (%)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 1
+          },
+          "units": {
+            "en": "%",
+            "nl": "%"
+          }
+        },
+        {
+          "id": "humidity_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Humidity reporting"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report humidity value with 1 decimal (35.2 %)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report humidity value with 2 decimals (35.19 %)"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "temphumidsensor2",
+      "name": {
+        "en": "Temperature & Humidity Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2450"
+        ]
+      },
+      "images": {
+        "large": "/drivers/temphumidsensor2/assets/images/large.png",
+        "small": "/drivers/temphumidsensor2/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_dowj6gyi"
+        ],
+        "productId": [
+          "RH3052",
+          "TS0201"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1026,
+              1029
+            ],
+            "bindings": [
+              1,
+              1026,
+              1029
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/temphumidsensor2/assets/learn.svg",
           "instruction": {
             "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
           }

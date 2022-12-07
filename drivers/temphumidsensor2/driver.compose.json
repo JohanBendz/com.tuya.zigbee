@@ -1,18 +1,20 @@
 {
-  "id": "pir_sensor_2",
+  "id": "temphumidsensor2",
   "name": {
-    "en": "Smart PIR Motion Sensor"
+    "en": "Temperature & Humidity Sensor"
   },
   "class": "sensor",
   "platforms": ["local"],
   "connectivity": ["zigbee"],
   "capabilities": [
-    "alarm_motion",
+    "measure_temperature",
+    "measure_humidity",
+    "measure_battery",
     "alarm_battery"
   ],
   "energy": {
     "batteries": [
-      "CR123A"
+      "CR2450"
     ]
   },
   "images": {
@@ -21,34 +23,31 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TYZB01_jytabjkb",
-      "_TYZB01_dl7cejts",
-      "_TZ3000_mmtwjmaq",
-      "_TZ3000_kmh5qpmb",
-      "_TZ3000_msl6wxk9",
-      "_TZ3000_mcxw5ehu"
+      "_TZ3000_dowj6gyi"
     ],
     "productId": [
-      "TS0202"
+      "RH3052",
+      "TS0201"
     ],
     "endpoints": {
       "1": {
         "clusters": [
           0,
           1,
-          3,
-          1280
+          1026,
+          1029
         ],
         "bindings": [
           1,
-          1280
+          1026,
+          1029
         ]
       }
     },
     "learnmode": {
       "image": "{{driverAssetsPath}}/learn.svg",
       "instruction": {
-        "en": "Press the reset button for aprox 5 seconds until the LED blinks."
+        "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
       }
     }
   }
