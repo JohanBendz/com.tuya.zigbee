@@ -66,6 +66,7 @@ Sensors
     _TZ3000_mmtwjmaq / TS0202
     _TZ3000_kmh5qpmb / TS0202
     _TZ3000_msl6wxk9 / TS0202
+    _TZ3000_mcxw5ehu / TS0202
 
 . Motion Sensor
     TUYATEC-bd5faf9p / RH3040 (Nedis)
@@ -135,6 +136,9 @@ Plugs and Socket Strips
     _TZ3000_5f43h46b / TS011F
     _TZ3000_cehuw1l2 / TS011F
     _TZ3000_5f43h46b / TS011F
+    _TZ3000_fqoynhku / TS0121
+    _TZ3000_ynmowqk2 / TS011F
+    _TZ3000_kx0pris5 / TS011F
 
 - Smart Plug, without metering
     _TZ3000_kdi2o9m6 / TS011F (Silvercrest / Lidl)
@@ -171,6 +175,7 @@ In-Wall
     _TZ3000_tqlv4ug4 / TS0001
     _TZ3000_rmjr4ufz / TS0001
     _TZ3000_mx3vgyea / TS000F
+    _TZ3000_hhiodade / TS0011
 
 - 2 Gang Switch Module
     _TYZB01_zsl6z0pw / TS0003
@@ -181,6 +186,7 @@ In-Wall
     _TZ3000_bvrlqyj7 / TS0002
     _TZ3000_jl7qyupf / TS0013
     _TZ3000_7ed9cqgi / TS0002
+    _TZ3000_18ejxno0 / TS0012
 
 - 1 Gang Dimmer Module
     _TYZB01_qezuin6k / TS110F
@@ -241,12 +247,14 @@ Lights
 
 - RGB LED Bar Light
     _TZ3000_gek6snaj / TS0505A (LIVARNO LUX / Lidl)
+    _TZ3210_iystcadi / TS0505B (LIVARNO LUX / Lidl)
 
 - RGB Bulb E27
     _TZ3000_dbou1ap4 / TS0505A (LIVARNO LUX / Lidl)
     _TZ3000_keabpigv / TS0505A (Woox)
     _TZ3000_12sxjap4 / TS0505B (YANDHI)
     _TZ3000_hlijwsai / TS0505A
+    _TZ3000_qd7hej8u / TS0505B (LIVARNO LUX / Lidl)
 
 - RGB Bulb E14
     _TZ3000_odygigth / TS0505A (LIVARNO LUX / Lidl)
