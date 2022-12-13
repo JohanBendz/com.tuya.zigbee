@@ -4,7 +4,7 @@
       "en": "Radar Sensor",
       "nl": "Radar Sensor"
     },
-    "class": "curtain",
+    "class": "sensor",
     "platforms": ["local"],
     "connectivity": ["zigbee"],
     "capabilities": [
