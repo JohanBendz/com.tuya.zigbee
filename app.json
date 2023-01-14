@@ -2030,7 +2030,11 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE200_ztc6ggyl"
+          "_TZE200_ztc6ggyl",
+          "_TZE201_ztc6ggyl",
+          "_TZE202_ztc6ggyl",
+          "_TZE203_ztc6ggyl",
+          "_TZE204_ztc6ggyl"
         ],
         "productId": [
           "TS0601"

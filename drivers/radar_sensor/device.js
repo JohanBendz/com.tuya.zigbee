@@ -118,9 +118,8 @@ class CurtainMotor extends TuyaSpecificClusterDevice {
   }
 
   onIlluminanceMeasuredAttributeReport(measuredValue) {
-    const parsedValue = 10 ** ((measuredValue - 1) / 10000);
-    this.log('measure_luminance | Luminance - measuredValue (lux):', parsedValue);
-    this.setCapabilityValue('measure_luminance', parsedValue);
+    this.log('measure_luminance | Luminance - measuredValue (lux):', measuredValue);
+    this.setCapabilityValue('measure_luminance', measuredValue);
   }
 
   onIASZoneStatusChangeNotification({zoneStatus, extendedStatus, zoneId, delay,}) {
