@@ -9,7 +9,9 @@
   "capabilities": [
     "onoff",
     "measure_power",
-    "meter_power"
+    "meter_power",
+    "measure_current",
+    "measure_voltage"
   ],
   "capabilitiesOptions": {
     "measure_power": {
@@ -43,7 +45,10 @@
       "_TZ3000_zloso4jk",
       "_TZ3000_5f43h46b",
       "_TZ3000_cehuw1l2",
-      "_TZ3000_5f43h46b"
+      "_TZ3000_5f43h46b",
+      "_TZ3000_fqoynhku",
+      "_TZ3000_ynmowqk2",
+      "_TZ3000_kx0pris5"
     ],
     "productId": [
       "TS0121",
