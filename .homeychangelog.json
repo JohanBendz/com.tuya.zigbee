@@ -181,5 +181,8 @@
   },
   "0.2.6": {
     "en": "Added support for a number of devices"
+  },
+  "0.2.7": {
+    "en": "Added support for a number of devices and added functionality to some already added."
   }
 }

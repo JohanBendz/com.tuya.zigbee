@@ -49,6 +49,7 @@ Sensors
     _TZ3000_rusu2vzb / TS0201
     _TYZB01_cbiezpds / SM0201
     _TZE200_bjawzodf / TS0601
+    _TZE200_zl1kmjqx / TS0601
     
 - LCD Temperature, Humidity and Luminance Sensor
     _TZ3000_qaaysllp / TS0201
@@ -139,6 +140,13 @@ Plugs and Socket Strips
     _TZ3000_fqoynhku / TS0121
     _TZ3000_ynmowqk2 / TS011F
     _TZ3000_kx0pris5 / TS011F
+    _TZ3000_hdopuwv6 / TS011F
+    _TZ3000_bfn1w0mm / TS011F
+    _TZ3000_0zfrhq4i / TS011F
+    _TZ3000_gznh2xla / TS011F
+    _TZ3000_ss98ec5d / TS011F
+    _TZ3000_gnjozsaz / TS011F
+    _TZ3000_gvn91tmx / TS011F
 
 - Smart Plug, without metering
     _TZ3000_kdi2o9m6 / TS011F (Silvercrest / Lidl)
@@ -236,6 +244,8 @@ On-Wall
     _TZ3000_hlwm8e96 / TS0013
     _TZ3000_odzoiovu / TS0003
     _TZ3000_thhxrept / TS0003
+    _TZ3000_2dlwlvex / TS0003
+    _TZ3000_qcdqw8nf / TS0003
 
 - 4 Gang Wall Switch
      _TZ3000_r0pmi2p3 / TS0014
@@ -382,6 +392,7 @@ Other
 - 4 Channel Relay Board
     _TZ3000_hdlpifbk / TS0004
     _TZ3000_excgg5kb / TS0004
+    _TZ3000_u3oupgdy / TS0004
 
 - Smart Switch
     _TYZB01_phjeraqq / TS0001
@@ -395,5 +406,6 @@ Contributors:
 - Raffaele De Lauri, Smart Garden Irrigation Controller
 - Bert van Hoekelen, Curtain Motors
 - Łukasz Krutul, better measuring functionality for plugs and Tuya specific reporting
+- Jesper Bach, Smart Remote 1 Button
 
 I would also like to thank everyone who contributes with device information, testing and beer!

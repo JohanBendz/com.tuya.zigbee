@@ -8,14 +8,24 @@ class wall_switch_3_gang extends ZigBeeDevice {
 
     async onNodeInit({zclNode}) {
 
-        this.printNode();
+/*    
+      this.printNode();
+      this.enableDebug();
+*/
 
-        const { subDeviceId } = this.getData();
-        this.log("Device data: ", subDeviceId);
+      const { subDeviceId } = this.getData();
+      this.log("Device data: ", subDeviceId);
 
-        this.registerCapability('onoff', CLUSTER.ON_OFF, {
-            endpoint: subDeviceId === 'secondSwitch' ? 2 : subDeviceId === 'thirdSwitch' ? 3 : 1,
+      this.registerCapability('onoff', CLUSTER.ON_OFF, {
+          endpoint: subDeviceId === 'secondSwitch' ? 2 : subDeviceId === 'thirdSwitch' ? 3 : 1,
+      });
+
+      if (!this.isSubDevice()) {
+        await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
+        .catch(err => {
+            this.error('Error when reading device attributes ', err);
         });
+      }
 
     }
 
