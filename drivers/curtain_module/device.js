@@ -26,6 +26,11 @@ class curtainmodule extends ZigBeeDevice {
 
     }
 
+    // When upgrading to node-zigbee-clusters v.2.0.0 this must be adressed:
+    // v2.0.0
+    // Changed Cluster.readAttributes signature, attributes must now be specified as an array of strings.
+    // zclNode.endpoints[1].clusters.windowCovering.readAttributes(["motorReversal", "ANY OTHER IF NEEDED"]);
+
     async onSettings({ oldSettings, newSettings, changedKeys }) {
 
         if (changedKeys.includes('reverse')) {

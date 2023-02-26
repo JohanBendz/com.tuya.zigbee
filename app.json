@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -1523,7 +1523,7 @@
           "id": "temperature_offset",
           "type": "number",
           "label": {
-            "en": "Temperature offset (°C)"
+            "en": "Temperature offset"
           },
           "hint": {
             "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]"
@@ -1533,6 +1533,10 @@
             "min": -10,
             "max": 10,
             "step": 0.1
+          },
+          "units": {
+            "en": "°C",
+            "nl": "°C"
           }
         },
         {
@@ -1561,8 +1565,8 @@
           "id": "humidity_offset",
           "type": "number",
           "label": {
-            "en": "Humidity offset (%)",
-            "nl": "Luchtvochtigheids compensatie (%)"
+            "en": "Humidity offset",
+            "nl": "Luchtvochtigheids compensatie"
           },
           "hint": {
             "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
@@ -1633,7 +1637,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE200_bjawzodf"
+          "_TZE200_bjawzodf",
+          "_TZE200_zl1kmjqx"
         ],
         "productId": [
           "TS0601"
@@ -2028,7 +2033,8 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_hdlpifbk",
-          "_TZ3000_excgg5kb"
+          "_TZ3000_excgg5kb",
+          "_TZ3000_u3oupgdy"
         ],
         "productId": [
           "TS0004"
@@ -2774,7 +2780,8 @@
     {
       "id": "smart_garden_irrigation_control",
       "name": {
-        "en": "Smart Garden Irrigation Controller"
+        "en": "Smart Garden Irrigation Controller",
+        "it": "Programmatore per irrigazione smart"
       },
       "class": "other",
       "platforms": [
@@ -2785,8 +2792,16 @@
       ],
       "capabilities": [
         "onoff",
-        "alarm_battery"
+        "alarm_battery",
+        "measure_battery"
       ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
       "energy": {
         "batteries": [
           "AA",
@@ -2810,11 +2825,12 @@
           "1": {
             "clusters": [
               0,
+              1,
               4,
               5,
               6,
-              61184,
-              1
+              10,
+              61184
             ],
             "bindings": [
               1,
@@ -2825,7 +2841,8 @@
         "learnmode": {
           "image": "/drivers/smart_garden_irrigation_control/assets/icon.svg",
           "instruction": {
-            "en": "Ensure the indicator light is flashing. If the indicatore light isn't flashing: press and hold the reset butto for 5 seconds until the indicator light starts to flashing."
+            "en": "Ensure the indicator light is flashing. If the indicatore light isn't flashing: press and hold the reset button for 5 seconds until the indicator light starts to flashing.",
+            "it": "Assicurarsi che l'indicatore lampeggi. Se l'indicatore non lampegga: tenere premuto il pulsante di reset per 5 secondi finchè l'indicatore non inizia a lampeggiare."
           }
         }
       },
@@ -3077,7 +3094,14 @@
           "_TZ3000_5f43h46b",
           "_TZ3000_fqoynhku",
           "_TZ3000_ynmowqk2",
-          "_TZ3000_kx0pris5"
+          "_TZ3000_kx0pris5",
+          "_TZ3000_hdopuwv6",
+          "_TZ3000_bfn1w0mm",
+          "_TZ3000_0zfrhq4i",
+          "_TZ3000_gznh2xla",
+          "_TZ3000_ss98ec5d",
+          "_TZ3000_gnjozsaz",
+          "_TZ3000_gvn91tmx"
         ],
         "productId": [
           "TS0121",
@@ -3945,7 +3969,6 @@
           "_TZ3000_i8jfiezr",
           "TUYATEC-v3uxbuxy",
           "_TZ3000_bguser20",
-          "_TZ3000_fllyghyj",
           "_TZ3000_8ybe88nf",
           "_TZ3000_fie1dpkm"
         ],
@@ -4196,6 +4219,159 @@
               "id": "2",
               "label": {
                 "en": "Report humidity value with 2 decimals (35.19 %)"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "temphumidsensor3",
+      "name": {
+        "en": "Temperature & Humidity Sensor",
+        "it": "Sensore di temperatura ed umidità"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_battery",
+        "alarm_battery",
+        "measure_humidity",
+        "measure_temperature"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/temphumidsensor3/assets/images/small.png",
+        "large": "/drivers/temphumidsensor3/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_fllyghyj"
+        ],
+        "productId": [
+          "TS0201"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1026,
+              1029
+            ],
+            "bindings": [
+              1,
+              1026,
+              1029
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the button inside the battery compartment for aprox 5 seconds until the LED blinks rapidly.",
+            "it": "Tenere premuto il pulsante all'interno del vano batteria per cicrca 5 secondi finchè il LED non lampeggia rapidamente."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "temperature_offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset (°C)",
+            "it": "Offset della temperatura (°C)"
+          },
+          "hint": {
+            "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]",
+            "it": "Imposta un valore per compensare lo scostamento della temperatura.\nRange: -10 - 10, step ze 0.1, \ndefault: 0 [°C]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "temperature_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Temperature reporting decimals",
+            "it": "Decimali del report della temperatura"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report temperature value with 1 decimal (21.4 °C)",
+                "it": "Valore del report della temperatura con 1 decimale (21.4 °C)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report temperature value with 2 decimals (21.37 °C)",
+                "it": "Valore del report della temperatura con 2 decimale (21.31 °C)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "humidity_offset",
+          "type": "number",
+          "label": {
+            "en": "Humidity offset (%)",
+            "nl": "Luchtvochtigheids compensatie (%)",
+            "it": "Offset dell'umidità (%)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]",
+            "it": "Imposta un valore per compensare lo scostamento dell'umidità.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 1
+          },
+          "units": {
+            "en": "%",
+            "nl": "%"
+          }
+        },
+        {
+          "id": "humidity_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Humidity reporting",
+            "it": "Report dell'umidità"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report humidity value with 1 decimal (35.2 %)",
+                "it": "Valore del report dell'umidità con 1 decimale (35.2 %)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report humidity value with 2 decimals (35.19 %)",
+                "it": "Valore del report dell'umidità con 2 decimale (35.19 %)"
               }
             }
           ]
@@ -4971,7 +5147,9 @@
           "_TYZB01_mqel1whf",
           "_TZ3000_hlwm8e96",
           "_TZ3000_odzoiovu",
-          "_TZ3000_thhxrept"
+          "_TZ3000_thhxrept",
+          "_TZ3000_2dlwlvex",
+          "_TZ3000_qcdqw8nf"
         ],
         "productId": [
           "TS0003",
@@ -5007,7 +5185,7 @@
         },
         "devices": {
           "secondSwitch": {
-            "class": "light",
+            "class": "socket",
             "capabilities": [
               "onoff"
             ],
@@ -5022,7 +5200,7 @@
             }
           },
           "thirdSwitch": {
-            "class": "light",
+            "class": "socket",
             "capabilities": [
               "onoff"
             ],
