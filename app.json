@@ -300,6 +300,43 @@
     ],
     "triggers": [
       {
+        "id": "smart_remote_1_button",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "Button had [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_remote_1_button"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "oneClick",
+                "label": {
+                  "en": "1 Click"
+                }
+              },
+              {
+                "id": "twoClicks",
+                "label": {
+                  "en": "2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "smart_remote_4_buttons",
         "title": {
           "en": "Button Action"
@@ -1862,7 +1899,8 @@
           "_TZ3000_mmtwjmaq",
           "_TZ3000_kmh5qpmb",
           "_TZ3000_msl6wxk9",
-          "_TZ3000_mcxw5ehu"
+          "_TZ3000_mcxw5ehu",
+          "_TZ3000_6ygjfyll"
         ],
         "productId": [
           "TS0202"
@@ -2939,6 +2977,60 @@
           }
         }
       ]
+    },
+    {
+      "id": "smart_remote_1_button",
+      "name": {
+        "en": "1 button Smart Remote Controller"
+      },
+      "class": "remote",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/smart_remote_1_button/assets/images/large.png",
+        "small": "/drivers/smart_remote_1_button/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_kjfzuycl"
+        ],
+        "productId": [
+          "TS004F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              4,
+              6,
+              4096,
+              57345
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smart_remote_1_button/assets/icon.svg",
+          "instruction": {
+            "en": "Press the reset button for aprox 10 seconds (the LED should start blinking)."
+          }
+        }
+      },
+      "settings": []
     },
     {
       "id": "smart_remote_4_buttons",
