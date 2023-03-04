@@ -62,11 +62,16 @@ class CurtainMotor extends TuyaSpecificClusterDevice {
     zclNode.endpoints[1].clusters.tuya.on("response", value => this.updatePosition(value));
 
     this.registerCapabilityListener('windowcoverings_set', value => this.setPosition(value));
-    
+
   }
 
   async setPosition(pos) {
     const reverse = this.getSettings().reverse == 1;
+    const maxOpenPercentage = this.getSettings().max_open_percentage || 100;
+
+    if (pos > maxOpenPercentage / 100) {
+      pos = maxOpenPercentage / 100;
+    }
 
     if (pos === undefined) {
       pos = this.getCapabilityValue('pos');
