@@ -1,7 +1,7 @@
 {
   "id": "socket_power_strip_four",
   "name": {
-    "en": "Power Strip Socket 1/4"
+    "en": "Power Strip 4 Sockets"
   },
   "class": "socket",
   "platforms": ["local"],
@@ -20,7 +20,8 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TZ3000_o005nuxx"
+      "_TZ3000_o005nuxx",
+      "_TZ3000_cfnprab5"
     ],
     "productId": [
       "TS011F"

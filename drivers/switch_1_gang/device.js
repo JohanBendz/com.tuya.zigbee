@@ -12,6 +12,11 @@ class switch_1_gang extends ZigBeeDevice {
 
         this.registerCapability('onoff', CLUSTER.ON_OFF);
 
+        await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
+        .catch(err => {
+            this.error('Error when reading device attributes ', err);
+        });
+
     }
 
     onDeleted(){

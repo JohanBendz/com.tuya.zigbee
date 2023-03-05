@@ -13,8 +13,9 @@ class wall_remote_2_gang extends ZigBeeDevice {
         const node = await this.homey.zigbee.getNode(this);
         node.handleFrame = (endpointId, clusterId, frame, meta) => {
           if (clusterId === 6) {
-          this.log("endpointId:", endpointId,", clusterId:", clusterId,", frame:", frame, ", meta:", meta);
-          this.log("Frame JSON data:", frame.toJSON());
+            this.log("endpointId:", endpointId,", clusterId:", clusterId,", frame:", frame, ", meta:", meta);
+            this.log("Frame JSON data:", frame.toJSON());
+            frame = frame.toJSON();
             debounce = debounce+1;
             if (debounce===1){
               this.buttonCommandParser(endpointId, frame);
@@ -33,7 +34,7 @@ class wall_remote_2_gang extends ZigBeeDevice {
   
       buttonCommandParser(ep, frame) {
         var button = ep === 1 ? 'left' : 'right';
-        var action = frame[3] === 0 ? 'oneClick' : 'twoClicks';
+        var action = frame.data[2] === 0 ? 'oneClick' : 'twoClicks';
         return this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-${action}` })
         .then(() => this.log(`Triggered 2 Gang Wall Remote, action=${button}-${action}`))
         .catch(err => this.error('Error triggering 2 Gang Wall Remote', err));

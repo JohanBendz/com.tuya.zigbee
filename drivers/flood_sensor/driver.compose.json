@@ -21,10 +21,12 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "TUYATEC-3tipnsrx"
+      "TUYATEC-3tipnsrx",
+      "_TZ3000_4uvovz4r"
     ],
     "productId": [
-      "RH3001"
+      "RH3001",
+      "TS0207"
     ],
     "endpoints": {
       "1": {
