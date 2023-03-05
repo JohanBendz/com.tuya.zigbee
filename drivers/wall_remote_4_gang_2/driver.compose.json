@@ -1,5 +1,5 @@
 {
-    "id": "wall_remote_4_gang",
+    "id": "wall_remote_4_gang_2",
     "name": {
       "en": "4 Gang Wall Remote"
     },
@@ -19,30 +19,15 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TZ3000_vp6clf9d",
-        "_TZ3000_wkai4ga5",
-        "_TZ3000_ufhtxr59",
-        "_TZ3000_ee8nrt2l"
+        "_TZ3000_xabckq1v"
       ],
       "productId": [
-        "TS0044"
+        "TS004F"
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 6],
-          "bindings": [6]
-        },
-        "2": {
-          "clusters": [6],
-          "bindings": [6]
-        },
-        "3": {
-          "clusters": [6],
-          "bindings": [6]
-        },
-        "4": {
-          "clusters": [6],
-          "bindings": [6]
+          "clusters": [0, 1, 6, 8],
+          "bindings": [6, 8]
         }
       },
       "learnmode": {

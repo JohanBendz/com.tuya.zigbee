@@ -56,6 +56,11 @@ class christmas_lights extends TuyaSpecificClusterDevice {
             return this.setColor(values);
         },500);
 
+        await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
+        .catch(err => {
+            this.error('Error when reading device attributes ', err);
+        });
+
     }
 
     async setColor({dim,light_hue,light_saturation}) {
