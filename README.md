@@ -163,6 +163,8 @@ Supported devices:
     _TZ3000_plyvnuf5 / TS011F (Silvercrest / Lidl)
     _TZ3000_hyfvrar3 / TS011F (Zemismart)
     _TZ3000_cymsnfvf / TS011F
+    _TZ3000_upjrsxh1 / TS011F (Silvercrest / Lidl)
+    _TZ3000_wamqdr3f / TS011F (Silvercrest / Lidl)
 
 - Outdoor Plug, without metering
     _TZ3000_pnzfdr9y / TS0101 (Silvercrest / Lidl)
