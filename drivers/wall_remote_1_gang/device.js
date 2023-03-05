@@ -33,7 +33,7 @@ class wall_remote_1_gang extends ZigBeeDevice {
     }
   
       buttonCommandParser(frame) {
-        var action = frame.data[2] === 0 ? 'oneClick' : 'twoClicks';
+        var action = frame.data[3] === 0 ? 'oneClick' : 'twoClicks';
         return this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${action}` })
         .then(() => this.log(`Triggered 1 Gang Wall Remote, action=${action}`))
         .catch(err => this.error('Error triggering 1 Gang Wall Remote', err));

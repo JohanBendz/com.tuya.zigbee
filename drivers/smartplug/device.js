@@ -124,6 +124,10 @@ class smartplug extends ZigBeeDevice {
 
   }
 
+  onReset () {
+    // Endpoint: 1 Cluster: 0x00 Command: 0 Payload: 
+  }
+
   onDeleted() {
     this.log("Smart Plug removed")
   }
