@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -746,7 +746,8 @@
           "_TZ3000_ke7pzj5d",
           "_TZ3000_fccpjz5z",
           "_TZ3000_4uuaja4a",
-          "_TZ3000_zirycpws"
+          "_TZ3000_zirycpws",
+          "_TZ3000_femsaaua"
         ],
         "productId": [
           "TS130F"
@@ -970,6 +971,69 @@
       "settings": []
     },
     {
+      "id": "dimmer_1_gang_tuya",
+      "name": {
+        "en": "1 Gang Dimmer Module"
+      },
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "capabilitiesOptions": {
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
+      "images": {
+        "large": "/drivers/dimmer_1_gang_tuya/assets/images/large.png",
+        "small": "/drivers/dimmer_1_gang_tuya/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_la2c2uo9"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              25,
+              10
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/dimmer_1_gang_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "dimmer_2_gang",
       "name": {
         "en": "2 Gang Dimmer Module"
@@ -1064,6 +1128,76 @@
       "settings": []
     },
     {
+      "id": "dimmer_2_gang_tuya",
+      "name": {
+        "en": "2 Gang Dimmer Module"
+      },
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff.gang_1",
+        "dim.gang_1",
+        "onoff.gang_2",
+        "dim.gang_2"
+      ],
+      "capabilitiesOptions": {
+        "dim.gang_1": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "dim.gang_2": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
+      "images": {
+        "large": "/drivers/dimmer_2_gang_tuya/assets/images/large.png",
+        "small": "/drivers/dimmer_2_gang_tuya/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_e3oitdyu"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              25,
+              10
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/dimmer_2_gang_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "doorwindowsensor",
       "name": {
         "en": "Door & Window Sensor"
@@ -1109,7 +1243,12 @@
           "_TZ3000_bmg14ax2",
           "_TZ3000_oxslv1c9",
           "_TZ3000_bzxlofth",
-          "_TZ3000_bzxloft"
+          "_TZ3000_bzxloft",
+          "_TZ3000_n2egfsli",
+          "_TZ3000_7d8yme6f",
+          "_TZ3000_rgchmad8",
+          "_TZ3000_au1rjicn",
+          "_TZ3000_4ugnzsli"
         ],
         "productId": [
           "RH3001",
@@ -1442,7 +1581,9 @@
           "_TYZB01_hjsgdkfl",
           "_TYZB01_iuepbmpv",
           "_TZ3000_rusu2vzb",
-          "_TZ3000_yd2e749y"
+          "_TZ3000_yd2e749y",
+          "_TZ3000_ywagc4rj",
+          "_TZ3000_itnrsufe"
         ],
         "productId": [
           "TS0201"
@@ -3061,7 +3202,8 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_kjfzuycl",
-          "_TZ3000_rco1yzb1"
+          "_TZ3000_rco1yzb1",
+          "_TZ3000_yirp2pgd"
         ],
         "productId": [
           "TS004F"
@@ -3260,7 +3402,8 @@
           "_TZ3000_gvn91tmx",
           "_TZ3000_1h2x4akh",
           "_TZ3000_r6buo8ba",
-          "_TZ3000_2putqrmw"
+          "_TZ3000_2putqrmw",
+          "_TZ3000_5ity3zyu"
         ],
         "productId": [
           "TS0121",
@@ -3964,7 +4107,8 @@
           "_TZ3000_tqlv4ug4",
           "_TZ3000_rmjr4ufz",
           "_TZ3000_mx3vgyea",
-          "_TZ3000_hhiodade"
+          "_TZ3000_hhiodade",
+          "_TZ3000_46t1rvdu"
         ],
         "productId": [
           "TS0003",
@@ -5004,7 +5148,8 @@
           "_TZ3000_qzjcsmar",
           "_TZ3000_rrjr1q0u",
           "_TZ3000_w8jwkczz",
-          "_TZ3000_gbm10jnj"
+          "_TZ3000_gbm10jnj",
+          "_TZ3000_yw5tvzsk"
         ],
         "productId": [
           "TS0043"
@@ -5211,7 +5356,8 @@
           "_TZ3000_3wkqni6o",
           "_TZ3000_oex7egmt",
           "_TZ3000_hafsqare",
-          "_TZ3000_oaq83gqc"
+          "_TZ3000_oaq83gqc",
+          "_TZ3000_6eyydfyg"
         ],
         "productId": [
           "TS0001",
@@ -5274,7 +5420,8 @@
           "_TZ3000_lupfd8zu",
           "_TZ3000_yhagrqmd",
           "_TZ3000_5vujyute",
-          "_TYZB01_2athzhfr"
+          "_TYZB01_2athzhfr",
+          "_TZ3000_56bdyj21"
         ],
         "productId": [
           "TS0002",
@@ -5362,7 +5509,8 @@
           "_TZ3000_odzoiovu",
           "_TZ3000_thhxrept",
           "_TZ3000_2dlwlvex",
-          "_TZ3000_qcdqw8nf"
+          "_TZ3000_qcdqw8nf",
+          "_TZ3000_vvlivusi"
         ],
         "productId": [
           "TS0003",
@@ -5465,7 +5613,8 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_r0pmi2p3",
-          "_TZ3000_dku2cfsc"
+          "_TZ3000_dku2cfsc",
+          "_TZ3000_fjt5218m"
         ],
         "productId": [
           "TS0014",
@@ -5596,7 +5745,8 @@
           "_TZ3000_eit7p838",
           "_TZ3000_t6jriawg",
           "_TZ3000_85czd6fy",
-          "_TZ3000_kyb656no"
+          "_TZ3000_kyb656no",
+          "_TZ3000_0s9gukzt"
         ],
         "productId": [
           "TS0207",
@@ -5647,7 +5797,8 @@
           "_TZ3000_m0vaazab",
           "_TZ3000_5k5vh43t",
           "_TZ3000_ufttklsz",
-          "_TZ3000_gszjt2xx"
+          "_TZ3000_gszjt2xx",
+          "_TZ3000_nkkl7uzv"
         ],
         "productId": [
           "TS0207"
