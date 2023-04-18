@@ -1,14 +1,22 @@
 {
-    "id": "switch_1_gang",
+    "id": "dimmer_1_gang_tuya",
     "name": {
-      "en": "1 Gang Switch Module"
+      "en": "1 Gang Dimmer Module"
     },
-    "class": "socket",
+    "class": "light",
     "platforms": ["local"],
     "connectivity": ["zigbee"],
     "capabilities": [
-      "onoff"
+      "onoff",
+      "dim"
     ],
+    "capabilitiesOptions": {
+      "dim": {
+          "opts": {
+          "duration": true
+          }
+      }
+    },
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",
       "small": "{{driverAssetsPath}}/images/small.png"
@@ -21,32 +29,15 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TYZB01_ncutbjdi",
-        "_TYZB01_aneiicmq",
-        "_TZ3000_zmy1waw6",
-        "_TZ3000_pmvbt5hh",
-        "_TZ3000_sjpl9eg3",
-        "_TZ3000_m9af2l6g",
-        "_TZ3000_ji4araar",
-        "_TZ3000_qmi1cfuq",
-        "_TZ3000_npzfdcof",
-        "_TZ3000_tqlv4ug4",
-        "_TZ3000_rmjr4ufz",
-        "_TZ3000_mx3vgyea",
-        "_TZ3000_hhiodade",
-        "_TZ3000_46t1rvdu"
+        "_TZE200_la2c2uo9"
       ],
       "productId": [
-        "TS0003",
-        "TS011F",
-        "TS0011",
-        "TS000F",
-        "TS0001"
+        "TS0601"
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 4, 5, 6],
-          "bindings": [6]
+          "clusters": [0, 4, 5, 61184],
+          "bindings": [25, 10]
         }
       },
       "learnmode": {
@@ -56,4 +47,5 @@
         }
       }
     }
+
 }

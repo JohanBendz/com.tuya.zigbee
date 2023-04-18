@@ -53,6 +53,8 @@ Supported devices:
     _TZE200_zl1kmjqx / TS0601
     _TZE200_locansqn / TS0601
     _TZ3000_yd2e749y / TS0201
+    _TZ3000_ywagc4rj / TS0201
+    _TZ3000_itnrsufe / TS0201
     
 - LCD Temperature, Humidity and Luminance Sensor
     _TZ3000_qaaysllp / TS0201
@@ -102,6 +104,11 @@ Supported devices:
     _TZ3000_bzxloft / TS0203
     _TZ3000_7tbsruql / TS0203
     _TZ3000_osu834un / TS0203
+    _TZ3000_n2egfsli / TS0203
+    _TZ3000_7d8yme6f / TS0203
+    _TZ3000_rgchmad8 / TS0203
+    _TZ3000_au1rjicn / TS0203
+    _TZ3000_4ugnzsli / TS0203
 
 - Smart Door/Windows Sensor
     _TZ1800_ejwkn2h2 / TY0203 (Silvercrest / Lidl)
@@ -114,6 +121,7 @@ Supported devices:
     _TZ3000_t6jriawg / TS0207
     _TZ3000_85czd6fy / TS0207
     _TZ3000_kyb656no / TS0207
+    _TZ3000_0s9gukzt / TS0207
 
 - Flood Sensor
     TUYATEC-3tipnsrx / RH3001
@@ -155,6 +163,7 @@ Supported devices:
     _TZ3000_1h2x4akh / TS011F
     _TZ3000_r6buo8ba / TS011F
     _TZ3000_2putqrmw / TS011F
+    _TZ3000_5ity3zyu / TS0121
 
 - Smart Plug, without metering
     _TZ3000_kdi2o9m6 / TS011F (Silvercrest / Lidl)
@@ -195,6 +204,7 @@ Supported devices:
     _TZ3000_rmjr4ufz / TS0001
     _TZ3000_mx3vgyea / TS000F
     _TZ3000_hhiodade / TS0011
+    _TZ3000_46t1rvdu / TS0001
 
 - 2 Gang Switch Module
     _TYZB01_zsl6z0pw / TS0003
@@ -213,10 +223,12 @@ Supported devices:
     _TZ3210_ngqk6jia / TS110E
     _TZ3000_ktuoyvt5 / TS110F
     _TZ3210_zxbtub8r / TS110E
+    _TZE200_la2c2uo9 / TS0601
 
 - 2 Gang Dimmer Module
     _TYZB01_v8gtiaed / TS110F
     _TZ3000_92chsky7 / TS110F
+    _TZE200_e3oitdyu / TS0601
 
 **On-Wall**
 - 1 Gang Wall Switch
@@ -232,6 +244,7 @@ Supported devices:
     _TZ3000_oex7egmt / TS0001
     _TZ3000_hafsqare / TS0011
     _TZ3000_oaq83gqc / TS0011
+    _TZ3000_6eyydfyg / TS0001
 
 - 2 Gang Wall Switch
     _TYZB01_mtlhqn48 / TS0012
@@ -246,6 +259,7 @@ Supported devices:
     _TZ3000_yhagrqmd / TS0002
     _TZ3000_5vujyute / TS0002
     _TYZB01_2athzhfr / TS0012
+    _TZ3000_56bdyj21 / TS0002
 
 - 3 Gang Wall Switch
     _TYZB01_xiuox57i / TS0013
@@ -259,10 +273,12 @@ Supported devices:
     _TZ3000_thhxrept / TS0003
     _TZ3000_2dlwlvex / TS0003
     _TZ3000_qcdqw8nf / TS0003
+    _TZ3000_vvlivusi / TS0003
 
 - 4 Gang Wall Switch
      _TZ3000_r0pmi2p3 / TS0014
      _TZ3000_dku2cfsc / TS0044
+     _TZ3000_fjt5218m / TS0044
 
 **Lights**
 - Christmas Tree Lights
@@ -338,6 +354,7 @@ Supported devices:
     _TZ3000_rrjr1q0u / TS0043
     _TZ3000_w8jwkczz / TS0043 (MOES)
     _TZ3000_gbm10jnj / TS0043 (MOES)
+    _TZ3000_yw5tvzsk / TS0043
 
 - 4 Gang Wall Remote
     _TZ3000_vp6clf9d / TS0044
@@ -345,11 +362,11 @@ Supported devices:
     _TZ3000_wkai4ga5 / TS0044
     _TZ3000_ufhtxr59 / TS0044
     _TZ3000_ee8nrt2l / TS0044
-    _TZ3000_dziaict4 / TS0044
 
 - 1 Button Smart Remote Controller
     _TZ3000_kjfzuycl / TS004F
     _TZ3000_rco1yzb1 / TS004F
+    _TZ3000_yirp2pgd / TS004F
 
 - 4 Button Smart Remote Controller
     _TZ3000_fsiepnrh / TS0215A (Nedis)
@@ -364,6 +381,7 @@ Supported devices:
     _TZ3000_fccpjz5z / TS130F
     _TZ3000_4uuaja4a / TS130F
     _TZ3000_zirycpws / TS130F
+    _TZ3000_femsaaua / TS130F
 
 - Curtain Motor
     _TZE200_5zbp6j0u / TS0601
@@ -411,6 +429,7 @@ Supported devices:
     _TZ3000_5k5vh43t / TS0207
     _TZ3000_gszjt2xx / TS0207
     _TZ3000_ufttklsz / TS0207
+    _TZ3000_nkkl7uzv / TS0207
 
 - 4 Channel Relay Board
     _TZ3000_hdlpifbk / TS0004
