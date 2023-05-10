@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.6",
+  "version": "0.2.11",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -300,6 +300,43 @@
     ],
     "triggers": [
       {
+        "id": "smart_remote_1_button",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "Button had [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_remote_1_button"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "oneClick",
+                "label": {
+                  "en": "1 Click"
+                }
+              },
+              {
+                "id": "twoClicks",
+                "label": {
+                  "en": "2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "smart_remote_4_buttons",
         "title": {
           "en": "Button Action"
@@ -567,6 +604,55 @@
             ]
           }
         ]
+      },
+      {
+        "id": "wall_remote_4_gang_buttons_2",
+        "title": {
+          "en": "Button"
+        },
+        "titleFormatted": {
+          "en": "The [[button]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_4_gang_2"
+          },
+          {
+            "name": "button",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Pressed"
+            },
+            "values": [
+              {
+                "id": "leftUp",
+                "label": {
+                  "en": "Upper Left Button Pressed"
+                }
+              },
+              {
+                "id": "rightUp",
+                "label": {
+                  "en": "Upper Right Button Pressed"
+                }
+              },
+              {
+                "id": "leftDown",
+                "label": {
+                  "en": "Lower Left Button Pressed"
+                }
+              },
+              {
+                "id": "rightDown",
+                "label": {
+                  "en": "Lower Right Button Pressed"
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -660,7 +746,8 @@
           "_TZ3000_ke7pzj5d",
           "_TZ3000_fccpjz5z",
           "_TZ3000_4uuaja4a",
-          "_TZ3000_zirycpws"
+          "_TZ3000_zirycpws",
+          "_TZ3000_femsaaua"
         ],
         "productId": [
           "TS130F"
@@ -899,6 +986,69 @@
       "settings": []
     },
     {
+      "id": "dimmer_1_gang_tuya",
+      "name": {
+        "en": "1 Gang Dimmer Module"
+      },
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "capabilitiesOptions": {
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
+      "images": {
+        "large": "/drivers/dimmer_1_gang_tuya/assets/images/large.png",
+        "small": "/drivers/dimmer_1_gang_tuya/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_la2c2uo9"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              25,
+              10
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/dimmer_1_gang_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "dimmer_2_gang",
       "name": {
         "en": "2 Gang Dimmer Module"
@@ -993,6 +1143,76 @@
       "settings": []
     },
     {
+      "id": "dimmer_2_gang_tuya",
+      "name": {
+        "en": "2 Gang Dimmer Module"
+      },
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff.gang_1",
+        "dim.gang_1",
+        "onoff.gang_2",
+        "dim.gang_2"
+      ],
+      "capabilitiesOptions": {
+        "dim.gang_1": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "dim.gang_2": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
+      "images": {
+        "large": "/drivers/dimmer_2_gang_tuya/assets/images/large.png",
+        "small": "/drivers/dimmer_2_gang_tuya/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_e3oitdyu"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              25,
+              10
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/dimmer_2_gang_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "doorwindowsensor",
       "name": {
         "en": "Door & Window Sensor"
@@ -1038,7 +1258,12 @@
           "_TZ3000_bmg14ax2",
           "_TZ3000_oxslv1c9",
           "_TZ3000_bzxlofth",
-          "_TZ3000_bzxloft"
+          "_TZ3000_bzxloft",
+          "_TZ3000_n2egfsli",
+          "_TZ3000_7d8yme6f",
+          "_TZ3000_rgchmad8",
+          "_TZ3000_au1rjicn",
+          "_TZ3000_4ugnzsli"
         ],
         "productId": [
           "RH3001",
@@ -1095,7 +1320,8 @@
       "zigbee": {
         "manufacturerName": [
           "TUYATEC-0l6xaqmi",
-          "_TZ3000_7tbsruql"
+          "_TZ3000_7tbsruql",
+          "_TZ3000_osu834un"
         ],
         "productId": [
           "RH3001",
@@ -1150,10 +1376,12 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "TUYATEC-3tipnsrx"
+          "TUYATEC-3tipnsrx",
+          "_TZ3000_4uvovz4r"
         ],
         "productId": [
-          "RH3001"
+          "RH3001",
+          "TS0207"
         ],
         "endpoints": {
           "1": {
@@ -1367,7 +1595,10 @@
           "_TYZB01_a476raq2",
           "_TYZB01_hjsgdkfl",
           "_TYZB01_iuepbmpv",
-          "_TZ3000_rusu2vzb"
+          "_TZ3000_rusu2vzb",
+          "_TZ3000_yd2e749y",
+          "_TZ3000_ywagc4rj",
+          "_TZ3000_itnrsufe"
         ],
         "productId": [
           "TS0201"
@@ -1538,7 +1769,7 @@
           "id": "temperature_offset",
           "type": "number",
           "label": {
-            "en": "Temperature offset (°C)"
+            "en": "Temperature offset"
           },
           "hint": {
             "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]"
@@ -1548,6 +1779,10 @@
             "min": -10,
             "max": 10,
             "step": 0.1
+          },
+          "units": {
+            "en": "°C",
+            "nl": "°C"
           }
         },
         {
@@ -1576,8 +1811,8 @@
           "id": "humidity_offset",
           "type": "number",
           "label": {
-            "en": "Humidity offset (%)",
-            "nl": "Luchtvochtigheids compensatie (%)"
+            "en": "Humidity offset",
+            "nl": "Luchtvochtigheids compensatie"
           },
           "hint": {
             "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
@@ -1648,7 +1883,9 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE200_bjawzodf"
+          "_TZE200_bjawzodf",
+          "_TZE200_zl1kmjqx",
+          "_TZE200_locansqn"
         ],
         "productId": [
           "TS0601"
@@ -1872,7 +2109,9 @@
           "_TZ3000_mmtwjmaq",
           "_TZ3000_kmh5qpmb",
           "_TZ3000_msl6wxk9",
-          "_TZ3000_mcxw5ehu"
+          "_TZ3000_mcxw5ehu",
+          "_TZ3000_otvn3lne",
+          "_TZ3000_6ygjfyll"
         ],
         "productId": [
           "TS0202"
@@ -1989,7 +2228,9 @@
           "_TZ3000_dpo1ysak",
           "_TZ3000_plyvnuf5",
           "_TZ3000_hyfvrar3",
-          "_TZ3000_cymsnfvf"
+          "_TZ3000_cymsnfvf",
+          "_TZ3000_upjrsxh1",
+          "_TZ3000_wamqdr3f"
         ],
         "productId": [
           "TS011F"
@@ -2179,7 +2420,8 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_hdlpifbk",
-          "_TZ3000_excgg5kb"
+          "_TZ3000_excgg5kb",
+          "_TZ3000_u3oupgdy"
         ],
         "productId": [
           "TS0004"
@@ -2606,7 +2848,8 @@
           "_TZ3000_dl4pxp1r",
           "_TZ3000_qqjaziws",
           "_TZ3000_i8l0nqdu",
-          "_TZ3000_ukuvyhaa"
+          "_TZ3000_ukuvyhaa",
+          "_TZ3210_k1pe6ibm"
         ],
         "productId": [
           "TS0503A",
@@ -2925,7 +3168,8 @@
     {
       "id": "smart_garden_irrigation_control",
       "name": {
-        "en": "Smart Garden Irrigation Controller"
+        "en": "Smart Garden Irrigation Controller",
+        "it": "Programmatore per irrigazione smart"
       },
       "class": "other",
       "platforms": [
@@ -2936,8 +3180,16 @@
       ],
       "capabilities": [
         "onoff",
-        "alarm_battery"
+        "alarm_battery",
+        "measure_battery"
       ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
       "energy": {
         "batteries": [
           "AA",
@@ -2961,11 +3213,12 @@
           "1": {
             "clusters": [
               0,
+              1,
               4,
               5,
               6,
-              61184,
-              1
+              10,
+              61184
             ],
             "bindings": [
               1,
@@ -2976,7 +3229,8 @@
         "learnmode": {
           "image": "/drivers/smart_garden_irrigation_control/assets/icon.svg",
           "instruction": {
-            "en": "Ensure the indicator light is flashing. If the indicatore light isn't flashing: press and hold the reset butto for 5 seconds until the indicator light starts to flashing."
+            "en": "Ensure the indicator light is flashing. If the indicatore light isn't flashing: press and hold the reset button for 5 seconds until the indicator light starts to flashing.",
+            "it": "Assicurarsi che l'indicatore lampeggi. Se l'indicatore non lampegga: tenere premuto il pulsante di reset per 5 secondi finchè l'indicatore non inizia a lampeggiare."
           }
         }
       },
@@ -3075,6 +3329,62 @@
       ]
     },
     {
+      "id": "smart_remote_1_button",
+      "name": {
+        "en": "1 button Smart Remote Controller"
+      },
+      "class": "remote",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/smart_remote_1_button/assets/images/large.png",
+        "small": "/drivers/smart_remote_1_button/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_kjfzuycl",
+          "_TZ3000_rco1yzb1",
+          "_TZ3000_yirp2pgd"
+        ],
+        "productId": [
+          "TS004F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              4,
+              6,
+              4096,
+              57345
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smart_remote_1_button/assets/icon.svg",
+          "instruction": {
+            "en": "Press the reset button for aprox 10 seconds (the LED should start blinking)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "smart_remote_4_buttons",
       "name": {
         "en": "4 button Smart Remote Controller"
@@ -3090,6 +3400,11 @@
       "images": {
         "large": "/drivers/smart_remote_4_buttons/assets/images/large.png",
         "small": "/drivers/smart_remote_4_buttons/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
       },
       "zigbee": {
         "manufacturerName": [
@@ -3224,11 +3539,22 @@
           "_TZ3000_ksw8qtmt",
           "_TZ3000_zloso4jk",
           "_TZ3000_5f43h46b",
-          "_TZ3000_cehuw1l2",
+          "_TZ3000_cehuw1lw",
           "_TZ3000_5f43h46b",
           "_TZ3000_fqoynhku",
           "_TZ3000_ynmowqk2",
-          "_TZ3000_kx0pris5"
+          "_TZ3000_kx0pris5",
+          "_TZ3000_hdopuwv6",
+          "_TZ3000_bfn1w0mm",
+          "_TZ3000_0zfrhq4i",
+          "_TZ3000_gznh2xla",
+          "_TZ3000_ss98ec5d",
+          "_TZ3000_gnjozsaz",
+          "_TZ3000_gvn91tmx",
+          "_TZ3000_1h2x4akh",
+          "_TZ3000_r6buo8ba",
+          "_TZ3000_2putqrmw",
+          "_TZ3000_5ity3zyu"
         ],
         "productId": [
           "TS0121",
@@ -3741,7 +4067,7 @@
     {
       "id": "socket_power_strip_four_two",
       "name": {
-        "en": "Power Strip Socket 1/4"
+        "en": "Power Strip 4 Sockets"
       },
       "class": "socket",
       "platforms": [
@@ -3764,7 +4090,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_o005nuxx"
+          "_TZ3000_o005nuxx",
+          "_TZ3000_cfnprab5"
         ],
         "productId": [
           "TS011F"
@@ -3931,7 +4258,8 @@
           "_TZ3000_tqlv4ug4",
           "_TZ3000_rmjr4ufz",
           "_TZ3000_mx3vgyea",
-          "_TZ3000_hhiodade"
+          "_TZ3000_hhiodade",
+          "_TZ3000_46t1rvdu"
         ],
         "productId": [
           "TS0003",
@@ -3997,7 +4325,8 @@
           "_TZ3000_bvrlqyj7",
           "_TZ3000_jl7qyupf",
           "_TZ3000_7ed9cqgi",
-          "_TZ3000_18ejxno0"
+          "_TZ3000_18ejxno0",
+          "_TZ3000_llfaquvp"
         ],
         "productId": [
           "TS0003",
@@ -4096,7 +4425,6 @@
           "_TZ3000_i8jfiezr",
           "TUYATEC-v3uxbuxy",
           "_TZ3000_bguser20",
-          "_TZ3000_fllyghyj",
           "_TZ3000_8ybe88nf",
           "_TZ3000_fie1dpkm"
         ],
@@ -4347,6 +4675,159 @@
               "id": "2",
               "label": {
                 "en": "Report humidity value with 2 decimals (35.19 %)"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "temphumidsensor3",
+      "name": {
+        "en": "Temperature & Humidity Sensor",
+        "it": "Sensore di temperatura ed umidità"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_battery",
+        "alarm_battery",
+        "measure_humidity",
+        "measure_temperature"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/temphumidsensor3/assets/images/small.png",
+        "large": "/drivers/temphumidsensor3/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_fllyghyj"
+        ],
+        "productId": [
+          "TS0201"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1026,
+              1029
+            ],
+            "bindings": [
+              1,
+              1026,
+              1029
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the button inside the battery compartment for aprox 5 seconds until the LED blinks rapidly.",
+            "it": "Tenere premuto il pulsante all'interno del vano batteria per cicrca 5 secondi finchè il LED non lampeggia rapidamente."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "temperature_offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset (°C)",
+            "it": "Offset della temperatura (°C)"
+          },
+          "hint": {
+            "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]",
+            "it": "Imposta un valore per compensare lo scostamento della temperatura.\nRange: -10 - 10, step ze 0.1, \ndefault: 0 [°C]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "temperature_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Temperature reporting decimals",
+            "it": "Decimali del report della temperatura"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report temperature value with 1 decimal (21.4 °C)",
+                "it": "Valore del report della temperatura con 1 decimale (21.4 °C)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report temperature value with 2 decimals (21.37 °C)",
+                "it": "Valore del report della temperatura con 2 decimale (21.31 °C)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "humidity_offset",
+          "type": "number",
+          "label": {
+            "en": "Humidity offset (%)",
+            "nl": "Luchtvochtigheids compensatie (%)",
+            "it": "Offset dell'umidità (%)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]",
+            "it": "Imposta un valore per compensare lo scostamento dell'umidità.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 1
+          },
+          "units": {
+            "en": "%",
+            "nl": "%"
+          }
+        },
+        {
+          "id": "humidity_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Humidity reporting",
+            "it": "Report dell'umidità"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report humidity value with 1 decimal (35.2 %)",
+                "it": "Valore del report dell'umidità con 1 decimale (35.2 %)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report humidity value with 2 decimals (35.19 %)",
+                "it": "Valore del report dell'umidità con 2 decimale (35.19 %)"
               }
             }
           ]
@@ -4642,7 +5123,8 @@
         "manufacturerName": [
           "_TZ3000_dph3rpss",
           "_TZ3000_8kzqqzu4",
-          "_TZ3000_ltiqubue"
+          "_TZ3000_ltiqubue",
+          "_TZ3000_dbpmpco1"
         ],
         "productId": [
           "TS130F"
@@ -4663,7 +5145,7 @@
         "learnmode": {
           "image": "/drivers/wall_curtain_switch/assets/icon.svg",
           "instruction": {
-            "en": "Power on/off 5 times to enter pairing mode (the LED should blink / device starts beeping)."
+            "en": "Power on/off 5 times to enter pairing mode (the LED should blink / device starts beeping) or press the Pause-button 5sec until Open-button blinks."
           }
         }
       },
@@ -4817,7 +5299,8 @@
           "_TZ3000_qzjcsmar",
           "_TZ3000_rrjr1q0u",
           "_TZ3000_w8jwkczz",
-          "_TZ3000_gbm10jnj"
+          "_TZ3000_gbm10jnj",
+          "_TZ3000_yw5tvzsk"
         ],
         "productId": [
           "TS0043"
@@ -4883,14 +5366,12 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_vp6clf9d",
-          "_TZ3000_xabckq1v",
           "_TZ3000_wkai4ga5",
           "_TZ3000_ufhtxr59",
           "_TZ3000_ee8nrt2l"
         ],
         "productId": [
-          "TS0044",
-          "TS004F"
+          "TS0044"
         ],
         "endpoints": {
           "1": {
@@ -4937,6 +5418,58 @@
       "settings": []
     },
     {
+      "id": "wall_remote_4_gang_2",
+      "name": {
+        "en": "4 Gang Wall Remote"
+      },
+      "class": "remote",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/wall_remote_4_gang_2/assets/images/large.png",
+        "small": "/drivers/wall_remote_4_gang_2/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_xabckq1v"
+        ],
+        "productId": [
+          "TS004F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              6,
+              8
+            ],
+            "bindings": [
+              6,
+              8
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_remote_4_gang_2/assets/icon.svg",
+          "instruction": {
+            "en": "Press the lower left button for aprox 10 seconds (all LED should start blinking)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "wall_switch_1_gang",
       "name": {
         "en": "1 Gang Wall Switch"
@@ -4973,7 +5506,9 @@
           "_TZ3000_yl3zuyaw",
           "_TZ3000_3wkqni6o",
           "_TZ3000_oex7egmt",
-          "_TZ3000_hafsqare"
+          "_TZ3000_hafsqare",
+          "_TZ3000_oaq83gqc",
+          "_TZ3000_6eyydfyg"
         ],
         "productId": [
           "TS0001",
@@ -5036,7 +5571,8 @@
           "_TZ3000_lupfd8zu",
           "_TZ3000_yhagrqmd",
           "_TZ3000_5vujyute",
-          "_TYZB01_2athzhfr"
+          "_TYZB01_2athzhfr",
+          "_TZ3000_56bdyj21"
         ],
         "productId": [
           "TS0002",
@@ -5122,7 +5658,10 @@
           "_TYZB01_mqel1whf",
           "_TZ3000_hlwm8e96",
           "_TZ3000_odzoiovu",
-          "_TZ3000_thhxrept"
+          "_TZ3000_thhxrept",
+          "_TZ3000_2dlwlvex",
+          "_TZ3000_qcdqw8nf",
+          "_TZ3000_vvlivusi"
         ],
         "productId": [
           "TS0003",
@@ -5158,7 +5697,7 @@
         },
         "devices": {
           "secondSwitch": {
-            "class": "light",
+            "class": "socket",
             "capabilities": [
               "onoff"
             ],
@@ -5173,7 +5712,7 @@
             }
           },
           "thirdSwitch": {
-            "class": "light",
+            "class": "socket",
             "capabilities": [
               "onoff"
             ],
@@ -5225,7 +5764,8 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_r0pmi2p3",
-          "_TZ3000_dku2cfsc"
+          "_TZ3000_dku2cfsc",
+          "_TZ3000_fjt5218m"
         ],
         "productId": [
           "TS0014",
@@ -5356,7 +5896,8 @@
           "_TZ3000_eit7p838",
           "_TZ3000_t6jriawg",
           "_TZ3000_85czd6fy",
-          "_TZ3000_kyb656no"
+          "_TZ3000_kyb656no",
+          "_TZ3000_0s9gukzt"
         ],
         "productId": [
           "TS0207",
@@ -5405,7 +5946,10 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_m0vaazab",
-          "_TZ3000_5k5vh43t"
+          "_TZ3000_5k5vh43t",
+          "_TZ3000_ufttklsz",
+          "_TZ3000_gszjt2xx",
+          "_TZ3000_nkkl7uzv"
         ],
         "productId": [
           "TS0207"

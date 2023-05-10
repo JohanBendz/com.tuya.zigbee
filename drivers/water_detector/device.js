@@ -10,9 +10,9 @@ class waterdetector extends ZigBeeDevice {
 		this.printNode();
 
 		// alarm_contact
-      zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME].onZoneStatusChangeNotification = payload => {
-        this.onIASZoneStatusChangeNotification(payload);
-      }
+    zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME].onZoneStatusChangeNotification = payload => {
+      this.onIASZoneStatusChangeNotification(payload);
+    }
 
   }
   

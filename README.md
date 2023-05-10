@@ -16,10 +16,11 @@ Some of the supported White Label Brands:
 - UseeLink
 - Woox
 - Zemismart
+- Luminea 
 
 Supported devices:
 
-Sensors
+**Sensors**
 - Temperature and Humidity Sensor
     TUYATEC-g3gl6cgy / RH3052
     TUYATEC-Bfq2i2Sy / RH3052
@@ -49,24 +50,29 @@ Sensors
     _TZ3000_rusu2vzb / TS0201
     _TYZB01_cbiezpds / SM0201
     _TZE200_bjawzodf / TS0601
+    _TZE200_zl1kmjqx / TS0601
+    _TZE200_locansqn / TS0601
+    _TZ3000_yd2e749y / TS0201
+    _TZ3000_ywagc4rj / TS0201
+    _TZ3000_itnrsufe / TS0201
     
 - LCD Temperature, Humidity and Luminance Sensor
     _TZ3000_qaaysllp / TS0201
 
-- PIR Sensor (Cylinder shaped)
+- PIR Sensor
     TUYATEC-lha8pbwd / RH3040
     TUYATEC-zn9wyqtr / RH3040
     TUYATEC-53o41joc / RH3040
     TUYATEC-deetibst / RH3040
     TUYATEC-dgtxmihe / RH3040
-
-- PIR Sensor (Globe shaped)
     _TYZB01_jytabjkb / TS0202
     _TYZB01_dl7cejts / TS0202
     _TZ3000_mmtwjmaq / TS0202
     _TZ3000_kmh5qpmb / TS0202
     _TZ3000_msl6wxk9 / TS0202
     _TZ3000_mcxw5ehu / TS0202
+    _TZ3000_otvn3lne / TS0202
+    _TZ3000_6ygjfyll / TS0202
 
 . Motion Sensor
     TUYATEC-bd5faf9p / RH3040 (Nedis)
@@ -97,6 +103,12 @@ Sensors
     _TZ3000_bzxlofth / TS0203
     _TZ3000_bzxloft / TS0203
     _TZ3000_7tbsruql / TS0203
+    _TZ3000_osu834un / TS0203
+    _TZ3000_n2egfsli / TS0203
+    _TZ3000_7d8yme6f / TS0203
+    _TZ3000_rgchmad8 / TS0203
+    _TZ3000_au1rjicn / TS0203
+    _TZ3000_4ugnzsli / TS0203
 
 - Smart Door/Windows Sensor
     _TZ1800_ejwkn2h2 / TY0203 (Silvercrest / Lidl)
@@ -109,14 +121,16 @@ Sensors
     _TZ3000_t6jriawg / TS0207
     _TZ3000_85czd6fy / TS0207
     _TZ3000_kyb656no / TS0207
+    _TZ3000_0s9gukzt / TS0207
 
 - Flood Sensor
     TUYATEC-3tipnsrx / RH3001
+    _TZ3000_4uvovz4r / TS0207
 
 - Smoke Sensor
     _TYZB01_dsjszp0x / TS0205
 
-Plugs and Socket Strips
+**Plugs and Socket Strips**
 - Smart Plug, with metering
     _TZ3000_3ooaz3ng / TS0121
     _TYZB01_iuepbmpv / TS0121
@@ -134,11 +148,22 @@ Plugs and Socket Strips
     _TZ3000_ksw8qtmt / TS011F
     _TZ3000_zloso4jk / TS011F
     _TZ3000_5f43h46b / TS011F
-    _TZ3000_cehuw1l2 / TS011F
+    _TZ3000_cehuw1lw / TS011F
     _TZ3000_5f43h46b / TS011F
     _TZ3000_fqoynhku / TS0121
     _TZ3000_ynmowqk2 / TS011F
     _TZ3000_kx0pris5 / TS011F
+    _TZ3000_hdopuwv6 / TS011F
+    _TZ3000_bfn1w0mm / TS011F
+    _TZ3000_0zfrhq4i / TS011F
+    _TZ3000_gznh2xla / TS011F
+    _TZ3000_ss98ec5d / TS011F
+    _TZ3000_gnjozsaz / TS011F
+    _TZ3000_gvn91tmx / TS011F
+    _TZ3000_1h2x4akh / TS011F
+    _TZ3000_r6buo8ba / TS011F
+    _TZ3000_2putqrmw / TS011F
+    _TZ3000_5ity3zyu / TS0121
 
 - Smart Plug, without metering
     _TZ3000_kdi2o9m6 / TS011F (Silvercrest / Lidl)
@@ -147,6 +172,8 @@ Plugs and Socket Strips
     _TZ3000_plyvnuf5 / TS011F (Silvercrest / Lidl)
     _TZ3000_hyfvrar3 / TS011F (Zemismart)
     _TZ3000_cymsnfvf / TS011F
+    _TZ3000_upjrsxh1 / TS011F (Silvercrest / Lidl)
+    _TZ3000_wamqdr3f / TS011F (Silvercrest / Lidl)
 
 - Outdoor Plug, without metering
     _TZ3000_pnzfdr9y / TS0101 (Silvercrest / Lidl)
@@ -160,8 +187,9 @@ Plugs and Socket Strips
 - 4 Socket Power Strip + USB
     _TYZB01_vkwryfdr / TS0115
     _TZ3000_o005nuxx / TS011F (UseeLink)
+    _TZ3000_cfnprab5 / TS011F
 
-In-Wall
+**In-Wall**
 - 1 Gang Switch Module
     _TYZB01_ncutbjdi / TS0003
     _TYZB01_aneiicmq / TS0003
@@ -176,6 +204,7 @@ In-Wall
     _TZ3000_rmjr4ufz / TS0001
     _TZ3000_mx3vgyea / TS000F
     _TZ3000_hhiodade / TS0011
+    _TZ3000_46t1rvdu / TS0001
 
 - 2 Gang Switch Module
     _TYZB01_zsl6z0pw / TS0003
@@ -187,18 +216,21 @@ In-Wall
     _TZ3000_jl7qyupf / TS0013
     _TZ3000_7ed9cqgi / TS0002
     _TZ3000_18ejxno0 / TS0012
+    _TZ3000_llfaquvp / TS0012
 
 - 1 Gang Dimmer Module
     _TYZB01_qezuin6k / TS110F
     _TZ3210_ngqk6jia / TS110E
     _TZ3000_ktuoyvt5 / TS110F
     _TZ3210_zxbtub8r / TS110E
+    _TZE200_la2c2uo9 / TS0601
 
 - 2 Gang Dimmer Module
     _TYZB01_v8gtiaed / TS110F
     _TZ3000_92chsky7 / TS110F
+    _TZE200_e3oitdyu / TS0601
 
-On-Wall
+**On-Wall**
 - 1 Gang Wall Switch
     _TYZB01_xfpdrwvc / TS0011
     _TZ3000_9hpxg80k / TS0011
@@ -211,6 +243,8 @@ On-Wall
     _TZ3000_3wkqni6o / TS0011
     _TZ3000_oex7egmt / TS0001
     _TZ3000_hafsqare / TS0011
+    _TZ3000_oaq83gqc / TS0011
+    _TZ3000_6eyydfyg / TS0001
 
 - 2 Gang Wall Switch
     _TYZB01_mtlhqn48 / TS0012
@@ -225,6 +259,7 @@ On-Wall
     _TZ3000_yhagrqmd / TS0002
     _TZ3000_5vujyute / TS0002
     _TYZB01_2athzhfr / TS0012
+    _TZ3000_56bdyj21 / TS0002
 
 - 3 Gang Wall Switch
     _TYZB01_xiuox57i / TS0013
@@ -236,12 +271,16 @@ On-Wall
     _TZ3000_hlwm8e96 / TS0013
     _TZ3000_odzoiovu / TS0003
     _TZ3000_thhxrept / TS0003
+    _TZ3000_2dlwlvex / TS0003
+    _TZ3000_qcdqw8nf / TS0003
+    _TZ3000_vvlivusi / TS0003
 
 - 4 Gang Wall Switch
      _TZ3000_r0pmi2p3 / TS0014
      _TZ3000_dku2cfsc / TS0044
+     _TZ3000_fjt5218m / TS0044
 
-Lights
+**Lights**
 - Christmas Tree Lights
     _TZE200_s8gkrkxk / TS0601 (Melinera / Lidl)
 
@@ -274,6 +313,7 @@ Lights
     _TZ3000_qqjaziws / TS0505B
     _TZ3000_i8l0nqdu / TS0503B
     _TZ3000_ukuvyhaa / TS0504B
+    _TZ3210_k1pe6ibm / TS0505B
     
 - RGB Spot GardenLight
    _TZ3000_h1jnz6l8 / TS0505A (LIVARNO LUX / Lidl)
@@ -287,7 +327,7 @@ Lights
 - Tunable Spot GU10
     _TZ3000_el5kt5im / TS0502A (LIVARNO LUX / Lidl)
 
-Remotes
+**Remotes**
 - 1 Gang Wall Remote
     _TYZB02_keyjqthh / TS0041
     _TZ3000_tk3s5tyg / TS0041
@@ -314,6 +354,7 @@ Remotes
     _TZ3000_rrjr1q0u / TS0043
     _TZ3000_w8jwkczz / TS0043 (MOES)
     _TZ3000_gbm10jnj / TS0043 (MOES)
+    _TZ3000_yw5tvzsk / TS0043
 
 - 4 Gang Wall Remote
     _TZ3000_vp6clf9d / TS0044
@@ -322,23 +363,17 @@ Remotes
     _TZ3000_ufhtxr59 / TS0044
     _TZ3000_ee8nrt2l / TS0044
 
+- 1 Button Smart Remote Controller
+    _TZ3000_kjfzuycl / TS004F
+    _TZ3000_rco1yzb1 / TS004F
+    _TZ3000_yirp2pgd / TS004F
+
 - 4 Button Smart Remote Controller
     _TZ3000_fsiepnrh / TS0215A (Nedis)
     _TYZB01_qm6djpta / TS0215A
     _TZ3000_p6ju8myv / TS0215A
 
-Other
-- Valve Controller
-    _TYZB01_ymcdbl3u / TS0111
-    _TZ3000_o4cjetlm / TS0001
-    _TYZB01_4tlksk8a / TS0001
-    _TZ3000_tvuarksa / TS0001
-    _TZ3000_j9568h44 / TS0001
-    _TZ3000_iedbgyxt / TS0001
-
-- Smart Garden Irrigation Controller
-    _TZ3210_eymunffl / TS0101 (Woox)
- 
+**Curtains**
 - Curtain Module
     _TZ3000_vd43bbfq / TS130F
     _TZ3000_1dd0d5yi / TS130F
@@ -346,6 +381,7 @@ Other
     _TZ3000_fccpjz5z / TS130F
     _TZ3000_4uuaja4a / TS130F
     _TZ3000_zirycpws / TS130F
+    _TZ3000_femsaaua / TS130F
 
 - Curtain Motor
     _TZE200_5zbp6j0u / TS0601
@@ -374,14 +410,31 @@ Other
     _TZ3000_dph3rpss / TS130F
     _TZ3000_8kzqqzu4 / TS130F
     _TZ3000_ltiqubue / TS130F
+    _TZ3000_dbpmpco1 / TS130F (Loratap, Model No SC400ZB, SC420ZB)
 
+**Other**
+- Valve Controller
+    _TYZB01_ymcdbl3u / TS0111
+    _TZ3000_o4cjetlm / TS0001
+    _TYZB01_4tlksk8a / TS0001
+    _TZ3000_tvuarksa / TS0001
+    _TZ3000_j9568h44 / TS0001
+    _TZ3000_iedbgyxt / TS0001
+
+- Smart Garden Irrigation Controller
+    _TZ3210_eymunffl / TS0101 (Woox)
+ 
 - Zigbee Repeater
     _TZ3000_m0vaazab / TS0207
     _TZ3000_5k5vh43t / TS0207
+    _TZ3000_gszjt2xx / TS0207
+    _TZ3000_ufttklsz / TS0207
+    _TZ3000_nkkl7uzv / TS0207
 
 - 4 Channel Relay Board
     _TZ3000_hdlpifbk / TS0004
     _TZ3000_excgg5kb / TS0004
+    _TZ3000_u3oupgdy / TS0004
 
 - Smart Switch
     _TYZB01_phjeraqq / TS0001
@@ -395,5 +448,6 @@ Contributors:
 - Raffaele De Lauri, Smart Garden Irrigation Controller
 - Bert van Hoekelen, Curtain Motors
 - Łukasz Krutul, better measuring functionality for plugs and Tuya specific reporting
+- Jesper Bach, Smart Remote 1 Button
 
 I would also like to thank everyone who contributes with device information, testing and beer!

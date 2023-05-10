@@ -28,7 +28,10 @@
         "_TYZB01_mqel1whf",
         "_TZ3000_hlwm8e96",
         "_TZ3000_odzoiovu",
-        "_TZ3000_thhxrept"
+        "_TZ3000_thhxrept",
+        "_TZ3000_2dlwlvex",
+        "_TZ3000_qcdqw8nf",
+        "_TZ3000_vvlivusi"
       ],
       "productId": [
         "TS0003",
@@ -51,7 +54,7 @@
       },
       "devices": {
         "secondSwitch": {
-          "class": "light",
+          "class": "socket",
           "capabilities": ["onoff"],
           "name": {
             "en": "3 Gang Wall Switch"
@@ -64,7 +67,7 @@
           }
         },
         "thirdSwitch": {
-          "class": "light",
+          "class": "socket",
           "capabilities": ["onoff"],
           "name": {
             "en": "3 Gang Wall Switch"
