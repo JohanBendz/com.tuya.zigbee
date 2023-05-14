@@ -67,11 +67,16 @@ class CurtainMotor extends TuyaSpecificClusterDevice {
     .catch(err => {
         this.error('Error when reading device attributes ', err);
     });
-    
+
   }
 
   async setPosition(pos) {
     const reverse = this.getSettings().reverse == 1;
+    const maxOpenPercentage = this.getSettings().max_open_percentage || 100;
+
+    if (pos > maxOpenPercentage / 100) {
+      pos = maxOpenPercentage / 100;
+    }
 
     if (pos === undefined) {
       pos = this.getCapabilityValue('pos');
