@@ -24,11 +24,13 @@
     "manufacturerName": [
       "TUYATEC-0l6xaqmi",
       "_TZ3000_7tbsruql",
-      "_TZ3000_osu834un"
+      "_TZ3000_osu834un",
+      "Immax"
     ],
     "productId": [
       "RH3001",
-      "TS0203"
+      "TS0203",
+      "DoorWindow-Sensor-ZB3.0"
     ],
     "endpoints": {
       "1": {
