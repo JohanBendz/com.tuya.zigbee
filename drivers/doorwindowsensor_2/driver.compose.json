@@ -25,12 +25,14 @@
       "TUYATEC-0l6xaqmi",
       "_TZ3000_7tbsruql",
       "_TZ3000_osu834un",
-      "Immax"
+      "Immax",
+      "Visonic"
     ],
     "productId": [
       "RH3001",
       "TS0203",
-      "DoorWindow-Sensor-ZB3.0"
+      "DoorWindow-Sensor-ZB3.0",
+      "MCT-340 E"
     ],
     "endpoints": {
       "1": {
