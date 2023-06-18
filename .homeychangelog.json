@@ -190,5 +190,8 @@
   },
   "0.2.11": {
     "en": "New test version with a number of new deviced added."
+  },
+  "0.2.12": {
+    "en": "Added support for a number of devices."
   }
 }

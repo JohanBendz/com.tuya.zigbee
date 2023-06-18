@@ -38,6 +38,9 @@ Supported devices:
     _TZ3000_fllyghyj / TS0201
     _TZ3000_8ybe88nf / TS0201
     _TZ3000_fie1dpkm / TS0201
+    _TZ3000_0s1izerx / TS0201
+    TUYATEC-ojmxeikq / RH3052
+    TUYATEC-riuj5xzs / RH3052
 
 - LCD Temperature and Humidity Sensor
     _TZ2000_a476raq2 / TS0201
@@ -109,6 +112,10 @@ Supported devices:
     _TZ3000_rgchmad8 / TS0203
     _TZ3000_au1rjicn / TS0203
     _TZ3000_4ugnzsli / TS0203
+    TUYATEC-7qunn4gq / RH3001
+    _TZ3000_zgrffiwg / TS0203
+    Immax / DoorWindow-Sensor-ZB3.0
+    Visonic / MCT-340 E
 
 - Smart Door/Windows Sensor
     _TZ1800_ejwkn2h2 / TY0203 (Silvercrest / Lidl)
@@ -164,6 +171,7 @@ Supported devices:
     _TZ3000_r6buo8ba / TS011F
     _TZ3000_2putqrmw / TS011F
     _TZ3000_5ity3zyu / TS0121
+    _TZ3000_okaz9tjs / TS011F
 
 - Smart Plug, without metering
     _TZ3000_kdi2o9m6 / TS011F (Silvercrest / Lidl)
@@ -188,6 +196,10 @@ Supported devices:
     _TYZB01_vkwryfdr / TS0115
     _TZ3000_o005nuxx / TS011F (UseeLink)
     _TZ3000_cfnprab5 / TS011F
+    LELLKI / JZ-ZB-004
+
+- Double Power Point, with metering
+    _TZ3210_7jnk7l3k / TS011F
 
 **In-Wall**
 - 1 Gang Switch Module
@@ -224,11 +236,15 @@ Supported devices:
     _TZ3000_ktuoyvt5 / TS110F
     _TZ3210_zxbtub8r / TS110E
     _TZE200_la2c2uo9 / TS0601
+    _TZ3210_weaqkhab / TS110E
+    _TZ3210_k1msuvg6 / TS110E
 
 - 2 Gang Dimmer Module
     _TYZB01_v8gtiaed / TS110F
     _TZ3000_92chsky7 / TS110F
     _TZE200_e3oitdyu / TS0601
+    _TZ3210_wdexaypg / TS110E
+    _TZ3210_3mpwqzuu / TS110E
 
 **On-Wall**
 - 1 Gang Wall Switch
@@ -274,6 +290,7 @@ Supported devices:
     _TZ3000_2dlwlvex / TS0003
     _TZ3000_qcdqw8nf / TS0003
     _TZ3000_vvlivusi / TS0003
+    _TZ3000_5e5ptb24 / TS0013
 
 - 4 Gang Wall Switch
      _TZ3000_r0pmi2p3 / TS0014

@@ -111,6 +111,15 @@ class CurtainMotor extends TuyaSpecificClusterDevice {
 
 module.exports = CurtainMotor;
 
+// Cluster 61184 is a custom cluster that is used to control the curtain motor.
+// The device has 5 datapoints.
+// 1: position of the curtain. 32 bit integer, but only the first byte is used. The value is between 0 and 100. 0 is closed, 100 is open.
+// 2: position (0-100). 32 bit integer, but only the first byte is used. The value is between 0 and 100. 0 is closed, 100 is open.
+// 3: arrived (0/1). Boolean. 0 is false, 1 is true.
+// 4: motor reverse (0/1). Boolean. 0 is false, 1 is true.
+// 5: motor speed (0-100). 32 bit integer, but only the first byte is used. The value is between 0 and 100. 0 is slow, 100 is fast.
+
+
 // {
 //   "ids": {
 //   "modelId": "TS0601",
