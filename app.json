@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -653,6 +653,79 @@
             ]
           }
         ]
+      },
+      {
+        "id": "wall_remote_4_gang_buttons_3",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "The [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_4_gang_3"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "leftUp-oneClick",
+                "label": {
+                  "en": "Upper Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "leftUp-twoClicks",
+                "label": {
+                  "en": "Upper Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "rightUp-oneClick",
+                "label": {
+                  "en": "Upper Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "rightUp-twoClicks",
+                "label": {
+                  "en": "Upper Right Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "leftDown-oneClick",
+                "label": {
+                  "en": "Lower Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "leftDown-twoClicks",
+                "label": {
+                  "en": "Lower Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "rightDown-oneClick",
+                "label": {
+                  "en": "Lower Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "rightDown-twoClicks",
+                "label": {
+                  "en": "Lower Right Button: 2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -939,7 +1012,9 @@
           "_TYZB01_qezuin6k",
           "_TZ3210_ngqk6jia",
           "_TZ3000_ktuoyvt5",
-          "_TZ3210_zxbtub8r"
+          "_TZ3210_zxbtub8r",
+          "_TZ3210_weaqkhab",
+          "_TZ3210_k1msuvg6"
         ],
         "productId": [
           "TS110F",
@@ -1069,10 +1144,13 @@
       "zigbee": {
         "manufacturerName": [
           "_TYZB01_v8gtiaed",
-          "_TZ3000_92chsky7"
+          "_TZ3000_92chsky7",
+          "_TZ3210_wdexaypg",
+          "_TZ3210_3mpwqzuu"
         ],
         "productId": [
-          "TS110F"
+          "TS110F",
+          "TS110E"
         ],
         "endpoints": {
           "1": {
@@ -1248,7 +1326,8 @@
           "_TZ3000_7d8yme6f",
           "_TZ3000_rgchmad8",
           "_TZ3000_au1rjicn",
-          "_TZ3000_4ugnzsli"
+          "_TZ3000_4ugnzsli",
+          "TUYATEC-7qunn4gq"
         ],
         "productId": [
           "RH3001",
@@ -1306,11 +1385,15 @@
         "manufacturerName": [
           "TUYATEC-0l6xaqmi",
           "_TZ3000_7tbsruql",
-          "_TZ3000_osu834un"
+          "_TZ3000_osu834un",
+          "Immax",
+          "Visonic"
         ],
         "productId": [
           "RH3001",
-          "TS0203"
+          "TS0203",
+          "DoorWindow-Sensor-ZB3.0",
+          "MCT-340 E"
         ],
         "endpoints": {
           "1": {
@@ -1333,6 +1416,242 @@
         }
       },
       "settings": []
+    },
+    {
+      "id": "doorwindowsensor_3",
+      "name": {
+        "en": "Door & Window Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_contact",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/doorwindowsensor_3/assets/images/large.png",
+        "small": "/drivers/doorwindowsensor_3/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_zgrffiwg"
+        ],
+        "productId": [
+          "TS0203"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/doorwindowsensor_3/assets/learn.svg",
+          "instruction": {
+            "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "double_power_point",
+      "name": {
+        "en": "Double Power Point"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/double_power_point/assets/images/large.png",
+        "small": "/drivers/double_power_point/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3210_7jnk7l3k"
+        ],
+        "productId": [
+          "TS011F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6,
+              1794,
+              2820
+            ],
+            "bindings": [
+              6,
+              1794,
+              2820
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+          }
+        }
+      },
+      "subdevices": [
+        {
+          "id": "seconddoublepowerpoint",
+          "name": {
+            "en": "Second Power Point"
+          },
+          "class": "socket",
+          "capabilities": [
+            "onoff",
+            "measure_power",
+            "meter_power",
+            "measure_current",
+            "measure_voltage"
+          ],
+          "capabilitiesOptions": {
+            "measure_power": {
+              "approximated": true
+            }
+          },
+          "zigbee": {
+            "endpoints": {
+              "2": {
+                "clusters": [
+                  0,
+                  4,
+                  5,
+                  6,
+                  1794,
+                  2820
+                ],
+                "bindings": [
+                  6,
+                  1794,
+                  2820
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "settings": [
+        {
+          "id": "metering_offset",
+          "type": "number",
+          "label": {
+            "en": "Metering Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "measure_offset",
+          "type": "number",
+          "label": {
+            "en": "Measure Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "minReportPower",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for power (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportCurrent",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for current (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportVoltage",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for voltage (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        }
+      ]
     },
     {
       "id": "flood_sensor",
@@ -3403,7 +3722,8 @@
           "_TZ3000_1h2x4akh",
           "_TZ3000_r6buo8ba",
           "_TZ3000_2putqrmw",
-          "_TZ3000_5ity3zyu"
+          "_TZ3000_5ity3zyu",
+          "_TZ3000_okaz9tjs"
         ],
         "productId": [
           "TS0121",
@@ -3914,6 +4234,135 @@
       "settings": []
     },
     {
+      "id": "socket_power_strip_four_three",
+      "name": {
+        "en": "Power Strip 4 Sockets"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/socket_power_strip_four_three/assets/images/large.png",
+        "small": "/drivers/socket_power_strip_four_three/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "LELLKI"
+        ],
+        "productId": [
+          "JZ-ZB-004"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "4": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "socket2": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "Power Strip Socket 2/4"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "socket3": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "Power Strip Socket 3/4"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "socket4": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "Power Strip Socket 4/4"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "A tile for each socket will be created. Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "socket_power_strip_four_two",
       "name": {
         "en": "Power Strip 4 Sockets"
@@ -4270,12 +4719,14 @@
           "TUYATEC-gqhxixyk",
           "TUYATEC-vmgh3fxd",
           "TUYATEC-ojmxeikg",
+          "TUYATEC-ojmxeikq",
           "TUYATEC-1g3tawnp",
           "_TZ3000_i8jfiezr",
           "TUYATEC-v3uxbuxy",
           "_TZ3000_bguser20",
           "_TZ3000_8ybe88nf",
-          "_TZ3000_fie1dpkm"
+          "_TZ3000_fie1dpkm",
+          "TUYATEC-riuj5xzs"
         ],
         "productId": [
           "RH3052",
@@ -4417,7 +4868,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_dowj6gyi"
+          "_TZ3000_dowj6gyi",
+          "_TZ3000_0s1izerx"
         ],
         "productId": [
           "RH3052",
@@ -5215,7 +5667,6 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_vp6clf9d",
-          "_TZ3000_wkai4ga5",
           "_TZ3000_ufhtxr59",
           "_TZ3000_ee8nrt2l"
         ],
@@ -5311,6 +5762,79 @@
         },
         "learnmode": {
           "image": "/drivers/wall_remote_4_gang_2/assets/icon.svg",
+          "instruction": {
+            "en": "Press the lower left button for aprox 10 seconds (all LED should start blinking)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "wall_remote_4_gang_3",
+      "name": {
+        "en": "4 Gang Wall Remote"
+      },
+      "class": "remote",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/wall_remote_4_gang_3/assets/images/large.png",
+        "small": "/drivers/wall_remote_4_gang_3/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_wkai4ga5"
+        ],
+        "productId": [
+          "TS0044"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "4": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_remote_4_gang_3/assets/icon.svg",
           "instruction": {
             "en": "Press the lower left button for aprox 10 seconds (all LED should start blinking)."
           }
@@ -5510,7 +6034,8 @@
           "_TZ3000_thhxrept",
           "_TZ3000_2dlwlvex",
           "_TZ3000_qcdqw8nf",
-          "_TZ3000_vvlivusi"
+          "_TZ3000_vvlivusi",
+          "_TZ3000_5e5ptb24"
         ],
         "productId": [
           "TS0003",

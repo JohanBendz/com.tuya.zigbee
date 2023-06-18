@@ -127,3 +127,16 @@ class christmas_lights extends TuyaSpecificClusterDevice {
 }
 
 module.exports = christmas_lights;
+
+// Cluster 61184 is a custom cluster that is used to control the device.
+// The device has 6 datapoints.
+// 1: Boolean that controls on/off.
+// 2: Enum that controls the mode (white, color, effect).
+// 3: 32 bit integer that controls the dim level in white mode.
+// 4: 32 bit integer that controls the dim level in color mode.
+// 5: String that controls the color in color mode.
+// 6: String that controls the effect in effect mode.
+// The device does not report any of these attributes, so the app has to poll the device to get the current state.
+// The device does report the on/off state, but the app does not use this, because it is not reliable.
+// The device also reports the current mode, but the app does not use this, because it is not reliable.
+// The device does not report the current dim level, color or effect, so the app has to poll the device to get the current state.
