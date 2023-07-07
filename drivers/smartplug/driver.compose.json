@@ -59,8 +59,7 @@
       "_TZ3000_1h2x4akh",
       "_TZ3000_r6buo8ba",
       "_TZ3000_2putqrmw",
-      "_TZ3000_5ity3zyu",
-      "_TZ3000_qeuvnohg"
+      "_TZ3000_5ity3zyu"
     ],
     "productId": [
       "TS0121",
@@ -69,8 +68,8 @@
     ],
     "endpoints": {
       "1": {
-        "clusters": [ 0, 3, 4, 5, 6, 1794, 2820, 1026, 57344, 57345 ],
-        "bindings": [ 6, 1794, 2820, 1026, 57344, 57345 ]
+        "clusters": [ 0, 4, 5, 6, 1794, 2820 ],
+        "bindings": [ 6, 1794, 2820 ]
       }
     },
     "learnmode": {
