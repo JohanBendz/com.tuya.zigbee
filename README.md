@@ -114,6 +114,7 @@ Supported devices:
     _TZ3000_4ugnzsli / TS0203
     TUYATEC-7qunn4gq / RH3001
     _TZ3000_zgrffiwg / TS0203
+    _TZ3000_decxrtwa / TS0203
     Immax / DoorWindow-Sensor-ZB3.0
     Visonic / MCT-340 E
 
