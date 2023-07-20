@@ -832,6 +832,7 @@
 				"endpoints": {
 					"1": {
 						"clusters": [
+							0,
 							4,
 							5,
 							6,
