@@ -1,0 +1,40 @@
+{
+    "id": "smart_remote_1_button_2",
+    "name": {
+      "en": "1 button Smart Remote Controller"
+    },
+    "class": "remote",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [ ],
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "energy": {
+      "batteries": [
+        "CR2032"
+      ]
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TZ3000_ja5osu5g"
+      ],
+      "productId": [
+        "TS004F"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 1, 3, 4, 6, 4096, 57345],
+          "bindings": [1, 6]
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Press the reset button for aprox 10 seconds (the LED should start blinking)."
+        }
+      }
+    }
+
+}
