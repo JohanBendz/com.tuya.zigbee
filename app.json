@@ -871,6 +871,86 @@
       ]
     },
     {
+      "id": "curtain_module_2nd_generation",
+      "name": {
+        "en": "Curtain Module 2nd Generation"
+      },
+      "class": "curtain",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "windowcoverings_set"
+      ],
+      "images": {
+        "large": "/drivers/curtain_module_2nd_generation/assets/images/large.png",
+        "small": "/drivers/curtain_module_2nd_generation/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_e3vhyirx"
+        ],
+        "productId": [
+          "TS130F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6,
+              258,
+              57345
+            ],
+            "bindings": [
+              258,
+              57345
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/curtain_module_2nd_generation/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button for 10 seconds or power on/off 5 times to enter pairing mode (the LED should blink / device starts beeping)."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "reverse",
+          "type": "radio",
+          "label": {
+            "en": "FUNCTION UNDER DEVELOPMENT, NOT WORKING - Motor moves in reverse direction"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On"
+              }
+            }
+          ]
+        }
+      ]
+    },
+	{
       "id": "curtain_motor",
       "name": {
         "en": "Curtain Motor",
