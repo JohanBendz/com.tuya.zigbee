@@ -12,16 +12,7 @@ class curtainmodule extends ZigBeeDevice {
 
         this.printNode();
 
-        this._reportDebounceEnabled = false;
-
-
-		// onOff
-		this.registerCapability('onoff', CLUSTER.ON_OFF, {
-			getOpts: {
-				getOnStart: true,
-				pollInterval: 60000
-			}
-		});
+		this._reportDebounceEnabled = false;
 
         this.registerCapability('windowcoverings_set', CLUSTER.WINDOW_COVERING, {
             reportOpts: {
