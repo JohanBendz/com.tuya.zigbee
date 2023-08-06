@@ -137,6 +137,9 @@ Supported devices:
 - Smoke Sensor
     _TYZB01_dsjszp0x / TS0205
 
+- Soil humidity sensor
+    _TZE200_myd45weu / TS0601 (GiEX)
+
 **Plugs and Socket Strips**
 - Smart Plug, with metering
     _TZ3000_3ooaz3ng / TS0121
@@ -466,5 +469,6 @@ Contributors:
 - Bert van Hoekelen, Curtain Motors
 - Łukasz Krutul, better measuring functionality for plugs and Tuya specific reporting
 - Jesper Bach, Smart Remote 1 Button
+- Patrick van der Poel, Soil sensor
 
 I would also like to thank everyone who contributes with device information, testing and beer!
