@@ -883,7 +883,8 @@
         "zigbee"
       ],
       "capabilities": [
-        "windowcoverings_set"
+        "windowcoverings_set",
+		"windowcoverings_state"
       ],
       "images": {
         "large": "/drivers/curtain_module_2nd_generation/assets/images/large.png",

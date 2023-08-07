@@ -14,6 +14,10 @@ class curtainmodule extends ZigBeeDevice {
 
 		this._reportDebounceEnabled = false;
 
+		if (!this.hasCapability('windowcoverings_state')) {
+			await this.addCapability('windowcoverings_state').catch(this.error);;
+		}
+
         this.registerCapability('windowcoverings_set', CLUSTER.WINDOW_COVERING, {
             reportOpts: {
             configureAttributeReporting: {
@@ -22,7 +26,17 @@ class curtainmodule extends ZigBeeDevice {
                 minChange: 5, // Report when value changed by 5
             },
             },
-        });
+		});
+
+		this.registerCapability('windowcoverings_state', CLUSTER.WINDOW_COVERING, {
+			reportOpts: {
+				configureAttributeReporting: {
+					minInterval: 0, // No minimum reporting interval
+					maxInterval: 30000, // Maximally every ~8 hours
+					minChange: 5, // Report when value changed by 5
+				},
+			},
+		});
 
         await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
         .catch(err => {
