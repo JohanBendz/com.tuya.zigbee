@@ -1,6 +1,6 @@
 ### Tuya Zigbee
 Adds support for Tuya Zigbee devices
-
+Relay test
 Some of the supported White Label Brands:
 - Alecto
 - Blitzwolf
