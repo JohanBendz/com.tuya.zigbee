@@ -6388,6 +6388,53 @@
       "settings": []
     },
     {
+      "name": {
+        "en": "Wall Thermostat"
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "onoff",
+        "measure_temperature",
+        "target_temperature"
+      ],
+      "zigbee": {
+        "manufacturerName": "_TZE200_aoclfnxz",
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              513,
+              1026,
+              61184
+            ],
+            "bindings": [
+              25,
+              10,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/my_driver/assets/icon.svg",
+          "instruction": {
+            "en": "Press the arrow down button for 8s when the thermostat is off."
+          }
+        }
+      },
+      "id": "wall_thermostat",
+      "settings": []
+    },
+    {
       "id": "water_detector",
       "name": {
         "en": "Water Detector"
