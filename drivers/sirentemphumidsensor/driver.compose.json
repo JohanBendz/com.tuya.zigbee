@@ -9,7 +9,8 @@
     "measure_temperature",
     "measure_humidity",
     "measure_battery",
-    "alarm_battery"
+    "alarm_battery",
+    "alarm_siren"
   ],
   "capabilitiesOptions": {
     "onoff": {
@@ -45,8 +46,8 @@
           61184
         ],
         "bindings": [
-          4,
-          5,
+          10,
+          25,
           61184
         ]
       }

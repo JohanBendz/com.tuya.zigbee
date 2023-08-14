@@ -95,6 +95,7 @@ class sensortemphumidsensor extends TuyaSpecificClusterDevice {
 		this.addCapability("measure_humidity");
 		this.addCapability("measure_battery");
 		this.addCapability("alarm_battery");
+		this.addCapability("alarm_siren");
 
 		this.registerCapabilityListener('onoff', async value => {
 			this.log('onoff: ', value);
@@ -154,11 +155,6 @@ class sensortemphumidsensor extends TuyaSpecificClusterDevice {
 		let action_alarm_tune = this.homey.flow.getActionCard('alarm_tune');
 		action_alarm_tune.registerRunListener(alarm_tune_run_listener);
 
-		await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
-        .catch(err => {
-            this.error('Error when reading device attributes ', err);
-        });
-
 	}
 
 	async processResponse(data) {
@@ -167,6 +163,7 @@ class sensortemphumidsensor extends TuyaSpecificClusterDevice {
 		let parsedValue = 0;
 
 		// see https://raw.githubusercontent.com/kkossev/Hubitat/main/Drivers/Tuya%20Smart%20Siren%20Zigbee/Tuya%20Smart%20Siren%20Zigbee.groovy
+		// and https://github.com/zigpy/zha-device-handlers/blob/dev/zhaquirks/tuya/ts0601_siren.py
 		switch (dp) {
 			case 0x74: // Neo Alarm Volume [0, 1, 2]
 				this.log('received Neo Alarm Volume is (', measuredValue, ')');
