@@ -1,0 +1,265 @@
+[
+  {
+    "id": "temperature_offset",
+    "type": "number",
+    "label": {
+      "en": "Temperature offset (°C)",
+      "it": "Offset della temperatura (°C)"
+    },
+    "hint": {
+      "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]",
+      "it": "Imposta un valore per compensare lo scostamento della temperatura.\nRange: -10 - 10, step ze 0.1, \ndefault: 0 [°C]"
+    },
+    "value": 0,
+    "attr": {
+      "min": -10,
+      "max": 10,
+      "step": 0.1
+    }
+  },
+  {
+    "id": "humidity_offset",
+    "type": "number",
+    "label": {
+      "en": "Humidity offset (%)",
+      "nl": "Luchtvochtigheids compensatie (%)",
+      "it": "Offset dell'umidità (%)"
+    },
+    "hint": {
+      "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+      "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]",
+      "it": "Imposta un valore per compensare lo scostamento dell'umidità.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]"
+    },
+    "value": 0,
+    "attr": {
+      "min": -10,
+      "max": 10,
+      "step": 1
+    }
+  },
+  {
+    "id": "alarmvolume",
+    "type": "dropdown",
+    "label": {
+      "en": "Alarm volume",
+      "nl": "Alarm volume",
+      "de": "Alarm Lautstärke"
+    },
+    "value": "0",
+    "hint": {
+      "en": "Set the volume of the Alarm sound",
+      "nl": "Aanpassen volume van Alarm geluid",
+      "de": "Einstellen der Lautstärke des Alarmtons"
+    },
+    "values": [
+      {
+        "id": "2",
+        "label": {
+          "en": "Low",
+          "nl": "Laag",
+          "de": "Niedrig"
+        }
+      },
+      {
+        "id": "1",
+        "label": {
+          "en": "Midle",
+          "nl": "Middelmatig",
+          "de": "Mittel"
+        }
+      },
+      {
+        "id": "0",
+        "label": {
+          "en": "High (default)",
+          "nl": "Hoog (standaard)",
+          "de": "Hoch (Standard)"
+        }
+      }
+    ]
+  },
+  {
+    "id": "alarmsoundtime",
+    "type": "number",
+    "value": 120,
+    "min": 1,
+    "max": 65535,
+    "step": 1,
+    "units": {
+      "en": "Seconds",
+      "de": "Sekunden",
+      "nl": "Seconden"
+    },
+    "label": {
+      "en": "Alarm duration time",
+      "nl": "Alarm duratie",
+      "de": "Alarmdauer"
+    },
+    "hint": {
+      "en": "Set the duration of the time the siren will sound its alarm music",
+      "nl": "Pas de tijd aan dat de sirene zijn alarm geluid laat horen",
+      "de": "Stellt die Zeitdauer ein, während der die Sirene Alarmton erklingt"
+    }
+  },
+  {
+    "id": "alarmtune",
+    "type": "dropdown",
+    "label": {
+      "en": "Alarm sound tune",
+      "nl": "Melodie/geluid alarm",
+      "de": "Alarm Melodie"
+    },
+    "value": "1",
+    "hint": {
+      "en": "Choose the tune of the alarm sound",
+      "nl": "Kies de melodie die gebruikt wordt bij alarm",
+      "de": "Wählt die Melodie des Alarmtons aus."
+    },
+    "values": [
+      {
+        "id": "0",
+        "label": {
+          "en": "Doorbell 1",
+          "nl": "Doorbell 1",
+          "de": "Doorbell 1"
+        }
+      },
+      {
+        "id": "1",
+        "label": {
+          "en": "For Elise (default)",
+          "nl": "Fur Elise (standaard)",
+          "de": "Fur Elise (Standard)"
+        }
+      },
+      {
+        "id": "2",
+        "label": {
+          "en": "Westminster",
+          "nl": "Westminster",
+          "de": "Westminster"
+        }
+      },
+      {
+        "id": "3",
+        "label": {
+          "en": "4 Key Chime",
+          "nl": "4 Key Chime",
+          "de": "4 Key Chime"
+        }
+      },
+      {
+        "id": "4",
+        "label": {
+          "en": "William Tell",
+          "nl": "William Tell",
+          "de": "William Tell"
+        }
+      },
+      {
+        "id": "5",
+        "label": {
+          "en": "Mozart Piano",
+          "nl": "Mozart Piano",
+          "de": "Mozart Piano"
+        }
+      },
+      {
+        "id": "6",
+        "label": {
+          "en": "Space Alarm",
+          "nl": "Space Alarm",
+          "de": "Space Alarm"
+        }
+      },
+      {
+        "id": "7",
+        "label": {
+          "en": "Klaxon",
+          "nl": "Klaxon",
+          "de": "Klaxon"
+        }
+      },
+      {
+        "id": "8",
+        "label": {
+          "en": "Meep meep",
+          "nl": "Meep meep",
+          "de": "Meep meep"
+        }
+      },
+      {
+        "id": "9",
+        "label": {
+          "en": "Wheep",
+          "nl": "Wheep",
+          "de": "Wheep"
+        }
+      },
+      {
+        "id": "10",
+        "label": {
+          "en": "Barking dog",
+          "nl": "Barking dog",
+          "de": "Barking dog"
+        }
+      },
+      {
+        "id": "11",
+        "label": {
+          "en": "Alarm Siren",
+          "nl": "Alarm Siren",
+          "de": "Alarm Siren"
+        }
+      },
+      {
+        "id": "12",
+        "label": {
+          "en": "Doorbell 2",
+          "nl": "Doorbell 2",
+          "de": "Doorbell 2"
+        }
+      },
+      {
+        "id": "13",
+        "label": {
+          "en": "Old Phone",
+          "nl": "Old Phone",
+          "de": "Old Phone"
+        }
+      },
+      {
+        "id": "14",
+        "label": {
+          "en": "Police Siren",
+          "nl": "Police Siren",
+          "de": "Police Siren"
+        }
+      },
+      {
+        "id": "15",
+        "label": {
+          "en": "Evacuation bell",
+          "nl": "Evacuation bell",
+          "de": "Evacuation bell"
+        }
+      },
+      {
+        "id": "16",
+        "label": {
+          "en": "Clock alarm",
+          "nl": "Clock alarm",
+          "de": "Clock alarm"
+        }
+      },
+      {
+        "id": "17",
+        "label": {
+          "en": "Fire alarm",
+          "nl": "Fire alarm",
+          "de": "Fire alarm"
+        }
+      }
+    ]
+  }
+]

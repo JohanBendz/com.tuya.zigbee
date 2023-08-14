@@ -70,3 +70,6 @@ typings
 
 # Added by Homey CLI
 /.homeybuild/
+
+# Debug integration with VSCode
+.vscode/launch.json
