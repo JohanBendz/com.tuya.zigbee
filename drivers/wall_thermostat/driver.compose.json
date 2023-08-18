@@ -8,6 +8,10 @@
     "measure_temperature",
     "target_temperature"
   ],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.jpg",
+    "small": "{{driverAssetsPath}}/images/small.jpg"
+  },
   "zigbee": {
     "manufacturerName": "_TZE200_aoclfnxz",
     "productId": [

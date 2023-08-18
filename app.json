@@ -6397,6 +6397,10 @@
         "measure_temperature",
         "target_temperature"
       ],
+      "images": {
+        "large": "/drivers/wall_thermostat/assets/images/large.jpg",
+        "small": "/drivers/wall_thermostat/assets/images/small.jpg"
+      },
       "zigbee": {
         "manufacturerName": "_TZE200_aoclfnxz",
         "productId": [
