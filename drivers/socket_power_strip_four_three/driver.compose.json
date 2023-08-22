@@ -1,5 +1,5 @@
 {
-  "id": "socket_power_strip_four_two",
+  "id": "socket_power_strip_four_three",
   "name": {
     "en": "Power Strip 4 Sockets"
   },
@@ -20,11 +20,10 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TZ3000_o005nuxx",
-      "_TZ3000_cfnprab5"
+      "LELLKI"
     ],
     "productId": [
-      "TS011F"
+      "JZ-ZB-004"
     ],
     "endpoints": {
       "1": {
@@ -40,10 +39,6 @@
         "bindings": [6]
       },
       "4": {
-        "clusters": [4, 5, 6],
-        "bindings": [6]
-      },
-      "5": {
         "clusters": [4, 5, 6],
         "bindings": [6]
       }
@@ -80,19 +75,6 @@
         "capabilities": ["onoff"],
         "name": {
           "en": "Power Strip Socket 4/4"
-        },
-        "energy": {
-          "approximation": {
-            "usageOn": 0,
-            "usageOff": 0
-          }
-        }
-      },
-      "usb": {
-        "class": "socket",
-        "capabilities": ["onoff"],
-        "name": {
-          "en": "Power Strip USB"
         },
         "energy": {
           "approximation": {

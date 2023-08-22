@@ -1,5 +1,5 @@
 {
-  "id": "doorwindowsensor",
+  "id": "doorwindowsensor_3",
   "name": {
     "en": "Door & Window Sensor"
   },
@@ -12,7 +12,8 @@
   ],
   "energy": {
     "batteries": [
-      "CR2032"
+      "AAA",
+      "AAA"
     ]
   },
   "images": {
@@ -21,35 +22,9 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "TUYATEC-g3gl6cgy",
-      "TUYATEC-Bfq2i2Sy",
-      "TUYATEC-abkehqus",
-      "TUYATEC-sb6t7ett",
-      "TUYATEC-rkqiqvcs",
-      "TUYATEC-crr8qb0p",
-      "_TZ3000_ebar6ljy",
-      "TUYATEC-kbqf60nt",
-      "TUYATEC-r9hgssol",
-      "TUYATEC-trhrga6p",
-      "TUYATEC-ip9ganvw",
-      "_TYZB01_xph99wvr",
-      "_TZ3000_2mbfxlzr",
-      "_TZ3000_402jjyro",
-      "_TZ3000_6jeesvrt",
-      "_TZ3000_26fmupbb",
-      "_TZ3000_bmg14ax2",
-      "_TZ3000_oxslv1c9",
-      "_TZ3000_bzxlofth",
-      "_TZ3000_bzxloft",
-      "_TZ3000_n2egfsli",
-      "_TZ3000_7d8yme6f",
-      "_TZ3000_rgchmad8",
-      "_TZ3000_au1rjicn",
-      "_TZ3000_4ugnzsli",
-      "TUYATEC-7qunn4gq"
+      "_TZ3000_zgrffiwg"
     ],
     "productId": [
-      "RH3001",
       "TS0203"
     ],
     "endpoints": {

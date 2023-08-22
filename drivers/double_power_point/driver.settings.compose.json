@@ -1,0 +1,82 @@
+[
+  {
+    "id": "metering_offset",
+    "type": "number",
+    "label": {
+      "en": "Metering Correction Factor"
+    },
+    "hint": {
+      "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+    },
+    "value": 1,
+    "attr": {
+      "min": 0.8,
+      "max": 1.2,
+      "step": 0.1
+    }
+  },
+  {
+    "id": "measure_offset",
+    "type": "number",
+    "label": {
+      "en": "Measure Correction Factor"
+    },
+    "hint": {
+      "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+    },
+    "value": 1,
+    "attr": {
+      "min": 0.8,
+      "max": 1.2,
+      "step": 0.1
+    }
+  },
+  {
+    "id": "minReportPower",
+    "type": "number",
+    "label": {
+      "en": "Min report interval for power (s)"
+    },
+    "hint": {
+      "en": "Min interval before a report is sent to Homey (s)"
+    },
+    "value": 60,
+    "attr": {
+      "step": 1,
+      "min": 10,
+      "max": 86400
+    }
+  },
+  {
+    "id": "minReportCurrent",
+    "type": "number",
+    "label": {
+      "en": "Min report interval for current (s)"
+    },
+    "hint": {
+      "en": "Min interval before a report is sent to Homey (s)"
+    },
+    "value": 60,
+    "attr": {
+      "step": 1,
+      "min": 10,
+      "max": 86400
+    }
+  },
+  {
+    "id": "minReportVoltage",
+    "type": "number",
+    "label": {
+      "en": "Min report interval for voltage (s)"
+    },
+    "hint": {
+      "en": "Min interval before a report is sent to Homey (s)"
+    },
+    "value": 60,
+    "attr": {
+      "step": 1,
+      "min": 10,
+      "max": 86400
+    }
+  }
+]
