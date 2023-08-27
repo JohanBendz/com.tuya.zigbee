@@ -7,6 +7,11 @@
                 "nl": "Sirene Alarm",
                 "de": "Sirenenalarm"
             },
+            "titleFormatted": {
+                "en": "Siren Alarm",
+                "nl": "Sirene Alarm",
+                "de": "Sirenenalarm"
+            },
             "hint": {
                 "en": "This card will trigger when siren is activated.",
                 "nl": "Deze kaart wordt alleen geactiveerd wanneer de sirene actief is.",
@@ -23,6 +28,11 @@
                 "nl": "Verander de alarm toestand",
                 "de": "Ändern des Alarmstatus"
             },
+            "titleFormatted": {
+                "en": "Change the alarm state to [[alarm_state]]",
+                "nl": "Verander de alarm toestand naar [[alarm_state]]",
+                "de": "Ändern des Alarmstatus zu [[alarm_state]]"
+              },
             "hint": {
                 "en": "Change the alarm state; sound or silence the alarm",
                 "nl": "Verander de alarm toestand; luiden of uitschakelen van het alarm",
@@ -95,6 +105,11 @@
                 "nl": "Zet het volume van de sirene",
                 "de": "Einstellen der Lautstärke der Sirene"
             },
+            "titleFormatted": {
+                "en": "Set volume of siren to [[siren_volume]]",
+                "nl": "Zet het volume van de sirene naar [[siren_volume]]",
+                "de": "Einstellen der Lautstärke der Sirene auf [[siren_volume]]"
+            },
             "hint": {
                 "en": "Set volume of siren.",
                 "nl": "Zet het volume van de sirene.",
@@ -139,6 +154,11 @@
                 "en": "Set the alarm tune",
                 "nl": "Stel de alarm melodie in",
                 "de": "Einstellen des Alarmtons"
+            },
+            "titleFormatted": {
+                "en": "Set the alarm tune to [[alarm_tune]]",
+                "nl": "Stel de alarm melodie in op [[alarm_tune]]",
+                "de": "Einstellen des Alarmtons zu [[alarm_tune]]"
             },
             "hint": {
                 "en": "Choose the tune of the alarm sound",
