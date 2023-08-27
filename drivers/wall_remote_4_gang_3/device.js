@@ -29,7 +29,7 @@ class wall_remote_4_gang_3 extends ZigBeeDevice {
         }
       };
 
-      this._buttonPressedTriggerDevice = this.homey.flow.getDeviceTriggerCard('wall_remote_4_gang_buttons')
+      this._buttonPressedTriggerDevice = this.homey.flow.getDeviceTriggerCard('wall_remote_4_gang_buttons_3')
       .registerRunListener(async (args, state) => {
         return (null, args.action === state.action);
       });
