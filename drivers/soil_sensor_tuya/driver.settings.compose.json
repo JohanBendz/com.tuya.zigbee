@@ -1,0 +1,27 @@
+[
+    {
+      "type": "dropdown",
+      "id": "temperatureUnit",
+      "label": {
+        "en": "Temperature Unit",
+        "nl": "Temperatuureenheid"
+      },
+      "values": [
+        {
+          "id": "C",
+          "label": {
+            "en": "Celsius",
+            "nl": "Celsius"
+          }
+        },
+        {
+          "id": "F",
+          "label": {
+            "en": "Fahrenheit",
+            "nl": "Fahrenheit"
+          }
+        }
+      ],
+      "value": "C"
+    }
+]

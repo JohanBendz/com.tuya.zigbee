@@ -1,7 +1,7 @@
 {
-    "id": "wall_switch_3_gang",
+    "id": "switch_3_gang",
     "name": {
-      "en": "3 Gang Wall Switch"
+      "en": "3 Gang Switch Module"
     },
     "class": "socket",
     "platforms": ["local"],
@@ -21,34 +21,22 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TYZB01_xiuox57i",
-        "_TYZB01_b8cr31hp",
-        "_TZ3000_wyhuocal",
-        "_TZ3000_cdamjqm9",
-        "_TYZB01_mqel1whf",
-        "_TZ3000_hlwm8e96",
-        "_TZ3000_thhxrept",
-        "_TZ3000_2dlwlvex",
-        "_TZ3000_qcdqw8nf",
-        "_TZ3000_vvlivusi",
-        "_TZ3000_5e5ptb24"
+        "_TZ3000_odzoiovu"
       ],
       "productId": [
-        "TS0003",
-        "TS0013",
-        "TS0043"
+        "TS0003"
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 6],
+          "clusters": [0, 4, 5, 6],
           "bindings": [6]
         },
         "2": {
-          "clusters": [6],
+          "clusters": [4, 5, 6],
           "bindings": [6]
         },
         "3": {
-          "clusters": [6],
+          "clusters": [4, 5, 6],
           "bindings": [6]
         }
       },
@@ -57,7 +45,7 @@
           "class": "socket",
           "capabilities": ["onoff"],
           "name": {
-            "en": "3 Gang Wall Switch"
+            "en": "3 Gang Switch Module"
           },
           "energy": {
             "approximation": {
@@ -70,7 +58,7 @@
           "class": "socket",
           "capabilities": ["onoff"],
           "name": {
-            "en": "3 Gang Wall Switch"
+            "en": "3 Gang Switch Module"
           },
           "energy": {
             "approximation": {
@@ -83,7 +71,7 @@
       "learnmode": {
         "image": "{{driverAssetsPath}}/icon.svg",
         "instruction": {
-          "en": "A tile for each button will be created. Remove the front and press the setup button for 10 seconds (the LED should start blinking)."
+          "en": "Three tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
         }
       }
     }

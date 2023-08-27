@@ -193,5 +193,8 @@
   },
   "0.2.12": {
     "en": "Added support for a number of devices."
+  },
+  "0.2.13": {
+    "en": "Added support for a number of devices and made some fixes."
   }
 }

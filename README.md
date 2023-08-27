@@ -76,6 +76,7 @@ Supported devices:
     _TZ3000_mcxw5ehu / TS0202
     _TZ3000_otvn3lne / TS0202
     _TZ3000_6ygjfyll / TS0202
+    _TZ3040_6ygjfyll / TS0202
 
 . Motion Sensor
     TUYATEC-bd5faf9p / RH3040 (Nedis)
@@ -130,12 +131,19 @@ Supported devices:
     _TZ3000_kyb656no / TS0207
     _TZ3000_0s9gukzt / TS0207
 
+- Water Leak Sensor
+    _TZE200_qq9mpfhw / TS0601
+
 - Flood Sensor
     TUYATEC-3tipnsrx / RH3001
     _TZ3000_4uvovz4r / TS0207
 
 - Smoke Sensor
     _TYZB01_dsjszp0x / TS0205
+
+- Soil sensor
+    _TZE200_myd45weu / TS0601
+    _TZE200_ga1maeof / TS0601
 
 **Plugs and Socket Strips**
 - Smart Plug, with metering
@@ -158,7 +166,7 @@ Supported devices:
     _TZ3000_cehuw1lw / TS011F
     _TZ3000_5f43h46b / TS011F
     _TZ3000_fqoynhku / TS0121
-    _TZ3000_ynmowqk2 / TS011F
+    _TZ3000_ynmowqk2 / TS011F (Silvercrest)
     _TZ3000_kx0pris5 / TS011F
     _TZ3000_hdopuwv6 / TS011F
     _TZ3000_bfn1w0mm / TS011F
@@ -230,6 +238,12 @@ Supported devices:
     _TZ3000_18ejxno0 / TS0012
     _TZ3000_llfaquvp / TS0012
 
+- 2 Gang Switch Module with metering
+    _TZ3000_zmy4lslw / TS0002
+
+- 3 Gang Switch Module
+    _TZ3000_odzoiovu / TS0003
+
 - 1 Gang Dimmer Module
     _TYZB01_qezuin6k / TS110F
     _TZ3210_ngqk6jia / TS110E
@@ -276,6 +290,7 @@ Supported devices:
     _TZ3000_5vujyute / TS0002
     _TYZB01_2athzhfr / TS0012
     _TZ3000_56bdyj21 / TS0002
+    _TZ3000_e98krvvk / TS0012
 
 - 3 Gang Wall Switch
     _TYZB01_xiuox57i / TS0013
@@ -285,7 +300,6 @@ Supported devices:
     _TZ3000_cdamjqm9 / TS0003 (Zemismart ZM-L03E-Z)
     TYZB01_mqel1whf / TS0013
     _TZ3000_hlwm8e96 / TS0013
-    _TZ3000_odzoiovu / TS0003
     _TZ3000_thhxrept / TS0003
     _TZ3000_2dlwlvex / TS0003
     _TZ3000_qcdqw8nf / TS0003
@@ -296,6 +310,9 @@ Supported devices:
      _TZ3000_r0pmi2p3 / TS0014
      _TZ3000_dku2cfsc / TS0044
      _TZ3000_fjt5218m / TS0044
+
+- Wall Dimmer
+    _TZE200_3p5ydos3 / TS0601
 
 **Lights**
 - Christmas Tree Lights

@@ -1,14 +1,22 @@
 {
-    "id": "valvecontroller",
+    "id": "wall_dimmer_tuya",
     "name": {
-      "en": "Valve Controller"
+      "en": "Wall Dimmer"
     },
-    "class": "other",
+    "class": "light",
     "platforms": ["local"],
     "connectivity": ["zigbee"],
     "capabilities": [
-      "onoff"
+      "onoff",
+      "dim"
     ],
+    "capabilitiesOptions": {
+      "dim": {
+          "opts": {
+          "duration": true
+          }
+      }
+    },
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",
       "small": "{{driverAssetsPath}}/images/small.png"
@@ -21,22 +29,15 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TYZB01_ymcdbl3u",
-        "_TZ3000_o4cjetlm",
-        "_TYZB01_4tlksk8a",
-        "_TZ3000_tvuarksa",
-        "_TZ3000_j9568h44",
-        "_TZ3000_iedbgyxt"
+        "_TZE200_3p5ydos3"
       ],
       "productId": [
-        "TS0111",
-        "TS0001",
-        "TS011F"
+        "TS0601"
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 3, 4, 5, 6, 57345],
-          "bindings": [6, 57345]
+          "clusters": [0, 4, 5, 61184],
+          "bindings": [25, 10]
         }
       },
       "learnmode": {
