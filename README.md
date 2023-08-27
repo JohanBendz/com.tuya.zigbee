@@ -180,6 +180,7 @@ Supported devices:
     _TZ3000_2putqrmw / TS011F
     _TZ3000_5ity3zyu / TS0121
     _TZ3000_okaz9tjs / TS011F
+    _TZ3000_eyzb8yg3 / TS0121
 
 - Smart Plug, without metering
     _TZ3000_kdi2o9m6 / TS011F (Silvercrest / Lidl)
@@ -480,8 +481,10 @@ Contributors:
 - Jurgen Heine, color issues on RGB lights
 - Tim Koos and Tom van der Geer, 4 Channel Relay Board
 - Raffaele De Lauri, Smart Garden Irrigation Controller
-- Bert van Hoekelen, Curtain Motors
+- Bert van Hoekelen, Curtain Motors, Zy m100 Radar Sensor
 - Łukasz Krutul, better measuring functionality for plugs and Tuya specific reporting
 - Jesper Bach, Smart Remote 1 Button
+- Ben Grohbiel, Wall Thermostat
+- Jérôme Revillard, Neo Siren alarm
 
 I would also like to thank everyone who contributes with device information, testing and beer!
