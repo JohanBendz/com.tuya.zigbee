@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.13",
+  "version": "0.2.14",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -313,6 +313,11 @@
           "nl": "Verander de alarm toestand",
           "de": "Ändern des Alarmstatus"
         },
+        "titleFormatted": {
+          "en": "Change the alarm state to [[alarm_state]]",
+          "nl": "Verander de alarm toestand naar [[alarm_state]]",
+          "de": "Ändern des Alarmstatus zu [[alarm_state]]"
+        },
         "hint": {
           "en": "Change the alarm state; sound or silence the alarm",
           "nl": "Verander de alarm toestand; luiden of uitschakelen van het alarm",
@@ -395,6 +400,11 @@
           "nl": "Zet het volume van de sirene",
           "de": "Einstellen der Lautstärke der Sirene"
         },
+        "titleFormatted": {
+          "en": "Set volume of siren to [[siren_volume]]",
+          "nl": "Zet het volume van de sirene naar [[siren_volume]]",
+          "de": "Einstellen der Lautstärke der Sirene auf [[siren_volume]]"
+        },
         "hint": {
           "en": "Set volume of siren.",
           "nl": "Zet het volume van de sirene.",
@@ -444,6 +454,11 @@
           "en": "Set the alarm tune",
           "nl": "Stel de alarm melodie in",
           "de": "Einstellen des Alarmtons"
+        },
+        "titleFormatted": {
+          "en": "Set the alarm tune to [[alarm_tune]]",
+          "nl": "Stel de alarm melodie in op [[alarm_tune]]",
+          "de": "Einstellen des Alarmtons zu [[alarm_tune]]"
         },
         "hint": {
           "en": "Choose the tune of the alarm sound",
@@ -613,6 +628,11 @@
       {
         "id": "alarm_siren",
         "title": {
+          "en": "Siren Alarm",
+          "nl": "Sirene Alarm",
+          "de": "Sirenenalarm"
+        },
+        "titleFormatted": {
           "en": "Siren Alarm",
           "nl": "Sirene Alarm",
           "de": "Sirenenalarm"
@@ -1710,7 +1730,8 @@
           "_TZ3000_rgchmad8",
           "_TZ3000_au1rjicn",
           "_TZ3000_4ugnzsli",
-          "TUYATEC-7qunn4gq"
+          "TUYATEC-7qunn4gq",
+          "_TZ3000_decxrtwa"
         ],
         "productId": [
           "RH3001",
@@ -2799,7 +2820,8 @@
           "_TZ3000_mcxw5ehu",
           "_TZ3000_otvn3lne",
           "_TZ3000_6ygjfyll",
-          "_TZ3040_6ygjfyll"
+          "_TZ3040_6ygjfyll",
+          "_TZ3040_bb6xaihh"
         ],
         "productId": [
           "TS0202"

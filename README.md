@@ -77,6 +77,7 @@ Supported devices:
     _TZ3000_otvn3lne / TS0202
     _TZ3000_6ygjfyll / TS0202
     _TZ3040_6ygjfyll / TS0202
+    _TZ3040_bb6xaihh / TS0202
 
 . Motion Sensor
     TUYATEC-bd5faf9p / RH3040 (Nedis)
@@ -117,6 +118,7 @@ Supported devices:
     _TZ3000_zgrffiwg / TS0203
     Immax / DoorWindow-Sensor-ZB3.0
     Visonic / MCT-340 E
+    _TZ3000_decxrtwa / TS0203
 
 - Smart Door/Windows Sensor
     _TZ1800_ejwkn2h2 / TY0203 (Silvercrest / Lidl)
