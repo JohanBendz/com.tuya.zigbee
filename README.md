@@ -141,8 +141,8 @@ Supported devices:
 - Smoke Sensor
     _TYZB01_dsjszp0x / TS0205
 
-- Soil sensor
-    _TZE200_myd45weu / TS0601
+- Soil humidity sensor
+    _TZE200_myd45weu / TS0601 (GiEX)
     _TZE200_ga1maeof / TS0601
 
 **Plugs and Socket Strips**
@@ -484,6 +484,7 @@ Contributors:
 - Bert van Hoekelen, Curtain Motors, Zy m100 Radar Sensor
 - Łukasz Krutul, better measuring functionality for plugs and Tuya specific reporting
 - Jesper Bach, Smart Remote 1 Button
+- Patrick van der Poel, Soil sensor
 - Ben Grohbiel, Wall Thermostat
 - Jérôme Revillard, Neo Siren alarm
 
