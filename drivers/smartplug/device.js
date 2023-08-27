@@ -80,8 +80,6 @@ class smartplug extends ZigBeeDevice {
     this.registerCapability('meter_power', CLUSTER.METERING, {
       reportParser: value => (value * this.meteringOffset)/100.0,
       getParser: value => (value * this.meteringOffset)/100.0,
-      get: 'currentSummationDelivered',
-      report: 'currentSummationDelivered',
       getOpts: {
         getOnStart: true,
         pollInterval: 300000
@@ -90,8 +88,6 @@ class smartplug extends ZigBeeDevice {
 
     // measure_power
     this.registerCapability('measure_power', CLUSTER.ELECTRICAL_MEASUREMENT, {
-      get: 'activePower',
-      report: 'activePower',
       reportParser: value => {
         return (value * this.measureOffset)/100;
       },
@@ -102,8 +98,6 @@ class smartplug extends ZigBeeDevice {
     });
 
     this.registerCapability('measure_current', CLUSTER.ELECTRICAL_MEASUREMENT, {
-      get: 'rmsCurrent',
-      report: 'rmsCurrent',
       reportParser: value => {
         return value/1000;
       },
@@ -114,8 +108,6 @@ class smartplug extends ZigBeeDevice {
     });
 
     this.registerCapability('measure_voltage', CLUSTER.ELECTRICAL_MEASUREMENT, {
-      get: 'rmsVoltage',
-      report: 'rmsVoltage',
       reportParser: value => {
         return value;
       },
@@ -125,8 +117,6 @@ class smartplug extends ZigBeeDevice {
       }
     });
 
-    this.registerCapability('resetEnergyMeter', 'resetEnergyMeter');
-
     await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
     .catch(err => {
         this.error('Error when reading device attributes ', err);
@@ -134,14 +124,8 @@ class smartplug extends ZigBeeDevice {
 
   }
 
-  async resetEnergyMeter() {
-    try {
-      // Endpoint: 1 Cluster: 0x00 Command: 0 Payload:
-      await this.zclNode.endpoints[1].clusters.basic.doCommand('0');
-      this.log("Energy meter reset successfully");
-    } catch (err) {
-      this.error("Failed to reset energy meter", err);
-    }
+  onReset () {
+    // Endpoint: 1 Cluster: 0x00 Command: 0 Payload: 
   }
 
   onDeleted() {
@@ -166,7 +150,6 @@ class smartplug extends ZigBeeDevice {
       await this.zclNode.endpoints[1].clusters.onOff.writeAttributes({ childLock: parsedValue });
     }
   }
-  
 }
 
 module.exports = smartplug;

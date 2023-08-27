@@ -201,6 +201,9 @@
     "en": "Multiple new devices added."
   },
   "0.2.15": {
-    "en": "Fix after latest test release - oops."
+    "en": "Fix."
+  },
+  "0.2.16": {
+    "en": "Fix."
   }
 }
