@@ -1,0 +1,28 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Soil Moisture",
+      "nl": "Bodemvochtigheid"
+    },
+    "units": {
+      "en": "%",
+      "nl": "%"
+    },
+    "getable": true,
+    "setable": false,
+    "chartType": "area",
+    "min": 0,
+    "max": 100,
+    "decimals": 2,
+    "capabilitiesOptions": {
+      "titleTrue": {
+        "en": "Wet",
+        "nl": "Nat"
+      },
+      "titleFalse": {
+        "en": "Dry",
+        "nl": "Droog"
+      }
+    }
+  }
+  

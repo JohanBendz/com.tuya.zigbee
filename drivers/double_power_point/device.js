@@ -15,37 +15,41 @@ class doublepowerpoint extends ZigBeeDevice {
     const { subDeviceId } = this.getData();
     this.log('Device data: ', subDeviceId);
 
-    let options = {};
-
-    switch (subDeviceId) {
-      case 'seconddoublepowerpoint':
-        options.endpoint = 2;
-        break;
-      default:
-        options.endpoint = 1;
-        break;
-    }
-
     this.meteringOffset = this.getSetting('metering_offset');
     this.measureOffset = this.getSetting('measure_offset') * 100;
-    this.minReportPower= this.getSetting('minReportPower') * 1000;
+    this.minReportPower = this.getSetting('minReportPower') * 1000;
     this.minReportCurrent = this.getSetting('minReportCurrent') * 1000;
     this.minReportVoltage = this.getSetting('minReportVoltage') * 1000;
 
     if (!this.hasCapability('measure_current')) {
-      await this.addCapability('measure_current').catch(this.error);;
+      await this.addCapability('measure_current').catch(this.error);
     }
 
     if (!this.hasCapability('measure_voltage')) {
-      await this.addCapability('measure_voltage').catch(this.error);;
+      await this.addCapability('measure_voltage').catch(this.error);
     }
 
+    // Endpoint 1
+    let options1 = { endpoint: 1 };
+    this.registerCapabilities(zclNode, options1);
+
+    // Endpoint 2
+    let options2 = { endpoint: 2 };
+    this.registerCapabilities(zclNode, options2);
+
+    await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
+    .catch(err => {
+        this.error('Error when reading device attributes ', err);
+    });
+  }
+
+  registerCapabilities(zclNode, options) {
     // onOff
     this.registerCapability('onoff', CLUSTER.ON_OFF, options, {
       getOpts: {
         getOnStart: true,
         pollInterval: 60000
-	    }
+      }
     });
 
     // meter_power
@@ -55,7 +59,7 @@ class doublepowerpoint extends ZigBeeDevice {
       getOpts: {
         getOnStart: true,
         pollInterval: 300000
-	    }
+      }
     });
 
     // measure_power
@@ -66,7 +70,7 @@ class doublepowerpoint extends ZigBeeDevice {
       getOpts: {
         getOnStart: true,
         pollInterval: this.minReportPower
-	    }
+      }
     });
 
     this.registerCapability('measure_current', CLUSTER.ELECTRICAL_MEASUREMENT, options, {
@@ -88,12 +92,6 @@ class doublepowerpoint extends ZigBeeDevice {
         pollInterval: this.minReportVoltage
       }
     });
-
-    await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
-    .catch(err => {
-        this.error('Error when reading device attributes ', err);
-    });
-
   }
 
   onDeleted() {
@@ -103,7 +101,7 @@ class doublepowerpoint extends ZigBeeDevice {
   async onSettings({oldSettings, newSettings, changedKeys}) {
 
   }
+  
 }
 
 module.exports = doublepowerpoint;
-

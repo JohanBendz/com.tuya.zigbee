@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -99,6 +99,15 @@
   },
   "flow": {
     "actions": [
+      {
+        "id": "resetEnergyMeter",
+        "title": {
+          "en": "Reset Energy Meter",
+          "sv": "Återställ energimätaren"
+        },
+        "args": [],
+        "callback": "resetEnergyMeter"
+      },
       {
         "title": {
           "en": "Start effect"
@@ -2430,7 +2439,8 @@
           "_TZ3000_msl6wxk9",
           "_TZ3000_mcxw5ehu",
           "_TZ3000_otvn3lne",
-          "_TZ3000_6ygjfyll"
+          "_TZ3000_6ygjfyll",
+          "_TZ3040_6ygjfyll"
         ],
         "productId": [
           "TS0202"
@@ -4669,6 +4679,91 @@
       "settings": []
     },
     {
+      "id": "soil_sensor_tuya",
+      "name": {
+        "en": "Soil sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "soil_moisture",
+        "measure_temperature",
+        "measure_battery",
+        "temperature_unit",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/soil_sensor_tuya/assets/images/large.png",
+        "small": "/drivers/soil_sensor_tuya/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_myd45weu",
+          "_TZE200_ga1maeof"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/soil_sensor_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "Push the button for aprox 10 seconds until the LED blinks rapidly. If nothing happens; put two fingers against the detectors and repeat."
+          }
+        }
+      },
+      "settings": [
+        {
+          "type": "dropdown",
+          "id": "temperatureUnit",
+          "label": {
+            "en": "Temperature Unit",
+            "nl": "Temperatuureenheid"
+          },
+          "values": [
+            {
+              "id": "C",
+              "label": {
+                "en": "Celsius",
+                "nl": "Celsius"
+              }
+            },
+            {
+              "id": "F",
+              "label": {
+                "en": "Fahrenheit",
+                "nl": "Fahrenheit"
+              }
+            }
+          ],
+          "value": "C"
+        }
+      ]
+    },
+    {
       "id": "switch_1_gang",
       "name": {
         "en": "1 Gang Switch Module"
@@ -4828,6 +4923,280 @@
           "image": "/drivers/switch_2_gang/assets/icon.svg",
           "instruction": {
             "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "switch_2_gang_metering",
+      "name": {
+        "en": "2 Gang Switch Module with metering"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/switch_2_gang_metering/assets/images/large.png",
+        "small": "/drivers/switch_2_gang_metering/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_zmy4lslw"
+        ],
+        "productId": [
+          "TS0002"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6,
+              1794,
+              2820
+            ],
+            "bindings": [
+              6,
+              1794,
+              2820
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "light",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "2 Gang Switch Module with metering - Second Switch"
+            },
+            "capabilitiesOptions": {
+              "measure_power": {
+                "approximated": true
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_2_gang_metering/assets/icon.svg",
+          "instruction": {
+            "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "metering_offset",
+          "type": "number",
+          "label": {
+            "en": "Metering Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "measure_offset",
+          "type": "number",
+          "label": {
+            "en": "Measure Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "minReportPower",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for power (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportCurrent",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for current (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportVoltage",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for voltage (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        }
+      ]
+    },
+    {
+      "id": "switch_3_gang",
+      "name": {
+        "en": "3 Gang Switch Module"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/switch_3_gang/assets/images/large.png",
+        "small": "/drivers/switch_3_gang/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_odzoiovu"
+        ],
+        "productId": [
+          "TS0003"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "3 Gang Switch Module"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "thirdSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "3 Gang Switch Module"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_3_gang/assets/icon.svg",
+          "instruction": {
+            "en": "Three tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
           }
         }
       },
@@ -5530,10 +5899,12 @@
               3,
               4,
               5,
-              6
+              6,
+              57345
             ],
             "bindings": [
-              6
+              6,
+              57345
             ]
           }
         },
@@ -5544,7 +5915,35 @@
           }
         }
       },
-      "settings": []
+      "settings": [
+        {
+          "id": "powerOnState",
+          "type": "dropdown",
+          "label": {
+            "en": "Power On State"
+          },
+          "values": [
+            {
+              "id": "off",
+              "label": {
+                "en": "OFF"
+              }
+            },
+            {
+              "id": "on",
+              "label": {
+                "en": "ON"
+              }
+            },
+            {
+              "id": "recover",
+              "label": {
+                "en": "RECOVER"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "wall_curtain_switch",
@@ -5598,6 +5997,69 @@
           "image": "/drivers/wall_curtain_switch/assets/icon.svg",
           "instruction": {
             "en": "Power on/off 5 times to enter pairing mode (the LED should blink / device starts beeping) or press the Pause-button 5sec until Open-button blinks."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "wall_dimmer_tuya",
+      "name": {
+        "en": "Wall Dimmer"
+      },
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "capabilitiesOptions": {
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
+      "images": {
+        "large": "/drivers/wall_dimmer_tuya/assets/images/large.png",
+        "small": "/drivers/wall_dimmer_tuya/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_3p5ydos3"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              25,
+              10
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_dimmer_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
           }
         }
       },
@@ -6096,7 +6558,8 @@
           "_TZ3000_yhagrqmd",
           "_TZ3000_5vujyute",
           "_TYZB01_2athzhfr",
-          "_TZ3000_56bdyj21"
+          "_TZ3000_56bdyj21",
+          "_TZ3000_e98krvvk"
         ],
         "productId": [
           "TS0002",
@@ -6181,7 +6644,6 @@
           "_TZ3000_cdamjqm9",
           "_TYZB01_mqel1whf",
           "_TZ3000_hlwm8e96",
-          "_TZ3000_odzoiovu",
           "_TZ3000_thhxrept",
           "_TZ3000_2dlwlvex",
           "_TZ3000_qcdqw8nf",
@@ -6452,6 +6914,61 @@
       "settings": []
     },
     {
+      "id": "water_leak_sensor_tuya",
+      "name": {
+        "en": "Water Leak Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_water",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2"
+        ]
+      },
+      "images": {
+        "large": "/drivers/water_leak_sensor_tuya/assets/images/large.png",
+        "small": "/drivers/water_leak_sensor_tuya/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_qq9mpfhw"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/water_leak_sensor_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "Push the button for aprox 10 seconds until the LED blinks rapidly. If nothing happens; put two fingers against the detectors and repeat."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "zigbee_repeater",
       "name": {
         "en": "Zigbee Repeater"
@@ -6530,6 +7047,33 @@
         }
       ]
     },
+    "soil_moisture": {
+      "type": "number",
+      "title": {
+        "en": "Soil Moisture",
+        "nl": "Bodemvochtigheid"
+      },
+      "units": {
+        "en": "%",
+        "nl": "%"
+      },
+      "getable": true,
+      "setable": false,
+      "chartType": "area",
+      "min": 0,
+      "max": 100,
+      "decimals": 2,
+      "capabilitiesOptions": {
+        "titleTrue": {
+          "en": "Wet",
+          "nl": "Nat"
+        },
+        "titleFalse": {
+          "en": "Dry",
+          "nl": "Droog"
+        }
+      }
+    },
     "target_distance": {
       "type": "number",
       "title": {
@@ -6541,6 +7085,32 @@
       "units": {
         "en": "m"
       }
+    },
+    "temperature_unit": {
+      "type": "enum",
+      "title": {
+        "en": "Temperature Unit",
+        "nl": "Temperatuureenheid"
+      },
+      "values": [
+        {
+          "id": "C",
+          "title": {
+            "en": "Celsius",
+            "nl": "Celsius"
+          }
+        },
+        {
+          "id": "F",
+          "title": {
+            "en": "Fahrenheit",
+            "nl": "Fahrenheit"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "capabilitiesOptions": {}
     }
   }
 }
