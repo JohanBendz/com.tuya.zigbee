@@ -66,7 +66,8 @@ typings
 #Backup
 *.DS_Store
 
-
-
 # Added by Homey CLI
 /.homeybuild/
+
+# Idea
+.idea/
