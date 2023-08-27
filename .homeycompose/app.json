@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.2.14",
+  "version": "0.2.15",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
