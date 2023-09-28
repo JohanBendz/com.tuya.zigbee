@@ -176,6 +176,7 @@ Supported devices:
     _TZ3000_gznh2xla / TS011F
     _TZ3000_ss98ec5d / TS011F
     _TZ3000_gnjozsaz / TS011F
+    _TZ3000_gjnozsaz / TS011F
     _TZ3000_gvn91tmx / TS011F
     _TZ3000_1h2x4akh / TS011F
     _TZ3000_r6buo8ba / TS011F
