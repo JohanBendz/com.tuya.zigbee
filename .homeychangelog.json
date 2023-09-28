@@ -205,5 +205,8 @@
   },
   "0.2.16": {
     "en": "Fix."
+  },
+  "0.2.17": {
+    "en": "Fixes for a few test devices."
   }
 }

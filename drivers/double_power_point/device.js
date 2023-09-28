@@ -10,6 +10,11 @@ class doublepowerpoint extends ZigBeeDevice {
 
   async onNodeInit({zclNode}) {
 
+    await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
+    .catch(err => {
+        this.error('Error when reading device attributes ', err);
+    });
+
     this.printNode();
     
     const { subDeviceId } = this.getData();
@@ -37,10 +42,6 @@ class doublepowerpoint extends ZigBeeDevice {
     let options2 = { endpoint: 2 };
     this.registerCapabilities(zclNode, options2);
 
-    await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
-    .catch(err => {
-        this.error('Error when reading device attributes ', err);
-    });
   }
 
   registerCapabilities(zclNode, options) {

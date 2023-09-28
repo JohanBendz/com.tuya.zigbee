@@ -1,7 +1,10 @@
 'use strict';
 
-const Homey = require('homey');
-const { TuyaSpecificClusterDevice } = require('zigbee-clusters');
+const { debug, Cluster } = require('zigbee-clusters');
+const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
+const TuyaSpecificClusterDevice = require("../../lib/TuyaSpecificClusterDevice");
+
+Cluster.addCluster(TuyaSpecificCluster);
 
 class dimmer_1_gang_tuya extends TuyaSpecificClusterDevice {
 
@@ -9,6 +12,12 @@ class dimmer_1_gang_tuya extends TuyaSpecificClusterDevice {
     await super.onNodeInit({ zclNode });
 
     this.printNode();
+    debug(true);
+
+    await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
+    .catch(err => {
+        this.error('Error when reading device attributes ', err);
+    });
 
     this.registerCapabilityListener('onoff', async value => {
       this.log('onoff: ', value);
