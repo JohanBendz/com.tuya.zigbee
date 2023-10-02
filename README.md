@@ -41,6 +41,7 @@ Supported devices:
     _TZ3000_0s1izerx / TS0201
     TUYATEC-ojmxeikq / RH3052
     TUYATEC-riuj5xzs / RH3052
+    _TZ3000_xr3htd96 / TS0201 (Tenky)
 
 - LCD Temperature and Humidity Sensor
     _TZ2000_a476raq2 / TS0201
@@ -78,6 +79,8 @@ Supported devices:
     _TZ3000_6ygjfyll / TS0202
     _TZ3040_6ygjfyll / TS0202
     _TZ3040_bb6xaihh / TS0202
+    TUYATEC-b5g40alm / RH3040
+    _TZ3000_nss8amz9 / TS0202
 
 . Motion Sensor
     TUYATEC-bd5faf9p / RH3040 (Nedis)
@@ -119,6 +122,7 @@ Supported devices:
     Immax / DoorWindow-Sensor-ZB3.0
     Visonic / MCT-340 E
     _TZ3000_decxrtwa / TS0203
+    _TZ3000_hkcpblrs / TS0203 (Avatto)
 
 - Smart Door/Windows Sensor
     _TZ1800_ejwkn2h2 / TY0203 (Silvercrest / Lidl)
@@ -139,6 +143,7 @@ Supported devices:
 - Flood Sensor
     TUYATEC-3tipnsrx / RH3001
     _TZ3000_4uvovz4r / TS0207
+    _TZ3000_3dfewsk1 / TS0207
 
 - Smoke Sensor
     _TYZB01_dsjszp0x / TS0205
@@ -184,6 +189,7 @@ Supported devices:
     _TZ3000_5ity3zyu / TS0121
     _TZ3000_okaz9tjs / TS011F
     _TZ3000_eyzb8yg3 / TS0121
+    _TZ3000_dksbtrzs / TS011F (Lonsonho)
 
 - Smart Plug, without metering
     _TZ3000_kdi2o9m6 / TS011F (Silvercrest / Lidl)
@@ -229,6 +235,8 @@ Supported devices:
     _TZ3000_mx3vgyea / TS000F
     _TZ3000_hhiodade / TS0011
     _TZ3000_46t1rvdu / TS0001
+    _TZ3000_majwnphg / TS0001
+    _TZ3000_6axxqqi2 / TS0001
 
 - 2 Gang Switch Module
     _TYZB01_zsl6z0pw / TS0003
@@ -256,6 +264,7 @@ Supported devices:
     _TZE200_la2c2uo9 / TS0601
     _TZ3210_weaqkhab / TS110E
     _TZ3210_k1msuvg6 / TS110E
+    _TZE204_hlx9tnzb / TS0601
 
 - 2 Gang Dimmer Module
     _TYZB01_v8gtiaed / TS110F
@@ -263,6 +272,7 @@ Supported devices:
     _TZE200_e3oitdyu / TS0601
     _TZ3210_wdexaypg / TS110E
     _TZ3210_3mpwqzuu / TS110E
+    _TZE204_zenj4lxv / TS0601
 
 **On-Wall**
 - 1 Gang Wall Switch
@@ -420,6 +430,8 @@ Supported devices:
     _TZ3000_4uuaja4a / TS130F
     _TZ3000_zirycpws / TS130F
     _TZ3000_femsaaua / TS130F
+    _TZ3000_e3vhyirx / TS130F (LoraTap SC500ZB)
+    _TZ3000_1dd0d5yi / TS130F (MOES MS-108ZR)
 
 - Curtain Motor
     _TZE200_5zbp6j0u / TS0601
@@ -449,6 +461,7 @@ Supported devices:
     _TZ3000_8kzqqzu4 / TS130F
     _TZ3000_ltiqubue / TS130F
     _TZ3000_dbpmpco1 / TS130F (Loratap, Model No SC400ZB, SC420ZB)
+    _TZ3000_fvhunhxb / TS130F
 
 **Other**
 - Valve Controller

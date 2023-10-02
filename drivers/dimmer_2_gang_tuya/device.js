@@ -14,10 +14,12 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
     this.printNode();
     debug(true);
 
-    await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
-    .catch(err => {
-        this.error('Error when reading device attributes ', err);
-    });
+    if (!this.isSubDevice()) {
+      await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
+      .catch(err => {
+          this.error('Error when reading device attributes ', err);
+      });
+    }
 
     const { subDeviceId } = this.getData();
     this.log('Sub device ID:', subDeviceId);

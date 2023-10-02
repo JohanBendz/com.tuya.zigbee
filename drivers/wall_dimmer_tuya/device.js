@@ -1,7 +1,10 @@
 'use strict';
 
-const Homey = require('homey');
-const { TuyaSpecificClusterDevice } = require('zigbee-clusters');
+const { Cluster } = require('zigbee-clusters');
+const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
+const TuyaSpecificClusterDevice = require("../../lib/TuyaSpecificClusterDevice");
+
+Cluster.addCluster(TuyaSpecificCluster);
 
 class wall_dimmer_tuya extends TuyaSpecificClusterDevice {
 
