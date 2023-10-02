@@ -208,5 +208,8 @@
   },
   "0.2.17": {
     "en": "Fixes for a few test devices."
+  },
+  "0.2.18": {
+    "en": "Added some extra codes for already supported devices and made a few fixes."
   }
 }

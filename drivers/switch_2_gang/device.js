@@ -22,17 +22,9 @@ class switch_2_gang extends ZigBeeDevice {
         this.log("Device data: ", subDeviceId);
 
         try {
-            if (subDeviceId === 'firstSwitch') {
-                this.registerCapability('onoff', CLUSTER.ON_OFF, {
-                    name: 'Knapp 1',
-                    endpoint: 1,
-                });
-            } else if (subDeviceId === 'secondSwitch') {
-                this.registerCapability('onoff', CLUSTER.ON_OFF, {
-                    name: 'Knapp 2',
-                    endpoint: 2,
-                });
-            }
+            this.registerCapability('onoff', CLUSTER.ON_OFF, {
+                endpoint: subDeviceId === 'secondSwitch' ? 2 : 1,
+            });
         } catch (err) {
             this.error('Error registering capability: ', err);
         }
