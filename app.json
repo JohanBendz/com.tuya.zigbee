@@ -4151,7 +4151,7 @@
       ]
     },
     {
-      "id": "slim-motion-sensor",
+      "id": "slim_motion_sensor",
       "name": {
         "en": "Slim motion sensor"
       },
@@ -4172,8 +4172,8 @@
         ]
       },
       "images": {
-        "large": "/drivers/slim-motion-sensor/assets/images/large.png",
-        "small": "/drivers/slim-motion-sensor/assets/images/small.png"
+        "large": "/drivers/slim_motion_sensor/assets/images/large.png",
+        "small": "/drivers/slim_motion_sensor/assets/images/small.png"
       },
       "zigbee": {
         "manufacturerName": [
@@ -4197,7 +4197,7 @@
           }
         },
         "learnmode": {
-          "image": "/drivers/slim-motion-sensor/assets/learn.svg",
+          "image": "/drivers/slim_motion_sensor/assets/learn.svg",
           "instruction": {
             "en": "Press the reset button for aprox 5 seconds until the LED blinks."
           }
