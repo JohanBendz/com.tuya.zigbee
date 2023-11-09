@@ -1419,11 +1419,13 @@
           "_TZ3000_ktuoyvt5",
           "_TZ3210_zxbtub8r",
           "_TZ3210_weaqkhab",
-          "_TZ3210_k1msuvg6"
+          "_TZ3210_k1msuvg6",
+          "_TZ3000_mgusv51k"
         ],
         "productId": [
           "TS110F",
-          "TS110E"
+          "TS110E",
+          "TS0052"
         ],
         "endpoints": {
           "1": {
@@ -1746,7 +1748,8 @@
           "_TZ3000_au1rjicn",
           "_TZ3000_4ugnzsli",
           "TUYATEC-7qunn4gq",
-          "_TZ3000_decxrtwa"
+          "_TZ3000_decxrtwa",
+          "_TZ3000_yxqnffam"
         ],
         "productId": [
           "RH3001",
@@ -3364,7 +3367,8 @@
           "_TZ3000_keabpigv",
           "_TZ3000_12sxjap4",
           "_TZ3000_hlijwsai",
-          "_TZ3000_qd7hej8u"
+          "_TZ3000_qd7hej8u",
+          "_TZ3210_mja6r5ix"
         ],
         "productId": [
           "TS0505A",
@@ -5155,6 +5159,65 @@
           }
         }
       }
+    },
+    {
+      "id": "smoke_sensor2",
+      "name": {
+        "en": "Smoke Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_battery",
+        "alarm_smoke",
+        "alarm_tamper",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/smoke_sensor2/assets/images/large.png",
+        "small": "/drivers/smoke_sensor2/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_ntcy3xu1"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              4,
+              5,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smoke_sensor2/assets/icon.svg",
+          "instruction": {
+            "en": "Press the RESET pinhole on the side of the unit for 5 seconds until LED blinks."
+          }
+        }
+      },
+      "settings": []
     },
     {
       "id": "socket_power_strip",
@@ -7103,7 +7166,8 @@
           "_TZ3000_axpdxqgu",
           "_TZ3000_peszejy7",
           "_TZ3000_pzui3skt",
-          "_TZ3000_f97vq5mn"
+          "_TZ3000_f97vq5mn",
+          "_TZ3000_fa9mlvja"
         ],
         "productId": [
           "TS0041"
