@@ -1,0 +1,72 @@
+{
+    "name": {
+        "en": "Thermostatic Radiator Valve"
+    },
+    "class": "thermostat",
+    "capabilities": [
+        "target_temperature",
+        "thermostat_preset",
+        "window_open"
+    ],
+    "capabilitiesOptions": {
+        "target_temperature": {
+            "min": 5,
+            "max": 30,
+            "step": 0.5
+        }
+    },
+    "platforms": [
+        "local"
+    ],
+    "connectivity": [
+        "zigbee"
+    ],
+    "energy": {
+        "batteries": [
+            "AA",
+            "AA"
+        ]
+    },
+    "images": {
+        "small": "{{driverAssetsPath}}/images/small.png",
+        "large": "{{driverAssetsPath}}/images/large.png"
+    },
+    "zigbee": {
+        "manufacturerName": [
+            "_TZE200_sur6q7ko",
+            "_TZE200_hue3yfsn",
+            "_TZE200_husqqvux",
+            "_TZE200_lnbfnyxd",
+            "_TZE200_lllliz3p",
+            "_TZE200_mudxchsu",
+            "_TZE200_7yoranx2",
+            "_TZE200_e9ba97vf",
+            "_TZE200_kds0pmmv"
+        ],
+        "productId": [
+            "TS0601"
+        ],
+        "endpoints": {
+            "1": {
+                "clusters": [
+                    0,
+                    2,
+                    8,
+                    16,
+                    24,
+                    35,
+                    61184
+                ],
+                "bindings": [
+                    61184
+                ]
+            }
+        },
+        "learnmode": {
+            "image": "{{driverAssetsPath}}/learn.svg",
+            "instruction": {
+                "en": "Press 'Pair' button for 5 seconds until antenna symbol starts to blink."
+            }
+        }
+    }
+}

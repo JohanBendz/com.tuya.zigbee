@@ -1,0 +1,22 @@
+{
+  "triggers": [],
+  "conditions": [],
+  "actions": [
+    {
+      "id": "window_open_status_set",
+      "title": {
+        "en": "Set window open status"
+      },
+      "titleFormatted": {
+        "en": "Set window open status to [[window_open_status]]"
+      },
+      "args": [
+        {
+          "type": "checkbox",
+          "name": "window_open_status",
+          "title": "Open"
+        }
+      ]
+    }
+  ]
+}

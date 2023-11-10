@@ -622,6 +622,27 @@
             ]
           }
         ]
+      },
+      {
+        "id": "window_open_status_set",
+        "title": {
+          "en": "Set window open status"
+        },
+        "titleFormatted": {
+          "en": "Set window open status to [[window_open_status]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=thermostatic_radiator_valve"
+          },
+          {
+            "type": "checkbox",
+            "name": "window_open_status",
+            "title": "Open"
+          }
+        ]
       }
     ],
     "triggers": [
@@ -1746,7 +1767,8 @@
           "_TZ3000_au1rjicn",
           "_TZ3000_4ugnzsli",
           "TUYATEC-7qunn4gq",
-          "_TZ3000_decxrtwa"
+          "_TZ3000_decxrtwa",
+          "_TZ3000_yxqnffam"
         ],
         "productId": [
           "RH3001",
@@ -5157,6 +5179,65 @@
       }
     },
     {
+      "id": "smoke_sensor2",
+      "name": {
+        "en": "Smoke Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_battery",
+        "alarm_smoke",
+        "alarm_tamper",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/smoke_sensor2/assets/images/large.png",
+        "small": "/drivers/smoke_sensor2/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_ntcy3xu1"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              4,
+              5,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smoke_sensor2/assets/icon.svg",
+          "instruction": {
+            "en": "Press the RESET pinhole on the side of the unit for 5 seconds until LED blinks."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "socket_power_strip",
       "name": {
         "en": "3 Socket Power Strip"
@@ -6661,6 +6742,79 @@
           ]
         }
       ]
+    },
+    {
+      "name": {
+        "en": "Thermostatic Radiator Valve"
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "target_temperature",
+        "thermostat_preset",
+        "window_open"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 5,
+          "max": 30,
+          "step": 0.5
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA"
+        ]
+      },
+      "images": {
+        "small": "/drivers/thermostatic_radiator_valve/assets/images/small.png",
+        "large": "/drivers/thermostatic_radiator_valve/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_sur6q7ko",
+          "_TZE200_hue3yfsn",
+          "_TZE200_husqqvux",
+          "_TZE200_lnbfnyxd",
+          "_TZE200_lllliz3p",
+          "_TZE200_mudxchsu",
+          "_TZE200_7yoranx2",
+          "_TZE200_e9ba97vf",
+          "_TZE200_kds0pmmv"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              2,
+              8,
+              16,
+              24,
+              35,
+              61184
+            ],
+            "bindings": [
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/thermostatic_radiator_valve/assets/learn.svg",
+          "instruction": {
+            "en": "Press 'Pair' button for 5 seconds until antenna symbol starts to blink."
+          }
+        }
+      },
+      "id": "thermostatic_radiator_valve"
     },
     {
       "class": "light",
@@ -8186,6 +8340,52 @@
       "getable": true,
       "setable": true,
       "capabilitiesOptions": {}
+    },
+    "thermostat_preset": {
+      "type": "enum",
+      "title": {
+        "en": "Thermostat mode"
+      },
+      "desc": {
+        "en": "Mode of the thermostat"
+      },
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Automatic"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Manual"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Holiday"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
+    },
+    "window_open": {
+      "type": "boolean",
+      "title": {
+        "en": "Window open"
+      },
+      "desc": {
+        "en": "Window open"
+      },
+      "units": {
+        "en": "Status"
+      },
+      "getable": true,
+      "setable": true
     }
   }
 }
