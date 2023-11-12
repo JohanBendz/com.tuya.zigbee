@@ -1,7 +1,7 @@
 {
-  "id": "lcdtemphumidsensor3",
+  "id": "lcd_th_sensor",
   "name": {
-    "en": "LCD Temperature & Humidity Sensor"
+    "en": "LCD T&H Sensor"
   },
   "class": "sensor",
   "platforms": ["local"],
@@ -14,7 +14,7 @@
   ],
   "energy": {
     "batteries": [
-      "AAA", "AAA"
+      "AAA", "AAA", "AAA"
     ]
   },
   "images": {
@@ -23,8 +23,7 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TZE200_bjawzodf",
-      "_TZE200_zl1kmjqx"
+      "_TZE200_locansqn"
     ],
     "productId": [
       "TS0601"
@@ -35,11 +34,15 @@
           0,
           4,
           5,
+          10,
+          25,
           61184
         ],
         "bindings": [
           4,
           5,
+          10,
+          25,
           61184
         ]
       }

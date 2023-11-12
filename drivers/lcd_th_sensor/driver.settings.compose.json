@@ -1,0 +1,63 @@
+[
+    {
+      "id": "temperature_sensitivity",
+      "type": "number",
+      "label": {
+        "en": "Temperature sensitivity (0.X°C)"
+      },
+      "hint": {
+        "en": "Set temperature sensitivity. step size decimal [°C]"
+      },
+      "value": 3,
+      "attr": {
+        "min": 3,
+        "max": 10,
+        "step": 1
+      }
+    },
+    {
+      "id": "temp_periodic_report",
+      "type": "number",
+      "label": {
+        "en": "Temperature reporting interval in minutes"
+      },
+      "value": 1,
+      "attr": {
+        "min": 1,
+        "max": 120,
+        "step": 1
+      }
+    },
+    {
+      "id": "humidity_sensitivity",
+      "type": "number",
+      "label": {
+        "en": "Humidity sensitivity (%)"
+      },
+      "hint": {
+        "en": "Set humidity sensitivity. default [6%]"
+      },
+      "value": 6,
+      "attr": {
+        "min": 3,
+        "max": 10,
+        "step": 1
+      },
+      "units": {
+         "en": "%"
+      }
+    },
+    {
+      "id": "hum_periodic_report",
+      "type": "number",
+      "label": {
+        "en": "Humidity reporting interval in minutes"
+      },
+      "value": 1,
+      "attr": {
+        "min": 1,
+        "max": 120,
+        "step": 1
+      }
+    }
+  ]
