@@ -39,4 +39,29 @@ const TUYA_DATA_TYPES = {
     bitmap: 5, // [ 1,2,4 bytes ] as bits
 };
 
-module.exports = { getDataValue }
+const parseSchedule = (bytes) => {
+    // day split to 10 min segments = total 144 segments
+    const maxPeriodsInDay = 10;
+    const periodSize = 3;
+    const schedule = [];
+
+    for (let i = 0; i < maxPeriodsInDay; i++) {
+        const time = bytes[i * periodSize];
+        const totalMinutes = time * 10;
+        const hours = totalMinutes / 60;
+        const rHours = Math.floor(hours);
+        const minutes = (hours - rHours) * 60;
+        const rMinutes = Math.round(minutes);
+        const strHours = rHours.toString().padStart(2, '0');
+        const strMinutes = rMinutes.toString().padStart(2, '0');
+        const tempHexArray = [bytes[i * periodSize + 1], bytes[i * periodSize + 2]];
+        const tempRaw = Buffer.from(tempHexArray).readUIntBE(0, tempHexArray.length);
+        const temp = tempRaw / 10;
+        schedule.push(strHours + ":" + strMinutes + "/" + temp);
+        if (rHours === 24) break;
+    }
+
+    return schedule.join(' ');
+}
+
+module.exports = { getDataValue, parseSchedule }

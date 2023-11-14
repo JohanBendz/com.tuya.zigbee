@@ -5,14 +5,25 @@ const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { Cluster, debug, CLUSTER } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster')
 const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
-const { getDataValue } = require("./helpers");
+const { getDataValue, parseSchedule } = require("./helpers");
 
 // debug(true);
 
 Cluster.addCluster(TuyaSpecificCluster);
 
 const THERMOSTAT_DATA_POINTS = {
-    preset: 2, openWindow: 8, targetTemperature: 16, currentTemperature: 24, batteryLevel: 35
+    preset: 2,
+    openWindow: 8,
+    frostProtection: 10,
+    targetTemperature: 16,
+    holidayTemperature: 21,
+    currentTemperature: 24,
+    localTemperatureCalibration: 27,
+    batteryLevel: 35,
+    openWindowTemperature: 102,
+    comfortTemperature: 104,
+    ecoTemperature: 105,
+    schedule: 106
 }
 
 /**
@@ -50,8 +61,8 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
         zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processReport(value));
         zclNode.endpoints[1].clusters.tuya.on("datapoint", value => this.processDatapoint(value));
 
-        // await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
-        //   .catch(err => this.error('Error when reading device attributes ', err));
+        const settings = this.getSettings();
+        this.applySettings(settings);
 
         this.log("Thermostatic Radiator Valve initialized:", this.getName());
     }
@@ -65,6 +76,17 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
     getWindowOpen() {
         var currentValue = this.getCapabilityValue('window_open');
         return currentValue;
+    }
+
+    async onSettings({ oldSettings, newSettings, changedKeys }) {
+        this.applySettings(newSettings);
+    }
+
+    applySettings(settings) {
+        this.writeData32(THERMOSTAT_DATA_POINTS.comfortTemperature, settings.comfortTemperature * 10);
+        this.writeData32(THERMOSTAT_DATA_POINTS.ecoTemperature, settings.ecoTemperature * 10);
+        this.writeData32(THERMOSTAT_DATA_POINTS.openWindowTemperature, settings.openWindowTemperature * 10);
+        this.writeData32(THERMOSTAT_DATA_POINTS.holidayTemperature, settings.holidayTemperature * 10);
     }
 
     async setCapabilitySave(capName, capValue) {
@@ -86,7 +108,7 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
 
         switch (dp) {
             case THERMOSTAT_DATA_POINTS.currentTemperature:
-                await this.setCapabilitySave('measure_temperature', parsedValue / 10);
+                this.debug("local temperature:", parsedValue / 10);
                 break;
 
             case THERMOSTAT_DATA_POINTS.targetTemperature:
@@ -105,6 +127,46 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
             case THERMOSTAT_DATA_POINTS.batteryLevel:
                 await this.setCapabilitySave('measure_battery', parsedValue);
                 break;
+
+            case THERMOSTAT_DATA_POINTS.comfortTemperature:
+                this.debug("comfort temperature:", parsedValue / 10);
+                break;
+
+            case THERMOSTAT_DATA_POINTS.ecoTemperature:
+                this.debug("eco temperature:", parsedValue / 10);
+                break;
+
+            case THERMOSTAT_DATA_POINTS.openWindowTemperature:
+                this.debug("open window temperature:", parsedValue / 10);
+                break;
+
+            case THERMOSTAT_DATA_POINTS.localTemperatureCalibration:
+                this.debug("local temperature calibration:", parsedValue);
+                break;
+
+            case THERMOSTAT_DATA_POINTS.holidayTemperature:
+                this.debug("holiday temperature:", parsedValue / 10);
+                break;
+
+            case THERMOSTAT_DATA_POINTS.schedule:
+                this.debug("schedule:", parsedValue);
+                break;
+
+            case THERMOSTAT_DATA_POINTS.frostProtection:
+                this.debug("frost protection:", parsedValue);
+                break;
+
+            case 108: // monday
+            case 109: // wednesday
+            case 110: // friday
+            case 111: // sunday
+            case 112: // tuesday
+            case 113: // thursday
+            case 114: // saturday
+                const schedule = parseSchedule(parsedValue);
+                this.debug("schedule:", schedule);
+                break;
+
             default:
                 this.debug('Data Point', dp, parsedValue)
         }
