@@ -2,7 +2,7 @@
 
 const Homey = require('homey');
 const { ZigBeeDevice } = require('homey-zigbeedriver');
-const { Cluster, debug, CLUSTER } = require('zigbee-clusters');
+const { Cluster, debug, CLUSTER, TimeCluster } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster')
 const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
 const { getDataValue, parseSchedule } = require("./helpers");
@@ -125,7 +125,8 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
                 break;
 
             case THERMOSTAT_DATA_POINTS.batteryLevel:
-                await this.setCapabilitySave('measure_battery', parsedValue);
+                this.log("battery low:", parsedValue);
+                await this.setCapabilitySave('alarm_battery', parsedValue === 0);
                 break;
 
             case THERMOSTAT_DATA_POINTS.comfortTemperature:

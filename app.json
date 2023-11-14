@@ -6766,7 +6766,7 @@
       },
       "class": "thermostat",
       "capabilities": [
-        "measure_battery",
+        "alarm_battery",
         "target_temperature",
         "thermostat_preset",
         "window_open"
@@ -6813,11 +6813,7 @@
           "1": {
             "clusters": [
               0,
-              2,
-              8,
-              16,
-              24,
-              35,
+              1,
               61184
             ],
             "bindings": [

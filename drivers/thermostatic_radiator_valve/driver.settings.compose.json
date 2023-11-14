@@ -1,0 +1,62 @@
+[
+    {
+        "type": "group",
+        "label": {
+            "en": "Temperature Settings"
+        },
+        "children": [
+            {
+                "id": "comfortTemperature",
+                "type": "number",
+                "label": {
+                    "en": "Comfort Temperature"
+                },
+                "value": 20,
+                "min": 5,
+                "max": 30,
+                "units": {
+                    "en": "°C"
+                }
+            },
+            {
+                "id": "ecoTemperature",
+                "type": "number",
+                "label": {
+                    "en": "Eco Temperature"
+                },
+                "value": 16,
+                "min": 5,
+                "max": 30,
+                "units": {
+                    "en": "°C"
+                }
+            },
+            {
+                "id": "holidayTemperature",
+                "type": "number",
+                "label": {
+                    "en": "Holiday Temperature"
+                },
+                "value": 12,
+                "min": 5,
+                "max": 30,
+                "units": {
+                    "en": "°C"
+                }
+            },
+            {
+                "id": "openWindowTemperature",
+                "type": "number",
+                "label": {
+                    "en": "Open Window Temperature"
+                },
+                "value": 5,
+                "min": 5,
+                "max": 30,
+                "units": {
+                    "en": "°C"
+                }
+            }
+        ]
+    }
+]
