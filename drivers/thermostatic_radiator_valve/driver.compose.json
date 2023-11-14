@@ -4,6 +4,7 @@
     },
     "class": "thermostat",
     "capabilities": [
+        "measure_battery",
         "target_temperature",
         "thermostat_preset",
         "window_open"

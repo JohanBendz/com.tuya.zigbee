@@ -11,6 +11,11 @@ class ThermostaticRadiatorValveDriver extends ZigBeeDriver {
             .registerRunListener(async ({ device, message }, state) => {
                 await device.setWindowOpen(state.value);
             });
+
+        this.homey.flow.getConditionCard("window_open_status_get")
+            .registerRunListener(async ({ device, message }, state) => {
+                return device.getWindowOpen();
+            });
     }
 }
 

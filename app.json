@@ -1136,6 +1136,21 @@
           }
         ]
       }
+    ],
+    "conditions": [
+      {
+        "id": "window_open_status_get",
+        "title": {
+          "en": "Window !{{is|isn't}} open"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=thermostatic_radiator_valve"
+          }
+        ]
+      }
     ]
   },
   "drivers": [
@@ -6749,6 +6764,7 @@
       },
       "class": "thermostat",
       "capabilities": [
+        "measure_battery",
         "target_temperature",
         "thermostat_preset",
         "window_open"
