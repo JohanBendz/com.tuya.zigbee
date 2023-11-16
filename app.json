@@ -6904,7 +6904,7 @@
                 "en": "Mode for Heatplan"
               },
               "hint": {
-                "en": "'Mon-Sun' only considers Monday Schedule for all days. 'Mon-Fri, Sat+Sun' considers Monday Schedule for all working days and Saturday Schedule for the weekend. 'Separate' each day is scheduled individually."
+                "en": "'Mon-Sun' only considers Monday Schedule for all days. 'Mon-Fri, Sat+Sun' considers Monday Schedule for all working days and Saturday and Sunday Schedule individually. On'Separate' Mode each day is scheduled individually."
               },
               "values": [
                 {
