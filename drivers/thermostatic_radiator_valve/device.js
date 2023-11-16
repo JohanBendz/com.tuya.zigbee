@@ -88,26 +88,25 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
     }
 
     updateSchedule(settings) {
-        var mondayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleMonday, settings.scheduleMonday);
-        var tuesdayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleTuesday, settings.scheduleTuesday);
-        var wednesdayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleWednesday, settings.scheduleWednesday);
-        var thursdayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleThursday, settings.scheduleThursday);
-        var fridayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleFriday, settings.scheduleFriday);
-        var saturdayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleSaturday, settings.scheduleSaturday);
-        var sundaybytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleSunday, settings.scheduleSunday);
-
         switch (settings.workingDay) {
             case '2': // separate
                 // send all days (individual schedule per day)
+                var tuesdayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleTuesday, settings.scheduleTuesday);
+                var wednesdayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleWednesday, settings.scheduleWednesday);
+                var thursdayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleThursday, settings.scheduleThursday);
+                var fridayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleFriday, settings.scheduleFriday);
                 this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, tuesdayBytes);
                 this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, wednesdayBytes);
                 this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, thursdayBytes);
                 this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, fridayBytes);
             case '1': // Mon-Fri, Sat+Sun
                 // send saturday, sunday & monday schedule
+                var saturdayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleSaturday, settings.scheduleSaturday);
+                var sundaybytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleSunday, settings.scheduleSunday);
                 this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, saturdayBytes);
                 this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, sundaybytes);
             case '0': // Mon-Sun -> send monday schedule, used for all days
+                var mondayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleMonday, settings.scheduleMonday);
                 this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, mondayBytes);
         }
     }
@@ -133,57 +132,45 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
             case THERMOSTAT_DATA_POINTS.currentTemperature:
                 this.debug("local temperature:", parsedValue / 10);
                 break;
-
             case THERMOSTAT_DATA_POINTS.targetTemperature:
                 await this.setCapabilitySave('target_temperature', parsedValue / 10);
                 break;
-
             case THERMOSTAT_DATA_POINTS.openWindow:
                 await this.setCapabilitySave('window_open', parsedValue);
                 var state = { window_open_status: parsedValue };
                 break;
-
             case THERMOSTAT_DATA_POINTS.preset:
                 await this.setCapabilitySave('thermostat_preset', parsedValue.toString());
                 break;
-
             case THERMOSTAT_DATA_POINTS.batteryLevel:
                 this.log("battery low:", parsedValue);
                 await this.setCapabilitySave('alarm_battery', parsedValue === 0);
                 break;
-
             case THERMOSTAT_DATA_POINTS.comfortTemperature:
                 this.debug("comfort temperature:", parsedValue / 10);
                 this.setSettings({ "comfortTemperature": parsedValue / 10 });
                 break;
-
             case THERMOSTAT_DATA_POINTS.ecoTemperature:
                 this.debug("eco temperature:", parsedValue / 10);
                 this.setSettings({ "ecoTemperature": parsedValue / 10 });
                 break;
-
             case THERMOSTAT_DATA_POINTS.openWindowTemperature:
                 this.debug("open window temperature:", parsedValue / 10);
                 this.setSettings({ "openWindowTemperature": parsedValue / 10 });
                 break;
-
             case THERMOSTAT_DATA_POINTS.localTemperatureCalibration:
                 this.debug("local temperature calibration:", parsedValue);
                 break;
-
             case THERMOSTAT_DATA_POINTS.holidayTemperature:
                 this.debug("holiday temperature:", parsedValue / 10);
                 this.setSettings({ "holidayTemperature": parsedValue / 10 });
                 break;
-
             case THERMOSTAT_DATA_POINTS.frostProtection:
                 this.debug("frost protection:", parsedValue);
                 break;
-
             case THERMOSTAT_DATA_POINTS.workingDay:
                 this.setSettings({ "workingDay": parsedValue.toString() });
                 break;
-
             case THERMOSTAT_DATA_POINTS.scheduleMonday:
                 const scheduleMonday = parseSchedule(parsedValue);
                 this.setSettings({ "scheduleMonday": scheduleMonday });
