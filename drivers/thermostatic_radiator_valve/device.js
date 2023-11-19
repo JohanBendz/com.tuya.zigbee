@@ -45,9 +45,6 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
         zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processReport(value));
         zclNode.endpoints[1].clusters.tuya.on("datapoint", value => this.processDatapoint(value));
 
-        // const settings = this.getSettings();
-        // this.applySettings(settings);
-
         this.log("Thermostatic Radiator Valve initialized:", this.getName());
     }
 
@@ -82,7 +79,6 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
         if (keys.includes('scheduleMonday') || keys.includes('scheduleTuesday') || keys.includes('scheduleWednesday') || keys.includes('scheduleThursday')
             || keys.includes('scheduleFriday') || keys.includes('scheduleSaturday') || keys.includes('scheduleSunday') || keys.includes('workingDay')) {
             this.updateSchedule(settings);
-            //this.writeData32(THERMOSTAT_DATA_POINTS.scheduleMonday, settings.scheduleMonday);
         }
     }
 
