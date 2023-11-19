@@ -7,7 +7,6 @@ const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster')
 const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
 const { getDataValue, parseSchedule, marshalSchedule, THERMOSTAT_DATA_POINTS } = require("./helpers");
 
-// debug(true);
 
 Cluster.addCluster(TuyaSpecificCluster);
 
@@ -24,7 +23,7 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
     async onNodeInit({ zclNode }) {
 
         this.printNode();
-        this.enableDebug();
+        // this.enableDebug();
 
         this.registerCapabilityListener('window_open', async (value, opts) => {
             this.debug('window_open:', value);
@@ -125,6 +124,7 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
     }
 
     async processReport(data) {
+        this.log("report", data);
         const dp = data.dp;
         const parsedValue = getDataValue(data);
 

@@ -50,14 +50,19 @@
         "endpoints": {
             "1": {
                 "clusters": [
-                    0,
-                    1,
-                    61184
+                  0,
+                  4,
+                  5,
+                  10,
+                  25,
+                  61184
                 ],
                 "bindings": [
-                    61184
+                  10,
+                  25,
+                  61184
                 ]
-            }
+              }
         },
         "learnmode": {
             "image": "{{driverAssetsPath}}/moes_zigbee_3_pair.png",
