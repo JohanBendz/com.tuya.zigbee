@@ -82,6 +82,14 @@ Supported devices:
     TUYATEC-b5g40alm / RH3040
     _TZ3000_nss8amz9 / TS0202
 
+- Radar Sensor
+    _TZE200_ztc6ggyl / TS0601
+    _TZE201_ztc6ggyl / TS0601
+    _TZE202_ztc6ggyl / TS0601
+    _TZE203_ztc6ggyl / TS0601
+    _TZE204_ztc6ggyl / TS0601
+    _TZE200_2aaelwxk / TS0225
+
 . Motion Sensor
     TUYATEC-bd5faf9p / RH3040 (Nedis)
 

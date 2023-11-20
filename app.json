@@ -2989,6 +2989,144 @@
     {
       "id": "radar_sensor",
       "name": {
+        "en": "Radar Sensor",
+        "nl": "Radar Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_luminance",
+        "alarm_motion",
+        "target_distance"
+      ],
+      "images": {
+        "large": "/drivers/radar_sensor/assets/images/large.png",
+        "small": "/drivers/radar_sensor/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_ztc6ggyl",
+          "_TZE201_ztc6ggyl",
+          "_TZE202_ztc6ggyl",
+          "_TZE203_ztc6ggyl",
+          "_TZE204_ztc6ggyl",
+          "_TZE200_2aaelwxk"
+        ],
+        "productId": [
+          "TS0601",
+          "TS0225"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              258,
+              61184
+            ],
+            "bindings": [
+              258,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/radar_sensor/assets/icon.svg",
+          "instruction": {
+            "en": "Press and hold the reset button for 6 seconds. When the indicator light flashes it is in pairing mode.",
+            "nl": "Druk 6 seconden op de reset knop. Wacht tot de led gaat knipperen."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "radar_sensitivity",
+          "type": "number",
+          "label": {
+            "en": "Radar sensitivity",
+            "nl": "Radar sensitiviteit"
+          },
+          "value": 7,
+          "min": 1,
+          "max": 9
+        },
+        {
+          "id": "minimum_range",
+          "type": "number",
+          "label": {
+            "en": "Minimum range",
+            "nl": "Minimale bereik"
+          },
+          "value": 0,
+          "min": 0,
+          "max": 9.5,
+          "units": {
+            "en": "meters",
+            "nl": "meters"
+          }
+        },
+        {
+          "id": "maximum_range",
+          "type": "number",
+          "label": {
+            "en": "Maximum range",
+            "nl": "Maximale bereik"
+          },
+          "value": 9.5,
+          "min": 0,
+          "max": 9.5,
+          "units": {
+            "en": "meters",
+            "nl": "meters"
+          }
+        },
+        {
+          "id": "detection_delay",
+          "type": "number",
+          "label": {
+            "en": "Detection delay",
+            "nl": "Detectie vertraging"
+          },
+          "value": 7,
+          "min": 0,
+          "max": 10,
+          "units": {
+            "en": "seconds",
+            "nl": "seconden"
+          }
+        },
+        {
+          "id": "fading_time",
+          "type": "number",
+          "label": {
+            "en": "Fading time",
+            "nl": "Reset tijd"
+          },
+          "value": 7,
+          "min": 0,
+          "max": 1500,
+          "units": {
+            "en": "seconds",
+            "nl": "seconden"
+          }
+        }
+      ]
+    },
+    {
+      "id": "radar_sensor_2",
+      "name": {
         "en": "Radar Sensor ZG-205Z/W",
         "nl": "Radar Sensor ZG-205Z/W"
       },
@@ -3008,8 +3146,8 @@
         "target_distance"
       ],
       "images": {
-        "large": "/drivers/radar_sensor/assets/images/large.png",
-        "small": "/drivers/radar_sensor/assets/images/small.png"
+        "large": "/drivers/radar_sensor_2/assets/images/large.png",
+        "small": "/drivers/radar_sensor_2/assets/images/small.png"
       },
       "energy": {
         "approximation": {
@@ -3039,7 +3177,7 @@
           }
         },
         "learnmode": {
-          "image": "/drivers/radar_sensor/assets/icon.svg",
+          "image": "/drivers/radar_sensor_2/assets/icon.svg",
           "instruction": {
             "en": "Press and hold the reset button for 6 seconds. When the indicator light flashes it is in pairing mode.",
             "nl": "Druk 6 seconden op de reset knop. Wacht tot de led gaat knipperen."
@@ -8314,7 +8452,7 @@
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
-      "icon": "/drivers/radar_sensor/assets/images/breathe_motion.svg",
+      "icon": "/drivers/radar_sensor_2/assets/images/breathe_motion.svg",
       "insights": true,
       "options": {
         "zoneActivity": true
@@ -8364,7 +8502,7 @@
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
-      "icon": "/drivers/radar_sensor/assets/images/large_motion.svg",
+      "icon": "/drivers/radar_sensor_2/assets/images/large_motion.svg",
       "insights": true,
       "options": {
         "zoneActivity": true
@@ -8394,55 +8532,6 @@
         "da": "Stor Nærvær alarm blev deaktiveret",
         "ru": "Большой сигнал Присутствие выключен",
         "pl": "Duży czujnik Obecność wyłączony"
-      }
-    },
-    "alarm_none_presence": {
-      "title": {
-        "en": "None Presence",
-        "nl": "Geen Aanwezigheid",
-        "de": "Keine Präsenz",
-        "fr": "Aucune Présence",
-        "it": "Nessuna Presenza",
-        "sv": "Ingen Närvaro",
-        "no": "Ingen Nærvær",
-        "es": "Ninguna Presencia",
-        "da": "Ingen Nærvær",
-        "ru": "Отсутствие Присутствия",
-        "pl": "Brak Obecności"
-      },
-      "type": "boolean",
-      "getable": true,
-      "setable": false,
-      "uiComponent": "sensor",
-      "insights": true,
-      "options": {
-        "zoneActivity": true
-      },
-      "insightsTitleTrue": {
-        "en": "None Presence alarm turned on",
-        "nl": "Geen Aanwezigheid alarm ging af",
-        "de": "Keine Präsenz Alarm ist angegangen",
-        "fr": "Alarme Aucune Présence s'est déclenchée",
-        "it": "Allarme Nessuna Presenza attivato",
-        "sv": "Ingen Närvaro larm aktiverat",
-        "no": "Ingen Nærvær alarm aktivert",
-        "es": "La alarma de Ninguna Presencia activada",
-        "da": "Ingen Nærvær alarm blev aktiveret",
-        "ru": "Сигнал Отсутствие Присутствия включен",
-        "pl": "Brak czujnika Obecność włączony"
-      },
-      "insightsTitleFalse": {
-        "en": "None Presence alarm turned off",
-        "nl": "Geen Aanwezigheid alarm ging uit",
-        "de": "Keine Präsenz Alarm ist ausgegangen",
-        "fr": "Alarme Aucune Présence s'est désactivée",
-        "it": "Allarme Nessuna Presenza disattivato",
-        "sv": "Ingen Närvaro larm inaktiverat",
-        "no": "Ingen Nærvær alarm deaktivert",
-        "es": "La alarma de Ninguna Presencia se ha desactivado",
-        "da": "Ingen Nærvær alarm blev deaktiveret",
-        "ru": "Сигнал Отсутствие Присутствия выключен",
-        "pl": "Brak czujnika Obecność wyłączony"
       }
     },
     "alarm_siren": {
@@ -8479,7 +8568,7 @@
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
-      "icon": "/drivers/radar_sensor/assets/images/small_motion.svg",
+      "icon": "/drivers/radar_sensor_2/assets/images/small_motion.svg",
       "insights": true,
       "options": {
         "zoneActivity": true
@@ -8542,35 +8631,6 @@
           }
         }
       ]
-    },
-    "presence_type": {
-      "title": {
-        "en": "Presence Type",
-        "nl": "Aanwezigheidstype",
-        "de": "Anwesenheitstyp",
-        "fr": "Type de présence",
-        "it": "Tipo di presenza",
-        "sv": "Närvarotyp",
-        "no": "Tilstedeværelsestype",
-        "es": "Tipo de presencia",
-        "da": "Tilstedeværelsestype",
-        "ru": "Тип присутствия",
-        "pl": "Typ obecności"
-      },
-      "type": "number",
-      "getable": true,
-      "setable": false,
-      "uiComponent": "sensor",
-      "insights": true,
-      "chartType": "area",
-      "units": {
-        "en": "type",
-        "nl": "type"
-      },
-      "min": 0,
-      "max": 2,
-      "step": 1,
-      "decimals": 0
     },
     "soil_moisture": {
       "type": "number",
