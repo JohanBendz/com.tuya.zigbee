@@ -1746,7 +1746,8 @@
           "_TZ3000_au1rjicn",
           "_TZ3000_4ugnzsli",
           "TUYATEC-7qunn4gq",
-          "_TZ3000_decxrtwa"
+          "_TZ3000_decxrtwa",
+          "_TZ3000_yxqnffam"
         ],
         "productId": [
           "RH3001",
@@ -2988,8 +2989,8 @@
     {
       "id": "radar_sensor",
       "name": {
-        "en": "Radar Sensor",
-        "nl": "Radar Sensor"
+        "en": "Radar Sensor ZG-205Z/W",
+        "nl": "Radar Sensor ZG-205Z/W"
       },
       "class": "sensor",
       "platforms": [
@@ -3001,6 +3002,9 @@
       "capabilities": [
         "measure_luminance",
         "alarm_motion",
+        "alarm_small_presence",
+        "alarm_large_presence",
+        "alarm_breathe_presence",
         "target_distance"
       ],
       "images": {
@@ -3009,34 +3013,29 @@
       },
       "energy": {
         "approximation": {
-          "usageOn": 0,
-          "usageOff": 0
+          "usageConstant": 2.5
         }
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE200_ztc6ggyl",
-          "_TZE201_ztc6ggyl",
-          "_TZE202_ztc6ggyl",
-          "_TZE203_ztc6ggyl",
-          "_TZE204_ztc6ggyl"
+          "_TZE200_2aaelwxk"
         ],
         "productId": [
-          "TS0601"
+          "TS0225"
         ],
         "endpoints": {
           "1": {
             "clusters": [
               0,
-              4,
-              5,
-              258,
-              61184
+              3,
+              1280,
+              57346,
+              61184,
+              60928,
+              57344,
+              1024
             ],
-            "bindings": [
-              258,
-              61184
-            ]
+            "bindings": []
           }
         },
         "learnmode": {
@@ -3049,18 +3048,22 @@
       },
       "settings": [
         {
-          "id": "radar_sensitivity",
+          "id": "motion_detection_sensitivity",
           "type": "number",
           "label": {
             "en": "Radar sensitivity",
             "nl": "Radar sensitiviteit"
           },
-          "value": 7,
-          "min": 1,
-          "max": 9
+          "value": 6,
+          "min": 0,
+          "max": 10,
+          "units": {
+            "en": "x",
+            "nl": "x"
+          }
         },
         {
-          "id": "minimum_range",
+          "id": "mov_minimum_distance",
           "type": "number",
           "label": {
             "en": "Minimum range",
@@ -3068,40 +3071,27 @@
           },
           "value": 0,
           "min": 0,
-          "max": 9.5,
-          "units": {
-            "en": "meters",
-            "nl": "meters"
-          }
-        },
-        {
-          "id": "maximum_range",
-          "type": "number",
-          "label": {
-            "en": "Maximum range",
-            "nl": "Maximale bereik"
-          },
-          "value": 9.5,
-          "min": 0,
-          "max": 9.5,
-          "units": {
-            "en": "meters",
-            "nl": "meters"
-          }
-        },
-        {
-          "id": "detection_delay",
-          "type": "number",
-          "label": {
-            "en": "Detection delay",
-            "nl": "Detectie vertraging"
-          },
-          "value": 7,
-          "min": 0,
           "max": 10,
+          "step": 1,
           "units": {
-            "en": "seconds",
-            "nl": "seconden"
+            "en": "meters",
+            "nl": "meters"
+          }
+        },
+        {
+          "id": "motion_detection_distance",
+          "type": "number",
+          "label": {
+            "en": "Motion detection distance",
+            "nl": "Bewegingsdetectie afstand"
+          },
+          "value": 600,
+          "min": 0,
+          "max": 1000,
+          "step": 1,
+          "units": {
+            "en": "centimeter",
+            "nl": "centimeter"
           }
         },
         {
@@ -3111,13 +3101,186 @@
             "en": "Fading time",
             "nl": "Reset tijd"
           },
-          "value": 7,
+          "value": 0,
           "min": 0,
-          "max": 1500,
+          "max": 28800,
           "units": {
             "en": "seconds",
             "nl": "seconden"
           }
+        },
+        {
+          "id": "motion_false_detection",
+          "type": "number",
+          "value": 1,
+          "min": 0,
+          "max": 10,
+          "units": {
+            "en": "x",
+            "nl": "x"
+          },
+          "label": {
+            "en": "Breathe False detection",
+            "nl": "Onjuiste Adem detectie"
+          }
+        },
+        {
+          "id": "small_motion_detection_distance",
+          "type": "number",
+          "label": {
+            "en": "Small Motion detection distance",
+            "nl": "Kleine bewegingsdetectie afstand"
+          },
+          "value": 600,
+          "min": 0,
+          "max": 600,
+          "step": 1,
+          "units": {
+            "en": "centimeter",
+            "nl": "centimeter"
+          }
+        },
+        {
+          "id": "small_motion_detection_sensitivity",
+          "type": "number",
+          "label": {
+            "en": "Small Movement sensitivity",
+            "nl": "Kleine Beweging sensitiviteit"
+          },
+          "value": 8,
+          "min": 0,
+          "max": 10,
+          "units": {
+            "en": "x",
+            "nl": "x"
+          }
+        },
+        {
+          "id": "indicator",
+          "type": "checkbox",
+          "value": true,
+          "label": {
+            "en": "LED indicator",
+            "nl": "LED indicatie"
+          }
+        },
+        {
+          "id": "static_detection_distance",
+          "type": "number",
+          "label": {
+            "en": "Static detection distance",
+            "nl": "Statische detectie afstand"
+          },
+          "value": 600,
+          "min": 0,
+          "max": 600,
+          "step": 1,
+          "units": {
+            "en": "centimeter",
+            "nl": "centimeter"
+          }
+        },
+        {
+          "id": "static_detection_sensitivity",
+          "type": "number",
+          "label": {
+            "en": "Static detection sensitivity",
+            "nl": "Statische detectie sensitiviteit"
+          },
+          "value": 8,
+          "min": 0,
+          "max": 10,
+          "units": {
+            "en": "x",
+            "nl": "x"
+          }
+        },
+        {
+          "id": "breathe_false_detection",
+          "type": "checkbox",
+          "value": false,
+          "label": {
+            "en": "Breathe False detection",
+            "nl": "Onjuiste Adem detectie"
+          }
+        },
+        {
+          "id": "alarm_volume",
+          "type": "dropdown",
+          "value": "high",
+          "label": {
+            "en": "Alarm volume",
+            "nl": "Alarm volume"
+          },
+          "values": [
+            {
+              "id": "mute",
+              "label": {
+                "en": "Mute",
+                "nl": "Gedempt"
+              }
+            },
+            {
+              "id": "low",
+              "label": {
+                "en": "Low",
+                "nl": "Laag"
+              }
+            },
+            {
+              "id": "medium",
+              "label": {
+                "en": "Medium",
+                "nl": "Middel"
+              }
+            },
+            {
+              "id": "high",
+              "label": {
+                "en": "High",
+                "nl": "Hoog"
+              }
+            }
+          ]
+        },
+        {
+          "id": "working_mode",
+          "type": "dropdown",
+          "value": "off",
+          "label": {
+            "en": "Working mode",
+            "nl": "Werk modus"
+          },
+          "values": [
+            {
+              "id": "off",
+              "label": {
+                "en": "Off",
+                "nl": "Uit"
+              }
+            },
+            {
+              "id": "arm",
+              "label": {
+                "en": "Arm",
+                "nl": "Arm"
+              }
+            },
+            {
+              "id": "alarm",
+              "label": {
+                "en": "Alarm",
+                "nl": "Alarm"
+              }
+            },
+            {
+              "id": "doorbell",
+              "label": {
+                "en": "Doorbell",
+                "nl": "Deurbel"
+              }
+            }
+          ]
         }
       ]
     },
@@ -5155,6 +5318,65 @@
           }
         }
       }
+    },
+    {
+      "id": "smoke_sensor2",
+      "name": {
+        "en": "Smoke Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_battery",
+        "alarm_smoke",
+        "alarm_tamper",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/smoke_sensor2/assets/images/large.png",
+        "small": "/drivers/smoke_sensor2/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_ntcy3xu1"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              4,
+              5,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smoke_sensor2/assets/icon.svg",
+          "instruction": {
+            "en": "Press the RESET pinhole on the side of the unit for 5 seconds until LED blinks."
+          }
+        }
+      },
+      "settings": []
     },
     {
       "id": "socket_power_strip",
@@ -8074,6 +8296,155 @@
     }
   ],
   "capabilities": {
+    "alarm_breathe_presence": {
+      "title": {
+        "en": "Breath presence",
+        "nl": "Adem aanwezigheid",
+        "de": "Atempräsenz",
+        "fr": "Présence respiratoire",
+        "it": "Presenza del respiro",
+        "sv": "Andningsnärvaro",
+        "no": "Åndedrettsnærvær",
+        "es": "Presencia de la respiración",
+        "da": "Åndedræt nærvær",
+        "ru": "Присутствие дыхания",
+        "pl": "Obecność oddechu"
+      },
+      "type": "boolean",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/drivers/radar_sensor/assets/images/breathe_motion.svg",
+      "insights": true,
+      "options": {
+        "zoneActivity": true
+      },
+      "insightsTitleTrue": {
+        "en": "Breath alarm turned on",
+        "nl": "Ademalarm ging af",
+        "de": "Atem-Alarm ist angegangen",
+        "fr": "Alarme respiratoire s'est déclenchée",
+        "it": "Allarme di respiro attivato",
+        "sv": "Andningslarm aktiverat",
+        "no": "Åndedrettsalarm aktivert",
+        "es": "Alarma de respiración activada",
+        "da": "Åndedrætsalarm blev aktiveret",
+        "ru": "Сигнал дыхания включен",
+        "pl": "Czujnik oddechu włączony"
+      },
+      "insightsTitleFalse": {
+        "en": "Breath alarm turned off",
+        "nl": "Ademalarm ging uit",
+        "de": "Atem-Alarm ist ausgegangen",
+        "fr": "Alarme respiratoire s'est désactivée",
+        "it": "Allarme di respiro disattivato",
+        "sv": "Andningslarm inaktiverat",
+        "no": "Åndedrettsalarm deaktivert",
+        "es": "Alarma de respiración desactivada",
+        "da": "Åndedrætsalarm blev deaktiveret",
+        "ru": "Сигнал дыхания выключен",
+        "pl": "Czujnik oddechu wyłączony"
+      }
+    },
+    "alarm_large_presence": {
+      "title": {
+        "en": "Large Presence",
+        "nl": "Grote Aanwezigheid",
+        "de": "Große Präsenz",
+        "fr": "Grande Présence",
+        "it": "Presenza Ampia",
+        "sv": "Stor Närvaro",
+        "no": "Stor Nærvær",
+        "es": "Presencia Grande",
+        "da": "Stor Nærvær",
+        "ru": "Большое Присутствие",
+        "pl": "Duża Obecność"
+      },
+      "type": "boolean",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/drivers/radar_sensor/assets/images/large_motion.svg",
+      "insights": true,
+      "options": {
+        "zoneActivity": true
+      },
+      "insightsTitleTrue": {
+        "en": "Large Presence alarm turned on",
+        "nl": "Grote Aanwezigheid alarm ging af",
+        "de": "Große Präsenz Alarm ist angegangen",
+        "fr": "Alarme Grande Présence s'est déclenchée",
+        "it": "Allarme Presenza Ampia attivato",
+        "sv": "Stor Närvaro larm aktiverat",
+        "no": "Stor Nærvær alarm aktivert",
+        "es": "Alarma de Presencia Grande activada",
+        "da": "Stor Nærvær alarm blev aktiveret",
+        "ru": "Большой сигнал Присутствие включен",
+        "pl": "Duży czujnik Obecność włączony"
+      },
+      "insightsTitleFalse": {
+        "en": "Large Presence alarm turned off",
+        "nl": "Grote Aanwezigheid alarm ging uit",
+        "de": "Große Präsenz Alarm ist ausgegangen",
+        "fr": "Alarme Grande Présence s'est désactivée",
+        "it": "Allarme Presenza Ampia disattivato",
+        "sv": "Stor Närvaro larm inaktiverat",
+        "no": "Stor Nærvær alarm deaktivert",
+        "es": "Alarma de Presencia Grande desactivada",
+        "da": "Stor Nærvær alarm blev deaktiveret",
+        "ru": "Большой сигнал Присутствие выключен",
+        "pl": "Duży czujnik Obecność wyłączony"
+      }
+    },
+    "alarm_none_presence": {
+      "title": {
+        "en": "None Presence",
+        "nl": "Geen Aanwezigheid",
+        "de": "Keine Präsenz",
+        "fr": "Aucune Présence",
+        "it": "Nessuna Presenza",
+        "sv": "Ingen Närvaro",
+        "no": "Ingen Nærvær",
+        "es": "Ninguna Presencia",
+        "da": "Ingen Nærvær",
+        "ru": "Отсутствие Присутствия",
+        "pl": "Brak Obecności"
+      },
+      "type": "boolean",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insights": true,
+      "options": {
+        "zoneActivity": true
+      },
+      "insightsTitleTrue": {
+        "en": "None Presence alarm turned on",
+        "nl": "Geen Aanwezigheid alarm ging af",
+        "de": "Keine Präsenz Alarm ist angegangen",
+        "fr": "Alarme Aucune Présence s'est déclenchée",
+        "it": "Allarme Nessuna Presenza attivato",
+        "sv": "Ingen Närvaro larm aktiverat",
+        "no": "Ingen Nærvær alarm aktivert",
+        "es": "La alarma de Ninguna Presencia activada",
+        "da": "Ingen Nærvær alarm blev aktiveret",
+        "ru": "Сигнал Отсутствие Присутствия включен",
+        "pl": "Brak czujnika Obecność włączony"
+      },
+      "insightsTitleFalse": {
+        "en": "None Presence alarm turned off",
+        "nl": "Geen Aanwezigheid alarm ging uit",
+        "de": "Keine Präsenz Alarm ist ausgegangen",
+        "fr": "Alarme Aucune Présence s'est désactivée",
+        "it": "Allarme Nessuna Presenza disattivato",
+        "sv": "Ingen Närvaro larm inaktiverat",
+        "no": "Ingen Nærvær alarm deaktivert",
+        "es": "La alarma de Ninguna Presencia se ha desactivado",
+        "da": "Ingen Nærvær alarm blev deaktiveret",
+        "ru": "Сигнал Отсутствие Присутствия выключен",
+        "pl": "Brak czujnika Obecność wyłączony"
+      }
+    },
     "alarm_siren": {
       "type": "boolean",
       "title": {
@@ -8089,6 +8460,56 @@
       },
       "getable": true,
       "setable": false
+    },
+    "alarm_small_presence": {
+      "title": {
+        "en": "Small Presence",
+        "nl": "Kleine Aanwezigheid",
+        "de": "Kleine Präsenz",
+        "fr": "Petite Présence",
+        "it": "Presenza Piccola",
+        "sv": "Liten Närvaro",
+        "no": "Liten Nærvær",
+        "es": "Pequeña Presencia",
+        "da": "Lille Nærvær",
+        "ru": "Маленькое Присутствие",
+        "pl": "Mała Obecność"
+      },
+      "type": "boolean",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/drivers/radar_sensor/assets/images/small_motion.svg",
+      "insights": true,
+      "options": {
+        "zoneActivity": true
+      },
+      "insightsTitleTrue": {
+        "en": "Small Presence alarm turned on",
+        "nl": "Kleine Aanwezigheid alarm ging af",
+        "de": "Kleine Präsenz Alarm ist angegangen",
+        "fr": "Alarme Petite Présence s'est déclenchée",
+        "it": "Allarme Presenza Piccola attivato",
+        "sv": "Liten Närvaro larm aktiverat",
+        "no": "Liten Nærvær alarm aktivert",
+        "es": "La alarma de Pequeña Presencia activada",
+        "da": "Lille Nærvær alarm blev aktiveret",
+        "ru": "Маленький сигнал Присутствие включен",
+        "pl": "Mały czujnik Obecność włączony"
+      },
+      "insightsTitleFalse": {
+        "en": "Small Presence alarm turned off",
+        "nl": "Kleine Aanwezigheid alarm ging uit",
+        "de": "Kleine Präsenz Alarm ist ausgegangen",
+        "fr": "Alarme Petite Présence s'est désactivée",
+        "it": "Allarme Presenza Piccola disattivato",
+        "sv": "Liten Närvaro larm inaktiverat",
+        "no": "Liten Nærvær alarm deaktivert",
+        "es": "La alarma de Pequeña Presencia se ha desactivado",
+        "da": "Lille Nærvær alarm blev deaktiveret",
+        "ru": "Маленький сигнал Присутствие выключен",
+        "pl": "Mały czujnik Obecność wyłączony"
+      }
     },
     "lidl_xmas_mode": {
       "title": {
@@ -8122,6 +8543,35 @@
         }
       ]
     },
+    "presence_type": {
+      "title": {
+        "en": "Presence Type",
+        "nl": "Aanwezigheidstype",
+        "de": "Anwesenheitstyp",
+        "fr": "Type de présence",
+        "it": "Tipo di presenza",
+        "sv": "Närvarotyp",
+        "no": "Tilstedeværelsestype",
+        "es": "Tipo de presencia",
+        "da": "Tilstedeværelsestype",
+        "ru": "Тип присутствия",
+        "pl": "Typ obecności"
+      },
+      "type": "number",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insights": true,
+      "chartType": "area",
+      "units": {
+        "en": "type",
+        "nl": "type"
+      },
+      "min": 0,
+      "max": 2,
+      "step": 1,
+      "decimals": 0
+    },
     "soil_moisture": {
       "type": "number",
       "title": {
@@ -8152,13 +8602,15 @@
     "target_distance": {
       "type": "number",
       "title": {
-        "en": "Target distance"
+        "en": "Target distance",
+        "nl": "Afstand doel"
       },
       "uiComponent": null,
       "getable": true,
       "setable": false,
       "units": {
-        "en": "m"
+        "en": "m",
+        "nl": "m"
       }
     },
     "temperature_unit": {

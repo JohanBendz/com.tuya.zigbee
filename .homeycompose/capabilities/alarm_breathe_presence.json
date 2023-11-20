@@ -1,0 +1,105 @@
+{
+  "title": {
+    "en": "Breath presence",
+    "nl": "Adem aanwezigheid",
+    "de": "Atempräsenz",
+    "fr": "Présence respiratoire",
+    "it": "Presenza del respiro",
+    "sv": "Andningsnärvaro",
+    "no": "Åndedrettsnærvær",
+    "es": "Presencia de la respiración",
+    "da": "Åndedræt nærvær",
+    "ru": "Присутствие дыхания",
+    "pl": "Obecność oddechu"
+  },
+  "type": "boolean",
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/drivers/radar_sensor_2/assets/images/breathe_motion.svg",
+  "insights": true,
+  "options": {
+    "zoneActivity": true
+  },
+  "insightsTitleTrue": {
+    "en": "Breath alarm turned on",
+    "nl": "Ademalarm ging af",
+    "de": "Atem-Alarm ist angegangen",
+    "fr": "Alarme respiratoire s'est déclenchée",
+    "it": "Allarme di respiro attivato",
+    "sv": "Andningslarm aktiverat",
+    "no": "Åndedrettsalarm aktivert",
+    "es": "Alarma de respiración activada",
+    "da": "Åndedrætsalarm blev aktiveret",
+    "ru": "Сигнал дыхания включен",
+    "pl": "Czujnik oddechu włączony"
+  },
+  "insightsTitleFalse": {
+    "en": "Breath alarm turned off",
+    "nl": "Ademalarm ging uit",
+    "de": "Atem-Alarm ist ausgegangen",
+    "fr": "Alarme respiratoire s'est désactivée",
+    "it": "Allarme di respiro disattivato",
+    "sv": "Andningslarm inaktiverat",
+    "no": "Åndedrettsalarm deaktivert",
+    "es": "Alarma de respiración desactivada",
+    "da": "Åndedrætsalarm blev deaktiveret",
+    "ru": "Сигнал дыхания выключен",
+    "pl": "Czujnik oddechu wyłączony"
+  },
+  "$flow": {
+    "triggers": [
+      {
+        "id": "alarm_breathe_presence_true",
+        "highlight": true,
+        "title": {
+          "en": "The breath alarm turned on",
+          "nl": "De ademalarm gaat aan",
+          "de": "Der Atem-Alarm ist angegangen",
+          "fr": "L'alarme respiratoire s'est activée",
+          "it": "L'allarme di respiro è stato attivato",
+          "sv": "Andningslarmet aktiverat",
+          "no": "Åndedrettsalarmen aktivert",
+          "es": "La alarma de respiración se ha activado",
+          "da": "Åndedrætsalarmen blev aktiveret",
+          "ru": "Сигнал дыхания включен",
+          "pl": "Czujnik oddechu włączony"
+        }
+      },
+      {
+        "id": "alarm_breathe_presence_false",
+        "title": {
+          "en": "The breath alarm turned off",
+          "nl": "De ademalarm gaat uit",
+          "de": "Der Atem-Alarm ist ausgegangen",
+          "fr": "L'alarme respiratoire s'est désactivée",
+          "it": "L'allarme di respiro è stato disattivato",
+          "sv": "Andningslarmet inaktiverat",
+          "no": "Åndedrettsalarmen deaktivert",
+          "es": "La alarma de respiración se ha desactivado",
+          "da": "Åndedrætsalarmen blev deaktiveret",
+          "ru": "Сигнал дыхания выключен",
+          "pl": "Czujnik oddechu wyłączony"
+        }
+      }
+    ],
+    "conditions": [
+      {
+        "id": "alarm_breathe_presence",
+        "title": {
+          "en": "The breath alarm is !{{on|off}}",
+          "nl": "De ademalarm is !{{aan|uit}}",
+          "de": "Der Atem-Alarm ist !{{an|aus}}",
+          "fr": "L'alarme respiratoire est !{{en marche|arrêtée}}",
+          "it": "L'allarme di respiro è !{{acceso|spento}}",
+          "sv": "Andningslarmet är !{{på|av}}",
+          "no": "Åndedrettsalarmen er !{{på|av}}",
+          "es": "La alarma de respiración está !{{activada|desactivada}}",
+          "da": "Åndedrætsalarmen er !{{tændt|slukket}}",
+          "ru": "Сигнал дыхания !{{вкл.|выкл.}}",
+          "pl": "Czujnik oddechu !{{włączony|wyłączony}}"
+        }
+      }
+    ]
+  }
+}

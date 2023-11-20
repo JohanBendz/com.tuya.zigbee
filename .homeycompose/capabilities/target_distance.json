@@ -1,8 +1,8 @@
 {
   "type": "number",
-  "title": { "en": "Target distance" },
+  "title": { "en": "Target distance", "nl": "Afstand doel" },
   "uiComponent": null,
   "getable": true,
   "setable": false,
-  "units": { "en": "m" }
+  "units": { "en": "m", "nl": "m" }
 }
