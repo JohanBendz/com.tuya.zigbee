@@ -12,8 +12,7 @@
     "alarm_motion",
     "alarm_small_presence",
     "alarm_large_presence",
-    "alarm_breathe_presence",
-    "target_distance"
+    "alarm_breathe_presence"
   ],
   "images": {
     "large": "{{driverAssetsPath}}/images/large.png",
