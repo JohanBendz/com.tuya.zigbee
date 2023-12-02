@@ -42,6 +42,7 @@ Supported devices:
     TUYATEC-ojmxeikq / RH3052
     TUYATEC-riuj5xzs / RH3052
     _TZ3000_xr3htd96 / TS0201 (Tenky)
+    _TZ3000_saiqcn0y / TS0201
 
 - LCD Temperature and Humidity Sensor
     _TZ2000_a476raq2 / TS0201
