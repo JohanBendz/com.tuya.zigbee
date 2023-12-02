@@ -5158,65 +5158,6 @@
       }
     },
     {
-      "id": "smoke_sensor2",
-      "name": {
-        "en": "Smoke Sensor"
-      },
-      "class": "sensor",
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "zigbee"
-      ],
-      "capabilities": [
-        "measure_battery",
-        "alarm_smoke",
-        "alarm_tamper",
-        "alarm_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "AAA",
-          "AAA"
-        ]
-      },
-      "images": {
-        "large": "/drivers/smoke_sensor2/assets/images/large.png",
-        "small": "/drivers/smoke_sensor2/assets/images/small.png"
-      },
-      "zigbee": {
-        "manufacturerName": [
-          "_TZE200_ntcy3xu1"
-        ],
-        "productId": [
-          "TS0601"
-        ],
-        "endpoints": {
-          "1": {
-            "clusters": [
-              0,
-              4,
-              5,
-              61184
-            ],
-            "bindings": [
-              4,
-              5,
-              61184
-            ]
-          }
-        },
-        "learnmode": {
-          "image": "/drivers/smoke_sensor2/assets/icon.svg",
-          "instruction": {
-            "en": "Press the RESET pinhole on the side of the unit for 5 seconds until LED blinks."
-          }
-        }
-      },
-      "settings": []
-    },
-    {
       "id": "socket_power_strip",
       "name": {
         "en": "3 Socket Power Strip"
