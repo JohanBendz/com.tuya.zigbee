@@ -234,47 +234,48 @@ class radarSensor extends TuyaSpecificClusterDevice {
 
     this.dataPoints = setDeviceDatapoints(this.manufacturerName);
 
-    const breathAlarmOffTrigger = this.homey.flow.getTriggerCard(
+     this.printNode();
+
+    this.breathAlarmOffTrigger = this.homey.flow.getTriggerCard(
       "the-breath-alarm-turned-off"
     );
-    const breathAlarmOnTrigger = this.homey.flow.getTriggerCard(
+    this.breathAlarmOnTrigger = this.homey.flow.getTriggerCard(
       "the-breath-alarm-turned-on"
     );
-    const smallAlarmOffTrigger = this.homey.flow.getTriggerCard(
+    this.smallAlarmOffTrigger = this.homey.flow.getTriggerCard(
       "the-small-presence-alarm-turned-off"
     );
-    const smallAlarmOnTrigger = this.homey.flow.getTriggerCard(
+    this.smallAlarmOnTrigger = this.homey.flow.getTriggerCard(
       "the-small-presence-alarm-turned-on"
     );
-    const largeAlarmOffTrigger = this.homey.flow.getTriggerCard(
+    this.largeAlarmOffTrigger = this.homey.flow.getTriggerCard(
       "the-large-presence-alarm-turned-off"
     );
-    const largeAlarmOnTrigger = this.homey.flow.getTriggerCard(
+    this.largeAlarmOnTrigger = this.homey.flow.getTriggerCard(
       "the-large-presence-alarm-turned-on"
     );
 
-    const breathCondition = this.homey.flow.getConditionCard(
+    this.breathCondition = this.homey.flow.getConditionCard(
       "the-breath-alarm-is-onoff"
     );
-    const smallCondition = this.homey.flow.getConditionCard(
+    this.smallCondition = this.homey.flow.getConditionCard(
       "the-small-presence-alarm-is-onoff"
     );
-    const largeCondition = this.homey.flow.getConditionCard(
+    this.largeCondition = this.homey.flow.getConditionCard(
       "the-small-presence-alarm-is-onoff"
     );
 
-    breathCondition.registerRunListener(async (args, state) => {
+    this.breathCondition.registerRunListener(async (args, state) => {
       return this.getCapabilityValue("alarm_breathe_presence");
     });
-    smallCondition.registerRunListener(async (args, state) => {
+    this.smallCondition.registerRunListener(async (args, state) => {
       return this.getCapabilityValue("alarm_small_presence");
     });
-    largeCondition.registerRunListener(async (args, state) => {
+    this.largeCondition.registerRunListener(async (args, state) => {
       return this.getCapabilityValue("alarm_large_presence");
     });
 
-    this.printNode();
-
+   
     await zclNode.endpoints[1].clusters.basic
       .readAttributes(
         "zclVersion",
@@ -348,9 +349,9 @@ class radarSensor extends TuyaSpecificClusterDevice {
             this.setCapabilityValue("alarm_small_presence", false);
             this.setCapabilityValue("alarm_large_presence", false);
             this.setCapabilityValue("alarm_breathe_presence", false);
-            breathAlarmOffTrigger.trigger();
-            smallAlarmOffTrigger.trigger();
-            largeAlarmOffTrigger.trigger();
+            this.breathAlarmOffTrigger.trigger();
+            this.smallAlarmOffTrigger.trigger();
+            this.largeAlarmOffTrigger.trigger();
 
             break;
           case 1:
@@ -358,9 +359,9 @@ class radarSensor extends TuyaSpecificClusterDevice {
             this.setCapabilityValue("alarm_small_presence", false);
             this.setCapabilityValue("alarm_large_presence", true);
             this.setCapabilityValue("alarm_breathe_presence", false);
-            breathAlarmOffTrigger.trigger();
-            smallAlarmOffTrigger.trigger();
-            largeAlarmOnTrigger.trigger();
+            this.breathAlarmOffTrigger.trigger();
+            this.smallAlarmOffTrigger.trigger();
+            this.largeAlarmOnTrigger.trigger();
             break;
           case 2:
             this.log("Small");
@@ -368,18 +369,18 @@ class radarSensor extends TuyaSpecificClusterDevice {
             this.setCapabilityValue("alarm_large_presence", false);
             this.setCapabilityValue("alarm_breathe_presence", false);
 
-            breathAlarmOffTrigger.trigger();
-            smallAlarmOnTrigger.trigger();
-            largeAlarmOffTrigger.trigger();
+            this.breathAlarmOffTrigger.trigger();
+            this.smallAlarmOnTrigger.trigger();
+            this.largeAlarmOffTrigger.trigger();
             break;
           case 3:
             this.log("Breathe");
             this.setCapabilityValue("alarm_small_presence", false);
             this.setCapabilityValue("alarm_large_presence", false);
             this.setCapabilityValue("alarm_breathe_presence", true);
-            breathAlarmOnTrigger.trigger();
-            smallAlarmOffTrigger.trigger();
-            largeAlarmOffTrigger.trigger();
+            this.breathAlarmOnTrigger.trigger();
+            this.smallAlarmOffTrigger.trigger();
+            this.largeAlarmOffTrigger.trigger();
             break;
         }
         break;
