@@ -98,6 +98,644 @@
     ]
   },
   "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "The breath alarm turned off",
+          "nl": "Het adem alarm gaat uit",
+          "de": "Der Atem-Alarm ist ausgegangen",
+          "fr": "L'alarme respiratoire s'est désactivée",
+          "it": "L'allarme di respiro è stato disattivato",
+          "sv": "Andningslarmet inaktiverat",
+          "no": "Åndedrettsalarmen deaktivert",
+          "es": "La alarma de respiración se ha desactivado",
+          "da": "Åndedrætsalarmen blev deaktiveret",
+          "ru": "Сигнал дыхания выключен",
+          "pl": "Czujnik oddechu wyłączony"
+        },
+        "id": "the-breath-alarm-turned-off"
+      },
+      {
+        "title": {
+          "en": "The breath alarm turned on",
+          "nl": "Het adem alarm gaat aan",
+          "de": "Der Atem-Alarm ist angegangen",
+          "fr": "L'alarme respiratoire s'est activée",
+          "it": "L'allarme di respiro è stato attivato",
+          "sv": "Andningslarmet aktiverat",
+          "no": "Åndedrettsalarmen aktivert",
+          "es": "La alarma de respiración se ha activado",
+          "da": "Åndedrætsalarmen blev aktiveret",
+          "ru": "Сигнал дыхания включен",
+          "pl": "Czujnik oddechu włączony"
+        },
+        "id": "the-breath-alarm-turned-on"
+      },
+      {
+        "title": {
+          "en": "The Large Presence alarm turned off",
+          "nl": "De grote Aanwezigheid alarm gaat uit",
+          "de": "Der große Präsenz Alarm ist ausgegangen",
+          "fr": "L'alarme Grande Présence s'est désactivée",
+          "it": "L'allarme Presenza Ampia è stato disattivato",
+          "sv": "Stor Närvaro larm inaktiverat",
+          "no": "Stor Nærvær alarm deaktivert",
+          "es": "La alarma de Presencia Grande se ha desactivado",
+          "da": "Stor Nærvær alarm blev deaktiveret",
+          "ru": "Большой сигнал Присутствие выключен",
+          "pl": "Duży czujnik Obecność wyłączony"
+        },
+        "id": "the-large-presence-alarm-turned-off"
+      },
+      {
+        "title": {
+          "en": "The Large Presence alarm turned on",
+          "nl": "Grote Aanwezigheid alarm ging af",
+          "de": "Große Präsenz Alarm ist angegangen",
+          "fr": "Alarme Grande Présence s'est déclenchée",
+          "it": "Allarme Presenza Ampia attivato",
+          "sv": "Stor Närvaro larm aktiverat",
+          "no": "Stor Nærvær alarm aktivert",
+          "es": "Alarma de Presencia Grande activada",
+          "da": "Stor Nærvær alarm blev aktiveret",
+          "ru": "Большой сигнал Присутствие включен",
+          "pl": "Duży czujnik Obecność włączony"
+        },
+        "id": "the-large-presence-alarm-turned-on"
+      },
+      {
+        "title": {
+          "en": "The Small Presence alarm turned off",
+          "nl": "De kleine Aanwezigheid alarm gaat uit",
+          "de": "Der kleine Präsenz Alarm ist ausgegangen",
+          "fr": "L'alarme Petite Présence s'est désactivée",
+          "it": "L'allarme Presenza Piccola è stato disattivato",
+          "sv": "Liten Närvaro larm inaktiverat",
+          "no": "Liten Nærvær alarm deaktivert",
+          "es": "La alarma de Pequeña Presencia se ha desactivado",
+          "da": "Lille Nærvær alarm blev deaktiveret",
+          "ru": "Маленький сигнал Присутствие выключен",
+          "pl": "Mały czujnik Obecność wyłączony"
+        },
+        "id": "the-small-presence-alarm-turned-off"
+      },
+      {
+        "title": {
+          "en": "The Small Presence alarm turned on",
+          "nl": "De kleine Aanwezigheid alarm gaat aan",
+          "de": "Der kleine Präsenz Alarm ist angegangen",
+          "fr": "L'alarme Petite Présence s'est activée",
+          "it": "L'allarme Presenza Piccola è stato attivato",
+          "sv": "Liten Närvaro larm aktiverat",
+          "no": "Liten Nærvær alarm aktivert",
+          "es": "La alarma de Pequeña Presencia se ha activado",
+          "da": "Lille Nærvær alarm blev aktiveret",
+          "ru": "Маленький сигнал Присутствие включен",
+          "pl": "Mały czujnik Obecność włączony"
+        },
+        "id": "the-small-presence-alarm-turned-on"
+      },
+      {
+        "id": "alarm_siren",
+        "title": {
+          "en": "Siren Alarm",
+          "nl": "Sirene Alarm",
+          "de": "Sirenenalarm"
+        },
+        "titleFormatted": {
+          "en": "Siren Alarm",
+          "nl": "Sirene Alarm",
+          "de": "Sirenenalarm"
+        },
+        "hint": {
+          "en": "This card will trigger when siren is activated.",
+          "nl": "Deze kaart wordt alleen geactiveerd wanneer de sirene actief is.",
+          "de": "Diese Karte wird ausgelöst, wenn die Sirene aktiviert wird."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=sirentemphumidsensor"
+          }
+        ]
+      },
+      {
+        "id": "smart_remote_1_button",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "Button had [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_remote_1_button"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "oneClick",
+                "label": {
+                  "en": "1 Click"
+                }
+              },
+              {
+                "id": "twoClicks",
+                "label": {
+                  "en": "2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "smart_remote_1_button_2",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "Button had [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_remote_1_button_2"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "oneClick",
+                "label": {
+                  "en": "1 Click"
+                }
+              },
+              {
+                "id": "twoClicks",
+                "label": {
+                  "en": "2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "smart_remote_4_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "The [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_remote_4_buttons"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "leftUp",
+                "label": {
+                  "en": "Upper Left Button Pressed"
+                }
+              },
+              {
+                "id": "rightUp",
+                "label": {
+                  "en": "Upper Right Button Pressed"
+                }
+              },
+              {
+                "id": "leftDown",
+                "label": {
+                  "en": "Lower Left Button Pressed"
+                }
+              },
+              {
+                "id": "rightDown",
+                "label": {
+                  "en": "Lower Right Button Pressed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall_remote_1_gang_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "Button had [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_1_gang"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "oneClick",
+                "label": {
+                  "en": "1 Click"
+                }
+              },
+              {
+                "id": "twoClicks",
+                "label": {
+                  "en": "2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall_remote_2_gang_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "The [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_2_gang"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "left-oneClick",
+                "label": {
+                  "en": "Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "left-twoClicks",
+                "label": {
+                  "en": "Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "right-oneClick",
+                "label": {
+                  "en": "Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "right-twoClicks",
+                "label": {
+                  "en": "Right Button: 2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall_remote_3_gang_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "The [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_3_gang"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "left-oneClick",
+                "label": {
+                  "en": "Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "left-twoClicks",
+                "label": {
+                  "en": "Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "right-oneClick",
+                "label": {
+                  "en": "Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "right-twoClicks",
+                "label": {
+                  "en": "Right Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "center-oneClick",
+                "label": {
+                  "en": "Center Button: 1 Click"
+                }
+              },
+              {
+                "id": "center-twoClicks",
+                "label": {
+                  "en": "Center Button: 2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall_remote_4_gang_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "The [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_4_gang"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "leftUp-oneClick",
+                "label": {
+                  "en": "Upper Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "leftUp-twoClicks",
+                "label": {
+                  "en": "Upper Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "rightUp-oneClick",
+                "label": {
+                  "en": "Upper Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "rightUp-twoClicks",
+                "label": {
+                  "en": "Upper Right Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "leftDown-oneClick",
+                "label": {
+                  "en": "Lower Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "leftDown-twoClicks",
+                "label": {
+                  "en": "Lower Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "rightDown-oneClick",
+                "label": {
+                  "en": "Lower Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "rightDown-twoClicks",
+                "label": {
+                  "en": "Lower Right Button: 2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall_remote_4_gang_buttons_2",
+        "title": {
+          "en": "Button"
+        },
+        "titleFormatted": {
+          "en": "The [[button]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_4_gang_2"
+          },
+          {
+            "name": "button",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Pressed"
+            },
+            "values": [
+              {
+                "id": "leftUp",
+                "label": {
+                  "en": "Upper Left Button Pressed"
+                }
+              },
+              {
+                "id": "rightUp",
+                "label": {
+                  "en": "Upper Right Button Pressed"
+                }
+              },
+              {
+                "id": "leftDown",
+                "label": {
+                  "en": "Lower Left Button Pressed"
+                }
+              },
+              {
+                "id": "rightDown",
+                "label": {
+                  "en": "Lower Right Button Pressed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall_remote_4_gang_buttons_3",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "The [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_4_gang_3"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "leftUp-oneClick",
+                "label": {
+                  "en": "Upper Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "leftUp-twoClicks",
+                "label": {
+                  "en": "Upper Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "rightUp-oneClick",
+                "label": {
+                  "en": "Upper Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "rightUp-twoClicks",
+                "label": {
+                  "en": "Upper Right Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "leftDown-oneClick",
+                "label": {
+                  "en": "Lower Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "leftDown-twoClicks",
+                "label": {
+                  "en": "Lower Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "rightDown-oneClick",
+                "label": {
+                  "en": "Lower Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "rightDown-twoClicks",
+                "label": {
+                  "en": "Lower Right Button: 2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "title": {
+          "en": "The breath alarm is !{{on|off}}",
+          "nl": "Het adem alarm is !{{aan|uit}}",
+          "de": "Der Atem-Alarm ist !{{an|aus}}",
+          "fr": "L'alarme respiratoire est !{{en marche|arrêtée}}",
+          "it": "L'allarme di respiro è !{{acceso|spento}}",
+          "sv": "Andningslarmet är !{{på|av}}",
+          "no": "Åndedrettsalarmen er !{{på|av}}",
+          "es": "La alarma de respiración está !{{activada|desactivada}}",
+          "da": "Åndedrætsalarmen er !{{tændt|slukket}}",
+          "ru": "Сигнал дыхания !{{вкл.|выкл.}}",
+          "pl": "Czujnik oddechu !{{włączony|wyłączony}}"
+        },
+        "id": "the-breath-alarm-is-onoff"
+      },
+      {
+        "title": {
+          "en": "The Large Presence alarm is !{{on|off}}",
+          "nl": "De grote Aanwezigheid alarm is !{{aan|uit}}",
+          "de": "Der große Präsenz Alarm ist !{{an|aus}}",
+          "fr": "L'alarme Grande Présence est !{{en marche|arrêtée}}",
+          "it": "L'allarme Presenza Ampia è !{{acceso|spento}}",
+          "sv": "Stor Närvaro larm är !{{på|av}}",
+          "no": "Stor Nærvær alarm er !{{på|av}}",
+          "es": "La alarma de Presencia Grande está !{{activada|desactivada}}",
+          "da": "Stor Nærvær alarm er !{{tændt|slukket}}",
+          "ru": "Большой сигнал Присутствие !{{вкл.|выкл.}}",
+          "pl": "Duży czujnik Obecność !{{włączony|wyłączony}}"
+        },
+        "id": "the-large-presence-alarm-is-onoff"
+      },
+      {
+        "title": {
+          "en": "The Small Presence alarm is !{{on|off}}",
+          "nl": "De kleine Aanwezigheid alarm is !{{aan|uit}}",
+          "de": "Der kleine Präsenz Alarm ist !{{an|aus}}",
+          "fr": "L'alarme Petite Présence est !{{en marche|arrêtée}}",
+          "it": "L'allarme Presenza Piccola è !{{acceso|spento}}",
+          "sv": "Liten Närvaro larm är !{{på|av}}",
+          "no": "Liten Nærvær alarm er !{{på|av}}",
+          "es": "La alarma de Pequeña Presencia está !{{activada|desactivada}}",
+          "da": "Lille Nærvær alarm er !{{tændt|slukket}}",
+          "ru": "Маленький сигнал Присутствие !{{вкл.|выкл.}}",
+          "pl": "Mały czujnik Obecność !{{włączony|wyłączony}}"
+        },
+        "id": "the-small-presence-alarm-is-onoff"
+      }
+    ],
     "actions": [
       {
         "id": "resetEnergyMeter",
@@ -617,498 +1255,6 @@
                   "en": "Fire alarm",
                   "nl": "Fire alarm",
                   "de": "Fire alarm"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "triggers": [
-      {
-        "id": "alarm_siren",
-        "title": {
-          "en": "Siren Alarm",
-          "nl": "Sirene Alarm",
-          "de": "Sirenenalarm"
-        },
-        "titleFormatted": {
-          "en": "Siren Alarm",
-          "nl": "Sirene Alarm",
-          "de": "Sirenenalarm"
-        },
-        "hint": {
-          "en": "This card will trigger when siren is activated.",
-          "nl": "Deze kaart wordt alleen geactiveerd wanneer de sirene actief is.",
-          "de": "Diese Karte wird ausgelöst, wenn die Sirene aktiviert wird."
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=sirentemphumidsensor"
-          }
-        ]
-      },
-      {
-        "id": "smart_remote_1_button",
-        "title": {
-          "en": "Button Action"
-        },
-        "titleFormatted": {
-          "en": "Button had [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=smart_remote_1_button"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Action"
-            },
-            "values": [
-              {
-                "id": "oneClick",
-                "label": {
-                  "en": "1 Click"
-                }
-              },
-              {
-                "id": "twoClicks",
-                "label": {
-                  "en": "2 Clicks"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "smart_remote_1_button_2",
-        "title": {
-          "en": "Button Action"
-        },
-        "titleFormatted": {
-          "en": "Button had [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=smart_remote_1_button_2"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Action"
-            },
-            "values": [
-              {
-                "id": "oneClick",
-                "label": {
-                  "en": "1 Click"
-                }
-              },
-              {
-                "id": "twoClicks",
-                "label": {
-                  "en": "2 Clicks"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "smart_remote_4_buttons",
-        "title": {
-          "en": "Button Action"
-        },
-        "titleFormatted": {
-          "en": "The [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=smart_remote_4_buttons"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Action"
-            },
-            "values": [
-              {
-                "id": "leftUp",
-                "label": {
-                  "en": "Upper Left Button Pressed"
-                }
-              },
-              {
-                "id": "rightUp",
-                "label": {
-                  "en": "Upper Right Button Pressed"
-                }
-              },
-              {
-                "id": "leftDown",
-                "label": {
-                  "en": "Lower Left Button Pressed"
-                }
-              },
-              {
-                "id": "rightDown",
-                "label": {
-                  "en": "Lower Right Button Pressed"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "wall_remote_1_gang_buttons",
-        "title": {
-          "en": "Button Action"
-        },
-        "titleFormatted": {
-          "en": "Button had [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=wall_remote_1_gang"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Action"
-            },
-            "values": [
-              {
-                "id": "oneClick",
-                "label": {
-                  "en": "1 Click"
-                }
-              },
-              {
-                "id": "twoClicks",
-                "label": {
-                  "en": "2 Clicks"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "wall_remote_2_gang_buttons",
-        "title": {
-          "en": "Button Action"
-        },
-        "titleFormatted": {
-          "en": "The [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=wall_remote_2_gang"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Action"
-            },
-            "values": [
-              {
-                "id": "left-oneClick",
-                "label": {
-                  "en": "Left Button: 1 Click"
-                }
-              },
-              {
-                "id": "left-twoClicks",
-                "label": {
-                  "en": "Left Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "right-oneClick",
-                "label": {
-                  "en": "Right Button: 1 Click"
-                }
-              },
-              {
-                "id": "right-twoClicks",
-                "label": {
-                  "en": "Right Button: 2 Clicks"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "wall_remote_3_gang_buttons",
-        "title": {
-          "en": "Button Action"
-        },
-        "titleFormatted": {
-          "en": "The [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=wall_remote_3_gang"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Action"
-            },
-            "values": [
-              {
-                "id": "left-oneClick",
-                "label": {
-                  "en": "Left Button: 1 Click"
-                }
-              },
-              {
-                "id": "left-twoClicks",
-                "label": {
-                  "en": "Left Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "right-oneClick",
-                "label": {
-                  "en": "Right Button: 1 Click"
-                }
-              },
-              {
-                "id": "right-twoClicks",
-                "label": {
-                  "en": "Right Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "center-oneClick",
-                "label": {
-                  "en": "Center Button: 1 Click"
-                }
-              },
-              {
-                "id": "center-twoClicks",
-                "label": {
-                  "en": "Center Button: 2 Clicks"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "wall_remote_4_gang_buttons",
-        "title": {
-          "en": "Button Action"
-        },
-        "titleFormatted": {
-          "en": "The [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=wall_remote_4_gang"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Action"
-            },
-            "values": [
-              {
-                "id": "leftUp-oneClick",
-                "label": {
-                  "en": "Upper Left Button: 1 Click"
-                }
-              },
-              {
-                "id": "leftUp-twoClicks",
-                "label": {
-                  "en": "Upper Left Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "rightUp-oneClick",
-                "label": {
-                  "en": "Upper Right Button: 1 Click"
-                }
-              },
-              {
-                "id": "rightUp-twoClicks",
-                "label": {
-                  "en": "Upper Right Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "leftDown-oneClick",
-                "label": {
-                  "en": "Lower Left Button: 1 Click"
-                }
-              },
-              {
-                "id": "leftDown-twoClicks",
-                "label": {
-                  "en": "Lower Left Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "rightDown-oneClick",
-                "label": {
-                  "en": "Lower Right Button: 1 Click"
-                }
-              },
-              {
-                "id": "rightDown-twoClicks",
-                "label": {
-                  "en": "Lower Right Button: 2 Clicks"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "wall_remote_4_gang_buttons_2",
-        "title": {
-          "en": "Button"
-        },
-        "titleFormatted": {
-          "en": "The [[button]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=wall_remote_4_gang_2"
-          },
-          {
-            "name": "button",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Pressed"
-            },
-            "values": [
-              {
-                "id": "leftUp",
-                "label": {
-                  "en": "Upper Left Button Pressed"
-                }
-              },
-              {
-                "id": "rightUp",
-                "label": {
-                  "en": "Upper Right Button Pressed"
-                }
-              },
-              {
-                "id": "leftDown",
-                "label": {
-                  "en": "Lower Left Button Pressed"
-                }
-              },
-              {
-                "id": "rightDown",
-                "label": {
-                  "en": "Lower Right Button Pressed"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "wall_remote_4_gang_buttons_3",
-        "title": {
-          "en": "Button Action"
-        },
-        "titleFormatted": {
-          "en": "The [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=wall_remote_4_gang_3"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Action"
-            },
-            "values": [
-              {
-                "id": "leftUp-oneClick",
-                "label": {
-                  "en": "Upper Left Button: 1 Click"
-                }
-              },
-              {
-                "id": "leftUp-twoClicks",
-                "label": {
-                  "en": "Upper Left Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "rightUp-oneClick",
-                "label": {
-                  "en": "Upper Right Button: 1 Click"
-                }
-              },
-              {
-                "id": "rightUp-twoClicks",
-                "label": {
-                  "en": "Upper Right Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "leftDown-oneClick",
-                "label": {
-                  "en": "Lower Left Button: 1 Click"
-                }
-              },
-              {
-                "id": "leftDown-twoClicks",
-                "label": {
-                  "en": "Lower Left Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "rightDown-oneClick",
-                "label": {
-                  "en": "Lower Right Button: 1 Click"
-                }
-              },
-              {
-                "id": "rightDown-twoClicks",
-                "label": {
-                  "en": "Lower Right Button: 2 Clicks"
                 }
               }
             ]
@@ -3020,12 +3166,10 @@
           "_TZE201_ztc6ggyl",
           "_TZE202_ztc6ggyl",
           "_TZE203_ztc6ggyl",
-          "_TZE204_ztc6ggyl",
-          "_TZE200_2aaelwxk"
+          "_TZE204_ztc6ggyl"
         ],
         "productId": [
-          "TS0601",
-          "TS0225"
+          "TS0601"
         ],
         "endpoints": {
           "1": {
@@ -3142,8 +3286,7 @@
         "alarm_motion",
         "alarm_small_presence",
         "alarm_large_presence",
-        "alarm_breathe_presence",
-        "target_distance"
+        "alarm_breathe_presence"
       ],
       "images": {
         "large": "/drivers/radar_sensor_2/assets/images/large.png",

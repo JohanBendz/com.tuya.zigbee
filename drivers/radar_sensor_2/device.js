@@ -99,8 +99,8 @@ Cluster.addCluster(TuyaSpecificCluster);
 //   }
 // }
 
-const setDeviceDatapoints = (fingerprint) => {
-  switch (fingerprint) {
+const setDeviceDatapoints = (manufacturerName) => {
+  switch (manufacturerName) {
     case "_TZE200_2aaelwxk":
       return {
         presence: 1, // [0/1]
@@ -171,6 +171,42 @@ const convertMultiByteNumberPayloadToSingleDecimalNumber = (chunks) => {
   return value;
 };
 
+const convertDecimalValueTo4ByteHexArray = (value) => {
+  const hexValue = Number(value).toString(16).padStart(8, "0");
+  const chunk1 = hexValue.substring(0, 2);
+  const chunk2 = hexValue.substring(2, 4);
+  const chunk3 = hexValue.substring(4, 6);
+  const chunk4 = hexValue.substring(6);
+  return [chunk1, chunk2, chunk3, chunk4].map((hexVal) => parseInt(hexVal, 16));
+};
+
+const convertDecimalValueTo2ByteHexArray = (value) => {
+  const hexValue = Number(value).toString(16).padStart(4, "0");
+  const chunk1 = hexValue.substring(0, 2);
+  const chunk2 = hexValue.substring(2);
+  return [chunk1, chunk2].map((hexVal) => parseInt(hexVal, 16));
+};
+
+const decimalToBuffer = (decimalValue) => {
+  // Determine the byte length needed for the decimal value
+  let byteLength = 1;
+  while (decimalValue >> (8 * byteLength) > 0) {
+    byteLength++;
+  }
+
+  // Create a new buffer with the determined byte length
+  const buffer = Buffer.alloc(byteLength);
+
+  // Write the decimal value to the buffer based on the byte length
+  for (let i = 0; i < byteLength; i++) {
+    const byte = decimalValue & 0xff; // Get the lowest byte
+    buffer.writeUInt8(byte, i);
+    decimalValue >>= 8; // Shift right by 8 bits to get the next byte
+  }
+
+  return buffer;
+};
+
 const getDataValue = (dpValue) => {
   switch (dpValue.datatype) {
     case dataTypes.raw:
@@ -194,13 +230,50 @@ const getDataValue = (dpValue) => {
 
 class radarSensor extends TuyaSpecificClusterDevice {
   async onNodeInit({ zclNode }) {
-    this.fingerprint = this.getSetting("zb_manufacturer_name");
+    this.manufacturerName = this.getSetting("zb_manufacturer_name");
 
-    this.dataPoints = setDeviceDatapoints(this.fingerprint);
+    this.dataPoints = setDeviceDatapoints(this.manufacturerName);
+
+    const breathAlarmOffTrigger = this.homey.flow.getTriggerCard(
+      "the-breath-alarm-turned-off"
+    );
+    const breathAlarmOnTrigger = this.homey.flow.getTriggerCard(
+      "the-breath-alarm-turned-on"
+    );
+    const smallAlarmOffTrigger = this.homey.flow.getTriggerCard(
+      "the-small-presence-alarm-turned-off"
+    );
+    const smallAlarmOnTrigger = this.homey.flow.getTriggerCard(
+      "the-small-presence-alarm-turned-on"
+    );
+    const largeAlarmOffTrigger = this.homey.flow.getTriggerCard(
+      "the-large-presence-alarm-turned-off"
+    );
+    const largeAlarmOnTrigger = this.homey.flow.getTriggerCard(
+      "the-large-presence-alarm-turned-on"
+    );
+
+    const breathCondition = this.homey.flow.getConditionCard(
+      "the-breath-alarm-is-onoff"
+    );
+    const smallCondition = this.homey.flow.getConditionCard(
+      "the-small-presence-alarm-is-onoff"
+    );
+    const largeCondition = this.homey.flow.getConditionCard(
+      "the-small-presence-alarm-is-onoff"
+    );
+
+    breathCondition.registerRunListener(async (args, state) => {
+      return this.getCapabilityValue("alarm_breathe_presence");
+    });
+    smallCondition.registerRunListener(async (args, state) => {
+      return this.getCapabilityValue("alarm_small_presence");
+    });
+    largeCondition.registerRunListener(async (args, state) => {
+      return this.getCapabilityValue("alarm_large_presence");
+    });
 
     this.printNode();
-
-    
 
     await zclNode.endpoints[1].clusters.basic
       .readAttributes(
@@ -212,8 +285,8 @@ class radarSensor extends TuyaSpecificClusterDevice {
         "modelId",
         "powerSource",
         "deviceEnabled",
-        "swBuildId"
-        // "attributeReportingStatus",
+        "swBuildId",
+        "attributeReportingStatus"
       )
       .catch((err) => {
         this.error("Error when reading device attributes ", err);
@@ -235,6 +308,14 @@ class radarSensor extends TuyaSpecificClusterDevice {
     //   "attr.measuredValue",
     //   this.onIlluminanceMeasuredAttributeReport.bind(this)
     // );
+
+    zclNode.endpoints[1].clusters[CLUSTER.IDENTIFY.NAME].on(
+      "attr.identifyTime",
+
+      (e) => {
+        this.log("Identify Time: ", e);
+      }
+    );
   }
 
   processReporting(data) {
@@ -246,7 +327,7 @@ class radarSensor extends TuyaSpecificClusterDevice {
   }
 
   async updatePosition(data) {
-   this.log("########### UPDATE POSITION: ", data);
+    this.log("########### UPDATE POSITION: ", data);
 
     const dp = data.dp;
     const value = getDataValue(data);
@@ -267,24 +348,38 @@ class radarSensor extends TuyaSpecificClusterDevice {
             this.setCapabilityValue("alarm_small_presence", false);
             this.setCapabilityValue("alarm_large_presence", false);
             this.setCapabilityValue("alarm_breathe_presence", false);
+            breathAlarmOffTrigger.trigger();
+            smallAlarmOffTrigger.trigger();
+            largeAlarmOffTrigger.trigger();
+
             break;
           case 1:
             this.log("Large");
             this.setCapabilityValue("alarm_small_presence", false);
             this.setCapabilityValue("alarm_large_presence", true);
             this.setCapabilityValue("alarm_breathe_presence", false);
+            breathAlarmOffTrigger.trigger();
+            smallAlarmOffTrigger.trigger();
+            largeAlarmOnTrigger.trigger();
             break;
           case 2:
             this.log("Small");
             this.setCapabilityValue("alarm_small_presence", true);
             this.setCapabilityValue("alarm_large_presence", false);
             this.setCapabilityValue("alarm_breathe_presence", false);
+
+            breathAlarmOffTrigger.trigger();
+            smallAlarmOnTrigger.trigger();
+            largeAlarmOffTrigger.trigger();
             break;
           case 3:
             this.log("Breathe");
             this.setCapabilityValue("alarm_small_presence", false);
             this.setCapabilityValue("alarm_large_presence", false);
             this.setCapabilityValue("alarm_breathe_presence", true);
+            breathAlarmOnTrigger.trigger();
+            smallAlarmOffTrigger.trigger();
+            largeAlarmOffTrigger.trigger();
             break;
         }
         break;
@@ -339,14 +434,14 @@ class radarSensor extends TuyaSpecificClusterDevice {
 
   async onSettings({ oldSettings, newSettings, changedKeys }) {
     //
-     changedKeys.forEach((updatedSetting) => {
-       this.log(
-         "########### Updated setting: ",
-         updatedSetting,
-         " => ",
-         newSettings[updatedSetting]
-       );
-     });
+    changedKeys.forEach((updatedSetting) => {
+      this.log(
+        "########### Updated setting: ",
+        updatedSetting,
+        " => ",
+        newSettings[updatedSetting]
+      );
+    });
 
     if (changedKeys.includes("motion_detection_sensitivity")) {
       this.writeData32(
