@@ -1,7 +1,7 @@
 {
-  "id": "WaterLeakSensor",
+  "id": "WaterLeakSensorWithSiren",
   "name": {
-    "en": "Water Leak Sensor"
+    "en": "Water Leak Sensor with Siren"
   },
   "class": "sensor",
   "platforms": ["local"],
