@@ -142,6 +142,9 @@ Supported devices:
 - Water Leak Sensor
     _TZE200_qq9mpfhw / TS0601
 
+- Water Leak Sensor With Siren
+    _TZE200_jthf7vb6 / TS0601
+
 - Flood Sensor
     TUYATEC-3tipnsrx / RH3001
     _TZ3000_4uvovz4r / TS0207
