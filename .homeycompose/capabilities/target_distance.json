@@ -1,8 +1,9 @@
 {
   "type": "number",
   "title": { "en": "Target distance" },
-  "uiComponent": null,
+  "uiComponent": "sensor",
   "getable": true,
   "setable": false,
-  "units": { "en": "m" }
+  "units": { "en": "m" },
+  "icon": "/drivers/radar_sensor/assets/distance.svg"
 }
