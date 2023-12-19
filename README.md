@@ -59,6 +59,7 @@ Supported devices:
     _TZ3000_yd2e749y / TS0201
     _TZ3000_ywagc4rj / TS0201
     _TZ3000_itnrsufe / TS0201
+    _TZ3000_bjawzodf / TY0201
     
 - LCD Temperature, Humidity and Luminance Sensor
     _TZ3000_qaaysllp / TS0201

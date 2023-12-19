@@ -1,0 +1,52 @@
+{
+  "id": "lcdtemphumidsensor4",
+  "name": {
+    "en": "LCD Temperature & Humidity Sensor"
+  },
+  "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "measure_temperature",
+    "measure_humidity",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "AAA", "AAA"
+    ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_bjawzodf"
+    ],
+    "productId": [
+      "TY0201"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          1026,
+          1029
+        ],
+        "bindings": [
+          1,
+          1026,
+          1029
+        ]
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press the button on the side of the unit for 5 seconds."
+      }
+    }
+  }
+}
