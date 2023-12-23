@@ -123,6 +123,7 @@ Supported devices:
     Visonic / MCT-340 E
     _TZ3000_decxrtwa / TS0203
     _TZ3000_hkcpblrs / TS0203 (Avatto)
+    _TZ3000_9eeavbk5 / TS0203 (Immax Neo)
 
 - Smart Door/Windows Sensor
     _TZ1800_ejwkn2h2 / TY0203 (Silvercrest / Lidl)
