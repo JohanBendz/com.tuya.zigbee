@@ -136,6 +136,7 @@ Supported devices:
     _TZ3000_85czd6fy / TS0207
     _TZ3000_kyb656no / TS0207
     _TZ3000_0s9gukzt / TS0207
+    _TZ3000_kstbkt6a / TS0207
 
 - Water Leak Sensor
     _TZE200_qq9mpfhw / TS0601
