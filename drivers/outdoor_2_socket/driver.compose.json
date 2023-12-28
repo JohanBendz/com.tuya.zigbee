@@ -1,0 +1,64 @@
+{
+  "id": "outdoorsmart2socket",
+  "name": {
+    "en": "Outdoor smart socket with metering"
+  },
+  "class": "socket",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "onoff",
+    "measure_power",
+    "meter_power",
+    "measure_current",
+    "measure_voltage"
+  ],
+  "capabilitiesOptions": {
+    "measure_power": {
+      "approximated": true
+    }
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_uwkja6z1"
+    ],
+    "productId": [
+      "TS011F"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 3, 4, 5, 6, 1794, 2820, 57344, 57345],
+        "bindings": [10, 25]
+      },
+      "2": {
+        "clusters": [3, 4, 5, 6, 1794, 2820, 57344, 57345],
+        "bindings": []
+      }
+    },
+    "devices": {
+      "secondSocket": {
+        "class": "socket",
+        "capabilities": [
+          "onoff",
+          "measure_power",
+          "meter_power",
+          "measure_current",
+          "measure_voltage"
+        ],
+        "name": {
+          "en": "Outdoor smart socket #2"
+        },
+        "settings": []
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press and hold down on/off switch for aprox 5 seconds until the WiFi icon blinks rapidly."
+      }
+    }
+  }
+}
