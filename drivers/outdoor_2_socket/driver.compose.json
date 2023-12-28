@@ -13,11 +13,6 @@
     "measure_current",
     "measure_voltage"
   ],
-  "capabilitiesOptions": {
-    "measure_power": {
-      "approximated": true
-    }
-  },
   "images": {
     "large": "{{driverAssetsPath}}/images/large.png",
     "small": "{{driverAssetsPath}}/images/small.png"
@@ -42,13 +37,6 @@
     "devices": {
       "secondSocket": {
         "class": "socket",
-        "capabilities": [
-          "onoff",
-          "measure_power",
-          "meter_power",
-          "measure_current",
-          "measure_voltage"
-        ],
         "name": {
           "en": "Outdoor smart socket #2"
         },

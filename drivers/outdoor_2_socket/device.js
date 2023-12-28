@@ -34,6 +34,15 @@ class outdoor2socket extends ZigBeeDevice {
       await this.addCapability('measure_voltage').catch(this.error);
     }
 
+    // onOff
+    this.registerCapability('onoff', CLUSTER.ON_OFF, {
+      endpoint: subDeviceId === 'secondSocket' ? 2 : 1,
+      getOpts: {
+        getOnStart: true,
+        pollInterval: 60000
+      }
+    });
+
     // Endpoint 1
     let options1 = { endpoint: 1 };
     this.registerCapabilities(zclNode, options1);
@@ -45,13 +54,7 @@ class outdoor2socket extends ZigBeeDevice {
   }
 
   registerCapabilities(zclNode, options) {
-    // onOff
-    this.registerCapability('onoff', CLUSTER.ON_OFF, options, {
-      getOpts: {
-        getOnStart: true,
-        pollInterval: 60000
-      }
-    });
+
 
     // meter_power
     this.registerCapability('meter_power', CLUSTER.METERING, options, {
@@ -96,7 +99,7 @@ class outdoor2socket extends ZigBeeDevice {
   }
 
   onDeleted() {
-    this.log("Double Power Point removed")
+    this.log("Outdoor 2 Socket removed")
   }
 
   async onSettings({oldSettings, newSettings, changedKeys}) {
@@ -105,4 +108,4 @@ class outdoor2socket extends ZigBeeDevice {
   
 }
 
-module.exports = doublepowerpoint;
+module.exports = outdoor2socket;
