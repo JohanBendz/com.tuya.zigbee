@@ -626,6 +626,103 @@
     ],
     "triggers": [
       {
+        "id": "handheld_remote_4_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "The [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=handheld_remote_4_buttons"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "button1-single",
+                "label": {
+                  "en": "Button 1: Single"
+                }
+              },
+              {
+                "id": "button1-double",
+                "label": {
+                  "en": "Button 1: Double"
+                }
+              },
+              {
+                "id": "button1-long",
+                "label": {
+                  "en": "Button 1: Long Press"
+                }
+              },
+              {
+                "id": "button2-single",
+                "label": {
+                  "en": "Button 2: Single"
+                }
+              },
+              {
+                "id": "button2-double",
+                "label": {
+                  "en": "Button 2: Double"
+                }
+              },
+              {
+                "id": "button2-long",
+                "label": {
+                  "en": "Button 2: Long Press"
+                }
+              },
+              {
+                "id": "button3-single",
+                "label": {
+                  "en": "Button 3: Single"
+                }
+              },
+              {
+                "id": "button3-twoClicks",
+                "label": {
+                  "en": "Button 3: Double"
+                }
+              },
+              {
+                "id": "button3-long",
+                "label": {
+                  "en": "Button 3: Long Press"
+                }
+              },
+              {
+                "id": "button4-oneClick",
+                "label": {
+                  "en": "Button 4: Single"
+                }
+              },
+              {
+                "id": "button4-twoClicks",
+                "label": {
+                  "en": "Button 4: Double"
+                }
+              },
+              {
+                "id": "button4-long",
+                "label": {
+                  "en": "Button 4: Long Press"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "alarm_siren",
         "title": {
           "en": "Siren Alarm",
@@ -1746,7 +1843,8 @@
           "_TZ3000_au1rjicn",
           "_TZ3000_4ugnzsli",
           "TUYATEC-7qunn4gq",
-          "_TZ3000_decxrtwa"
+          "_TZ3000_decxrtwa",
+          "_TZ3000_yxqnffam"
         ],
         "productId": [
           "RH3001",
@@ -2130,6 +2228,80 @@
         }
       },
       "settings": []
+    },
+    {
+      "id": "handheld_remote_4_buttons",
+      "name": {
+        "en": "4 Button Remote"
+      },
+      "class": "remote",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "button"
+      ],
+      "images": {
+        "large": "/drivers/handheld_remote_4_buttons/assets/images/large.png",
+        "small": "/drivers/handheld_remote_4_buttons/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_u3nv1jwk"
+        ],
+        "productId": [
+          "TS0044"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "4": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/handheld_remote_4_buttons/assets/icon.svg",
+          "instruction": {
+            "en": "Press the top button for aprox 10 seconds (Zigbee logo will start blinking)."
+          }
+        }
+      }
     },
     {
       "id": "lcdtemphumidluxsensor",
@@ -3114,6 +3286,21 @@
           "value": 7,
           "min": 0,
           "max": 1500,
+          "units": {
+            "en": "seconds",
+            "nl": "seconden"
+          }
+        },
+        {
+          "id": "distance_update_interval",
+          "type": "number",
+          "label": {
+            "en": "Distance update interval",
+            "nl": "Afstand update interval"
+          },
+          "value": 10,
+          "min": 3,
+          "max": 60,
           "units": {
             "en": "seconds",
             "nl": "seconden"
@@ -5155,6 +5342,65 @@
           }
         }
       }
+    },
+    {
+      "id": "smoke_sensor2",
+      "name": {
+        "en": "Smoke Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_battery",
+        "alarm_smoke",
+        "alarm_tamper",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/smoke_sensor2/assets/images/large.png",
+        "small": "/drivers/smoke_sensor2/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_ntcy3xu1"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              4,
+              5,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smoke_sensor2/assets/icon.svg",
+          "instruction": {
+            "en": "Press the RESET pinhole on the side of the unit for 5 seconds until LED blinks."
+          }
+        }
+      },
+      "settings": []
     },
     {
       "id": "socket_power_strip",
@@ -8154,12 +8400,13 @@
       "title": {
         "en": "Target distance"
       },
-      "uiComponent": null,
+      "uiComponent": "sensor",
       "getable": true,
       "setable": false,
       "units": {
         "en": "m"
-      }
+      },
+      "icon": "/drivers/radar_sensor/assets/distance.svg"
     },
     "temperature_unit": {
       "type": "enum",
