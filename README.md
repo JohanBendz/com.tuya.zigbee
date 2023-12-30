@@ -59,6 +59,8 @@ Supported devices:
     _TZ3000_yd2e749y / TS0201
     _TZ3000_ywagc4rj / TS0201
     _TZ3000_itnrsufe / TS0201
+
+- LCD Temperature and Humidity Sensor
     _TZ3000_bjawzodf / TY0201
     
 - LCD Temperature, Humidity and Luminance Sensor
@@ -140,7 +142,6 @@ Supported devices:
 
 - Water Leak Sensor
     _TZE200_qq9mpfhw / TS0601
-    _TZE200_jthf7vb6 / TS0601
 
 - Flood Sensor
     TUYATEC-3tipnsrx / RH3001
