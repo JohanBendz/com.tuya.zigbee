@@ -190,6 +190,7 @@ Supported devices:
     _TZ3000_okaz9tjs / TS011F
     _TZ3000_eyzb8yg3 / TS0121
     _TZ3000_dksbtrzs / TS011F (Lonsonho)
+    _TZ3000_j1v25l17 / TS011F (Silvercrest / Lidl)
 
 - Smart Plug, without metering
     _TZ3000_kdi2o9m6 / TS011F (Silvercrest / Lidl)
