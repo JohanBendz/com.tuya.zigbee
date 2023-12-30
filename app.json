@@ -628,10 +628,10 @@
       {
         "id": "handheld_remote_4_buttons",
         "title": {
-          "en": "Button Action"
+          "en": "Button was pressed"
         },
         "titleFormatted": {
-          "en": "The [[action]]"
+          "en": "[[button]] button was pressed [[action]]"
         },
         "args": [
           {
@@ -640,82 +640,61 @@
             "filter": "driver_id=handheld_remote_4_buttons"
           },
           {
-            "name": "action",
+            "name": "button",
             "type": "dropdown",
             "title": {
-              "en": "Button Action"
+              "en": "Button"
             },
             "values": [
               {
-                "id": "button1-single",
+                "id": "button1",
                 "label": {
-                  "en": "Button 1: Single"
+                  "en": "Button 1"
                 }
               },
               {
-                "id": "button1-double",
+                "id": "button2",
                 "label": {
-                  "en": "Button 1: Double"
+                  "en": "Button 2"
                 }
               },
               {
-                "id": "button1-long",
+                "id": "button3",
                 "label": {
-                  "en": "Button 1: Long Press"
+                  "en": "Button 3"
                 }
               },
               {
-                "id": "button2-single",
+                "id": "button4",
                 "label": {
-                  "en": "Button 2: Single"
+                  "en": "Button 4"
+                }
+              }
+            ]
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Action"
+            },
+            "values": [
+              {
+                "id": "single",
+                "label": {
+                  "en": "once"
                 }
               },
               {
-                "id": "button2-double",
+                "id": "double",
                 "label": {
-                  "en": "Button 2: Double"
+                  "en": "twice"
                 }
               },
               {
-                "id": "button2-long",
+                "id": "long",
                 "label": {
-                  "en": "Button 2: Long Press"
-                }
-              },
-              {
-                "id": "button3-single",
-                "label": {
-                  "en": "Button 3: Single"
-                }
-              },
-              {
-                "id": "button3-twoClicks",
-                "label": {
-                  "en": "Button 3: Double"
-                }
-              },
-              {
-                "id": "button3-long",
-                "label": {
-                  "en": "Button 3: Long Press"
-                }
-              },
-              {
-                "id": "button4-oneClick",
-                "label": {
-                  "en": "Button 4: Single"
-                }
-              },
-              {
-                "id": "button4-twoClicks",
-                "label": {
-                  "en": "Button 4: Double"
-                }
-              },
-              {
-                "id": "button4-long",
-                "label": {
-                  "en": "Button 4: Long Press"
+                  "en": "long"
                 }
               }
             ]
@@ -4336,61 +4315,6 @@
           ]
         }
       ]
-    },
-    {
-      "id": "slim_motion_sensor",
-      "name": {
-        "en": "Slim motion sensor"
-      },
-      "class": "sensor",
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "zigbee"
-      ],
-      "capabilities": [
-        "alarm_motion",
-        "alarm_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "AAA"
-        ]
-      },
-      "images": {
-        "large": "/drivers/slim_motion_sensor/assets/images/large.png",
-        "small": "/drivers/slim_motion_sensor/assets/images/small.png"
-      },
-      "zigbee": {
-        "manufacturerName": [
-          "_TZ3000_lf56vpxj"
-        ],
-        "productId": [
-          "TS0202"
-        ],
-        "endpoints": {
-          "1": {
-            "clusters": [
-              0,
-              1,
-              3,
-              1280
-            ],
-            "bindings": [
-              1,
-              1280
-            ]
-          }
-        },
-        "learnmode": {
-          "image": "/drivers/slim_motion_sensor/assets/learn.svg",
-          "instruction": {
-            "en": "Press the reset button for aprox 5 seconds until the LED blinks."
-          }
-        }
-      },
-      "settings": []
     },
     {
       "id": "smart_door_window_sensor",
