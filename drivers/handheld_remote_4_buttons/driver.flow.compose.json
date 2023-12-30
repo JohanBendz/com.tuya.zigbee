@@ -1,0 +1,90 @@
+{
+    "triggers": [
+      {
+        "id": "handheld_remote_4_buttons",
+        "title": {"en": "Button Action"},
+        "titleFormatted": {"en": "The [[action]]"},
+        "args": [
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {"en": "Button Action"},
+            "values": [
+              {
+                "id": "button1-single",
+                "label": {
+                  "en": "Button 1: Single"
+                }
+              },
+              {
+                "id": "button1-double",
+                "label": {
+                  "en": "Button 1: Double"
+                }
+              },
+              {
+                "id": "button1-long",
+                "label": {
+                  "en": "Button 1: Long Press"
+                }
+              },
+              {
+                "id": "button2-single",
+                "label": {
+                  "en": "Button 2: Single"
+                }
+              },
+              {
+                "id": "button2-double",
+                "label": {
+                  "en": "Button 2: Double"
+                }
+              },
+              {
+                "id": "button2-long",
+                "label": {
+                  "en": "Button 2: Long Press"
+                }
+              },
+              {
+                "id": "button3-single",
+                "label": {
+                  "en": "Button 3: Single"
+                }
+              },
+              {
+                "id": "button3-twoClicks",
+                "label": {
+                  "en": "Button 3: Double"
+                }
+              },
+              {
+                "id": "button3-long",
+                "label": {
+                  "en": "Button 3: Long Press"
+                }
+              },
+              {
+                "id": "button4-oneClick",
+                "label": {
+                  "en": "Button 4: Single"
+                }
+              },
+              {
+                "id": "button4-twoClicks",
+                "label": {
+                  "en": "Button 4: Double"
+                }
+              },
+              {
+                "id": "button4-long",
+                "label": {
+                  "en": "Button 4: Long Press"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
