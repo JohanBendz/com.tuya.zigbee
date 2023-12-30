@@ -1,0 +1,57 @@
+
+  "ids": {
+    "modelId": "TY0201",
+    "manufacturerName": "_TZ3000_bjawzodf"
+  },
+  "endpoints": {
+    "ieeeAddress": "a4:c1:38:87:24:73:c9:79",
+    "networkAddress": 62383,
+    "modelId": "TY0201",
+    "manufacturerName": "_TZ3000_bjawzodf",
+    "endpointDescriptors": [
+      {
+        "status": "SUCCESS",
+        "nwkAddrOfInterest": 62383,
+        "_reserved": 20,
+        "endpointId": 1,
+        "applicationProfileId": 260,
+        "applicationDeviceId": 770,
+        "applicationDeviceVersion": 0,
+        "_reserved1": 0,
+        "inputClusters": [
+          0,
+          1,
+          3,
+          1026,
+          1029
+        ],
+        "outputClusters": [
+          25
+        ]
+      }
+    ],
+    "deviceType": "enddevice",
+    "receiveWhenIdle": false,
+    "capabilities": {
+      "alternatePANCoordinator": false,
+      "deviceType": false,
+      "powerSourceMains": false,
+      "receiveWhenIdle": false,
+      "security": false,
+      "allocateAddress": true
+    },
+    "extendedEndpointDescriptors": {
+      "1": {
+        "clusters": {
+          "basic": {},
+          "powerConfiguration": {},
+          "identify": {},
+          "temperatureMeasurement": {},
+          "relativeHumidity": {}
+        },
+        "bindings": {
+          "ota": {}
+        }
+      }
+    }
+  }
