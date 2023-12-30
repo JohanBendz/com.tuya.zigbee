@@ -139,6 +139,7 @@ Supported devices:
 
 - Water Leak Sensor
     _TZE200_qq9mpfhw / TS0601
+    _TZE200_jthf7vb6 / TS0601
 
 - Water Leak Sensor With Siren
     _TZE200_jthf7vb6 / TS0601
