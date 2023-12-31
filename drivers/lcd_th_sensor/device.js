@@ -1,71 +1,48 @@
 'use strict';
 
-const { Cluster, debug} = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
 const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
+const {getDataValue} = require("./helpers");
+const { Cluster} = require('zigbee-clusters');
+
+
 
 Cluster.addCluster(TuyaSpecificCluster);
-
+/* {"1":"Temperature","2":"Humidity","4":"Battery level","9":"Unit convert","10":"Set maxtemp","11":"Set minitemp","12":"Set maxhum","13":"Set minihum","14":"Temp alarm","15":"Humidity alarm","17":"Temperature report","18":"Humidity report","19":"Temp sensitivity","20":"Humidity sensitivity"} */
 const dataPoints = {
-  currentHumidity: 2,
   currentTemperature: 1,
+  currentHumidity: 2,
   batteryLevel: 4,
-}
-
-
-const dataTypes = {
-  raw: 0, // [ bytes ]
-  bool: 1, // [0/1]
-  value: 2, // [ 4 byte value ]
-  string: 3, // [ N byte string ]
-  enum: 4, // [ 0-255 ]
-  bitmap: 5, // [ 1,2,4 bytes ] as bits
-};
-
-const convertMultiByteNumberPayloadToSingleDecimalNumber = (chunks) => {
-  let value = 0;
-
-  for (let i = 0; i < chunks.length; i++) {
-    value = value << 8;
-    value += chunks[i];
-  }
-
-  return value;
-};
-
-const getDataValue = (dpValue) => {
-  switch (dpValue.datatype) {
-    case dataTypes.raw:
-      return dpValue.data;
-    case dataTypes.bool:
-      return dpValue.data[0] === 1;
-    case dataTypes.value:
-      return convertMultiByteNumberPayloadToSingleDecimalNumber(dpValue.data);
-    case dataTypes.string:
-      let dataString = '';
-      for (let i = 0; i < dpValue.data.length; ++i) {
-        dataString += String.fromCharCode(dpValue.data[i]);
-      }
-      return dataString;
-    case dataTypes.enum:
-      return dpValue.data[0];
-    case dataTypes.bitmap:
-      return convertMultiByteNumberPayloadToSingleDecimalNumber(dpValue.data);
-  }
+  unit_convert: 9,
+  maxtemp: 10,
+  mintemp: 11,
+  maxhum: 12,
+  minhum: 13,
+  tempalarm: 14,
+  humalarm: 15,
+  tempreport: 17,
+  humreport: 18,
+  tempsens: 19,
+  humsens:20
 }
 
 class lcdThSensor extends TuyaSpecificClusterDevice {
-
   async onNodeInit({ zclNode }) {
     this.printNode();
+	this.enableDebug();
 
-	this.addCapability("measure_temperature");
-    this.log('\u001b[34mTriggered');
+	this.registerCapabilityListener("measure_temperature", async (currentTemperature) => {
+		this.log('current temperature received', currentTemperature)
+	})
+	this.registerCapabilityListener("measure_humidity", async (currentHumidity) => {
+		this.log('current humidity received', currentHumidity)
+	})
+	this.registerCapabilityListener("measure_battery", async (batteryLevel) => {
+		this.log('current battery level received', batteryLevel)
+	})
+
 	zclNode.endpoints[1].clusters.tuya.on("response", value => this.processResponse(value));
-
 	zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processResponse(value));
-
-	zclNode.endpoints[1].clusters.tuya.on("datapoint", value => this.processResponse(value));
 
 	await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
 	.catch(err => {
@@ -75,41 +52,67 @@ class lcdThSensor extends TuyaSpecificClusterDevice {
 
 
   async processResponse(data) {
-	this.log('\u001b[34mlikely never gets triggered' + JSON.stringify(data));
     const dp = data.dp;
     const measuredValue = getDataValue(data);
+
+	console.log('\x1b[33m%s\x1b[0m', "DP VALUE:" + dp + " MEASUREMENT:" + measuredValue);
     let parsedValue = 0;
 
     switch (dp) {
       case dataPoints.batteryLevel:
-        const batteryThreshold = this.getSetting('batteryThreshold') || 20;
         parsedValue = measuredValue;
         this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", parsedValue);
 
-        this.setCapabilityValue('measure_battery', parsedValue).catch(this.error);
-        this.setCapabilityValue('alarm_battery', (parsedValue < batteryThreshold)).catch(this.error);
+		try {
+			this.setCapabilityValue('measure_battery', parsedValue);
+		} catch (e) {
+			this.log("Failed to set battery level", e);
+		}
         break;
 
       case dataPoints.currentHumidity:
-        const humidityOffset = this.getSetting('humidity_offset') || 0;
-        parsedValue = measuredValue/10;
-        this.log('measure_humidity | relativeHumidity - measuredValue (humidity):', parsedValue, '+ humidity offset', humidityOffset);
+        parsedValue = measuredValue;
+        this.log('measure_humidity | relativeHumidity - measuredValue (humidity):', parsedValue);
 
-        this.setCapabilityValue('measure_humidity', parsedValue + humidityOffset).catch(this.error);
+		try {
+			this.setCapabilityValue('measure_humidity', parsedValue);
+		} catch (e) {
+			this.log("Failed to set current humidity", e);
+		}
         break;
 
       case dataPoints.currentTemperature:
-        const temperatureOffset = this.getSetting('temperature_offset') || 0;
         parsedValue = measuredValue/10;
-        this.log('measure_temperature | temperatureMeasurement - measuredValue (temperature):', parsedValue, '+ temperature offset', temperatureOffset);
+		this.log('measure_temperature | temperatureMeasurement - measuredValue (temperature):', parsedValue);
 
-        this.setCapabilityValue('measure_temperature', parsedValue + temperatureOffset).catch(this.error);
+		try {
+			this.setCapabilityValue('measure_temperature', parsedValue);
+		} catch (e) {
+			this.log("Failed to set current temperature", e);
+		}
         break;
     }
   }
 
   onDeleted() {
     this.log("LCD T&H sensor removed")
+  }
+  async onSettings({newSettings, changedKeys}) {
+    if (changedKeys.includes('temperature_sensitivity')) {
+		this.writeData32(dataPoints.tempsens, newSettings['temperature_sensitivity'])
+	}
+    if (changedKeys.includes('temp_periodic_report')) {
+		this.writeData32(dataPoints.tempreport, newSettings['temp_periodic_report'])
+	}
+    if (changedKeys.includes('humidity_sensitivity')) {
+		this.writeData32(dataPoints.humsens, newSettings['humidity_sensitivity'])
+	}
+    if (changedKeys.includes('hum_periodic_report')) {
+		this.writeData32(dataPoints.humreport, newSettings['hum_periodic_report'])
+	}
+    if (changedKeys.includes('temp_unit_convert')) {
+		this.writeData32(dataPoints.unit_convert, newSettings['temp_unit_convert'])
+	}
   }
 }
 
