@@ -1,7 +1,7 @@
 {
   "id": "outdoorsmart2socket",
   "name": {
-    "en": "Outdoor smart socket with metering"
+    "en": "Outdoor Smart Socket"
   },
   "class": "socket",
   "platforms": ["local"],
@@ -38,8 +38,11 @@
       "secondSocket": {
         "class": "socket",
         "name": {
-          "en": "Outdoor smart socket #2"
+          "en": "Outdoor Smart Socket #2"
         },
+        "capabilities": [
+          "onoff"
+        ],
         "settings": []
       }
     },
