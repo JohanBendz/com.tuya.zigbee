@@ -43,6 +43,7 @@ class lcdThSensor extends TuyaSpecificClusterDevice {
 
 	zclNode.endpoints[1].clusters.tuya.on("response", value => this.processResponse(value));
 	zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processResponse(value));
+	zclNode.endpoints[1].clusters.tuya.on("datapoint", value => this.processResponse(value));
 
 	await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
 	.catch(err => {
@@ -90,6 +91,8 @@ class lcdThSensor extends TuyaSpecificClusterDevice {
 			this.log("Failed to set current temperature", e);
 		}
         break;
+	  default:
+		console.log('\x1b[91m%s\x1b[0m', "DP VALUE:" + dp + " MEASUREMENT:" + measuredValue);
     }
   }
 
@@ -110,7 +113,8 @@ class lcdThSensor extends TuyaSpecificClusterDevice {
 		this.writeData32(dataPoints.humreport, newSettings['hum_periodic_report'])
 	}
     if (changedKeys.includes('temp_unit_convert')) {
-		this.writeData32(dataPoints.unit_convert, newSettings['temp_unit_convert'])
+		this.writeString(dataPoints.unit_convert, newSettings['temp_unit_convert'])
+		console.log('\x1b[91m%s\x1b[0m', "TRIGGERED");
 	}
   }
 }
