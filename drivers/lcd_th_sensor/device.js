@@ -55,7 +55,6 @@ class lcdThSensor extends TuyaSpecificClusterDevice {
     const dp = data.dp;
     const measuredValue = getDataValue(data);
 
-	console.log('\x1b[33m%s\x1b[0m', "DP VALUE:" + dp + " MEASUREMENT:" + measuredValue);
     let parsedValue = 0;
 
     switch (dp) {
