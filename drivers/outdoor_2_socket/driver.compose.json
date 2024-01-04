@@ -8,8 +8,8 @@
   "connectivity": ["zigbee"],
   "capabilities": [
     "onoff",
-    "measure_power",
     "meter_power",
+    "measure_power",
     "measure_current",
     "measure_voltage"
   ],
@@ -43,7 +43,7 @@
         "capabilities": [
           "onoff"
         ],
-        "settings": []
+        "settings": [] 
       }
     },
     "learnmode": {
