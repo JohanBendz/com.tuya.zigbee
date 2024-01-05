@@ -62,6 +62,7 @@ Supported devices:
     
 - LCD Temperature, Humidity and Luminance Sensor
     _TZ3000_qaaysllp / TS0201
+    _TYZB01_ftdkanlj / TS0222
 
 - PIR Sensor
     TUYATEC-lha8pbwd / RH3040
