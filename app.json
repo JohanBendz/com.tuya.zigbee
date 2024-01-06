@@ -2840,10 +2840,12 @@
           "_TZ3000_6ygjfyll",
           "_TZ3040_6ygjfyll",
           "_TZ3040_bb6xaihh",
-          "_TZ3000_nss8amz9"
+          "_TZ3000_nss8amz9",
+          "_TZE200_3towulqd"
         ],
         "productId": [
-          "TS0202"
+          "TS0202",
+          "TS0601"
         ],
         "endpoints": {
           "1": {
@@ -5781,6 +5783,91 @@
         }
       },
       "settings": []
+    },
+    {
+      "id": "soil_sensor_tuya",
+      "name": {
+        "en": "Soil sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "soil_moisture",
+        "measure_temperature",
+        "measure_battery",
+        "temperature_unit",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/soil_sensor_tuya/assets/images/large.png",
+        "small": "/drivers/soil_sensor_tuya/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_myd45weu",
+          "_TZE200_ga1maeof"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/soil_sensor_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "Push the button for aprox 10 seconds until the LED blinks rapidly. If nothing happens; put two fingers against the detectors and repeat."
+          }
+        }
+      },
+      "settings": [
+        {
+          "type": "dropdown",
+          "id": "temperatureUnit",
+          "label": {
+            "en": "Temperature Unit",
+            "nl": "Temperatuureenheid"
+          },
+          "values": [
+            {
+              "id": "C",
+              "label": {
+                "en": "Celsius",
+                "nl": "Celsius"
+              }
+            },
+            {
+              "id": "F",
+              "label": {
+                "en": "Fahrenheit",
+                "nl": "Fahrenheit"
+              }
+            }
+          ],
+          "value": "C"
+        }
+      ]
     },
     {
       "id": "soilsensor",
