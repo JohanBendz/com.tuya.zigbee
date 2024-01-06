@@ -31,10 +31,12 @@
       "_TZ3000_6ygjfyll",
       "_TZ3040_6ygjfyll",
       "_TZ3040_bb6xaihh",
-      "_TZ3000_nss8amz9"
+      "_TZ3000_nss8amz9",
+      "_TZE200_3towulqd"
     ],
     "productId": [
-      "TS0202"
+      "TS0202",
+      "TS0601"
     ],
     "endpoints": {
       "1": {
