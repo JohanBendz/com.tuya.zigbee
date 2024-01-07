@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.18",
+  "version": "0.2.19",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -1307,7 +1307,8 @@
           "_TZE200_nogaemzt",
           "_TZE200_zah67ekd",
           "_TZE200_cowvfni3",
-          "_TZE200_hsgrhjpf"
+          "_TZE200_hsgrhjpf",
+          "_TZE200_68nvbio9"
         ],
         "productId": [
           "TS0601"
@@ -1419,11 +1420,13 @@
           "_TZ3000_ktuoyvt5",
           "_TZ3210_zxbtub8r",
           "_TZ3210_weaqkhab",
-          "_TZ3210_k1msuvg6"
+          "_TZ3210_k1msuvg6",
+          "_TZ3000_mgusv51k"
         ],
         "productId": [
           "TS110F",
-          "TS110E"
+          "TS110E",
+          "TS0052"
         ],
         "endpoints": {
           "1": {
@@ -1746,7 +1749,9 @@
           "_TZ3000_au1rjicn",
           "_TZ3000_4ugnzsli",
           "TUYATEC-7qunn4gq",
-          "_TZ3000_decxrtwa"
+          "_TZ3000_decxrtwa",
+          "_TZ3000_yxqnffam",
+          "_TZ3000_9eeavbk5"
         ],
         "productId": [
           "RH3001",
@@ -1865,7 +1870,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_zgrffiwg"
+          "_TZ3000_zgrffiwg",
+          "_TZ3000_bpkijo14"
         ],
         "productId": [
           "TS0203"
@@ -2323,7 +2329,8 @@
           "_TZ3000_rusu2vzb",
           "_TZ3000_yd2e749y",
           "_TZ3000_ywagc4rj",
-          "_TZ3000_itnrsufe"
+          "_TZ3000_itnrsufe",
+          "_TZ3000_bjawzodf"
         ],
         "productId": [
           "TS0201"
@@ -2899,7 +2906,8 @@
           "TUYATEC-53o41joc",
           "TUYATEC-deetibst",
           "TUYATEC-dgtxmihe",
-          "TUYATEC-b5g40alm"
+          "TUYATEC-b5g40alm",
+          "TUYATEC-dxnohkpd"
         ],
         "productId": [
           "RH3040"
@@ -3019,7 +3027,10 @@
           "_TZE201_ztc6ggyl",
           "_TZE202_ztc6ggyl",
           "_TZE203_ztc6ggyl",
-          "_TZE204_ztc6ggyl"
+          "_TZE204_ztc6ggyl",
+          "_TZE204_qasjif9e",
+          "_TZE204_ijxvkhd0",
+          "_TZE204_sxm7l9xa"
         ],
         "productId": [
           "TS0601"
@@ -3150,7 +3161,8 @@
         "manufacturerName": [
           "_TZ3000_hdlpifbk",
           "_TZ3000_excgg5kb",
-          "_TZ3000_u3oupgdy"
+          "_TZ3000_u3oupgdy",
+          "_TZ3000_wkr3jqmr"
         ],
         "productId": [
           "TS0004"
@@ -3364,7 +3376,9 @@
           "_TZ3000_keabpigv",
           "_TZ3000_12sxjap4",
           "_TZ3000_hlijwsai",
-          "_TZ3000_qd7hej8u"
+          "_TZ3000_qd7hej8u",
+          "_TZ3210_mja6r5ix",
+          "_TZ3000_q50zhdsc"
         ],
         "productId": [
           "TS0505A",
@@ -4671,7 +4685,9 @@
           "_TZ3000_5ity3zyu",
           "_TZ3000_okaz9tjs",
           "_TZ3000_eyzb8yg3",
-          "_TZ3000_dksbtrzs"
+          "_TZ3000_dksbtrzs",
+          "_TZ3000_nkcobies",
+          "_TZ3000_j1v25l17"
         ],
         "productId": [
           "TS0121",
@@ -4913,6 +4929,66 @@
           }
         }
       }
+    },
+    {
+      "id": "smoke_sensor2",
+      "name": {
+        "en": "Smoke Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_battery",
+        "alarm_smoke",
+        "alarm_tamper",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/smoke_sensor2/assets/images/large.png",
+        "small": "/drivers/smoke_sensor2/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_ntcy3xu1",
+          "_TZE200_m9skfctm"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              4,
+              5,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smoke_sensor2/assets/icon.svg",
+          "instruction": {
+            "en": "Press the RESET pinhole on the side of the unit for 5 seconds until LED blinks."
+          }
+        }
+      },
+      "settings": []
     },
     {
       "id": "socket_power_strip",
@@ -5634,7 +5710,8 @@
           "_TZ3000_jl7qyupf",
           "_TZ3000_7ed9cqgi",
           "_TZ3000_18ejxno0",
-          "_TZ3000_llfaquvp"
+          "_TZ3000_llfaquvp",
+          "_TZ3000_lmlsduws"
         ],
         "productId": [
           "TS0003",
@@ -6298,7 +6375,8 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_fllyghyj",
-          "_TZ3000_xr3htd96"
+          "_TZ3000_xr3htd96",
+          "_TZ3000_saiqcn0y"
         ],
         "productId": [
           "TS0201"
@@ -6861,7 +6939,8 @@
           "_TZ3000_axpdxqgu",
           "_TZ3000_peszejy7",
           "_TZ3000_pzui3skt",
-          "_TZ3000_f97vq5mn"
+          "_TZ3000_f97vq5mn",
+          "_TZ3000_fa9mlvja"
         ],
         "productId": [
           "TS0041"
@@ -6980,7 +7059,8 @@
           "_TZ3000_rrjr1q0u",
           "_TZ3000_w8jwkczz",
           "_TZ3000_gbm10jnj",
-          "_TZ3000_yw5tvzsk"
+          "_TZ3000_yw5tvzsk",
+          "_TZ3000_sj7jbgks"
         ],
         "productId": [
           "TS0043"
@@ -7701,7 +7781,10 @@
           "_TZ3000_t6jriawg",
           "_TZ3000_85czd6fy",
           "_TZ3000_kyb656no",
-          "_TZ3000_0s9gukzt"
+          "_TZ3000_0s9gukzt",
+          "_TZ3000_kstbkt6a",
+          "_TZ3000_mugyhz0q",
+          "_TZ3000_upgcbody"
         ],
         "productId": [
           "TS0207",
