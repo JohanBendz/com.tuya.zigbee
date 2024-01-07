@@ -239,6 +239,9 @@ Supported devices:
     _TZ3000_cfnprab5 / TS011F
     LELLKI / JZ-ZB-004
 
+- Double Socket Smart Plug
+    _TZ3000_jak16dll / TS011F
+
 - Double Power Point, with metering
     _TZ3210_7jnk7l3k / TS011F
 
@@ -461,6 +464,7 @@ Supported devices:
     _TZ3000_femsaaua / TS130F
     _TZ3000_e3vhyirx / TS130F (LoraTap SC500ZB)
     _TZ3000_1dd0d5yi / TS130F (MOES MS-108ZR)
+    _TZ3000_jwv3cwak / TS130F
 
 - Curtain Motor
     _TZE200_5zbp6j0u / TS0601
