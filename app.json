@@ -307,6 +307,48 @@
         "id": "start_effect"
       },
       {
+        "id": "move_open",
+        "title": {
+          "en": "Open",
+          "de": "Öffnen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=curtain_module"
+          }
+        ]
+      },
+      {
+        "id": "move_close",
+        "title": {
+          "en": "Close",
+          "de": "Schließen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=curtain_module"
+          }
+        ]
+      },
+      {
+        "id": "move_stop",
+        "title": {
+          "en": "Stop",
+          "de": "Stoppen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=curtain_module"
+          }
+        ]
+      },
+      {
         "id": "alarm_state",
         "title": {
           "en": "Change the alarm state",
@@ -1210,7 +1252,8 @@
           "_TZ3000_zirycpws",
           "_TZ3000_femsaaua",
           "_TZ3000_e3vhyirx",
-          "_TZ3000_1dd0d5yi"
+          "_TZ3000_1dd0d5yi",
+          "_TZ3000_jwv3cwak"
         ],
         "productId": [
           "TS130F"
@@ -1240,7 +1283,53 @@
           "id": "reverse",
           "type": "radio",
           "label": {
-            "en": "FUNCTION UNDER DEVELOPMENT, NOT WORKING - Motor moves in reverse direction"
+            "en": "Direction of motor rotation",
+            "de": "Motordrehrichtung"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Normal",
+                "de": "Normal"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Inverse",
+                "de": "Invers"
+              }
+            }
+          ],
+          "hint": {
+            "en": "After changing the direction, the actor assumes it is at 0% / fully closed.",
+            "de": "Nach der Richtungsänderung nimmt der Aktor an, dass er auf 0% / vollständig geschlossen ist."
+          }
+        },
+        {
+          "id": "movetime",
+          "type": "number",
+          "label": {
+            "en": "Motor movement time",
+            "de": "Bewegungszeit des Motors"
+          },
+          "value": 10,
+          "min": 0,
+          "max": 5000,
+          "step": 0.1,
+          "units": {
+            "en": "Seconds",
+            "de": "Sekunden"
+          }
+        },
+        {
+          "id": "calibration",
+          "type": "radio",
+          "label": {
+            "en": "NO FUNCTION - Motor calibration",
+            "de": "OHNE FUNKTION - Motorkalibrierung"
           },
           "value": "0",
           "values": [
@@ -1256,7 +1345,11 @@
                 "en": "On"
               }
             }
-          ]
+          ],
+          "hint": {
+            "en": "The motor must be completely retracted before activation! After activation, let the motor extend completely by pressing the 'open' button and stop it at the lower end position by pressing the 'close' button.",
+            "de": "Der Motor muss vor der Aktivierung vollständig eingefahren sein! Nach der Aktivierung lassen Sie den Motor durch Drücken der 'öffnen'-Taste vollständig ausfahren und stoppen ihn in der unteren Endposition durch Drücken der 'schließen'-Taste."
+          }
         }
       ]
     },
@@ -4709,6 +4802,248 @@
               1794,
               2820
             ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "metering_offset",
+          "type": "number",
+          "label": {
+            "en": "Metering Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "measure_offset",
+          "type": "number",
+          "label": {
+            "en": "Measure Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "minReportPower",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for power (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportCurrent",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for current (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportVoltage",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for voltage (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "relay_status",
+          "type": "radio",
+          "label": {
+            "en": "Relay status"
+          },
+          "value": "2",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Remember last status"
+              }
+            }
+          ]
+        },
+        {
+          "id": "indicator_mode",
+          "type": "radio",
+          "label": {
+            "en": "Indicator mode"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Indicates status. The indicator comes on when the switch is turned on."
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Indicates position. The indicator comes on when the switch is turned off."
+              }
+            }
+          ]
+        },
+        {
+          "id": "child_lock",
+          "type": "radio",
+          "label": {
+            "en": "Child lock"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Release"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Lock"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smartplug_2_socket",
+      "name": {
+        "en": "Double Socket Smart Plug"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/smartplug_2_socket/assets/images/large.png",
+        "small": "/drivers/smartplug_2_socket/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_jak16dll"
+        ],
+        "productId": [
+          "TS011F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              1794,
+              2820,
+              57344,
+              57345
+            ],
+            "bindings": [
+              10,
+              25
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6,
+              57345
+            ],
+            "bindings": []
+          }
+        },
+        "devices": {
+          "secondSocket": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "Double Socket Smart Plug - Socket #2"
+            },
+            "settings": []
           }
         },
         "learnmode": {

@@ -69,5 +69,20 @@
       "en": "seconds",
       "nl": "seconden"
     }
+  },
+  {
+    "id": "distance_update_interval",
+    "type": "number",
+    "label": {
+      "en": "Distance update interval",
+      "nl": "Afstand update interval"
+    },
+    "value": 10,
+    "min": 3,
+    "max": 60,
+    "units": {
+      "en": "seconds",
+      "nl": "seconden"
+    }
   }
 ]

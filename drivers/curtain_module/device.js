@@ -2,9 +2,9 @@
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { Cluster, debug, CLUSTER } = require('zigbee-clusters');
-// const TuyaWindowCoveringCluster = require('../../lib/TuyaWindowCoveringCluster')
+const TuyaWindowCoveringCluster = require('../../lib/TuyaWindowCoveringCluster')
 
-// Cluster.addCluster(TuyaWindowCoveringCluster);
+Cluster.addCluster(TuyaWindowCoveringCluster);
 
 class curtainmodule extends ZigBeeDevice {
 
@@ -16,17 +16,27 @@ class curtainmodule extends ZigBeeDevice {
         
         this.registerCapability('windowcoverings_set', CLUSTER.WINDOW_COVERING, {
             reportOpts: {
-            configureAttributeReporting: {
-                minInterval: 0, // No minimum reporting interval
-                maxInterval: 30000, // Maximally every ~8 hours
-                minChange: 5, // Report when value changed by 5
-            },
+              configureAttributeReporting: {
+                  minInterval: 0, // No minimum reporting interval
+                  maxInterval: 30000, // Maximally every ~8 hours
+                  minChange: 5, // Report when value changed by 5
+              },
             },
         });
 
         await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
         .catch(err => {
             this.error('Error when reading device attributes ', err);
+        });
+
+        const moveOpen = this.homey.flow.getActionCard('move_open');
+        moveOpen.registerRunListener(async (args, state) => {
+          await this.zclNode.endpoints[1].clusters.windowCovering['downClose']();
+        });
+
+        const moveClose = this.homey.flow.getActionCard('move_close');
+        moveClose.registerRunListener(async (args, state) => {
+          await this.zclNode.endpoints[1].clusters.windowCovering['upOpen']();
         });
 
     }
@@ -41,15 +51,39 @@ class curtainmodule extends ZigBeeDevice {
         if (changedKeys.includes('reverse')) {
 
             const motorReversed = newSettings['reverse'];
-            if (motorReversed === 0) {
+            if (motorReversed == 0) {
                 await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes({motorReversal: 0});
-                this.log("Motor set to normal mode: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(motorReversal));
+                this.log("Motor set to normal mode: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(["motorReversal"]));
             } else {
                 await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes({motorReversal: 1});
-                this.log("Motor set to reverse: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(motorReversal));
+                this.log("Motor set to reverse: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(["motorReversal"]));
             }
 
         }
+
+      //   if (changedKeys.includes('calibration')) {
+
+      //     const calibration = newSettings['calibration'];
+      //     if (calibration == 0) {
+      //         await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes({calibration: 0});
+      //         this.log("Motor calibration off: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(["calibration"]));
+      //         this.log("Motor move time: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(["calibrationTime"]));
+      //     } else {
+      //         await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes({calibration: 1});
+      //         this.log("Motor calibration on: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(["calibration"]));
+      //         this.log("Motor move time: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(["calibrationTime"]));
+      //     }
+
+      // }
+
+        if (changedKeys.includes('movetime')) {
+
+          const movetime = (newSettings['movetime'] * 10);
+          
+          await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes({calibrationTime: movetime});
+          this.log("Motor move time: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(["calibrationTime"]));
+
+      }
 
     }
 
