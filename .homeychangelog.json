@@ -211,5 +211,11 @@
   },
   "0.2.18": {
     "en": "Added some extra codes for already supported devices and made a few fixes."
+  },
+  "0.2.19": {
+    "en": "Some new devices, added codes for some already added devices and a few fixes."
+  },
+  "0.2.20": {
+    "en": "Some new devices, new functionality for some devices and a few fixes."
   }
 }
