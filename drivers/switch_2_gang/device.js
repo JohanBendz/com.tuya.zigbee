@@ -9,13 +9,7 @@ class switch_2_gang extends ZigBeeDevice {
     async onNodeInit({zclNode}) {
 
         this.printNode();
-
-        const { subDeviceId } = this.getData();
-        this.log("Device data: ", subDeviceId);
-
-        this.registerCapability('onoff', CLUSTER.ON_OFF, {
-            endpoint: subDeviceId === 'secondSwitch' ? 2 : 1,
-        });
+        debug(true);
 
         if (!this.isSubDevice()) {
             await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
@@ -24,11 +18,23 @@ class switch_2_gang extends ZigBeeDevice {
             });
         }
 
+        const { subDeviceId } = this.getData();
+        this.log("Device data: ", subDeviceId);
+
+        try {
+            this.registerCapability('onoff', CLUSTER.ON_OFF, {
+                endpoint: subDeviceId === 'secondSwitch' ? 2 : 1,
+            });
+        } catch (err) {
+            this.error('Error registering capability: ', err);
+        }
+
     }
 
     onDeleted(){
-		this.log("2 Gang Switch, channel ", subDeviceId, " removed")
-	}
+        const { subDeviceId } = this.getData();
+        this.log("2 Gang Switch, channel ", subDeviceId, " removed");
+    }
 
 }
 

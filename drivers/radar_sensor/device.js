@@ -58,15 +58,16 @@ const getDataValue = (dpValue) => {
   }
 }
 
-class CurtainMotor extends TuyaSpecificClusterDevice {
+class radarSensor extends TuyaSpecificClusterDevice {
   async onNodeInit({zclNode}) {
-
     zclNode.endpoints[1].clusters.tuya.on("response", value => this.updatePosition(value));
   }
 
   async updatePosition(data) {
     const dp = data.dp;
     const value = getDataValue(data);
+    const distanceUpdateInterval = this.getSetting('distance_update_interval') ?? 10;
+
     switch (dp) {
       case dataPoints.tshpsPresenceState:
         this.log("presence state: "+ value)
@@ -80,7 +81,7 @@ class CurtainMotor extends TuyaSpecificClusterDevice {
         this.onIlluminanceMeasuredAttributeReport(value)
         break;
       case dataPoints.tshpsTargetDistance:
-        if (new Date().getSeconds() % 10 === 0) {
+        if (new Date().getSeconds() % distanceUpdateInterval === 0) {
           this.setCapabilityValue('target_distance', value/100);
         }
 
@@ -129,7 +130,7 @@ class CurtainMotor extends TuyaSpecificClusterDevice {
 
 }
 
-module.exports = CurtainMotor;
+module.exports = radarSensor;
 
 
 // "ids": {

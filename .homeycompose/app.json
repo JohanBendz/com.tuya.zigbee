@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.2.12",
+  "version": "0.2.20",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -93,6 +93,10 @@
       {
         "name": "Jurgen Heine",
         "email": "jurgen2.heine@gmail.com"
+      },
+      {
+        "name": "Morris Haid",
+        "email": "mhaid2016@outlook.com"
       }
     ]
   }

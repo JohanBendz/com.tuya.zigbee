@@ -1,0 +1,27 @@
+{
+    "id": "powerOnState",
+    "type": "dropdown",
+    "label": {
+      "en": "Power On State"
+    },
+    "values": [
+      {
+        "id": "off",
+        "label": {
+          "en": "OFF"
+        }
+      },
+      {
+        "id": "on",
+        "label": {
+          "en": "ON"
+        }
+      },
+      {
+        "id": "recover",
+        "label": {
+          "en": "RECOVER"
+        }
+      }
+    ]
+}

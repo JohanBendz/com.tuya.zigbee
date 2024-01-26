@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.12",
+  "version": "0.2.19",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -99,6 +99,15 @@
   },
   "flow": {
     "actions": [
+      {
+        "id": "resetEnergyMeter",
+        "title": {
+          "en": "Reset Energy Meter",
+          "sv": "Återställ energimätaren"
+        },
+        "args": [],
+        "callback": "resetEnergyMeter"
+      },
       {
         "title": {
           "en": "Start effect"
@@ -296,9 +305,393 @@
           }
         ],
         "id": "start_effect"
+      },
+      {
+        "id": "move_open",
+        "title": {
+          "en": "Open",
+          "de": "Öffnen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=curtain_module"
+          }
+        ]
+      },
+      {
+        "id": "move_close",
+        "title": {
+          "en": "Close",
+          "de": "Schließen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=curtain_module"
+          }
+        ]
+      },
+      {
+        "id": "move_stop",
+        "title": {
+          "en": "Stop",
+          "de": "Stoppen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=curtain_module"
+          }
+        ]
+      },
+      {
+        "id": "alarm_state",
+        "title": {
+          "en": "Change the alarm state",
+          "nl": "Verander de alarm toestand",
+          "de": "Ändern des Alarmstatus"
+        },
+        "titleFormatted": {
+          "en": "Change the alarm state to [[alarm_state]]",
+          "nl": "Verander de alarm toestand naar [[alarm_state]]",
+          "de": "Ändern des Alarmstatus zu [[alarm_state]]"
+        },
+        "hint": {
+          "en": "Change the alarm state; sound or silence the alarm",
+          "nl": "Verander de alarm toestand; luiden of uitschakelen van het alarm",
+          "de": "Ändern des Alarmstatus; Ein- oder ausschalten des Alarmtons."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=sirentemphumidsensor"
+          },
+          {
+            "name": "alarm_state",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "off/disable",
+                "label": {
+                  "en": "Silence alarm",
+                  "nl": "Alarm stil",
+                  "de": "Stiller Alarm"
+                }
+              },
+              {
+                "id": "on/enable",
+                "label": {
+                  "en": "Sound alarm",
+                  "nl": "Alarm luiden",
+                  "de": "Akustischer Alarm"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "alarm_duration",
+        "title": {
+          "en": "Switch on siren for X Seconds",
+          "de": "Sirene für X Sekunden einschalten",
+          "nl": "Zet sirene aan voor X seconden"
+        },
+        "titleFormatted": {
+          "en": "Switch on siren for [[duration]] Seconds",
+          "de": "Sirene für [[duration]] Sekunden einschalten",
+          "nl": "Zet sirene aan voor [[duration]] seconden"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=sirentemphumidsensor"
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 0,
+            "max": 65535,
+            "step": 1,
+            "label": {
+              "en": "Seconds",
+              "de": "Sekunden",
+              "nl": "Seconden"
+            },
+            "placeholder": {
+              "en": "120"
+            },
+            "title": {
+              "en": "Duration of alarm in seconds",
+              "de": "Dauer des Alarms in Sekunden",
+              "nl": "Duur van het alarm in seconden"
+            }
+          }
+        ]
+      },
+      {
+        "id": "siren_volume",
+        "title": {
+          "en": "Set volume of siren",
+          "nl": "Zet het volume van de sirene",
+          "de": "Einstellen der Lautstärke der Sirene"
+        },
+        "titleFormatted": {
+          "en": "Set volume of siren to [[siren_volume]]",
+          "nl": "Zet het volume van de sirene naar [[siren_volume]]",
+          "de": "Einstellen der Lautstärke der Sirene auf [[siren_volume]]"
+        },
+        "hint": {
+          "en": "Set volume of siren.",
+          "nl": "Zet het volume van de sirene.",
+          "de": "Einstellen der Lautstärke der Sirene"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=sirentemphumidsensor"
+          },
+          {
+            "name": "siren_volume",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "2",
+                "label": {
+                  "en": "Low",
+                  "nl": "Laag",
+                  "de": "Niedrig"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Midle",
+                  "nl": "Middelmatig",
+                  "de": "Mittel"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "High (default)",
+                  "nl": "Hoog (standaard)",
+                  "de": "Hoch (Standard)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "alarm_tune",
+        "title": {
+          "en": "Set the alarm tune",
+          "nl": "Stel de alarm melodie in",
+          "de": "Einstellen des Alarmtons"
+        },
+        "titleFormatted": {
+          "en": "Set the alarm tune to [[alarm_tune]]",
+          "nl": "Stel de alarm melodie in op [[alarm_tune]]",
+          "de": "Einstellen des Alarmtons zu [[alarm_tune]]"
+        },
+        "hint": {
+          "en": "Choose the tune of the alarm sound",
+          "nl": "Kies de melodie die gebruikt wordt bij alarm",
+          "de": "Wähle die Melodie des Alarmtons aus."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=sirentemphumidsensor"
+          },
+          {
+            "name": "alarm_tune",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "label": {
+                  "en": "Doorbell 1",
+                  "nl": "Doorbell 1",
+                  "de": "Doorbell 1"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "For Elise (default)",
+                  "nl": "Fur Elise (standaard)",
+                  "de": "Fur Elise (Standard)"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Westminster",
+                  "nl": "Westminster",
+                  "de": "Westminster"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "4 Key Chime",
+                  "nl": "4 Key Chime",
+                  "de": "4 Key Chime"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "William Tell",
+                  "nl": "William Tell",
+                  "de": "William Tell"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "Mozart Piano",
+                  "nl": "Mozart Piano",
+                  "de": "Mozart Piano"
+                }
+              },
+              {
+                "id": "6",
+                "label": {
+                  "en": "Space Alarm",
+                  "nl": "Space Alarm",
+                  "de": "Space Alarm"
+                }
+              },
+              {
+                "id": "7",
+                "label": {
+                  "en": "Klaxon",
+                  "nl": "Klaxon",
+                  "de": "Klaxon"
+                }
+              },
+              {
+                "id": "8",
+                "label": {
+                  "en": "Meep meep",
+                  "nl": "Meep meep",
+                  "de": "Meep meep"
+                }
+              },
+              {
+                "id": "9",
+                "label": {
+                  "en": "Wheep",
+                  "nl": "Wheep",
+                  "de": "Wheep"
+                }
+              },
+              {
+                "id": "10",
+                "label": {
+                  "en": "Barking dog",
+                  "nl": "Barking dog",
+                  "de": "Barking dog"
+                }
+              },
+              {
+                "id": "11",
+                "label": {
+                  "en": "Alarm Siren",
+                  "nl": "Alarm Siren",
+                  "de": "Alarm Siren"
+                }
+              },
+              {
+                "id": "12",
+                "label": {
+                  "en": "Doorbell 2",
+                  "nl": "Doorbell 2",
+                  "de": "Doorbell 2"
+                }
+              },
+              {
+                "id": "13",
+                "label": {
+                  "en": "Old Phone",
+                  "nl": "Old Phone",
+                  "de": "Old Phone"
+                }
+              },
+              {
+                "id": "14",
+                "label": {
+                  "en": "Police Siren",
+                  "nl": "Police Siren",
+                  "de": "Police Siren"
+                }
+              },
+              {
+                "id": "15",
+                "label": {
+                  "en": "Evacuation bell",
+                  "nl": "Evacuation bell",
+                  "de": "Evacuation bell"
+                }
+              },
+              {
+                "id": "16",
+                "label": {
+                  "en": "Clock alarm",
+                  "nl": "Clock alarm",
+                  "de": "Clock alarm"
+                }
+              },
+              {
+                "id": "17",
+                "label": {
+                  "en": "Fire alarm",
+                  "nl": "Fire alarm",
+                  "de": "Fire alarm"
+                }
+              }
+            ]
+          }
+        ]
       }
     ],
     "triggers": [
+      {
+        "id": "alarm_siren",
+        "title": {
+          "en": "Siren Alarm",
+          "nl": "Sirene Alarm",
+          "de": "Sirenenalarm"
+        },
+        "titleFormatted": {
+          "en": "Siren Alarm",
+          "nl": "Sirene Alarm",
+          "de": "Sirenenalarm"
+        },
+        "hint": {
+          "en": "This card will trigger when siren is activated.",
+          "nl": "Deze kaart wordt alleen geactiveerd wanneer de sirene actief is.",
+          "de": "Diese Karte wird ausgelöst, wenn die Sirene aktiviert wird."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=sirentemphumidsensor"
+          }
+        ]
+      },
       {
         "id": "smart_remote_1_button",
         "title": {
@@ -312,6 +705,43 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=smart_remote_1_button"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "oneClick",
+                "label": {
+                  "en": "1 Click"
+                }
+              },
+              {
+                "id": "twoClicks",
+                "label": {
+                  "en": "2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "smart_remote_1_button_2",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "Button had [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_remote_1_button_2"
           },
           {
             "name": "action",
@@ -820,7 +1250,10 @@
           "_TZ3000_fccpjz5z",
           "_TZ3000_4uuaja4a",
           "_TZ3000_zirycpws",
-          "_TZ3000_femsaaua"
+          "_TZ3000_femsaaua",
+          "_TZ3000_e3vhyirx",
+          "_TZ3000_1dd0d5yi",
+          "_TZ3000_jwv3cwak"
         ],
         "productId": [
           "TS130F"
@@ -850,7 +1283,53 @@
           "id": "reverse",
           "type": "radio",
           "label": {
-            "en": "FUNCTION UNDER DEVELOPMENT, NOT WORKING - Motor moves in reverse direction"
+            "en": "Direction of motor rotation",
+            "de": "Motordrehrichtung"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Normal",
+                "de": "Normal"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Inverse",
+                "de": "Invers"
+              }
+            }
+          ],
+          "hint": {
+            "en": "After changing the direction, the actor assumes it is at 0% / fully closed.",
+            "de": "Nach der Richtungsänderung nimmt der Aktor an, dass er auf 0% / vollständig geschlossen ist."
+          }
+        },
+        {
+          "id": "movetime",
+          "type": "number",
+          "label": {
+            "en": "Motor movement time",
+            "de": "Bewegungszeit des Motors"
+          },
+          "value": 10,
+          "min": 0,
+          "max": 5000,
+          "step": 0.1,
+          "units": {
+            "en": "Seconds",
+            "de": "Sekunden"
+          }
+        },
+        {
+          "id": "calibration",
+          "type": "radio",
+          "label": {
+            "en": "NO FUNCTION - Motor calibration",
+            "de": "OHNE FUNKTION - Motorkalibrierung"
           },
           "value": "0",
           "values": [
@@ -866,7 +1345,11 @@
                 "en": "On"
               }
             }
-          ]
+          ],
+          "hint": {
+            "en": "The motor must be completely retracted before activation! After activation, let the motor extend completely by pressing the 'open' button and stop it at the lower end position by pressing the 'close' button.",
+            "de": "Der Motor muss vor der Aktivierung vollständig eingefahren sein! Nach der Aktivierung lassen Sie den Motor durch Drücken der 'öffnen'-Taste vollständig ausfahren und stoppen ihn in der unteren Endposition durch Drücken der 'schließen'-Taste."
+          }
         }
       ]
     },
@@ -998,7 +1481,8 @@
           "_TZE200_nogaemzt",
           "_TZE200_zah67ekd",
           "_TZE200_cowvfni3",
-          "_TZE200_hsgrhjpf"
+          "_TZE200_hsgrhjpf",
+          "_TZE200_68nvbio9"
         ],
         "productId": [
           "TS0601"
@@ -1110,11 +1594,13 @@
           "_TZ3000_ktuoyvt5",
           "_TZ3210_zxbtub8r",
           "_TZ3210_weaqkhab",
-          "_TZ3210_k1msuvg6"
+          "_TZ3210_k1msuvg6",
+          "_TZ3000_mgusv51k"
         ],
         "productId": [
           "TS110F",
-          "TS110E"
+          "TS110E",
+          "TS0052"
         ],
         "endpoints": {
           "1": {
@@ -1176,7 +1662,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE200_la2c2uo9"
+          "_TZE200_la2c2uo9",
+          "_TZE204_hlx9tnzb"
         ],
         "productId": [
           "TS0601"
@@ -1306,7 +1793,7 @@
       "name": {
         "en": "2 Gang Dimmer Module"
       },
-      "class": "light",
+      "class": "socket",
       "platforms": [
         "local"
       ],
@@ -1314,18 +1801,11 @@
         "zigbee"
       ],
       "capabilities": [
-        "onoff.gang_1",
-        "dim.gang_1",
-        "onoff.gang_2",
-        "dim.gang_2"
+        "onoff",
+        "dim"
       ],
       "capabilitiesOptions": {
-        "dim.gang_1": {
-          "opts": {
-            "duration": true
-          }
-        },
-        "dim.gang_2": {
+        "dim": {
           "opts": {
             "duration": true
           }
@@ -1343,7 +1823,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE200_e3oitdyu"
+          "_TZE200_e3oitdyu",
+          "_TZE204_zenj4lxv"
         ],
         "productId": [
           "TS0601"
@@ -1362,10 +1843,28 @@
             ]
           }
         },
+        "devices": {
+          "secondGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff",
+              "dim"
+            ],
+            "name": {
+              "en": "2 Gang Switch Module - Second"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
         "learnmode": {
           "image": "/drivers/dimmer_2_gang_tuya/assets/icon.svg",
           "instruction": {
-            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+            "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
           }
         }
       },
@@ -1423,7 +1922,10 @@
           "_TZ3000_rgchmad8",
           "_TZ3000_au1rjicn",
           "_TZ3000_4ugnzsli",
-          "TUYATEC-7qunn4gq"
+          "TUYATEC-7qunn4gq",
+          "_TZ3000_decxrtwa",
+          "_TZ3000_yxqnffam",
+          "_TZ3000_9eeavbk5"
         ],
         "productId": [
           "RH3001",
@@ -1483,7 +1985,8 @@
           "_TZ3000_7tbsruql",
           "_TZ3000_osu834un",
           "Immax",
-          "Visonic"
+          "Visonic",
+          "_TZ3000_hkcpblrs"
         ],
         "productId": [
           "RH3001",
@@ -1541,7 +2044,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_zgrffiwg"
+          "_TZ3000_zgrffiwg",
+          "_TZ3000_bpkijo14"
         ],
         "productId": [
           "TS0203"
@@ -1777,7 +2281,8 @@
       "zigbee": {
         "manufacturerName": [
           "TUYATEC-3tipnsrx",
-          "_TZ3000_4uvovz4r"
+          "_TZ3000_4uvovz4r",
+          "_TZ3000_3dfewsk1"
         ],
         "productId": [
           "RH3001",
@@ -1998,7 +2503,8 @@
           "_TZ3000_rusu2vzb",
           "_TZ3000_yd2e749y",
           "_TZ3000_ywagc4rj",
-          "_TZ3000_itnrsufe"
+          "_TZ3000_itnrsufe",
+          "_TZ3000_bjawzodf"
         ],
         "productId": [
           "TS0201"
@@ -2511,7 +3017,10 @@
           "_TZ3000_msl6wxk9",
           "_TZ3000_mcxw5ehu",
           "_TZ3000_otvn3lne",
-          "_TZ3000_6ygjfyll"
+          "_TZ3000_6ygjfyll",
+          "_TZ3040_6ygjfyll",
+          "_TZ3040_bb6xaihh",
+          "_TZ3000_nss8amz9"
         ],
         "productId": [
           "TS0202"
@@ -2570,7 +3079,9 @@
           "TUYATEC-zn9wyqtr",
           "TUYATEC-53o41joc",
           "TUYATEC-deetibst",
-          "TUYATEC-dgtxmihe"
+          "TUYATEC-dgtxmihe",
+          "TUYATEC-b5g40alm",
+          "TUYATEC-dxnohkpd"
         ],
         "productId": [
           "RH3040"
@@ -2690,7 +3201,10 @@
           "_TZE201_ztc6ggyl",
           "_TZE202_ztc6ggyl",
           "_TZE203_ztc6ggyl",
-          "_TZE204_ztc6ggyl"
+          "_TZE204_ztc6ggyl",
+          "_TZE204_qasjif9e",
+          "_TZE204_ijxvkhd0",
+          "_TZE204_sxm7l9xa"
         ],
         "productId": [
           "TS0601"
@@ -2821,7 +3335,8 @@
         "manufacturerName": [
           "_TZ3000_hdlpifbk",
           "_TZ3000_excgg5kb",
-          "_TZ3000_u3oupgdy"
+          "_TZ3000_u3oupgdy",
+          "_TZ3000_wkr3jqmr"
         ],
         "productId": [
           "TS0004"
@@ -3035,7 +3550,9 @@
           "_TZ3000_keabpigv",
           "_TZ3000_12sxjap4",
           "_TZ3000_hlijwsai",
-          "_TZ3000_qd7hej8u"
+          "_TZ3000_qd7hej8u",
+          "_TZ3210_mja6r5ix",
+          "_TZ3000_q50zhdsc"
         ],
         "productId": [
           "TS0505A",
@@ -3492,6 +4009,336 @@
       "settings": []
     },
     {
+      "id": "sirentemphumidsensor",
+      "name": {
+        "en": "Siren, Temperature & Humidity Sensor"
+      },
+      "class": "other",
+      "capabilities": [
+        "onoff",
+        "measure_temperature",
+        "measure_humidity",
+        "measure_battery",
+        "alarm_battery",
+        "alarm_siren"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "greyout": false
+        }
+      },
+      "energy": {
+        "batteries": [
+          "CR123A",
+          "CR123A"
+        ]
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/sirentemphumidsensor/assets/images/small.png",
+        "large": "/drivers/sirentemphumidsensor/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_d0yu2xgi"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              10,
+              25,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the button inside the battery compartment for aprox 5 seconds until the LED blinks rapidly.",
+            "it": "Tenere premuto il pulsante all'interno del vano batteria per cicrca 5 secondi finchè il LED non lampeggia rapidamente."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "temperature_offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset (°C)",
+            "it": "Offset della temperatura (°C)"
+          },
+          "hint": {
+            "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]",
+            "it": "Imposta un valore per compensare lo scostamento della temperatura.\nRange: -10 - 10, step ze 0.1, \ndefault: 0 [°C]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "humidity_offset",
+          "type": "number",
+          "label": {
+            "en": "Humidity offset (%)",
+            "nl": "Luchtvochtigheids compensatie (%)",
+            "it": "Offset dell'umidità (%)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]",
+            "it": "Imposta un valore per compensare lo scostamento dell'umidità.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 1
+          }
+        },
+        {
+          "id": "alarmvolume",
+          "type": "dropdown",
+          "label": {
+            "en": "Alarm volume",
+            "nl": "Alarm volume",
+            "de": "Alarm Lautstärke"
+          },
+          "value": "0",
+          "hint": {
+            "en": "Set the volume of the Alarm sound",
+            "nl": "Aanpassen volume van Alarm geluid",
+            "de": "Einstellen der Lautstärke des Alarmtons"
+          },
+          "values": [
+            {
+              "id": "2",
+              "label": {
+                "en": "Low",
+                "nl": "Laag",
+                "de": "Niedrig"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Midle",
+                "nl": "Middelmatig",
+                "de": "Mittel"
+              }
+            },
+            {
+              "id": "0",
+              "label": {
+                "en": "High (default)",
+                "nl": "Hoog (standaard)",
+                "de": "Hoch (Standard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "alarmsoundtime",
+          "type": "number",
+          "value": 120,
+          "min": 1,
+          "max": 65535,
+          "step": 1,
+          "units": {
+            "en": "Seconds",
+            "de": "Sekunden",
+            "nl": "Seconden"
+          },
+          "label": {
+            "en": "Alarm duration time",
+            "nl": "Alarm duratie",
+            "de": "Alarmdauer"
+          },
+          "hint": {
+            "en": "Set the duration of the time the siren will sound its alarm music",
+            "nl": "Pas de tijd aan dat de sirene zijn alarm geluid laat horen",
+            "de": "Stellt die Zeitdauer ein, während der die Sirene Alarmton erklingt"
+          }
+        },
+        {
+          "id": "alarmtune",
+          "type": "dropdown",
+          "label": {
+            "en": "Alarm sound tune",
+            "nl": "Melodie/geluid alarm",
+            "de": "Alarm Melodie"
+          },
+          "value": "1",
+          "hint": {
+            "en": "Choose the tune of the alarm sound",
+            "nl": "Kies de melodie die gebruikt wordt bij alarm",
+            "de": "Wählt die Melodie des Alarmtons aus."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Doorbell 1",
+                "nl": "Doorbell 1",
+                "de": "Doorbell 1"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "For Elise (default)",
+                "nl": "Fur Elise (standaard)",
+                "de": "Fur Elise (Standard)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Westminster",
+                "nl": "Westminster",
+                "de": "Westminster"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "4 Key Chime",
+                "nl": "4 Key Chime",
+                "de": "4 Key Chime"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "William Tell",
+                "nl": "William Tell",
+                "de": "William Tell"
+              }
+            },
+            {
+              "id": "5",
+              "label": {
+                "en": "Mozart Piano",
+                "nl": "Mozart Piano",
+                "de": "Mozart Piano"
+              }
+            },
+            {
+              "id": "6",
+              "label": {
+                "en": "Space Alarm",
+                "nl": "Space Alarm",
+                "de": "Space Alarm"
+              }
+            },
+            {
+              "id": "7",
+              "label": {
+                "en": "Klaxon",
+                "nl": "Klaxon",
+                "de": "Klaxon"
+              }
+            },
+            {
+              "id": "8",
+              "label": {
+                "en": "Meep meep",
+                "nl": "Meep meep",
+                "de": "Meep meep"
+              }
+            },
+            {
+              "id": "9",
+              "label": {
+                "en": "Wheep",
+                "nl": "Wheep",
+                "de": "Wheep"
+              }
+            },
+            {
+              "id": "10",
+              "label": {
+                "en": "Barking dog",
+                "nl": "Barking dog",
+                "de": "Barking dog"
+              }
+            },
+            {
+              "id": "11",
+              "label": {
+                "en": "Alarm Siren",
+                "nl": "Alarm Siren",
+                "de": "Alarm Siren"
+              }
+            },
+            {
+              "id": "12",
+              "label": {
+                "en": "Doorbell 2",
+                "nl": "Doorbell 2",
+                "de": "Doorbell 2"
+              }
+            },
+            {
+              "id": "13",
+              "label": {
+                "en": "Old Phone",
+                "nl": "Old Phone",
+                "de": "Old Phone"
+              }
+            },
+            {
+              "id": "14",
+              "label": {
+                "en": "Police Siren",
+                "nl": "Police Siren",
+                "de": "Police Siren"
+              }
+            },
+            {
+              "id": "15",
+              "label": {
+                "en": "Evacuation bell",
+                "nl": "Evacuation bell",
+                "de": "Evacuation bell"
+              }
+            },
+            {
+              "id": "16",
+              "label": {
+                "en": "Clock alarm",
+                "nl": "Clock alarm",
+                "de": "Clock alarm"
+              }
+            },
+            {
+              "id": "17",
+              "label": {
+                "en": "Fire alarm",
+                "nl": "Fire alarm",
+                "de": "Fire alarm"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "smart_door_window_sensor",
       "name": {
         "en": "Smart Door & Window Sensor (Lidl)"
@@ -3785,6 +4632,61 @@
       "settings": []
     },
     {
+      "id": "smart_remote_1_button_2",
+      "name": {
+        "en": "1 button Smart Remote Controller"
+      },
+      "class": "remote",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/smart_remote_1_button_2/assets/images/large.png",
+        "small": "/drivers/smart_remote_1_button_2/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_ja5osu5g"
+        ],
+        "productId": [
+          "TS004F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              4,
+              6,
+              4096,
+              57345
+            ],
+            "bindings": [
+              1,
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smart_remote_1_button_2/assets/icon.svg",
+          "instruction": {
+            "en": "Press the reset button for aprox 10 seconds (the LED should start blinking)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "smart_remote_4_buttons",
       "name": {
         "en": "4 button Smart Remote Controller"
@@ -3955,7 +4857,11 @@
           "_TZ3000_r6buo8ba",
           "_TZ3000_2putqrmw",
           "_TZ3000_5ity3zyu",
-          "_TZ3000_okaz9tjs"
+          "_TZ3000_okaz9tjs",
+          "_TZ3000_eyzb8yg3",
+          "_TZ3000_dksbtrzs",
+          "_TZ3000_nkcobies",
+          "_TZ3000_j1v25l17"
         ],
         "productId": [
           "TS0121",
@@ -4147,9 +5053,9 @@
       ]
     },
     {
-      "id": "smartPlug_DinRail",
+      "id": "smartplug_2_socket",
       "name": {
-        "en": "Smart Plug DIN Rail"
+        "en": "Double Socket Smart Plug"
       },
       "class": "socket",
       "platforms": [
@@ -4171,17 +5077,14 @@
         }
       },
       "images": {
-        "large": "/drivers/smartPlug_DinRail/assets/images/large.png",
-        "small": "/drivers/smartPlug_DinRail/assets/images/small.png"
+        "large": "/drivers/smartplug_2_socket/assets/images/large.png",
+        "small": "/drivers/smartplug_2_socket/assets/images/small.png"
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_qeuvnohg",
-          "_TZ3000_cayepv1a"
+          "_TZ3000_jak16dll"
         ],
         "productId": [
-          "TS0121",
-          "TSO121",
           "TS011F"
         ],
         "endpoints": {
@@ -4194,18 +5097,34 @@
               6,
               1794,
               2820,
-              1026,
               57344,
               57345
             ],
             "bindings": [
-              6,
-              1794,
-              2820,
-              1026,
-              57344,
-              57345
+              10,
+              25
             ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6,
+              57345
+            ],
+            "bindings": []
+          }
+        },
+        "devices": {
+          "secondSocket": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "Double Socket Smart Plug - Socket #2"
+            },
+            "settings": []
           }
         },
         "learnmode": {
@@ -4375,7 +5294,7 @@
         }
       ]
     },
-	{
+    {
       "id": "smoke_sensor",
       "name": {
         "en": "Smoke Sensor"
@@ -4426,6 +5345,66 @@
           }
         }
       }
+    },
+    {
+      "id": "smoke_sensor2",
+      "name": {
+        "en": "Smoke Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_battery",
+        "alarm_smoke",
+        "alarm_tamper",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/smoke_sensor2/assets/images/large.png",
+        "small": "/drivers/smoke_sensor2/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_ntcy3xu1",
+          "_TZE200_m9skfctm"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              4,
+              5,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smoke_sensor2/assets/icon.svg",
+          "instruction": {
+            "en": "Press the RESET pinhole on the side of the unit for 5 seconds until LED blinks."
+          }
+        }
+      },
+      "settings": []
     },
     {
       "id": "socket_power_strip",
@@ -4979,6 +5958,66 @@
       "settings": []
     },
     {
+      "id": "soilsensor",
+      "name": {
+        "en": "Soil Sensor",
+        "nl": "Vochtigheids Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "images": {
+        "large": "/drivers/soilsensor/assets/images/large.png",
+        "small": "/drivers/soilsensor/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        },
+        "batteries": [
+          "AA"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_myd45weu"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              61184
+            ],
+            "bindings": [
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/soilsensor/assets/icon.svg",
+          "instruction": {
+            "en": "Hold the button for 5 seconds, the button will blink.",
+            "nl": "Houd de knop 5 seconden ingedrukt, het knop zal knipperen."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "switch_1_gang",
       "name": {
         "en": "1 Gang Switch Module"
@@ -5018,7 +6057,9 @@
           "_TZ3000_rmjr4ufz",
           "_TZ3000_mx3vgyea",
           "_TZ3000_hhiodade",
-          "_TZ3000_46t1rvdu"
+          "_TZ3000_46t1rvdu",
+          "_TZ3000_majwnphg",
+          "_TZ3000_6axxqqi2"
         ],
         "productId": [
           "TS0003",
@@ -5085,7 +6126,8 @@
           "_TZ3000_jl7qyupf",
           "_TZ3000_7ed9cqgi",
           "_TZ3000_18ejxno0",
-          "_TZ3000_llfaquvp"
+          "_TZ3000_llfaquvp",
+          "_TZ3000_lmlsduws"
         ],
         "productId": [
           "TS0003",
@@ -5119,7 +6161,7 @@
         },
         "devices": {
           "secondSwitch": {
-            "class": "light",
+            "class": "socket",
             "capabilities": [
               "onoff"
             ],
@@ -5138,6 +6180,280 @@
           "image": "/drivers/switch_2_gang/assets/icon.svg",
           "instruction": {
             "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "switch_2_gang_metering",
+      "name": {
+        "en": "2 Gang Switch Module with metering"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/switch_2_gang_metering/assets/images/large.png",
+        "small": "/drivers/switch_2_gang_metering/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_zmy4lslw"
+        ],
+        "productId": [
+          "TS0002"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6,
+              1794,
+              2820
+            ],
+            "bindings": [
+              6,
+              1794,
+              2820
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "light",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "2 Gang Switch Module with metering - Second Switch"
+            },
+            "capabilitiesOptions": {
+              "measure_power": {
+                "approximated": true
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_2_gang_metering/assets/icon.svg",
+          "instruction": {
+            "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "metering_offset",
+          "type": "number",
+          "label": {
+            "en": "Metering Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "measure_offset",
+          "type": "number",
+          "label": {
+            "en": "Measure Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "minReportPower",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for power (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportCurrent",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for current (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportVoltage",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for voltage (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        }
+      ]
+    },
+    {
+      "id": "switch_3_gang",
+      "name": {
+        "en": "3 Gang Switch Module"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/switch_3_gang/assets/images/large.png",
+        "small": "/drivers/switch_3_gang/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_odzoiovu"
+        ],
+        "productId": [
+          "TS0003"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "3 Gang Switch Module"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "thirdSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "3 Gang Switch Module"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_3_gang/assets/icon.svg",
+          "instruction": {
+            "en": "Three tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
           }
         }
       },
@@ -5474,7 +6790,9 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_fllyghyj"
+          "_TZ3000_fllyghyj",
+          "_TZ3000_xr3htd96",
+          "_TZ3000_saiqcn0y"
         ],
         "productId": [
           "TS0201"
@@ -5840,10 +7158,12 @@
               3,
               4,
               5,
-              6
+              6,
+              57345
             ],
             "bindings": [
-              6
+              6,
+              57345
             ]
           }
         },
@@ -5854,7 +7174,35 @@
           }
         }
       },
-      "settings": []
+      "settings": [
+        {
+          "id": "powerOnState",
+          "type": "dropdown",
+          "label": {
+            "en": "Power On State"
+          },
+          "values": [
+            {
+              "id": "off",
+              "label": {
+                "en": "OFF"
+              }
+            },
+            {
+              "id": "on",
+              "label": {
+                "en": "ON"
+              }
+            },
+            {
+              "id": "recover",
+              "label": {
+                "en": "RECOVER"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "wall_curtain_switch",
@@ -5886,7 +7234,8 @@
           "_TZ3000_dph3rpss",
           "_TZ3000_8kzqqzu4",
           "_TZ3000_ltiqubue",
-          "_TZ3000_dbpmpco1"
+          "_TZ3000_dbpmpco1",
+          "_TZ3000_fvhunhxb"
         ],
         "productId": [
           "TS130F"
@@ -5908,6 +7257,69 @@
           "image": "/drivers/wall_curtain_switch/assets/icon.svg",
           "instruction": {
             "en": "Power on/off 5 times to enter pairing mode (the LED should blink / device starts beeping) or press the Pause-button 5sec until Open-button blinks."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "wall_dimmer_tuya",
+      "name": {
+        "en": "Wall Dimmer"
+      },
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "capabilitiesOptions": {
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
+      "images": {
+        "large": "/drivers/wall_dimmer_tuya/assets/images/large.png",
+        "small": "/drivers/wall_dimmer_tuya/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_3p5ydos3"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              25,
+              10
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_dimmer_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
           }
         }
       },
@@ -5943,7 +7355,8 @@
           "_TZ3000_axpdxqgu",
           "_TZ3000_peszejy7",
           "_TZ3000_pzui3skt",
-          "_TZ3000_f97vq5mn"
+          "_TZ3000_f97vq5mn",
+          "_TZ3000_fa9mlvja"
         ],
         "productId": [
           "TS0041"
@@ -6062,7 +7475,8 @@
           "_TZ3000_rrjr1q0u",
           "_TZ3000_w8jwkczz",
           "_TZ3000_gbm10jnj",
-          "_TZ3000_yw5tvzsk"
+          "_TZ3000_yw5tvzsk",
+          "_TZ3000_sj7jbgks"
         ],
         "productId": [
           "TS0043"
@@ -6406,7 +7820,8 @@
           "_TZ3000_yhagrqmd",
           "_TZ3000_5vujyute",
           "_TYZB01_2athzhfr",
-          "_TZ3000_56bdyj21"
+          "_TZ3000_56bdyj21",
+          "_TZ3000_e98krvvk"
         ],
         "productId": [
           "TS0002",
@@ -6491,7 +7906,6 @@
           "_TZ3000_cdamjqm9",
           "_TYZB01_mqel1whf",
           "_TZ3000_hlwm8e96",
-          "_TZ3000_odzoiovu",
           "_TZ3000_thhxrept",
           "_TZ3000_2dlwlvex",
           "_TZ3000_qcdqw8nf",
@@ -6698,6 +8112,57 @@
       "settings": []
     },
     {
+      "name": {
+        "en": "Wall Thermostat"
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "onoff",
+        "measure_temperature",
+        "target_temperature"
+      ],
+      "images": {
+        "large": "/drivers/wall_thermostat/assets/images/large.jpg",
+        "small": "/drivers/wall_thermostat/assets/images/small.jpg"
+      },
+      "zigbee": {
+        "manufacturerName": "_TZE200_aoclfnxz",
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              513,
+              1026,
+              61184
+            ],
+            "bindings": [
+              25,
+              10,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/my_driver/assets/icon.svg",
+          "instruction": {
+            "en": "Press the arrow down button for 8s when the thermostat is off."
+          }
+        }
+      },
+      "id": "wall_thermostat",
+      "settings": []
+    },
+    {
       "id": "water_detector",
       "name": {
         "en": "Water Detector"
@@ -6732,7 +8197,10 @@
           "_TZ3000_t6jriawg",
           "_TZ3000_85czd6fy",
           "_TZ3000_kyb656no",
-          "_TZ3000_0s9gukzt"
+          "_TZ3000_0s9gukzt",
+          "_TZ3000_kstbkt6a",
+          "_TZ3000_mugyhz0q",
+          "_TZ3000_upgcbody"
         ],
         "productId": [
           "TS0207",
@@ -6754,6 +8222,61 @@
         },
         "learnmode": {
           "image": "/drivers/water_detector/assets/icon.svg",
+          "instruction": {
+            "en": "Push the button for aprox 10 seconds until the LED blinks rapidly. If nothing happens; put two fingers against the detectors and repeat."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "water_leak_sensor_tuya",
+      "name": {
+        "en": "Water Leak Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_water",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2"
+        ]
+      },
+      "images": {
+        "large": "/drivers/water_leak_sensor_tuya/assets/images/large.png",
+        "small": "/drivers/water_leak_sensor_tuya/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_qq9mpfhw"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/water_leak_sensor_tuya/assets/icon.svg",
           "instruction": {
             "en": "Push the button for aprox 10 seconds until the LED blinks rapidly. If nothing happens; put two fingers against the detectors and repeat."
           }
@@ -6808,6 +8331,22 @@
     }
   ],
   "capabilities": {
+    "alarm_siren": {
+      "type": "boolean",
+      "title": {
+        "en": "Siren",
+        "nl": "Sirene"
+      },
+      "units": {
+        "en": "Status"
+      },
+      "desc": {
+        "en": "Alarm",
+        "nl": "Alarm"
+      },
+      "getable": true,
+      "setable": false
+    },
     "lidl_xmas_mode": {
       "title": {
         "en": "Mode"
@@ -6840,6 +8379,33 @@
         }
       ]
     },
+    "soil_moisture": {
+      "type": "number",
+      "title": {
+        "en": "Soil Moisture",
+        "nl": "Bodemvochtigheid"
+      },
+      "units": {
+        "en": "%",
+        "nl": "%"
+      },
+      "getable": true,
+      "setable": false,
+      "chartType": "area",
+      "min": 0,
+      "max": 100,
+      "decimals": 2,
+      "capabilitiesOptions": {
+        "titleTrue": {
+          "en": "Wet",
+          "nl": "Nat"
+        },
+        "titleFalse": {
+          "en": "Dry",
+          "nl": "Droog"
+        }
+      }
+    },
     "target_distance": {
       "type": "number",
       "title": {
@@ -6851,6 +8417,32 @@
       "units": {
         "en": "m"
       }
+    },
+    "temperature_unit": {
+      "type": "enum",
+      "title": {
+        "en": "Temperature Unit",
+        "nl": "Temperatuureenheid"
+      },
+      "values": [
+        {
+          "id": "C",
+          "title": {
+            "en": "Celsius",
+            "nl": "Celsius"
+          }
+        },
+        {
+          "id": "F",
+          "title": {
+            "en": "Fahrenheit",
+            "nl": "Fahrenheit"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "capabilitiesOptions": {}
     }
   }
 }

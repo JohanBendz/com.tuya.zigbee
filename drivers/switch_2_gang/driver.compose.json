@@ -30,7 +30,8 @@
         "_TZ3000_jl7qyupf",
         "_TZ3000_7ed9cqgi",
         "_TZ3000_18ejxno0",
-        "_TZ3000_llfaquvp"
+        "_TZ3000_llfaquvp",
+        "_TZ3000_lmlsduws"
       ],
       "productId": [
         "TS0003",
@@ -51,7 +52,7 @@
       },
       "devices": {
         "secondSwitch": {
-          "class": "light",
+          "class": "socket",
           "capabilities": ["onoff"],
           "name": {
             "en": "2 Gang Switch Module"
