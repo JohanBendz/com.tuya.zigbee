@@ -24,10 +24,12 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TZ3000_qaaysllp"
+      "_TZ3000_qaaysllp",
+      "_TYZB01_ftdkanlj"
     ],
     "productId": [
-      "TS0201"
+      "TS0201",
+      "TS0222"
     ],
     "endpoints": {
       "1": {

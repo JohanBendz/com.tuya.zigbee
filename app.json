@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.19",
+  "version": "0.2.21",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -16,24 +16,26 @@
   "tags": {
     "en": [
       "Tuya",
-      "Malmbergs",
       "Alecto",
-      "Smart9",
       "Blitzwolf",
-      "Zemismart",
-      "Samotech",
-      "Lonsonho",
-      "Nedis",
-      "Neo",
       "Ejlink",
       "Lidl",
-      "Silvercrest",
       "Livarno",
+      "Lonsonho",
+      "Malmbergs",
+      "Moes",
+      "Nedis",
+      "Neo",
+      "Samotech",
+      "Silvercrest",
+      "Smart9",
+      "Zemismart",
       "Zigbee",
+      "Woox",
       "Sensor",
       "Temperature",
       "Humidity",
-      "motion",
+      "Motion",
       "Door",
       "Window",
       "PIR",
@@ -41,13 +43,17 @@
       "Switch",
       "Valve",
       "Water",
+      "Smoke",
+      "CO",
       "Gas",
       "LED",
       "Light",
       "RGB",
       "Christmas",
       "Socket",
-      "Woox",
+      "Dimmer",
+      "Blind",
+      "Shutter",
       "Curtain"
     ]
   },
@@ -94,6 +100,10 @@
       {
         "name": "Jurgen Heine",
         "email": "jurgen2.heine@gmail.com"
+      },
+      {
+        "name": "Morris Haid",
+        "email": "mhaid2016@outlook.com"
       }
     ]
   },
@@ -325,20 +335,6 @@
         "title": {
           "en": "Close",
           "de": "Schließen"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=curtain_module"
-          }
-        ]
-      },
-      {
-        "id": "move_stop",
-        "title": {
-          "en": "Stop",
-          "de": "Stoppen"
         },
         "args": [
           {
@@ -1844,7 +1840,9 @@
           "TUYATEC-7qunn4gq",
           "_TZ3000_decxrtwa",
           "_TZ3000_yxqnffam",
-          "_TZ3000_9eeavbk5"
+          "_TZ3000_9eeavbk5",
+          "_TZ3000_yxqnffam",
+          "_TZ3000_a33rw7ou"
         ],
         "productId": [
           "RH3001",
@@ -2261,10 +2259,12 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_qaaysllp"
+          "_TZ3000_qaaysllp",
+          "_TYZB01_ftdkanlj"
         ],
         "productId": [
-          "TS0201"
+          "TS0201",
+          "TS0222"
         ],
         "endpoints": {
           "1": {
@@ -3218,6 +3218,21 @@
           "value": 7,
           "min": 0,
           "max": 1500,
+          "units": {
+            "en": "seconds",
+            "nl": "seconden"
+          }
+        },
+        {
+          "id": "distance_update_interval",
+          "type": "number",
+          "label": {
+            "en": "Distance update interval",
+            "nl": "Afstand update interval"
+          },
+          "value": 10,
+          "min": 3,
+          "max": 60,
           "units": {
             "en": "seconds",
             "nl": "seconden"
@@ -6299,7 +6314,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_odzoiovu"
+          "_TZ3000_odzoiovu",
+          "_TZ3000_lvhy15ix"
         ],
         "productId": [
           "TS0003"
@@ -8330,12 +8346,13 @@
       "title": {
         "en": "Target distance"
       },
-      "uiComponent": null,
+      "uiComponent": "sensor",
       "getable": true,
       "setable": false,
       "units": {
         "en": "m"
-      }
+      },
+      "icon": "/drivers/radar_sensor/assets/distance.svg"
     },
     "temperature_unit": {
       "type": "enum",
