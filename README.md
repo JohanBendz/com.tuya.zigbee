@@ -64,6 +64,7 @@ Supported devices:
     
 - LCD Temperature, Humidity and Luminance Sensor
     _TZ3000_qaaysllp / TS0201
+    _TYZB01_ftdkanlj / TS0222
 
 - PIR Sensor
     TUYATEC-lha8pbwd / RH3040
@@ -129,6 +130,7 @@ Supported devices:
     _TZ3000_yxqnffam / TS0203 (Immax Neo)
     _TZ3000_9eeavbk5 / TS0203
     _TZ3000_bpkijo14 / TS0203
+    _TZ3000_a33rw7ou / TS0203 (Zemismart)
 
 - Smart Door/Windows Sensor
     _TZ1800_ejwkn2h2 / TY0203 (Silvercrest / Lidl)
@@ -282,6 +284,7 @@ Supported devices:
 
 - 3 Gang Switch Module
     _TZ3000_odzoiovu / TS0003
+    _TZ3000_lvhy15ix / TS0003
 
 - 1 Gang Dimmer Module
     _TYZB01_qezuin6k / TS110F
