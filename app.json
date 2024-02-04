@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.21",
+  "version": "0.2.22",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -663,6 +663,82 @@
       }
     ],
     "triggers": [
+      {
+        "id": "handheld_remote_4_buttons",
+        "title": {
+          "en": "Button was pressed"
+        },
+        "titleFormatted": {
+          "en": "[[button]] button was pressed [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=handheld_remote_4_buttons"
+          },
+          {
+            "name": "button",
+            "type": "dropdown",
+            "title": {
+              "en": "Button"
+            },
+            "values": [
+              {
+                "id": "button1",
+                "label": {
+                  "en": "Button 1"
+                }
+              },
+              {
+                "id": "button2",
+                "label": {
+                  "en": "Button 2"
+                }
+              },
+              {
+                "id": "button3",
+                "label": {
+                  "en": "Button 3"
+                }
+              },
+              {
+                "id": "button4",
+                "label": {
+                  "en": "Button 4"
+                }
+              }
+            ]
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Action"
+            },
+            "values": [
+              {
+                "id": "single",
+                "label": {
+                  "en": "once"
+                }
+              },
+              {
+                "id": "double",
+                "label": {
+                  "en": "twice"
+                }
+              },
+              {
+                "id": "long",
+                "label": {
+                  "en": "long"
+                }
+              }
+            ]
+          }
+        ]
+      },
       {
         "id": "alarm_siren",
         "title": {
@@ -2229,6 +2305,80 @@
       "settings": []
     },
     {
+      "id": "handheld_remote_4_buttons",
+      "name": {
+        "en": "4 Button Remote"
+      },
+      "class": "remote",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "button"
+      ],
+      "images": {
+        "large": "/drivers/handheld_remote_4_buttons/assets/images/large.png",
+        "small": "/drivers/handheld_remote_4_buttons/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_u3nv1jwk"
+        ],
+        "productId": [
+          "TS0044"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "4": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/handheld_remote_4_buttons/assets/icon.svg",
+          "instruction": {
+            "en": "Press the top button for aprox 10 seconds (Zigbee logo will start blinking)."
+          }
+        }
+      }
+    },
+    {
       "id": "lcdtemphumidluxsensor",
       "name": {
         "en": "LCD Temperature, Humidity and Luminance Sensor"
@@ -2790,10 +2940,8 @@
         "zigbee"
       ],
       "capabilities": [
-        "measure_battery",
         "alarm_motion",
-        "alarm_battery",
-        "alarm_tamper"
+        "measure_battery"
       ],
       "energy": {
         "batteries": [
@@ -2830,6 +2978,61 @@
             "en": "Push the setup button on the side of the device for aprox 5 seconds until the LED blinks rapidly. If the pairing does not start, press the setup button again for 10-15 seconds until the led stops blinking and then try again."
           }
         }
+      }
+    },
+    {
+      "id": "motion_sensor_2",
+      "name": {
+        "en": "Motion Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_battery",
+        "measure_luminance",
+        "alarm_motion",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2450"
+        ]
+      },
+      "images": {
+        "large": "/drivers/motion_sensor_2/assets/images/large.png",
+        "small": "/drivers/motion_sensor_2/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_3towulqd"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/motion_sensor_2/assets/icon.svg",
+          "instruction": {
+            "en": "Use a pin to press the reset button for aprox 5 seconds until the LED blinks."
+          }
+        }
       },
       "settings": [
         {
@@ -2846,6 +3049,169 @@
             "step": 1,
             "min": 1,
             "max": 99
+          }
+        }
+      ]
+    },
+    {
+      "id": "outdoor_2_socket",
+      "name": {
+        "en": "Outdoor Smart Socket"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "meter_power",
+        "measure_power",
+        "measure_current",
+        "measure_voltage"
+      ],
+      "images": {
+        "large": "/drivers/outdoor_2_socket/assets/images/large.png",
+        "small": "/drivers/outdoor_2_socket/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_uwkja6z1"
+        ],
+        "productId": [
+          "TS011F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              1794,
+              2820,
+              57344,
+              57345
+            ],
+            "bindings": [
+              10,
+              25
+            ]
+          },
+          "2": {
+            "clusters": [
+              3,
+              4,
+              5,
+              6,
+              1794,
+              2820,
+              57344,
+              57345
+            ],
+            "bindings": []
+          }
+        },
+        "devices": {
+          "secondSocket": {
+            "class": "socket",
+            "name": {
+              "en": "Outdoor Smart Socket #2"
+            },
+            "capabilities": [
+              "onoff"
+            ],
+            "settings": []
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold down on/off switch for aprox 5 seconds until the WiFi icon blinks rapidly."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "metering_offset",
+          "type": "number",
+          "label": {
+            "en": "Metering Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "measure_offset",
+          "type": "number",
+          "label": {
+            "en": "Measure Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "minReportPower",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for power (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportCurrent",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for current (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportVoltage",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for voltage (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
           }
         }
       ]
@@ -4290,6 +4656,7 @@
       ],
       "energy": {
         "batteries": [
+          "AAA",
           "AAA"
         ]
       },
@@ -6493,7 +6860,8 @@
           "_TZ3000_bguser20",
           "_TZ3000_8ybe88nf",
           "_TZ3000_fie1dpkm",
-          "TUYATEC-riuj5xzs"
+          "TUYATEC-riuj5xzs",
+          "TUYATEC-1uxx9cci"
         ],
         "productId": [
           "RH3052",

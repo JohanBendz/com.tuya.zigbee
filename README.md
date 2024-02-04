@@ -44,6 +44,7 @@ Supported devices:
     TUYATEC-riuj5xzs / RH3052
     _TZ3000_xr3htd96 / TS0201 (Tenky)
     _TZ3000_saiqcn0y / TS0201
+    TUYATEC-1uxx9cci / RH3052
 
 - LCD Temperature and Humidity Sensor
     _TZ2000_a476raq2 / TS0201
@@ -90,9 +91,9 @@ Supported devices:
 
 . Motion Sensor
     TUYATEC-bd5faf9p / RH3040 (Nedis)
-
-- Smart Motion Sensor
     _TZ1800_fcdjzz3s / TY0202 (Silvercrest / Lidl)
+    _TZE200_3towulqd / TS0601
+    _TZ3000_lf56vpxj / TS0202
 
 - Door/Windows Sensor
     TUYATEC-g3gl6cgy / RH3001
@@ -460,6 +461,7 @@ Supported devices:
     _TZ3000_fsiepnrh / TS0215A (Nedis)
     _TYZB01_qm6djpta / TS0215A
     _TZ3000_p6ju8myv / TS0215A
+    _TZ3000_u3nv1jwk / TS0044
 
 **Curtains**
 - Curtain Module
@@ -506,6 +508,17 @@ Supported devices:
     _TZ3000_fvhunhxb / TS130F
 
 **Other**
+- Thermostatic Radiator Valves
+    _TZE200_sur6q7ko / TS0601
+    _TZE200_hue3yfsn / TS0601
+    _TZE200_husqqvux / TS0601
+    _TZE200_lnbfnyxd / TS0601
+    _TZE200_lllliz3p / TS0601
+    _TZE200_mudxchsu / TS0601
+    _TZE200_7yoranx2 / TS0601
+    _TZE200_e9ba97vf / TS0601 (MOES)
+    _TZE200_kds0pmmv / TS0601
+
 - Valve Controller
     _TYZB01_ymcdbl3u / TS0111
     _TZ3000_o4cjetlm / TS0001
@@ -533,9 +546,10 @@ Supported devices:
 - Smart Switch
     _TYZB01_phjeraqq / TS0001
 
-To request additional devices, please use Athom Homey Community Forum: https://community.athom.com/t/tuya-zigbee-app/26439
+To request additional devices, please use Github issue tracking: https://github.com/JohanBendz/com.tuya.zigbee/issues
+To get support from the community please use Athom Homey Community Forum: https://community.athom.com/t/tuya-zigbee-app/26439
 
-Contributors:
+Major Code Contributors:
 - Martijn Aben, Christmas Lights
 - Jurgen Heine, color issues on RGB lights
 - Tim Koos and Tom van der Geer, 4 Channel Relay Board
@@ -546,5 +560,8 @@ Contributors:
 - Patrick van der Poel, Soil sensor
 - Ben Grohbiel, Wall Thermostat
 - Jérôme Revillard, Neo Siren alarm
+- Thomas Ha, Thermostatic Radiator Valve
+- Julian M, Outdoor Smart Plug
+
 
 I would also like to thank everyone who contributes with device information, testing and beer!
