@@ -1,57 +1,45 @@
 'use strict';
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigBeeDevice, Util } = require('homey-zigbeedriver');
 const { CLUSTER } = require('zigbee-clusters');
+
+const BATTERY_UPDATE_INTERVAL = 1000 * 60 * 30;
 
 class motion_sensor extends ZigBeeDevice {
 
 	async onNodeInit({ zclNode }) {
-
 		this.printNode();
+        this._powerConfiguration = zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME];
 
-		if (this.isFirstInit()){
-			await this.configureAttributeReporting([
-				{
-					endpointId: 1,
-					cluster: CLUSTER.IAS_ZONE,
-					attributeName: 'zoneStatus',
-					minInterval: 65535,
-					maxInterval: 0,
-					minChange: 0,
-				},{
-					endpointId: 1,
-					cluster: CLUSTER.POWER_CONFIGURATION,
-					attributeName: 'batteryPercentageRemaining',
-					minInterval: 65535,
-					maxInterval: 0,
-					minChange: 0,
-				}
-			]);
-		}
+        const iasZone = zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME];
+        iasZone.onZoneStatusChangeNotification = this.onZoneStatusChanged.bind(this);
 
-		// alarm_motion & alarm_tamper
-		zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME]
-		.on('attr.zoneStatus', this.onZoneStatusAttributeReport.bind(this));
+        this._syncBattery = Util.throttle(
+            this._updateBattery.bind(this),
+            BATTERY_UPDATE_INTERVAL
+        );
 
-		// measure_battery // alarm_battery
-		zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
-		.on('attr.batteryPercentageRemaining', this.onBatteryPercentageRemainingAttributeReport.bind(this));
+        if (this.isFirstInit()) {
+            this._updateBattery();
+        }
+    }
 
+	onZoneStatusChanged({zoneStatus, extendedStatus, zoneId, delay,}) {
+		this.log('onZoneStatusChanged received:', zoneStatus, extendedStatus, zoneId, delay);
+		this.setCapabilityValue('alarm_motion', zoneStatus.alarm1).catch(this.error);
+        this._syncBattery();
 	}
 
-	onZoneStatusAttributeReport(status) {
-		this.log("Motion status: ", status.alarm1);
-		this.log("Tamper status: ", status.tamper);
-		this.setCapabilityValue('alarm_motion', status.alarm1).catch(this.error);
-		this.setCapabilityValue('alarm_tamper', status.tamper).catch(this.error);
-	}
-
-	onBatteryPercentageRemainingAttributeReport(batteryPercentageRemaining) {
-		const batteryThreshold = this.getSetting('batteryThreshold') || 20;
-		this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", batteryPercentageRemaining/2);
-		this.setCapabilityValue('measure_battery', batteryPercentageRemaining/2).catch(this.error);
-		this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining/2 < batteryThreshold) ? true : false).catch(this.error);
-	}
+    async _updateBattery() {
+      const attrs = await this._powerConfiguration.readAttributes(
+        ["batteryPercentageRemaining"]
+      ).catch(this.error);
+      if (attrs) {
+          const percent = attrs.batteryPercentageRemaining;
+          console.log('Set measure_battery: ', percent / 2);
+          this.setCapabilityValue('measure_battery', percent / 2).catch(this.error);
+      }
+    }
 
 	onDeleted(){
 		this.log("Motion Sensor removed")

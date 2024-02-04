@@ -11,6 +11,7 @@ Some of the supported White Label Brands:
 - MOES
 - Nedis
 - Neo
+- Nous
 - Samotech
 - Smart9
 - UseeLink
@@ -84,6 +85,7 @@ Supported devices:
     _TZ3040_bb6xaihh / TS0202
     TUYATEC-b5g40alm / RH3040
     _TZ3000_nss8amz9 / TS0202
+    _TZ3000_lf56vpxj / TS0202
     TUYATEC-dxnohkpd / RH3040
 
 . Motion Sensor
@@ -228,6 +230,9 @@ Supported devices:
 
 - Outdoor Plug, without metering
     _TZ3000_pnzfdr9y / TS0101 (Silvercrest / Lidl)
+
+- Outdoor Plug, with metering
+    _TZ3000_uwkja6z1 / TS011F (Nous)
 
 - 3 Socket Power Strip
     _TZ3000_1obwwnmq / TS011F (Silvercrest / Lidl)
