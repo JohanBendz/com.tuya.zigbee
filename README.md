@@ -507,6 +507,18 @@ Supported devices:
     _TZ3000_dbpmpco1 / TS130F (Loratap, Model No SC400ZB, SC420ZB)
     _TZ3000_fvhunhxb / TS130F
 
+**Thermostatic Radiator Valves**
+
+- _TZE200_sur6q7ko
+- _TZE200_hue3yfsn
+- _TZE200_husqqvux
+- _TZE200_lnbfnyxd
+- _TZE200_lllliz3p
+- _TZE200_mudxchsu
+- _TZE200_7yoranx2
+- [_TZE200_e9ba97vf MOES Radiator Actuator Valve Tuya ZigBee 3.0](https://moeshouse.com/products/smart-programmable-radiator-valve-tv01)
+- _TZE200_kds0pmmv
+
 **Other**
 - Thermostatic Radiator Valves
     _TZE200_sur6q7ko / TS0601
