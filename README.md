@@ -84,6 +84,7 @@ Supported devices:
     _TZ3040_bb6xaihh / TS0202
     TUYATEC-b5g40alm / RH3040
     _TZ3000_nss8amz9 / TS0202
+    _TZ3000_lf56vpxj / TS0202
     TUYATEC-dxnohkpd / RH3040
 
 . Motion Sensor
