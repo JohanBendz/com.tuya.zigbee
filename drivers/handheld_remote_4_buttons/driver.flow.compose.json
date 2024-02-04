@@ -1,0 +1,67 @@
+{
+    "triggers": [
+      {
+        "id": "handheld_remote_4_buttons",
+        "title": {"en": "Button was pressed"},
+        "titleFormatted": {"en": "[[button]] button was pressed [[action]]"},
+        "args": [
+          {
+            "name": "button",
+            "type": "dropdown",
+            "title": {"en":"Button"},
+            "values": [
+                {
+                  "id": "button1",
+                  "label": {
+                    "en": "Button 1"
+                  }
+                },
+                {
+                  "id": "button2",
+                  "label": {
+                    "en": "Button 2"
+                  }
+                },
+                {
+                  "id": "button3",
+                  "label": {
+                    "en": "Button 3"
+                  }
+                },
+                {
+                  "id": "button4",
+                  "label": {
+                    "en": "Button 4"
+                  }
+                }
+            ]
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {"en": "Action"},
+            "values": [
+              {
+                "id": "single",
+                "label": {
+                  "en": "once"
+                }
+              },
+              {
+                "id": "double",
+                "label": {
+                  "en": "twice"
+                }
+              },
+              {
+                "id": "long",
+                "label": {
+                  "en": "long"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
