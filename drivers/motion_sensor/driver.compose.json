@@ -7,10 +7,8 @@
     "platforms": ["local"],
     "connectivity": ["zigbee"],
     "capabilities": [
-      "measure_battery",
       "alarm_motion",
-      "alarm_battery",
-      "alarm_tamper"
+      "measure_battery"
     ],
     "energy": {
       "batteries": ["CR2450"]
