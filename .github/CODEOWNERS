@@ -1,0 +1,7 @@
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# will automaticall assign repository owner as reviewer:
+* @JohanBendz
+
+# not valid as habbo656 does not have write access to this repository:
+# /drivers/thermostatic_radiator_valve @habbo656
