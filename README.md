@@ -11,6 +11,7 @@ Some of the supported White Label Brands:
 - MOES
 - Nedis
 - Neo
+- Nous
 - Samotech
 - Smart9
 - UseeLink
@@ -42,6 +43,7 @@ Supported devices:
     TUYATEC-ojmxeikq / RH3052
     TUYATEC-riuj5xzs / RH3052
     _TZ3000_xr3htd96 / TS0201 (Tenky)
+    _TZ3000_saiqcn0y / TS0201
 
 - LCD Temperature and Humidity Sensor
     _TZ2000_a476raq2 / TS0201
@@ -59,6 +61,7 @@ Supported devices:
     _TZ3000_yd2e749y / TS0201
     _TZ3000_ywagc4rj / TS0201
     _TZ3000_itnrsufe / TS0201
+    _TZ3000_bjawzodf / TS0201
     
 - LCD Temperature, Humidity and Luminance Sensor
     _TZ3000_qaaysllp / TS0201
@@ -82,6 +85,7 @@ Supported devices:
     TUYATEC-b5g40alm / RH3040
     _TZ3000_nss8amz9 / TS0202
     _TZ3000_lf56vpxj / TS0202
+    TUYATEC-dxnohkpd / RH3040
 
 . Motion Sensor
     TUYATEC-bd5faf9p / RH3040 (Nedis)
@@ -124,6 +128,9 @@ Supported devices:
     Visonic / MCT-340 E
     _TZ3000_decxrtwa / TS0203
     _TZ3000_hkcpblrs / TS0203 (Avatto)
+    _TZ3000_yxqnffam / TS0203 (Immax Neo)
+    _TZ3000_9eeavbk5 / TS0203
+    _TZ3000_bpkijo14 / TS0203
 
 - Smart Door/Windows Sensor
     _TZ1800_ejwkn2h2 / TY0203 (Silvercrest / Lidl)
@@ -137,6 +144,9 @@ Supported devices:
     _TZ3000_85czd6fy / TS0207
     _TZ3000_kyb656no / TS0207
     _TZ3000_0s9gukzt / TS0207
+    _TZ3000_kstbkt6a / TS0207 (Hangzlou IH-K655)
+    _TZ3000_mugyhz0q / TS0207 (ONENUO)
+    _TZ3000_upgcbody / TS0207
 
 - Water Leak Sensor
     _TZE200_qq9mpfhw / TS0601
@@ -148,10 +158,22 @@ Supported devices:
 
 - Smoke Sensor
     _TYZB01_dsjszp0x / TS0205
+    _TZE200_ntcy3xu1 / TS0601
+    _TZE200_m9skfctm / TS0601
 
 - Soil humidity sensor
     _TZE200_myd45weu / TS0601 (GiEX)
     _TZE200_ga1maeof / TS0601
+
+- Radar Sensor
+    _TZE200_ztc6ggyl / TS0601
+    _TZE201_ztc6ggyl / TS0601
+    _TZE202_ztc6ggyl / TS0601
+    _TZE203_ztc6ggyl / TS0601
+    _TZE204_ztc6ggyl / TS0601
+    _TZE204_qasjif9e / TS0601
+    _TZE204_ijxvkhd0 / TS0601
+    _TZE204_sxm7l9xa / TS0601
 
 **Plugs and Socket Strips**
 - Smart Plug, with metering
@@ -191,6 +213,8 @@ Supported devices:
     _TZ3000_okaz9tjs / TS011F
     _TZ3000_eyzb8yg3 / TS0121
     _TZ3000_dksbtrzs / TS011F (Lonsonho)
+    _TZ3000_j1v25l17 / TS011F (Silvercrest / Lidl)
+    _TZ3000_nkcobies / TS011F
 
 - Smart Plug, without metering
     _TZ3000_kdi2o9m6 / TS011F (Silvercrest / Lidl)
@@ -205,6 +229,9 @@ Supported devices:
 - Outdoor Plug, without metering
     _TZ3000_pnzfdr9y / TS0101 (Silvercrest / Lidl)
 
+- Outdoor Plug, with metering
+    _TZ3000_uwkja6z1 / TS011F (Nous)
+
 - 3 Socket Power Strip
     _TZ3000_1obwwnmq / TS011F (Silvercrest / Lidl)
     _TZ3000_vzopcetz / TS011F (Silvercrest / Lidl)
@@ -216,6 +243,9 @@ Supported devices:
     _TZ3000_o005nuxx / TS011F (UseeLink)
     _TZ3000_cfnprab5 / TS011F
     LELLKI / JZ-ZB-004
+
+- Double Socket Smart Plug
+    _TZ3000_jak16dll / TS011F
 
 - Double Power Point, with metering
     _TZ3210_7jnk7l3k / TS011F
@@ -250,6 +280,7 @@ Supported devices:
     _TZ3000_7ed9cqgi / TS0002
     _TZ3000_18ejxno0 / TS0012
     _TZ3000_llfaquvp / TS0012
+    _TZ3000_lmlsduws / TS0002
 
 - 2 Gang Switch Module with metering
     _TZ3000_zmy4lslw / TS0002
@@ -266,6 +297,7 @@ Supported devices:
     _TZ3210_weaqkhab / TS110E
     _TZ3210_k1msuvg6 / TS110E
     _TZE204_hlx9tnzb / TS0601
+    _TZ3000_mgusv51k / TS0052
 
 - 2 Gang Dimmer Module
     _TYZB01_v8gtiaed / TS110F
@@ -343,6 +375,8 @@ Supported devices:
     _TZ3000_12sxjap4 / TS0505B (YANDHI)
     _TZ3000_hlijwsai / TS0505A
     _TZ3000_qd7hej8u / TS0505B (LIVARNO LUX / Lidl)
+    _TZ3210_mja6r5ix / TS0505B
+    _TZ3000_q50zhdsc / TS0505B
 
 - RGB Bulb E14
     _TZ3000_odygigth / TS0505A (LIVARNO LUX / Lidl)
@@ -385,6 +419,7 @@ Supported devices:
     _TZ3000_peszejy7 / TS0041
     _TZ3000_pzui3skt / TS0041
     _TZ3000_f97vq5mn / TS0041
+    _TZ3000_fa9mlvja / TS0041
 
 - 2 Gang Wall Remote
     _TZ3000_owgcnkrh / TS0042
@@ -404,6 +439,7 @@ Supported devices:
     _TZ3000_w8jwkczz / TS0043 (MOES)
     _TZ3000_gbm10jnj / TS0043 (MOES)
     _TZ3000_yw5tvzsk / TS0043
+    _TZ3000_sj7jbgks / TS0043
 
 - 4 Gang Wall Remote
     _TZ3000_vp6clf9d / TS0044
@@ -433,6 +469,7 @@ Supported devices:
     _TZ3000_femsaaua / TS130F
     _TZ3000_e3vhyirx / TS130F (LoraTap SC500ZB)
     _TZ3000_1dd0d5yi / TS130F (MOES MS-108ZR)
+    _TZ3000_jwv3cwak / TS130F
 
 - Curtain Motor
     _TZE200_5zbp6j0u / TS0601
@@ -456,6 +493,7 @@ Supported devices:
     _TZE200_cowvfni3 / TS0601
     _TZE200_hsgrhjpf / TS0601
     _TZE200_pw7mji0l / TS0601
+    _TZE200_68nvbio9 / TS0601
 
 - Wall mounted Curtain Switch
     _TZ3000_dph3rpss / TS130F
@@ -487,6 +525,7 @@ Supported devices:
     _TZ3000_hdlpifbk / TS0004
     _TZ3000_excgg5kb / TS0004
     _TZ3000_u3oupgdy / TS0004
+    _TZ3000_wkr3jqmr / TS0004
 
 - Smart Switch
     _TYZB01_phjeraqq / TS0001

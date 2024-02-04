@@ -10,7 +10,7 @@ class lcdtemphumidsensor extends ZigBeeDevice {
 
 		this.printNode();
 
-		if (this.isFirstInit()){
+/* 		if (this.isFirstInit()){
 			await this.configureAttributeReporting([
 				{
 					endpointId: 1,
@@ -21,7 +21,7 @@ class lcdtemphumidsensor extends ZigBeeDevice {
 					minChange: 0,
 				}
 			]);
-		}
+		} */
 
 		// measure_temperature
 		zclNode.endpoints[1].clusters[CLUSTER.TEMPERATURE_MEASUREMENT.NAME]
