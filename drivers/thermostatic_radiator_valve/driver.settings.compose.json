@@ -1,0 +1,181 @@
+[
+    {
+        "type": "group",
+        "label": {
+            "en": "Temperature Settings"
+        },
+        "children": [
+            {
+                "id": "comfortTemperature",
+                "type": "number",
+                "label": {
+                    "en": "Comfort Temperature"
+                },
+                "value": 20,
+                "min": 5,
+                "max": 30,
+                "units": {
+                    "en": "°C"
+                }
+            },
+            {
+                "id": "ecoTemperature",
+                "type": "number",
+                "label": {
+                    "en": "Eco Temperature"
+                },
+                "value": 16,
+                "min": 5,
+                "max": 30,
+                "units": {
+                    "en": "°C"
+                }
+            },
+            {
+                "id": "holidayTemperature",
+                "type": "number",
+                "label": {
+                    "en": "Holiday Temperature"
+                },
+                "value": 12,
+                "min": 5,
+                "max": 30,
+                "units": {
+                    "en": "°C"
+                }
+            },
+            {
+                "id": "openWindowTemperature",
+                "type": "number",
+                "label": {
+                    "en": "Open Window Temperature"
+                },
+                "value": 5,
+                "min": 5,
+                "max": 30,
+                "units": {
+                    "en": "°C"
+                }
+            }
+        ]
+    },
+    {
+        "type": "group",
+        "label": {
+            "en": "Heatplan"
+        },
+        "children": [
+            {
+                "id": "workingDay",
+                "type": "dropdown",
+                "value": "1",
+                "label": {
+                    "en": "Mode for Heatplan"
+                },
+                "hint": {
+                    "en": "'Mon-Sun' only considers Monday Schedule for all days. 'Mon-Fri, Sat+Sun' considers Monday Schedule for all working days and Saturday and Sunday Schedule individually. On'Separate' Mode each day is scheduled individually."
+                },
+                "values": [
+                    {
+                        "id": "0",
+                        "label": {
+                            "en": "Mon-Sun"
+                        }
+                    },
+                    {
+                        "id": "1",
+                        "label": {
+                            "en": "Mon-Fri, Sat+Sun"
+                        }
+                    },
+                    {
+                        "id": "2",
+                        "label": {
+                            "en": "Separate"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "label",
+                "type": "label",
+                "label": {
+                    "en": "Schedule Pattern"
+                },
+                "value": " List of time and temerature ranges 'hh:mm/temp' separated by a space. E.g.: '06:00/16 22:30/20 24:00/16' means: set temperature to 16°C between 00:00am and 06:00am, set temperature to 20°C between 06:00am and 10:30pm, 10:30pm to 12:00am set temperature to 16°C. Last time token must always be 24:00 with temperature."
+            },
+            {
+                "id": "scheduleMonday",
+                "type": "text",
+                "pattern": "^(([01][0-9]|[2][0-4]):[0-5][0-9]\/([0-2][0-9]|30)\\s{0,1})+$",
+                "value": "06:00/16 22:30/20 24:00/16",
+                "label": {
+                    "en": "Monday"
+                },
+                "hint": {
+                    "en": "Required for 'Mon-Sun' and 'Mon-Fri, Sat+Sun' Mode."
+                }
+            },
+            {
+                "id": "scheduleTuesday",
+                "type": "text",
+                "pattern": "^(([01][0-9]|[2][0-4]):[0-5][0-9]\/([0-2][0-9]|30)\\s{0,1})+$",
+                "value": "06:00/16 22:30/20 24:00/16",
+                "label": {
+                    "en": "Tuesday"
+                }
+            },
+            {
+                "id": "scheduleWednesday",
+                "type": "text",
+                "pattern": "^(([01][0-9]|[2][0-4]):[0-5][0-9]\/([0-2][0-9]|30)\\s{0,1})+$",
+                "value": "06:00/16 22:30/20 24:00/16",
+                "label": {
+                    "en": "Wednesday"
+                }
+            },
+            {
+                "id": "scheduleThursday",
+                "type": "text",
+                "pattern": "^(([01][0-9]|[2][0-4]):[0-5][0-9]\/([0-2][0-9]|30)\\s{0,1})+$",
+                "value": "06:00/16 22:30/20 24:00/16",
+                "label": {
+                    "en": "Thursday"
+                }
+            },
+            {
+                "id": "scheduleFriday",
+                "type": "text",
+                "pattern": "^(([01][0-9]|[2][0-4]):[0-5][0-9]\/([0-2][0-9]|30)\\s{0,1})+$",
+                "value": "06:00/16 22:30/20 24:00/16",
+                "label": {
+                    "en": "Friday"
+                }
+            },
+            {
+                "id": "scheduleSaturday",
+                "type": "text",
+                "pattern": "^(([01][0-9]|[2][0-4]):[0-5][0-9]\/([0-2][0-9]|30)\\s{0,1})+$",
+                "value": "06:00/16 22:30/20 24:00/16",
+                "label": {
+                    "en": "Saturday"
+                },
+                "hint": {
+                    "en": "Required for 'Mon-Fri, Sat+Sun' Mode"
+                }
+            },
+            {
+                "id": "scheduleSunday",
+                "type": "text",
+                "pattern": "^(([01][0-9]|[2][0-4]):[0-5][0-9]\/([0-2][0-9]|30)\\s{0,1})+$",
+                "value": "06:00/16 22:30/20 24:00/16",
+                "label": {
+                    "en": "Sunday"
+                },
+                "hint": {
+                    "en": "Required for 'Mon-Fri, Sat+Sun' Mode"
+                }
+            }
+        ]
+    }
+]
