@@ -1,6 +1,6 @@
 {
   "name": "com.tuya.zigbee",
-  "version": "0.2.21",
+  "version": "0.2.22",
   "description": "Adds support for Tuya Zigbee devices to Homey",
   "main": "app.js",
   "scripts": {
