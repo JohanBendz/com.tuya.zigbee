@@ -11,6 +11,7 @@ Some of the supported White Label Brands:
 - MOES
 - Nedis
 - Neo
+- Nous
 - Samotech
 - Smart9
 - UseeLink
@@ -226,6 +227,9 @@ Supported devices:
 
 - Outdoor Plug, without metering
     _TZ3000_pnzfdr9y / TS0101 (Silvercrest / Lidl)
+
+- Outdoor Plug, with metering
+    _TZ3000_uwkja6z1 / TS011F (Nous)
 
 - 3 Socket Power Strip
     _TZ3000_1obwwnmq / TS011F (Silvercrest / Lidl)
