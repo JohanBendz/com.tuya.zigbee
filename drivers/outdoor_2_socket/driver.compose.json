@@ -30,8 +30,8 @@
         "bindings": [10, 25]
       },
       "2": {
-        "clusters": [3, 4, 5, 6, 1794, 2820, 57344, 57345],
-        "bindings": []
+        "clusters": [6],
+        "bindings": [6]
       }
     },
     "devices": {
