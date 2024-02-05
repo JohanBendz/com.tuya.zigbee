@@ -3251,11 +3251,63 @@
       ]
     },
     {
-      "id": "outdoor_plug",
+        "id": "outdoor_plug",
+        "name": {
+            "en": "Outdoor Plug without metering"
+        },
+        "class": "socket",
+        "platforms": [
+            "local"
+        ],
+        "connectivity": [
+            "zigbee"
+        ],
+        "capabilities": [
+            "onoff"
+        ],
+        "capabilitiesOptions": {
+            "measure_power": {
+                "approximated": true
+            }
+        },
+        "images": {
+            "large": "/drivers/outdoor_plug/assets/images/large.png",
+            "small": "/drivers/outdoor_plug/assets/images/small.png"
+        },
+        "zigbee": {
+            "manufacturerName": [
+                "_TZ3000_pnzfdr9y"
+            ],
+            "productId": [
+                "TS0101"
+            ],
+            "endpoints": {
+                "1": {
+                    "clusters": [
+                        0,
+                        4,
+                        5,
+                        6
+                    ],
+                    "bindings": [
+                        6
+                    ]
+                }
+            },
+            "learnmode": {
+                "instruction": {
+                    "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+                }
+            }
+        },
+        "settings": []
+    },
+    	{
+      "id": "pir_illumenance_sensor",
       "name": {
-        "en": "Outdoor Plug without metering"
+        "en": "PIR illumenance sensor"
       },
-      "class": "socket",
+      "class": "sensor",
       "platforms": [
         "local"
       ],
@@ -3263,40 +3315,49 @@
         "zigbee"
       ],
       "capabilities": [
-        "onoff"
+        "alarm_motion",
+        "alarm_battery",
+        "measure_luminance"
       ],
-      "capabilitiesOptions": {
-        "measure_power": {
-          "approximated": true
-        }
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
       },
       "images": {
-        "large": "/drivers/outdoor_plug/assets/images/large.png",
-        "small": "/drivers/outdoor_plug/assets/images/small.png"
+        "large": "/drivers/pir_illumenance_sensor/assets/images/large.png",
+        "small": "/drivers/pir_illumenance_sensor/assets/images/small.png"
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_pnzfdr9y"
+          "_TZE200_3towulqd"
         ],
         "productId": [
-          "TS0101"
+          "TS0601"
         ],
         "endpoints": {
           "1": {
             "clusters": [
               0,
-              4,
-              5,
-              6
+              3,
+              1280,
+              57346,
+              61184,
+              60928,
+              57344,
+              1,
+              1024
             ],
             "bindings": [
-              6
+              1,
+              1280
             ]
           }
         },
         "learnmode": {
+          "image": "/drivers/pir_illumenance_sensor/assets/learn.svg",
           "instruction": {
-            "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+            "en": "Press the reset button for aprox 5 seconds until the LED blinks."
           }
         }
       },
