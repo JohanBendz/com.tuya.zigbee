@@ -223,5 +223,8 @@
   },
   "0.2.22": {
     "en": "A bunch of new devices and added codes for already added devices."
+  },
+  "0.2.23": {
+    "en": "Minor fixes for a few drivers."
   }
 }
