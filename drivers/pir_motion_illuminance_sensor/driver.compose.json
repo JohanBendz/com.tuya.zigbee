@@ -1,7 +1,7 @@
 {
-	"id": "pir_illumenance_sensor",
+	"id": "pir_motion_illuminance_sensor",
 	"name": {
-		"en": "PIR illumenance sensor"
+		"en": "PIR motion illuminance sensor"
 	},
 	"class": "sensor",
 	"platforms": [ "local" ],
@@ -13,7 +13,7 @@
 	],
 	"energy": {
 		"batteries": [
-			"CR123A"
+			"CR2450"
 		]
 	},
 	"images": {
@@ -21,9 +21,9 @@
 		"small": "{{driverAssetsPath}}/images/small.png"
 	},
 	"zigbee": {
-        "manufacturerName": [
-            "_TZE200_3towulqd"
-        ],
+		"manufacturerName": [
+			"_TZE200_3towulqd"
+		],
 		"productId": [
 			"TS0601"
 		],

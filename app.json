@@ -3302,10 +3302,10 @@
         },
         "settings": []
     },
-    	{
-      "id": "pir_illumenance_sensor",
+    {
+      "id": "pir_motion_illuminance_sensor",
       "name": {
-        "en": "PIR illumenance sensor"
+        "en": "PIR motion illuminance sensor"
       },
       "class": "sensor",
       "platforms": [
@@ -3321,12 +3321,12 @@
       ],
       "energy": {
         "batteries": [
-          "CR123A"
+          "CR2450"
         ]
       },
       "images": {
-        "large": "/drivers/pir_illumenance_sensor/assets/images/large.png",
-        "small": "/drivers/pir_illumenance_sensor/assets/images/small.png"
+        "large": "/drivers/pir_motion_illuminance_sensor/assets/images/large.png",
+        "small": "/drivers/pir_motion_illuminance_sensor/assets/images/small.png"
       },
       "zigbee": {
         "manufacturerName": [
@@ -3355,7 +3355,7 @@
           }
         },
         "learnmode": {
-          "image": "/drivers/pir_illumenance_sensor/assets/learn.svg",
+          "image": "/drivers/pir_motion_illuminance_sensor/assets/learn.svg",
           "instruction": {
             "en": "Press the reset button for aprox 5 seconds until the LED blinks."
           }

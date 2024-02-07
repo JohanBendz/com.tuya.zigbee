@@ -4,7 +4,7 @@ const Homey = require('homey');
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { debug, CLUSTER } = require('zigbee-clusters');
 
-class pir_illumenance_sensor extends ZigBeeDevice {
+class pir_motion_illuminance_sensor extends ZigBeeDevice {
 
 	async onNodeInit({ zclNode }) {
 
@@ -32,12 +32,12 @@ class pir_illumenance_sensor extends ZigBeeDevice {
 	}
 
 	onDeleted(){
-		this.log("PIR illumenance Sensor removed")
+		this.log("PIR motion illuminance sensor removed")
 	}
 
 }
 
-module.exports = pir_illumenance_sensor;
+module.exports = pir_motion_illuminance_sensor;
 
 //{
 //	"ids": {
