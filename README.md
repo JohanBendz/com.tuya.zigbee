@@ -62,7 +62,7 @@ Supported devices:
     _TZ3000_yd2e749y / TS0201
     _TZ3000_ywagc4rj / TS0201
     _TZ3000_itnrsufe / TS0201
-    _TZ3000_bjawzodf / TS0201
+    _TZ3000_bjawzodf / TY0201
     
 - LCD Temperature, Humidity and Luminance Sensor
     _TZ3000_qaaysllp / TS0201
@@ -326,6 +326,7 @@ Supported devices:
     _TZ3000_hafsqare / TS0011
     _TZ3000_oaq83gqc / TS0011
     _TZ3000_6eyydfyg / TS0001
+    _TZE200_gbagoilo / TS0601
 
 - 2 Gang Wall Switch
     _TYZB01_mtlhqn48 / TS0012
