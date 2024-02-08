@@ -563,6 +563,7 @@ Major Code Contributors:
 - Jérôme Revillard, Neo Siren alarm
 - Thomas Ha, Thermostatic Radiator Valve
 - Julian M, Outdoor Smart Plug
+(Did you contribute with code and I forgot to name you? Give me a friendly reminder! )
 
 
 I would also like to thank everyone who contributes with device information, testing and beer!

@@ -2,6 +2,9 @@
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { CLUSTER } = require('zigbee-clusters');
+const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
+
+Cluster.addCluster(TuyaSpecificCluster);
 
 class motion_sensor_2 extends ZigBeeDevice {
 
@@ -26,7 +29,7 @@ class motion_sensor_2 extends ZigBeeDevice {
 					maxInterval: 0,
 					minChange: 0,
 				},{
-					ednpointID: 1,
+					endpointId: 1,
 					cluster: CLUSTER.ILLUMINANCE_MEASUREMENT,
 					attributeName: 'IlluminanceMeasured',
 					minInterval: 65535,
@@ -48,6 +51,9 @@ class motion_sensor_2 extends ZigBeeDevice {
 		zclNode.endpoints[1].clusters[CLUSTER.ILLUMINANCE_MEASUREMENT.NAME]
 		.on('attr.IlluminanceMeasured', this.onIlluminanceMeasuredAttributeReport.bind(this));
 
+		// Tuya specific cluster info
+		zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processResponse(value));
+
 	}
 
 	onZoneStatusAttributeReport(status) {
@@ -66,6 +72,10 @@ class motion_sensor_2 extends ZigBeeDevice {
     	this.log('measure_luminance | Luminance - measuredValue (lux):', measuredValue);
 	    this.setCapabilityValue('measure_luminance', measuredValue);
   	}
+
+	processResponse(data) {
+		this.log(data);
+	}
   		
 	onDeleted(){
 		this.log("Motion Sensor removed")
