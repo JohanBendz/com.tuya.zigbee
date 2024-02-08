@@ -17,7 +17,7 @@ Some of the supported White Label Brands:
 - UseeLink
 - Woox
 - Zemismart
-- Luminea 
+- Luminea
 
 Supported devices:
 
@@ -63,7 +63,7 @@ Supported devices:
     _TZ3000_ywagc4rj / TS0201
     _TZ3000_itnrsufe / TS0201
     _TZ3000_bjawzodf / TY0201
-    
+
 - LCD Temperature, Humidity and Luminance Sensor
     _TZ3000_qaaysllp / TS0201
     _TYZB01_ftdkanlj / TS0222
@@ -402,7 +402,7 @@ Supported devices:
     _TZ3000_i8l0nqdu / TS0503B
     _TZ3000_ukuvyhaa / TS0504B
     _TZ3210_k1pe6ibm / TS0505B
-    
+
 - RGB Spot GardenLight
    _TZ3000_h1jnz6l8 / TS0505A (LIVARNO LUX / Lidl)
 
@@ -476,6 +476,7 @@ Supported devices:
     _TZ3000_e3vhyirx / TS130F (LoraTap SC500ZB)
     _TZ3000_1dd0d5yi / TS130F (MOES MS-108ZR)
     _TZ3000_jwv3cwak / TS130F
+    _TZ3210_dwytrmda
 
 - Curtain Motor
     _TZE200_5zbp6j0u / TS0601
@@ -530,7 +531,7 @@ Supported devices:
 
 - Smart Garden Irrigation Controller
     _TZ3210_eymunffl / TS0101 (Woox)
- 
+
 - Zigbee Repeater
     _TZ3000_m0vaazab / TS0207
     _TZ3000_5k5vh43t / TS0207

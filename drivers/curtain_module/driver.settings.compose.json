@@ -1,74 +1,75 @@
 [
     {
-        "id": "reverse",
-        "type": "radio",
+        "type": "group",
         "label": {
-          "en": "Direction of motor rotation",
-          "de": "Motordrehrichtung"
+            "en": "Motor control",
+            "de": "Motorsteuerung"
         },
-        "value": "0",
-        "values": [
-          {
-            "id": "0",
-            "label": {
-              "en": "Normal",
-              "de": "Normal"
+        "children": [
+            {
+                "id": "reverse",
+                "type": "checkbox",
+                "label": {
+                    "en": "Reverse",
+                    "de": "Rückwärts"
+                },
+                "value": false
+            },
+            {
+                "id": "movetime",
+                "type": "number",
+                "label": {
+                    "en": "Motor movement time",
+                    "de": "Bewegungszeit des Motors"
+                },
+                "hint": {
+                    "en": "The time in seconds that the transition from 0-100% takes. Be aware that open/close might take a different amount of time.",
+                    "de": "Die Zeit in Sekunden, die der Übergang von 0-100% dauert. Beachte, dass das Öffnen/Schließen unterschiedlich lange dauern kann."
+                },
+                "min": 3,
+                "max": 900,
+                "step": "0.1",
+                "units": {
+                    "en": "Seconds",
+                    "de": "Sekunden"
+                }
+            },
+            {
+                "id": "calibration_mode",
+                "type": "checkbox",
+                "label": {
+                    "en": "Calibration mode",
+                    "de": "Kalibrierungsmodus"
+                },
+                "hint": {
+                    "en": "Activate to start calibration mode and deactivate to stop it. The elapsed time between will be used to calibrate 0-100%. If this does not work set the \"Motor movement time\" setting instead.",
+                    "de": "Aktiviere diese Option, um den Kalibrierungsmodus zu starten, und deaktivieren, um ihn zu beenden. Die dazwischen verstrichene Zeit wird zum Kalibrieren von 0-100% verwendet. Wenn dies nicht funktioniert, verwende stattdessen die Einstellung \"Bewegungszeit des Motors\"."
+                },
+                "value": false
             }
-          },
-          {
-            "id": "1",
-            "label": {
-              "en": "Inverse",
-              "de": "Invers"
-            }
-          }
-        ],
-        "hint": {
-          "en": "After changing the direction, the actor assumes it is at 0% / fully closed.",
-          "de": "Nach der Richtungsänderung nimmt der Aktor an, dass er auf 0% / vollständig geschlossen ist."
-        }
+        ]
     },
     {
-      "id": "movetime",
-      "type": "number",
-      "label": {
-        "en": "Motor movement time",
-        "de": "Bewegungszeit des Motors"
-      },
-      "value": 10,
-      "min": 0,
-      "max": 5000,
-      "step": 0.1,
-      "units": {
-        "en": "Seconds",
-        "de": "Sekunden"
-      }
-  },
-  {
-    "id": "calibration",
-    "type": "radio",
-    "label": {
-      "en": "NO FUNCTION - Motor calibration",
-      "de": "OHNE FUNKTION - Motorkalibrierung"
-    },
-    "value": "0",
-    "values": [
-      {
-        "id": "0",
+        "type": "group",
         "label": {
-          "en": "Off"
-        }
-      },
-      {
-        "id": "1",
-        "label": {
-          "en": "On"
-        }
-      }
-    ],
-    "hint": {
-      "en": "The motor must be completely retracted before activation! After activation, let the motor extend completely by pressing the 'open' button and stop it at the lower end position by pressing the 'close' button.",
-      "de": "Der Motor muss vor der Aktivierung vollständig eingefahren sein! Nach der Aktivierung lassen Sie den Motor durch Drücken der 'öffnen'-Taste vollständig ausfahren und stoppen ihn in der unteren Endposition durch Drücken der 'schließen'-Taste."
+            "en": "Controls",
+            "de": "Steuerelemente"
+        },
+        "children": [
+            {
+                "id": "has_state",
+                "type": "checkbox",
+                "label": {
+                    "en": "State control",
+                    "de": "Zustandskontrolle"
+                },
+                "hint": {
+                    "en": "When enabled controls for Up/Stop/Down will be shown in addition to the percent based controls. Some external integrations (e.g. Alexa) might not be able to determine the correct device type if enabled.",
+                    "de": "Wenn diese Option aktiviert ist, werden zusätzlich zu den prozentualen Steuerelementen auch Steuerelemente für Auf/Stop/Ab angezeigt. Einige externe Integrationen (z. B. Alexa) sind möglicherweise nicht in der Lage, den richtigen Gerätetyp zu bestimmen, wenn diese Option aktiviert ist."
+
+                },
+                "value": false
+            }
+        ]
     }
-  }
 ]
