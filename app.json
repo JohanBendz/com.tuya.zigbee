@@ -3297,7 +3297,8 @@
       "capabilities": [
         "alarm_motion",
         "alarm_battery",
-        "measure_luminance"
+        "measure_luminance",
+        "measure_battery"
       ],
       "energy": {
         "batteries": [
@@ -3341,7 +3342,24 @@
           }
         }
       },
-      "settings": []
+      "settings": [
+        {
+          "id": "batteryThreshold",
+          "type": "number",
+          "label": {
+            "en": "Battery Low Alarm Voltage Threshold (percent)"
+          },
+          "hint": {
+            "en": "This setting determines the threshold before a battery alarm is given."
+          },
+          "value": 20,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 90
+          }
+        }
+      ]
     },
     {
       "id": "pir_sensor_2",

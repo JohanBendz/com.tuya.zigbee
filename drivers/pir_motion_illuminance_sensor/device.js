@@ -14,13 +14,17 @@ class pir_motion_illuminance_sensor extends ZigBeeDevice {
 		zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME].onZoneStatusChangeNotification = payload => {
 			this.onIASZoneStatusChangeNotification(payload);
 		}
+		// measure_battery // alarm_battery
+		zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
+			.on('attr.batteryPercentageRemaining', this.onBatteryPercentageRemainingAttributeReport.bind(this));
 		// measure_luminance
 		zclNode.endpoints[1].clusters[CLUSTER.ILLUMINANCE_MEASUREMENT.NAME]
 			.on('attr.measuredValue', this.onIlluminanceMeasuredAttributeReport.bind(this));
+		
 	}
 
 	onIlluminanceMeasuredAttributeReport(measuredValue) {
-		const parsedValue = Math.pow (10,((measuredValue - 1) / 10000));
+		const parsedValue = Math.round(Math.pow(10,((measuredValue - 1) / 10000)));
 		this.log('measure_luminance | Luminance - measuredValue (lux):', parsedValue);
 		this.setCapabilityValue('measure_luminance', parsedValue).catch(this.error);
 	}
@@ -28,7 +32,13 @@ class pir_motion_illuminance_sensor extends ZigBeeDevice {
 	onIASZoneStatusChangeNotification({ zoneStatus, extendedStatus, zoneId, delay, }) {
 		this.log('IASZoneStatusChangeNotification received:', zoneStatus, extendedStatus, zoneId, delay);
 		this.setCapabilityValue('alarm_motion', zoneStatus.alarm1).catch(this.error);
-		this.setCapabilityValue('alarm_battery', zoneStatus.battery).catch(this.error);
+	}
+
+	onBatteryPercentageRemainingAttributeReport(batteryPercentageRemaining) {
+		const batteryThreshold = this.getSetting('batteryThreshold') || 20;
+		this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", batteryPercentageRemaining/2);
+		this.setCapabilityValue('measure_battery', batteryPercentageRemaining/2).catch(this.error);
+		this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining/2 < batteryThreshold) ? true : false).catch(this.error);
 	}
 
 	onDeleted(){
