@@ -24,8 +24,8 @@
       "productId": ["TS0601"],
       "endpoints": {
         "1": {
-          "clusters": [61184],
-          "bindings": [61184]
+          "clusters": [0, 61184],
+          "bindings": [25, 10]
         }
       },
       "learnmode": {

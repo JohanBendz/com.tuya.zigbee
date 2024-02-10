@@ -1,5 +1,5 @@
-const { ZigBeeDevice } = require('homey-zigbeedriver');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
+const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
 const { Cluster } = require('zigbee-clusters');
 
 Cluster.addCluster(TuyaSpecificCluster);
@@ -27,7 +27,7 @@ const getDataValue = (dpValue) => {
     }
 }
 
-class motion_sensor_2 extends ZigBeeDevice {
+class motion_sensor_2_tuya_cluster extends TuyaSpecificClusterDevice {
     async onNodeInit({ zclNode }) {
         this.enableDebug();
         this.printNode();
@@ -66,6 +66,47 @@ class motion_sensor_2 extends ZigBeeDevice {
                 this.log(`Unrecognized DP: ${data.dp}`);
         }
     }
+
+    async onSettings({ newSettings, changedKeys }) {
+        if (changedKeys.includes('batteryThreshold')) {
+            const batteryThreshold = newSettings.batteryThreshold;
+            this.setBatteryThreshold(batteryThreshold);
+        }
+        if (changedKeys.includes('pirSensitivity')) {
+            const pirSensitivity = newSettings.pirSensitivity;
+            this.setPIRSensitivity(pirSensitivity);
+        }
+        if (changedKeys.includes('keepTime')) {
+            const keepTime = newSettings.keepTime;
+            this.setKeepTime(keepTime);
+        }
+        if (changedKeys.includes('intervalTime')) {
+            const intervalTime = newSettings.intervalTime;
+            this.setIntervalTime(intervalTime);
+        }
+    }
+
+    async setBatteryThreshold(batteryThreshold) {
+        this.log(`Setting Battery Threshold: ${batteryThreshold}`);
+        const battery = this.getCapabilityValue('measure_battery');
+        const batteryAlarm = battery < batteryThreshold;
+        this.setCapabilityValue('alarm_battery', batteryAlarm).catch(this.error);
+    }
+
+    async setPIRSensitivity(pirSensitivity) {
+        this.log(`Setting PIR Sensitivity: ${pirSensitivity}`);
+        this.writeEnum(dataPoints.pir_sensitivity, pirSensitivity).catch(this.error);
+    }
+
+    async setKeepTime(keepTime) {
+        this.log(`Setting Keep Time: ${keepTime}`);
+        this.writeEnum(dataPoints.pir_time, keepTime).catch(this.error);
+    }
+
+    async setIntervalTime(intervalTime) {
+        this.log(`Setting Interval Time: ${intervalTime}`);
+        this.writeEnum(dataPoints.interval_time, intervalTime).catch(this.error);
+    }
 }
 
-module.exports = motion_sensor_2;
+module.exports = motion_sensor_2_tuya_cluster;

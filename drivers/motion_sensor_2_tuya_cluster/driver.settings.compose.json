@@ -1,18 +1,119 @@
 [
-  {
-    "id": "batteryThreshold",
-    "type": "number",
-    "label": {
-      "en": "Battery Low Alarm Voltage Threshold (%)"
+    {
+        "id": "batteryThreshold",
+        "type": "number",
+        "label": {
+            "en": "Battery Low Alarm Voltage Threshold (%)"
+        },
+        "hint": {
+            "en": "This setting determines the threshold before a battery alarm is given."
+        },
+        "value": 20,
+        "attr": {
+            "step": 1,
+            "min": 1,
+            "max": 99
+        }
     },
-    "hint": {
-      "en": "This setting determines the threshold before a battery alarm is given."
-    },
-    "value": 20,
-    "attr": {
-      "step": 1,
-      "min": 1,
-      "max": 99
+    {
+        "type": "group",
+        "label": {
+            "en": "Device settings (confirm with quickly inserting pin into device)"
+        },
+        "children": [
+            {
+                "id": "pirSensitivity",
+                "type": "dropdown",
+                "value": "2",
+                "label": {
+                    "en": "Pir Sensitivity"
+                },
+                "values": [
+                    {
+                        "id": "0",
+                        "label": {
+                            "en": "Low"
+                        }
+                    },
+                    {
+                        "id": "1",
+                        "label": {
+                            "en": "Middle"
+                        }
+                    },
+                    {
+                        "id": "2",
+                        "label": {
+                            "en": "High"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "intervalTime",
+                "type": "dropdown",
+                "value": "2",
+                "hint": {
+                    "en": "Version 2.0.1 and above"
+                },
+                "label": {
+                    "en": "Light Sense Interval Time"
+                },
+                "values": [
+                    {
+                        "id": "0",
+                        "label": {
+                            "en": "Low"
+                        }
+                    },
+                    {
+                        "id": "1",
+                        "label": {
+                            "en": "Middle"
+                        }
+                    },
+                    {
+                        "id": "2",
+                        "label": {
+                            "en": "High"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": "keepTime",
+                "type": "dropdown",
+                "value": "0",
+                "label": {
+                    "en": "Keep time"
+                },
+                "values": [
+                    {
+                        "id": "0",
+                        "label": {
+                            "en": "10S"
+                        }
+                    },
+                    {
+                        "id": "1",
+                        "label": {
+                            "en": "30S"
+                        }
+                    },
+                    {
+                        "id": "2",
+                        "label": {
+                            "en": "60S"
+                        }
+                    },
+                    {
+                        "id": "3",
+                        "label": {
+                            "en": "120S"
+                        }
+                    }
+                ]
+            }
+        ]
     }
-  }
 ]
