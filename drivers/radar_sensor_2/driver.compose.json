@@ -1,8 +1,8 @@
 {
-    "id": "radar_sensor",
+    "id": "radar_sensor_2",
     "name": {
-      "en": "Radar Sensor",
-      "nl": "Radar Sensor"
+      "en": "Radar Sensor ZY-M100-S/L",
+      "nl": "Radar Sensor ZY-M100-S/L"
     },
     "class": "sensor",
     "platforms": ["local"],
@@ -24,13 +24,7 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TZE200_ztc6ggyl",
-        "_TZE201_ztc6ggyl",
-        "_TZE202_ztc6ggyl",
-        "_TZE203_ztc6ggyl",
-        "_TZE204_ztc6ggyl",
-        "_TZE204_qasjif9e",
-        "_TZE204_ijxvkhd0"
+        "_TZE204_sxm7l9xa"
       ],
       "productId": [
         "TS0601"
