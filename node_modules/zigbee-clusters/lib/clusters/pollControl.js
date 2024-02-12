@@ -1,10 +1,33 @@
 'use strict';
 
+const { ZCLDataTypes } = require('../zclTypes');
 const Cluster = require('../Cluster');
 
-const ATTRIBUTES = {};
+const ATTRIBUTES = {
+  checkInInterval: { id: 0, type: ZCLDataTypes.uint32 },
+  longPollInterval: { id: 1, type: ZCLDataTypes.uint32 },
+  shortPollInterval: { id: 2, type: ZCLDataTypes.uint16 },
+  fastPollTimeout: { id: 3, type: ZCLDataTypes.uint16 },
+  checkInIntervalMin: { id: 4, type: ZCLDataTypes.uint32 },
+  longPollIntervalMin: { id: 5, type: ZCLDataTypes.uint32 },
+  fastPollTimeoutMax: { id: 6, type: ZCLDataTypes.uint16 },
+};
 
-const COMMANDS = {};
+const COMMANDS = {
+  fastPollStop: { id: 1 },
+  setLongPollInterval: {
+    id: 2,
+    args: {
+      newLongPollInterval: ZCLDataTypes.uint32,
+    },
+  },
+  setShortPollInterval: {
+    id: 3,
+    args: {
+      newShortPollInterval: ZCLDataTypes.uint16,
+    },
+  },
+};
 
 class PollControlCluster extends Cluster {
 

@@ -49,13 +49,59 @@ const ATTRIBUTES = {
 
 const COMMANDS = {
   zoneStatusChangeNotification: {
-    id: 0,
+    id: 0x00,
+    // Add direction property as "zoneEnrollResponse" has same command id.
+    direction: Cluster.DIRECTION_SERVER_TO_CLIENT,
     args: {
       zoneStatus: ZONE_STATUS_DATA_TYPE,
       extendedStatus: ZCLDataTypes.uint8,
       zoneId: ZCLDataTypes.uint8,
       delay: ZCLDataTypes.uint16,
     },
+  },
+  zoneEnrollResponse: {
+    id: 0x00,
+    // Add direction property as "zoneStatusChangeNotification" has same command id.
+    direction: Cluster.DIRECTION_CLIENT_TO_SERVER,
+    args: {
+      enrollResponseCode: ZCLDataTypes.enum8({
+        success: 0x00,
+        notSupported: 0x01,
+        noEnrollPermit: 0x02,
+        tooManyZones: 0x03,
+      }),
+      zoneId: ZCLDataTypes.uint8,
+    },
+  },
+  zoneEnrollRequest: {
+    id: 0x01,
+    // Add direction property as "initiateNormalOperationMode" has same command id.
+    direction: Cluster.DIRECTION_SERVER_TO_CLIENT,
+    args: {
+      zoneType: ZCLDataTypes.enum16({
+        standard: 0x0000,
+        motionSensor: 0x000d,
+        contactSwitch: 0x0015,
+        fireSensor: 0x0028,
+        waterSensor: 0x002a,
+        carbonMonoxideSensor: 0x002b,
+        personalEmergencyDevice: 0x002c,
+        vibrationMovementSensor: 0x002d,
+        remoteControl: 0x010f,
+        keyFob: 0x0115,
+        keyPad: 0x021d,
+        standardWarningDevice: 0x0225,
+        glassBreakSensor: 0x0226,
+        securityRepeater: 0x0229,
+        invalid: 0xffff,
+      }),
+      manufacturerCode: ZCLDataTypes.uint16,
+    },
+  },
+  initiateNormalOperationMode: {
+    id: 0x01,
+    // Add direction property as "zoneEnrollRequest" has same command id.
+    direction: Cluster.DIRECTION_CLIENT_TO_SERVER,
   },
 };
 

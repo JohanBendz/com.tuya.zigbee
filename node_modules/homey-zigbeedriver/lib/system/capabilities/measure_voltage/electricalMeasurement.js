@@ -9,7 +9,7 @@
  *      this.getClusterEndpoint(CLUSTER.ELECTRICAL_MEASUREMENT)
  *    ]
  *    .clusters[CLUSTER.ELECTRICAL_MEASUREMENT.NAME]
- *    .readAttributes('acVoltageMultiplier', 'acVoltageDivisor');
+ *    .readAttributes(['acVoltageMultiplier', 'acVoltageDivisor']);
  *
  *  this.acVoltageFactor = acVoltageMultiplier / acVoltageDivisor;
  *  }
