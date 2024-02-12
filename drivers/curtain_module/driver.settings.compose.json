@@ -19,8 +19,8 @@
                 "id": "movetime",
                 "type": "number",
                 "label": {
-                    "en": "Motor movement time",
-                    "de": "Bewegungszeit des Motors"
+                    "en": "Movement time",
+                    "de": "Bewegungszeit"
                 },
                 "hint": {
                     "en": "The time in seconds that the transition from 0-100% takes. Be aware that open/close might take a different amount of time.",
@@ -42,8 +42,8 @@
                     "de": "Kalibrierungsmodus"
                 },
                 "hint": {
-                    "en": "Activate to start calibration mode and deactivate to stop it. The elapsed time between will be used to calibrate 0-100%. If this does not work set the \"Motor movement time\" setting instead.",
-                    "de": "Aktiviere diese Option, um den Kalibrierungsmodus zu starten, und deaktivieren, um ihn zu beenden. Die dazwischen verstrichene Zeit wird zum Kalibrieren von 0-100% verwendet. Wenn dies nicht funktioniert, verwende stattdessen die Einstellung \"Bewegungszeit des Motors\"."
+                    "en": "Activate to start calibration mode and deactivate to stop it. The elapsed time between will be used to calibrate 0-100%. If this does not work use the \"Movement time\" setting instead.",
+                    "de": "Aktiviere diese Option, um den Kalibrierungsmodus zu starten, und deaktivieren, um ihn zu beenden. Die dazwischen verstrichene Zeit wird zum Kalibrieren von 0-100% verwendet. Wenn dies nicht funktioniert, verwende stattdessen die Einstellung \"Bewegungszeit\"."
                 },
                 "value": false
             }
