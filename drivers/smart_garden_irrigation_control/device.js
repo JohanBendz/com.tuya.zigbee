@@ -17,16 +17,16 @@ class IrrigationController extends ZigBeeDevice {
 
     this.registerCapability('onoff', CLUSTER.ON_OFF);
 
-    this.registerCapabilityListener("onoff", async (value, options) =>{
-      this.log("value "+value);
-      this.log("options "+options.duration);
-      if (value && options.duration != undefined ){
+    this.registerCapabilityListener("onoff", async (value, options) => {
+      this.log("value " + value);
+      this.log("options " + options.duration);
+      if (value && options.duration != undefined) {
         await zclNode.endpoints[1].clusters['onOff'].setOn();
         await new Promise(resolve => setTimeout(resolve, options.duration));
         await zclNode.endpoints[1].clusters['onOff'].setOff();
-      }else if(value && options.duration === undefined){
+      } else if (value && options.duration === undefined) {
         await zclNode.endpoints[1].clusters['onOff'].setOn();
-      }else if(!value && options.duration === undefined){
+      } else if (!value && options.duration === undefined) {
         await zclNode.endpoints[1].clusters['onOff'].setOff();
       }
     });
@@ -36,16 +36,24 @@ class IrrigationController extends ZigBeeDevice {
 
   }
 
+  onBatteryPercentageRemainingAttributeReport(batteryPercentageRemaining) {
+    // Convert the received battery percentage value
+    const batteryLevel = batteryPercentageRemaining / 2;
+    this.log("measure_battery | Battery Level (%): ", batteryLevel);
+
+    // Get the battery low threshold setting or use default
+    const batteryThreshold = this.getSetting('batteryThreshold') || 20;
+
+    // Update the measure_battery capability
+    this.setCapabilityValue('measure_battery', batteryLevel).catch(this.error);
+
+    // Update the alarm_battery capability based on the threshold
+    this.setCapabilityValue('alarm_battery', batteryLevel < batteryThreshold).catch(this.error);
+  }
+
   async onDeleted() {
     this.log('Smart irrigation controller removed');
   }
-
-  onBatteryPercentageRemainingAttributeReport(batteryPercentageRemaining) {
-		const batteryThreshold = this.getSetting('batteryThreshold') || 20;
-		this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", batteryPercentageRemaining/2);
-		this.setCapabilityValue('measure_battery', batteryPercentageRemaining/2).catch(this.error);
-		this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining/2 < batteryThreshold) ? true : false).catch(this.error);
-	}
 
 }
 
