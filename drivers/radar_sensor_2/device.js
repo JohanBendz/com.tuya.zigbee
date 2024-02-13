@@ -59,9 +59,13 @@ const getDataValue = (dpValue) => {
 }
 
 class radarSensor extends TuyaSpecificClusterDevice {
+  constructor(...args) {
+    super(...args);
+    this.lastDistanceUpdateTime = 0;
+  }
   async onNodeInit({zclNode}) {
     zclNode.endpoints[1].clusters.tuya.on("response", (response) => {
-      this.log('Response event received:', response); // Added for debugging
+      //this.log('Response event received:', response); // Added for debugging
       this.updatePosition(response);
     });
   }
@@ -84,9 +88,12 @@ class radarSensor extends TuyaSpecificClusterDevice {
         this.onIlluminanceMeasuredAttributeReport(value)
         break;
         case dataPoints.tshpsTargetDistance:
-          if (new Date().getSeconds() % distanceUpdateInterval === 0) {
+          const currentTime = new Date().getTime();
+          if (currentTime - this.lastDistanceUpdateTime >= distanceUpdateInterval * 1000) {
             this.setCapabilityValue('target_distance', value/100);
+            this.lastDistanceUpdateTime = currentTime;
           }
+          break;
       default:
         this.log('dp value', dp, value)
     }
