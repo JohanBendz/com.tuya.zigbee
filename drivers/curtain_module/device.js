@@ -108,14 +108,12 @@ class curtain_module extends ZigBeeDevice {
 
         const moveOpen = this.homey.flow.getActionCard("move_open");
         moveOpen.registerRunListener(async (args, state) => {
-            await this.zclNode.endpoints[1].clusters.windowCovering[
-                "downClose"
-            ]();
+            await this.zclNode.endpoints[1].clusters.windowCovering[UP_OPEN]();
         });
 
         const moveClose = this.homey.flow.getActionCard("move_close");
         moveClose.registerRunListener(async (args, state) => {
-            await this.zclNode.endpoints[1].clusters.windowCovering["upOpen"]();
+            await this.zclNode.endpoints[1].clusters.windowCovering[DOWN_CLOSE]();
         });
     }
 
