@@ -9,7 +9,7 @@
  *      this.getClusterEndpoint(CLUSTER.METERING)
  *    ]
  *    .clusters[CLUSTER.METERING.NAME]
- *    .readAttributes('multiplier', 'divisor');
+ *    .readAttributes(['multiplier', 'divisor']);
  *
  *  this.meteringFactor = multiplier / divisor;
  * }

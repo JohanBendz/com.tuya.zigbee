@@ -73,7 +73,7 @@ class Node extends EventEmitter {
    */
   getLogId(endpointId, clusterId) {
     const cluster = Cluster.getCluster(clusterId);
-    return getLogId(endpointId, cluster.NAME, clusterId);
+    return getLogId(endpointId, cluster ? cluster.NAME : 'unknown', clusterId);
   }
 
   /**

@@ -3,6 +3,7 @@
 let { debug } = require('./util');
 const { ZCLDataType } = require('./zclTypes');
 const { getLogId, getPropertyDescriptor } = require('./util');
+const Cluster = require('./Cluster');
 
 debug = debug.extend('bound-cluster');
 
@@ -277,11 +278,32 @@ class BoundCluster {
   async handleFrame(frame, meta, rawFrame) {
     const commands = this.cluster.commandsById[frame.cmdId] || [];
 
-    const command = commands
+    let filteredCommands = commands
       .filter(cmd => frame.frameControl.clusterSpecific === !cmd.global
         && (cmd.global || frame.frameControl.manufacturerSpecific === !!cmd.manufacturerId)
         && (cmd.global || !frame.frameControl.manufacturerSpecific
-          || frame.manufacturerId === cmd.manufacturerId))
+          || frame.manufacturerId === cmd.manufacturerId));
+
+    // Try to filter based on frame direction, note: this is optional as a cluster command
+    // does not always have a 'direction' property. The filter ensure that multiple commands
+    // can share the same command id. If so, it is required to add the direction property
+    // to both command definitions (see iasZone.js as an example). Cluster.js only receives
+    // frames with directionToClient=true. BoundCluster.js receives frames with
+    // directionToClient=false.
+    filteredCommands = filteredCommands.filter(command => {
+      // Only filter commands that have a direction string property
+      if (typeof command.direction === 'string') {
+        // Filter out commands marked as DIRECTION_SERVER_TO_CLIENT when
+        // frameControl.directionToClient = false
+        if (frame.frameControl.directionToClient === false
+          && command.direction === Cluster.DIRECTION_SERVER_TO_CLIENT) {
+          return false;
+        }
+      }
+      return true;
+    });
+
+    const command = filteredCommands
       .sort((a, b) => (a.isResponse ? 0 : 1) - (b.isResponse ? 0 : 1))
       .pop();
 

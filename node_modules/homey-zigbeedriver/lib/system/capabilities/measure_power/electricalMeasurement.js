@@ -9,7 +9,7 @@
  *      this.getClusterEndpoint(CLUSTER.ELECTRICAL_MEASUREMENT)
  *    ]
  *    .clusters[CLUSTER.ELECTRICAL_MEASUREMENT.NAME]
- *    .readAttributes('acPowerMultiplier', 'acPowerDivisor');
+ *    .readAttributes(['acPowerMultiplier', 'acPowerDivisor']);
  *
  *  this.activePowerFactor = acPowerMultiplier / acPowerDivisor;
  *  }

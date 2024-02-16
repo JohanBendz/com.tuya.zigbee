@@ -9,7 +9,7 @@
  *      this.getClusterEndpoint(CLUSTER.ELECTRICAL_MEASUREMENT)
  *    ]
  *    .clusters[CLUSTER.ELECTRICAL_MEASUREMENT.NAME]
- *    .readAttributes('acCurrentMultiplier', 'acCurrentDivisor');
+ *    .readAttributes(['acCurrentMultiplier', 'acCurrentDivisor']);
  *
  *  this.acCurrentFactor = acCurrentMultiplier/ acCurrentDivisor;
  *  }
