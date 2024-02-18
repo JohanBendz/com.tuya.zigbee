@@ -1,7 +1,7 @@
 {
-    "id": "wall_remote_1_gang",
+    "id": "smart_button_switch",
     "name": {
-      "en": "1 Gang Wall Remote"
+      "en": "Smart Button Switch"
     },
     "class": "remote",
     "platforms": ["local"],
@@ -19,13 +19,7 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TYZB02_keyjqthh",
-        "_TZ3000_tk3s5tyg",
-        "_TZ3000_fkp5zyho",
-        "_TZ3000_axpdxqgu",
-        "_TZ3000_peszejy7",
-        "_TZ3000_pzui3skt",
-        "_TZ3000_f97vq5mn"
+        "_TZ3000_fa9mlvja"
       ],
       "productId": [
         "TS0041"
