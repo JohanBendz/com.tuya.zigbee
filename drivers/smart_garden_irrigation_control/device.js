@@ -2,7 +2,7 @@
 
 const Homey = require('homey');
 const { ZigBeeDevice } = require('homey-zigbeedriver');
-const { Cluster, CLUSTER } = require('zigbee-clusters');
+const { debug, Cluster, CLUSTER } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
 
 Cluster.addCluster(TuyaSpecificCluster);
@@ -12,6 +12,7 @@ const DEFAULT_ONOFF_DURATION = 1000;
 // Data point and data types definitions
 const dataPoints = {
   batteryLevel: 101, // Adjust the data point as per your device's specification
+  OnOffreport : 102
 };
 
 const dataTypes = {
@@ -59,59 +60,69 @@ class IrrigationController extends ZigBeeDevice {
 
   async onNodeInit({zclNode}) {
 
-    this.printNode();
+     // Tuya specific cluster info
+        
+     zclNode.endpoints[1].clusters.tuya.on("response", (value) => this.handleTuyaResponse(value));
+
+     zclNode.endpoints[1].clusters.tuya.on("reportingConfiguration", (value) => this.handleTuyaResponse(value));
     
     this.registerCapability('onoff', CLUSTER.ON_OFF);
 
+    /*
     this.registerCapabilityListener("onoff", async (value, options) => {
-      this.log("Irrigation controller value " + value);
-      this.log("Irrigation controller options " + options.duration);
-      if (value && options.duration !== undefined) {
-        await zclNode.endpoints[1].clusters['onOff'].setOn();
-        await new Promise(resolve => setTimeout(resolve, options.duration));
-        await zclNode.endpoints[1].clusters['onOff'].setOff();
-      } else if (value && options.duration === undefined) {
-        await zclNode.endpoints[1].clusters['onOff'].setOn();
-      } else if (!value && options.duration === undefined) {
-        await zclNode.endpoints[1].clusters['onOff'].setOff();
+      try {
+        this.log("Irrigation controller value " + value);
+        this.log("Irrigation controller options " + options.duration);
+    
+        if (value && options.duration !== undefined) {
+          await zclNode.endpoints[1].clusters['onOff'].setOn();
+          await new Promise(resolve => setTimeout(resolve, options.duration));
+          await zclNode.endpoints[1].clusters['onOff'].setOff();
+        } else if (value && options.duration === undefined) {
+          await zclNode.endpoints[1].clusters['onOff'].setOn();
+        } else if (!value && options.duration === undefined) {
+          await zclNode.endpoints[1].clusters['onOff'].setOff();
+        }
+      } catch (err) {
+        this.error('Error handling onoff capability:', err);
       }
     });
+    */
 
-        // Tuya specific cluster info
-        
-        zclNode.endpoints[1].clusters.tuya.on("response", (value) => this.handleTuyaResponse(value));
-        
-        zclNode.endpoints[1].clusters.tuya.on("reporting", (value) => this.handleTuyaResponse(value));
-      
-        //zclNode.endpoints[1].clusters.tuya.on("reportingConfiguration", (value) => this.handleTuyaResponse(value));
-        //zclNode.endpoints[1].clusters.tuya.on("reportingConfiguration", (value) => this.log('reportingConfiguration event received:', value));
+    // add battery capabilities if needed
+    if (!this.hasCapability('measure_battery')) {
+      this.addCapability('measure_battery').catch(this.error);   
+    }
+    if (!this.hasCapability('alarm_battery')) {
+      this.addCapability('alarm_battery').catch(this.error);
+    }
 
- /*    zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
-        .catch(err => {
-            this.error('Error when reading device attributes ', err);
-        });
-*/
-
-
-  }
+      }
 
   async handleTuyaResponse(response) {
     try {
     const dp = response.dp;
-    const value = this.getDataValue(response);
-    this.log("Irrigation !!!! controller handleTuyaResponse dp: " + dp + " value: " + value);
-    switch (dp) {
-      case dataPoints.batteryLevel:
-        this.log("Battery: " + value);
-        const batteryThreshold = this.getSetting('batteryThreshold') || 20;
-        parsedValue = value;
-        this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", parsedValue);
+    const value = getDataValue(response);
+    this.log("Irrigation controller handleTuyaResponse dp: " + dp + " value: " + value);
 
-        this.setCapabilityValue('measure_battery', parsedValue).catch(this.error);
-        this.setCapabilityValue('alarm_battery', (parsedValue < batteryThreshold)).catch(this.error);
+    switch (dp) {
+
+      case dataPoints.batteryLevel:
+        this.log("Irrigation controller Battery: " + value);
+        const batteryThreshold = this.getSetting('batteryThreshold') || 20;
+        this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", value);
+        this.setCapabilityValue('measure_battery', value).catch(this.error);
+        this.setCapabilityValue('alarm_battery', (value < batteryThreshold)).catch(this.error);
         break;
+
+      case dataPoints.OnOffreport:
+        this.log("Irrigation controller OnOffreport: " + value);
+        const isOn = value === 0; // 2 means Off, 0 means On
+        await this.setCapabilityValue('onoff', isOn);      
+        break;
+
     default:
-      this.log('dp value', dp, value)
+      this.log('Irrigation dp value - not processed', dp, value)
     }
   } catch (error) {
     this.error('Error in handleTuyaResponse:', error);
