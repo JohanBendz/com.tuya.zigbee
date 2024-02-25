@@ -58,7 +58,7 @@ const getDataValue = (dpValue) => {
   }
 }
 
-class radarSensor extends TuyaSpecificClusterDevice {
+class radarSensor2 extends TuyaSpecificClusterDevice {
   constructor(...args) {
     super(...args);
     this.lastDistanceUpdateTime = 0;
@@ -137,4 +137,4 @@ class radarSensor extends TuyaSpecificClusterDevice {
 
 }
 
-module.exports = radarSensor;
+module.exports = radarSensor2;
