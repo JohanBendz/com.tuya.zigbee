@@ -1,408 +1,195 @@
-'use strict';
+"use strict";
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
-const { Cluster, debug, CLUSTER } = require('zigbee-clusters');
-const TuyaWindowCoveringCluster = require('../../lib/TuyaWindowCoveringCluster')
+const { ZigBeeDevice } = require("homey-zigbeedriver");
+const { Cluster, debug, CLUSTER } = require("zigbee-clusters");
+const TuyaWindowCoveringCluster = require("../../lib/TuyaWindowCoveringCluster");
+const { mapValueRange } = require('../../lib/util');
 
 Cluster.addCluster(TuyaWindowCoveringCluster);
 
-class curtainmodule extends ZigBeeDevice {
+const UP_OPEN = 'upOpen';
+const DOWN_CLOSE = 'downClose';
+const REPORT_DEBOUNCER = 5000;
 
-    async onNodeInit({zclNode}) {
+class curtain_module extends ZigBeeDevice {
+
+    invertPercentageLiftValue = false;
+
+    async onNodeInit({ zclNode }) {
+        await super.onNodeInit({ zclNode });
 
         this.printNode();
 
-        this._reportDebounceEnabled = false;
-        
-        this.registerCapability('windowcoverings_set', CLUSTER.WINDOW_COVERING, {
-            reportOpts: {
-              configureAttributeReporting: {
-                  minInterval: 0, // No minimum reporting interval
-                  maxInterval: 30000, // Maximally every ~8 hours
-                  minChange: 5, // Report when value changed by 5
-              },
-            },
-        });
+        // code borrowed from here most recent version of zigbee driver to handle lift percentage + invert correctly
+        // remove once the package was updated
+        // https://github.com/athombv/node-homey-zigbeedriver/blob/master/lib/system/capabilities/windowcoverings_set/windowCovering.js
+        this.registerCapability(
+            "windowcoverings_set",
+            CLUSTER.WINDOW_COVERING,
+            {
+                setParser: async (value) => {
+                    // Refresh timer or set new timer to prevent reports from updating the dim slider directly
+                    // when set command from Homey
+                    if (this._reportPercentageDebounce) {
+                      this._reportPercentageDebounce.refresh();
+                    } else {
+                      this._reportPercentageDebounce = this.homey.setTimeout(() => {
+                        this._reportDebounceEnabled = false;
+                        this._reportPercentageDebounce = null;
+                      }, REPORT_DEBOUNCER);
+                    }
 
-        await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
-        .catch(err => {
-            this.error('Error when reading device attributes ', err);
-        });
+                    // Used to check if reports are generated based on set command from Homey
+                    this._reportDebounceEnabled = true;
 
-        const moveOpen = this.homey.flow.getActionCard('move_open');
+                    // Override goToLiftPercentage to enforce blind to open/close completely
+                    if (value === 0 || value === 1) {
+                      this.debug(`set → \`windowcoverings_set\`: ${value} → setParser → ${value === 1 ? UP_OPEN : DOWN_CLOSE}`);
+                      const { endpoint } = this._getClusterCapabilityConfiguration('windowcoverings_set', CLUSTER.WINDOW_COVERING);
+                      const windowCoveringEndpoint = endpoint ?? this.getClusterEndpoint(CLUSTER.WINDOW_COVERING);
+                      if (windowCoveringEndpoint === null) throw new Error('missing_window_covering_cluster');
+
+                      const windowCoveringCommand = value === 1 ? UP_OPEN : DOWN_CLOSE;
+                      await this.zclNode.endpoints[windowCoveringEndpoint].clusters
+                        .windowCovering[windowCoveringCommand]();
+
+                      await this.setCapabilityValue('windowcoverings_set', value);
+                      return null;
+                    }
+
+                    const mappedValue = mapValueRange(
+                      0, 1, 0, 100, this.invertPercentageLiftValue ? 1 - value : value,
+                    );
+                    const gotToLiftPercentageCommand = {
+                      // Round, otherwise might not be accepted by device
+                      percentageLiftValue: Math.round(mappedValue),
+                    };
+                    this.debug(`set → \`windowcoverings_set\`: ${value} → setParser → goToLiftPercentage`, gotToLiftPercentageCommand);
+                    // Send goToLiftPercentage command
+                    return gotToLiftPercentageCommand;
+                },
+                reportParser: (value) => {
+                    // Validate input
+                    if (value < 0 || value > 100) return null;
+
+                    // Parse input value
+                    const parsedValue = mapValueRange(
+                      0, 100, 0, 1, this.invertPercentageLiftValue ? 100 - value : value,
+                    );
+
+                    // Refresh timer if needed
+                    if (this._reportPercentageDebounce) {
+                      this._reportPercentageDebounce.refresh();
+                    }
+
+                    // If reports are not generated by set command from Homey update directly
+                    if (!this._reportDebounceEnabled) return parsedValue;
+
+                    // Return value
+                    return null;
+                },
+            }
+        );
+        await this._configureStateCapability(this.getSetting("has_state"));
+
+        const attrs = await this.zclNode.endpoints[1].clusters.windowCovering
+            .readAttributes("calibrationTime", "motorReversal")
+            .catch((err) =>
+                this.error("Error when reading settings from device", err)
+            );
+
+        if (attrs.calibrationTime) {
+            await this.setSettings({ movetime: attrs.calibrationTime / 10 });
+        }
+
+        if (attrs.motorReversal) {
+            this.setSettings({ reverse: attrs.motorReversal === 'On' })
+        }
+
+        const moveOpen = this.homey.flow.getActionCard("move_open");
         moveOpen.registerRunListener(async (args, state) => {
-          await this.zclNode.endpoints[1].clusters.windowCovering['downClose']();
+            await this.zclNode.endpoints[1].clusters.windowCovering[UP_OPEN]();
         });
 
-        const moveClose = this.homey.flow.getActionCard('move_close');
+        const moveClose = this.homey.flow.getActionCard("move_close");
         moveClose.registerRunListener(async (args, state) => {
-          await this.zclNode.endpoints[1].clusters.windowCovering['upOpen']();
+            await this.zclNode.endpoints[1].clusters.windowCovering[DOWN_CLOSE]();
         });
-
     }
 
     // When upgrading to node-zigbee-clusters v.2.0.0 this must be adressed:
     // v2.0.0
     // Changed Cluster.readAttributes signature, attributes must now be specified as an array of strings.
-    // zclNode.endpoints[1].clusters.windowCovering.readAttributes(["motorReversal", "ANY OTHER IF NEEDED"]);
+    // zclNode.endpoints[1].clusters.windowCovering.readAttributes(['motorReversal', 'ANY OTHER IF NEEDED']);
 
     async onSettings({ oldSettings, newSettings, changedKeys }) {
+        try {
+            if (changedKeys.includes("reverse")) {
+                const motorReversed = newSettings["reverse"];
+                await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes(
+                    { motorReversal: motorReversed ? "On" : "Off" }
+                );
 
-        if (changedKeys.includes('reverse')) {
-
-            const motorReversed = newSettings['reverse'];
-            if (motorReversed == 0) {
-                await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes({motorReversal: 0});
-                this.log("Motor set to normal mode: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(["motorReversal"]));
-            } else {
-                await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes({motorReversal: 1});
-                this.log("Motor set to reverse: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(["motorReversal"]));
+                if (this.motorReversed === 'On') {
+                    this.invertPercentageLiftValue = true;
+                }
             }
 
+            if (changedKeys.includes("calibration_mode")) {
+                const calibrationMode = newSettings["calibration_mode"];
+                await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes(
+                    { calibrationMode: calibrationMode ? "Start" : "End" }
+                );
+            }
+
+            if (changedKeys.includes("movetime")) {
+                const movetime = newSettings["movetime"];
+                await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes(
+                    { calibrationTime: movetime * 10 }
+                );
+            }
+
+            if (changedKeys.includes("has_state")) {
+                await this._configureStateCapability(newSettings["has_state"]);
+            }
+        } catch (e) {
+            this.error("Error during setting change", e);
         }
-
-      //   if (changedKeys.includes('calibration')) {
-
-      //     const calibration = newSettings['calibration'];
-      //     if (calibration == 0) {
-      //         await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes({calibration: 0});
-      //         this.log("Motor calibration off: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(["calibration"]));
-      //         this.log("Motor move time: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(["calibrationTime"]));
-      //     } else {
-      //         await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes({calibration: 1});
-      //         this.log("Motor calibration on: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(["calibration"]));
-      //         this.log("Motor move time: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(["calibrationTime"]));
-      //     }
-
-      // }
-
-        if (changedKeys.includes('movetime')) {
-
-          const movetime = (newSettings['movetime'] * 10);
-          
-          await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes({calibrationTime: movetime});
-          this.log("Motor move time: ", await this.zclNode.endpoints[1].clusters.windowCovering.readAttributes(["calibrationTime"]));
-
-      }
-
     }
 
-    onDeleted(){
-		this.log("Curtain Module removed")
-	}
+    onDeleted() {
+        this.log("Curtain Module removed");
+    }
 
+    async _configureStateCapability(hasState) {
+        const key = "windowcoverings_state";
+
+        if (hasState) {
+            if (!this.hasCapability(key)) {
+                await this.addCapability(key);
+            }
+
+            this.registerCapability(key, CLUSTER.WINDOW_COVERING, {
+                report: "windowCoverStatus",
+                reportParser: (val) => {
+                    return {
+                        Open: "up",
+                        Stop: "idle",
+                        Close: "down",
+                    }[val];
+                },
+                reportOpts: {
+                    configureAttributeReporting: {
+                        minInterval: 0, // No minimum reporting interval
+                        maxInterval: 300, // Maximally every ~5 minutes
+                        minChange: 1, // Report when value changed by 1
+                    },
+                },
+            });
+        } else if (this.hasCapability(key)) {
+            await this.removeCapability(key);
+        }
+    }
 }
 
-module.exports = curtainmodule;
-
-/* "ids": {
-    "modelId": "TS130F",
-    "manufacturerName": "_TZ3000_vd43bbfq"
-  },
-  "endpoints": {
-    "endpointDescriptors": [
-      {
-        "endpointId": 1,
-        "applicationProfileId": 260,
-        "applicationDeviceId": 514,
-        "applicationDeviceVersion": 0,
-        "_reserved1": 1,
-        "inputClusters": [
-          0,
-          4,
-          5,
-          258
-        ],
-        "outputClusters": [
-          25,
-          10
-        ]
-      }
-    ],
-    "endpoints": {
-      "1": {
-        "clusters": {
-          "basic": {
-            "attributes": [
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 0,
-                "name": "zclVersion",
-                "value": 3
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 1,
-                "name": "appVersion",
-                "value": 64
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 2,
-                "name": "stackVersion",
-                "value": 0
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 3,
-                "name": "hwVersion",
-                "value": 1
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 4,
-                "name": "manufacturerName",
-                "value": "_TZ3000_vd43bbfq"
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 5,
-                "name": "modelId",
-                "value": "TS130F"
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 6,
-                "name": "dateCode",
-                "value": ""
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 7,
-                "name": "powerSource",
-                "value": "mains"
-              },
-              {
-                "acl": [
-                  "readable",
-                  "writable",
-                  "reportable"
-                ],
-                "id": 65502
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 65533,
-                "name": "clusterRevision",
-                "value": 2
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 65534,
-                "name": "attributeReportingStatus",
-                "value": "PENDING"
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 65504
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 65505
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 65506
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 65507
-              }
-            ],
-            "commandsGenerated": "UNSUP_GENERAL_COMMAND",
-            "commandsReceived": "UNSUP_GENERAL_COMMAND"
-          },
-          "groups": {
-            "attributes": [
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 0,
-                "name": "nameSupport",
-                "value": {
-                  "type": "Buffer",
-                  "data": [
-                    0
-                  ]
-                }
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 65533,
-                "name": "clusterRevision",
-                "value": 2
-              }
-            ],
-            "commandsGenerated": "UNSUP_GENERAL_COMMAND",
-            "commandsReceived": "UNSUP_GENERAL_COMMAND"
-          },
-          "scenes": {
-            "attributes": [
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 0
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 1
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 2
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 3
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 4
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 65533,
-                "name": "clusterRevision",
-                "value": 2
-              }
-            ],
-            "commandsGenerated": "UNSUP_GENERAL_COMMAND",
-            "commandsReceived": "UNSUP_GENERAL_COMMAND"
-          },
-          "windowCovering": {
-            "attributes": [
-              {
-                "acl": [
-                  "readable",
-                  "writable",
-                  "reportable"
-                ],
-                "id": 8,
-                "name": "currentPositionLiftPercentage",
-                "value": 99
-              },
-              {
-                "acl": [
-                  "readable",
-                  "reportable"
-                ],
-                "id": 65533,
-                "name": "clusterRevision",
-                "value": 2
-              },
-              {
-                "acl": [
-                  "readable",
-                  "writable",
-                  "reportable"
-                ],
-                "id": 61440
-              },
-              {
-                "acl": [
-                  "readable",
-                  "writable",
-                  "reportable"
-                ],
-                "id": 61441
-              },
-              {
-                "acl": [
-                  "readable",
-                  "writable",
-                  "reportable"
-                ],
-                "id": 61442
-              },
-              {
-                "acl": [
-                  "readable",
-                  "writable",
-                  "reportable"
-                ],
-                "id": 61443
-              }
-            ],
-            "commandsGenerated": "UNSUP_GENERAL_COMMAND",
-            "commandsReceived": "UNSUP_GENERAL_COMMAND"
-          }
-        },
-        "bindings": {
-          "ota": {
-            "attributes": [],
-            "commandsGenerated": "UNSUP_GENERAL_COMMAND",
-            "commandsReceived": "UNSUP_GENERAL_COMMAND"
-          },
-          "time": {
-            "attributes": [],
-            "commandsGenerated": "UNSUP_GENERAL_COMMAND",
-            "commandsReceived": "UNSUP_GENERAL_COMMAND"
-          }
-        }
-      }
-    }
-  } */
+module.exports = curtain_module;
