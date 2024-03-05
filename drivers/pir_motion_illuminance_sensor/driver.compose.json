@@ -1,0 +1,57 @@
+{
+	"id": "pir_motion_illuminance_sensor",
+	"name": {
+		"en": "PIR motion illuminance sensor"
+	},
+	"class": "sensor",
+	"platforms": [ "local" ],
+	"connectivity": [ "zigbee" ],
+	"capabilities": [
+		"alarm_motion",
+		"alarm_battery",
+		"measure_luminance",
+		"measure_battery"
+	],
+	"energy": {
+		"batteries": [
+			"CR2450"
+		]
+	},
+	"images": {
+		"large": "{{driverAssetsPath}}/images/large.png",
+		"small": "{{driverAssetsPath}}/images/small.png"
+	},
+	"zigbee": {
+		"manufacturerName": [
+			"_TZE200_3towulqd"
+		],
+		"productId": [
+			"TS0601"
+		],
+		"endpoints": {
+			"1": {
+				"clusters": [
+					0,
+					3,
+					1280,
+					57346,
+					61184,
+					60928,
+					57344,
+					1,
+					1024
+				],
+				"bindings": [
+					1,
+					1280
+				]
+			}
+		},
+		"learnmode": {
+			"image": "{{driverAssetsPath}}/learn.svg",
+			"instruction": {
+				"en": "Press the reset button for aprox 5 seconds until the LED blinks."
+			}
+		}
+	}
+}
