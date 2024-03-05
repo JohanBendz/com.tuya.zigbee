@@ -1,355 +1,145 @@
-'use strict';
-
-const { ZigBeeDevice } = require('homey-zigbeedriver');
-const { CLUSTER } = require('zigbee-clusters');
+const { CLUSTER, Cluster } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
+const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
+const { getDataValue, dataPoints } = require('./utils');
 
 Cluster.addCluster(TuyaSpecificCluster);
 
-class motion_sensor_2 extends ZigBeeDevice {
+class motion_sensor_2 extends TuyaSpecificClusterDevice {
 
-	async onNodeInit({ zclNode }) {
+    async onNodeInit({ zclNode }) {
 
-		this.printNode();
+        this.printNode();
 
-		if (this.isFirstInit()){
-			await this.configureAttributeReporting([
-				{
-					endpointId: 1,
-					cluster: CLUSTER.IAS_ZONE,
-					attributeName: 'zoneStatus',
-					minInterval: 65535,
-					maxInterval: 0,
-					minChange: 0,
-				},{
-					endpointId: 1,
-					cluster: CLUSTER.POWER_CONFIGURATION,
-					attributeName: 'batteryPercentageRemaining',
-					minInterval: 65535,
-					maxInterval: 0,
-					minChange: 0,
-				},{
-					endpointId: 1,
-					cluster: CLUSTER.ILLUMINANCE_MEASUREMENT,
-					attributeName: 'IlluminanceMeasured',
-					minInterval: 65535,
-					maxInterval: 0,
-					minChange: 0,
-				}
-			]);
-		}
+        try {
+            const hasTuyaCluster = await this.hasTuyaCluster(zclNode);
 
-		// alarm_motion
-		zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME]
-		.on('attr.zoneStatus', this.onZoneStatusAttributeReport.bind(this));
+            if (hasTuyaCluster) {
+                this.log('Tuya Cluster present on device');
+                zclNode.endpoints[1].clusters[TuyaSpecificCluster.NAME]
+                    .on('response', this.updateTuyaDeviceData.bind(this));
+            } else {
+                this.log('Tuya Cluster not present on device');
+                zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME].onZoneStatusChangeNotification = payload =>
+                    this.onIASZoneStatusChangeNotification(payload);
+                zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
+                    .on('attr.batteryPercentageRemaining', this.onBatteryPercentageRemainingAttributeReport.bind(this));
+                zclNode.endpoints[1].clusters[CLUSTER.ILLUMINANCE_MEASUREMENT.NAME]
+                    .on('attr.measuredValue', this.onIlluminanceMeasuredAttributeReport.bind(this));
+            }
+        } catch (error) {
+            this.error('Error checking for Tuya Cluster', error);
+        }
+    }
 
-		// measure_battery // alarm_battery
-		zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
-		.on('attr.batteryPercentageRemaining', this.onBatteryPercentageRemainingAttributeReport.bind(this));
-		
-		// measure_illuminance
-		zclNode.endpoints[1].clusters[CLUSTER.ILLUMINANCE_MEASUREMENT.NAME]
-		.on('attr.IlluminanceMeasured', this.onIlluminanceMeasuredAttributeReport.bind(this));
+    hasTuyaCluster(zclNode) {
+        this.log('Checking for Tuya Cluster');
+        return zclNode.endpoints[1].clusters.hasOwnProperty(TuyaSpecificCluster.NAME);
+    }
 
-		// Tuya specific cluster info
-		zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processResponse(value));
+    // Standard Cluster device handlers
+    onIlluminanceMeasuredAttributeReport(measuredValue) {
+        const parsedValue = Math.round(Math.pow(10, ((measuredValue - 1) / 10000)));
+        this.log('measure_luminance | Luminance - measuredValue (lux):', parsedValue);
+        this.setCapabilityValue('measure_luminance', parsedValue).catch(this.error);
+    }
 
-	}
+    onIASZoneStatusChangeNotification({ zoneStatus, extendedStatus, zoneId, delay, }) {
+        this.log('IASZoneStatusChangeNotification received:', zoneStatus, extendedStatus, zoneId, delay);
+        this.setCapabilityValue('alarm_motion', zoneStatus.alarm1).catch(this.error);
+    }
 
-	onZoneStatusAttributeReport(status) {
-		this.log("Motion status: ", status.alarm1);
-		this.setCapabilityValue('alarm_motion', status.alarm1).catch(this.error);
-	}
+    onBatteryPercentageRemainingAttributeReport(batteryPercentageRemaining) {
+        const batteryThreshold = this.getSetting('batteryThreshold') || 20;
+        this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", batteryPercentageRemaining / 2);
+        this.setCapabilityValue('measure_battery', batteryPercentageRemaining / 2).catch(this.error);
+        this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining / 2 < batteryThreshold) ? true : false).catch(this.error);
+    }
 
-	onBatteryPercentageRemainingAttributeReport(batteryPercentageRemaining) {
-		const batteryThreshold = this.getSetting('batteryThreshold') || 20;
-		this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", batteryPercentageRemaining/2);
-		this.setCapabilityValue('measure_battery', batteryPercentageRemaining/2).catch(this.error);
-		this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining/2 < batteryThreshold) ? true : false).catch(this.error);
-	}
-	
-	onIlluminanceMeasuredAttributeReport(measuredValue) {
-    	this.log('measure_luminance | Luminance - measuredValue (lux):', measuredValue);
-	    this.setCapabilityValue('measure_luminance', measuredValue);
-  	}
+    // Tuya Cluster device handlers
+    updateTuyaDeviceData(data) {
+        console.log(data)
+        const value = getDataValue(data);
+        this.log(`DP: ${data.dp} - Value: ${value}`)
+        switch (data.dp) {
+            case dataPoints.pir_state:
+                const motion = value === 0
+                this.log(`Motion status: ${motion}`);
+                this.setCapabilityValue('alarm_motion', motion).catch(this.error);
+                break;
+            case dataPoints.illuminance_value:
+                this.log(`Illuminance: ${value}`);
+                this.setCapabilityValue('measure_luminance', value).catch(this.error);
+                break;
+            case dataPoints.battery_percentage:
+                const batteryThreshold = this.getSetting('batteryThreshold') || 20;
+                const batteryAlarm = value < batteryThreshold
+                this.log(`Battery: ${value}`);
+                this.setCapabilityValue('measure_battery', value).catch(this.error);
+                this.setCapabilityValue('alarm_battery', batteryAlarm).catch(this.error);
+                break;
+            case dataPoints.pir_sensitivity:
+                this.log(`PIR Sensitivity: ${value}`);
+                break;
+            case dataPoints.pir_time:
+                this.log(`PIR Time: ${value}`);
+                break;
+            default:
+                this.log(`Unrecognized DP: ${data.dp} `);
+        }
+    }
 
-	processResponse(data) {
-		this.log(data);
-	}
-  		
-	onDeleted(){
-		this.log("Motion Sensor removed")
-	}
+
+    onSettings({ newSettings, changedKeys }) { }
+    // TODO: Implement settings
+    // async onSettings({ newSettings, changedKeys }) {
+    //     const hasTuyaCluster = await this.hasTuyaCluster();
+    //     if (!hasTuyaCluster) return
+
+    //     if (changedKeys.includes('batteryThreshold')) {
+    //         const batteryThreshold = newSettings.batteryThreshold;
+    //         this.setBatteryThreshold(batteryThreshold);
+    //     }
+    //     if (changedKeys.includes('pirSensitivity')) {
+    //         const pirSensitivity = newSettings.pirSensitivity;
+    //         this.setPIRSensitivity(pirSensitivity);
+    //     }
+    //     if (changedKeys.includes('keepTime')) {
+    //         const keepTime = newSettings.keepTime;
+    //         this.setKeepTime(keepTime);
+    //     }
+    //     if (changedKeys.includes('intervalTime')) {
+    //         const intervalTime = newSettings.intervalTime;
+    //         this.setIntervalTime(intervalTime);
+    //     }
+    // }
+
+    // setBatteryThreshold(batteryThreshold) {
+    //     this.log(`Setting Battery Threshold: ${batteryThreshold} `);
+    //     const battery = this.getCapabilityValue('measure_battery');
+    //     const batteryAlarm = battery < batteryThreshold;
+    //     this.setCapabilityValue('alarm_battery', batteryAlarm).catch(this.error);
+    // }
+
+    // setPIRSensitivity(pirSensitivity) {
+    //     this.log(`Setting PIR Sensitivity: ${pirSensitivity} `);
+    //     this.writeEnum(dataPoints.pir_sensitivity, pirSensitivity).catch(this.error);
+    // }
+
+    // setKeepTime(keepTime) {
+    //     this.log(`Setting Keep Time: ${keepTime} `);
+    //     this.writeEnum(dataPoints.pir_time, keepTime).catch(this.error);
+    // }
+
+    // setIntervalTime(intervalTime) {
+    //     this.log(`Setting Interval Time: ${intervalTime} `);
+    //     this.writeEnum(dataPoints.interval_time, intervalTime).catch(this.error);
+    // }
+
+    onDeleted() {
+        this.log("Motion Sensor removed")
+    }
 
 }
 
 module.exports = motion_sensor_2;
-
-
-/* "ids": {
-	"modelId": "TS0601",
-	"manufacturerName": "_TZE200_3towulqd"
-  },
-  "endpoints": {
-	"endpointDescriptors": [
-	  {
-		"endpointId": 1,
-		"applicationProfileId": 260,
-		"applicationDeviceId": 1026,
-		"applicationDeviceVersion": 0,
-		"_reserved1": 1,
-		"inputClusters": [
-		  0,
-		  3,
-		  1280,
-		  57346,
-		  61184,
-		  60928,
-		  57344,
-		  1,
-		  1024
-		],
-		"outputClusters": []
-	  }
-	],
-	"endpoints": {
-	  "1": {
-		"clusters": {
-		  "basic": {
-			"attributes": [
-			  {
-				"acl": [
-				  "readable"
-				],
-				"id": 0,
-				"name": "zclVersion"
-			  },
-			  {
-				"acl": [
-				  "readable"
-				],
-				"id": 1,
-				"name": "appVersion"
-			  },
-			  {
-				"acl": [
-				  "readable"
-				],
-				"id": 2,
-				"name": "stackVersion"
-			  },
-			  {
-				"acl": [
-				  "readable"
-				],
-				"id": 3,
-				"name": "hwVersion"
-			  },
-			  {
-				"acl": [
-				  "readable"
-				],
-				"id": 4,
-				"name": "manufacturerName"
-			  },
-			  {
-				"acl": [
-				  "readable"
-				],
-				"id": 5,
-				"name": "modelId"
-			  },
-			  {
-				"acl": [
-				  "readable"
-				],
-				"id": 7,
-				"name": "powerSource"
-			  },
-			  {
-				"acl": [
-				  "readable",
-				  "writable"
-				],
-				"id": 18,
-				"name": "deviceEnabled"
-			  },
-			  {
-				"acl": [
-				"readable"
-				],
-				"id": 16384,
-				"name": "swBuildId"
-			  },
-			  {
-				"acl": [
-				  "readable"
-				],
-				"id": 65533,
-				"name": "clusterRevision"
-			  }
-			],
-			"commandsGenerated": "UNSUP_GENERAL_COMMAND",
-			"commandsReceived": "UNSUP_GENERAL_COMMAND"
-		  },
-		  "identify": {
-			"attributes": [
-			  {
-				"acl": [
-				  "readable",
-				  "writable"
-				],
-				"id": 0
-			  },
-			  {
-				"acl": [
-				  "readable"
-				],
-				"id": 65533,
-				"name": "clusterRevision",
-				"value": 1
-			  }
-			],
-			"commandsGenerated": "UNSUP_GENERAL_COMMAND",
-			"commandsReceived": "UNSUP_GENERAL_COMMAND"
-		  },
-		  "iasZone": {
-			"attributes": [
-			  {
-				"acl": [
-				  "readable"
-				],
-				"id": 0,
-				"name": "zoneState",
-				"value": "notEnrolled"
-			  },
-			  {
-				"acl": [
-				  "readable"
-				],
-				"id": 1,
-				"name": "zoneType",
-				"value": "motionSensor"
-			  },
-			  {
-				"acl": [
-				  "readable"
-				],
-				"id": 2,
-				"name": "zoneStatus",
-				"value": {
-				  "type": "Buffer",
-				  "data": [
-					0,
-					0
-				  ]
-				}
-			  },
-			  {
-				"acl": [
-				  "readable",
-				  "writable"
-				],
-				"id": 16,
-				"name": "iasCIEAddress",
-				"value": "00:12:4b:00:04:f8:9c:84"
-			  },
-			  {
-				"acl": [
-				  "readable"
-				],
-				"id": 17,
-				"name": "zoneId",
-				"value": 0
-			  },
-			  {
-				"acl": [
-				  "readable"
-				],
-				"id": 65533,
-				"name": "clusterRevision",
-				"value": 1
-			  }
-			],
-			"commandsGenerated": "UNSUP_GENERAL_COMMAND",
-			"commandsReceived": "UNSUP_GENERAL_COMMAND"
-		  },
-		  "powerConfiguration": {
-		  "attributes": [
-			{
-			  "acl": [
-				"readable"
-			  ],
-			  "id": 0
-			},
-			{
-			  "acl": [
-				"readable"
-			  ],
-			  "id": 32,
-			  "name": "batteryVoltage",
-			  "value": 33
-			},
-			{
-			  "acl": [
-				"readable"
-			  ],
-			  "id": 33,
-			  "name": "batteryPercentageRemaining",
-			  "value": 200
-			},
-			{
-			  "acl": [
-				"readable"
-			  ],
-			  "id": 65533,
-			  "name": "clusterRevision",
-			  "value": 1
-			}
-		  ],
-		  "commandsGenerated": "UNSUP_GENERAL_COMMAND",
-		  "commandsReceived": "UNSUP_GENERAL_COMMAND"
-		},
-		"illuminanceMeasurement": {
-		  "attributes": [
-			{
-			  "acl": [
-				"readable"
-			  ],
-			  "id": 0,
-			  "name": "measuredValue",
-			  "value": 1000
-			},
-			{
-			  "acl": [
-				"readable"
-			  ],
-			  "id": 1,
-			  "name": "minMeasuredValue",
-			  "value": 0
-			},
-			{
-			  "acl": [
-				"readable"
-			  ],
-			  "id": 2,
-			  "name": "maxMeasuredValue",
-			  "value": 4000
-			},
-			{
-			  "acl": [
-				"readable"
-			  ],
-			  "id": 65533,
-			  "name": "clusterRevision",
-			  "value": 1
-			}
-		  ],
-		  "commandsGenerated": "UNSUP_GENERAL_COMMAND",
-		  "commandsReceived": "UNSUP_GENERAL_COMMAND"
-		}
-	  },
-	  "bindings": {}
-	}
-  }
-} */
