@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.25",
+  "version": "0.2.26",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -1511,7 +1511,8 @@
           "_TZE200_zah67ekd",
           "_TZE200_cowvfni3",
           "_TZE200_hsgrhjpf",
-          "_TZE200_68nvbio9"
+          "_TZE200_68nvbio9",
+          "_TZE200_pw7mji0l"
         ],
         "productId": [
           "TS0601"
@@ -7987,7 +7988,8 @@
           "_TZ3000_peszejy7",
           "_TZ3000_pzui3skt",
           "_TZ3000_f97vq5mn",
-          "_TZ3000_fa9mlvja"
+          "_TZ3000_fa9mlvja",
+          "_TZ3000_itb0omhv"
         ],
         "productId": [
           "TS0041"
@@ -8596,7 +8598,8 @@
           "_TZ3000_2dlwlvex",
           "_TZ3000_qcdqw8nf",
           "_TZ3000_vvlivusi",
-          "_TZ3000_5e5ptb24"
+          "_TZ3000_5e5ptb24",
+          "_TZ3000_lrgccsxm"
         ],
         "productId": [
           "TS0003",

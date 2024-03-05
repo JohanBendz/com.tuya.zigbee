@@ -357,6 +357,7 @@ Supported devices:
     _TZ3000_qcdqw8nf / TS0003
     _TZ3000_vvlivusi / TS0003
     _TZ3000_5e5ptb24 / TS0013
+    _TZ3000_lrgccsxm / TS0013
 
 - 4 Gang Wall Switch
      _TZ3000_r0pmi2p3 / TS0014
@@ -425,6 +426,7 @@ Supported devices:
     _TZ3000_pzui3skt / TS0041
     _TZ3000_f97vq5mn / TS0041
     _TZ3000_fa9mlvja / TS0041
+    _TZ3000_itb0omhv / TS0041
 
 - 2 Gang Wall Remote
     _TZ3000_owgcnkrh / TS0042

@@ -232,5 +232,8 @@
   },
   "0.2.25": {
     "en": "Fix for Motion Sensor."
+  },
+  "0.2.26": {
+    "en": "Prepping for central Tuya Datapoint and Helper structure."
   }
 }
