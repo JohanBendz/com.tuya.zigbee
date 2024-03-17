@@ -11,12 +11,13 @@ Some of the supported White Label Brands:
 - MOES
 - Nedis
 - Neo
+- Nous
 - Samotech
 - Smart9
 - UseeLink
 - Woox
 - Zemismart
-- Luminea 
+- Luminea
 
 Supported devices:
 
@@ -43,6 +44,7 @@ Supported devices:
     TUYATEC-riuj5xzs / RH3052
     _TZ3000_xr3htd96 / TS0201 (Tenky)
     _TZ3000_saiqcn0y / TS0201
+    TUYATEC-1uxx9cci / RH3052
 
 - LCD Temperature and Humidity Sensor
     _TZ2000_a476raq2 / TS0201
@@ -60,10 +62,11 @@ Supported devices:
     _TZ3000_yd2e749y / TS0201
     _TZ3000_ywagc4rj / TS0201
     _TZ3000_itnrsufe / TS0201
-    _TZ3000_bjawzodf / TS0201
-    
+    _TZ3000_bjawzodf / TY0201
+
 - LCD Temperature, Humidity and Luminance Sensor
     _TZ3000_qaaysllp / TS0201
+    _TYZB01_ftdkanlj / TS0222
 
 - PIR Sensor
     TUYATEC-lha8pbwd / RH3040
@@ -83,13 +86,14 @@ Supported devices:
     _TZ3040_bb6xaihh / TS0202
     TUYATEC-b5g40alm / RH3040
     _TZ3000_nss8amz9 / TS0202
+    _TZ3000_lf56vpxj / TS0202
     TUYATEC-dxnohkpd / RH3040
 
 . Motion Sensor
     TUYATEC-bd5faf9p / RH3040 (Nedis)
-
-- Smart Motion Sensor
     _TZ1800_fcdjzz3s / TY0202 (Silvercrest / Lidl)
+    _TZE200_3towulqd / TS0601
+    _TZ3000_lf56vpxj / TS0202
 
 - Door/Windows Sensor
     TUYATEC-g3gl6cgy / RH3001
@@ -129,6 +133,7 @@ Supported devices:
     _TZ3000_yxqnffam / TS0203 (Immax Neo)
     _TZ3000_9eeavbk5 / TS0203
     _TZ3000_bpkijo14 / TS0203
+    _TZ3000_a33rw7ou / TS0203 (Zemismart)
 
 - Smart Door/Windows Sensor
     _TZ1800_ejwkn2h2 / TY0203 (Silvercrest / Lidl)
@@ -227,6 +232,9 @@ Supported devices:
 - Outdoor Plug, without metering
     _TZ3000_pnzfdr9y / TS0101 (Silvercrest / Lidl)
 
+- Outdoor Plug, with metering
+    _TZ3000_uwkja6z1 / TS011F (Nous)
+
 - 3 Socket Power Strip
     _TZ3000_1obwwnmq / TS011F (Silvercrest / Lidl)
     _TZ3000_vzopcetz / TS011F (Silvercrest / Lidl)
@@ -282,6 +290,7 @@ Supported devices:
 
 - 3 Gang Switch Module
     _TZ3000_odzoiovu / TS0003
+    _TZ3000_lvhy15ix / TS0003
 
 - 1 Gang Dimmer Module
     _TYZB01_qezuin6k / TS110F
@@ -317,6 +326,7 @@ Supported devices:
     _TZ3000_hafsqare / TS0011
     _TZ3000_oaq83gqc / TS0011
     _TZ3000_6eyydfyg / TS0001
+    _TZE200_gbagoilo / TS0601
 
 - 2 Gang Wall Switch
     _TYZB01_mtlhqn48 / TS0012
@@ -347,6 +357,7 @@ Supported devices:
     _TZ3000_qcdqw8nf / TS0003
     _TZ3000_vvlivusi / TS0003
     _TZ3000_5e5ptb24 / TS0013
+    _TZ3000_lrgccsxm / TS0013
 
 - 4 Gang Wall Switch
      _TZ3000_r0pmi2p3 / TS0014
@@ -392,7 +403,7 @@ Supported devices:
     _TZ3000_i8l0nqdu / TS0503B
     _TZ3000_ukuvyhaa / TS0504B
     _TZ3210_k1pe6ibm / TS0505B
-    
+
 - RGB Spot GardenLight
    _TZ3000_h1jnz6l8 / TS0505A (LIVARNO LUX / Lidl)
 
@@ -415,6 +426,7 @@ Supported devices:
     _TZ3000_pzui3skt / TS0041
     _TZ3000_f97vq5mn / TS0041
     _TZ3000_fa9mlvja / TS0041
+    _TZ3000_itb0omhv / TS0041
 
 - 2 Gang Wall Remote
     _TZ3000_owgcnkrh / TS0042
@@ -452,6 +464,7 @@ Supported devices:
     _TZ3000_fsiepnrh / TS0215A (Nedis)
     _TYZB01_qm6djpta / TS0215A
     _TZ3000_p6ju8myv / TS0215A
+    _TZ3000_u3nv1jwk / TS0044
 
 **Curtains**
 - Curtain Module
@@ -465,6 +478,7 @@ Supported devices:
     _TZ3000_e3vhyirx / TS130F (LoraTap SC500ZB)
     _TZ3000_1dd0d5yi / TS130F (MOES MS-108ZR)
     _TZ3000_jwv3cwak / TS130F
+    _TZ3210_dwytrmda
 
 - Curtain Motor
     _TZE200_5zbp6j0u / TS0601
@@ -498,6 +512,17 @@ Supported devices:
     _TZ3000_fvhunhxb / TS130F
 
 **Other**
+- Thermostatic Radiator Valves
+    _TZE200_sur6q7ko / TS0601
+    _TZE200_hue3yfsn / TS0601
+    _TZE200_husqqvux / TS0601
+    _TZE200_lnbfnyxd / TS0601
+    _TZE200_lllliz3p / TS0601
+    _TZE200_mudxchsu / TS0601
+    _TZE200_7yoranx2 / TS0601
+    _TZE200_e9ba97vf / TS0601 (MOES)
+    _TZE200_kds0pmmv / TS0601
+
 - Valve Controller
     _TYZB01_ymcdbl3u / TS0111
     _TZ3000_o4cjetlm / TS0001
@@ -508,7 +533,7 @@ Supported devices:
 
 - Smart Garden Irrigation Controller
     _TZ3210_eymunffl / TS0101 (Woox)
- 
+
 - Zigbee Repeater
     _TZ3000_m0vaazab / TS0207
     _TZ3000_5k5vh43t / TS0207
@@ -525,9 +550,10 @@ Supported devices:
 - Smart Switch
     _TYZB01_phjeraqq / TS0001
 
-To request additional devices, please use Athom Homey Community Forum: https://community.athom.com/t/tuya-zigbee-app/26439
+To request additional devices, please use Github issue tracking: https://github.com/JohanBendz/com.tuya.zigbee/issues
+To get support from the community please use Athom Homey Community Forum: https://community.athom.com/t/tuya-zigbee-app/26439
 
-Contributors:
+Major Code Contributors:
 - Martijn Aben, Christmas Lights
 - Jurgen Heine, color issues on RGB lights
 - Tim Koos and Tom van der Geer, 4 Channel Relay Board
@@ -538,5 +564,9 @@ Contributors:
 - Patrick van der Poel, Soil sensor
 - Ben Grohbiel, Wall Thermostat
 - Jérôme Revillard, Neo Siren alarm
+- Thomas Ha, Thermostatic Radiator Valve
+- Julian M, Outdoor Smart Plug
+(Did you contribute with code and I forgot to name you? Give me a friendly reminder! )
+
 
 I would also like to thank everyone who contributes with device information, testing and beer!

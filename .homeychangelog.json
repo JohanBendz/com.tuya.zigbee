@@ -217,5 +217,23 @@
   },
   "0.2.20": {
     "en": "Some new devices, new functionality for some devices and a few fixes."
+  },
+  "0.2.21": {
+    "en": "Some new devices, added codes for some already added devices and a few fixes."
+  },
+  "0.2.22": {
+    "en": "A bunch of new devices and added codes for already added devices."
+  },
+  "0.2.23": {
+    "en": "Minor fixes for a few drivers."
+  },
+  "0.2.24": {
+    "en": "Minor fixes for a few drivers."
+  },
+  "0.2.25": {
+    "en": "Fix for Motion Sensor."
+  },
+  "0.2.26": {
+    "en": "Prepping for central Tuya Datapoint and Helper structure."
   }
 }

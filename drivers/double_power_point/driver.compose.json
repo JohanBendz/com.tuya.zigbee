@@ -33,6 +33,10 @@
       "1": {
         "clusters": [0, 4, 5, 6, 1794, 2820],
         "bindings": [6, 1794, 2820]
+      },
+      "2": {
+        "clusters": [6],
+        "bindings": [6]
       }
     },
     "learnmode": {
@@ -49,25 +53,8 @@
       },
       "class": "socket",
       "capabilities": [
-        "onoff",
-        "measure_power",
-        "meter_power",
-        "measure_current",
-        "measure_voltage"
-      ],
-      "capabilitiesOptions": {
-        "measure_power": {
-          "approximated": true
-        }
-      },
-      "zigbee": {
-        "endpoints": {
-          "2": {
-            "clusters": [0, 4, 5, 6, 1794, 2820],
-            "bindings": [6, 1794, 2820]
-          }
-        }
-      }
+        "onoff"
+      ]
     }
   ]
 }
