@@ -1,0 +1,43 @@
+{
+  "id": "radar_sensor_ceiling",
+  "name": {
+    "en": "Radar Sensor ceiling"
+  },
+  "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "measure_luminance",
+    "alarm_motion"
+  ],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "energy": {
+    "approximation": {
+      "usageOn": 0,
+      "usageOff": 0
+    }
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZE200_2aaelwxk"
+    ],
+    "productId": [
+      "TS0225"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 3, 1024, 1280, 57344, 57346, 60928, 61184],
+        "bindings": [3, 57344, 57346, 60928, 61184]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Press and hold the reset button for 5 seconds. When the indicator light flashes it is in pairing mode."
+      }
+    }
+  }
+}

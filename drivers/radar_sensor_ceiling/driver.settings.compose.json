@@ -1,0 +1,64 @@
+[
+    {
+      "id": "radar_sensitivity",
+      "type": "number",
+      "label": {
+        "en": "Radar sensitivity"
+      },
+      "value": 7,
+      "min": 1,
+      "max": 9
+    },
+    {
+      "id": "minimum_range",
+      "type": "number",
+      "label": {
+        "en": "Minimum range"
+      },
+      "value": 0,
+      "min": 0,
+      "max": 9.5,
+      "units": {
+        "en": "meters"
+      }
+    },
+    {
+      "id": "maximum_range",
+      "type": "number",
+      "label": {
+        "en": "Maximum range"
+      },
+      "value": 9.5,
+      "min": 0,
+      "max": 9.5,
+      "units": {
+        "en": "meters"
+      }
+    },
+    {
+      "id": "detection_delay",
+      "type": "number",
+      "label": {
+        "en": "Detection delay"
+      },
+      "value": 7,
+      "min": 0,
+      "max": 10,
+      "units": {
+        "en": "seconds"
+      }
+    },
+    {
+      "id": "fading_time",
+      "type": "number",
+      "label": {
+        "en": "Fading time"
+      },
+      "value": 7,
+      "min": 0,
+      "max": 1500,
+      "units": {
+        "en": "seconds"
+      }
+    }
+]
