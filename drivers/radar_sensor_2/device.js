@@ -1,6 +1,6 @@
 'use strict';
 
-const {Cluster} = require('zigbee-clusters');
+const { Cluster } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
 const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
 
@@ -8,7 +8,7 @@ Cluster.addCluster(TuyaSpecificCluster);
 
 const dataPoints = {
   tshpsPresenceState: 105,
-  tshpscSensitivity: 106, 
+  tshpscSensitivity: 106,
   tshpsMinimumRange: 108,
   tshpsMaximumRange: 107,
   tshpsTargetDistance: 109,
@@ -63,11 +63,23 @@ class radarSensor2 extends TuyaSpecificClusterDevice {
     super(...args);
     this.lastDistanceUpdateTime = 0;
   }
-  async onNodeInit({zclNode}) {
+  async onNodeInit({ zclNode }) {
+  
     zclNode.endpoints[1].clusters.tuya.on("response", (response) => {
       //this.log('Response event received:', response); // Added for debugging
       this.updatePosition(response);
     });
+
+    // Register the flow trigger card for target distance
+    this.targetDistanceTrigger = this.homey.flow.getDeviceTriggerCard('target_distance_changed');
+    this.targetDistanceTrigger
+      .registerRunListener((args, state) => {
+        // Custom logic when the flow is triggered
+        // For example, compare args with state or other conditions
+        // Return true if the conditions are met, false otherwise
+        return Promise.resolve(args.target_distance === state.target_distance);
+      });
+
   }
 
   async updatePosition(data) {
@@ -77,23 +89,32 @@ class radarSensor2 extends TuyaSpecificClusterDevice {
 
     switch (dp) {
       case dataPoints.tshpsPresenceState:
-        this.log("presence state: "+ value)
+        this.log("presence state: " + value)
         this.setCapabilityValue('alarm_motion', Boolean(value))
         break;
       case dataPoints.tshpscSensitivity:
-        this.log("sensitivity state: "+ value)
+        this.log("sensitivity state: " + value)
         break;
       case dataPoints.tshpsIlluminanceLux:
-        this.log("lux value: "+ value)
+        this.log("lux value: " + value)
         this.onIlluminanceMeasuredAttributeReport(value)
         break;
-        case dataPoints.tshpsTargetDistance:
-          const currentTime = new Date().getTime();
-          if (currentTime - this.lastDistanceUpdateTime >= distanceUpdateInterval * 1000) {
-            this.setCapabilityValue('target_distance', value/100);
-            this.lastDistanceUpdateTime = currentTime;
+      case dataPoints.tshpsTargetDistance:
+        const currentTime = new Date().getTime();
+        if (currentTime - this.lastDistanceUpdateTime >= distanceUpdateInterval * 1000) {
+          const targetDistance = value / 100;
+          this.setCapabilityValue('target_distance', targetDistance);
+          this.lastDistanceUpdateTime = currentTime;
+
+          // Check if targetDistanceTrigger is defined before calling trigger
+          if (this.targetDistanceTrigger) {
+            this.targetDistanceTrigger.trigger(this, { target_distance: targetDistance }, { target_distance: targetDistance })
+              .catch(this.error);
+          } else {
+            this.log('targetDistanceTrigger is not defined');
           }
-          break;
+        }
+        break;
       default:
         this.log('dp value', dp, value)
     }
@@ -103,17 +124,17 @@ class radarSensor2 extends TuyaSpecificClusterDevice {
     this.log("Radar sensor removed")
   }
 
-  async onSettings({newSettings, changedKeys}) {
+  async onSettings({ newSettings, changedKeys }) {
     if (changedKeys.includes('radar_sensitivity')) {
       this.writeData32(dataPoints.tshpscSensitivity, newSettings['radar_sensitivity'])
     }
 
     if (changedKeys.includes('minimum_range')) {
-      this.writeData32(dataPoints.tshpsMinimumRange, newSettings['minimum_range']*100)
+      this.writeData32(dataPoints.tshpsMinimumRange, newSettings['minimum_range'] * 100)
     }
 
     if (changedKeys.includes('maximum_range')) {
-      this.writeData32(dataPoints.tshpsMaximumRange, newSettings['maximum_range']*100)
+      this.writeData32(dataPoints.tshpsMaximumRange, newSettings['maximum_range'] * 100)
     }
 
     if (changedKeys.includes('detection_delay')) {
@@ -130,7 +151,7 @@ class radarSensor2 extends TuyaSpecificClusterDevice {
     this.setCapabilityValue('measure_luminance', measuredValue);
   }
 
-  onIASZoneStatusChangeNotification({zoneStatus, extendedStatus, zoneId, delay,}) {
+  onIASZoneStatusChangeNotification({ zoneStatus, extendedStatus, zoneId, delay, }) {
     this.log('IASZoneStatusChangeNotification received:', zoneStatus, extendedStatus, zoneId, delay);
     this.setCapabilityValue('alarm_motion', zoneStatus.alarm1);
   }
