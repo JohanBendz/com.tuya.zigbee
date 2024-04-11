@@ -427,6 +427,7 @@ Supported devices:
     _TZ3000_f97vq5mn / TS0041
     _TZ3000_fa9mlvja / TS0041
     _TZ3000_itb0omhv / TS0041
+    _TZ3000_8rppvwda / TS0041
 
 - 2 Gang Wall Remote
     _TZ3000_owgcnkrh / TS0042
