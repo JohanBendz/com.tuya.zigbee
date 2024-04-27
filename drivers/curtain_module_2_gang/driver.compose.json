@@ -1,7 +1,7 @@
 {
-  "id": "curtainmodule",
+  "id": "curtainmodule_2_gang",
   "name": {
-    "en": "Curtain Module"
+    "en": "2 Gang Curtain Module"
   },
   "class": "windowcoverings",
   "platforms": [
@@ -41,11 +41,11 @@
     },
     "devices": {
       "secondModule": {
-        "class": "curtain",
+        "class": "windowcoverings",
         "name": {
-          "en": "Curtain Module (2)"
+          "en": "2 Gang Curtain Module (2)"
         },
-        "capabilities": ["windowcoverings_set"],
+        "capabilities": ["windowcoverings_set", "windowcoverings_state"],
         "energy": {
           "approximation": {
             "usageOn": 0,

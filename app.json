@@ -345,6 +345,34 @@
         ]
       },
       {
+        "id": "move_open_2gang",
+        "title": {
+          "en": "Open",
+          "de": "Öffnen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=curtain_module_2_gang"
+          }
+        ]
+      },
+      {
+        "id": "move_close_2gang",
+        "title": {
+          "en": "Close",
+          "de": "Schließen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=curtain_module_2_gang"
+          }
+        ]
+      },
+      {
         "id": "alarm_state",
         "title": {
           "en": "Change the alarm state",
@@ -1482,8 +1510,8 @@
         "windowcoverings_state"
       ],
       "images": {
-        "large": "/drivers/curtain_module/assets/images/large.png",
-        "small": "/drivers/curtain_module/assets/images/small.png"
+        "large": "/drivers/curtain_module_2_gang/assets/images/large.png",
+        "small": "/drivers/curtain_module_2_gang/assets/images/small.png"
       },
       "energy": {
         "approximation": {
@@ -1527,12 +1555,13 @@
         },
         "devices": {
           "secondModule": {
-            "class": "curtain",
+            "class": "windowcoverings",
             "name": {
               "en": "2 Gang Curtain Module (2)"
             },
             "capabilities": [
-              "windowcoverings_set"
+              "windowcoverings_set",
+              "windowcoverings_state"
             ],
             "energy": {
               "approximation": {
@@ -1543,7 +1572,7 @@
           }
         },
         "learnmode": {
-          "image": "/drivers/curtain_module/assets/icon.svg",
+          "image": "/drivers/curtain_module_2_gang/assets/icon.svg",
           "instruction": {
             "en": "Press the setup button for 10 seconds or power on/off 5 times to enter pairing mode (the LED should blink / device starts beeping)."
           }
@@ -8579,6 +8608,7 @@
           "_TZ3000_oex7egmt",
           "_TZ3000_hafsqare",
           "_TZ3000_oaq83gqc",
+          "_TZ3000_hhiodade",
           "_TZ3000_6eyydfyg"
         ],
         "productId": [
@@ -8589,6 +8619,9 @@
           "1": {
             "clusters": [
               0,
+              3,
+              4,
+              5,
               6
             ],
             "bindings": [
@@ -8599,11 +8632,40 @@
         "learnmode": {
           "image": "/drivers/wall_switch_1_gang/assets/icon.svg",
           "instruction": {
-            "en": "Press the button for 10 seconds (the LED should start blinking)."
+            "en": "Press the button for 7 seconds (until LED starts blinking)."
           }
         }
       },
-      "settings": []
+      "settings": [
+        {
+          "id": "indicator_mode",
+          "type": "radio",
+          "label": {
+            "en": "Indicator mode"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Light Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Light on when switch turned on."
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Light on when the switch is turned off."
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "wall_switch_1_gang_tuya",

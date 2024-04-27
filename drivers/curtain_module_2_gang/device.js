@@ -11,13 +11,20 @@ const UP_OPEN = "upOpen";
 const DOWN_CLOSE = "downClose";
 const REPORT_DEBOUNCER = 5000;
 
-class curtain_module extends ZigBeeDevice {
+class curtain_module_2_gang extends ZigBeeDevice {
     invertPercentageLiftValue = false;
 
     async onNodeInit({ zclNode }) {
         await super.onNodeInit({ zclNode });
 
         this.printNode();
+
+        const { subDeviceId } = this.getData();
+        const endpoint = subDeviceId === "secondModule" ? 2 : 1;
+    
+        this.log("Device data: ", subDeviceId);
+        this.log("Endpoint: ", endpoint);
+    
 
         // code borrowed from here most recent version of zigbee driver to handle lift percentage + invert correctly
         // remove once the package was updated
@@ -26,6 +33,7 @@ class curtain_module extends ZigBeeDevice {
             "windowcoverings_set",
             CLUSTER.WINDOW_COVERING,
             {
+                endpoint: endpoint,
                 setParser: async (value) => {
                     // Refresh timer or set new timer to prevent reports from updating the dim slider directly
                     // when set command from Homey
@@ -51,11 +59,6 @@ class curtain_module extends ZigBeeDevice {
                                 value === 1 ? UP_OPEN : DOWN_CLOSE
                             }`
                         );
-                        const { endpoint } =
-                            this._getClusterCapabilityConfiguration(
-                                "windowcoverings_set",
-                                CLUSTER.WINDOW_COVERING
-                            );
                         const windowCoveringEndpoint =
                             endpoint ??
                             this.getClusterEndpoint(CLUSTER.WINDOW_COVERING);
@@ -121,7 +124,7 @@ class curtain_module extends ZigBeeDevice {
         );
         await this._configureStateCapability(this.getSetting("has_state"));
 
-        const attrs = await this.zclNode.endpoints[1].clusters.windowCovering
+        const attrs = await this.zclNode.endpoints[endpoint].clusters.windowCovering
             .readAttributes("calibrationTime", "motorReversal")
             .catch((err) =>
                 this.error("Error when reading settings from device", err)
@@ -135,14 +138,14 @@ class curtain_module extends ZigBeeDevice {
             this.setSettings({ reverse: attrs.motorReversal === "On" });
         }
 
-        const moveOpen = this.homey.flow.getActionCard("move_open");
+        const moveOpen = this.homey.flow.getActionCard("move_open_2gang");
         moveOpen.registerRunListener(async (args, state) => {
-            await this.zclNode.endpoints[1].clusters.windowCovering[UP_OPEN]();
+            await this.zclNode.endpoints[endpoint].clusters.windowCovering[UP_OPEN]();
         });
 
-        const moveClose = this.homey.flow.getActionCard("move_close");
+        const moveClose = this.homey.flow.getActionCard("move_close_2gang");
         moveClose.registerRunListener(async (args, state) => {
-            await this.zclNode.endpoints[1].clusters.windowCovering[
+            await this.zclNode.endpoints[endpoint].clusters.windowCovering[
                 DOWN_CLOSE
             ]();
         });
@@ -154,10 +157,16 @@ class curtain_module extends ZigBeeDevice {
     // zclNode.endpoints[1].clusters.windowCovering.readAttributes(['motorReversal', 'ANY OTHER IF NEEDED']);
 
     async onSettings({ oldSettings, newSettings, changedKeys }) {
+        const { subDeviceId } = this.getData();
+        const endpoint = subDeviceId === "secondModule" ? 2 : 1;
+    
+        this.log("Device data: ", subDeviceId);
+        this.log("Endpoint: ", endpoint);
+
         try {
             if (changedKeys.includes("reverse")) {
                 const motorReversed = newSettings["reverse"];
-                await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes(
+                await this.zclNode.endpoints[endpoint].clusters.windowCovering.writeAttributes(
                     { motorReversal: motorReversed ? "On" : "Off" }
                 );
 
@@ -168,14 +177,14 @@ class curtain_module extends ZigBeeDevice {
 
             if (changedKeys.includes("calibration_mode")) {
                 const calibrationMode = newSettings["calibration_mode"];
-                await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes(
+                await this.zclNode.endpoints[endpoint].clusters.windowCovering.writeAttributes(
                     { calibrationMode: calibrationMode ? "Start" : "End" }
                 );
             }
 
             if (changedKeys.includes("movetime")) {
                 const movetime = newSettings["movetime"];
-                await this.zclNode.endpoints[1].clusters.windowCovering.writeAttributes(
+                await this.zclNode.endpoints[endpoint].clusters.windowCovering.writeAttributes(
                     { calibrationTime: movetime * 10 }
                 );
             }
@@ -223,4 +232,4 @@ class curtain_module extends ZigBeeDevice {
     }
 }
 
-module.exports = curtain_module;
+module.exports = curtain_module_2_gang;
