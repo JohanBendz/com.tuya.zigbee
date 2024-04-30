@@ -13,7 +13,7 @@
   "author": "Johan Bendz",
   "license": "MIT",
   "dependencies": {
-    "homey-zigbeedriver": "^1.6.12",
-    "zigbee-clusters": "^1.5.2"
+    "homey-zigbeedriver",
+    "zigbee-clusters"
   }
 }
