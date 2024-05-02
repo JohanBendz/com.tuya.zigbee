@@ -1,0 +1,14 @@
+{
+  "type": "number",
+  "title": { "en": "Last Watering Time", "nl": "Laatste tijd bewatering" },
+  "uiComponent": "sensor",
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "options": {
+    "zoneActivity": true
+  },
+  "min": 0,
+  "icon": "/drivers/smart_water_timer/assets/images/pressure-gauge.svg",
+  "units": { "en": "sec", "nl": "sec" }
+}

@@ -129,11 +129,10 @@ class radarSensor extends TuyaSpecificClusterDevice {
                this.setCapabilityValue("target_distance", value / 10);
           break;
           default:
-          if (new Date().getSeconds() % 10 === 0) {
-            this.setCapabilityValue("target_distance", value / 100);
-          }
+            if (new Date().getSeconds() % 10 === 0) {
+              this.setCapabilityValue("target_distance", value / 100);
+            }
         }
-       
 
         break;
 

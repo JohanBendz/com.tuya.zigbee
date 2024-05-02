@@ -5052,6 +5052,141 @@
       "settings": []
     },
     {
+      "id": "smart_water_timer",
+      "name": {
+        "en": "QT-05M - Smart Water Timer"
+      },
+      "class": "other",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "alarm_battery",
+        "measure_battery",
+        "measure_water_flow",
+        "meter_valve_state",
+        "last_watering_time",
+        "remaining_watering_time",
+        "shutdown_timer",
+        "valve_state_auto_shutdown"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "measure_water_flow": {
+          "opts": {
+            "duration": true
+          },
+          "preventInsights": true
+        }
+      },
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA",
+          "AA",
+          "AA"
+        ]
+      },
+      "images": {
+        "small": "/drivers/smart_water_timer/assets/images/small.jpg",
+        "large": "/drivers/smart_water_timer/assets/images/large.jpg"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_arge1ptm"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              4,
+              5,
+              6,
+              10,
+              25,
+              61184
+            ],
+            "bindings": [
+              1,
+              6,
+              10,
+              25
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smart_water_timer/assets/icon.svg",
+          "instruction": {
+            "en": "Ensure the indicator light is flashing. If the indicatore light isn't flashing: press and hold the reset button for 5 seconds until the indicator light starts to flashing.",
+            "it": "Assicurarsi che l'indicatore lampeggi. Se l'indicatore non lampegga: tenere premuto il pulsante di reset per 5 secondi finchè l'indicatore non inizia a lampeggiare."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "batteryThreshold",
+          "type": "number",
+          "label": {
+            "en": "Battery Low Alarm Voltage Threshold (%)",
+            "it": "Soglia dell'allarme di batteria scarica "
+          },
+          "hint": {
+            "en": "This setting determines the threshold before a battery alarm is given.",
+            "it": "Quest'impostazione determina la soglia alla quale l'allarme di batteria scarica viene dato"
+          },
+          "value": 20,
+          "attr": {
+            "step": 1,
+            "min": 1,
+            "max": 99
+          }
+        },
+        {
+          "id": "shutdown_timer",
+          "type": "number",
+          "label": {
+            "en": "Maximum open percentage",
+            "nl": "Maximale open percentage"
+          },
+          "hint": {
+            "en": "Auto shutdown in seconds.",
+            "nl": "Automatische stop in seconden"
+          },
+          "value": 120,
+          "min": 0,
+          "max": 14400
+        },
+        {
+          "id": "valve_state_auto_shutdown",
+          "type": "number",
+          "label": {
+            "en": "Valve open in % after auto shutdown.",
+            "nl": "Kraan open in % na automatische stop."
+          },
+          "hint": {
+            "en": "Set valve to % with auto shutdown.",
+            "nl": "Zet kraan op % met automatische stop."
+          },
+          "value": 100,
+          "min": 0,
+          "step": 5,
+          "max": 100
+        }
+      ]
+    },
+    {
       "id": "smartplug",
       "name": {
         "en": "Smart Plug with metering"
@@ -8747,6 +8882,26 @@
         "pl": "Mały czujnik Obecność wyłączony"
       }
     },
+    "last_watering_time": {
+      "type": "number",
+      "title": {
+        "en": "Last Watering Time",
+        "nl": "Laatste tijd bewatering"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "options": {
+        "zoneActivity": true
+      },
+      "min": 0,
+      "icon": "/drivers/smart_water_timer/assets/images/pressure-gauge.svg",
+      "units": {
+        "en": "sec",
+        "nl": "sec"
+      }
+    },
     "lidl_xmas_mode": {
       "title": {
         "en": "Mode"
@@ -8778,6 +8933,100 @@
           }
         }
       ]
+    },
+    "measure_water_flow": {
+      "type": "number",
+      "title": {
+        "en": "Valve Water Flow",
+        "nl": "Kraan Water Flow"
+      },
+      "desc": {
+        "en": "Set the position of Water Valve. 0% is closed, 100% is open"
+      },
+      "icon": "/drivers/smart_water_timer/assets/images/sprinklers.svg",
+      "units": "%",
+      "getable": true,
+      "setable": true,
+      "chartType": "stepLine",
+      "uiComponent": "slider",
+      "min": 0,
+      "max": 1,
+      "step": 0.05,
+      "value": 0.5,
+      "decimals": 2
+    },
+    "meter_valve_state": {
+      "type": "number",
+      "title": {
+        "en": "Valve State",
+        "nl": "Kraanstatus"
+      },
+      "units": {
+        "en": "%",
+        "nl": "%"
+      },
+      "icon": "/drivers/smart_water_timer/assets/images/sprinklers.svg",
+      "getable": true,
+      "setable": false,
+      "chartType": "area",
+      "uiComponent": "sensor",
+      "min": 0,
+      "max": 100,
+      "steps": 5,
+      "decimals": 0,
+      "capabilitiesOptions": {
+        "titleTrue": {
+          "en": "Open",
+          "nl": "Open"
+        },
+        "titleFalse": {
+          "en": "Closed",
+          "nl": "Gesloten"
+        }
+      }
+    },
+    "remaining_watering_time": {
+      "type": "number",
+      "title": {
+        "en": "Remaining Watering Time",
+        "nl": "Resterende tijd bewatering"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "options": {
+        "zoneActivity": true
+      },
+      "icon": "/drivers/smart_water_timer/assets/images/pressure-gauge.svg",
+      "units": {
+        "en": "sec",
+        "nl": "sec"
+      },
+      "min": 0,
+      "decimals": 0
+    },
+    "shutdown_timer": {
+      "type": "number",
+      "title": {
+        "en": "Auto Shutdown % Valve",
+        "nl": "Auto Stop % Waarde"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "options": {
+        "zoneActivity": true
+      },
+      "icon": "/drivers/smart_water_timer/assets/images/nighttime.svg",
+      "units": {
+        "en": "sec",
+        "nl": "sec"
+      },
+      "min": 0,
+      "max": 1440,
+      "decimals": 0
     },
     "soil_moisture": {
       "type": "number",
@@ -8850,6 +9099,26 @@
       "getable": true,
       "setable": true,
       "capabilitiesOptions": {}
+    },
+    "valve_state_auto_shutdown": {
+      "type": "number",
+      "title": {
+        "en": "Valve State @ autoshutdown",
+        "nl": "Kraanstatus @ auto stop"
+      },
+      "units": {
+        "en": "%",
+        "nl": "%"
+      },
+      "icon": "/drivers/smart_water_timer/assets/images/nighttime.svg",
+      "getable": true,
+      "setable": false,
+      "chartType": "area",
+      "uiComponent": "sensor",
+      "min": 0,
+      "max": 100,
+      "steps": 5,
+      "decimals": 0
     }
   }
 }

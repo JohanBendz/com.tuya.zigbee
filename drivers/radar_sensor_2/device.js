@@ -314,21 +314,21 @@ class radarSensor_2 extends TuyaSpecificClusterDevice {
       "attr.identifyTime",
 
       (e) => {
-        this.log("Identify Time: ", e);
+        // this.log("Identify Time: ", e);
       }
     );
   }
 
   processReporting(data) {
-    this.log("########### Reporting: ", data);
+    // this.log("########### Reporting: ", data);
   }
 
   processDatapoint(data) {
-    this.log("########### Datapoint: ", data);
+    // this.log("########### Datapoint: ", data);
   }
 
   async updatePosition(data) {
-    this.log("########### UPDATE POSITION: ", data);
+    // this.log("########### UPDATE POSITION: ", data);
 
     const dp = data.dp;
     const value = getDataValue(data);
@@ -336,16 +336,16 @@ class radarSensor_2 extends TuyaSpecificClusterDevice {
 
     switch (dp) {
       case this.dataPoints.presence:
-        this.log("presence state: ", value);
+        // this.log("presence state: ", value);
         this.setCapabilityValue("alarm_motion", Boolean(value));
         break;
 
       case this.dataPoints.human_motion_state:
-        this.log("IAS Zone: ", value);
+        // this.log("IAS Zone: ", value);
 
         switch (value) {
           case 0:
-            this.log("None");
+            // this.log("None");
             this.setCapabilityValue("alarm_small_presence", false);
             this.setCapabilityValue("alarm_large_presence", false);
             this.setCapabilityValue("alarm_breathe_presence", false);
@@ -355,7 +355,7 @@ class radarSensor_2 extends TuyaSpecificClusterDevice {
 
             break;
           case 1:
-            this.log("Large");
+            // this.log("Large");
             this.setCapabilityValue("alarm_small_presence", false);
             this.setCapabilityValue("alarm_large_presence", true);
             this.setCapabilityValue("alarm_breathe_presence", false);
@@ -364,7 +364,7 @@ class radarSensor_2 extends TuyaSpecificClusterDevice {
             this.largeAlarmOnTrigger.trigger();
             break;
           case 2:
-            this.log("Small");
+            // this.log("Small");
             this.setCapabilityValue("alarm_small_presence", true);
             this.setCapabilityValue("alarm_large_presence", false);
             this.setCapabilityValue("alarm_breathe_presence", false);
@@ -374,7 +374,7 @@ class radarSensor_2 extends TuyaSpecificClusterDevice {
             this.largeAlarmOffTrigger.trigger();
             break;
           case 3:
-            this.log("Breathe");
+            // this.log("Breathe");
             this.setCapabilityValue("alarm_small_presence", false);
             this.setCapabilityValue("alarm_large_presence", false);
             this.setCapabilityValue("alarm_breathe_presence", true);
@@ -413,9 +413,9 @@ class radarSensor_2 extends TuyaSpecificClusterDevice {
         const dataPointKey = Object.keys(this.dataPoints).find(
           (key) => this.dataPoints[key] === dp
         );
-        this.log("Setting value for key --> ", dataPointKey, " = ", value);
+        // this.log("Setting value for key --> ", dataPointKey, " = ", value);
         if (!dataPointKey && !settings[dataPointKey]) {
-          this.log("No settings for key --> ", dataPointKey);
+          // this.log("No settings for key --> ", dataPointKey);
         }
         if (dataPointKey && settings[dataPointKey] && this.isFirstInit()) {
           await this.setSettings({
@@ -425,23 +425,23 @@ class radarSensor_2 extends TuyaSpecificClusterDevice {
         break;
 
       default:
-        this.log("Unknown Datapoint -->", "DP: " + dp, "Value: " + value);
+        // this.log("Unknown Datapoint -->", "DP: " + dp, "Value: " + value);
     }
   }
 
   onDeleted() {
-    this.log("Radar sensor removed");
+    // this.log("Radar sensor removed");
   }
 
   async onSettings({newSettings, changedKeys }) {
     //
     changedKeys.forEach((updatedSetting) => {
-      this.log(
-        "########### Updated setting: ",
-        updatedSetting,
-        " => ",
-        newSettings[updatedSetting]
-      );
+      // this.log(
+      //   "########### Updated setting: ",
+      //   updatedSetting,
+      //   " => ",
+      //   newSettings[updatedSetting]
+      // );
     });
 
     if (changedKeys.includes("motion_detection_sensitivity")) {
@@ -546,10 +546,10 @@ class radarSensor_2 extends TuyaSpecificClusterDevice {
   }
 
   onIlluminanceMeasuredAttributeReport(measuredValue) {
-    this.log(
-      "measure_luminance | Luminance - measuredValue (lux):",
-      measuredValue
-    );
+    // this.log(
+    //   "measure_luminance | Luminance - measuredValue (lux):",
+    //   measuredValue
+    // );
     this.setCapabilityValue("measure_luminance", measuredValue);
   }
 
@@ -559,13 +559,13 @@ class radarSensor_2 extends TuyaSpecificClusterDevice {
     zoneId,
     delay,
   }) {
-    this.log(
-      "IASZoneStatusChangeNotification received:",
-      zoneStatus,
-      extendedStatus,
-      zoneId,
-      delay
-    );
+    // this.log(
+    //   "IASZoneStatusChangeNotification received:",
+    //   zoneStatus,
+    //   extendedStatus,
+    //   zoneId,
+    //   delay
+    // );
     // this.setCapabilityValue("alarm_motion", zoneStatus.alarm1);
     this.setCapabilityValue("alarm_motion", zoneStatus);
   }

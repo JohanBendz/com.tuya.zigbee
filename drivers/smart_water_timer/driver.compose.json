@@ -1,0 +1,57 @@
+{
+  "id": "SmartWaterTimer",
+  "name": {
+    "en": "QT-05M - Smart Water Timer"
+  },
+  "class": "other",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "onoff",
+    "alarm_battery",
+    "measure_battery",
+    "measure_water_flow",
+    "meter_valve_state",
+    "last_watering_time",
+    "remaining_watering_time",
+    "shutdown_timer",
+    "valve_state_auto_shutdown"
+  ],
+  "capabilitiesOptions": {
+    "onoff": {
+      "opts": {
+        "duration": true
+      }
+    },
+    "measure_water_flow": {
+      "opts": {
+        "duration": true
+      },
+      "preventInsights": true
+    }
+  },
+  "energy": {
+    "batteries": ["AA", "AA", "AA", "AA"]
+  },
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.jpg",
+    "large": "{{driverAssetsPath}}/images/large.jpg"
+  },
+  "zigbee": {
+    "manufacturerName": ["_TZE200_arge1ptm"],
+    "productId": ["TS0601"],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 1, 4, 5, 6, 10, 25, 61184],
+        "bindings": [1, 6, 10, 25]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Ensure the indicator light is flashing. If the indicatore light isn't flashing: press and hold the reset button for 5 seconds until the indicator light starts to flashing.",
+        "it": "Assicurarsi che l'indicatore lampeggi. Se l'indicatore non lampegga: tenere premuto il pulsante di reset per 5 secondi finchè l'indicatore non inizia a lampeggiare."
+      }
+    }
+  }
+}
