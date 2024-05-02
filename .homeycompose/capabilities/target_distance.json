@@ -1,8 +1,13 @@
 {
   "type": "number",
   "title": { "en": "Target distance", "nl": "Afstand doel" },
-  "uiComponent": null,
+  "uiComponent": "sensor",
   "getable": true,
   "setable": false,
+  "insights": true,
+  "options": {
+    "zoneActivity": true
+  },
+  "icon": "/drivers/radar_sensor/assets/images/measure.svg",
   "units": { "en": "m", "nl": "m" }
 }

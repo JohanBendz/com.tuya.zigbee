@@ -3166,7 +3166,8 @@
           "_TZE201_ztc6ggyl",
           "_TZE202_ztc6ggyl",
           "_TZE203_ztc6ggyl",
-          "_TZE204_ztc6ggyl"
+          "_TZE204_ztc6ggyl",
+          "_TZE204_7gclukjs"
         ],
         "productId": [
           "TS0601"
@@ -3316,7 +3317,10 @@
               57344,
               1024
             ],
-            "bindings": []
+            "bindings": [
+              258,
+              61148
+            ]
           }
         },
         "learnmode": {
@@ -8808,9 +8812,14 @@
         "en": "Target distance",
         "nl": "Afstand doel"
       },
-      "uiComponent": null,
+      "uiComponent": "sensor",
       "getable": true,
       "setable": false,
+      "insights": true,
+      "options": {
+        "zoneActivity": true
+      },
+      "icon": "/drivers/radar_sensor/assets/images/measure.svg",
       "units": {
         "en": "m",
         "nl": "m"

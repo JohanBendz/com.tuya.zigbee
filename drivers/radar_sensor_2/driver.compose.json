@@ -1,5 +1,5 @@
 {
-  "id": "radar_sensor",
+  "id": "radar_sensor_2",
   "name": {
     "en": "Radar Sensor ZG-205Z/W",
     "nl": "Radar Sensor ZG-205Z/W"
@@ -38,7 +38,7 @@
           57344,
           1024
         ],
-        "bindings": []
+        "bindings": [258, 61148]
       }
     },
     "learnmode": {

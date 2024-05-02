@@ -228,7 +228,7 @@ const getDataValue = (dpValue) => {
   }
 };
 
-class radarSensor extends TuyaSpecificClusterDevice {
+class radarSensor_2 extends TuyaSpecificClusterDevice {
   async onNodeInit({ zclNode }) {
     this.manufacturerName = this.getSetting("zb_manufacturer_name");
 
@@ -433,7 +433,7 @@ class radarSensor extends TuyaSpecificClusterDevice {
     this.log("Radar sensor removed");
   }
 
-  async onSettings({ oldSettings, newSettings, changedKeys }) {
+  async onSettings({newSettings, changedKeys }) {
     //
     changedKeys.forEach((updatedSetting) => {
       this.log(
@@ -571,7 +571,7 @@ class radarSensor extends TuyaSpecificClusterDevice {
   }
 }
 
-module.exports = radarSensor;
+module.exports = radarSensor_2;
 
 // {
 //   "ids": {
