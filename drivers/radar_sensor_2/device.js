@@ -64,7 +64,7 @@ class radarSensor2 extends TuyaSpecificClusterDevice {
     this.lastDistanceUpdateTime = 0;
   }
   async onNodeInit({ zclNode }) {
-  
+
     zclNode.endpoints[1].clusters.tuya.on("response", (response) => {
       //this.log('Response event received:', response); // Added for debugging
       this.updatePosition(response);
@@ -121,7 +121,10 @@ class radarSensor2 extends TuyaSpecificClusterDevice {
   }
 
   onDeleted() {
-    this.log("Radar sensor removed")
+    if (this.zclNode && this.zclNode.endpoints[1].clusters.tuya) {
+      this.zclNode.endpoints[1].clusters.tuya.removeListener("response", this.updatePosition);
+    }
+    this.log("Radar sensor removed");
   }
 
   async onSettings({ newSettings, changedKeys }) {
