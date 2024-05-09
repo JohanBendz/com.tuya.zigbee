@@ -72,5 +72,8 @@ typings
 # Added by Homey CLI
 /.homeybuild/
 
+# Added by Homey Composer
+/app.json
+
 # Idea
 .idea/
