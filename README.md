@@ -485,7 +485,7 @@ Supported devices:
 
 - Smart Garden Irrigation With Timer
     _TZE200_arge1ptm / TS0601 (QOTO QT-05M)
-    _TZE200_xlppj4f5 / TS0601 (Neo QT-05M)
+    _TZE200_xlppj4f5 / TS0601 (Immax Neo QT-05M)
 
 - Zigbee Repeater
     _TZ3000_m0vaazab / TS0207
