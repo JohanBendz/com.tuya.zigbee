@@ -38,7 +38,7 @@
     "large": "{{driverAssetsPath}}/images/large.jpg"
   },
   "zigbee": {
-    "manufacturerName": ["_TZE200_arge1ptm"],
+    "manufacturerName": ["_TZE200_arge1ptm", "_TZE200_xlppj4f5"],
     "productId": ["TS0601"],
     "endpoints": {
       "1": {

@@ -43,6 +43,7 @@ countdown | Integer | {   "unit": "s",   "min": 0,   "max": 86400,   "scale": 0,
 const setDeviceDatapoints = (manufacturerName) => {
   switch (manufacturerName) {
     case "_TZE200_arge1ptm":
+    case "_TZE200_xlppj4f5":
       return {
         valve_state_auto_shutdown: 2,
         water_flow: 3,
