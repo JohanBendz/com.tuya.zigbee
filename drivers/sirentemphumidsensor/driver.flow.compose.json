@@ -32,7 +32,7 @@
                 "en": "Change the alarm state to [[alarm_state]]",
                 "nl": "Verander de alarm toestand naar [[alarm_state]]",
                 "de": "Ändern des Alarmstatus zu [[alarm_state]]"
-              },
+            },
             "hint": {
                 "en": "Change the alarm state; sound or silence the alarm",
                 "nl": "Verander de alarm toestand; luiden of uitschakelen van het alarm",
