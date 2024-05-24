@@ -1,0 +1,130 @@
+{
+    "triggers": [
+        {
+            "id": "alarm_breathe_presence",
+            "title": {
+                "en": "Breath presence",
+                "nl": "Adem aanwezigheid",
+                "de": "Atempräsenz",
+                "fr": "Présence respiratoire",
+                "it": "Presenza del respiro",
+                "sv": "Andningsnärvaro",
+                "no": "Åndedrettsnærvær",
+                "es": "Presencia de la respiración",
+                "da": "Åndedræt nærvær",
+                "ru": "Присутствие дыхания",
+                "pl": "Obecność oddechu"
+            },
+            "titleFormatted": {
+                "en": "Breath presence",
+                "nl": "Adem aanwezigheid",
+                "de": "Atempräsenz",
+                "fr": "Présence respiratoire",
+                "it": "Presenza del respiro",
+                "sv": "Andningsnärvaro",
+                "no": "Åndedrettsnærvær",
+                "es": "Presencia de la respiración",
+                "da": "Åndedræt nærvær",
+                "ru": "Присутствие дыхания",
+                "pl": "Obecność oddechu"
+            },
+            "hint": {
+                "en": "This card will trigger when Breath Presence is activated.",
+                "nl": "Deze kaart wordt alleen geactiveerd wanneer de Adem aanwezigheid actief is.",
+                "de": "Diese Karte wird ausgelöst, wenn die Atempräsenz aktiviert wird."
+            },
+            "args": []
+        },
+        {
+            "id": "alarm_small_presence",
+            "title": {
+                "en": "Small Presence",
+                "nl": "Kleine Aanwezigheid",
+                "de": "Kleine Präsenz",
+                "fr": "Petite Présence",
+                "it": "Presenza Piccola",
+                "sv": "Liten Närvaro",
+                "no": "Liten Nærvær",
+                "es": "Pequeña Presencia",
+                "da": "Lille Nærvær",
+                "ru": "Маленькое Присутствие",
+                "pl": "Mała Obecność"
+            },
+            "titleFormatted": {
+                "en": "Small Presence",
+                "nl": "Kleine Aanwezigheid",
+                "de": "Kleine Präsenz",
+                "fr": "Petite Présence",
+                "it": "Presenza Piccola",
+                "sv": "Liten Närvaro",
+                "no": "Liten Nærvær",
+                "es": "Pequeña Presencia",
+                "da": "Lille Nærvær",
+                "ru": "Маленькое Присутствие",
+                "pl": "Mała Obecność"
+            },
+            "hint": {
+                "en": "This card will trigger when Small Presence is activated.",
+                "nl": "Deze kaart wordt alleen geactiveerd wanneer de Kleine aanwezigheid actief is.",
+                "de": "Diese Karte wird ausgelöst, wenn die Kleine Präsenz aktiviert wird."
+            },
+            "args": []
+        },
+        {
+            "id": "large_small_presence",
+            "title": {
+                "en": "Large Presence",
+                "nl": "Grote Aanwezigheid",
+                "de": "Große Präsenz",
+                "fr": "Grande Présence",
+                "it": "Presenza Ampia",
+                "sv": "Stor Närvaro",
+                "no": "Stor Nærvær",
+                "es": "Presencia Grande",
+                "da": "Stor Nærvær",
+                "ru": "Большое Присутствие",
+                "pl": "Duża Obecność"
+            },
+            "titleFormatted": {
+                "en": "Large Presence",
+                "nl": "Grote Aanwezigheid",
+                "de": "Große Präsenz",
+                "fr": "Grande Présence",
+                "it": "Presenza Ampia",
+                "sv": "Stor Närvaro",
+                "no": "Stor Nærvær",
+                "es": "Presencia Grande",
+                "da": "Stor Nærvær",
+                "ru": "Большое Присутствие",
+                "pl": "Duża Obecność"
+            },
+            "hint": {
+                "en": "This card will trigger when Large Presence is activated.",
+                "nl": "Deze kaart wordt alleen geactiveerd wanneer de Grote aanwezigheid actief is.",
+                "de": "Diese Karte wird ausgelöst, wenn die Große Präsenz aktiviert wird."
+            },
+            "args": []
+        }
+    ],
+    "conditions": [
+        {
+            "id": "alarm_breathe_presence",
+            "title": {
+                "en": "Breath Presence alarm {{is|is not}} on"
+            }
+        },
+        {
+            "id": "alarm_small_presence",
+            "title": {
+                "en": "Small Presence alarm !{{is|is not}} on"
+            }
+        },
+        {
+            "id": "alarm_large_presence",
+            "title": {
+                "en": "Large Presence alarm !{{is|is not}} on"
+            }
+        }
+    ],
+    "actions": []
+}
