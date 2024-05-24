@@ -282,6 +282,129 @@
         ]
       },
       {
+        "id": "alarm_breathe_presence",
+        "title": {
+          "en": "Breath presence",
+          "nl": "Adem aanwezigheid",
+          "de": "Atempräsenz",
+          "fr": "Présence respiratoire",
+          "it": "Presenza del respiro",
+          "sv": "Andningsnärvaro",
+          "no": "Åndedrettsnærvær",
+          "es": "Presencia de la respiración",
+          "da": "Åndedræt nærvær",
+          "ru": "Присутствие дыхания",
+          "pl": "Obecność oddechu"
+        },
+        "titleFormatted": {
+          "en": "Breath presence",
+          "nl": "Adem aanwezigheid",
+          "de": "Atempräsenz",
+          "fr": "Présence respiratoire",
+          "it": "Presenza del respiro",
+          "sv": "Andningsnärvaro",
+          "no": "Åndedrettsnærvær",
+          "es": "Presencia de la respiración",
+          "da": "Åndedræt nærvær",
+          "ru": "Присутствие дыхания",
+          "pl": "Obecność oddechu"
+        },
+        "hint": {
+          "en": "This card will trigger when Breath Presence is activated.",
+          "nl": "Deze kaart wordt alleen geactiveerd wanneer de Adem aanwezigheid actief is.",
+          "de": "Diese Karte wird ausgelöst, wenn die Atempräsenz aktiviert wird."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_2"
+          }
+        ]
+      },
+      {
+        "id": "alarm_small_presence",
+        "title": {
+          "en": "Small Presence",
+          "nl": "Kleine Aanwezigheid",
+          "de": "Kleine Präsenz",
+          "fr": "Petite Présence",
+          "it": "Presenza Piccola",
+          "sv": "Liten Närvaro",
+          "no": "Liten Nærvær",
+          "es": "Pequeña Presencia",
+          "da": "Lille Nærvær",
+          "ru": "Маленькое Присутствие",
+          "pl": "Mała Obecność"
+        },
+        "titleFormatted": {
+          "en": "Small Presence",
+          "nl": "Kleine Aanwezigheid",
+          "de": "Kleine Präsenz",
+          "fr": "Petite Présence",
+          "it": "Presenza Piccola",
+          "sv": "Liten Närvaro",
+          "no": "Liten Nærvær",
+          "es": "Pequeña Presencia",
+          "da": "Lille Nærvær",
+          "ru": "Маленькое Присутствие",
+          "pl": "Mała Obecność"
+        },
+        "hint": {
+          "en": "This card will trigger when Small Presence is activated.",
+          "nl": "Deze kaart wordt alleen geactiveerd wanneer de Kleine aanwezigheid actief is.",
+          "de": "Diese Karte wird ausgelöst, wenn die Kleine Präsenz aktiviert wird."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_2"
+          }
+        ]
+      },
+      {
+        "id": "large_small_presence",
+        "title": {
+          "en": "Large Presence",
+          "nl": "Grote Aanwezigheid",
+          "de": "Große Präsenz",
+          "fr": "Grande Présence",
+          "it": "Presenza Ampia",
+          "sv": "Stor Närvaro",
+          "no": "Stor Nærvær",
+          "es": "Presencia Grande",
+          "da": "Stor Nærvær",
+          "ru": "Большое Присутствие",
+          "pl": "Duża Obecność"
+        },
+        "titleFormatted": {
+          "en": "Large Presence",
+          "nl": "Grote Aanwezigheid",
+          "de": "Große Präsenz",
+          "fr": "Grande Présence",
+          "it": "Presenza Ampia",
+          "sv": "Stor Närvaro",
+          "no": "Stor Nærvær",
+          "es": "Presencia Grande",
+          "da": "Stor Nærvær",
+          "ru": "Большое Присутствие",
+          "pl": "Duża Obecność"
+        },
+        "hint": {
+          "en": "This card will trigger when Large Presence is activated.",
+          "nl": "Deze kaart wordt alleen geactiveerd wanneer de Grote aanwezigheid actief is.",
+          "de": "Diese Karte wird ausgelöst, wenn die Große Präsenz aktiviert wird."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_2"
+          }
+        ]
+      },
+      {
         "id": "alarm_siren",
         "title": {
           "en": "Siren Alarm",
@@ -426,6 +549,49 @@
                 }
               }
             ]
+          }
+        ]
+      },
+      {
+        "id": "water_flow_changed",
+        "title": {
+          "en": "water_flow-level changed",
+          "nl": "water_flow-niveau veranderd",
+          "de": "water_flowm-Niveau geändert",
+          "fr": "Intensité lumineuse a été modifiée",
+          "it": "Intensità luminosa modificata",
+          "sv": "water_flowningsnivå ändrades",
+          "no": "Dempingsnivå ble endret",
+          "es": "La intensidad de la luz ha cambiado",
+          "da": "Lysniveau ændret",
+          "ru": "Уровень яркости изменен",
+          "pl": "Zmiana poziomu przygaszenia"
+        },
+        "tokens": [
+          {
+            "name": "water_flow",
+            "type": "number",
+            "title": {
+              "en": "Level",
+              "nl": "Niveau",
+              "de": "Niveau",
+              "fr": "Niveau",
+              "it": "Livello",
+              "sv": "Nivå",
+              "no": "Nivå",
+              "es": "Nivel",
+              "da": "Niveau",
+              "ru": "Уровень",
+              "pl": "Poziom"
+            },
+            "example": 0.5
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_water_timer"
           }
         ]
       },
@@ -820,6 +986,48 @@
           "pl": "Mały czujnik Obecność !{{włączony|wyłączony}}"
         },
         "id": "the-small-presence-alarm-is-onoff"
+      },
+      {
+        "id": "alarm_breathe_presence",
+        "title": {
+          "en": "Breath Presence alarm !{{is|is not}} on",
+          "nl": "Adem aanwezigheidsalarm !{{is|is niet}} aan"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_2"
+          }
+        ]
+      },
+      {
+        "id": "alarm_small_presence",
+        "title": {
+          "en": "Small Presence alarm !{{is|is not}} on",
+          "nl": "Kleine aanwezigheidsalarm !{{is|is niet}} aan"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_2"
+          }
+        ]
+      },
+      {
+        "id": "alarm_large_presence",
+        "title": {
+          "en": "Large Presence alarm !{{is|is not}} on",
+          "nl": "Groot aanwezigheidsalarm !{{is|is niet}} aan"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_2"
+          }
+        ]
       },
       {
         "id": "window_open_status_get",
@@ -1385,6 +1593,65 @@
                 }
               }
             ]
+          }
+        ]
+      },
+      {
+        "id": "water_flow",
+        "highlight": true,
+        "title": {
+          "en": "waterflow to",
+          "nl": "waterflow naar",
+          "de": "waterflow auf"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_water_timer"
+          },
+          {
+            "name": "water_flow",
+            "type": "range",
+            "min": 0,
+            "max": 1,
+            "step": 0.01,
+            "value": 0.5,
+            "label": "%",
+            "labelMultiplier": 100,
+            "labelDecimals": 0
+          }
+        ]
+      },
+      {
+        "id": "water_flow_relative",
+        "title": {
+          "en": "Set relative water flow-level",
+          "nl": "Zet relatief water flow-niveau",
+          "de": "Relatives waterflow Niveau setzen"
+        },
+        "hint": {
+          "en": "decrease or increase with respect to the device's current waterflow level.",
+          "nl": "Verhoog of verlaag de waterflow ten opzichte van het huidige waterflow niveau van het apparaat.",
+          "ru": "Уменьшите или увеличьте яркость относительно текущего уровня яркости устройства.",
+          "pl": "Przygaś lub rozjaśnij względem obecnego poziomu przygaszenia urządzenia."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_water_timer"
+          },
+          {
+            "name": "water_flow",
+            "type": "range",
+            "min": 0,
+            "max": 1,
+            "step": 0.01,
+            "value": 0.5,
+            "label": "%",
+            "labelMultiplier": 100,
+            "labelDecimals": 0
           }
         ]
       },
