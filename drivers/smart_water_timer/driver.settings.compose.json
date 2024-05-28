@@ -1,0 +1,51 @@
+[
+    {
+      "id": "batteryThreshold",
+      "type": "number",
+      "label": {
+        "en": "Battery Low Alarm Voltage Threshold (%)",
+        "it": "Soglia dell'allarme di batteria scarica "
+      },
+      "hint": {
+        "en": "This setting determines the threshold before a battery alarm is given.",
+        "it": "Quest'impostazione determina la soglia alla quale l'allarme di batteria scarica viene dato"
+      },
+      "value": 20,
+      "attr": {
+        "step": 1,
+        "min": 1,
+        "max": 99
+      }
+    },
+    {
+      "id": "shutdown_timer",
+      "type": "number",
+      "label": {
+        "en": "Maximum open percentage",
+        "nl": "Maximale open percentage"
+      },
+      "hint": {
+        "en": "Auto shutdown in seconds.",
+        "nl": "Automatische stop in seconden"
+      },
+      "value": 120,
+      "min": 0,
+      "max": 14400
+    },
+    {
+      "id": "valve_state_auto_shutdown",
+      "type": "number",
+      "label": {
+        "en": "Valve open in % after auto shutdown.",
+        "nl": "Kraan open in % na automatische stop."
+      },
+      "hint": {
+        "en": "Set valve to % with auto shutdown.",
+        "nl": "Zet kraan op % met automatische stop."
+      },
+      "value": 100,
+      "min": 0,
+      "step": 5,
+      "max": 100
+    }
+  ]

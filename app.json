@@ -108,6 +108,941 @@
     ]
   },
   "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "The breath alarm turned off",
+          "nl": "Het adem alarm gaat uit",
+          "de": "Der Atem-Alarm ist ausgegangen",
+          "fr": "L'alarme respiratoire s'est désactivée",
+          "it": "L'allarme di respiro è stato disattivato",
+          "sv": "Andningslarmet inaktiverat",
+          "no": "Åndedrettsalarmen deaktivert",
+          "es": "La alarma de respiración se ha desactivado",
+          "da": "Åndedrætsalarmen blev deaktiveret",
+          "ru": "Сигнал дыхания выключен",
+          "pl": "Czujnik oddechu wyłączony"
+        },
+        "id": "the-breath-alarm-turned-off"
+      },
+      {
+        "title": {
+          "en": "The breath alarm turned on",
+          "nl": "Het adem alarm gaat aan",
+          "de": "Der Atem-Alarm ist angegangen",
+          "fr": "L'alarme respiratoire s'est activée",
+          "it": "L'allarme di respiro è stato attivato",
+          "sv": "Andningslarmet aktiverat",
+          "no": "Åndedrettsalarmen aktivert",
+          "es": "La alarma de respiración se ha activado",
+          "da": "Åndedrætsalarmen blev aktiveret",
+          "ru": "Сигнал дыхания включен",
+          "pl": "Czujnik oddechu włączony"
+        },
+        "id": "the-breath-alarm-turned-on"
+      },
+      {
+        "title": {
+          "en": "The Large Presence alarm turned off",
+          "nl": "De grote Aanwezigheid alarm gaat uit",
+          "de": "Der große Präsenz Alarm ist ausgegangen",
+          "fr": "L'alarme Grande Présence s'est désactivée",
+          "it": "L'allarme Presenza Ampia è stato disattivato",
+          "sv": "Stor Närvaro larm inaktiverat",
+          "no": "Stor Nærvær alarm deaktivert",
+          "es": "La alarma de Presencia Grande se ha desactivado",
+          "da": "Stor Nærvær alarm blev deaktiveret",
+          "ru": "Большой сигнал Присутствие выключен",
+          "pl": "Duży czujnik Obecność wyłączony"
+        },
+        "id": "the-large-presence-alarm-turned-off"
+      },
+      {
+        "title": {
+          "en": "The Large Presence alarm turned on",
+          "nl": "Grote Aanwezigheid alarm ging af",
+          "de": "Große Präsenz Alarm ist angegangen",
+          "fr": "Alarme Grande Présence s'est déclenchée",
+          "it": "Allarme Presenza Ampia attivato",
+          "sv": "Stor Närvaro larm aktiverat",
+          "no": "Stor Nærvær alarm aktivert",
+          "es": "Alarma de Presencia Grande activada",
+          "da": "Stor Nærvær alarm blev aktiveret",
+          "ru": "Большой сигнал Присутствие включен",
+          "pl": "Duży czujnik Obecność włączony"
+        },
+        "id": "the-large-presence-alarm-turned-on"
+      },
+      {
+        "title": {
+          "en": "The Small Presence alarm turned off",
+          "nl": "De kleine Aanwezigheid alarm gaat uit",
+          "de": "Der kleine Präsenz Alarm ist ausgegangen",
+          "fr": "L'alarme Petite Présence s'est désactivée",
+          "it": "L'allarme Presenza Piccola è stato disattivato",
+          "sv": "Liten Närvaro larm inaktiverat",
+          "no": "Liten Nærvær alarm deaktivert",
+          "es": "La alarma de Pequeña Presencia se ha desactivado",
+          "da": "Lille Nærvær alarm blev deaktiveret",
+          "ru": "Маленький сигнал Присутствие выключен",
+          "pl": "Mały czujnik Obecność wyłączony"
+        },
+        "id": "the-small-presence-alarm-turned-off"
+      },
+      {
+        "title": {
+          "en": "The Small Presence alarm turned on",
+          "nl": "De kleine Aanwezigheid alarm gaat aan",
+          "de": "Der kleine Präsenz Alarm ist angegangen",
+          "fr": "L'alarme Petite Présence s'est activée",
+          "it": "L'allarme Presenza Piccola è stato attivato",
+          "sv": "Liten Närvaro larm aktiverat",
+          "no": "Liten Nærvær alarm aktivert",
+          "es": "La alarma de Pequeña Presencia se ha activado",
+          "da": "Lille Nærvær alarm blev aktiveret",
+          "ru": "Маленький сигнал Присутствие включен",
+          "pl": "Mały czujnik Obecność włączony"
+        },
+        "id": "the-small-presence-alarm-turned-on"
+      },
+      {
+        "id": "handheld_remote_4_buttons",
+        "title": {
+          "en": "Button was pressed"
+        },
+        "titleFormatted": {
+          "en": "[[button]] button was pressed [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=handheld_remote_4_buttons"
+          },
+          {
+            "name": "button",
+            "type": "dropdown",
+            "title": {
+              "en": "Button"
+            },
+            "values": [
+              {
+                "id": "button1",
+                "label": {
+                  "en": "Button 1"
+                }
+              },
+              {
+                "id": "button2",
+                "label": {
+                  "en": "Button 2"
+                }
+              },
+              {
+                "id": "button3",
+                "label": {
+                  "en": "Button 3"
+                }
+              },
+              {
+                "id": "button4",
+                "label": {
+                  "en": "Button 4"
+                }
+              }
+            ]
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Action"
+            },
+            "values": [
+              {
+                "id": "single",
+                "label": {
+                  "en": "once"
+                }
+              },
+              {
+                "id": "double",
+                "label": {
+                  "en": "twice"
+                }
+              },
+              {
+                "id": "long",
+                "label": {
+                  "en": "long"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "alarm_breathe_presence",
+        "title": {
+          "en": "Breath presence",
+          "nl": "Adem aanwezigheid",
+          "de": "Atempräsenz",
+          "fr": "Présence respiratoire",
+          "it": "Presenza del respiro",
+          "sv": "Andningsnärvaro",
+          "no": "Åndedrettsnærvær",
+          "es": "Presencia de la respiración",
+          "da": "Åndedræt nærvær",
+          "ru": "Присутствие дыхания",
+          "pl": "Obecność oddechu"
+        },
+        "titleFormatted": {
+          "en": "Breath presence",
+          "nl": "Adem aanwezigheid",
+          "de": "Atempräsenz",
+          "fr": "Présence respiratoire",
+          "it": "Presenza del respiro",
+          "sv": "Andningsnärvaro",
+          "no": "Åndedrettsnærvær",
+          "es": "Presencia de la respiración",
+          "da": "Åndedræt nærvær",
+          "ru": "Присутствие дыхания",
+          "pl": "Obecność oddechu"
+        },
+        "hint": {
+          "en": "This card will trigger when Breath Presence is activated.",
+          "nl": "Deze kaart wordt alleen geactiveerd wanneer de Adem aanwezigheid actief is.",
+          "de": "Diese Karte wird ausgelöst, wenn die Atempräsenz aktiviert wird."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_2"
+          }
+        ]
+      },
+      {
+        "id": "alarm_small_presence",
+        "title": {
+          "en": "Small Presence",
+          "nl": "Kleine Aanwezigheid",
+          "de": "Kleine Präsenz",
+          "fr": "Petite Présence",
+          "it": "Presenza Piccola",
+          "sv": "Liten Närvaro",
+          "no": "Liten Nærvær",
+          "es": "Pequeña Presencia",
+          "da": "Lille Nærvær",
+          "ru": "Маленькое Присутствие",
+          "pl": "Mała Obecność"
+        },
+        "titleFormatted": {
+          "en": "Small Presence",
+          "nl": "Kleine Aanwezigheid",
+          "de": "Kleine Präsenz",
+          "fr": "Petite Présence",
+          "it": "Presenza Piccola",
+          "sv": "Liten Närvaro",
+          "no": "Liten Nærvær",
+          "es": "Pequeña Presencia",
+          "da": "Lille Nærvær",
+          "ru": "Маленькое Присутствие",
+          "pl": "Mała Obecność"
+        },
+        "hint": {
+          "en": "This card will trigger when Small Presence is activated.",
+          "nl": "Deze kaart wordt alleen geactiveerd wanneer de Kleine aanwezigheid actief is.",
+          "de": "Diese Karte wird ausgelöst, wenn die Kleine Präsenz aktiviert wird."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_2"
+          }
+        ]
+      },
+      {
+        "id": "large_small_presence",
+        "title": {
+          "en": "Large Presence",
+          "nl": "Grote Aanwezigheid",
+          "de": "Große Präsenz",
+          "fr": "Grande Présence",
+          "it": "Presenza Ampia",
+          "sv": "Stor Närvaro",
+          "no": "Stor Nærvær",
+          "es": "Presencia Grande",
+          "da": "Stor Nærvær",
+          "ru": "Большое Присутствие",
+          "pl": "Duża Obecność"
+        },
+        "titleFormatted": {
+          "en": "Large Presence",
+          "nl": "Grote Aanwezigheid",
+          "de": "Große Präsenz",
+          "fr": "Grande Présence",
+          "it": "Presenza Ampia",
+          "sv": "Stor Närvaro",
+          "no": "Stor Nærvær",
+          "es": "Presencia Grande",
+          "da": "Stor Nærvær",
+          "ru": "Большое Присутствие",
+          "pl": "Duża Obecność"
+        },
+        "hint": {
+          "en": "This card will trigger when Large Presence is activated.",
+          "nl": "Deze kaart wordt alleen geactiveerd wanneer de Grote aanwezigheid actief is.",
+          "de": "Diese Karte wird ausgelöst, wenn die Große Präsenz aktiviert wird."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_2"
+          }
+        ]
+      },
+      {
+        "id": "alarm_siren",
+        "title": {
+          "en": "Siren Alarm",
+          "nl": "Sirene Alarm",
+          "de": "Sirenenalarm"
+        },
+        "titleFormatted": {
+          "en": "Siren Alarm",
+          "nl": "Sirene Alarm",
+          "de": "Sirenenalarm"
+        },
+        "hint": {
+          "en": "This card will trigger when siren is activated.",
+          "nl": "Deze kaart wordt alleen geactiveerd wanneer de sirene actief is.",
+          "de": "Diese Karte wird ausgelöst, wenn die Sirene aktiviert wird."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=sirentemphumidsensor"
+          }
+        ]
+      },
+      {
+        "id": "smart_remote_1_button",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "Button had [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_remote_1_button"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "oneClick",
+                "label": {
+                  "en": "1 Click"
+                }
+              },
+              {
+                "id": "twoClicks",
+                "label": {
+                  "en": "2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "smart_remote_1_button_2",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "Button had [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_remote_1_button_2"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "oneClick",
+                "label": {
+                  "en": "1 Click"
+                }
+              },
+              {
+                "id": "twoClicks",
+                "label": {
+                  "en": "2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "smart_remote_4_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "The [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_remote_4_buttons"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "leftUp",
+                "label": {
+                  "en": "Upper Left Button Pressed"
+                }
+              },
+              {
+                "id": "rightUp",
+                "label": {
+                  "en": "Upper Right Button Pressed"
+                }
+              },
+              {
+                "id": "leftDown",
+                "label": {
+                  "en": "Lower Left Button Pressed"
+                }
+              },
+              {
+                "id": "rightDown",
+                "label": {
+                  "en": "Lower Right Button Pressed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "water_flow_changed",
+        "title": {
+          "en": "water_flow-level changed",
+          "nl": "water_flow-niveau veranderd",
+          "de": "water_flowm-Niveau geändert",
+          "fr": "Intensité lumineuse a été modifiée",
+          "it": "Intensità luminosa modificata",
+          "sv": "water_flowningsnivå ändrades",
+          "no": "Dempingsnivå ble endret",
+          "es": "La intensidad de la luz ha cambiado",
+          "da": "Lysniveau ændret",
+          "ru": "Уровень яркости изменен",
+          "pl": "Zmiana poziomu przygaszenia"
+        },
+        "tokens": [
+          {
+            "name": "water_flow",
+            "type": "number",
+            "title": {
+              "en": "Level",
+              "nl": "Niveau",
+              "de": "Niveau",
+              "fr": "Niveau",
+              "it": "Livello",
+              "sv": "Nivå",
+              "no": "Nivå",
+              "es": "Nivel",
+              "da": "Niveau",
+              "ru": "Уровень",
+              "pl": "Poziom"
+            },
+            "example": 0.5
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_water_timer"
+          }
+        ]
+      },
+      {
+        "id": "wall_remote_1_gang_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "Button had [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_1_gang"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "oneClick",
+                "label": {
+                  "en": "1 Click"
+                }
+              },
+              {
+                "id": "twoClicks",
+                "label": {
+                  "en": "2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall_remote_2_gang_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "The [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_2_gang"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "left-oneClick",
+                "label": {
+                  "en": "Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "left-twoClicks",
+                "label": {
+                  "en": "Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "right-oneClick",
+                "label": {
+                  "en": "Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "right-twoClicks",
+                "label": {
+                  "en": "Right Button: 2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall_remote_3_gang_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "The [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_3_gang"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "left-oneClick",
+                "label": {
+                  "en": "Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "left-twoClicks",
+                "label": {
+                  "en": "Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "right-oneClick",
+                "label": {
+                  "en": "Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "right-twoClicks",
+                "label": {
+                  "en": "Right Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "center-oneClick",
+                "label": {
+                  "en": "Center Button: 1 Click"
+                }
+              },
+              {
+                "id": "center-twoClicks",
+                "label": {
+                  "en": "Center Button: 2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall_remote_4_gang_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "The [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_4_gang"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "leftUp-oneClick",
+                "label": {
+                  "en": "Upper Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "leftUp-twoClicks",
+                "label": {
+                  "en": "Upper Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "rightUp-oneClick",
+                "label": {
+                  "en": "Upper Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "rightUp-twoClicks",
+                "label": {
+                  "en": "Upper Right Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "leftDown-oneClick",
+                "label": {
+                  "en": "Lower Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "leftDown-twoClicks",
+                "label": {
+                  "en": "Lower Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "rightDown-oneClick",
+                "label": {
+                  "en": "Lower Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "rightDown-twoClicks",
+                "label": {
+                  "en": "Lower Right Button: 2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall_remote_4_gang_buttons_2",
+        "title": {
+          "en": "Button"
+        },
+        "titleFormatted": {
+          "en": "The [[button]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_4_gang_2"
+          },
+          {
+            "name": "button",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Pressed"
+            },
+            "values": [
+              {
+                "id": "leftUp",
+                "label": {
+                  "en": "Upper Left Button Pressed"
+                }
+              },
+              {
+                "id": "rightUp",
+                "label": {
+                  "en": "Upper Right Button Pressed"
+                }
+              },
+              {
+                "id": "leftDown",
+                "label": {
+                  "en": "Lower Left Button Pressed"
+                }
+              },
+              {
+                "id": "rightDown",
+                "label": {
+                  "en": "Lower Right Button Pressed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall_remote_4_gang_buttons_3",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "The [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_4_gang_3"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "leftUp-oneClick",
+                "label": {
+                  "en": "Upper Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "leftUp-twoClicks",
+                "label": {
+                  "en": "Upper Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "rightUp-oneClick",
+                "label": {
+                  "en": "Upper Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "rightUp-twoClicks",
+                "label": {
+                  "en": "Upper Right Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "leftDown-oneClick",
+                "label": {
+                  "en": "Lower Left Button: 1 Click"
+                }
+              },
+              {
+                "id": "leftDown-twoClicks",
+                "label": {
+                  "en": "Lower Left Button: 2 Clicks"
+                }
+              },
+              {
+                "id": "rightDown-oneClick",
+                "label": {
+                  "en": "Lower Right Button: 1 Click"
+                }
+              },
+              {
+                "id": "rightDown-twoClicks",
+                "label": {
+                  "en": "Lower Right Button: 2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "title": {
+          "en": "The breath alarm is !{{on|off}}",
+          "nl": "Het adem alarm is !{{aan|uit}}",
+          "de": "Der Atem-Alarm ist !{{an|aus}}",
+          "fr": "L'alarme respiratoire est !{{en marche|arrêtée}}",
+          "it": "L'allarme di respiro è !{{acceso|spento}}",
+          "sv": "Andningslarmet är !{{på|av}}",
+          "no": "Åndedrettsalarmen er !{{på|av}}",
+          "es": "La alarma de respiración está !{{activada|desactivada}}",
+          "da": "Åndedrætsalarmen er !{{tændt|slukket}}",
+          "ru": "Сигнал дыхания !{{вкл.|выкл.}}",
+          "pl": "Czujnik oddechu !{{włączony|wyłączony}}"
+        },
+        "id": "the-breath-alarm-is-onoff"
+      },
+      {
+        "title": {
+          "en": "The Large Presence alarm is !{{on|off}}",
+          "nl": "De grote Aanwezigheid alarm is !{{aan|uit}}",
+          "de": "Der große Präsenz Alarm ist !{{an|aus}}",
+          "fr": "L'alarme Grande Présence est !{{en marche|arrêtée}}",
+          "it": "L'allarme Presenza Ampia è !{{acceso|spento}}",
+          "sv": "Stor Närvaro larm är !{{på|av}}",
+          "no": "Stor Nærvær alarm er !{{på|av}}",
+          "es": "La alarma de Presencia Grande está !{{activada|desactivada}}",
+          "da": "Stor Nærvær alarm er !{{tændt|slukket}}",
+          "ru": "Большой сигнал Присутствие !{{вкл.|выкл.}}",
+          "pl": "Duży czujnik Obecność !{{włączony|wyłączony}}"
+        },
+        "id": "the-large-presence-alarm-is-onoff"
+      },
+      {
+        "title": {
+          "en": "The Small Presence alarm is !{{on|off}}",
+          "nl": "De kleine Aanwezigheid alarm is !{{aan|uit}}",
+          "de": "Der kleine Präsenz Alarm ist !{{an|aus}}",
+          "fr": "L'alarme Petite Présence est !{{en marche|arrêtée}}",
+          "it": "L'allarme Presenza Piccola è !{{acceso|spento}}",
+          "sv": "Liten Närvaro larm är !{{på|av}}",
+          "no": "Liten Nærvær alarm er !{{på|av}}",
+          "es": "La alarma de Pequeña Presencia está !{{activada|desactivada}}",
+          "da": "Lille Nærvær alarm er !{{tændt|slukket}}",
+          "ru": "Маленький сигнал Присутствие !{{вкл.|выкл.}}",
+          "pl": "Mały czujnik Obecność !{{włączony|wyłączony}}"
+        },
+        "id": "the-small-presence-alarm-is-onoff"
+      },
+      {
+        "id": "alarm_breathe_presence",
+        "title": {
+          "en": "Breath Presence alarm !{{is|is not}} on",
+          "nl": "Adem aanwezigheidsalarm !{{is|is niet}} aan"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_2"
+          }
+        ]
+      },
+      {
+        "id": "alarm_small_presence",
+        "title": {
+          "en": "Small Presence alarm !{{is|is not}} on",
+          "nl": "Kleine aanwezigheidsalarm !{{is|is niet}} aan"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_2"
+          }
+        ]
+      },
+      {
+        "id": "alarm_large_presence",
+        "title": {
+          "en": "Large Presence alarm !{{is|is not}} on",
+          "nl": "Groot aanwezigheidsalarm !{{is|is niet}} aan"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_2"
+          }
+        ]
+      },
+      {
+        "id": "window_open_status_get",
+        "title": {
+          "en": "Window !{{is|is not}} open"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=thermostatic_radiator_valve"
+          }
+        ]
+      }
+    ],
     "actions": [
       {
         "id": "resetEnergyMeter",
@@ -662,6 +1597,65 @@
         ]
       },
       {
+        "id": "water_flow",
+        "highlight": true,
+        "title": {
+          "en": "waterflow to",
+          "nl": "waterflow naar",
+          "de": "waterflow auf"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_water_timer"
+          },
+          {
+            "name": "water_flow",
+            "type": "range",
+            "min": 0,
+            "max": 1,
+            "step": 0.01,
+            "value": 0.5,
+            "label": "%",
+            "labelMultiplier": 100,
+            "labelDecimals": 0
+          }
+        ]
+      },
+      {
+        "id": "water_flow_relative",
+        "title": {
+          "en": "Set relative water flow-level",
+          "nl": "Zet relatief water flow-niveau",
+          "de": "Relatives waterflow Niveau setzen"
+        },
+        "hint": {
+          "en": "decrease or increase with respect to the device's current waterflow level.",
+          "nl": "Verhoog of verlaag de waterflow ten opzichte van het huidige waterflow niveau van het apparaat.",
+          "ru": "Уменьшите или увеличьте яркость относительно текущего уровня яркости устройства.",
+          "pl": "Przygaś lub rozjaśnij względem obecnego poziomu przygaszenia urządzenia."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_water_timer"
+          },
+          {
+            "name": "water_flow",
+            "type": "range",
+            "min": 0,
+            "max": 1,
+            "step": 0.01,
+            "value": 0.5,
+            "label": "%",
+            "labelMultiplier": 100,
+            "labelDecimals": 0
+          }
+        ]
+      },
+      {
         "id": "window_open_status_set",
         "title": {
           "en": "Set window open status"
@@ -681,589 +1675,6 @@
             "title": {
               "en": "Open"
             }
-          }
-        ]
-      }
-    ],
-    "triggers": [
-      {
-        "id": "handheld_remote_4_buttons",
-        "title": {
-          "en": "Button was pressed"
-        },
-        "titleFormatted": {
-          "en": "[[button]] button was pressed [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=handheld_remote_4_buttons"
-          },
-          {
-            "name": "button",
-            "type": "dropdown",
-            "title": {
-              "en": "Button"
-            },
-            "values": [
-              {
-                "id": "button1",
-                "label": {
-                  "en": "Button 1"
-                }
-              },
-              {
-                "id": "button2",
-                "label": {
-                  "en": "Button 2"
-                }
-              },
-              {
-                "id": "button3",
-                "label": {
-                  "en": "Button 3"
-                }
-              },
-              {
-                "id": "button4",
-                "label": {
-                  "en": "Button 4"
-                }
-              }
-            ]
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Action"
-            },
-            "values": [
-              {
-                "id": "single",
-                "label": {
-                  "en": "once"
-                }
-              },
-              {
-                "id": "double",
-                "label": {
-                  "en": "twice"
-                }
-              },
-              {
-                "id": "long",
-                "label": {
-                  "en": "long"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "alarm_siren",
-        "title": {
-          "en": "Siren Alarm",
-          "nl": "Sirene Alarm",
-          "de": "Sirenenalarm"
-        },
-        "titleFormatted": {
-          "en": "Siren Alarm",
-          "nl": "Sirene Alarm",
-          "de": "Sirenenalarm"
-        },
-        "hint": {
-          "en": "This card will trigger when siren is activated.",
-          "nl": "Deze kaart wordt alleen geactiveerd wanneer de sirene actief is.",
-          "de": "Diese Karte wird ausgelöst, wenn die Sirene aktiviert wird."
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=sirentemphumidsensor"
-          }
-        ]
-      },
-      {
-        "id": "smart_remote_1_button",
-        "title": {
-          "en": "Button Action"
-        },
-        "titleFormatted": {
-          "en": "Button had [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=smart_remote_1_button"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Action"
-            },
-            "values": [
-              {
-                "id": "oneClick",
-                "label": {
-                  "en": "1 Click"
-                }
-              },
-              {
-                "id": "twoClicks",
-                "label": {
-                  "en": "2 Clicks"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "smart_remote_1_button_2",
-        "title": {
-          "en": "Button Action"
-        },
-        "titleFormatted": {
-          "en": "Button had [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=smart_remote_1_button_2"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Action"
-            },
-            "values": [
-              {
-                "id": "oneClick",
-                "label": {
-                  "en": "1 Click"
-                }
-              },
-              {
-                "id": "twoClicks",
-                "label": {
-                  "en": "2 Clicks"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "smart_remote_4_buttons",
-        "title": {
-          "en": "Button Action"
-        },
-        "titleFormatted": {
-          "en": "The [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=smart_remote_4_buttons"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Action"
-            },
-            "values": [
-              {
-                "id": "leftUp",
-                "label": {
-                  "en": "Upper Left Button Pressed"
-                }
-              },
-              {
-                "id": "rightUp",
-                "label": {
-                  "en": "Upper Right Button Pressed"
-                }
-              },
-              {
-                "id": "leftDown",
-                "label": {
-                  "en": "Lower Left Button Pressed"
-                }
-              },
-              {
-                "id": "rightDown",
-                "label": {
-                  "en": "Lower Right Button Pressed"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "wall_remote_1_gang_buttons",
-        "title": {
-          "en": "Button Action"
-        },
-        "titleFormatted": {
-          "en": "Button had [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=wall_remote_1_gang"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Action"
-            },
-            "values": [
-              {
-                "id": "oneClick",
-                "label": {
-                  "en": "1 Click"
-                }
-              },
-              {
-                "id": "twoClicks",
-                "label": {
-                  "en": "2 Clicks"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "wall_remote_2_gang_buttons",
-        "title": {
-          "en": "Button Action"
-        },
-        "titleFormatted": {
-          "en": "The [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=wall_remote_2_gang"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Action"
-            },
-            "values": [
-              {
-                "id": "left-oneClick",
-                "label": {
-                  "en": "Left Button: 1 Click"
-                }
-              },
-              {
-                "id": "left-twoClicks",
-                "label": {
-                  "en": "Left Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "right-oneClick",
-                "label": {
-                  "en": "Right Button: 1 Click"
-                }
-              },
-              {
-                "id": "right-twoClicks",
-                "label": {
-                  "en": "Right Button: 2 Clicks"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "wall_remote_3_gang_buttons",
-        "title": {
-          "en": "Button Action"
-        },
-        "titleFormatted": {
-          "en": "The [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=wall_remote_3_gang"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Action"
-            },
-            "values": [
-              {
-                "id": "left-oneClick",
-                "label": {
-                  "en": "Left Button: 1 Click"
-                }
-              },
-              {
-                "id": "left-twoClicks",
-                "label": {
-                  "en": "Left Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "right-oneClick",
-                "label": {
-                  "en": "Right Button: 1 Click"
-                }
-              },
-              {
-                "id": "right-twoClicks",
-                "label": {
-                  "en": "Right Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "center-oneClick",
-                "label": {
-                  "en": "Center Button: 1 Click"
-                }
-              },
-              {
-                "id": "center-twoClicks",
-                "label": {
-                  "en": "Center Button: 2 Clicks"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "wall_remote_4_gang_buttons",
-        "title": {
-          "en": "Button Action"
-        },
-        "titleFormatted": {
-          "en": "The [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=wall_remote_4_gang"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Action"
-            },
-            "values": [
-              {
-                "id": "leftUp-oneClick",
-                "label": {
-                  "en": "Upper Left Button: 1 Click"
-                }
-              },
-              {
-                "id": "leftUp-twoClicks",
-                "label": {
-                  "en": "Upper Left Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "rightUp-oneClick",
-                "label": {
-                  "en": "Upper Right Button: 1 Click"
-                }
-              },
-              {
-                "id": "rightUp-twoClicks",
-                "label": {
-                  "en": "Upper Right Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "leftDown-oneClick",
-                "label": {
-                  "en": "Lower Left Button: 1 Click"
-                }
-              },
-              {
-                "id": "leftDown-twoClicks",
-                "label": {
-                  "en": "Lower Left Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "rightDown-oneClick",
-                "label": {
-                  "en": "Lower Right Button: 1 Click"
-                }
-              },
-              {
-                "id": "rightDown-twoClicks",
-                "label": {
-                  "en": "Lower Right Button: 2 Clicks"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "wall_remote_4_gang_buttons_2",
-        "title": {
-          "en": "Button"
-        },
-        "titleFormatted": {
-          "en": "The [[button]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=wall_remote_4_gang_2"
-          },
-          {
-            "name": "button",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Pressed"
-            },
-            "values": [
-              {
-                "id": "leftUp",
-                "label": {
-                  "en": "Upper Left Button Pressed"
-                }
-              },
-              {
-                "id": "rightUp",
-                "label": {
-                  "en": "Upper Right Button Pressed"
-                }
-              },
-              {
-                "id": "leftDown",
-                "label": {
-                  "en": "Lower Left Button Pressed"
-                }
-              },
-              {
-                "id": "rightDown",
-                "label": {
-                  "en": "Lower Right Button Pressed"
-                }
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "wall_remote_4_gang_buttons_3",
-        "title": {
-          "en": "Button Action"
-        },
-        "titleFormatted": {
-          "en": "The [[action]]"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=wall_remote_4_gang_3"
-          },
-          {
-            "name": "action",
-            "type": "dropdown",
-            "title": {
-              "en": "Button Action"
-            },
-            "values": [
-              {
-                "id": "leftUp-oneClick",
-                "label": {
-                  "en": "Upper Left Button: 1 Click"
-                }
-              },
-              {
-                "id": "leftUp-twoClicks",
-                "label": {
-                  "en": "Upper Left Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "rightUp-oneClick",
-                "label": {
-                  "en": "Upper Right Button: 1 Click"
-                }
-              },
-              {
-                "id": "rightUp-twoClicks",
-                "label": {
-                  "en": "Upper Right Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "leftDown-oneClick",
-                "label": {
-                  "en": "Lower Left Button: 1 Click"
-                }
-              },
-              {
-                "id": "leftDown-twoClicks",
-                "label": {
-                  "en": "Lower Left Button: 2 Clicks"
-                }
-              },
-              {
-                "id": "rightDown-oneClick",
-                "label": {
-                  "en": "Lower Right Button: 1 Click"
-                }
-              },
-              {
-                "id": "rightDown-twoClicks",
-                "label": {
-                  "en": "Lower Right Button: 2 Clicks"
-                }
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    "conditions": [
-      {
-        "id": "window_open_status_get",
-        "title": {
-          "en": "Window !{{is|is not}} open"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=thermostatic_radiator_valve"
           }
         ]
       }
@@ -3536,6 +3947,7 @@
           "_TZE202_ztc6ggyl",
           "_TZE203_ztc6ggyl",
           "_TZE204_ztc6ggyl",
+          "_TZE204_7gclukjs",
           "_TZE204_qasjif9e",
           "_TZE204_ijxvkhd0",
           "_TZE204_sxm7l9xa"
@@ -3652,6 +4064,306 @@
             "en": "seconds",
             "nl": "seconden"
           }
+        }
+      ]
+    },
+    {
+      "id": "radar_sensor_2",
+      "name": {
+        "en": "Radar Sensor ZG-205Z/W",
+        "nl": "Radar Sensor ZG-205Z/W"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_luminance",
+        "alarm_motion",
+        "alarm_small_presence",
+        "alarm_large_presence",
+        "alarm_breathe_presence"
+      ],
+      "images": {
+        "large": "/drivers/radar_sensor_2/assets/images/large.png",
+        "small": "/drivers/radar_sensor_2/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageConstant": 2.5
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_2aaelwxk"
+        ],
+        "productId": [
+          "TS0225"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280,
+              57346,
+              61184,
+              60928,
+              57344,
+              1024
+            ],
+            "bindings": [
+              258,
+              61148
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/radar_sensor_2/assets/icon.svg",
+          "instruction": {
+            "en": "Press and hold the reset button for 6 seconds. When the indicator light flashes it is in pairing mode.",
+            "nl": "Druk 6 seconden op de reset knop. Wacht tot de led gaat knipperen."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "motion_detection_sensitivity",
+          "type": "number",
+          "label": {
+            "en": "Radar sensitivity",
+            "nl": "Radar sensitiviteit"
+          },
+          "value": 6,
+          "min": 0,
+          "max": 10,
+          "units": {
+            "en": "x",
+            "nl": "x"
+          }
+        },
+        {
+          "id": "mov_minimum_distance",
+          "type": "number",
+          "label": {
+            "en": "Minimum range",
+            "nl": "Minimale bereik"
+          },
+          "value": 0,
+          "min": 0,
+          "max": 10,
+          "step": 1,
+          "units": {
+            "en": "meters",
+            "nl": "meters"
+          }
+        },
+        {
+          "id": "motion_detection_distance",
+          "type": "number",
+          "label": {
+            "en": "Motion detection distance",
+            "nl": "Bewegingsdetectie afstand"
+          },
+          "value": 600,
+          "min": 0,
+          "max": 1000,
+          "step": 1,
+          "units": {
+            "en": "centimeter",
+            "nl": "centimeter"
+          }
+        },
+        {
+          "id": "fading_time",
+          "type": "number",
+          "label": {
+            "en": "Fading time",
+            "nl": "Reset tijd"
+          },
+          "value": 0,
+          "min": 0,
+          "max": 28800,
+          "units": {
+            "en": "seconds",
+            "nl": "seconden"
+          }
+        },
+        {
+          "id": "motion_false_detection",
+          "type": "number",
+          "value": 1,
+          "min": 0,
+          "max": 10,
+          "units": {
+            "en": "x",
+            "nl": "x"
+          },
+          "label": {
+            "en": "Breathe False detection",
+            "nl": "Onjuiste Adem detectie"
+          }
+        },
+        {
+          "id": "small_motion_detection_distance",
+          "type": "number",
+          "label": {
+            "en": "Small Motion detection distance",
+            "nl": "Kleine bewegingsdetectie afstand"
+          },
+          "value": 600,
+          "min": 0,
+          "max": 600,
+          "step": 1,
+          "units": {
+            "en": "centimeter",
+            "nl": "centimeter"
+          }
+        },
+        {
+          "id": "small_motion_detection_sensitivity",
+          "type": "number",
+          "label": {
+            "en": "Small Movement sensitivity",
+            "nl": "Kleine Beweging sensitiviteit"
+          },
+          "value": 8,
+          "min": 0,
+          "max": 10,
+          "units": {
+            "en": "x",
+            "nl": "x"
+          }
+        },
+        {
+          "id": "indicator",
+          "type": "checkbox",
+          "value": true,
+          "label": {
+            "en": "LED indicator",
+            "nl": "LED indicatie"
+          }
+        },
+        {
+          "id": "static_detection_distance",
+          "type": "number",
+          "label": {
+            "en": "Static detection distance",
+            "nl": "Statische detectie afstand"
+          },
+          "value": 600,
+          "min": 0,
+          "max": 600,
+          "step": 1,
+          "units": {
+            "en": "centimeter",
+            "nl": "centimeter"
+          }
+        },
+        {
+          "id": "static_detection_sensitivity",
+          "type": "number",
+          "label": {
+            "en": "Static detection sensitivity",
+            "nl": "Statische detectie sensitiviteit"
+          },
+          "value": 8,
+          "min": 0,
+          "max": 10,
+          "units": {
+            "en": "x",
+            "nl": "x"
+          }
+        },
+        {
+          "id": "breathe_false_detection",
+          "type": "checkbox",
+          "value": false,
+          "label": {
+            "en": "Breathe False detection",
+            "nl": "Onjuiste Adem detectie"
+          }
+        },
+        {
+          "id": "alarm_volume",
+          "type": "dropdown",
+          "value": "high",
+          "label": {
+            "en": "Alarm volume",
+            "nl": "Alarm volume"
+          },
+          "values": [
+            {
+              "id": "mute",
+              "label": {
+                "en": "Mute",
+                "nl": "Gedempt"
+              }
+            },
+            {
+              "id": "low",
+              "label": {
+                "en": "Low",
+                "nl": "Laag"
+              }
+            },
+            {
+              "id": "medium",
+              "label": {
+                "en": "Medium",
+                "nl": "Middel"
+              }
+            },
+            {
+              "id": "high",
+              "label": {
+                "en": "High",
+                "nl": "Hoog"
+              }
+            }
+          ]
+        },
+        {
+          "id": "working_mode",
+          "type": "dropdown",
+          "value": "off",
+          "label": {
+            "en": "Working mode",
+            "nl": "Werk modus"
+          },
+          "values": [
+            {
+              "id": "off",
+              "label": {
+                "en": "Off",
+                "nl": "Uit"
+              }
+            },
+            {
+              "id": "arm",
+              "label": {
+                "en": "Arm",
+                "nl": "Arm"
+              }
+            },
+            {
+              "id": "alarm",
+              "label": {
+                "en": "Alarm",
+                "nl": "Alarm"
+              }
+            },
+            {
+              "id": "doorbell",
+              "label": {
+                "en": "Doorbell",
+                "nl": "Deurbel"
+              }
+            }
+          ]
         }
       ]
     },
@@ -5195,6 +5907,142 @@
         }
       },
       "settings": []
+    },
+    {
+      "id": "smart_water_timer",
+      "name": {
+        "en": "QT-05M - Smart Water Timer"
+      },
+      "class": "other",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "alarm_battery",
+        "measure_battery",
+        "measure_water_flow",
+        "meter_valve_state",
+        "last_watering_time",
+        "remaining_watering_time",
+        "shutdown_timer",
+        "valve_state_auto_shutdown"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "opts": {
+            "duration": true
+          }
+        },
+        "measure_water_flow": {
+          "opts": {
+            "duration": true
+          },
+          "preventInsights": true
+        }
+      },
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA",
+          "AA",
+          "AA"
+        ]
+      },
+      "images": {
+        "small": "/drivers/smart_water_timer/assets/images/small.jpg",
+        "large": "/drivers/smart_water_timer/assets/images/large.jpg"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_arge1ptm",
+          "_TZE200_xlppj4f5"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              4,
+              5,
+              6,
+              10,
+              25,
+              61184
+            ],
+            "bindings": [
+              1,
+              6,
+              10,
+              25
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smart_water_timer/assets/icon.svg",
+          "instruction": {
+            "en": "Ensure the indicator light is flashing. If the indicatore light isn't flashing: press and hold the reset button for 5 seconds until the indicator light starts to flashing.",
+            "it": "Assicurarsi che l'indicatore lampeggi. Se l'indicatore non lampegga: tenere premuto il pulsante di reset per 5 secondi finchè l'indicatore non inizia a lampeggiare."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "batteryThreshold",
+          "type": "number",
+          "label": {
+            "en": "Battery Low Alarm Voltage Threshold (%)",
+            "it": "Soglia dell'allarme di batteria scarica "
+          },
+          "hint": {
+            "en": "This setting determines the threshold before a battery alarm is given.",
+            "it": "Quest'impostazione determina la soglia alla quale l'allarme di batteria scarica viene dato"
+          },
+          "value": 20,
+          "attr": {
+            "step": 1,
+            "min": 1,
+            "max": 99
+          }
+        },
+        {
+          "id": "shutdown_timer",
+          "type": "number",
+          "label": {
+            "en": "Maximum open percentage",
+            "nl": "Maximale open percentage"
+          },
+          "hint": {
+            "en": "Auto shutdown in seconds.",
+            "nl": "Automatische stop in seconden"
+          },
+          "value": 120,
+          "min": 0,
+          "max": 14400
+        },
+        {
+          "id": "valve_state_auto_shutdown",
+          "type": "number",
+          "label": {
+            "en": "Valve open in % after auto shutdown.",
+            "nl": "Kraan open in % na automatische stop."
+          },
+          "hint": {
+            "en": "Set valve to % with auto shutdown.",
+            "nl": "Zet kraan op % met automatische stop."
+          },
+          "value": 100,
+          "min": 0,
+          "step": 5,
+          "max": 100
+        }
+      ]
     },
     {
       "id": "smartplug",
@@ -7807,12 +8655,14 @@
           "_TYZB01_4tlksk8a",
           "_TZ3000_tvuarksa",
           "_TZ3000_j9568h44",
-          "_TZ3000_iedbgyxt"
+          "_TZ3000_iedbgyxt",
+          "_TZ3000_w0ypwa1f"
         ],
         "productId": [
           "TS0111",
           "TS0001",
-          "TS011F"
+          "TS011F",
+          "TS0001"
         ],
         "endpoints": {
           "1": {
@@ -8420,6 +9270,7 @@
           "_TZ3000_oex7egmt",
           "_TZ3000_hafsqare",
           "_TZ3000_oaq83gqc",
+          "_TZ3000_hhiodade",
           "_TZ3000_6eyydfyg"
         ],
         "productId": [
@@ -8430,6 +9281,9 @@
           "1": {
             "clusters": [
               0,
+              3,
+              4,
+              5,
               6
             ],
             "bindings": [
@@ -8440,11 +9294,40 @@
         "learnmode": {
           "image": "/drivers/wall_switch_1_gang/assets/icon.svg",
           "instruction": {
-            "en": "Press the button for 10 seconds (the LED should start blinking)."
+            "en": "Press the button for 7 seconds (until LED starts blinking)."
           }
         }
       },
-      "settings": []
+      "settings": [
+        {
+          "id": "indicator_mode",
+          "type": "radio",
+          "label": {
+            "en": "Indicator mode"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Light Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Light on when switch turned on."
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Light on when the switch is turned off."
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "wall_switch_1_gang_tuya",
@@ -9051,6 +9934,106 @@
     }
   ],
   "capabilities": {
+    "alarm_breathe_presence": {
+      "title": {
+        "en": "Breath presence",
+        "nl": "Adem aanwezigheid",
+        "de": "Atempräsenz",
+        "fr": "Présence respiratoire",
+        "it": "Presenza del respiro",
+        "sv": "Andningsnärvaro",
+        "no": "Åndedrettsnærvær",
+        "es": "Presencia de la respiración",
+        "da": "Åndedræt nærvær",
+        "ru": "Присутствие дыхания",
+        "pl": "Obecność oddechu"
+      },
+      "type": "boolean",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/drivers/radar_sensor_2/assets/images/breathe_motion.svg",
+      "insights": true,
+      "options": {
+        "zoneActivity": true
+      },
+      "insightsTitleTrue": {
+        "en": "Breath alarm turned on",
+        "nl": "Ademalarm ging af",
+        "de": "Atem-Alarm ist angegangen",
+        "fr": "Alarme respiratoire s'est déclenchée",
+        "it": "Allarme di respiro attivato",
+        "sv": "Andningslarm aktiverat",
+        "no": "Åndedrettsalarm aktivert",
+        "es": "Alarma de respiración activada",
+        "da": "Åndedrætsalarm blev aktiveret",
+        "ru": "Сигнал дыхания включен",
+        "pl": "Czujnik oddechu włączony"
+      },
+      "insightsTitleFalse": {
+        "en": "Breath alarm turned off",
+        "nl": "Ademalarm ging uit",
+        "de": "Atem-Alarm ist ausgegangen",
+        "fr": "Alarme respiratoire s'est désactivée",
+        "it": "Allarme di respiro disattivato",
+        "sv": "Andningslarm inaktiverat",
+        "no": "Åndedrettsalarm deaktivert",
+        "es": "Alarma de respiración desactivada",
+        "da": "Åndedrætsalarm blev deaktiveret",
+        "ru": "Сигнал дыхания выключен",
+        "pl": "Czujnik oddechu wyłączony"
+      }
+    },
+    "alarm_large_presence": {
+      "title": {
+        "en": "Large Presence",
+        "nl": "Grote Aanwezigheid",
+        "de": "Große Präsenz",
+        "fr": "Grande Présence",
+        "it": "Presenza Ampia",
+        "sv": "Stor Närvaro",
+        "no": "Stor Nærvær",
+        "es": "Presencia Grande",
+        "da": "Stor Nærvær",
+        "ru": "Большое Присутствие",
+        "pl": "Duża Obecność"
+      },
+      "type": "boolean",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/drivers/radar_sensor_2/assets/images/large_motion.svg",
+      "insights": true,
+      "options": {
+        "zoneActivity": true
+      },
+      "insightsTitleTrue": {
+        "en": "Large Presence alarm turned on",
+        "nl": "Grote Aanwezigheid alarm ging af",
+        "de": "Große Präsenz Alarm ist angegangen",
+        "fr": "Alarme Grande Présence s'est déclenchée",
+        "it": "Allarme Presenza Ampia attivato",
+        "sv": "Stor Närvaro larm aktiverat",
+        "no": "Stor Nærvær alarm aktivert",
+        "es": "Alarma de Presencia Grande activada",
+        "da": "Stor Nærvær alarm blev aktiveret",
+        "ru": "Большой сигнал Присутствие включен",
+        "pl": "Duży czujnik Obecność włączony"
+      },
+      "insightsTitleFalse": {
+        "en": "Large Presence alarm turned off",
+        "nl": "Grote Aanwezigheid alarm ging uit",
+        "de": "Große Präsenz Alarm ist ausgegangen",
+        "fr": "Alarme Grande Présence s'est désactivée",
+        "it": "Allarme Presenza Ampia disattivato",
+        "sv": "Stor Närvaro larm inaktiverat",
+        "no": "Stor Nærvær alarm deaktivert",
+        "es": "Alarma de Presencia Grande desactivada",
+        "da": "Stor Nærvær alarm blev deaktiveret",
+        "ru": "Большой сигнал Присутствие выключен",
+        "pl": "Duży czujnik Obecność wyłączony"
+      }
+    },
     "alarm_siren": {
       "type": "boolean",
       "title": {
@@ -9066,6 +10049,56 @@
       },
       "getable": true,
       "setable": false
+    },
+    "alarm_small_presence": {
+      "title": {
+        "en": "Small Presence",
+        "nl": "Kleine Aanwezigheid",
+        "de": "Kleine Präsenz",
+        "fr": "Petite Présence",
+        "it": "Presenza Piccola",
+        "sv": "Liten Närvaro",
+        "no": "Liten Nærvær",
+        "es": "Pequeña Presencia",
+        "da": "Lille Nærvær",
+        "ru": "Маленькое Присутствие",
+        "pl": "Mała Obecność"
+      },
+      "type": "boolean",
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/drivers/radar_sensor_2/assets/images/small_motion.svg",
+      "insights": true,
+      "options": {
+        "zoneActivity": true
+      },
+      "insightsTitleTrue": {
+        "en": "Small Presence alarm turned on",
+        "nl": "Kleine Aanwezigheid alarm ging af",
+        "de": "Kleine Präsenz Alarm ist angegangen",
+        "fr": "Alarme Petite Présence s'est déclenchée",
+        "it": "Allarme Presenza Piccola attivato",
+        "sv": "Liten Närvaro larm aktiverat",
+        "no": "Liten Nærvær alarm aktivert",
+        "es": "La alarma de Pequeña Presencia activada",
+        "da": "Lille Nærvær alarm blev aktiveret",
+        "ru": "Маленький сигнал Присутствие включен",
+        "pl": "Mały czujnik Obecność włączony"
+      },
+      "insightsTitleFalse": {
+        "en": "Small Presence alarm turned off",
+        "nl": "Kleine Aanwezigheid alarm ging uit",
+        "de": "Kleine Präsenz Alarm ist ausgegangen",
+        "fr": "Alarme Petite Présence s'est désactivée",
+        "it": "Allarme Presenza Piccola disattivato",
+        "sv": "Liten Närvaro larm inaktiverat",
+        "no": "Liten Nærvær alarm deaktivert",
+        "es": "La alarma de Pequeña Presencia se ha desactivado",
+        "da": "Lille Nærvær alarm blev deaktiveret",
+        "ru": "Маленький сигнал Присутствие выключен",
+        "pl": "Mały czujnik Obecność wyłączony"
+      }
     },
     "away_mode": {
       "type": "boolean",
@@ -9084,6 +10117,26 @@
       "uiComponent": "toggle",
       "getable": true,
       "setable": true
+    },
+    "last_watering_time": {
+      "type": "number",
+      "title": {
+        "en": "Last Watering Time",
+        "nl": "Laatste tijd bewatering"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "options": {
+        "zoneActivity": true
+      },
+      "min": 0,
+      "icon": "/drivers/smart_water_timer/assets/images/pressure-gauge.svg",
+      "units": {
+        "en": "sec",
+        "nl": "sec"
+      }
     },
     "lidl_xmas_mode": {
       "title": {
@@ -9117,6 +10170,100 @@
         }
       ]
     },
+    "measure_water_flow": {
+      "type": "number",
+      "title": {
+        "en": "Valve Water Flow",
+        "nl": "Kraan Water Flow"
+      },
+      "desc": {
+        "en": "Set the position of Water Valve. 0% is closed, 100% is open"
+      },
+      "icon": "/drivers/smart_water_timer/assets/images/sprinklers.svg",
+      "units": "%",
+      "getable": true,
+      "setable": true,
+      "chartType": "stepLine",
+      "uiComponent": "slider",
+      "min": 0,
+      "max": 1,
+      "step": 0.05,
+      "value": 0.5,
+      "decimals": 2
+    },
+    "meter_valve_state": {
+      "type": "number",
+      "title": {
+        "en": "Valve State",
+        "nl": "Kraanstatus"
+      },
+      "units": {
+        "en": "%",
+        "nl": "%"
+      },
+      "icon": "/drivers/smart_water_timer/assets/images/sprinklers.svg",
+      "getable": true,
+      "setable": false,
+      "chartType": "area",
+      "uiComponent": "sensor",
+      "min": 0,
+      "max": 100,
+      "steps": 5,
+      "decimals": 0,
+      "capabilitiesOptions": {
+        "titleTrue": {
+          "en": "Open",
+          "nl": "Open"
+        },
+        "titleFalse": {
+          "en": "Closed",
+          "nl": "Gesloten"
+        }
+      }
+    },
+    "remaining_watering_time": {
+      "type": "number",
+      "title": {
+        "en": "Remaining Watering Time",
+        "nl": "Resterende tijd bewatering"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "options": {
+        "zoneActivity": true
+      },
+      "icon": "/drivers/smart_water_timer/assets/images/pressure-gauge.svg",
+      "units": {
+        "en": "sec",
+        "nl": "sec"
+      },
+      "min": 0,
+      "decimals": 0
+    },
+    "shutdown_timer": {
+      "type": "number",
+      "title": {
+        "en": "Auto Shutdown % Valve",
+        "nl": "Auto Stop % Waarde"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "options": {
+        "zoneActivity": true
+      },
+      "icon": "/drivers/smart_water_timer/assets/images/nighttime.svg",
+      "units": {
+        "en": "sec",
+        "nl": "sec"
+      },
+      "min": 0,
+      "max": 1440,
+      "decimals": 0
+    },
     "soil_moisture": {
       "type": "number",
       "title": {
@@ -9147,15 +10294,21 @@
     "target_distance": {
       "type": "number",
       "title": {
-        "en": "Target distance"
+        "en": "Target distance",
+        "nl": "Afstand doel"
+      },
+      "icon": "/drivers/radar_sensor/assets/images/measure.svg",
+      "units": {
+        "en": "m",
+        "nl": "m"
       },
       "uiComponent": "sensor",
       "getable": true,
       "setable": false,
-      "units": {
-        "en": "m"
-      },
-      "icon": "/drivers/radar_sensor/assets/distance.svg"
+      "insights": true,
+      "options": {
+        "zoneActivity": true
+      }
     },
     "temp_calibration": {
       "type": "number",
@@ -9229,6 +10382,26 @@
       "getable": true,
       "setable": true,
       "uiComponent": "picker"
+    },
+    "valve_state_auto_shutdown": {
+      "type": "number",
+      "title": {
+        "en": "Valve State @ autoshutdown",
+        "nl": "Kraanstatus @ auto stop"
+      },
+      "units": {
+        "en": "%",
+        "nl": "%"
+      },
+      "icon": "/drivers/smart_water_timer/assets/images/nighttime.svg",
+      "getable": true,
+      "setable": false,
+      "chartType": "area",
+      "uiComponent": "sensor",
+      "min": 0,
+      "max": 100,
+      "steps": 5,
+      "decimals": 0
     },
     "window_open": {
       "type": "boolean",

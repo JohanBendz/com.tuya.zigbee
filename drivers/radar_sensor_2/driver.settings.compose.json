@@ -1,0 +1,207 @@
+[
+  {
+    "id": "motion_detection_sensitivity",
+    "type": "number",
+    "label": {
+      "en": "Radar sensitivity",
+      "nl": "Radar sensitiviteit"
+    },
+    "value": 6,
+    "min": 0,
+    "max": 10,
+    "units": {
+      "en": "x",
+      "nl": "x"
+    }
+  },
+  {
+    "id": "mov_minimum_distance",
+    "type": "number",
+    "label": {
+      "en": "Minimum range",
+      "nl": "Minimale bereik"
+    },
+    "value": 0,
+    "min": 0,
+    "max": 10,
+    "step": 1,
+    "units": {
+      "en": "meters",
+      "nl": "meters"
+    }
+  },
+  {
+    "id": "motion_detection_distance",
+    "type": "number",
+    "label": {
+      "en": "Motion detection distance",
+      "nl": "Bewegingsdetectie afstand"
+    },
+    "value": 600,
+    "min": 0,
+    "max": 1000,
+    "step": 1,
+    "units": {
+      "en": "centimeter",
+      "nl": "centimeter"
+    }
+  },
+  {
+    "id": "fading_time",
+    "type": "number",
+    "label": {
+      "en": "Fading time",
+      "nl": "Reset tijd"
+    },
+    "value": 0,
+    "min": 0,
+    "max": 28800,
+    "units": {
+      "en": "seconds",
+      "nl": "seconden"
+    }
+  },
+  {
+    "id": "motion_false_detection",
+    "type": "number",
+    "value": 1,
+    "min": 0,
+    "max": 10,
+    "units": {
+      "en": "x",
+      "nl": "x"
+    },
+    "label": {
+      "en": "Breathe False detection",
+      "nl": "Onjuiste Adem detectie"
+    }
+  },
+  {
+    "id": "small_motion_detection_distance",
+    "type": "number",
+    "label": {
+      "en": "Small Motion detection distance",
+      "nl": "Kleine bewegingsdetectie afstand"
+    },
+    "value": 600,
+    "min": 0,
+    "max": 600,
+    "step": 1,
+    "units": {
+      "en": "centimeter",
+      "nl": "centimeter"
+    }
+  },
+  {
+    "id": "small_motion_detection_sensitivity",
+    "type": "number",
+    "label": {
+      "en": "Small Movement sensitivity",
+      "nl": "Kleine Beweging sensitiviteit"
+    },
+    "value": 8,
+    "min": 0,
+    "max": 10,
+    "units": {
+      "en": "x",
+      "nl": "x"
+    }
+  },
+  {
+    "id": "indicator",
+    "type": "checkbox",
+    "value": true,
+    "label": {
+      "en": "LED indicator",
+      "nl": "LED indicatie"
+    }
+  },
+  {
+    "id": "static_detection_distance",
+    "type": "number",
+    "label": {
+      "en": "Static detection distance",
+      "nl": "Statische detectie afstand"
+    },
+    "value": 600,
+    "min": 0,
+    "max": 600,
+    "step": 1,
+    "units": {
+      "en": "centimeter",
+      "nl": "centimeter"
+    }
+  },
+  {
+    "id": "static_detection_sensitivity",
+    "type": "number",
+    "label": {
+      "en": "Static detection sensitivity",
+      "nl": "Statische detectie sensitiviteit"
+    },
+    "value": 8,
+    "min": 0,
+    "max": 10,
+    "units": {
+      "en": "x",
+      "nl": "x"
+    }
+  },
+  {
+    "id": "breathe_false_detection",
+    "type": "checkbox",
+    "value": false,
+    "label": {
+      "en": "Breathe False detection",
+      "nl": "Onjuiste Adem detectie"
+    }
+  },
+  {
+    "id": "alarm_volume",
+    "type": "dropdown",
+    "value": "high",
+    "label": { "en": "Alarm volume", "nl": "Alarm volume" },
+    "values": [
+      {
+        "id": "mute",
+        "label": { "en": "Mute", "nl": "Gedempt" }
+      },
+      {
+        "id": "low",
+        "label": { "en": "Low", "nl": "Laag" }
+      },
+      {
+        "id": "medium",
+        "label": { "en": "Medium", "nl": "Middel" }
+      },
+      {
+        "id": "high",
+        "label": { "en": "High", "nl": "Hoog" }
+      }
+    ]
+  },
+  {
+    "id": "working_mode",
+    "type": "dropdown",
+    "value": "off",
+    "label": { "en": "Working mode", "nl": "Werk modus" },
+    "values": [
+      {
+        "id": "off",
+        "label": { "en": "Off", "nl": "Uit" }
+      },
+      {
+        "id": "arm",
+        "label": { "en": "Arm", "nl": "Arm" }
+      },
+      {
+        "id": "alarm",
+        "label": { "en": "Alarm", "nl": "Alarm" }
+      },
+      {
+        "id": "doorbell",
+        "label": { "en": "Doorbell", "nl": "Deurbel" }
+      }
+    ]
+  }
+]

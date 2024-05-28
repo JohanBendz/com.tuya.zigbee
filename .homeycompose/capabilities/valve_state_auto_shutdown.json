@@ -1,0 +1,20 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Valve State @ autoshutdown",
+        "nl": "Kraanstatus @ auto stop"
+    },
+    "units": {
+        "en": "%",
+        "nl": "%"
+    },
+    "icon": "/drivers/smart_water_timer/assets/images/nighttime.svg",
+    "getable": true,
+    "setable": false,
+    "chartType": "area",
+    "uiComponent": "sensor",
+    "min": 0,
+    "max": 100,
+    "steps": 5,
+    "decimals": 0
+}

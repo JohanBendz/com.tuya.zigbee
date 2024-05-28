@@ -1,0 +1,15 @@
+{
+  "title": {
+    "en": "The Small Presence alarm is !{{on|off}}",
+    "nl": "De kleine Aanwezigheid alarm is !{{aan|uit}}",
+    "de": "Der kleine Präsenz Alarm ist !{{an|aus}}",
+    "fr": "L'alarme Petite Présence est !{{en marche|arrêtée}}",
+    "it": "L'allarme Presenza Piccola è !{{acceso|spento}}",
+    "sv": "Liten Närvaro larm är !{{på|av}}",
+    "no": "Liten Nærvær alarm er !{{på|av}}",
+    "es": "La alarma de Pequeña Presencia está !{{activada|desactivada}}",
+    "da": "Lille Nærvær alarm er !{{tændt|slukket}}",
+    "ru": "Маленький сигнал Присутствие !{{вкл.|выкл.}}",
+    "pl": "Mały czujnik Obecność !{{włączony|wyłączony}}"
+  }
+}

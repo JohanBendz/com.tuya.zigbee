@@ -1,0 +1,30 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Valve State",
+        "nl": "Kraanstatus"
+    },
+    "units": {
+        "en": "%",
+        "nl": "%"
+    },
+    "icon": "/drivers/smart_water_timer/assets/images/sprinklers.svg",
+    "getable": true,
+    "setable": false,
+    "chartType": "area",
+    "uiComponent": "sensor",
+    "min": 0,
+    "max": 100,
+    "steps": 5,
+    "decimals": 0,
+    "capabilitiesOptions": {
+        "titleTrue": {
+            "en": "Open",
+            "nl": "Open"
+        },
+        "titleFalse": {
+            "en": "Closed",
+            "nl": "Gesloten"
+        }
+    }
+}

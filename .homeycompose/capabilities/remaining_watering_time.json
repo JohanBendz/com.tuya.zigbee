@@ -1,0 +1,18 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Remaining Watering Time",
+        "nl": "Resterende tijd bewatering"
+    },
+    "uiComponent": "sensor",
+    "getable": true,
+    "setable": false,
+    "insights": true,
+    "options": {
+        "zoneActivity": true
+    },
+    "icon": "/drivers/smart_water_timer/assets/images/pressure-gauge.svg",
+    "units": { "en": "sec", "nl": "sec" },
+    "min": 0,
+    "decimals": 0
+}

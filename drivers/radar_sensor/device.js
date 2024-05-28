@@ -1,21 +1,56 @@
-'use strict';
+"use strict";
 
-const {Cluster} = require('zigbee-clusters');
-const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
-const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
+const { Cluster } = require("zigbee-clusters");
+const TuyaSpecificCluster = require("../../lib/TuyaSpecificCluster");
+const TuyaSpecificClusterDevice = require("../../lib/TuyaSpecificClusterDevice");
 
 Cluster.addCluster(TuyaSpecificCluster);
 
-const dataPoints = {
-  tshpsPresenceState: 1,
-  tshpscSensitivity: 2,
-  tshpsMinimumRange: 3,
-  tshpsMaximumRange: 4,
-  tshpsTargetDistance: 9,
-  tshpsDetectionDelay: 101,
-  tshpsFadingTime: 102,
-  tshpsIlluminanceLux: 104,
-}
+const setDeviceDatapoints = (manufacturerName) => {
+  switch (manufacturerName) {
+    case "_TZE200_ztc6ggyl":
+    case "_TZE201_ztc6ggyl":
+    case "_TZE202_ztc6ggyl":
+    case "_TZE203_ztc6ggyl":
+    case "_TZE204_ztc6ggyl":
+      return {
+        tshpsPresenceState: 1,
+        tshpscSensitivity: 2,
+        tshpsMinimumRange: 3,
+        tshpsMaximumRange: 4,
+        tshpsTargetDistance: 9,
+        tshpsDetectionDelay: 101,
+        tshpsFadingTime: 102,
+        tshpsIlluminanceLux: 104,
+      };
+      break;
+
+    case "_TZE204_7gclukjs":
+      return {
+        tshpsPresenceState: 1, // {'none': 0, 'Presence': 1, 'Move and presence': 2}
+        tshpscSensitivity: 2,
+        tshpsMinimumRange: 3,
+        tshpsMaximumRange: 4,
+        tshpsTargetDistance: 9,
+        tshpsIlluminanceLux: 103,
+        tshpsPresence: 104, // true/false
+        tshpsDetectionDelay: 105,
+      };
+      break;
+
+    default:
+      return {
+        shpsPresenceState: 1,
+        tshpscSensitivity: 2,
+        tshpsMinimumRange: 3,
+        tshpsMaximumRange: 4,
+        tshpsTargetDistance: 9,
+        tshpsDetectionDelay: 101,
+        tshpsFadingTime: 102,
+        tshpsIlluminanceLux: 104,
+      };
+  }
+};
 
 const dataTypes = {
   raw: 0, // [ bytes ]
@@ -46,7 +81,7 @@ const getDataValue = (dpValue) => {
     case dataTypes.value:
       return convertMultiByteNumberPayloadToSingleDecimalNumber(dpValue.data);
     case dataTypes.string:
-      let dataString = '';
+      let dataString = "";
       for (let i = 0; i < dpValue.data.length; ++i) {
         dataString += String.fromCharCode(dpValue.data[i]);
       }
@@ -56,82 +91,123 @@ const getDataValue = (dpValue) => {
     case dataTypes.bitmap:
       return convertMultiByteNumberPayloadToSingleDecimalNumber(dpValue.data);
   }
-}
+};
 
 class radarSensor extends TuyaSpecificClusterDevice {
-  async onNodeInit({zclNode}) {
-    zclNode.endpoints[1].clusters.tuya.on("response", value => this.updatePosition(value));
+  async onNodeInit({ zclNode }) {
+    this.manufacturerName = this.getSetting("zb_manufacturer_name");
+
+    this.dataPoints = setDeviceDatapoints(this.manufacturerName);
+
+    zclNode.endpoints[1].clusters.tuya.on("response", (value) =>
+      this.updatePosition(value)
+    );
   }
 
   async updatePosition(data) {
     const dp = data.dp;
     const value = getDataValue(data);
-    const distanceUpdateInterval = this.getSetting('distance_update_interval') ?? 10;
+
+    this.log("dp value", dp, value);
 
     switch (dp) {
-      case dataPoints.tshpsPresenceState:
-        this.log("presence state: "+ value)
-        this.setCapabilityValue('alarm_motion', Boolean(value))
+      case this.dataPoints.tshpsPresenceState:
+        this.log("presence state: " + value);
+        this.setCapabilityValue("alarm_motion", Boolean(value));
         break;
-      case dataPoints.tshpscSensitivity:
-        this.log("sensitivity state: "+ value)
+      case this.dataPoints.tshpscSensitivity:
+        this.log("sensitivity state: " + value);
         break;
-      case dataPoints.tshpsIlluminanceLux:
-        this.log("lux value: "+ value)
-        this.onIlluminanceMeasuredAttributeReport(value)
+      case this.dataPoints.tshpsIlluminanceLux:
+        this.log("lux value: " + value);
+        this.onIlluminanceMeasuredAttributeReport(value);
         break;
-      case dataPoints.tshpsTargetDistance:
-        if (new Date().getSeconds() % distanceUpdateInterval === 0) {
-          this.setCapabilityValue('target_distance', value/100);
+      case this.dataPoints.tshpsTargetDistance:
+        this.log("target distance: " + value)
+        switch (this.manufacturerName) {
+          case "_TZE204_7gclukjs":
+               this.setCapabilityValue("target_distance", value / 10);
+          break;
+          default:
+            if (new Date().getSeconds() % 10 === 0) {
+              this.setCapabilityValue("target_distance", value / 100);
+            }
         }
 
         break;
 
       default:
-        this.log('dp value', dp, value)
+      // this.log("dp value", dp, value);
     }
   }
 
   onDeleted() {
-    this.log("Radar sensor removed")
+    this.log("Radar sensor removed");
   }
 
-  async onSettings({newSettings, changedKeys}) {
-    if (changedKeys.includes('radar_sensitivity')) {
-      this.writeData32(dataPoints.tshpscSensitivity, newSettings['radar_sensitivity'])
+  async onSettings({ newSettings, changedKeys }) {
+    if (changedKeys.includes("radar_sensitivity")) {
+      this.writeData32(
+        this.dataPoints.tshpscSensitivity,
+        newSettings["radar_sensitivity"]
+      );
     }
 
-    if (changedKeys.includes('minimum_range')) {
-      this.writeData32(dataPoints.tshpsMinimumRange, newSettings['minimum_range']*100)
+    if (changedKeys.includes("minimum_range")) {
+      this.writeData32(
+        this.dataPoints.tshpsMinimumRange,
+        newSettings["minimum_range"] * 100
+      );
     }
 
-    if (changedKeys.includes('maximum_range')) {
-      this.writeData32(dataPoints.tshpsMaximumRange, newSettings['maximum_range']*100)
+    if (changedKeys.includes("maximum_range")) {
+      this.writeData32(
+        this.dataPoints.tshpsMaximumRange,
+        newSettings["maximum_range"] * 100
+      );
     }
 
-    if (changedKeys.includes('detection_delay')) {
-      this.writeData32(dataPoints.tshpsDetectionDelay, newSettings['detection_delay'])
+    if (changedKeys.includes("detection_delay")) {
+      this.writeData32(
+        this.dataPoints.tshpsDetectionDelay,
+        newSettings["detection_delay"]
+      );
     }
 
-    if (changedKeys.includes('fading_time')) {
-      this.writeData32(dataPoints.tshpsFadingTime, newSettings['fading_time'])
+    if (changedKeys.includes("fading_time")) {
+      this.writeData32(
+        this.dataPoints.tshpsFadingTime,
+        newSettings["fading_time"]
+      );
     }
   }
 
   onIlluminanceMeasuredAttributeReport(measuredValue) {
-    this.log('measure_luminance | Luminance - measuredValue (lux):', measuredValue);
-    this.setCapabilityValue('measure_luminance', measuredValue);
+    this.log(
+      "measure_luminance | Luminance - measuredValue (lux):",
+      measuredValue
+    );
+    this.setCapabilityValue("measure_luminance", measuredValue);
   }
 
-  onIASZoneStatusChangeNotification({zoneStatus, extendedStatus, zoneId, delay,}) {
-    this.log('IASZoneStatusChangeNotification received:', zoneStatus, extendedStatus, zoneId, delay);
-    this.setCapabilityValue('alarm_motion', zoneStatus.alarm1);
+  onIASZoneStatusChangeNotification({
+    zoneStatus,
+    extendedStatus,
+    zoneId,
+    delay,
+  }) {
+    this.log(
+      "IASZoneStatusChangeNotification received:",
+      zoneStatus,
+      extendedStatus,
+      zoneId,
+      delay
+    );
+    this.setCapabilityValue("alarm_motion", zoneStatus.alarm1);
   }
-
 }
 
 module.exports = radarSensor;
-
 
 // "ids": {
 //   "modelId": "TS0601",

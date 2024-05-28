@@ -1,0 +1,15 @@
+{
+  "title": {
+    "en": "The Large Presence alarm is !{{on|off}}",
+    "nl": "De grote Aanwezigheid alarm is !{{aan|uit}}",
+    "de": "Der große Präsenz Alarm ist !{{an|aus}}",
+    "fr": "L'alarme Grande Présence est !{{en marche|arrêtée}}",
+    "it": "L'allarme Presenza Ampia è !{{acceso|spento}}",
+    "sv": "Stor Närvaro larm är !{{på|av}}",
+    "no": "Stor Nærvær alarm er !{{på|av}}",
+    "es": "La alarma de Presencia Grande está !{{activada|desactivada}}",
+    "da": "Stor Nærvær alarm er !{{tændt|slukket}}",
+    "ru": "Большой сигнал Присутствие !{{вкл.|выкл.}}",
+    "pl": "Duży czujnik Obecność !{{włączony|wyłączony}}"
+  }
+}

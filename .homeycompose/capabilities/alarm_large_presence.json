@@ -1,0 +1,50 @@
+{
+  "title": {
+    "en": "Large Presence",
+    "nl": "Grote Aanwezigheid",
+    "de": "Große Präsenz",
+    "fr": "Grande Présence",
+    "it": "Presenza Ampia",
+    "sv": "Stor Närvaro",
+    "no": "Stor Nærvær",
+    "es": "Presencia Grande",
+    "da": "Stor Nærvær",
+    "ru": "Большое Присутствие",
+    "pl": "Duża Obecność"
+  },
+  "type": "boolean",
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "icon": "/drivers/radar_sensor_2/assets/images/large_motion.svg",
+  "insights": true,
+  "options": {
+    "zoneActivity": true
+  },
+  "insightsTitleTrue": {
+    "en": "Large Presence alarm turned on",
+    "nl": "Grote Aanwezigheid alarm ging af",
+    "de": "Große Präsenz Alarm ist angegangen",
+    "fr": "Alarme Grande Présence s'est déclenchée",
+    "it": "Allarme Presenza Ampia attivato",
+    "sv": "Stor Närvaro larm aktiverat",
+    "no": "Stor Nærvær alarm aktivert",
+    "es": "Alarma de Presencia Grande activada",
+    "da": "Stor Nærvær alarm blev aktiveret",
+    "ru": "Большой сигнал Присутствие включен",
+    "pl": "Duży czujnik Obecność włączony"
+  },
+  "insightsTitleFalse": {
+    "en": "Large Presence alarm turned off",
+    "nl": "Grote Aanwezigheid alarm ging uit",
+    "de": "Große Präsenz Alarm ist ausgegangen",
+    "fr": "Alarme Grande Présence s'est désactivée",
+    "it": "Allarme Presenza Ampia disattivato",
+    "sv": "Stor Närvaro larm inaktiverat",
+    "no": "Stor Nærvær alarm deaktivert",
+    "es": "Alarma de Presencia Grande desactivada",
+    "da": "Stor Nærvær alarm blev deaktiveret",
+    "ru": "Большой сигнал Присутствие выключен",
+    "pl": "Duży czujnik Obecność wyłączony"
+  }  
+}
