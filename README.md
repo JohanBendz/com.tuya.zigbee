@@ -284,6 +284,7 @@ Supported devices:
     _TZ3000_18ejxno0 / TS0012
     _TZ3000_llfaquvp / TS0012
     _TZ3000_lmlsduws / TS0002
+-   _TZ3000_qaa59zqd / TS0002
 
 - 2 Gang Switch Module with metering
     _TZ3000_zmy4lslw / TS0002
