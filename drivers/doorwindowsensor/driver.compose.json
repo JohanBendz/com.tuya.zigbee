@@ -51,11 +51,13 @@
       "_TZ3000_yxqnffam",
       "_TZ3000_9eeavbk5",
       "_TZ3000_yxqnffam",
-      "_TZ3000_a33rw7ou"
+      "_TZ3000_a33rw7ou",
+      "eWeLink"
     ],
     "productId": [
       "RH3001",
-      "TS0203"
+      "TS0203",
+      "SNZB-04"
     ],
     "endpoints": {
       "1": {
