@@ -317,34 +317,6 @@
         "id": "start_effect"
       },
       {
-        "id": "move_open",
-        "title": {
-          "en": "Open",
-          "de": "Öffnen"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=curtain_module"
-          }
-        ]
-      },
-      {
-        "id": "move_close",
-        "title": {
-          "en": "Close",
-          "de": "Schließen"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=curtain_module"
-          }
-        ]
-      },
-      {
         "id": "alarm_state",
         "title": {
           "en": "Change the alarm state",
@@ -1326,144 +1298,6 @@
           }
         }
       }
-    },
-    {
-      "id": "curtain_module",
-      "name": {
-        "en": "Curtain Module"
-      },
-      "class": "windowcoverings",
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "zigbee"
-      ],
-      "capabilities": [
-        "windowcoverings_set",
-        "windowcoverings_state"
-      ],
-      "images": {
-        "large": "/drivers/curtain_module/assets/images/large.png",
-        "small": "/drivers/curtain_module/assets/images/small.png"
-      },
-      "energy": {
-        "approximation": {
-          "usageOn": 0,
-          "usageOff": 0
-        }
-      },
-      "zigbee": {
-        "manufacturerName": [
-          "_TZ3000_vd43bbfq",
-          "_TZ3000_1dd0d5yi",
-          "_TZ3000_ke7pzj5d",
-          "_TZ3000_fccpjz5z",
-          "_TZ3000_4uuaja4a",
-          "_TZ3000_zirycpws",
-          "_TZ3000_femsaaua",
-          "_TZ3000_e3vhyirx",
-          "_TZ3000_1dd0d5yi",
-          "_TZ3000_jwv3cwak",
-          "_TZ3210_dwytrmda"
-        ],
-        "productId": [
-          "TS130F"
-        ],
-        "endpoints": {
-          "1": {
-            "clusters": [
-              0,
-              4,
-              5,
-              258
-            ],
-            "bindings": [
-              258
-            ]
-          }
-        },
-        "learnmode": {
-          "image": "/drivers/curtain_module/assets/icon.svg",
-          "instruction": {
-            "en": "Press the setup button for 10 seconds or power on/off 5 times to enter pairing mode (the LED should blink / device starts beeping)."
-          }
-        }
-      },
-      "settings": [
-        {
-          "type": "group",
-          "label": {
-            "en": "Motor control",
-            "de": "Motorsteuerung"
-          },
-          "children": [
-            {
-              "id": "reverse",
-              "type": "checkbox",
-              "label": {
-                "en": "Reverse",
-                "de": "Rückwärts"
-              },
-              "value": false
-            },
-            {
-              "id": "movetime",
-              "type": "number",
-              "label": {
-                "en": "Movement time",
-                "de": "Bewegungszeit"
-              },
-              "hint": {
-                "en": "The time in seconds that the transition from 0-100% takes. Be aware that open/close might take a different amount of time.",
-                "de": "Die Zeit in Sekunden, die der Übergang von 0-100% dauert. Beachte, dass das Öffnen/Schließen unterschiedlich lange dauern kann."
-              },
-              "min": 3,
-              "max": 900,
-              "step": "0.1",
-              "units": {
-                "en": "Seconds",
-                "de": "Sekunden"
-              }
-            },
-            {
-              "id": "calibration_mode",
-              "type": "checkbox",
-              "label": {
-                "en": "Calibration mode",
-                "de": "Kalibrierungsmodus"
-              },
-              "hint": {
-                "en": "Activate to start calibration mode and deactivate to stop it. The elapsed time between will be used to calibrate 0-100%. If this does not work use the \"Movement time\" setting instead.",
-                "de": "Aktiviere diese Option, um den Kalibrierungsmodus zu starten, und deaktivieren, um ihn zu beenden. Die dazwischen verstrichene Zeit wird zum Kalibrieren von 0-100% verwendet. Wenn dies nicht funktioniert, verwende stattdessen die Einstellung \"Bewegungszeit\"."
-              },
-              "value": false
-            }
-          ]
-        },
-        {
-          "type": "group",
-          "label": {
-            "en": "Controls",
-            "de": "Steuerelemente"
-          },
-          "children": [
-            {
-              "id": "has_state",
-              "type": "checkbox",
-              "label": {
-                "en": "State control",
-                "de": "Zustandskontrolle"
-              },
-              "hint": {
-                "en": "When enabled controls for Up/Stop/Down will be shown in addition to the percent based controls. Some external integrations (e.g. Alexa) might not be able to determine the correct device type if enabled.",
-                "de": "Wenn diese Option aktiviert ist, werden zusätzlich zu den prozentualen Steuerelementen auch Steuerelemente für Auf/Stop/Ab angezeigt. Einige externe Integrationen (z. B. Alexa) sind möglicherweise nicht in der Lage, den richtigen Gerätetyp zu bestimmen, wenn diese Option aktiviert ist."
-              },
-              "value": false
-            }
-          ]
-        }
-      ]
     },
     {
       "id": "curtain_motor",
@@ -3656,6 +3490,87 @@
       ]
     },
     {
+      "id": "relay_board_2_channel",
+      "name": {
+        "en": "2 Channel Relay Board"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/relay_board_2_channel/assets/images/large.png",
+        "small": "/drivers/relay_board_2_channel/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_nuenzetq"
+        ],
+        "productId": [
+          "TS0002"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "2 Channel Relay Board"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/relay_board_2_channel/assets/icon.svg",
+          "instruction": {
+            "en": "Two tiles will be created, one for each channel of the device. Press the setup button combined with 1 channel button for 10 seconds (the LED should blink green)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "relay_board_4_channel",
       "name": {
         "en": "4 Channel Relay Board"
@@ -3685,7 +3600,8 @@
           "_TZ3000_hdlpifbk",
           "_TZ3000_excgg5kb",
           "_TZ3000_u3oupgdy",
-          "_TZ3000_wkr3jqmr"
+          "_TZ3000_wkr3jqmr",
+          "_TZ3000_imaccztn"
         ],
         "productId": [
           "TS0004"
@@ -8420,6 +8336,7 @@
           "_TZ3000_oex7egmt",
           "_TZ3000_hafsqare",
           "_TZ3000_oaq83gqc",
+          "_TZ3000_hhiodade",
           "_TZ3000_6eyydfyg"
         ],
         "productId": [
@@ -8430,6 +8347,9 @@
           "1": {
             "clusters": [
               0,
+              3,
+              4,
+              5,
               6
             ],
             "bindings": [
@@ -8440,11 +8360,40 @@
         "learnmode": {
           "image": "/drivers/wall_switch_1_gang/assets/icon.svg",
           "instruction": {
-            "en": "Press the button for 10 seconds (the LED should start blinking)."
+            "en": "Press the button for 7 seconds (until LED starts blinking)."
           }
         }
       },
-      "settings": []
+      "settings": [
+        {
+          "id": "indicator_mode",
+          "type": "radio",
+          "label": {
+            "en": "Indicator mode"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Light Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Light on when switch turned on."
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Light on when the switch is turned off."
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "wall_switch_1_gang_tuya",
