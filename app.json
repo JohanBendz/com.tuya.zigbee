@@ -3490,6 +3490,60 @@
       ]
     },
     {
+      "id": "relay_board_1_channel",
+      "name": {
+        "en": "1 Channel Relay Board"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/relay_board_1_channel/assets/images/large.png",
+        "small": "/drivers/relay_board_1_channel/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_g8n1n7lg"
+        ],
+        "productId": [
+          "TS0001"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/relay_board_1_channel/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button combined with 1 channel button for 10 seconds (the LED should blink green)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "relay_board_2_channel",
       "name": {
         "en": "2 Channel Relay Board"
