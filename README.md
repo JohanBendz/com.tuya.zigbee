@@ -310,6 +310,7 @@ Supported devices:
     _TZ3210_wdexaypg / TS110E
     _TZ3210_3mpwqzuu / TS110E
     _TZE204_zenj4lxv / TS0601
+    _TZE204_bxoo2swd / TS0601
 
 **On-Wall**
 - 1 Gang Wall Switch
