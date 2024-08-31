@@ -1,0 +1,35 @@
+{
+  "id": "rgb_wall_led_light",
+  "name": {
+    "en": "Livarno Lux Smart LED Wall Light"
+  },
+  "$extends": ["light_color_ambiance"],
+  "energy": {
+    "approximation": {
+      "usageOn": 10,
+      "usageOff": 0.2
+    }
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_utagpnzs",
+      "_TZ3000_5bsf8vaj"
+    ],
+    "productId": [
+      "TS0505A"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 3, 4, 5, 6, 8, 768],
+        "bindings": [6, 8, 768]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Power on to enter pairing mode."
+      }
+    }
+  }
+
+}

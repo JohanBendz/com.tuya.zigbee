@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.26",
+  "version": "0.2.27",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -341,6 +341,395 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=curtain_module"
+          }
+        ]
+      },
+      {
+        "id": "siren_alarm_state",
+        "title": {
+          "en": "Change the alarm state",
+          "nl": "Verander de alarm toestand",
+          "de": "Ändern des Alarmstatus",
+          "sv": "Ändra larmstatus",
+          "it": "Cambia lo stato di allarme"
+        },
+        "titleFormatted": {
+          "en": "Change the alarm state to [[siren_alarm_state]]",
+          "nl": "Verander de alarm toestand naar [[siren_alarm_state]]",
+          "de": "Ändern des Alarmstatus zu [[siren_alarm_state]]",
+          "sv": "Ändra larmstatus till [[siren_alarm_state]]",
+          "it": "Cambia lo stato di allarme in [[siren_alarm_state]]"
+        },
+        "hint": {
+          "en": "Change the alarm state; sound or silence the alarm",
+          "nl": "Verander de alarm toestand; luiden of uitschakelen van het alarm",
+          "de": "Ändern des Alarmstatus; Ein- oder ausschalten des Alarmtons.",
+          "sv": "Ändra larmstatus; ljud eller tysta larmet",
+          "it": "Cambia lo stato di allarme; suono o silenzia l'allarme"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=siren"
+          },
+          {
+            "name": "siren_alarm_state",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "off/disable",
+                "label": {
+                  "en": "Silence alarm",
+                  "nl": "Alarm stil",
+                  "de": "Stiller Alarm",
+                  "sv": "Tysta larmet",
+                  "it": "Silenzia l'allarme"
+                }
+              },
+              {
+                "id": "on/enable",
+                "label": {
+                  "en": "Sound alarm",
+                  "nl": "Alarm luiden",
+                  "de": "Akustischer Alarm",
+                  "sv": "Ljuda larmet",
+                  "it": "Suona l'allarme"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "siren_alarm_duration",
+        "title": {
+          "en": "Switch on siren for X Seconds",
+          "de": "Sirene für X Sekunden einschalten",
+          "nl": "Zet sirene aan voor X seconden",
+          "sv": "Sätt på siren i X sekunder",
+          "it": "Attiva la sirena per X secondi"
+        },
+        "titleFormatted": {
+          "en": "Switch on siren for [[duration]] Seconds",
+          "de": "Sirene für [[duration]] Sekunden einschalten",
+          "nl": "Zet sirene aan voor [[duration]] seconden",
+          "sv": "Sätt på siren i [[duration]] sekunder",
+          "it": "Attiva la sirena per [[duration]] secondi"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=siren"
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 0,
+            "max": 65535,
+            "step": 1,
+            "label": {
+              "en": "Seconds",
+              "de": "Sekunden",
+              "nl": "Seconden",
+              "sv": "Sekunder",
+              "it": "Secondi"
+            },
+            "placeholder": {
+              "en": "120"
+            },
+            "title": {
+              "en": "Duration of alarm in seconds",
+              "de": "Dauer des Alarms in Sekunden",
+              "nl": "Duur van het alarm in seconden",
+              "sv": "Längd av larmet i sekunder",
+              "it": "Durata dell'allarme in secondi"
+            }
+          }
+        ]
+      },
+      {
+        "id": "siren_volume_setting",
+        "title": {
+          "en": "Set volume of siren",
+          "nl": "Zet het volume van de sirene",
+          "de": "Einstellen der Lautstärke der Sirene",
+          "sv": "Ställ in volymen på siren",
+          "it": "Imposta il volume della sirena"
+        },
+        "titleFormatted": {
+          "en": "Set volume of siren to [[siren_volume]]",
+          "nl": "Zet het volume van de sirene naar [[siren_volume]]",
+          "de": "Einstellen der Lautstärke der Sirene auf [[siren_volume]]",
+          "sv": "Ställ in volymen på siren till [[siren_volume]]",
+          "it": "Imposta il volume della sirena su [[siren_volume]]"
+        },
+        "hint": {
+          "en": "Set volume of siren.",
+          "nl": "Zet het volume van de sirene.",
+          "de": "Einstellen der Lautstärke der Sirene",
+          "sv": "Ställ in volymen på siren",
+          "it": "Imposta il volume della sirena"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=siren"
+          },
+          {
+            "name": "siren_volume",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "2",
+                "label": {
+                  "en": "Low",
+                  "nl": "Laag",
+                  "de": "Niedrig",
+                  "sv": "Låg",
+                  "it": "Basso"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Midle",
+                  "nl": "Middelmatig",
+                  "de": "Mittel",
+                  "sv": "Mellan",
+                  "it": "Medio"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "High (default)",
+                  "nl": "Hoog (standaard)",
+                  "de": "Hoch (Standard)",
+                  "sv": "Hög (standard)",
+                  "it": "Alto (default)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "siren_alarm_tune",
+        "title": {
+          "en": "Set the alarm tune",
+          "nl": "Stel de alarm melodie in",
+          "de": "Einstellen des Alarmtons",
+          "sv": "Ställ in larmmelodin",
+          "it": "Imposta la melodia dell'allarme"
+        },
+        "titleFormatted": {
+          "en": "Set the alarm tune to [[siren_alarm_tune]]",
+          "nl": "Stel de alarm melodie in op [[siren_alarm_tune]]",
+          "de": "Einstellen des Alarmtons zu [[siren_alarm_tune]]",
+          "sv": "Ställ in larmmelodin till [[siren_alarm_tune]]",
+          "it": "Imposta la melodia dell'allarme su [[siren_alarm_tune]]"
+        },
+        "hint": {
+          "en": "Choose the tune of the alarm sound",
+          "nl": "Kies de melodie die gebruikt wordt bij alarm",
+          "de": "Wähle die Melodie des Alarmtons aus.",
+          "sv": "Välj larmmelodi",
+          "it": "Scegli la melodia del suono dell'allarme"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=siren"
+          },
+          {
+            "name": "siren_alarm_tune",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "label": {
+                  "en": "Doorbell Chime",
+                  "nl": "Doorbell Chime",
+                  "de": "Doorbell Chime",
+                  "sv": "Doorbell Chime",
+                  "it": "Doorbell Chime"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "For Elise (default)",
+                  "nl": "Fur Elise (standaard)",
+                  "de": "Fur Elise (Standard)",
+                  "sv": "Fur Elise (standard)",
+                  "it": "Fur Elise (default)"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Westminster Chimes",
+                  "nl": "Westminster Chimes",
+                  "de": "Westminster Chimes",
+                  "sv": "Westminster Chimes",
+                  "it": "Westminster Chimes"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Fast double door bell",
+                  "nl": "Fast double door bell",
+                  "de": "Fast double door bell",
+                  "sv": "Fast double door bell",
+                  "it": "Fast double door bell"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "William Tell Overture",
+                  "nl": "William Tell Overture",
+                  "de": "William Tell Overture",
+                  "sv": "William Tell Overture",
+                  "it": "William Tell Overture"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "Turkish March",
+                  "nl": "Turkish March",
+                  "de": "Turkish March",
+                  "sv": "Turkish March",
+                  "it": "Turkish March"
+                }
+              },
+              {
+                "id": "6",
+                "label": {
+                  "en": "Security Alarm",
+                  "nl": "Security Alarm",
+                  "de": "Security Alarm",
+                  "sv": "Security Alarm",
+                  "it": "Security Alarm"
+                }
+              },
+              {
+                "id": "7",
+                "label": {
+                  "en": "Chemical Spill Alert",
+                  "nl": "Chemical Spill Alert",
+                  "de": "Chemical Spill Alert",
+                  "sv": "Chemical Spill Alert",
+                  "it": "Chemical Spill Alert"
+                }
+              },
+              {
+                "id": "8",
+                "label": {
+                  "en": "Piercing Alarm Clock",
+                  "nl": "Piercing Alarm Clock",
+                  "de": "Piercing Alarm Clock",
+                  "sv": "Piercing Alarm Clock",
+                  "it": "Piercing Alarm Clock"
+                }
+              },
+              {
+                "id": "9",
+                "label": {
+                  "en": "Smoke Alarm",
+                  "nl": "Smoke Alarm",
+                  "de": "Smoke Alarm",
+                  "sv": "Smoke Alarm",
+                  "it": "Smoke Alarm"
+                }
+              },
+              {
+                "id": "10",
+                "label": {
+                  "en": "Dog Barking",
+                  "nl": "Dog Barking",
+                  "de": "Dog Barking",
+                  "sv": "Dog Barking",
+                  "it": "Dog Barking"
+                }
+              },
+              {
+                "id": "11",
+                "label": {
+                  "en": "Police Siren",
+                  "nl": "Police Siren",
+                  "de": "Police Siren",
+                  "sv": "Police Siren",
+                  "it": "Police Siren"
+                }
+              },
+              {
+                "id": "12",
+                "label": {
+                  "en": "Doorbell Chime (reverb)",
+                  "nl": "Doorbell Chime (reverb)",
+                  "de": "Doorbell Chime (reverb)",
+                  "sv": "Doorbell Chime (reverb)",
+                  "it": "Doorbell Chime (reverb)"
+                }
+              },
+              {
+                "id": "13",
+                "label": {
+                  "en": "Mechanical Telephone",
+                  "nl": "Mechanical Telephone",
+                  "de": "Mechanical Telephone",
+                  "sv": "Mechanical Telephone",
+                  "it": "Mechanical Telephone"
+                }
+              },
+              {
+                "id": "14",
+                "label": {
+                  "en": "Fire/Ambulance",
+                  "nl": "Fire/Ambulance",
+                  "de": "Fire/Ambulance",
+                  "sv": "Fire/Ambulance",
+                  "it": "Fire/Ambulance"
+                }
+              },
+              {
+                "id": "15",
+                "label": {
+                  "en": "3/1 Elevator",
+                  "nl": "3/1 Elevator",
+                  "de": "3/1 Elevator",
+                  "sv": "3/1 Elevator",
+                  "it": "3/1 Elevator"
+                }
+              },
+              {
+                "id": "16",
+                "label": {
+                  "en": "Buzzing Alarm Clock",
+                  "nl": "Buzzing Alarm Clock",
+                  "de": "Buzzing Alarm Clock",
+                  "sv": "Buzzing Alarm Clock",
+                  "it": "Buzzing Alarm Clock"
+                }
+              },
+              {
+                "id": "17",
+                "label": {
+                  "en": "School Bell",
+                  "nl": "School Bell",
+                  "de": "School Bell",
+                  "sv": "School Bell",
+                  "it": "School Bell"
+                }
+              }
+            ]
           }
         ]
       },
@@ -759,6 +1148,37 @@
                 }
               }
             ]
+          }
+        ]
+      },
+      {
+        "id": "siren_alarm",
+        "title": {
+          "en": "Siren Alarm",
+          "nl": "Sirene Alarm",
+          "de": "Sirenenalarm",
+          "sv": "Siren Alarm",
+          "it": "Allarme Sirena"
+        },
+        "titleFormatted": {
+          "en": "Siren Alarm",
+          "nl": "Sirene Alarm",
+          "de": "Sirenenalarm",
+          "sv": "Siren Alarm",
+          "it": "Allarme Sirena"
+        },
+        "hint": {
+          "en": "This card will trigger when siren is activated.",
+          "nl": "Deze kaart wordt alleen geactiveerd wanneer de sirene actief is.",
+          "de": "Diese Karte wird ausgelöst, wenn die Sirene aktiviert wird.",
+          "sv": "Detta kort kommer att utlösa när siren är aktiverad.",
+          "it": "Questa carta verrà attivata quando la sirena è attivata."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=siren"
           }
         ]
       },
@@ -3956,6 +4376,144 @@
         }
       },
       "images": {
+        "large": "/drivers/rgb_ceiling_led_light/assets/images/large.png",
+        "small": "/drivers/rgb_ceiling_led_light/assets/images/small.png"
+      },
+      "id": "rgb_ceiling_led_light",
+      "name": {
+        "en": "RGB Ceiling Led Light"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 38,
+          "usageOff": 0.2
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3210_x13bu7za"
+        ],
+        "productId": [
+          "TS0505B"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8,
+              768
+            ],
+            "bindings": [
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/rgb_ceiling_led_light/assets/icon.svg",
+          "instruction": {
+            "en": "Power on to enter pairing mode."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation",
+        "light_temperature",
+        "light_mode"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "images": {
+        "large": "/drivers/rgb_floor_led_light/assets/images/large.png",
+        "small": "/drivers/rgb_floor_led_light/assets/images/small.png"
+      },
+      "id": "rgb_floor_led_light",
+      "name": {
+        "en": "Livarno Lux Atmosphere Floor LED Light"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 12.5,
+          "usageOff": 0.2
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_8uaoilu9"
+        ],
+        "productId": [
+          "TS0502A"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8,
+              768
+            ],
+            "bindings": [
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/rgb_floor_led_light/assets/icon.svg",
+          "instruction": {
+            "en": "Power on to enter pairing mode."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation",
+        "light_temperature",
+        "light_mode"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "images": {
         "large": "/drivers/rgb_led_light_bar/assets/images/large.png",
         "small": "/drivers/rgb_led_light_bar/assets/images/small.png"
       },
@@ -4356,6 +4914,367 @@
         }
       },
       "settings": []
+    },
+    {
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation",
+        "light_temperature",
+        "light_mode"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "images": {
+        "large": "/drivers/rgb_wall_led_light/assets/images/large.png",
+        "small": "/drivers/rgb_wall_led_light/assets/images/small.png"
+      },
+      "id": "rgb_wall_led_light",
+      "name": {
+        "en": "Livarno Lux Smart LED Wall Light"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 10,
+          "usageOff": 0.2
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_utagpnzs",
+          "_TZ3000_5bsf8vaj"
+        ],
+        "productId": [
+          "TS0505A"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8,
+              768
+            ],
+            "bindings": [
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/rgb_wall_led_light/assets/icon.svg",
+          "instruction": {
+            "en": "Power on to enter pairing mode."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "siren",
+      "name": {
+        "en": "Siren"
+      },
+      "class": "other",
+      "capabilities": [
+        "onoff",
+        "measure_battery"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "greyout": false
+        }
+      },
+      "energy": {
+        "batteries": [
+          "CR123A",
+          "CR123A"
+        ]
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/siren/assets/images/small.png",
+        "large": "/drivers/siren/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE204_t1blo2bj"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              10,
+              25,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the button inside the battery compartment for aprox 5 seconds until the LED blinks rapidly.",
+            "sv": "Håll ned knappen inne i batterifacket i ca 5 sekunder tills LED-lampan blinkar snabbt.",
+            "it": "Tenere premuto il pulsante all'interno del vano batteria per cicrca 5 secondi finchè il LED non lampeggia rapidamente.",
+            "nl": "Houd de knop binnenin het batterijcompartiment ongeveer 5 seconden ingedrukt totdat de LED snel knippert.",
+            "de": "Drücken und halten Sie die Taste im Batteriefach ca. 5 Sekunden lang, bis die LED schnell blinkt."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "alarmvolume",
+          "type": "dropdown",
+          "label": {
+            "en": "Alarm volume",
+            "nl": "Alarm volume",
+            "de": "Alarm Lautstärke"
+          },
+          "value": "0",
+          "hint": {
+            "en": "Set the volume of the Alarm sound",
+            "nl": "Aanpassen volume van Alarm geluid",
+            "de": "Einstellen der Lautstärke des Alarmtons"
+          },
+          "values": [
+            {
+              "id": "2",
+              "label": {
+                "en": "Low",
+                "nl": "Laag",
+                "de": "Niedrig"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Midle",
+                "nl": "Middelmatig",
+                "de": "Mittel"
+              }
+            },
+            {
+              "id": "0",
+              "label": {
+                "en": "High (default)",
+                "nl": "Hoog (standaard)",
+                "de": "Hoch (Standard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "alarmsoundtime",
+          "type": "number",
+          "value": 120,
+          "min": 1,
+          "max": 65535,
+          "step": 1,
+          "units": {
+            "en": "Seconds",
+            "de": "Sekunden",
+            "nl": "Seconden"
+          },
+          "label": {
+            "en": "Alarm duration time",
+            "nl": "Alarm duratie",
+            "de": "Alarmdauer"
+          },
+          "hint": {
+            "en": "Set the duration of the time the siren will sound its alarm music",
+            "nl": "Pas de tijd aan dat de sirene zijn alarm geluid laat horen",
+            "de": "Stellt die Zeitdauer ein, während der die Sirene Alarmton erklingt"
+          }
+        },
+        {
+          "id": "alarmtune",
+          "type": "dropdown",
+          "label": {
+            "en": "Alarm sound tune",
+            "nl": "Melodie/geluid alarm",
+            "de": "Alarm Melodie"
+          },
+          "value": "1",
+          "hint": {
+            "en": "Choose the tune of the alarm sound",
+            "nl": "Kies de melodie die gebruikt wordt bij alarm",
+            "de": "Wählt die Melodie des Alarmtons aus."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Doorbell Chime",
+                "nl": "Doorbell Chime",
+                "de": "Doorbell Chime"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "For Elise (default)",
+                "nl": "Fur Elise (standaard)",
+                "de": "Fur Elise (Standard)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Westminster Chimes",
+                "nl": "Westminster Chimes",
+                "de": "Westminster Chimes"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Fast double door bell",
+                "nl": "Fast double door bell",
+                "de": "Fast double door bell"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "William Tell Overture",
+                "nl": "William Tell Overture",
+                "de": "William Tell Overture"
+              }
+            },
+            {
+              "id": "5",
+              "label": {
+                "en": "Turkish March",
+                "nl": "Turkish March",
+                "de": "Turkish March"
+              }
+            },
+            {
+              "id": "6",
+              "label": {
+                "en": "Security Alarm",
+                "nl": "Security Alarm",
+                "de": "Security Alarm"
+              }
+            },
+            {
+              "id": "7",
+              "label": {
+                "en": "Chemical Spill Alert",
+                "nl": "Chemical Spill Alert",
+                "de": "Chemical Spill Alert"
+              }
+            },
+            {
+              "id": "8",
+              "label": {
+                "en": "Piercing Alarm Clock",
+                "nl": "Piercing Alarm Clock",
+                "de": "Piercing Alarm Clock"
+              }
+            },
+            {
+              "id": "9",
+              "label": {
+                "en": "Smoke Alarm",
+                "nl": "Smoke Alarm",
+                "de": "Smoke Alarm"
+              }
+            },
+            {
+              "id": "10",
+              "label": {
+                "en": "Dog Barking",
+                "nl": "Dog Barking",
+                "de": "Dog Barking"
+              }
+            },
+            {
+              "id": "11",
+              "label": {
+                "en": "Police Siren",
+                "nl": "Police Siren",
+                "de": "Police Siren"
+              }
+            },
+            {
+              "id": "12",
+              "label": {
+                "en": "Doorbell Chime (reverb)",
+                "nl": "Doorbell Chime (reverb)",
+                "de": "Doorbell Chime (reverb)"
+              }
+            },
+            {
+              "id": "13",
+              "label": {
+                "en": "Mechanical Telephone",
+                "nl": "Mechanical Telephone",
+                "de": "Mechanical Telephone"
+              }
+            },
+            {
+              "id": "14",
+              "label": {
+                "en": "Fire/Ambulance",
+                "nl": "Fire/Ambulance",
+                "de": "Fire/Ambulance"
+              }
+            },
+            {
+              "id": "15",
+              "label": {
+                "en": "3/1 Elevator",
+                "nl": "3/1 Elevator",
+                "de": "3/1 Elevator"
+              }
+            },
+            {
+              "id": "16",
+              "label": {
+                "en": "Buzzing Alarm Clock",
+                "nl": "Buzzing Alarm Clock",
+                "de": "Buzzing Alarm Clock"
+              }
+            },
+            {
+              "id": "17",
+              "label": {
+                "en": "School Bell",
+                "nl": "School Bell",
+                "de": "School Bell"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "sirentemphumidsensor",
@@ -6461,7 +7380,6 @@
           "_TZ3000_tqlv4ug4",
           "_TZ3000_rmjr4ufz",
           "_TZ3000_mx3vgyea",
-          "_TZ3000_hhiodade",
           "_TZ3000_46t1rvdu",
           "_TZ3000_majwnphg",
           "_TZ3000_6axxqqi2"
@@ -8420,6 +9338,7 @@
           "_TZ3000_oex7egmt",
           "_TZ3000_hafsqare",
           "_TZ3000_oaq83gqc",
+          "_TZ3000_hhiodade",
           "_TZ3000_6eyydfyg"
         ],
         "productId": [
@@ -8430,6 +9349,9 @@
           "1": {
             "clusters": [
               0,
+              3,
+              4,
+              5,
               6
             ],
             "bindings": [
@@ -8440,11 +9362,40 @@
         "learnmode": {
           "image": "/drivers/wall_switch_1_gang/assets/icon.svg",
           "instruction": {
-            "en": "Press the button for 10 seconds (the LED should start blinking)."
+            "en": "Press the button for 7 seconds (until LED starts blinking)."
           }
         }
       },
-      "settings": []
+      "settings": [
+        {
+          "id": "indicator_mode",
+          "type": "radio",
+          "label": {
+            "en": "Indicator mode"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Light Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Light on when switch turned on."
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Light on when the switch is turned off."
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "wall_switch_1_gang_tuya",

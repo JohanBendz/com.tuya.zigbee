@@ -235,5 +235,8 @@
   },
   "0.2.26": {
     "en": "Prepping for central Tuya Datapoint and Helper structure."
+  },
+  "0.2.27": {
+    "en": "Adding devices and fixing issues."
   }
 }
