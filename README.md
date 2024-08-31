@@ -267,7 +267,6 @@ Supported devices:
     _TZ3000_tqlv4ug4 / TS0001
     _TZ3000_rmjr4ufz / TS0001
     _TZ3000_mx3vgyea / TS000F
-    _TZ3000_hhiodade / TS0011
     _TZ3000_46t1rvdu / TS0001
     _TZ3000_majwnphg / TS0001
     _TZ3000_6axxqqi2 / TS0001
@@ -327,6 +326,7 @@ Supported devices:
     _TZ3000_oaq83gqc / TS0011
     _TZ3000_6eyydfyg / TS0001
     _TZE200_gbagoilo / TS0601
+    _TZ3000_hhiodade / TS0011
 
 - 2 Gang Wall Switch
     _TYZB01_mtlhqn48 / TS0012
@@ -416,6 +416,16 @@ Supported devices:
 - Tunable Spot GU10
     _TZ3000_el5kt5im / TS0502A (LIVARNO LUX / Lidl)
 
+- RGB Ceiling LED Light
+    _TZ3210_x13bu7za / TS0505B (LIVARNO LUX / Lidl)
+
+- RGB Floor LED Light
+    _TZ3000_8uaoilu9 / TS0502A
+
+- RGB Wall LED Light
+    _TZ3000_utagpnzs / TS0505A
+    _TZ3000_5bsf8vaj / TS0505A
+
 **Remotes**
 - 1 Gang Wall Remote
     _TYZB02_keyjqthh / TS0041
@@ -457,7 +467,7 @@ Supported devices:
 
 - 1 Button Smart Remote Controller
     _TZ3000_kjfzuycl / TS004F
-    _TZ3000_rco1yzb1 / TS004F
+    _TZ3000_rco1yzb1 / TS004F (Silvercrest / Lidl)
     _TZ3000_yirp2pgd / TS004F
 
 - 4 Button Smart Remote Controller
@@ -549,6 +559,9 @@ Supported devices:
 
 - Smart Switch
     _TYZB01_phjeraqq / TS0001
+
+- Siren
+    _TZE204_t1blo2bj / TS0601
 
 To request additional devices, please use Github issue tracking: https://github.com/JohanBendz/com.tuya.zigbee/issues
 To get support from the community please use Athom Homey Community Forum: https://community.athom.com/t/tuya-zigbee-app/26439
