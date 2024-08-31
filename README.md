@@ -45,6 +45,7 @@ Supported devices:
     _TZ3000_xr3htd96 / TS0201 (Tenky)
     _TZ3000_saiqcn0y / TS0201
     TUYATEC-1uxx9cci / RH3052
+    _TZE200_a8sdabtg / TS0601
 
 - LCD Temperature and Humidity Sensor
     _TZ2000_a476raq2 / TS0201
@@ -283,6 +284,7 @@ Supported devices:
     _TZ3000_18ejxno0 / TS0012
     _TZ3000_llfaquvp / TS0012
     _TZ3000_lmlsduws / TS0002
+-   _TZ3000_qaa59zqd / TS0002
 
 - 2 Gang Switch Module with metering
     _TZ3000_zmy4lslw / TS0002
@@ -309,6 +311,7 @@ Supported devices:
     _TZ3210_wdexaypg / TS110E
     _TZ3210_3mpwqzuu / TS110E
     _TZE204_zenj4lxv / TS0601
+    _TZE204_bxoo2swd / TS0601
 
 **On-Wall**
 - 1 Gang Wall Switch
@@ -437,6 +440,7 @@ Supported devices:
     _TZ3000_f97vq5mn / TS0041
     _TZ3000_fa9mlvja / TS0041
     _TZ3000_itb0omhv / TS0041
+    _TZ3000_8rppvwda / TS0041
 
 - 2 Gang Wall Remote
     _TZ3000_owgcnkrh / TS0042
