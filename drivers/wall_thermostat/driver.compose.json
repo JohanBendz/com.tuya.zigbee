@@ -13,7 +13,11 @@
     "small": "{{driverAssetsPath}}/images/small.jpg"
   },
   "zigbee": {
-    "manufacturerName": ["_TZE200_aoclfnxz", "_TZE204_aoclfnxz"],
+    "manufacturerName": [
+      "_TZE200_aoclfnxz",
+      "_TZE204_aoclfnxz",
+      "_TZE200_2ekuz3dz"
+    ],
     "productId": [
       "TS0601"
     ],

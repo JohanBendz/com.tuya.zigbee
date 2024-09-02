@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.27",
+  "version": "0.2.28",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -1785,7 +1785,8 @@
           "_TZ3000_e3vhyirx",
           "_TZ3000_1dd0d5yi",
           "_TZ3000_jwv3cwak",
-          "_TZ3210_dwytrmda"
+          "_TZ3210_dwytrmda",
+          "_TZ3210_ol1uhvza"
         ],
         "productId": [
           "TS130F"
@@ -1914,6 +1915,7 @@
       "zigbee": {
         "manufacturerName": [
           "_TZE200_5zbp6j0u",
+          "_TZE200_bjzrowv2",
           "_TZE200_nkoabg8w",
           "_TZE200_xuzcvlku",
           "_TZE200_4vobcgd3",
@@ -2005,6 +2007,138 @@
           "max": 100
         }
       ]
+    },
+    {
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_temperature"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "images": {
+        "large": "/drivers/dimmable_led_strip/assets/images/large.png",
+        "small": "/drivers/dimmable_led_strip/assets/images/small.png"
+      },
+      "id": "dimmable_led_strip",
+      "name": {
+        "en": "Dimmable LED Strip"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 50,
+          "usageOff": 1
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3210_invesber"
+        ],
+        "productId": [
+          "TS0502B"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8,
+              768
+            ],
+            "bindings": [
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/dimmable_led_strip/assets/icon.svg",
+          "instruction": {
+            "en": "Power on to enter pairing mode."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_temperature"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "images": {
+        "large": "/drivers/dimmable_recessed_led/assets/images/large.png",
+        "small": "/drivers/dimmable_recessed_led/assets/images/small.png"
+      },
+      "id": "dimmable_recessed_led",
+      "name": {
+        "en": "Dimmable Recessed LED"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 7,
+          "usageOff": 1
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3210_zdrhqmo0"
+        ],
+        "productId": [
+          "TS0502B"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8,
+              768
+            ],
+            "bindings": [
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/dimmable_recessed_led/assets/icon.svg",
+          "instruction": {
+            "en": "Power on to enter pairing mode."
+          }
+        }
+      },
+      "settings": []
     },
     {
       "id": "dimmer_1_gang",
@@ -2409,7 +2543,10 @@
           "_TZ3000_yxqnffam",
           "_TZ3000_9eeavbk5",
           "_TZ3000_yxqnffam",
-          "_TZ3000_a33rw7ou"
+          "_TZ3000_a33rw7ou",
+          "_TZ3000_6zvw8ham",
+          "_TZ3000_yfekcy3n",
+          "_TZ3000_cea5xugq"
         ],
         "productId": [
           "RH3001",
@@ -2470,7 +2607,8 @@
           "_TZ3000_osu834un",
           "Immax",
           "Visonic",
-          "_TZ3000_hkcpblrs"
+          "_TZ3000_hkcpblrs",
+          "_TZ3000_8yhypbo7"
         ],
         "productId": [
           "RH3001",
@@ -2746,7 +2884,9 @@
         "manufacturerName": [
           "TUYATEC-3tipnsrx",
           "_TZ3000_4uvovz4r",
-          "_TZ3000_3dfewsk1"
+          "_TZ3000_3dfewsk1",
+          "_TZ3000_ww9i3e0y",
+          "_TZ3000_wuep9zng"
         ],
         "productId": [
           "RH3001",
@@ -3426,7 +3566,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "TUYATEC-bd5faf9p"
+          "TUYATEC-bd5faf9p",
+          "TUYATEC-zw6hxafz"
         ],
         "productId": [
           "RH3040"
@@ -3712,7 +3853,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_pnzfdr9y"
+          "_TZ3000_pnzfdr9y",
+          "_TZ3000_br3laukf"
         ],
         "productId": [
           "TS0101"
@@ -4077,6 +4219,132 @@
       ]
     },
     {
+      "id": "radar_sensor_ceiling",
+      "name": {
+        "en": "Radar Sensor ceiling"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_luminance",
+        "alarm_motion"
+      ],
+      "images": {
+        "large": "/drivers/radar_sensor_ceiling/assets/images/large.png",
+        "small": "/drivers/radar_sensor_ceiling/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_2aaelwxk"
+        ],
+        "productId": [
+          "TS0225"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1024,
+              1280,
+              57344,
+              57346,
+              60928,
+              61184
+            ],
+            "bindings": [
+              3,
+              57344,
+              57346,
+              60928,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/radar_sensor_ceiling/assets/icon.svg",
+          "instruction": {
+            "en": "Press and hold the reset button for 5 seconds. When the indicator light flashes it is in pairing mode."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "radar_sensitivity",
+          "type": "number",
+          "label": {
+            "en": "Radar sensitivity"
+          },
+          "value": 7,
+          "min": 1,
+          "max": 9
+        },
+        {
+          "id": "minimum_range",
+          "type": "number",
+          "label": {
+            "en": "Minimum range"
+          },
+          "value": 0,
+          "min": 0,
+          "max": 9.5,
+          "units": {
+            "en": "meters"
+          }
+        },
+        {
+          "id": "maximum_range",
+          "type": "number",
+          "label": {
+            "en": "Maximum range"
+          },
+          "value": 9.5,
+          "min": 0,
+          "max": 9.5,
+          "units": {
+            "en": "meters"
+          }
+        },
+        {
+          "id": "detection_delay",
+          "type": "number",
+          "label": {
+            "en": "Detection delay"
+          },
+          "value": 7,
+          "min": 0,
+          "max": 10,
+          "units": {
+            "en": "seconds"
+          }
+        },
+        {
+          "id": "fading_time",
+          "type": "number",
+          "label": {
+            "en": "Fading time"
+          },
+          "value": 7,
+          "min": 0,
+          "max": 1500,
+          "units": {
+            "en": "seconds"
+          }
+        }
+      ]
+    },
+    {
       "id": "relay_board_4_channel",
       "name": {
         "en": "4 Channel Relay Board"
@@ -4106,7 +4374,8 @@
           "_TZ3000_hdlpifbk",
           "_TZ3000_excgg5kb",
           "_TZ3000_u3oupgdy",
-          "_TZ3000_wkr3jqmr"
+          "_TZ3000_wkr3jqmr",
+          "_TZ3000_imaccztn"
         ],
         "productId": [
           "TS0004"
@@ -5776,10 +6045,12 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3210_eymunffl"
+          "_TZ3210_eymunffl",
+          "_TZ3000_cjfmu5he"
         ],
         "productId": [
-          "TS0101"
+          "TS0101",
+          "TS0049"
         ],
         "endpoints": {
           "1": {
@@ -7540,10 +7811,12 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_zmy4lslw"
+          "_TZ3000_zmy4lslw",
+          "_TZ3000_cayepv1a"
         ],
         "productId": [
-          "TS0002"
+          "TS0002",
+          "TS011F"
         ],
         "endpoints": {
           "1": {
@@ -8123,7 +8396,8 @@
           "_TZE200_a8sdabtg"
         ],
         "productId": [
-          "TS0201"
+          "TS0201",
+          "TS0601"
         ],
         "endpoints": {
           "1": {
@@ -8286,7 +8560,8 @@
           "_TZE200_mudxchsu",
           "_TZE200_7yoranx2",
           "_TZE200_e9ba97vf",
-          "_TZE200_kds0pmmv"
+          "_TZE200_kds0pmmv",
+          "_TZE200_kly8gjlz"
         ],
         "productId": [
           "TS0601"
@@ -8941,7 +9216,8 @@
           "_TZ3000_pzui3skt",
           "_TZ3000_f97vq5mn",
           "_TZ3000_fa9mlvja",
-          "_TZ3000_itb0omhv"
+          "_TZ3000_itb0omhv",
+          "_TZ3000_8rppvwda"
         ],
         "productId": [
           "TS0041"
@@ -9301,6 +9577,227 @@
         }
       },
       "settings": []
+    },
+    {
+      "id": "wall_socket",
+      "name": {
+        "en": "Wall Socket with metering"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/wall_socket/assets/images/large.png",
+        "small": "/drivers/wall_socket/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_b28wrpvx",
+          "_TZ3000_4ux0ondb",
+          "_TZ3000_y4ona9me"
+        ],
+        "productId": [
+          "TS011F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6,
+              1794,
+              2820
+            ],
+            "bindings": [
+              6,
+              1794,
+              2820
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "metering_offset",
+          "type": "number",
+          "label": {
+            "en": "Metering Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "measure_offset",
+          "type": "number",
+          "label": {
+            "en": "Measure Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "minReportPower",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for power (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportCurrent",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for current (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportVoltage",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for voltage (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "relay_status",
+          "type": "radio",
+          "label": {
+            "en": "Relay status"
+          },
+          "value": "2",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Remember last status"
+              }
+            }
+          ]
+        },
+        {
+          "id": "indicator_mode",
+          "type": "radio",
+          "label": {
+            "en": "Indicator mode"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Indicates status. The indicator comes on when the switch is turned on."
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Indicates position. The indicator comes on when the switch is turned off."
+              }
+            }
+          ]
+        },
+        {
+          "id": "child_lock",
+          "type": "radio",
+          "label": {
+            "en": "Child lock"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Release"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Lock"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "wall_switch_1_gang",
@@ -9800,7 +10297,11 @@
         "small": "/drivers/wall_thermostat/assets/images/small.jpg"
       },
       "zigbee": {
-        "manufacturerName": "_TZE200_aoclfnxz",
+        "manufacturerName": [
+          "_TZE200_aoclfnxz",
+          "_TZE204_aoclfnxz",
+          "_TZE200_2ekuz3dz"
+        ],
         "productId": [
           "TS0601"
         ],
@@ -9874,7 +10375,8 @@
           "_TZ3000_0s9gukzt",
           "_TZ3000_kstbkt6a",
           "_TZ3000_mugyhz0q",
-          "_TZ3000_upgcbody"
+          "_TZ3000_upgcbody",
+          "_TZ3000_k4ej3ww2"
         ],
         "productId": [
           "TS0207",
@@ -9981,7 +10483,8 @@
           "_TZ3000_5k5vh43t",
           "_TZ3000_ufttklsz",
           "_TZ3000_gszjt2xx",
-          "_TZ3000_nkkl7uzv"
+          "_TZ3000_nkkl7uzv",
+          "_TZ3000_nlsszmzl"
         ],
         "productId": [
           "TS0207"
