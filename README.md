@@ -156,6 +156,7 @@ Supported devices:
     _TZ3000_mugyhz0q / TS0207 (ONENUO)
     _TZ3000_upgcbody / TS0207 (ONENUO)
     _TZ3000_k4ej3ww2 / TS0207
+    _TZ3000_6oabgtzv / TS0207
 
 - Water Leak Sensor
     _TZE200_qq9mpfhw / TS0601

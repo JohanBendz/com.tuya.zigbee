@@ -19,6 +19,24 @@ class dimmer_1_gang_tuya extends TuyaSpecificClusterDevice {
         this.error('Error when reading device attributes ', err);
     });
 
+    await zclNode.endpoints[1].clusters.onOff.configureReporting({
+      attributeId: 'onOff',
+      minInterval: 0,
+      maxInterval: 600,
+      minChange: 1,
+    }).catch(err => {
+      this.error('Failed to configure onOff reporting', err);
+    });
+
+    await zclNode.endpoints[1].clusters.levelControl.configureReporting({
+      attributeId: 'currentLevel',
+      minInterval: 0,
+      maxInterval: 600,
+      minChange: 1,
+    }).catch(err => {
+      this.error('Failed to configure levelControl reporting', err);
+    });
+
     this.registerCapabilityListener('onoff', async value => {
       this.log('onoff: ', value);
       await this.writeBool(1, value);

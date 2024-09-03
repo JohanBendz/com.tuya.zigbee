@@ -241,5 +241,8 @@
   },
   "0.2.28": {
     "en": "Adding more devices."
+  },
+  "0.2.29": {
+    "en": "A few fixes for dimmers."
   }
 }
