@@ -1813,6 +1813,7 @@
       },
       "settings": [
         {
+          "id": "motor_control",
           "type": "group",
           "label": {
             "en": "Motor control",
@@ -1841,7 +1842,7 @@
               },
               "min": 3,
               "max": 900,
-              "step": "0.1",
+              "step": 0.1,
               "units": {
                 "en": "Seconds",
                 "de": "Sekunden"
@@ -1863,6 +1864,7 @@
           ]
         },
         {
+          "id": "controls",
           "type": "group",
           "label": {
             "en": "Controls",
