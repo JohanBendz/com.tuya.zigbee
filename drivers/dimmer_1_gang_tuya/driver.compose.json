@@ -37,8 +37,8 @@
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 4, 5, 61184],
-          "bindings": [25, 10]
+          "clusters": [0, 4, 5, 6, 8, 61184],
+          "bindings": [6, 8, 25, 10]
         }
       },
       "learnmode": {

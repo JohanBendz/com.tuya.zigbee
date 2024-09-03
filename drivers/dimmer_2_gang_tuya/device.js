@@ -18,10 +18,50 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
       .catch(err => {
           this.error('Error when reading device attributes ', err);
       });
+
+      await zclNode.endpoints[1].clusters.onOff.configureReporting({
+        attributeId: 'onOff',
+        minInterval: 0,
+        maxInterval: 600,
+        minChange: 1,
+      }).catch(err => {
+        this.error('Failed to configure onOff reporting for gang 1', err);
+      });
+
+      await zclNode.endpoints[1].clusters.levelControl.configureReporting({
+        attributeId: 'currentLevel',
+        minInterval: 0,
+        maxInterval: 600,
+        minChange: 1,
+      }).catch(err => {
+        this.error('Failed to configure levelControl reporting for gang 1', err);
+      });
+
     }
 
     const { subDeviceId } = this.getData();
     this.log('Sub device ID:', subDeviceId);
+
+    if (subDeviceId === 'secondGang') {
+      // Konfigurera rapportering för onOff och dim (andra kanalen)
+      await zclNode.endpoints[1].clusters.onOff.configureReporting({
+        attributeId: 'onOff',
+        minInterval: 0,
+        maxInterval: 600,
+        minChange: 1,
+      }).catch(err => {
+        this.error('Failed to configure onOff reporting for gang 2', err);
+      });
+  
+      await zclNode.endpoints[1].clusters.levelControl.configureReporting({
+        attributeId: 'currentLevel',
+        minInterval: 0,
+        maxInterval: 600,
+        minChange: 1,
+      }).catch(err => {
+        this.error('Failed to configure levelControl reporting for gang 2', err);
+      });
+    }
 
     if (!subDeviceId) {
       this.registerCapabilityListener('onoff', async value => {
