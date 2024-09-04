@@ -60,6 +60,7 @@ Supported devices:
     _TZE200_bjawzodf / TS0601
     _TZE200_zl1kmjqx / TS0601
     _TZE200_locansqn / TS0601
+    _TZE204_yjjdcqsq / TS0601
     _TZ3000_yd2e749y / TS0201
     _TZ3000_ywagc4rj / TS0201
     _TZ3000_itnrsufe / TS0201
