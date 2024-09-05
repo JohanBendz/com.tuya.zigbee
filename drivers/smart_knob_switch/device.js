@@ -17,7 +17,6 @@ class smart_knob_switch extends ZigBeeDevice {
       node.handleFrame = (endpointId, clusterId, frame, meta) => {
         this._buttonPressedTriggerDevice = this.homey.flow.getDeviceTriggerCard('smart_knob_switch_button')
         .registerRunListener(async (args, state) => {
-          this.log("FLOW - args:", args, ", state:", state);
           return (null, args.button === state.button);
         });
 
@@ -42,10 +41,11 @@ class smart_knob_switch extends ZigBeeDevice {
     buttonCommandParser(cl, frame) {
       const duration = frame.data[4] ?? false;
       var btn = 'unknown'
+      var left = false;
 
       switch (cl){
-        case 8: btn = frame.data[3] === 1 ? 'left' : 'right'; break; // Scroll
-        case 768: btn = `hold-${frame.data[3] === 3 ? 'left' : 'right'}`; break; // Holding
+        case 8: left = frame.data[3] == 1; btn = left ? 'left' : 'right'; break; // Scroll
+        case 768: left = frame.data[3] === 3; btn = `hold-${left ? 'left' : 'right'}`; break; // Holding
         case 6: 
         default: btn = 'press'; break; // Button
       };
@@ -53,8 +53,10 @@ class smart_knob_switch extends ZigBeeDevice {
     
       this.log('Processed action: ', btn === false ? 'unknown' : btn);
   
-      if (duration !== false)
-        this.setCapabilityValue('dim', duration).catch(this.error);
+      if (duration !== false){
+        this.setCapabilityValue('dim', (left ? -1 : 1) * duration).catch(this.error);
+        this.log('Dimming to: ', (left ? -1 : 1) * duration);
+      }
 
      return this._buttonPressedTriggerDevice.trigger(this, {}, { button: `${btn}` })
         .then(() => this.log(`Triggered Smart Knob Switch, button=${btn}`, duration !== false ? `duration=${duration}` : ''))
