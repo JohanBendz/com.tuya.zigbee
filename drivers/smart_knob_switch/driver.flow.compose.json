@@ -1,0 +1,66 @@
+{
+  "triggers": [
+    {
+      "id": "smart_knob_switch_button",
+      "title": {
+        "en": "Button",
+        "sv": "Knapp"
+      },
+      "titleFormatted": {
+        "en": "The [[button]]",
+        "sv": "[[button]]"
+      },
+      "hint": {
+        "en": "This card will trigger when the button is used",
+        "sv": "Detta kort körs när knappen används"
+      },
+      "args": [
+        {
+          "name": "button",
+          "type": "dropdown",
+          "title": {
+            "en": "Button Used",
+            "sv": "Knappen används"
+          },
+          "values": [
+            {
+              "id": "press",
+              "label": {
+                "en": "The button has been pressed",
+                "sv": "Knappen har tryckts"
+              }
+            },
+            {
+              "id": "left",
+              "label": {
+                "en": "The button has been rotated counter clockwise",
+                "sv": "Knappen har roterats moturs"
+              }
+            },
+            {
+              "id": "right",
+              "label": {
+                "en": "The button has been rotated clockwise",
+                "sv": "Knappen har roterats medurs"
+              }
+            },
+            {
+              "id": "hold-left",
+              "label": {
+                "en": "The button has been pressed and rotated counter clockwise",
+                "sv": "Knappen har tryckts ned och roterats moturs"
+              }
+            },
+            {
+              "id": "hold-right",
+              "label": {
+                "en": "The button has been pressed and rotated clockwise",
+                "sv": "Knappen har tryckts ned och roterats medurs"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
