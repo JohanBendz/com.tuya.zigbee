@@ -247,5 +247,8 @@
   },
   "0.2.30": {
     "en": "Fix for double power point."
+  },
+  "0.2.31": {
+    "en": "Fix for 2 gang dimmers."
   }
 }
