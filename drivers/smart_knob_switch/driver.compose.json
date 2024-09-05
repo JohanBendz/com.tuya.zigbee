@@ -8,6 +8,7 @@
     "platforms": ["local"],
     "connectivity": ["zigbee"],
     "capabilities": [
+      "dim"
     ],
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",

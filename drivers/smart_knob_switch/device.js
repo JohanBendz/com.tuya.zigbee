@@ -10,6 +10,8 @@ class smart_knob_switch extends ZigBeeDevice {
       var debounce = 0;
       this.printNode();
 
+      this.addCapability("dim");
+
       const node = await this.homey.zigbee.getNode(this);
       
       node.handleFrame = (endpointId, clusterId, frame, meta) => {
@@ -50,7 +52,10 @@ class smart_knob_switch extends ZigBeeDevice {
 
     
       this.log('Processed action: ', btn === false ? 'unknown' : btn);
-      
+  
+      if (duration !== false)
+        this.setCapabilityValue('dim', duration).catch(this.error);
+
      return this._buttonPressedTriggerDevice.trigger(this, {}, { button: `${btn}` })
         .then(() => this.log(`Triggered Smart Knob Switch, button=${btn}`, duration !== false ? `duration=${duration}` : ''))
         .catch(err => this.error('Error triggering Smart Knob Switch', err));

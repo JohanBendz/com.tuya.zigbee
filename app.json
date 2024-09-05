@@ -1238,36 +1238,36 @@
               {
                 "id": "press",
                 "label": {
-                  "en": "The button has been pressed",
-                  "sv": "Knappen har tryckts"
+                  "en": "Pressed",
+                  "sv": "Nedtryckt"
                 }
               },
               {
                 "id": "left",
                 "label": {
-                  "en": "The button has been rotated counter clockwise",
-                  "sv": "Knappen har roterats moturs"
+                  "en": "Rotated counter clockwise",
+                  "sv": "Roterats moturs"
                 }
               },
               {
                 "id": "right",
                 "label": {
-                  "en": "The button has been rotated clockwise",
-                  "sv": "Knappen har roterats medurs"
+                  "en": "Rotated clockwise",
+                  "sv": "Roterats medurs"
                 }
               },
               {
                 "id": "hold-left",
                 "label": {
-                  "en": "The button has been pressed and rotated counter clockwise",
-                  "sv": "Knappen har tryckts ned och roterats moturs"
+                  "en": "Pressed and rotated counter clockwise",
+                  "sv": "Nedtyrckt och roterats moturs"
                 }
               },
               {
                 "id": "hold-right",
                 "label": {
-                  "en": "The button has been pressed and rotated clockwise",
-                  "sv": "Knappen har tryckts ned och roterats medurs"
+                  "en": "Pressed and rotated clockwise",
+                  "sv": "Nedtyrckt och roterats medurs"
                 }
               }
             ]
@@ -6188,7 +6188,9 @@
       "connectivity": [
         "zigbee"
       ],
-      "capabilities": [],
+      "capabilities": [
+        "dim"
+      ],
       "images": {
         "large": "/drivers/smart_knob_switch/assets/images/large.png",
         "small": "/drivers/smart_knob_switch/assets/images/small.png"
