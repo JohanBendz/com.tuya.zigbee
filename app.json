@@ -8539,11 +8539,7 @@
         "measure_battery",
         "alarm_battery"
       ],
-      "capabilitiesOptions": {
-        "onoff": {
-          "greyout": false
-        }
-      },
+      "capabilitiesOptions": {},
       "energy": {
         "batteries": [
           "AAA",
@@ -8562,7 +8558,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE204_yjjdcqsq"
+          "_TZE204_yjjdcqsq",
+          "_TZE200_vvmbj46n"
         ],
         "productId": [
           "TS0601"
@@ -8595,8 +8592,7 @@
           "type": "number",
           "label": {
             "en": "Temperature offset (°C)",
-            "it": "Offset della temperatura (°C)",
-            "sv": "Temeraturskillnad (°C)"
+            "it": "Offset della temperatura (°C)"
           },
           "hint": {
             "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]",

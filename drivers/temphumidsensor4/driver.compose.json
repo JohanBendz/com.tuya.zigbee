@@ -11,11 +11,7 @@
     "measure_battery",
     "alarm_battery"
   ],
-  "capabilitiesOptions": {
-    "onoff": {
-      "greyout": false
-    }
-  },
+  "capabilitiesOptions": {},
   "energy": {
       "batteries": ["AAA","AAA"]
   },
