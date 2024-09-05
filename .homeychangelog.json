@@ -244,5 +244,8 @@
   },
   "0.2.29": {
     "en": "A few fixes for dimmers."
+  },
+  "0.2.30": {
+    "en": "Fix for double power point."
   }
 }
