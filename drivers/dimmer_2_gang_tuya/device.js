@@ -43,8 +43,7 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
     this.log('Sub device ID:', subDeviceId);
 
     if (subDeviceId === 'secondGang') {
-      // Konfigurera rapportering för onOff och dim (andra kanalen)
-      await zclNode.endpoints[1].clusters.onOff.configureReporting({
+      await zclNode.endpoints[2].clusters.onOff.configureReporting({
         attributeId: 'onOff',
         minInterval: 0,
         maxInterval: 600,
@@ -53,7 +52,7 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
         this.error('Failed to configure onOff reporting for gang 2', err);
       });
   
-      await zclNode.endpoints[1].clusters.levelControl.configureReporting({
+      await zclNode.endpoints[2].clusters.levelControl.configureReporting({
         attributeId: 'currentLevel',
         minInterval: 0,
         maxInterval: 600,
@@ -73,8 +72,8 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
       });
 
       this.registerCapabilityListener('dim', async value => {
-        this.log('dim gang 1:', value * 100);
-        await this.writeData32(2, value * 100)
+        this.log('brightness gang 1:', value * 1000);
+        await this.writeData32(2, value * 1000)
         .catch(err => {
           this.error('Error when writing to device: ', err);
         });
@@ -90,8 +89,8 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
       });
 
       this.registerCapabilityListener('dim', async value => {
-        this.log('dim gang 2:', value * 100);
-        await this.writeData32(4, value * 100)
+        this.log('brightness gang 2:', value * 1000);
+        await this.writeData32(4, value * 1000)
         .catch(err => {
           this.error('Error when writing to device: ', err);
         });

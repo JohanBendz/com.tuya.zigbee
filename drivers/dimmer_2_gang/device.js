@@ -14,11 +14,19 @@ class dimmer_2_gang extends ZigBeeDevice {
         this.log("Device data: ", subDeviceId);
 
         this.registerCapability('onoff', CLUSTER.ON_OFF, {
-            endpoint: subDeviceId === 'secondDimmer' ? 2 : 1,
+            endpoint: 1,
         });
-
+        
         this.registerCapability('dim', CLUSTER.LEVEL_CONTROL, {
-            endpoint: subDeviceId === 'secondDimmer' ? 2 : 1,
+            endpoint: 1,
+        });
+        
+        this.registerCapability('onoff', CLUSTER.ON_OFF, {
+            endpoint: 2,
+        });
+        
+        this.registerCapability('dim', CLUSTER.LEVEL_CONTROL, {
+            endpoint: 2,
         });
 
         await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
