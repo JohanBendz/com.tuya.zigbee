@@ -8658,6 +8658,110 @@
       ]
     },
     {
+      "id": "temphumidsensor4",
+      "name": {
+        "en": "Temperature & Humidity Sensor",
+        "sv": "Temperatur- och fuktighetssensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "capabilitiesOptions": {},
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/temphumidsensor4/assets/images/small.png",
+        "large": "/drivers/temphumidsensor4/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE204_yjjdcqsq",
+          "_TZE200_vvmbj46n"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              10,
+              25,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the reset button for aprox 10 seconds until the LED blinks rapidly.",
+            "sv": "Tryck in nollnings-knappen under ca 10 sekunder tills LED-lampan binkar snabbt"
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "temperature_offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset (°C)",
+            "it": "Offset della temperatura (°C)"
+          },
+          "hint": {
+            "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]",
+            "it": "Imposta un valore per compensare lo scostamento della temperatura.\nRange: -10 - 10, step ze 0.1, \ndefault: 0 [°C]",
+            "sv": "Ange ett värde för att korrigera felaktig temperatur.\nIntervall: -10 - 10, steg om 0.1, \nstandard: 0 [°C]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "humidity_offset",
+          "type": "number",
+          "label": {
+            "en": "Humidity offset (%)",
+            "nl": "Luchtvochtigheids compensatie (%)",
+            "it": "Offset dell'umidità (%)",
+            "sv": "Fuktighetskorrigering (%)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]",
+            "it": "Imposta un valore per compensare lo scostamento dell'umidità.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "sv": "Ange ett värde för att korrigera felaktig fuktighet.\nIntervall: -10 - 10, steg om 1, \nstandard: 0 [%]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 1
+          }
+        }
+      ]
+    },
+    {
       "name": {
         "en": "Thermostatic Radiator Valve"
       },
