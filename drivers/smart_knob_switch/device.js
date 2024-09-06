@@ -44,12 +44,11 @@ class smart_knob_switch extends ZigBeeDevice {
       default: btn = 'press'; break; // Button
     };
 
-
     this.log('Processed action: ', btn === false ? 'unknown' : btn);
 
     if (duration !== false) {
-      this.setCapabilityValue('dim', (left ? -1 : 1) * duration).catch(this.error);
-      this.log('Dimming to: ', (left ? -1 : 1) * duration);
+      this.setCapabilityValue('dim', duration/500).catch(this.error);
+      this.log('Dimming to: ', duration/500);
     }
 
     return this._buttonPressedTriggerDevice.trigger(this, {}, { button: `${btn}` })
@@ -64,7 +63,3 @@ class smart_knob_switch extends ZigBeeDevice {
 }
 
 module.exports = smart_knob_switch;
-
-
-
-
