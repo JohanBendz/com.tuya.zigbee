@@ -1,0 +1,42 @@
+{
+    "id": "smoke_sensor3",
+    "name": {
+      "en": "Smoke Sensor"
+    },
+    "class": "sensor",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+        "measure_battery",
+        "alarm_smoke",
+		    "alarm_battery",
+        "alarm_tamper"
+    ],
+    "energy": {
+      "batteries": ["AAA","AAA"]
+    },
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TZ3210_up3pngle"
+      ],
+      "productId": [
+        "TS0205"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 1, 1280],
+          "bindings": [0, 1280]
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Press the RESET pinhole on the side of the unit for 5 seconds until LED blinks."
+        }
+      }
+    }
+  }
