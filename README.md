@@ -173,6 +173,7 @@ Supported devices:
     _TYZB01_dsjszp0x / TS0205
     _TZE200_ntcy3xu1 / TS0601
     _TZE200_m9skfctm / TS0601
+    _TZ3210_up3pngle / TS0205
 
 - Soil humidity sensor
     _TZE200_myd45weu / TS0601 (GiEX)
@@ -188,6 +189,10 @@ Supported devices:
     _TZE204_ijxvkhd0 / TS0601
     _TZE204_sxm7l9xa / TS0601
     _TZE200_2aaelwxk / TS0225
+
+- Air Detection Box
+    _TZE200_yvx5lh6k / TS0601
+    _TZE200_8ygsuhe1 / TS0601
 
 **Plugs, Sockets and Socket Strips**
 - Smart Plug, with metering
@@ -269,6 +274,10 @@ Supported devices:
     _TZ3000_b28wrpvx / TS011F (BSEED)
     _TZ3000_4ux0ondb / TS011F (BSEED)
     _TZ3000_y4ona9me / TS011F (Alice)
+
+- DIN-rail relay with metering
+    _TZ3000_qeuvnohg / TS011F
+    _TZ3000_cayepv1a / TS011F (Tongou)
 
 **In-Wall**
 - 1 Gang Switch Module
@@ -502,6 +511,9 @@ Supported devices:
     _TYZB01_qm6djpta / TS0215A
     _TZ3000_p6ju8myv / TS0215A
     _TZ3000_u3nv1jwk / TS0044
+
+- Knob Switch
+    _TZ3000_abrsvsou / TS004F
 
 **Curtains**
 - Curtain Module
