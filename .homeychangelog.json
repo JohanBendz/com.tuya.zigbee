@@ -250,5 +250,8 @@
   },
   "0.2.31": {
     "en": "Fix for 2 gang dimmers."
+  },
+  "0.2.32": {
+    "en": "Fix for 2 gang dimmer."
   }
 }
