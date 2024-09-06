@@ -1183,6 +1183,43 @@
         ]
       },
       {
+        "id": "smart_button_switch_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "Button had [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_button_switch"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "oneClick",
+                "label": {
+                  "en": "1 Click"
+                }
+              },
+              {
+                "id": "twoClicks",
+                "label": {
+                  "en": "2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "alarm_siren",
         "title": {
           "en": "Siren Alarm",
@@ -2620,6 +2657,7 @@
           "_TZ3000_yxqnffam",
           "_TZ3000_9eeavbk5",
           "_TZ3000_yxqnffam",
+          "_TZ3000_rcuyhwe3",
           "_TZ3000_a33rw7ou",
           "_TZ3000_6zvw8ham",
           "_TZ3000_yfekcy3n",
@@ -2627,6 +2665,7 @@
         ],
         "productId": [
           "RH3001",
+          "TS0203",
           "TS0203"
         ],
         "endpoints": {
@@ -6300,6 +6339,55 @@
       "settings": []
     },
     {
+      "id": "smart_button_switch",
+      "name": {
+        "en": "Smart Button Switch"
+      },
+      "class": "remote",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/smart_button_switch/assets/images/large.png",
+        "small": "/drivers/smart_button_switch/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_fa9mlvja"
+        ],
+        "productId": [
+          "TS0041"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smart_button_switch/assets/icon.svg",
+          "instruction": {
+            "en": "Press the button for aprox 10 seconds (the LED should start blinking)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "smart_door_window_sensor",
       "name": {
         "en": "Smart Door & Window Sensor (Lidl)"
@@ -6329,10 +6417,12 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ1800_ejwkn2h2"
+          "_TZ1800_ejwkn2h2",
+          "_TZ3000_rcuyhwe3"
         ],
         "productId": [
-          "TY0203"
+          "TY0203",
+          "TS0203"
         ],
         "endpoints": {
           "1": {

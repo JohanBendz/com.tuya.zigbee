@@ -20,8 +20,8 @@
     "small": "{{driverAssetsPath}}/images/small.png"
   },
   "zigbee": {
-    "manufacturerName": ["_TZ1800_ejwkn2h2"],
-    "productId": ["TY0203"],
+    "manufacturerName": ["_TZ1800_ejwkn2h2", "_TZ3000_rcuyhwe3"],
+    "productId": ["TY0203", "TS0203"],
     "endpoints": {
       "1": {
         "clusters": [0, 1, 1280],
