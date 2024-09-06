@@ -26,6 +26,9 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
       // Setup second gang
       await this._setupGang(zclNode, 2, 'second gang');
     }
+
+    // Listen for incoming DP reports from the device
+    zclNode.endpoints[1].clusters.tuya.on("datapoint", value => this.processDatapoint(value));
   }
 
   async _setupGang(zclNode, endpoint, gangName) {
@@ -72,6 +75,29 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
           this.error(`Error when writing brightness for ${gangName}: `, err);
         });
     });
+  }
+
+  // Process DP reports and update Homey accordingly
+  async processDatapoint(data) {
+    const dp = data.dp;
+    const value = data.data;
+
+    switch (dp) {
+      case 1: // On/off for gang 1
+        this.setCapabilityValue('onoff', value[0] === 1);
+        break;
+      case 2: // Dim level for gang 1
+        this.setCapabilityValue('dim', value[0] / 1000);
+        break;
+      case 3: // On/off for gang 2
+        this.setCapabilityValue('onoff', value[0] === 1);
+        break;
+      case 4: // Dim level for gang 2
+        this.setCapabilityValue('dim', value[0] / 1000);
+        break;
+      default:
+        this.debug('Unhandled DP:', dp, value);
+    }
   }
 
   onDeleted() {
