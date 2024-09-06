@@ -253,5 +253,8 @@
   },
   "0.2.32": {
     "en": "Fix for 2 gang dimmer."
+  },
+  "0.2.33": {
+    "en": "Fix for 2 gang dimmer using Tuya Cluster."
   }
 }
