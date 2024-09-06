@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.34",
+  "version": "0.2.35",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -1956,87 +1956,6 @@
       ]
     },
     {
-      "id": "curtain_module_2nd_generation",
-      "name": {
-        "en": "Curtain Module 2nd Generation"
-      },
-      "class": "curtain",
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "zigbee"
-      ],
-      "capabilities": [
-        "windowcoverings_set",
-		"windowcoverings_state"
-      ],
-      "images": {
-        "large": "/drivers/curtain_module_2nd_generation/assets/images/large.png",
-        "small": "/drivers/curtain_module_2nd_generation/assets/images/small.png"
-      },
-      "energy": {
-        "approximation": {
-          "usageOn": 0,
-          "usageOff": 0
-        }
-      },
-      "zigbee": {
-        "manufacturerName": [
-          "_TZ3000_e3vhyirx"
-        ],
-        "productId": [
-          "TS130F"
-        ],
-        "endpoints": {
-          "1": {
-            "clusters": [
-              0,
-              4,
-              5,
-              6,
-              258,
-              57345
-            ],
-            "bindings": [
-              258,
-              57345
-            ]
-          }
-        },
-        "learnmode": {
-          "image": "/drivers/curtain_module_2nd_generation/assets/icon.svg",
-          "instruction": {
-            "en": "Press the setup button for 10 seconds or power on/off 5 times to enter pairing mode (the LED should blink / device starts beeping)."
-          }
-        }
-      },
-      "settings": [
-        {
-          "id": "reverse",
-          "type": "radio",
-          "label": {
-            "en": "FUNCTION UNDER DEVELOPMENT, NOT WORKING - Motor moves in reverse direction"
-          },
-          "value": "0",
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Off"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "On"
-              }
-            }
-          ]
-        }
-      ]
-    },
-	{
       "id": "curtain_motor",
       "name": {
         "en": "Curtain Motor",
@@ -6091,6 +6010,296 @@
       "settings": []
     },
     {
+      "id": "smartPlug_DinRail",
+      "name": {
+        "en": "Smart Plug DIN Rail"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/smartPlug_DinRail/assets/images/large.png",
+        "small": "/drivers/smartPlug_DinRail/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_qeuvnohg",
+          "_TZ3000_cayepv1a"
+        ],
+        "productId": [
+          "TS0121",
+          "TSO121",
+          "TS011F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              1794,
+              2820,
+              1026,
+              57344,
+              57345
+            ],
+            "bindings": [
+              6,
+              1794,
+              2820,
+              1026,
+              57344,
+              57345
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "metering_offset",
+          "type": "number",
+          "label": {
+            "en": "Metering Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "measure_offset",
+          "type": "number",
+          "label": {
+            "en": "Measure Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "minReportPower",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for power (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportCurrent",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for current (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportVoltage",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for voltage (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "relay_status",
+          "type": "radio",
+          "label": {
+            "en": "Relay status"
+          },
+          "value": "2",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Remember last status"
+              }
+            }
+          ]
+        },
+        {
+          "id": "indicator_mode",
+          "type": "radio",
+          "label": {
+            "en": "Indicator mode"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Indicates status. The indicator comes on when the switch is turned on."
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Indicates position. The indicator comes on when the switch is turned off."
+              }
+            }
+          ]
+        },
+        {
+          "id": "child_lock",
+          "type": "radio",
+          "label": {
+            "en": "Child lock"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Release"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Lock"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smart_air_detection_box",
+      "name": {
+        "en": "Smart Air Detection Box"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_formaldehyde",
+        "measure_voc",
+        "measure_co2",
+        "measure_temperature",
+        "measure_humidity"
+      ],
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "images": {
+        "large": "/drivers/smart_air_detection_box/assets/images/large.png",
+        "small": "/drivers/smart_air_detection_box/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_yvx5lh6k",
+          "_TZE200_8ygsuhe1"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              4,
+              5,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smart_air_detection_box/assets/icon.svg",
+          "instruction": {
+            "en": "Press the RESET pinhole on the side of the unit for 5 seconds until LED blinks."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "smart_door_window_sensor",
       "name": {
         "en": "Smart Door & Window Sensor (Lidl)"
@@ -7113,235 +7322,6 @@
       ]
     },
     {
-      "id": "smartPlug_DinRail",
-      "name": {
-        "en": "Smart Plug DIN Rail"
-      },
-      "class": "socket",
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "zigbee"
-      ],
-      "capabilities": [
-        "onoff",
-        "measure_power",
-        "meter_power",
-        "measure_current",
-        "measure_voltage"
-      ],
-      "capabilitiesOptions": {
-        "measure_power": {
-          "approximated": true
-        }
-      },
-      "images": {
-        "large": "/drivers/smartPlug_DinRail/assets/images/large.png",
-        "small": "/drivers/smartPlug_DinRail/assets/images/small.png"
-      },
-      "zigbee": {
-        "manufacturerName": [
-          "_TZ3000_qeuvnohg",
-          "_TZ3000_cayepv1a"
-        ],
-        "productId": [
-          "TS0121",
-          "TSO121",
-          "TS011F"
-        ],
-        "endpoints": {
-          "1": {
-            "clusters": [
-              0,
-              3,
-              4,
-              5,
-              6,
-              1794,
-              2820,
-              1026,
-              57344,
-              57345
-            ],
-            "bindings": [
-              6,
-              1794,
-              2820,
-              1026,
-              57344,
-              57345
-            ]
-          }
-        },
-        "learnmode": {
-          "instruction": {
-            "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
-          }
-        }
-      },
-      "settings": [
-        {
-          "id": "metering_offset",
-          "type": "number",
-          "label": {
-            "en": "Metering Correction Factor"
-          },
-          "hint": {
-            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
-          },
-          "value": 1,
-          "attr": {
-            "min": 0.8,
-            "max": 1.2,
-            "step": 0.1
-          }
-        },
-        {
-          "id": "measure_offset",
-          "type": "number",
-          "label": {
-            "en": "Measure Correction Factor"
-          },
-          "hint": {
-            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
-          },
-          "value": 1,
-          "attr": {
-            "min": 0.8,
-            "max": 1.2,
-            "step": 0.1
-          }
-        },
-        {
-          "id": "minReportPower",
-          "type": "number",
-          "label": {
-            "en": "Min report interval for power (s)"
-          },
-          "hint": {
-            "en": "Min interval before a report is sent to Homey (s)"
-          },
-          "value": 60,
-          "attr": {
-            "step": 1,
-            "min": 10,
-            "max": 86400
-          }
-        },
-        {
-          "id": "minReportCurrent",
-          "type": "number",
-          "label": {
-            "en": "Min report interval for current (s)"
-          },
-          "hint": {
-            "en": "Min interval before a report is sent to Homey (s)"
-          },
-          "value": 60,
-          "attr": {
-            "step": 1,
-            "min": 10,
-            "max": 86400
-          }
-        },
-        {
-          "id": "minReportVoltage",
-          "type": "number",
-          "label": {
-            "en": "Min report interval for voltage (s)"
-          },
-          "hint": {
-            "en": "Min interval before a report is sent to Homey (s)"
-          },
-          "value": 60,
-          "attr": {
-            "step": 1,
-            "min": 10,
-            "max": 86400
-          }
-        },
-        {
-          "id": "relay_status",
-          "type": "radio",
-          "label": {
-            "en": "Relay status"
-          },
-          "value": "2",
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Off"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "On"
-              }
-            },
-            {
-              "id": "2",
-              "label": {
-                "en": "Remember last status"
-              }
-            }
-          ]
-        },
-        {
-          "id": "indicator_mode",
-          "type": "radio",
-          "label": {
-            "en": "Indicator mode"
-          },
-          "value": "1",
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Off"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Indicates status. The indicator comes on when the switch is turned on."
-              }
-            },
-            {
-              "id": "2",
-              "label": {
-                "en": "Indicates position. The indicator comes on when the switch is turned off."
-              }
-            }
-          ]
-        },
-        {
-          "id": "child_lock",
-          "type": "radio",
-          "label": {
-            "en": "Child lock"
-          },
-          "value": "0",
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Release"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Lock"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "smoke_sensor",
       "name": {
         "en": "Smoke Sensor"
@@ -7452,6 +7432,62 @@
         }
       },
       "settings": []
+    },
+    {
+      "id": "smoke_sensor3",
+      "name": {
+        "en": "Smoke Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_battery",
+        "alarm_smoke",
+        "alarm_battery",
+        "alarm_tamper"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/smoke_sensor3/assets/images/large.png",
+        "small": "/drivers/smoke_sensor3/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3210_up3pngle"
+        ],
+        "productId": [
+          "TS0205"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1280
+            ],
+            "bindings": [
+              0,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smoke_sensor3/assets/icon.svg",
+          "instruction": {
+            "en": "Press the RESET pinhole on the side of the unit for 5 seconds until LED blinks."
+          }
+        }
+      }
     },
     {
       "id": "socket_power_strip",
@@ -11129,6 +11165,78 @@
           }
         }
       ]
+    },
+    "measure_formaldehyde": {
+      "type": "number",
+      "title": {
+        "en": "Formaldehyde",
+        "nl": "Formaldehyde",
+        "de": "Formaldehyd",
+        "fr": "Formaldéhyde",
+        "it": "Formaldeide",
+        "sv": "Formaldehyd",
+        "no": "Formaldehyd",
+        "es": "Formaldehído",
+        "da": "Formaldehyd",
+        "pl": "Formaldehyd"
+      },
+      "units": {
+        "en": "ppm",
+        "ru": "ч./млн."
+      },
+      "insights": true,
+      "desc": {
+        "en": "Formaldehyde in Parts-per-million (ppm)",
+        "nl": "Formaldehyde deeltjes per miljoen (ppm)",
+        "de": "Formaldehyd in Anteile pro Million (ppm)",
+        "fr": "Niveau de formaldéhyde en parts par million (ppm)",
+        "it": "Livello di formaldeide in parti per milione (ppm)",
+        "sv": "Formaldehyd i partiklar-per-miljon (ppm)",
+        "no": "Formaldehyd i partikler per million (ppm)",
+        "es": "Formaldehído en partes por millón (ppm)",
+        "da": "Formaldehyd i partikler-per-million (ppm)",
+        "pl": "Stężenie formaldehye w części na milion (ppm)"
+      },
+      "chartType": "spline",
+      "decimals": 2,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "measure_voc": {
+      "type": "number",
+      "title": {
+        "en": "VOC",
+        "nl": "VOC",
+        "de": "VOC",
+        "fr": "VOC",
+        "it": "VOC",
+        "sv": "VOC",
+        "no": "VOC",
+        "da": "VOC",
+        "pl": "VOC"
+      },
+      "units": {
+        "en": "ppm"
+      },
+      "insights": true,
+      "desc": {
+        "en": "VOC in Parts-per-million (ppm)",
+        "nl": "VOC deeltjes per miljoen (ppm)",
+        "de": "VOC in Anteile pro Million (ppm)",
+        "fr": "Niveau de VOC en parts par million (ppm)",
+        "it": "Livello di VOC in parti per milione (ppm)",
+        "sv": "VOC i partiklar-per-miljon (ppm)",
+        "no": "VOC i partikler per million (ppm)",
+        "es": "VOC en partes por millón (ppm)",
+        "da": "VOC i partikler-per-million (ppm)",
+        "pl": "Stężenie VOC w części na milion (ppm)"
+      },
+      "chartType": "spline",
+      "decimals": 2,
+      "getable": true,
+      "setable": false,
+      "uiVOCmponent": "sensor"
     },
     "soil_moisture": {
       "type": "number",
