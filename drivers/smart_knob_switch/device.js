@@ -21,7 +21,6 @@ class smart_knob_switch extends ZigBeeDevice {
         });
 
         if ([8, 6, 768].includes(clusterId)) {
-          //this.log("endpointId:", endpointId,", clusterId:", clusterId,", frame:", frame, ", meta:", meta);
           frame = frame.toJSON();
           this.log("Frame JSON data:", frame);
           this.buttonCommandParser(clusterId, frame);
