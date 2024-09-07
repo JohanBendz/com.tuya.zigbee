@@ -140,6 +140,7 @@ Supported devices:
     _TZ3000_6zvw8ham / TS0203
     _TZ3000_yfekcy3n / TS0203
     _TZ3000_cea5xugq / TS0203
+    _TZ3000_rcuyhwe3 / TS0203
 
 - Smart Door/Windows Sensor
     _TZ1800_ejwkn2h2 / TY0203 (Silvercrest / Lidl)
