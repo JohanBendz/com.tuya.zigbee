@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.35",
+  "version": "0.2.36",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -1887,10 +1887,13 @@
           "_TZ3000_zirycpws",
           "_TZ3000_femsaaua",
           "_TZ3000_e3vhyirx",
-          "_TZ3000_1dd0d5yi",
           "_TZ3000_jwv3cwak",
           "_TZ3210_dwytrmda",
-          "_TZ3210_ol1uhvza"
+          "_TZ3210_ol1uhvza",
+          "_TZ3000_eg7awg6a",
+          "_TZ3000_eafaa66e",
+          "_TZ3000_j1xl73iw",
+          "_TZ3000_l6iqph4f"
         ],
         "productId": [
           "TS130F"
@@ -6829,7 +6832,8 @@
         "manufacturerName": [
           "_TZ3000_fsiepnrh",
           "_TYZB01_qm6djpta",
-          "_TZ3000_p6ju8myv"
+          "_TZ3000_p6ju8myv",
+          "_TZ3000_eo3dttwe"
         ],
         "productId": [
           "TS0215A"
@@ -8159,12 +8163,19 @@
           "usageOff": 0
         },
         "batteries": [
+          "AA",
           "AA"
         ]
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE200_myd45weu"
+          "_TZE200_myd45weu",
+          "_TZE200_ga1maeof",
+          "_TZE200_9cqcpkgb",
+          "_TZE204_myd45weu",
+          "_TZE284_aao3yzhs",
+          "_TZE284_sgabhwa6",
+          "_TZE200_2se8efxh"
         ],
         "productId": [
           "TS0601"
@@ -9684,7 +9695,8 @@
           "_TYZB01_4tlksk8a",
           "_TZ3000_tvuarksa",
           "_TZ3000_j9568h44",
-          "_TZ3000_iedbgyxt"
+          "_TZ3000_iedbgyxt",
+          "_TZ3000_w0ypwa1f"
         ],
         "productId": [
           "TS0111",
@@ -9775,7 +9787,11 @@
           "_TZ3000_8kzqqzu4",
           "_TZ3000_ltiqubue",
           "_TZ3000_dbpmpco1",
-          "_TZ3000_fvhunhxb"
+          "_TZ3000_fvhunhxb",
+          "_TZ3000_ctbafvhm",
+          "_TZ3000_qqdbccb3",
+          "_TZ3000_wptayaqr",
+          "_TZ3000_qa8s8vca"
         ],
         "productId": [
           "TS130F"

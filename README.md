@@ -179,6 +179,11 @@ Supported devices:
 - Soil humidity sensor
     _TZE200_myd45weu / TS0601 (GiEX)
     _TZE200_ga1maeof / TS0601
+    _TZE200_9cqcpkgb / TS0601
+    _TZE204_myd45weu / TS0601
+    _TZE284_aao3yzhs / TS0601
+    _TZE284_sgabhwa6 / TS0601
+    _TZE200_2se8efxh / TS0601
 
 - Radar Sensor
     _TZE200_ztc6ggyl / TS0601
@@ -512,6 +517,7 @@ Supported devices:
     _TYZB01_qm6djpta / TS0215A
     _TZ3000_p6ju8myv / TS0215A
     _TZ3000_u3nv1jwk / TS0044
+    _TZ3000_eo3dttwe / TS0215A
 
 - Knob Switch
     _TZ3000_abrsvsou / TS004F
@@ -519,7 +525,6 @@ Supported devices:
 **Curtains**
 - Curtain Module
     _TZ3000_vd43bbfq / TS130F
-    _TZ3000_1dd0d5yi / TS130F
     _TZ3000_ke7pzj5d / TS130F
     _TZ3000_fccpjz5z / TS130F
     _TZ3000_4uuaja4a / TS130F
@@ -530,6 +535,10 @@ Supported devices:
     _TZ3000_jwv3cwak / TS130F
     _TZ3210_dwytrmda / TS130F (GIRIER)
     _TZ3210_ol1uhvza / TS130F
+    _TZ3000_eg7awg6a / TS130F
+    _TZ3000_eafaa66e / TS130F
+    _TZ3000_j1xl73iw / TS130F
+    _TZ3000_l6iqph4f / TS130F
 
 - Curtain Motor
     _TZE200_5zbp6j0u / TS0601
@@ -562,6 +571,10 @@ Supported devices:
     _TZ3000_ltiqubue / TS130F
     _TZ3000_dbpmpco1 / TS130F (Loratap, Model No SC400ZB, SC420ZB)
     _TZ3000_fvhunhxb / TS130F
+    _TZ3000_ctbafvhm / TS130F
+    _TZ3000_qqdbccb3 / TS130F
+    _TZ3000_wptayaqr / TS130F (BSEED)
+    _TZ3000_qa8s8vca / TS130F (Loratap)
 
 **Other**
 - Thermostatic Radiator Valves
@@ -585,9 +598,10 @@ Supported devices:
     _TYZB01_ymcdbl3u / TS0111
     _TZ3000_o4cjetlm / TS0001
     _TYZB01_4tlksk8a / TS0001
-    _TZ3000_tvuarksa / TS0001
+    _TZ3000_tvuarksa / TS011F
     _TZ3000_j9568h44 / TS0001
     _TZ3000_iedbgyxt / TS0001
+    _TZ3000_w0ypwa1f / TS0001
 
 - Smart Garden Irrigation Controller
     _TZ3210_eymunffl / TS0101 (Woox)

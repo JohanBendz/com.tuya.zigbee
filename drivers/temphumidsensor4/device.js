@@ -89,12 +89,8 @@ class sensortemphumidsensor extends TuyaSpecificClusterDevice {
 				break;
 			*/
 			default:
-				fetch('https://10.1.25.82:2000/log', {
-					method: 'POST',
-					body: JSON.stringify({ message: `WARN: <b>NOT PROCESSED</b> Tuya cmd: dp='${dp}' value='${measuredValue}' descMap.data = '${data}` }),
-					headers: { 'Content-Type': 'application/json' }
-				  });
-				this.log('WARN: <b>NOT PROCESSED</b> Tuya cmd: dp=', dp, 'value=', measuredValue, 'descMap.data = ', data);
+				this.error(`WARN: NOT PROCESSED Tuya cmd: dp='${dp}' value='${measuredValue}' descMap.data='${JSON.stringify(data)}'`);
+				this.log('WARN: NOT PROCESSED Tuya cmd: dp=', dp, 'value=', measuredValue, 'descMap.data = ', data);
 				break;
 		}
 	}
