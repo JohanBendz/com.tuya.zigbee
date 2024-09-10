@@ -2,4 +2,4 @@ Tuya provides a leading global IoT platform (Tuya Smart) that enables more than 
 
 Supported White Label Brands: Malmbergs, Alecto, Smart9, Blitzwolf, Zemismart, Samotech, Lonsonho, Nedis, Neo, Ejlink, Lidl, Silvercrest, Livarno LUX etc.
 
-To request additional devices, please use Athom Homey Community Forum.
+To request additional devices, please use the apps Github repository request functionality.

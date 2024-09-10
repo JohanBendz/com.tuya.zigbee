@@ -3,21 +3,39 @@ Adds support for Tuya Zigbee devices
 
 Some of the supported White Label Brands:
 - Alecto
+- Alice
+- Avatto
+- BSEED
 - Blitzwolf
+- GiEX
+- GIRIER
+- Hangzlou
+- Inmax
 - Lidl
 - Livarno LUX
 - Lonsonho
+- LoraTap
+- Luminea
 - Malmbergs
+- Melinera
 - MOES
 - Nedis
 - Neo
 - Nous
+- ONENUO
 - Samotech
+- Silvercrest
 - Smart9
+- Tenky
+- Tongou
 - UseeLink
 - Woox
+- YANDHI
 - Zemismart
-- Luminea
+
+
+
+
 
 Supported devices:
 
