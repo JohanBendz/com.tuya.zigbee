@@ -268,5 +268,8 @@
   },
   "0.2.37": {
     "en": "Consolidated common logic for data point parsing, schedule handling, and multi-byte conversions into shared modules for better reusability."
-  }
+  },
+  "0.2.38": {
+    "en": "Added a number of new devices and made some fixed."
+  },
 }
