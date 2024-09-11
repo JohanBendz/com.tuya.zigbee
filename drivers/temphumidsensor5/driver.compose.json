@@ -1,5 +1,5 @@
 {
-  "id": "temphumidsensor4",
+  "id": "temphumidsensor5",
   "name": {
     "en": "Temperature & Humidity Sensor",
     "sv": "Temperatur- och fuktighetssensor"
@@ -13,7 +13,7 @@
   ],
   "capabilitiesOptions": {},
   "energy": {
-      "batteries": ["AAA","AAA"]
+      "batteries": ["CR2032"]
   },
   "platforms": [
     "local"
@@ -27,8 +27,7 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TZE204_yjjdcqsq",
-      "_TZE200_vvmbj46n"
+      "_TZE200_9yapgbuv"
     ],
     "productId": [
       "TS0601"

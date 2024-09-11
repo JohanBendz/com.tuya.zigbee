@@ -47,7 +47,7 @@ const getDataValue = (dpValue) => {
 	}
 }
 
-class temphumidsensor4 extends TuyaSpecificClusterDevice {
+class temphumidsensor5 extends TuyaSpecificClusterDevice {
 
 	async onNodeInit({ zclNode }) {
 
@@ -134,4 +134,4 @@ class temphumidsensor4 extends TuyaSpecificClusterDevice {
 
 }
 
-module.exports = temphumidsensor4;
+module.exports = temphumidsensor5;
