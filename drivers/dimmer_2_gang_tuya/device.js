@@ -64,7 +64,7 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
     switch (dp) {
       case 1: // On/off for gang 1
         this.log('Received on/off for first gang:', parsedValue);
-        await this.setCapabilityValue('onoff', parsedValue);
+        await this.setCapabilityValue('onoff', parsedValue === 1);
         break;
       case 2: // Dim level for gang 1
         this.log('Received dim level for first gang:', parsedValue);
@@ -72,7 +72,7 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
         break;
       case 3: // On/off for gang 2 (subdevice)
         this.log('Received on/off for second gang:', parsedValue);
-        await this.setCapabilityValue('onoff', parsedValue);
+        await this.setCapabilityValue('onoff', parsedValue === 1);
         break;
       case 4: // Dim level for gang 2 (subdevice)
         this.log('Received dim level for second gang:', parsedValue);
