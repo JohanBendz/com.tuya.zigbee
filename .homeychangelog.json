@@ -271,5 +271,8 @@
   },
   "0.2.38": {
     "en": "Added a number of new devices and made some fixed."
+  },
+  "0.2.39": {
+    "en": "Fix for 2 gang dimmer using Tuya Cluster."
   }
 }
