@@ -4,7 +4,7 @@ const { debug, Cluster } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
 const TuyaSpecificClusterDevice = require("../../lib/TuyaSpecificClusterDevice");
 const { getDataValue } = require('../../lib/TuyaHelpers');
-const { MULTI_GANG_DIMMER_SWITCH_DATA_POINTS } = require('../../lib/TuyaDataPoints');
+const { V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS } = require('../../lib/TuyaDataPoints');
 
 Cluster.addCluster(TuyaSpecificCluster);
 
@@ -19,12 +19,12 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
 
     // If the device is not a subdevice, set up the first gang
     if (!this.isSubDevice()) {
-      await this._setupGang(zclNode, 'first gang', MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.onOffGangOne, MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.brightnessGangOne);
+      await this._setupGang(zclNode, 'first gang', V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.onOffGangOne, V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.brightnessGangOne);
     }
 
     // If it's the second gang subdevice
     if (subDeviceId === 'secondGang') {
-      await this._setupGang(zclNode, 'second gang', MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.onOffGangTwo, MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.brightnessGangTwo);
+      await this._setupGang(zclNode, 'second gang', V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.onOffGangTwo, V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.brightnessGangTwo);
     }
 
     // Listen for incoming DP reports from the Tuya-specific cluster
@@ -42,7 +42,7 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
     // Register capability listeners for on/off and dim capabilities
     this.registerCapabilityListener('onoff', async (value) => {
       this.log(`onoff ${gangName}:`, value);
-      await this.writeBool(dpOnOff, value) // Use the appropriate DP for on/off
+      await this.writeBool(dpOnOff, value)
         .catch(err => {
           this.error(`Error when writing onOff for ${gangName}: `, err);
         });
@@ -51,7 +51,7 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
     this.registerCapabilityListener('dim', async (value) => {
       const brightness = Math.floor(value * 1000); // Scale to 0-1000
       this.log(`brightness ${gangName}:`, brightness);
-      await this.writeData32(dpDim, brightness) // Use the appropriate DP for dim
+      await this.writeData32(dpDim, brightness)
         .catch(err => {
           this.error(`Error when writing brightness for ${gangName}: `, err);
         });
@@ -64,19 +64,19 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
     const parsedValue = getDataValue(data); // Use the helper function
 
     switch (dp) {
-      case MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.onOffGangOne: // On/off for gang 1
+      case V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.onOffGangOne: // On/off for gang 1
         this.log('Received on/off for first gang:', parsedValue);
-        await this.setCapabilityValue('onoff', parsedValue === 1);
+        await this.setCapabilityValue('onoff', Boolean(parsedValue));
         break;
-      case MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.brightnessGangOne: // Dim level for gang 1
+      case V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.brightnessGangOne: // Dim level for gang 1
         this.log('Received dim level for first gang:', parsedValue);
         await this.setCapabilityValue('dim', parsedValue / 1000);
         break;
-      case MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.onOffGangTwo: // On/off for gang 2 (subdevice)
+      case V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.onOffGangTwo: // On/off for gang 2 (subdevice)
         this.log('Received on/off for second gang:', parsedValue);
-        await this.setCapabilityValue('onoff', parsedValue === 1);
+        await this.setCapabilityValue('onoff', Boolean(parsedValue));
         break;
-      case MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.brightnessGangTwo: // Dim level for gang 2 (subdevice)
+      case V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.brightnessGangTwo: // Dim level for gang 2 (subdevice)
         this.log('Received dim level for second gang:', parsedValue);
         await this.setCapabilityValue('dim', parsedValue / 1000);
         break;
