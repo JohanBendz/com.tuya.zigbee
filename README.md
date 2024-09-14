@@ -456,6 +456,7 @@ Supported devices:
 
 - RGB Mood Light
     _TZ3000_9cpuaca6 / TS0505A (LIVARNO LUX / Lidl)
+    _TZ3210_r0xgkft5 / TS0505B (LIVARNO LUX / Lidl)
 
 - RGB Spot GU10
     _TZ3000_kdpxju99 / TS0505A (LIVARNO LUX / Lidl)
