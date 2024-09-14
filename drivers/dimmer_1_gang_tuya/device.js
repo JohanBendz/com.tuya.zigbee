@@ -19,6 +19,23 @@ class dimmer_1_gang_tuya extends TuyaSpecificClusterDevice {
         this.error('Error when reading device attributes ', err);
     });
 
+    // Listen for Tuya-specific reports (manual state changes)
+    zclNode.endpoints[1].clusters[TuyaSpecificCluster.NAME].on('report', (report) => {
+      this.log('Received Tuya-specific report:', report);
+
+      if (report.dp === 1) {
+        const onOffState = report.data[0] === 1;
+        this.setCapabilityValue('onoff', onOffState).catch(this.error);
+        this.log('onoff updated to:', onOffState);
+      }
+
+      if (report.dp === 2) {
+        const dimLevel = report.data[0] / 1000; // Scaling back from 0-1000 to 0-1
+        this.setCapabilityValue('dim', dimLevel).catch(this.error);
+        this.log('dim updated to:', dimLevel);
+      }
+    });
+
     this.registerCapabilityListener('onoff', async value => {
       this.log('onoff: ', value);
       await this.writeBool(1, value);

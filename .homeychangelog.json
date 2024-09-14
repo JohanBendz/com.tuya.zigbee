@@ -235,5 +235,50 @@
   },
   "0.2.26": {
     "en": "Prepping for central Tuya Datapoint and Helper structure."
+  },
+  "0.2.27": {
+    "en": "Adding devices and fixing issues."
+  },
+  "0.2.28": {
+    "en": "Adding more devices."
+  },
+  "0.2.29": {
+    "en": "A few fixes for dimmers."
+  },
+  "0.2.30": {
+    "en": "Fix for double power point."
+  },
+  "0.2.31": {
+    "en": "Fix for 2 gang dimmers."
+  },
+  "0.2.32": {
+    "en": "Fix for 2 gang dimmer."
+  },
+  "0.2.33": {
+    "en": "Fix for 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.34": {
+    "en": "Fix for 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.35": {
+    "en": "Added a number of new devices and made some fixed."
+  },
+  "0.2.36": {
+    "en": "Added a number of new devices and made some fixed."
+  },
+  "0.2.37": {
+    "en": "Consolidated common logic for data point parsing, schedule handling, and multi-byte conversions into shared modules for better reusability."
+  },
+  "0.2.38": {
+    "en": "Added a number of new devices and made some fixed."
+  },
+  "0.2.39": {
+    "en": "Fix for 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.40": {
+    "en": "Refactoring 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.41": {
+    "en": "Updated TuyaDataPoints.js and added verbose logging to 2 gang dimmer using Tuya Cluster."
   }
 }

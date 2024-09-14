@@ -161,6 +161,12 @@ class curtain_module extends ZigBeeDevice {
         this.log("Curtain Module removed");
     }
 
+    onUninit() {
+        if (this._reportPercentageDebounce) {
+          this.homey.clearTimeout(this._reportPercentageDebounce);
+        }
+    }
+
     async _configureStateCapability(hasState) {
         const key = "windowcoverings_state";
 
@@ -190,6 +196,7 @@ class curtain_module extends ZigBeeDevice {
             await this.removeCapability(key);
         }
     }
+    
 }
 
 module.exports = curtain_module;
