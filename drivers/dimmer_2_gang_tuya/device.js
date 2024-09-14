@@ -17,9 +17,6 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
     const { subDeviceId } = this.getData();
     this.log('Sub device ID:', subDeviceId);
   
-    // Fetch and log responses from standard clusters
-    await this._fetchStandardClusters(zclNode);
-  
     // Setup capability listeners and event handlers
     if (this.isSubDevice()) {
       // Subdevice (Second Gang)
