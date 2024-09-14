@@ -283,5 +283,8 @@
   },
   "0.2.42": {
     "en": "Updated TuyaDataPoints.js and rewrote 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.43": {
+    "en": "Updated driver for 2 gang dimmer using Tuya Cluster."
   }
 }
