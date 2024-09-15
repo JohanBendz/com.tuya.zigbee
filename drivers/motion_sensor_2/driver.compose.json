@@ -20,8 +20,13 @@
       "small": "{{driverAssetsPath}}/images/small.png"
     },
     "zigbee": {
-      "manufacturerName": ["_TZE200_3towulqd"],
-      "productId": ["TS0601"],
+      "manufacturerName": [
+        "_TZE200_3towulqd",
+        "_TZE200_bh3n6gk8"
+      ],
+      "productId": [
+        "TS0601"
+      ],
       "endpoints": {
         "1": {
           "clusters": [0, 1, 1024, 1280, 61184],

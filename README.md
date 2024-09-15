@@ -65,6 +65,9 @@ Supported devices:
     _TZE200_9yapgbuv / TS0601
     _TZ3000_f2bw0b6k / TS0201
     _TZ3000_zl1kmjqx / TS0201
+    TUYATEC-HaoiuWzy / RH3052
+    TUYATEC-qun7vq14 / RH3052
+    _TZE200_yjjdcqsq / TS0601
 
 - LCD Temperature and Humidity Sensor
     _TZ2000_a476raq2 / TS0201
@@ -91,6 +94,7 @@ Supported devices:
 - LCD Temperature, Humidity and Luminance Sensor
     _TZ3000_qaaysllp / TS0201 (NEO)
     _TYZB01_ftdkanlj / TS0222
+    _TYZB01_kvwjujy9 / TS0222
 
 - PIR Sensor
     TUYATEC-lha8pbwd / RH3040
@@ -119,6 +123,7 @@ Supported devices:
     _TZE200_3towulqd / TS0601
     _TZ3000_lf56vpxj / TS0202
     TUYATEC-zw6hxafz / RH3040
+    _TZE200_bh3n6gk8 / TS0601
 
 - Door/Windows Sensor
     TUYATEC-g3gl6cgy / RH3001
@@ -165,6 +170,8 @@ Supported devices:
     _TZ3000_rcuyhwe3 / TS0203
     _TZ3000_1bwpjvlz / TS0203
     _TZ3000_au2o5e6q / TS0203
+    _TZ3000_uvti8nkd / TS0203
+    _TZ3000_v7chgqso / TS0203
 
 - Smart Door/Windows Sensor
     _TZ1800_ejwkn2h2 / TY0203 (Silvercrest / Lidl)
@@ -202,6 +209,8 @@ Supported devices:
     _TZ3210_up3pngle / TS0205
     _TZE200_rccxox8p / TS0601
     _TZE200_vzekyi4c / TS0601
+    _TYZB01_wqcac7lo / TS0205
+    _TZE204_ntcy3xu1 / TS0601
 
 - Soil humidity sensor
     _TZE200_myd45weu / TS0601 (GiEX)
@@ -226,6 +235,8 @@ Supported devices:
 - Air Detection Box
     _TZE200_yvx5lh6k / TS0601
     _TZE200_8ygsuhe1 / TS0601
+    _TZE200_mja3fuja / TS0601
+    _TZE200_ryfmq5rl / TS0601
 
 **Plugs, Sockets and Socket Strips**
 - Smart Plug, with metering
@@ -268,6 +279,7 @@ Supported devices:
     _TZ3000_nkcobies / TS011F
     _TZ3000_waho4jtj / TS011F
     _TZ3000_3uimvkn6 / TS011F
+    _TZ3000_pjcqjtev / TS011F
 
 - Smart Plug, without metering
     _TZ3000_kdi2o9m6 / TS011F (Silvercrest / Lidl)
@@ -291,6 +303,7 @@ Supported devices:
     _TZ3000_vzopcetz / TS011F (Silvercrest / Lidl)
     _TZ3000_4uf3d0ax / TS011F (Silvercrest / Lidl)
     _TZ3000_wzauvbcs / TS011F (Silvercrest / Lidl)
+    _TZ3000_vmpbygs5 / TS011F (Silvercrest / Lidl)
 
 - 4 Socket Power Strip + USB
     _TYZB01_vkwryfdr / TS0115
@@ -408,6 +421,7 @@ Supported devices:
     _TYZB01_2athzhfr / TS0012
     _TZ3000_56bdyj21 / TS0002
     _TZ3000_e98krvvk / TS0012
+    _TZ3000_atp7xmd9 / TS0002
 
 - 3 Gang Wall Switch
     _TYZB01_xiuox57i / TS0013
@@ -512,6 +526,7 @@ Supported devices:
     _TZ3000_fa9mlvja / TS0041
     _TZ3000_itb0omhv / TS0041
     _TZ3000_8rppvwda / TS0041
+    _TZ3000_4upl1fcj / TS0041
 
 - 2 Gang Wall Remote
     _TZ3000_owgcnkrh / TS0042
@@ -558,6 +573,7 @@ Supported devices:
 - Knob Switch
     _TZ3000_abrsvsou / TS004F
     _TZ3000_4fjiwweb / TS004F
+    _TZ3000_qja6nq5z / TS004F
 
 **Curtains**
 - Curtain Module
@@ -603,6 +619,11 @@ Supported devices:
     _TZE200_bjzrowv2 / TS0601
     _TZE200_uj3f4wr5 / TS0601
     _TZE204_1fuxihti / TS0601
+    _TZE200_axgvo9jh / TS0601
+    _TZE200_gaj531w3 / TS0601
+    _TZE200_yia0p3tr / TS0601
+    _TZE200_nw1r9hp6 / TS0601
+    _TZE200_cf1sl3tj / TS0601
 
 - Wall mounted Curtain Switch
     _TZ3000_dph3rpss / TS130F
