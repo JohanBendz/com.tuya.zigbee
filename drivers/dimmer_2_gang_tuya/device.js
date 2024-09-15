@@ -13,9 +13,10 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
   async onNodeInit({ zclNode }) {
     this.printNode();
     debug(true);
+    this.enableDebug();
   
     const { subDeviceId } = this.getData();
-    this.log('Sub device ID:', subDeviceId);
+    this.debug('Sub device ID:', subDeviceId);
   
     // Setup capability listeners and event handlers
     if (this.isSubDevice()) {
@@ -57,7 +58,7 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
 
     // Register capability listeners
     this.registerCapabilityListener('onoff', async (value) => {
-      this.log(`onoff ${gangName}:`, value);
+      this.debug(`onoff ${gangName}:`, value);
       try {
         await this.writeBool(dpOnOff, value);
       } catch (err) {
@@ -68,7 +69,7 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
 
     this.registerCapabilityListener('dim', async (value) => {
       const brightness = Math.floor(value * 1000); // Scale to 0-1000
-      this.log(`brightness ${gangName}:`, brightness);
+      this.debug(`brightness ${gangName}:`, brightness);
       try {
         await this.writeData32(dpDim, brightness);
       } catch (err) {
@@ -83,7 +84,7 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
     const dp = data.dp;
     const parsedValue = getDataValue(data);
     const dataType = data.datatype;
-    this.log(`Processing DP ${dp}, Data Type: ${dataType}, Parsed Value:`, parsedValue);
+    this.debug(`Processing DP ${dp}, Data Type: ${dataType}, Parsed Value:`, parsedValue);
   
     let targetDevice;
   
@@ -105,18 +106,18 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
     switch (dp) {
       case V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.onOffGangOne:
       case V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.onOffGangTwo:
-        this.log(`Received on/off for ${targetDevice.isSubDevice() ? 'second' : 'first'} gang:`, parsedValue);
+        this.debug(`Received on/off for ${targetDevice.isSubDevice() ? 'second' : 'first'} gang:`, parsedValue);
         await targetDevice.setCapabilityValue('onoff', parsedValue === true || parsedValue === 1).catch(this.error);
         break;
   
       case V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.brightnessGangOne:
       case V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.brightnessGangTwo:
-        this.log(`Received dim level for ${targetDevice.isSubDevice() ? 'second' : 'first'} gang:`, parsedValue);
+        this.debug(`Received dim level for ${targetDevice.isSubDevice() ? 'second' : 'first'} gang:`, parsedValue);
         await targetDevice.setCapabilityValue('dim', parsedValue / 1000).catch(this.error);
         break;
   
       default:
-        this.debug('Unhandled DP:', dp, parsedValue);
+        this.debug('Unhandled DP:', dp, 'with value:', parsedValue);
     }
   }
 
