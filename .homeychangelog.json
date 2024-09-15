@@ -301,5 +301,8 @@
   },
   "0.2.48": {
     "en": "Curtain module fix."
+  },
+  "0.2.49": {
+    "en": "Added devices."
   }
 }
