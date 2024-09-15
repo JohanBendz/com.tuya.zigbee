@@ -1,0 +1,26 @@
+  {
+    "type": "enum",
+    "title": {
+        "en": "Thermostat mode"
+    },
+    "desc": {
+        "en": "Mode of the thermostat"
+    },
+    "values": [
+        {
+            "id": "0",
+            "title": {
+                "en": "Manual"
+            }
+        },
+        {
+            "id": "1",
+            "title": {
+                "en": "Programming"
+            }
+        }
+    ],
+    "getable": true,
+    "setable": true,
+    "uiComponent": "picker"
+}
