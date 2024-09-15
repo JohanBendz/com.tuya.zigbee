@@ -280,5 +280,17 @@
   },
   "0.2.41": {
     "en": "Updated TuyaDataPoints.js and added verbose logging to 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.42": {
+    "en": "Updated TuyaDataPoints.js and rewrote 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.43": {
+    "en": "Updated driver for 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.44": {
+    "en": "Fix for 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.45": {
+    "en": "And one more fix."
   }
 }
