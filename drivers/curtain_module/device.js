@@ -15,6 +15,12 @@ class curtain_module extends ZigBeeDevice {
 
     invertPercentageLiftValue = false;
 
+    constructor(...args) {
+        super(...args);
+        this._reportPercentageDebounce = null;
+        this._reportDebounceEnabled = false;
+    }
+
     async onNodeInit({ zclNode }) {
         await super.onNodeInit({ zclNode });
 
