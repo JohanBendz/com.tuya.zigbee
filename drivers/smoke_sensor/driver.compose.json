@@ -21,7 +21,8 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TYZB01_dsjszp0x"
+        "_TYZB01_dsjszp0x",
+        "_TYZB01_wqcac7lo"
       ],
       "productId": [
         "TS0205"
