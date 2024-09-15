@@ -1,0 +1,62 @@
+{
+    "id": "relay_board_2_channel",
+    "name": {
+      "en": "2 Channel Relay Board"
+    },
+    "class": "socket",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "onoff"
+    ],
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "energy": {
+      "approximation": {
+        "usageOn": 0,
+        "usageOff": 0
+      }
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TZ3000_nuenzetq"
+      ],
+      "productId": [
+        "TS0002"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 4, 5, 6],
+          "bindings": [6]
+        },
+        "2": {
+          "clusters": [4, 5, 6],
+          "bindings": [6]
+        }
+      },
+      "devices": {
+        "secondSwitch": {
+          "class": "socket",
+          "capabilities": ["onoff"],
+          "name": {
+            "en": "2 Channel Relay Board"
+          },
+          "energy": {
+            "approximation": {
+              "usageOn": 0,
+              "usageOff": 0
+            }
+          }
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Two tiles will be created, one for each channel of the device. Press the setup button combined with 1 channel button for 10 seconds (the LED should blink green)."
+        }
+      }
+    }
+
+}
