@@ -14,6 +14,12 @@ const REPORT_DEBOUNCER = 5000;
 class curtain_module_2_gang extends ZigBeeDevice {
     invertPercentageLiftValue = false;
 
+    constructor(...args) {
+        super(...args);
+        this._reportPercentageDebounce = null;
+        this._reportDebounceEnabled = false;
+    }
+
     async onNodeInit({ zclNode }) {
         await super.onNodeInit({ zclNode });
 
@@ -23,12 +29,8 @@ class curtain_module_2_gang extends ZigBeeDevice {
         const endpoint = subDeviceId === "secondModule" ? 2 : 1;
     
         this.log("Device data: ", subDeviceId);
-        this.log("Endpoint: ", endpoint);
-    
+        this.log("Endpoint: ", endpoint);  
 
-        // code borrowed from here most recent version of zigbee driver to handle lift percentage + invert correctly
-        // remove once the package was updated
-        // https://github.com/athombv/node-homey-zigbeedriver/blob/master/lib/system/capabilities/windowcoverings_set/windowCovering.js
         this.registerCapability(
             "windowcoverings_set",
             CLUSTER.WINDOW_COVERING,
@@ -150,11 +152,6 @@ class curtain_module_2_gang extends ZigBeeDevice {
             ]();
         });
     }
-
-    // When upgrading to node-zigbee-clusters v.2.0.0 this must be adressed:
-    // v2.0.0
-    // Changed Cluster.readAttributes signature, attributes must now be specified as an array of strings.
-    // zclNode.endpoints[1].clusters.windowCovering.readAttributes(['motorReversal', 'ANY OTHER IF NEEDED']);
 
     async onSettings({ oldSettings, newSettings, changedKeys }) {
         const { subDeviceId } = this.getData();

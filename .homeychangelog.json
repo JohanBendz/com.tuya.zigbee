@@ -310,5 +310,8 @@
   },
   "0.2.51": {
     "en": "Fix for 1 and 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.52": {
+    "en": "Added indicator light setting to all wall switches."
   }
 }

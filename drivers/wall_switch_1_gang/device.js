@@ -15,11 +15,11 @@ class wall_switch_1_gang extends ZigBeeDevice {
     this.registerCapability('onoff', CLUSTER.ON_OFF);
 
     try {
-      const indicatorMode = await this.zclNode.endpoints[1].clusters.onOff.readAttributes('indicatorMode');     
-      this.log("Indicator Mode supported by device");
-      await this.setSettings({
-        indicator_mode: ZCLDataTypes.enum8IndicatorMode.args[0][indicatorMode.indicatorMode].toString()
-      });
+        const indicatorMode = await this.zclNode.endpoints[1].clusters.onOff.readAttributes('indicatorMode');     
+        this.log("Indicator Mode supported by device");
+        await this.setSettings({
+          indicator_mode: ZCLDataTypes.enum8IndicatorMode.args[0][indicatorMode.indicatorMode].toString()
+        });
     } catch (error) {
       this.log("This device does not support Indicator Mode", error);
     }
