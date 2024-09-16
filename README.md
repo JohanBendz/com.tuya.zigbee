@@ -595,6 +595,9 @@ Supported devices:
     _TZ3000_j1xl73iw / TS130F
     _TZ3000_l6iqph4f / TS130F
 
+- Curtain Module (2 channel)
+    _TZ3000_j1xl73iw / TS130F
+
 - Curtain Motor
     _TZE200_5zbp6j0u / TS0601
     _TZE200_nkoabg8w / TS0601

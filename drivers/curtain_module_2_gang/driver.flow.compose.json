@@ -1,0 +1,12 @@
+{
+    "actions": [
+      {
+        "id": "move_open_2gang",
+        "title": { "en": "Open", "de": "Öffnen" }
+      },
+      {
+        "id": "move_close_2gang",
+        "title": { "en": "Close", "de": "Schließen" }
+      }
+    ]
+  }
