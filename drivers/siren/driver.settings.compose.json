@@ -1,0 +1,227 @@
+[
+  {
+    "id": "alarmvolume",
+    "type": "dropdown",
+    "label": {
+      "en": "Alarm volume",
+      "nl": "Alarm volume",
+      "de": "Alarm Lautstärke"
+    },
+    "value": "0",
+    "hint": {
+      "en": "Set the volume of the Alarm sound",
+      "nl": "Aanpassen volume van Alarm geluid",
+      "de": "Einstellen der Lautstärke des Alarmtons"
+    },
+    "values": [
+      {
+        "id": "2",
+        "label": {
+          "en": "Low",
+          "nl": "Laag",
+          "de": "Niedrig"
+        }
+      },
+      {
+        "id": "1",
+        "label": {
+          "en": "Midle",
+          "nl": "Middelmatig",
+          "de": "Mittel"
+        }
+      },
+      {
+        "id": "0",
+        "label": {
+          "en": "High (default)",
+          "nl": "Hoog (standaard)",
+          "de": "Hoch (Standard)"
+        }
+      }
+    ]
+  },
+  {
+    "id": "alarmsoundtime",
+    "type": "number",
+    "value": 120,
+    "min": 1,
+    "max": 65535,
+    "step": 1,
+    "units": {
+      "en": "Seconds",
+      "de": "Sekunden",
+      "nl": "Seconden"
+    },
+    "label": {
+      "en": "Alarm duration time",
+      "nl": "Alarm duratie",
+      "de": "Alarmdauer"
+    },
+    "hint": {
+      "en": "Set the duration of the time the siren will sound its alarm music",
+      "nl": "Pas de tijd aan dat de sirene zijn alarm geluid laat horen",
+      "de": "Stellt die Zeitdauer ein, während der die Sirene Alarmton erklingt"
+    }
+  },
+  {
+    "id": "alarmtune",
+    "type": "dropdown",
+    "label": {
+      "en": "Alarm sound tune",
+      "nl": "Melodie/geluid alarm",
+      "de": "Alarm Melodie"
+    },
+    "value": "1",
+    "hint": {
+      "en": "Choose the tune of the alarm sound",
+      "nl": "Kies de melodie die gebruikt wordt bij alarm",
+      "de": "Wählt die Melodie des Alarmtons aus."
+    },
+    "values": [
+      {
+        "id": "0",
+        "label": {
+          "en": "Doorbell Chime",
+          "nl": "Doorbell Chime",
+          "de": "Doorbell Chime"
+        }
+      },
+      {
+        "id": "1",
+        "label": {
+          "en": "For Elise (default)",
+          "nl": "Fur Elise (standaard)",
+          "de": "Fur Elise (Standard)"
+        }
+      },
+      {
+        "id": "2",
+        "label": {
+          "en": "Westminster Chimes",
+          "nl": "Westminster Chimes",
+          "de": "Westminster Chimes"
+        }
+      },
+      {
+        "id": "3",
+        "label": {
+          "en": "Fast double door bell",
+          "nl": "Fast double door bell",
+          "de": "Fast double door bell"
+        }
+      },
+      {
+        "id": "4",
+        "label": {
+          "en": "William Tell Overture",
+          "nl": "William Tell Overture",
+          "de": "William Tell Overture"
+        }
+      },
+      {
+        "id": "5",
+        "label": {
+          "en": "Turkish March",
+          "nl": "Turkish March",
+          "de": "Turkish March"
+        }
+      },
+      {
+        "id": "6",
+        "label": {
+          "en": "Security Alarm",
+          "nl": "Security Alarm",
+          "de": "Security Alarm"
+        }
+      },
+      {
+        "id": "7",
+        "label": {
+          "en": "Chemical Spill Alert",
+          "nl": "Chemical Spill Alert",
+          "de": "Chemical Spill Alert"
+        }
+      },
+      {
+        "id": "8",
+        "label": {
+          "en": "Piercing Alarm Clock",
+          "nl": "Piercing Alarm Clock",
+          "de": "Piercing Alarm Clock"
+        }
+      },
+      {
+        "id": "9",
+        "label": {
+          "en": "Smoke Alarm",
+          "nl": "Smoke Alarm",
+          "de": "Smoke Alarm"
+        }
+      },
+      {
+        "id": "10",
+        "label": {
+          "en": "Dog Barking",
+          "nl": "Dog Barking",
+          "de": "Dog Barking"
+        }
+      },
+      {
+        "id": "11",
+        "label": {
+          "en": "Police Siren",
+          "nl": "Police Siren",
+          "de": "Police Siren"
+        }
+      },
+      {
+        "id": "12",
+        "label": {
+          "en": "Doorbell Chime (reverb)",
+          "nl": "Doorbell Chime (reverb)",
+          "de": "Doorbell Chime (reverb)"
+        }
+      },
+      {
+        "id": "13",
+        "label": {
+          "en": "Mechanical Telephone",
+          "nl": "Mechanical Telephone",
+          "de": "Mechanical Telephone"
+        }
+      },
+      {
+        "id": "14",
+        "label": {
+          "en": "Fire/Ambulance",
+          "nl": "Fire/Ambulance",
+          "de": "Fire/Ambulance"
+        }
+      },
+      {
+        "id": "15",
+        "label": {
+          "en": "3/1 Elevator",
+          "nl": "3/1 Elevator",
+          "de": "3/1 Elevator"
+        }
+      },
+      {
+        "id": "16",
+        "label": {
+          "en": "Buzzing Alarm Clock",
+          "nl": "Buzzing Alarm Clock",
+          "de": "Buzzing Alarm Clock"
+        }
+      },
+      {
+        "id": "17",
+        "label": {
+          "en": "School Bell",
+          "nl": "School Bell",
+          "de": "School Bell"
+        }
+      }
+    ]
+  }
+]

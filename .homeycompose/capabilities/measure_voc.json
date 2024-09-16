@@ -1,0 +1,74 @@
+{
+    "type": "number",
+    "title": {
+        "en": "VOC",
+        "nl": "VOC",
+        "de": "VOC",
+        "fr": "VOC",
+        "it": "VOC",
+        "sv": "VOC",
+        "no": "VOC",
+        "da": "VOC",
+        "pl": "VOC"
+    },
+    "units": {
+        "en": "ppm"
+    },
+    "insights": true,
+    "desc": {
+        "en": "VOC in Parts-per-million (ppm)",
+        "nl": "VOC deeltjes per miljoen (ppm)",
+        "de": "VOC in Anteile pro Million (ppm)",
+        "fr": "Niveau de VOC en parts par million (ppm)",
+        "it": "Livello di VOC in parti per milione (ppm)",
+        "sv": "VOC i partiklar-per-miljon (ppm)",
+        "no": "VOC i partikler per million (ppm)",
+        "es": "VOC en partes por millón (ppm)",
+        "da": "VOC i partikler-per-million (ppm)",
+        "pl": "Stężenie VOC w części na milion (ppm)"
+    },
+    "chartType": "spline",
+    "decimals": 2,
+    "getable": true,
+    "setable": false,
+    "uiVOCmponent": "sensor",
+    "$flow": {
+        "triggers": [
+            {
+                "id": "measure_voc_changed",
+                "title": {
+                    "en": "The VOC-level changed",
+                    "nl": "Het VOC niveau is veranderd",
+                    "de": "Der VOC-Gehalt hat sich geändert",
+                    "fr": "Le niveau de VOC a changé",
+                    "it": "Il livello di VOC è cambiato",
+                    "sv": "VOC-nivån ändrades",
+                    "no": "VOC-nivået ble endret",
+                    "es": "El nivel de VOC ha cambiado",
+                    "da": "VOC-niveauet har ændret sig",
+                    "ru": "VOC-уровень изменен",
+                    "pl": "Zmiana poziomu stężenia VOC"
+                },
+                "tokens": [
+                    {
+                        "name": "measure_voc",
+                        "title": {
+                            "en": "VOC",
+                            "nl": "VOC",
+                            "de": "VOC",
+                            "fr": "VOC",
+                            "it": "VOC",
+                            "sv": "VOC",
+                            "no": "VOC",
+                            "da": "VOC",
+                            "ru": "VOC",
+                            "pl": "VOC"
+                        },
+                        "type": "number",
+                        "example": 20
+                    }
+                ]
+            }
+        ]
+    }
+}

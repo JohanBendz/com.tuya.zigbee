@@ -17,16 +17,17 @@ class IrrigationController extends ZigBeeDevice {
 
     this.registerCapability('onoff', CLUSTER.ON_OFF);
 
-    this.registerCapabilityListener("onoff", async (value, options) =>{
+    this.registerCapabilityListener("onoff", async (value, options) => {
       this.log("value "+value);
       this.log("options "+options.duration);
       if (value && options.duration != undefined ){
         await zclNode.endpoints[1].clusters['onOff'].setOn();
-        await new Promise(resolve => setTimeout(resolve, options.duration));
-        await zclNode.endpoints[1].clusters['onOff'].setOff();
-      }else if(value && options.duration === undefined){
+        this._onOffTimeout = this.homey.setTimeout(async () => {
+          await zclNode.endpoints[1].clusters['onOff'].setOff();
+        }, options.duration);
+      } else if(value && options.duration === undefined){
         await zclNode.endpoints[1].clusters['onOff'].setOn();
-      }else if(!value && options.duration === undefined){
+      } else if(!value && options.duration === undefined){
         await zclNode.endpoints[1].clusters['onOff'].setOff();
       }
     });
@@ -38,6 +39,12 @@ class IrrigationController extends ZigBeeDevice {
 
   async onDeleted() {
     this.log('Smart irrigation controller removed');
+  }
+
+  onUninit() {
+    if (this._onOffTimeout) {
+      this.homey.clearTimeout(this._onOffTimeout);
+    }
   }
 
   onBatteryPercentageRemainingAttributeReport(batteryPercentageRemaining) {

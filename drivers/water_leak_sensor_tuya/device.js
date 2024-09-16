@@ -58,6 +58,11 @@ class TuyaWaterLeakSensor extends TuyaSpecificClusterDevice {
     onDeleted() {
         this.log("Water Leak Sensor removed");
     }
+
+    onUninit() {
+        clearInterval(this.batteryInterval);
+    }
+
 }
 
 module.exports = TuyaWaterLeakSensor;
