@@ -304,5 +304,8 @@
   },
   "0.2.49": {
     "en": "Added devices."
+  },
+  "0.2.50": {
+    "en": "Fix for 1 gang dimmer using Tuya Cluster."
   }
 }
