@@ -74,6 +74,14 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
         this.log(`brightness first gang:`, brightness);
         try {
           await this.writeData32(V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.brightnessGangOne, brightness);
+        
+          // Turning off device if dim level is 0
+          if (brightness === 0) {
+            this.log('Dim level is 0, turning off device');
+            await this.writeBool(V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.onOffGangOne, false);
+            await this.setCapabilityValue('onoff', false);
+          }
+        
         } catch (err) {
           this.error(`Error when writing brightness for first gang: `, err);
           throw err;
@@ -97,6 +105,14 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
         this.log(`brightness second gang:`, brightness);
         try {
           await this.writeData32(V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.brightnessGangTwo, brightness);
+        
+          // Turning off device if dim level is 0
+          if (brightness === 0) {
+            this.log('Dim level is 0, turning off device');
+            await this.writeBool(V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.onOffGangTwo, false);
+            await this.setCapabilityValue('onoff', false);
+          }
+
         } catch (err) {
           this.error(`Error when writing brightness for second gang: `, err);
           throw err;

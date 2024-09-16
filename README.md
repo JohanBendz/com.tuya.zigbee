@@ -590,6 +590,8 @@ Supported devices:
     _TZ3210_ol1uhvza / TS130F (Lonsonho)
     _TZ3000_eg7awg6a / TS130F
     _TZ3000_eafaa66e / TS130F
+
+- 2 Channel Curtain Module
     _TZ3000_j1xl73iw / TS130F
     _TZ3000_l6iqph4f / TS130F
 
