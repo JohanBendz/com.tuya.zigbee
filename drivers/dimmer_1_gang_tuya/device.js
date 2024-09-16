@@ -3,54 +3,104 @@
 const { debug, Cluster } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
 const TuyaSpecificClusterDevice = require("../../lib/TuyaSpecificClusterDevice");
+const { getDataValue } = require('../../lib/TuyaHelpers');
+const { V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS } = require('../../lib/TuyaDataPoints');
 
 Cluster.addCluster(TuyaSpecificCluster);
 
 class dimmer_1_gang_tuya extends TuyaSpecificClusterDevice {
 
   async onNodeInit({ zclNode }) {
-    await super.onNodeInit({ zclNode });
-
     this.printNode();
     debug(true);
+    this.enableDebug();
 
-    await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
-    .catch(err => {
-        this.error('Error when reading device attributes ', err);
-    });
+    // Read and log device attributes
+    await this._readDeviceAttributes(zclNode);
 
-    // Listen for Tuya-specific reports (manual state changes)
-    zclNode.endpoints[1].clusters[TuyaSpecificCluster.NAME].on('report', (report) => {
-      this.log('Received Tuya-specific report:', report);
+    // Setup capability listeners for on/off and dim
+    await this._setupGang(zclNode);
 
-      if (report.dp === 1) {
-        const onOffState = report.data[0] === 1;
-        this.setCapabilityValue('onoff', onOffState).catch(this.error);
-        this.log('onoff updated to:', onOffState);
+    // Attach event listeners for Tuya-specific reports (manual state changes)
+    if (!this.hasListenersAttached) {
+      zclNode.endpoints[1].clusters.tuya.on('reporting', async (value) => {
+        try {
+          await this.processDatapoint(value);
+        } catch (err) {
+          this.error('Error processing datapoint:', err);
+        }
+      });
+
+      zclNode.endpoints[1].clusters.tuya.on('response', async (value) => {
+        try {
+          await this.processDatapoint(value);
+        } catch (err) {
+          this.error('Error processing datapoint:', err);
+        }
+      });
+
+      this.hasListenersAttached = true;
+    }
+  }
+
+  async _readDeviceAttributes(zclNode) {
+    try {
+      await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus');
+    } catch (err) {
+      this.error('Error when reading device attributes:', err);
+    }
+  }
+
+  async _setupGang(zclNode) {
+    // Register capability listeners
+    this.registerCapabilityListener('onoff', async (value) => {
+      this.log('onoff:', value);
+      try {
+        await this.writeBool(V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS.onOff, value);
+      } catch (err) {
+        this.error('Error when writing onOff:', err);
+        throw err;
       }
+    });
 
-      if (report.dp === 2) {
-        const dimLevel = report.data[0] / 1000; // Scaling back from 0-1000 to 0-1
-        this.setCapabilityValue('dim', dimLevel).catch(this.error);
-        this.log('dim updated to:', dimLevel);
+    this.registerCapabilityListener('dim', async (value) => {
+      const brightness = Math.floor(value * 1000); // Scale to 0-1000
+      this.log('brightness:', brightness);
+      try {
+        await this.writeData32(V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS.brightness, brightness);
+      } catch (err) {
+        this.error('Error when writing brightness:', err);
+        throw err;
       }
     });
+  }
 
-    this.registerCapabilityListener('onoff', async value => {
-      this.log('onoff: ', value);
-      await this.writeBool(1, value);
-    });
+  // Process DP reports and update Homey accordingly
+  async processDatapoint(data) {
+    const dp = data.dp;
+    const parsedValue = getDataValue(data);
+    const dataType = data.datatype;
+    this.log(`Processing DP ${dp}, Data Type: ${dataType}, Parsed Value:`, parsedValue);
 
-    this.registerCapabilityListener('dim', async value => {
-        this.log("brightness: ", value * 1000);
-        await this.writeData32(2, value * 1000);
-    });
+    switch (dp) {
+      case V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS.onOff:
+        this.log('Received on/off:', parsedValue);
+        await this.setCapabilityValue('onoff', parsedValue === true || parsedValue === 1).catch(this.error);
+        break;
+
+      case V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS.brightness:
+        this.log('Received dim level:', parsedValue);
+        await this.setCapabilityValue('dim', parsedValue / 1000).catch(this.error);
+        break;
+
+      default:
+        this.log('Unhandled DP:', dp, 'with value:', parsedValue);
+    }
   }
 
   onDeleted() {
     this.log('1 Gang Dimmer removed');
   }
-
 }
 
 module.exports = dimmer_1_gang_tuya;
