@@ -1,5 +1,5 @@
 {
-  "id": "curtainmodule_2_gang",
+  "id": "curtain_module_2_gang",
   "name": {
     "en": "2 Gang Curtain Module"
   },
@@ -26,7 +26,8 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TZ3000_j1xl73iw"
+      "_TZ3000_j1xl73iw",
+      "_TZ3000_l6iqph4f"
     ],
     "productId": ["TS130F"],
     "endpoints": {

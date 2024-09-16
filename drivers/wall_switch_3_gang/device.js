@@ -6,28 +6,35 @@ const { debug, CLUSTER } = require('zigbee-clusters');
 
 class wall_switch_3_gang extends ZigBeeDevice {
 
-    async onNodeInit({zclNode}) {
+  async onNodeInit({zclNode}) {
 
-/*    
-      this.printNode();
-      this.enableDebug();
-*/
+    this.printNode();
 
-      const { subDeviceId } = this.getData();
-      this.log("Device data: ", subDeviceId);
+    const { subDeviceId } = this.getData();
+    this.log("Device data: ", subDeviceId);
 
-      this.registerCapability('onoff', CLUSTER.ON_OFF, {
-          endpoint: subDeviceId === 'secondSwitch' ? 2 : subDeviceId === 'thirdSwitch' ? 3 : 1,
+    this.registerCapability('onoff', CLUSTER.ON_OFF, {
+        endpoint: subDeviceId === 'secondSwitch' ? 2 : subDeviceId === 'thirdSwitch' ? 3 : 1,
+    });
+
+    try {
+      const indicatorMode = await this.zclNode.endpoints[1].clusters.onOff.readAttributes('indicatorMode');     
+      this.log("Indicator Mode supported by device");
+      await this.setSettings({
+        indicator_mode: ZCLDataTypes.enum8IndicatorMode.args[0][indicatorMode.indicatorMode].toString()
       });
-
-      if (!this.isSubDevice()) {
-        await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
-        .catch(err => {
-            this.error('Error when reading device attributes ', err);
-        });
-      }
-
+    } catch (error) {
+    this.log("This device does not support Indicator Mode", error);
     }
+
+    if (!this.isSubDevice()) {
+      await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
+      .catch(err => {
+          this.error('Error when reading device attributes ', err);
+      });
+    }
+
+  }
 
 /*     onSettings(oldSettingsObj, newSettingsObj, changedKeysArr, callback) {
         if (newSettingsObj.deviceClass === 'light') {
@@ -39,9 +46,17 @@ class wall_switch_3_gang extends ZigBeeDevice {
         }
     } */
 
-    onDeleted(){
-		this.log("3 Gang Wall Switch, channel ", subDeviceId, " removed")
+  onDeleted(){
+	  this.log("3 Gang Wall Switch, channel ", subDeviceId, " removed")
 	}
+
+  async onSettings({oldSettings, newSettings, changedKeys}) {
+    let parsedValue = 0;
+    if (changedKeys.includes('indicator_mode')) {
+      parsedValue = parseInt(newSettings.indicator_mode);
+      await this.zclNode.endpoints[1].clusters.onOff.writeAttributes({ indicatorMode: parsedValue });
+    }
+  }
 
 }
 
