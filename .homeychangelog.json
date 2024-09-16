@@ -307,5 +307,8 @@
   },
   "0.2.50": {
     "en": "Fix for 1 gang dimmer using Tuya Cluster."
+  },
+  "0.2.51": {
+    "en": "Fix for 1 and 2 gang dimmer using Tuya Cluster."
   }
 }
