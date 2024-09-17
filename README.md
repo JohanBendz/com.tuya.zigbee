@@ -116,6 +116,7 @@ Supported devices:
     _TZ3000_nss8amz9 / TS0202
     _TZ3000_lf56vpxj / TS0202
     TUYATEC-dxnohkpd / RH3040
+    _TZ3000_bsvqrxru / TS0202
 
 . Motion Sensor
     TUYATEC-bd5faf9p / RH3040 (Nedis)

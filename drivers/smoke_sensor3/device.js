@@ -9,6 +9,11 @@ class smoke_sensor extends ZigBeeDevice {
         
       this.printNode();
 
+      await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
+      .catch(err => {
+          this.error('Error when reading device attributes ', err);
+      });
+
       zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME]
         .onZoneStatusChangeNotification = payload => {
 			    this.onIASZoneStatusChangeNotification(payload);

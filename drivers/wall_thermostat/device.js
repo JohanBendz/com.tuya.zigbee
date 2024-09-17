@@ -11,10 +11,7 @@ Cluster.addCluster(TuyaSpecificCluster);
 
 /**
  * These are the "Data points" which the Tuya cluster exposes, and can be written against.
- *
- * At the time of writing this code, I could not find any documentation of Tuya cluster:
- * https://developer.tuya.com/en/docs/iot/categorywk?id=Kaiuz1m1xqnt6
- */
+*/
 const THERMOSTAT_DATA_POINTS = {
     onOff: 1,
     mode: 2,
@@ -41,6 +38,14 @@ class WallThermostatDevice extends TuyaSpecificClusterDevice {
     async onNodeInit({zclNode}) {
         this.printNode();
         this.enableDebug();
+
+        if (!this.hasCapability('thermostat_programming')) {
+          await this.addCapability('thermostat_programming');
+          }
+          
+          if (!this.hasCapability('child_lock')) {
+          await this.addCapability('child_lock');
+        }
 
         this.registerCapabilityListener('onoff', async (onOff) => {
             await this.writeBool(THERMOSTAT_DATA_POINTS.onOff, onOff)
