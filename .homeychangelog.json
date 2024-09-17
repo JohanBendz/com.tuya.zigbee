@@ -313,5 +313,8 @@
   },
   "0.2.52": {
     "en": "Added indicator light setting to all wall switches."
+  },
+  "0.2.53": {
+    "en": "Fixes to a few devices."
   }
 }

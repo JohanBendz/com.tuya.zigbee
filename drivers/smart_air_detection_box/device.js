@@ -8,11 +8,11 @@ Cluster.addCluster(TuyaSpecificCluster);
 
 // Data Points for TS0601 (_TZE200_yvx5lh6k)
 const dataPoints = {
-    tsFormaldehyde: 12,
-    tsVOC: 22,
     tsCO2: 2,
     tsTemperature: 18,
     tsHumidity: 19,
+    tsFormaldehyde: 21,
+    tsVOC: 22
 };
 
 const dataTypes = {

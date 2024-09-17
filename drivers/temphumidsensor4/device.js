@@ -57,6 +57,11 @@ class temphumidsensor4 extends TuyaSpecificClusterDevice {
 		this.addCapability("measure_humidity");
 		this.addCapability("measure_battery");
 
+		await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
+		.catch(err => {
+			this.error('Error when reading device attributes ', err);
+		});
+
 		zclNode.endpoints[1].clusters.tuya.on("response", value => this.processResponse(value));
 
 		zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processReporting(value));
