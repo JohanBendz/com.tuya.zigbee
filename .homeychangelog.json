@@ -316,5 +316,8 @@
   },
   "0.2.53": {
     "en": "Fixes to a few devices."
+  },
+  "0.2.54": {
+    "en": "Added Wall Switch 4 gang and updated a number of device drivers."
   }
 }

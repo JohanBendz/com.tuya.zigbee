@@ -33,6 +33,7 @@ Some of the supported White Label Brands:
 - Woox
 - YANDHI
 - Zemismart
+and many more..
 
 Supported devices:
 
@@ -68,6 +69,8 @@ Supported devices:
     TUYATEC-HaoiuWzy / RH3052
     TUYATEC-qun7vq14 / RH3052
     _TZE200_yjjdcqsq / TS0601
+    _TZE200_utkemkbs / TS0601
+    _TZ3000_6uzkisv2 / TS0601
 
 - LCD Temperature and Humidity Sensor
     _TZ2000_a476raq2 / TS0201
@@ -90,6 +93,11 @@ Supported devices:
     _TZ3210_ncw88jfq / TY0201
     _TZE200_vvmbj46n / TY0201
     _TZE204_upagmta9 / TS0601
+    _TZE200_cirvgep4 / TS0601
+    _TZE200_bq5c8xfe / TS0601
+    _TZE200_qyflbnbj / TS0601
+    _TZE200_vs0skpuc / TS0601
+    _TZE200_44af8vyi / TS0601
 
 - LCD Temperature, Humidity and Luminance Sensor
     _TZ3000_qaaysllp / TS0201 (NEO)
@@ -125,6 +133,8 @@ Supported devices:
     _TZ3000_lf56vpxj / TS0202
     TUYATEC-zw6hxafz / RH3040
     _TZE200_bh3n6gk8 / TS0601
+    _TZE200_1ibpyhdc / TS0601
+    _TZE200_ttcovulf / TS0601
 
 - Door/Windows Sensor
     TUYATEC-g3gl6cgy / RH3001
@@ -184,13 +194,15 @@ Supported devices:
     _TZ3000_eit7p838 / TS0207 (Blitzwolf)
     _TZ3000_t6jriawg / TS0207
     _TZ3000_85czd6fy / TS0207
-    _TZ3000_kyb656no / TS0207
-    _TZ3000_0s9gukzt / TS0207
-    _TZ3000_kstbkt6a / TS0207 (Hangzlou IH-K655)
+    _TZ3000_kyb656no / TS0207 (Meian)
+    _TZ3000_0s9gukzt / TS0207 (Nous)
+    _TZ3000_kstbkt6a / TS0207 (Hangzlou / IH-K655 / Aubess)
     _TZ3000_mugyhz0q / TS0207 (ONENUO)
-    _TZ3000_upgcbody / TS0207 (ONENUO)
-    _TZ3000_k4ej3ww2 / TS0207
+    _TZ3000_upgcbody / TS0207 (ONENUO / Aubess)
+    _TZ3000_k4ej3ww2 / TS0207 (Aubess)
     _TZ3000_6oabgtzv / TS0207
+    _TZ3000_ocjlo4ea / TS0207
+    _TZ3000_awvmkayh / TS0207 (Niceboy)
 
 - Water Leak Sensor
     _TZE200_qq9mpfhw / TS0601
@@ -212,6 +224,9 @@ Supported devices:
     _TZE200_vzekyi4c / TS0601
     _TYZB01_wqcac7lo / TS0205
     _TZE204_ntcy3xu1 / TS0601
+    _TZE200_t5p1vj8r / TS0601
+    _TZE200_uebojraa / TS0601
+    _TZE200_yh7aoahi / TS0601
 
 - Soil humidity sensor
     _TZE200_myd45weu / TS0601 (GiEX)
@@ -232,12 +247,21 @@ Supported devices:
     _TZE204_ijxvkhd0 / TS0601
     _TZE204_sxm7l9xa / TS0601
     _TZE200_2aaelwxk / TS0225
+    _TZE200_sgpeacqp / TS0601
+    _TZE204_xsm7l9xa / TS0601
+    _TZE200_wukb7rhc / TS0601
+    _TZE200_xpq2rzhq / TS0601
+    _TZE200_holel4dk / TS0601
+    _TZE200_jva8ink8 / TS0601
+    _TZE200_lyetpprm / TS0601
+    _TZE200_ikvncluo / TS0601
 
 - Air Detection Box
     _TZE200_yvx5lh6k / TS0601
     _TZE200_8ygsuhe1 / TS0601
     _TZE200_mja3fuja / TS0601
     _TZE200_ryfmq5rl / TS0601
+    _TZE200_c2fmom5z / TS0601
 
 **Plugs, Sockets and Socket Strips**
 - Smart Plug, with metering
@@ -326,6 +350,8 @@ Supported devices:
 - DIN-rail relay with metering
     _TZ3000_qeuvnohg / TS011F
     _TZ3000_cayepv1a / TS011F (Tongou)
+    _TZ3000_lepzuhto / TS011F
+    _TZ3000_qystbcjg / TS011F
 
 **In-Wall**
 - 1 Gang Switch Module
@@ -377,6 +403,13 @@ Supported devices:
     _TZ3210_k1msuvg6 / TS110E
     _TZE204_hlx9tnzb / TS0601
     _TZ3000_mgusv51k / TS0052
+    _TZE200_ip2akl4w / TS0601
+    _TZE200_1agwnems / TS0601
+    _TZE200_579lguh2 / TS0601
+    _TZE200_vucankjx / TS0601
+    _TZE200_4mh6tyyo / TS0601
+    _TZE204_n9ctkb6j / TS0601
+    _TZE204_9qhuzgo0 / TS0601
 
 - 2 Gang Dimmer Module
     _TYZB01_v8gtiaed / TS110F
@@ -388,6 +421,8 @@ Supported devices:
     _TZE204_bxoo2swd / TS0601
     _TZ3210_pagajpog / TS110E
     _TZ3210_4ubylghk / TS110E
+    _TZE200_gwkapsoq / TS0601
+    _TZE200_fjjbhx9d / TS0601
 
 **On-Wall**
 - 1 Gang Wall Switch
@@ -479,7 +514,7 @@ Supported devices:
     _TZ3210_x13bu7za / TS0505B (LIVARNO LUX / Lidl)
 
 - RGB Floor LED Light
-    _TZ3000_8uaoilu9 / TS0502A
+    _TZ3000_8uaoilu9 / TS0502A (LIVARNO LUX / Lidl)
 
 - RGB Mood Light
     _TZ3000_9cpuaca6 / TS0505A (LIVARNO LUX / Lidl)
@@ -575,6 +610,8 @@ Supported devices:
     _TZ3000_abrsvsou / TS004F
     _TZ3000_4fjiwweb / TS004F
     _TZ3000_qja6nq5z / TS004F
+    _TZ3000_ixla93vd / TS004F
+    _TZ3000_uri7ongn / TS004F
 
 **Curtains**
 - Curtain Module
@@ -630,6 +667,7 @@ Supported devices:
     _TZE200_yia0p3tr / TS0601
     _TZE200_nw1r9hp6 / TS0601
     _TZE200_cf1sl3tj / TS0601
+    _TZE200_9p5xmj5r / TS0601
 
 - Wall mounted Curtain Switch
     _TZ3000_dph3rpss / TS130F
@@ -644,15 +682,15 @@ Supported devices:
 
 **Other**
 - Thermostatic Radiator Valves
-    _TZE200_sur6q7ko / TS0601
+    _TZE200_sur6q7ko / TS0601 (LSC Smart Connect)
     _TZE200_hue3yfsn / TS0601
-    _TZE200_husqqvux / TS0601
-    _TZE200_lnbfnyxd / TS0601
+    _TZE200_husqqvux / TS0601 (Tesla Smart)
+    _TZE200_lnbfnyxd / TS0601 (Tesla Smart)
     _TZE200_lllliz3p / TS0601
     _TZE200_mudxchsu / TS0601
-    _TZE200_7yoranx2 / TS0601
+    _TZE200_7yoranx2 / TS0601 (MOES)
     _TZE200_e9ba97vf / TS0601 (MOES)
-    _TZE200_kds0pmmv / TS0601
+    _TZE200_kds0pmmv / TS0601 (MOES)
     _TZE200_kly8gjlz / TS0601
 
 - Wall Thermostat
@@ -668,6 +706,7 @@ Supported devices:
     _TZ3000_j9568h44 / TS0001
     _TZ3000_iedbgyxt / TS0001
     _TZ3000_w0ypwa1f / TS0001
+    _TZ3000_5ucujjts / TS0001
 
 - Smart Garden Irrigation Controller
     _TZ3210_eymunffl / TS0101 (Woox)

@@ -28,7 +28,9 @@
     "manufacturerName": [
       "_TZE200_e3oitdyu",
       "_TZE204_zenj4lxv",
-      "_TZE204_bxoo2swd"
+      "_TZE204_bxoo2swd",
+      "_TZE200_gwkapsoq",
+      "_TZE200_fjjbhx9d"
     ],
     "productId": [
       "TS0601"
@@ -57,7 +59,7 @@
     "learnmode": {
       "image": "{{driverAssetsPath}}/icon.svg",
       "instruction": {
-        "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        "en": "Two tiles will be created, one for each channel of the device. Press the reset switch rapidly 10 times until the unit make a continously beep sound to enter pairing mode."
       }
     }
   }

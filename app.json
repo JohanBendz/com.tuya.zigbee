@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.53",
+  "version": "0.2.54",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -2239,7 +2239,8 @@
           "_TZE200_gaj531w3",
           "_TZE200_yia0p3tr",
           "_TZE200_nw1r9hp6",
-          "_TZE200_cf1sl3tj"
+          "_TZE200_cf1sl3tj",
+          "_TZE200_9p5xmj5r"
         ],
         "productId": [
           "TS0601"
@@ -2581,7 +2582,14 @@
       "zigbee": {
         "manufacturerName": [
           "_TZE200_la2c2uo9",
-          "_TZE204_hlx9tnzb"
+          "_TZE204_hlx9tnzb",
+          "_TZE200_ip2akl4w",
+          "_TZE200_1agwnems",
+          "_TZE200_579lguh2",
+          "_TZE200_vucankjx",
+          "_TZE200_4mh6tyyo",
+          "_TZE204_n9ctkb6j",
+          "_TZE204_9qhuzgo0"
         ],
         "productId": [
           "TS0601"
@@ -2607,7 +2615,7 @@
         "learnmode": {
           "image": "/drivers/dimmer_1_gang_tuya/assets/icon.svg",
           "instruction": {
-            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+            "en": "Press the reset switch rapidly 10 times until the unit make a continously beep sound to enter pairing mode."
           }
         }
       },
@@ -2749,7 +2757,9 @@
         "manufacturerName": [
           "_TZE200_e3oitdyu",
           "_TZE204_zenj4lxv",
-          "_TZE204_bxoo2swd"
+          "_TZE204_bxoo2swd",
+          "_TZE200_gwkapsoq",
+          "_TZE200_fjjbhx9d"
         ],
         "productId": [
           "TS0601"
@@ -2793,7 +2803,7 @@
         "learnmode": {
           "image": "/drivers/dimmer_2_gang_tuya/assets/icon.svg",
           "instruction": {
-            "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+            "en": "Two tiles will be created, one for each channel of the device. Press the reset switch rapidly 10 times until the unit make a continously beep sound to enter pairing mode."
           }
         }
       },
@@ -3793,7 +3803,12 @@
           "_TZE200_bjawzodf",
           "_TZE200_zl1kmjqx",
           "_TZE200_locansqn",
-          "_TZE204_upagmta9"
+          "_TZE204_upagmta9",
+          "_TZE200_cirvgep4",
+          "_TZE200_bq5c8xfe",
+          "_TZE200_qyflbnbj",
+          "_TZE200_vs0skpuc",
+          "_TZE200_44af8vyi"
         ],
         "productId": [
           "TS0601"
@@ -3944,7 +3959,9 @@
       "zigbee": {
         "manufacturerName": [
           "_TZE200_3towulqd",
-          "_TZE200_bh3n6gk8"
+          "_TZE200_bh3n6gk8",
+          "_TZE200_1ibpyhdc",
+          "_TZE200_ttcovulf"
         ],
         "productId": [
           "TS0601"
@@ -4424,7 +4441,15 @@
           "_TZE204_ztc6ggyl",
           "_TZE204_qasjif9e",
           "_TZE204_ijxvkhd0",
-          "_TZE204_sxm7l9xa"
+          "_TZE204_sxm7l9xa",
+          "_TZE200_sgpeacqp",
+          "_TZE204_xsm7l9xa",
+          "_TZE200_wukb7rhc",
+          "_TZE200_xpq2rzhq",
+          "_TZE200_holel4dk",
+          "_TZE200_jva8ink8",
+          "_TZE200_lyetpprm",
+          "_TZE200_ikvncluo"
         ],
         "productId": [
           "TS0601"
@@ -6426,7 +6451,9 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_qeuvnohg",
-          "_TZ3000_cayepv1a"
+          "_TZ3000_cayepv1a",
+          "_TZ3000_lepzuhto",
+          "_TZ3000_qystbcjg"
         ],
         "productId": [
           "TS0121",
@@ -6658,7 +6685,8 @@
           "_TZE200_yvx5lh6k",
           "_TZE200_8ygsuhe1",
           "_TZE200_mja3fuja",
-          "_TZE200_ryfmq5rl"
+          "_TZE200_ryfmq5rl",
+          "_TZE200_c2fmom5z"
         ],
         "productId": [
           "TS0601"
@@ -6934,7 +6962,9 @@
         "manufacturerName": [
           "_TZ3000_abrsvsou",
           "_TZ3000_4fjiwweb",
-          "_TZ3000_qja6nq5z"
+          "_TZ3000_qja6nq5z",
+          "_TZ3000_ixla93vd",
+          "_TZ3000_uri7ongn"
         ],
         "productId": [
           "TS004F"
@@ -7854,7 +7884,10 @@
           "_TZE200_m9skfctm",
           "_TZE200_rccxox8p",
           "_TZE200_vzekyi4c",
-          "_TZE204_ntcy3xu1"
+          "_TZE204_ntcy3xu1",
+          "_TZE200_t5p1vj8r",
+          "_TZE200_uebojraa",
+          "_TZE200_yh7aoahi"
         ],
         "productId": [
           "TS0601"
@@ -9343,7 +9376,8 @@
           "_TZ3000_saiqcn0y",
           "_TZE200_a8sdabtg",
           "_TZ3000_utwgoauk",
-          "_TZ3000_zl1kmjqx"
+          "_TZ3000_zl1kmjqx",
+          "_TZ3000_6uzkisv2"
         ],
         "productId": [
           "TS0201",
@@ -9500,7 +9534,8 @@
         "manufacturerName": [
           "_TZE204_yjjdcqsq",
           "_TZE200_vvmbj46n",
-          "_TZE200_yjjdcqsq"
+          "_TZE200_yjjdcqsq",
+          "_TZE200_utkemkbs"
         ],
         "productId": [
           "TS0601"
@@ -9718,7 +9753,8 @@
           "_TZE200_7yoranx2",
           "_TZE200_e9ba97vf",
           "_TZE200_kds0pmmv",
-          "_TZE200_kly8gjlz"
+          "_TZE200_kly8gjlz",
+          "_TZE200_py4cm3he"
         ],
         "productId": [
           "TS0601"
@@ -10161,7 +10197,8 @@
           "_TZ3000_tvuarksa",
           "_TZ3000_j9568h44",
           "_TZ3000_iedbgyxt",
-          "_TZ3000_w0ypwa1f"
+          "_TZ3000_w0ypwa1f",
+          "_TZ3000_5ucujjts"
         ],
         "productId": [
           "TS0111",
@@ -10318,7 +10355,17 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE200_3p5ydos3"
+          "_TZE200_3p5ydos3",
+          "_TZE200_whpb9yts",
+          "_TZE200_ebwgzdqq",
+          "_TZE200_ctq0k47x",
+          "_TZE200_9i9dt8is",
+          "_TZE200_dfxkcots",
+          "_TZE200_w4cryh2i",
+          "_TZE200_ojzhk75b",
+          "_TZE200_9cxuhakf",
+          "_TZE200_a0syesf5",
+          "_TZE200_swaamsoy"
         ],
         "productId": [
           "TS0601"
@@ -11064,7 +11111,7 @@
     {
       "id": "wall_switch_1_gang_tuya",
       "name": {
-        "en": "1 Gang Wall GPP Switch"
+        "en": "1 Gang Wall Switch"
       },
       "class": "light",
       "platforms": [
@@ -11536,6 +11583,114 @@
       ]
     },
     {
+      "id": "wall_switch_4_gang_tuya",
+      "name": {
+        "en": "4 Gang Wall Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/wall_switch_4_gang_tuya/assets/images/large.png",
+        "small": "/drivers/wall_switch_4_gang_tuya/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_shkxsgis",
+          "_TZE204_aagrxlbd",
+          "_TZE200_aqnazj70",
+          "_TZE200_di3tfv5b",
+          "_TZE200_mexisfik",
+          "_TZE204_6wi2mope",
+          "_TZE204_iik0pquw"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              25,
+              10
+            ]
+          }
+        },
+        "devices": {
+          "secondGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Gang Wall Switch - Second Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "thirdGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Gang Wall Switch - Third Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "fourthGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Gang Wall Switch - Fourth Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_switch_4_gang_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "Four tiles will be created, one for each channel of the device. Switch the unit on and off five times and hold for 5 seconds to enter pairing mode (the LED should flash red and blue)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "name": {
         "en": "Wall Thermostat"
       },
@@ -11632,7 +11787,9 @@
           "_TZ3000_mugyhz0q",
           "_TZ3000_upgcbody",
           "_TZ3000_k4ej3ww2",
-          "_TZ3000_6oabgtzv"
+          "_TZ3000_6oabgtzv",
+          "_TZ3000_ocjlo4ea",
+          "_TZ3000_awvmkayh"
         ],
         "productId": [
           "TS0207",
@@ -11741,7 +11898,9 @@
           "_TZ3000_ufttklsz",
           "_TZ3000_gszjt2xx",
           "_TZ3000_nkkl7uzv",
-          "_TZ3000_nlsszmzl"
+          "_TZ3000_nlsszmzl",
+          "_TZ3000_misw04hq",
+          "_TZ3000_wlquqiiz"
         ],
         "productId": [
           "TS0207"

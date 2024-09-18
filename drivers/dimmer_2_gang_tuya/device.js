@@ -73,20 +73,28 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
         const brightness = Math.floor(value * 1000); // Scale to 0-1000
         this.log(`brightness first gang:`, brightness);
         try {
+          // If dim value is greater than 0 and the device is off, turn it on
+          if (brightness > 0 && !this.getCapabilityValue('onoff')) {
+            this.log('Dim level is greater than 0, turning on device');
+            await this.writeBool(V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.onOffGangOne, true);
+            await this.setCapabilityValue('onoff', true);
+          }
+      
+          // Set the brightness
           await this.writeData32(V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.brightnessGangOne, brightness);
-        
+      
           // Turning off device if dim level is 0
           if (brightness === 0) {
             this.log('Dim level is 0, turning off device');
             await this.writeBool(V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.onOffGangOne, false);
             await this.setCapabilityValue('onoff', false);
           }
-        
         } catch (err) {
           this.error(`Error when writing brightness for first gang: `, err);
           throw err;
         }
       });
+      
 
     } else {
       // Gang 2 (subdevice)
@@ -104,20 +112,28 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
         const brightness = Math.floor(value * 1000); // Scale to 0-1000
         this.log(`brightness second gang:`, brightness);
         try {
+          // If dim value is greater than 0 and the device is off, turn it on
+          if (brightness > 0 && !this.getCapabilityValue('onoff')) {
+            this.log('Dim level is greater than 0, turning on second gang');
+            await this.writeBool(V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.onOffGangTwo, true);
+            await this.setCapabilityValue('onoff', true);
+          }
+      
+          // Set the brightness
           await this.writeData32(V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.brightnessGangTwo, brightness);
-        
+      
           // Turning off device if dim level is 0
           if (brightness === 0) {
-            this.log('Dim level is 0, turning off device');
+            this.log('Dim level is 0, turning off second gang');
             await this.writeBool(V1_MULTI_GANG_DIMMER_SWITCH_DATA_POINTS.onOffGangTwo, false);
             await this.setCapabilityValue('onoff', false);
           }
-
         } catch (err) {
           this.error(`Error when writing brightness for second gang: `, err);
           throw err;
         }
       });
+      
     }
   }
 
