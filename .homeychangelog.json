@@ -319,5 +319,8 @@
   },
   "0.2.54": {
     "en": "Added Wall Switch 4 gang and updated a number of device drivers."
+  },
+  "0.2.55": {
+    "en": "Troubleshooting Wall Switch 4 gang."
   }
 }

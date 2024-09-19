@@ -13,6 +13,11 @@ class wall_switch_4_gang_tuya extends TuyaSpecificClusterDevice {
   async onNodeInit({ zclNode }) {
     this.printNode();
 
+    await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
+    .catch(err => {
+      this.error('Error when reading device attributes ', err);
+    });
+
     const { subDeviceId } = this.getData();
     this.log('Sub device ID:', subDeviceId);
 
@@ -56,7 +61,7 @@ class wall_switch_4_gang_tuya extends TuyaSpecificClusterDevice {
   async processResponse(data) {
     const dp = data.dp;
     const parsedValue = getDataValue(data);
-
+  
     switch (dp) {
       case V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchOne:
         await this.setCapabilityValue('onoff', parsedValue).catch(this.error);
@@ -70,10 +75,19 @@ class wall_switch_4_gang_tuya extends TuyaSpecificClusterDevice {
       case V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchFour:
         await this.setCapabilityValue('onoff', parsedValue).catch(this.error);
         break;
+      case 5: // Add handling for DP 5
+        this.log('Handling DP 5:', parsedValue);
+        // Add appropriate actions for DP 5
+        break;
+      case 6: // Add handling for DP 6
+        this.log('Handling DP 6:', parsedValue);
+        // Add appropriate actions for DP 6
+        break;
       default:
         this.log('Unhandled DP:', dp, 'with value:', parsedValue);
     }
   }
+  
 
   onDeleted() {
     this.log('4 Gang Wall Switch removed');
