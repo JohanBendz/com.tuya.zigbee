@@ -77,6 +77,7 @@ class wall_switch_4_gang_tuya extends TuyaSpecificClusterDevice {
     const dp = data.dp;
     const parsedValue = getDataValue(data);
     const dataType = data.datatype;
+    const { subDeviceId } = this.getData(); 
     this.log(`Processing DP ${dp}, Data Type: ${dataType}, Parsed Value:`, parsedValue);
 
     // Differentiate between gangs by DP
