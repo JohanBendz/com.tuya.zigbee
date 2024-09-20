@@ -1,10 +1,10 @@
 'use strict';
 
-const { Cluster } = require('zigbee-clusters');
+const { debug, Cluster } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
 const TuyaSpecificClusterDevice = require("../../lib/TuyaSpecificClusterDevice");
-const { V1_MULTI_SWITCH_DATA_POINTS } = require('../../lib/TuyaDataPoints');
 const { getDataValue } = require('../../lib/TuyaHelpers');
+const { V1_MULTI_SWITCH_DATA_POINTS } = require('../../lib/TuyaDataPoints');
 
 Cluster.addCluster(TuyaSpecificCluster);
 
@@ -12,18 +12,15 @@ class wall_switch_4_gang_tuya extends TuyaSpecificClusterDevice {
 
   async onNodeInit({ zclNode }) {
     this.printNode();
-
-    await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
-    .catch(err => {
-      this.error('Error when reading device attributes ', err);
-    });
+    debug(true);
+    this.enableDebug();
 
     const { subDeviceId } = this.getData();
     this.log('Sub device ID:', subDeviceId);
 
-    // Set up listeners for each gang
+    // Setup capability listeners and event handlers for each gang
     if (this.isSubDevice()) {
-      // Subdevices for second, third, and fourth gangs
+      // Handle each subdevice based on the subDeviceId
       switch (subDeviceId) {
         case 'secondGang':
           await this._setupGang(zclNode, 'second gang', V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchTwo);
@@ -36,13 +33,30 @@ class wall_switch_4_gang_tuya extends TuyaSpecificClusterDevice {
           break;
       }
     } else {
-      // Main device for first gang
+      // Main device for the first gang
       await this._setupGang(zclNode, 'first gang', V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchOne);
     }
 
-    // Attach event listeners for Tuya-specific reports and responses
-    zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processResponse(value));
-    zclNode.endpoints[1].clusters.tuya.on("response", value => this.processResponse(value));
+    // Attach event listeners only once per physical device
+    if (!this.hasListenersAttached) {
+      zclNode.endpoints[1].clusters.tuya.on("reporting", async (value) => {
+        try {
+          await this.processDatapoint(value);
+        } catch (err) {
+          this.error('Error processing datapoint:', err);
+        }
+      });
+
+      zclNode.endpoints[1].clusters.tuya.on("response", async (value) => {
+        try {
+          await this.processDatapoint(value);
+        } catch (err) {
+          this.error('Error processing datapoint:', err);
+        }
+      });
+
+      this.hasListenersAttached = true;
+    }
   }
 
   async _setupGang(zclNode, gangName, dpOnOff) {
@@ -58,36 +72,47 @@ class wall_switch_4_gang_tuya extends TuyaSpecificClusterDevice {
     });
   }
 
-  async processResponse(data) {
+  // Process DP reports and update Homey accordingly
+  async processDatapoint(data) {
     const dp = data.dp;
     const parsedValue = getDataValue(data);
-  
+    const dataType = data.datatype;
+    this.log(`Processing DP ${dp}, Data Type: ${dataType}, Parsed Value:`, parsedValue);
+
+    // Differentiate between gangs by DP
     switch (dp) {
       case V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchOne:
-        await this.setCapabilityValue('onoff', parsedValue).catch(this.error);
+        this.log('Received on/off for first gang:', parsedValue);
+        if (!this.isSubDevice()) {
+          await this.setCapabilityValue('onoff', parsedValue).catch(this.error);
+        }
         break;
+
       case V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchTwo:
-        await this.setCapabilityValue('onoff', parsedValue).catch(this.error);
+        this.log('Received on/off for second gang:', parsedValue);
+        if (subDeviceId === 'secondGang') {
+          await this.setCapabilityValue('onoff', parsedValue).catch(this.error);
+        }
         break;
+
       case V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchThree:
-        await this.setCapabilityValue('onoff', parsedValue).catch(this.error);
+        this.log('Received on/off for third gang:', parsedValue);
+        if (subDeviceId === 'thirdGang') {
+          await this.setCapabilityValue('onoff', parsedValue).catch(this.error);
+        }
         break;
+
       case V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchFour:
-        await this.setCapabilityValue('onoff', parsedValue).catch(this.error);
+        this.log('Received on/off for fourth gang:', parsedValue);
+        if (subDeviceId === 'fourthGang') {
+          await this.setCapabilityValue('onoff', parsedValue).catch(this.error);
+        }
         break;
-      case 5: // Add handling for DP 5
-        this.log('Handling DP 5:', parsedValue);
-        // Add appropriate actions for DP 5
-        break;
-      case 6: // Add handling for DP 6
-        this.log('Handling DP 6:', parsedValue);
-        // Add appropriate actions for DP 6
-        break;
+
       default:
         this.log('Unhandled DP:', dp, 'with value:', parsedValue);
     }
   }
-  
 
   onDeleted() {
     this.log('4 Gang Wall Switch removed');
