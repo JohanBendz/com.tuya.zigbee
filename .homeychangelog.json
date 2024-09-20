@@ -325,5 +325,8 @@
   },
   "0.2.56": {
     "en": "More fixes."
+  },
+  "0.2.57": {
+    "en": "Fix for Dual Power Point and Wall Switch 4 Gang using Tuya Cluster. Uppdated/added device id's to a nnumber of devices."
   }
 }

@@ -39,15 +39,26 @@ class doublepowerpoint extends ZigBeeDevice {
 
     // Determine endpoint based on subDeviceId
     const endpoint = subDeviceId === 'seconddoublepowerpoint' ? 2 : 1;
-
     this.log(`Registering capabilities for endpoint ${endpoint}`);
 
-    // Register capabilities for the determined endpoint
+    // Register only applicable capabilities based on the endpoint
     try {
-      this.registerCapabilities(zclNode, { endpoint });
+      if (endpoint === 1) {
+        // Register all capabilities for the first endpoint
+        this.registerCapabilities(zclNode, { endpoint });
+      } else {
+        // Register only onoff for the second endpoint
+        this.registerCapability('onoff', CLUSTER.ON_OFF, { endpoint }, {
+          getOpts: {
+            getOnStart: true,
+            pollInterval: 60000
+          }
+        });
+      }
     } catch (error) {
       this.error(`Error registering capabilities for endpoint ${endpoint}:`, error);
     }
+
   }
 
   registerCapabilities(zclNode, options) {
