@@ -183,8 +183,7 @@ Supported devices:
     _TZ3000_au2o5e6q / TS0203
     _TZ3000_uvti8nkd / TS0203
     _TZ3000_v7chgqso / TS0203
-
-- Smart Door/Windows Sensor
+    _TZ3000_8yhypbo7 / TS0203
     _TZ1800_ejwkn2h2 / TY0203 (Silvercrest / Lidl)
 
 - Water Detector
@@ -255,6 +254,7 @@ Supported devices:
     _TZE200_jva8ink8 / TS0601
     _TZE200_lyetpprm / TS0601
     _TZE200_ikvncluo / TS0601
+    _TZE204_ztqnh5cg / TS0601
 
 - Air Detection Box
     _TZE200_yvx5lh6k / TS0601
@@ -384,6 +384,8 @@ Supported devices:
     _TZ3000_llfaquvp / TS0012
     _TZ3000_lmlsduws / TS0002
     _TZ3000_qaa59zqd / TS0002
+    _TZ3000_qcgw8qfa / TS0002 (Zemismart)
+    _TZ3000_jcfje0kb / TS0002
 
 - 2 Gang Switch Module with metering
     _TZ3000_zmy4lslw / TS0002
@@ -392,6 +394,7 @@ Supported devices:
 - 3 Gang Switch Module
     _TZ3000_odzoiovu / TS0003
     _TZ3000_lvhy15ix / TS0003
+    _TZ3000_4o16jdca / TS0003
 
 - 1 Gang Dimmer Module
     _TYZB01_qezuin6k / TS110F
@@ -410,6 +413,7 @@ Supported devices:
     _TZE200_4mh6tyyo / TS0601
     _TZE204_n9ctkb6j / TS0601
     _TZE204_9qhuzgo0 / TS0601
+    _TZE204_dcnsggvz / TS0601
 
 - 2 Gang Dimmer Module
     _TYZB01_v8gtiaed / TS110F
@@ -441,6 +445,8 @@ Supported devices:
     _TZ3000_6eyydfyg / TS0001
     _TZE200_gbagoilo / TS0601
     _TZ3000_hhiodade / TS0011
+    _TZ3000_ysdv91bk / TS0001
+    _TZ3000_7jx5ypra / TS0001
 
 - 2 Gang Wall Switch
     _TYZB01_mtlhqn48 / TS0012
@@ -458,6 +464,11 @@ Supported devices:
     _TZ3000_56bdyj21 / TS0002
     _TZ3000_e98krvvk / TS0012
     _TZ3000_atp7xmd9 / TS0002
+    _TZ3000_mrqea2uu / TS0002
+    _TZ3000_mklgayek / TS0002
+    _TZ3000_p8alo7qa / TS0012
+    _TYZB01_6g8b7at8 / TS0012
+    TUYATEC-nzrrvgco / TS0012
 
 - 3 Gang Wall Switch
     _TYZB01_xiuox57i / TS0013
@@ -474,14 +485,34 @@ Supported devices:
     _TZ3000_5e5ptb24 / TS0013
     _TZ3000_lrgccsxm / TS0013
     _TZ3000_w05exif3 / TS0003
+    _TZ3000_qewo8dlz / TS0013
 
 - 4 Gang Wall Switch
      _TZ3000_r0pmi2p3 / TS0014
      _TZ3000_dku2cfsc / TS0044
      _TZ3000_fjt5218m / TS0044
+     _TYZB01_bagt1e4o / TS0014 (Oz Smart Things)
+    _TZE200_shkxsgis / TS0601
+    _TZE204_aagrxlbd / TS0601
+    _TZE200_aqnazj70 / TS0601
+    _TZE200_di3tfv5b / TS0601
+    _TZE200_mexisfik / TS0601
+    _TZE204_6wi2mope / TS0601
+    _TZE204_iik0pquw / TS0601
 
 - Wall Dimmer
     _TZE200_3p5ydos3 / TS0601
+    _TZE200_whpb9yts / TS0601
+    _TZE200_ebwgzdqq / TS0601
+    _TZE200_ctq0k47x / TS0601
+    _TZE200_9i9dt8is / TS0601
+    _TZE200_dfxkcots / TS0601
+    _TZE200_w4cryh2i / TS0601
+    _TZE200_ojzhk75b / TS0601
+    _TZE200_9cxuhakf / TS0601
+    _TZE200_a0syesf5 / TS0601
+    _TZE200_swaamsoy / TS0601
+    _TZE200_p0gzbqct / TS0601
 
 **Lights**
 - Christmas Tree Lights
@@ -563,6 +594,7 @@ Supported devices:
     _TZ3000_itb0omhv / TS0041
     _TZ3000_8rppvwda / TS0041
     _TZ3000_4upl1fcj / TS0041
+    _TZ3000_q68478x7 / TS0041
 
 - 2 Gang Wall Remote
     _TZ3000_owgcnkrh / TS0042
@@ -591,6 +623,7 @@ Supported devices:
     _TZ3000_ufhtxr59 / TS0044
     _TZ3000_ee8nrt2l / TS0044
     _TZ3000_uaa99arv / TS0044
+    _TZ3000_a4xycprs / TS0044 (MOES)
 
 - 1 Button Smart Remote Controller
     _TZ3000_kjfzuycl / TS004F
@@ -598,6 +631,7 @@ Supported devices:
     _TZ3000_yirp2pgd / TS004F
     _TZ3000_fa9mlvja / TS0041
     _TZ3000_yj6k7vfo / TS0041
+    _TZ3000_ja5osu5g / TS004F
 
 - 4 Button Smart Remote Controller
     _TZ3000_fsiepnrh / TS0215A (Nedis)
@@ -692,6 +726,7 @@ Supported devices:
     _TZE200_e9ba97vf / TS0601 (MOES)
     _TZE200_kds0pmmv / TS0601 (MOES)
     _TZE200_kly8gjlz / TS0601
+    _TZE200_py4cm3he / TS0601
 
 - Wall Thermostat
     _TZE200_aoclfnxz / TS0601
@@ -719,6 +754,8 @@ Supported devices:
     _TZ3000_ufttklsz / TS0207
     _TZ3000_nkkl7uzv / TS0207
     _TZ3000_nlsszmzl / TS0207
+    _TZ3000_misw04hq / TS0207
+    _TZ3000_wlquqiiz / TS0207
 
 - 1 Channel Relay Board
     _TZ3000_g8n1n7lg / TS0001
@@ -737,6 +774,7 @@ Supported devices:
     _TYZB01_phjeraqq / TS0001
 
 - Siren
+    _TZE200_d0yu2xgi / TS0601
     _TZE204_t1blo2bj / TS0601
 
 To request additional devices, please use Github issue tracking: https://github.com/JohanBendz/com.tuya.zigbee/issues
