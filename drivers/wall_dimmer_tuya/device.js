@@ -25,6 +25,7 @@ class wall_dimmer_tuya extends TuyaSpecificClusterDevice {
     if (!this.hasListenersAttached) {
       zclNode.endpoints[1].clusters.tuya.on('reporting', async (value) => {
         try {
+          this.log('Received reporting:', value);
           await this.processDatapoint(value);
         } catch (err) {
           this.error('Error processing datapoint:', err);
@@ -33,6 +34,7 @@ class wall_dimmer_tuya extends TuyaSpecificClusterDevice {
 
       zclNode.endpoints[1].clusters.tuya.on('response', async (value) => {
         try {
+          this.log('Received response:', value);
           await this.processDatapoint(value);
         } catch (err) {
           this.error('Error processing datapoint:', err);

@@ -500,6 +500,10 @@ Supported devices:
     _TZE204_6wi2mope / TS0601
     _TZE204_iik0pquw / TS0601
 
+- 6 Gang Wall Switch
+    _TZE200_r731zlxk / TS0601
+    _TZE200_9mahtqtg / TS0601
+
 - Wall Dimmer
     _TZE200_3p5ydos3 / TS0601
     _TZE200_whpb9yts / TS0601
