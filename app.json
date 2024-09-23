@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.59",
+  "version": "0.2.60",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -3026,7 +3026,7 @@
     {
       "id": "double_power_point",
       "name": {
-        "en": "Double Power Point"
+        "en": "Double Power Point - With Metering"
       },
       "class": "socket",
       "platforms": [
@@ -3089,18 +3089,23 @@
           }
         }
       },
-      "subdevices": [
-        {
-          "id": "seconddoublepowerpoint",
-          "name": {
-            "en": "Second Power Point"
-          },
+      "devices": {
+        "socket2": {
           "class": "socket",
           "capabilities": [
             "onoff"
-          ]
+          ],
+          "name": {
+            "en": "Double Power Point - Second socket"
+          },
+          "energy": {
+            "approximation": {
+              "usageOn": 0,
+              "usageOff": 0
+            }
+          }
         }
-      ],
+      },
       "settings": [
         {
           "id": "metering_offset",
@@ -3183,6 +3188,87 @@
           }
         }
       ]
+    },
+    {
+      "id": "double_power_point_2",
+      "name": {
+        "en": "Double Power Point"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/double_power_point_2/assets/images/large.png",
+        "small": "/drivers/double_power_point_2/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TYZB01_hlla45kx"
+        ],
+        "productId": [
+          "TS011F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+          }
+        }
+      },
+      "devices": {
+        "socket2": {
+          "class": "socket",
+          "capabilities": [
+            "onoff"
+          ],
+          "name": {
+            "en": "Double Power Point - Second socket"
+          },
+          "energy": {
+            "approximation": {
+              "usageOn": 0,
+              "usageOff": 0
+            }
+          }
+        }
+      },
+      "settings": []
     },
     {
       "id": "flood_sensor",
@@ -9041,6 +9127,202 @@
       "settings": []
     },
     {
+      "id": "switch_4_gang_metering",
+      "name": {
+        "en": "4 Gang Switch Module with metering"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/switch_4_gang_metering/assets/images/large.png",
+        "small": "/drivers/switch_4_gang_metering/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_mmkbptmx"
+        ],
+        "productId": [
+          "TS0004"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6,
+              1794,
+              2820
+            ],
+            "bindings": [
+              6,
+              1794,
+              2820
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Gang Switch Module with metering - Second Switch"
+            },
+            "capabilitiesOptions": {
+              "measure_power": {
+                "approximated": true
+              }
+            }
+          },
+          "thirdSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Gang Switch Module with metering - Third Switch"
+            },
+            "capabilitiesOptions": {
+              "measure_power": {
+                "approximated": true
+              }
+            }
+          },
+          "fourthSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Gang Switch Module with metering - Fourth Switch"
+            },
+            "capabilitiesOptions": {
+              "measure_power": {
+                "approximated": true
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_4_gang_metering/assets/icon.svg",
+          "instruction": {
+            "en": "Four tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "metering_offset",
+          "type": "number",
+          "label": {
+            "en": "Metering Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "measure_offset",
+          "type": "number",
+          "label": {
+            "en": "Measure Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "minReportPower",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for power (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportCurrent",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for current (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportVoltage",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for voltage (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        }
+      ]
+    },
+    {
       "id": "temphumidsensor",
       "name": {
         "en": "Temperature & Humidity Sensor"
@@ -10747,7 +11029,8 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_wkai4ga5",
-          "_TZ3000_uaa99arv"
+          "_TZ3000_uaa99arv",
+          "_TZ3000_jcspr0tp"
         ],
         "productId": [
           "TS0044"
@@ -11218,7 +11501,8 @@
           "_TZ3000_mklgayek",
           "_TZ3000_p8alo7qa",
           "_TYZB01_6g8b7at8",
-          "TUYATEC-nzrrvgco"
+          "TUYATEC-nzrrvgco",
+          "_TZ3000_qn8qvk9y"
         ],
         "productId": [
           "TS0002",
@@ -11702,6 +11986,123 @@
           "image": "/drivers/wall_switch_4_gang_tuya/assets/icon.svg",
           "instruction": {
             "en": "Four tiles will be created, one for each channel of the device. Switch the unit on and off five times and hold for 5 seconds to enter pairing mode (the LED should flash red and blue)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "wall_switch_5_gang_tuya",
+      "name": {
+        "en": "5 Gang Wall Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/wall_switch_5_gang_tuya/assets/images/large.png",
+        "small": "/drivers/wall_switch_5_gang_tuya/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_jwsjbxjs"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              25,
+              10
+            ]
+          }
+        },
+        "devices": {
+          "secondGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "5 Gang Wall Switch - Second Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "thirdGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "5 Gang Wall Switch - Third Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "fourthGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "5 Gang Wall Switch - Fourth Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "fifthGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "5 Gang Wall Switch - Fifth Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_switch_5_gang_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "Five tiles will be created, one for each channel of the device. Switch the unit on and off five times and hold for 5 seconds to enter pairing mode (the LED should flash red and blue)."
           }
         }
       },

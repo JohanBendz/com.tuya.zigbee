@@ -1,14 +1,14 @@
 'use strict';
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
-const { CLUSTER, Cluster, ZCLDataTypes } = require('zigbee-clusters');
+const { CLUSTER, Cluster, ZCLDataTypes} = require('zigbee-clusters');
 const TuyaOnOffCluster = require('../../lib/TuyaOnOffCluster');
 
 Cluster.addCluster(TuyaOnOffCluster);
 
-class doublepowerpoint extends ZigBeeDevice {
+class switch_4_gang_metering extends ZigBeeDevice {
 
-  async onNodeInit({ zclNode }) {
+  async onNodeInit({zclNode}) {
 
     this.printNode();
     console.log(zclNode.endpoints);
@@ -23,17 +23,8 @@ class doublepowerpoint extends ZigBeeDevice {
     this.minReportCurrent = this.getSetting('minReportCurrent') * 1000;
     this.minReportVoltage = this.getSetting('minReportVoltage') * 1000;
 
-    // Add missing capabilities if not already present
-    if (!this.hasCapability('measure_current')) {
-      await this.addCapability('measure_current').catch(this.error);
-    }
-
-    if (!this.hasCapability('measure_voltage')) {
-      await this.addCapability('measure_voltage').catch(this.error);
-    }
-
     // Determine endpoint based on subDeviceId
-    const endpoint = subDeviceId === 'socket2' ? 2 : 1;
+    const endpoint = subDeviceId === 'secondSwitch' ? 2 : subDeviceId === 'thirdSwitch' ? 3 : subDeviceId === 'fourthSwitch' ? 4 : 1;
     this.log(`Registering capabilities for endpoint ${endpoint}`);
 
     // Register only applicable capabilities based on the endpoint
@@ -48,11 +39,10 @@ class doublepowerpoint extends ZigBeeDevice {
         // Register all capabilities for the first endpoint
         this.registerCapabilities(zclNode, { endpoint });
       } else {
-        // Register only onoff for the second endpoint
+        // Register only onoff for the endpoint
         this.registerCapability('onoff', CLUSTER.ON_OFF, { endpoint }, {
           getOpts: {
-            getOnStart: true,
-            pollInterval: 60000
+            getOnStart: true
           }
         });
       }
@@ -60,16 +50,6 @@ class doublepowerpoint extends ZigBeeDevice {
       this.error(`Error registering capabilities for endpoint ${endpoint}:`, error);
     }
 
-  }
-
-  async registerCapabilities(zclNode, { endpoint }) {
-    // Register onOff capability with the correct options structure
-    this.registerCapability('onoff', CLUSTER.ON_OFF, { endpoint }, {
-      getOpts: {
-        getOnStart: true
-      }
-    });
-  
     // Attempt to configure instant reporting for the onOff attribute
     try {
       await zclNode.endpoints[endpoint].clusters.onOff.configureReporting({
@@ -91,51 +71,59 @@ class doublepowerpoint extends ZigBeeDevice {
         },
       });
     }
-  
-    // Register additional capabilities with configureReporting instead of polling
-    if (endpoint === 1) {
-      try {
-        // Configure reporting for meter_power
-        await zclNode.endpoints[endpoint].clusters.metering.configureReporting({
-          attribute: 'currentSummationDelivered',
-          minimumReportInterval: 10, // Minimum reporting interval
-          maximumReportInterval: 600, // Maximum reporting interval
-          reportableChange: 10, // Report when the value changes by 10 units
-        });
-        this.log('Configured reporting for meter_power');
-  
-        // Configure reporting for measure_power
-        await zclNode.endpoints[endpoint].clusters.electricalMeasurement.configureReporting({
-          attribute: 'activePower',
-          minimumReportInterval: 10,
-          maximumReportInterval: this.minReportPower,
-          reportableChange: 1,
-        });
-        this.log('Configured reporting for measure_power');
-  
-        // Configure reporting for measure_current
-        await zclNode.endpoints[endpoint].clusters.electricalMeasurement.configureReporting({
-          attribute: 'rmsCurrent',
-          minimumReportInterval: 10,
-          maximumReportInterval: this.minReportCurrent,
-          reportableChange: 1,
-        });
-        this.log('Configured reporting for measure_current');
-  
-        // Configure reporting for measure_voltage
-        await zclNode.endpoints[endpoint].clusters.electricalMeasurement.configureReporting({
-          attribute: 'rmsVoltage',
-          minimumReportInterval: 10,
-          maximumReportInterval: this.minReportVoltage,
-          reportableChange: 1,
-        });
-        this.log('Configured reporting for measure_voltage');
-      } catch (error) {
-        this.error('Failed to configure reporting for some attributes:', error);
+
+  }
+
+  registerCapabilities(zclNode, options) {
+    const endpoint = options.endpoint;
+
+    // onOff capability
+    this.registerCapability('onoff', CLUSTER.ON_OFF, options, {
+      getOpts: {
+        getOnStart: true
       }
+    });
+
+    // Only for endpoint 1 (main device), register additional capabilities
+    if (endpoint === 1) {
+      // meter_power capability
+      this.registerCapability('meter_power', CLUSTER.METERING, options, {
+        reportParser: value => (value * this.meteringOffset) / 100.0,
+        getParser: value => (value * this.meteringOffset) / 100.0,
+        getOpts: {
+          getOnStart: true,
+          pollInterval: 300000
+        }
+      });
+
+      // measure_power capability
+      this.registerCapability('measure_power', CLUSTER.ELECTRICAL_MEASUREMENT, options, {
+        reportParser: value => (value * this.measureOffset) / 100,
+        getOpts: {
+          getOnStart: true,
+          pollInterval: this.minReportPower
+        }
+      });
+
+      // measure_current capability
+      this.registerCapability('measure_current', CLUSTER.ELECTRICAL_MEASUREMENT, options, {
+        reportParser: value => value / 1000,
+        getOpts: {
+          getOnStart: true,
+          pollInterval: this.minReportCurrent
+        }
+      });
+
+      // measure_voltage capability
+      this.registerCapability('measure_voltage', CLUSTER.ELECTRICAL_MEASUREMENT, options, {
+        reportParser: value => value,
+        getOpts: {
+          getOnStart: true,
+          pollInterval: this.minReportVoltage
+        }
+      });
     }
   }
-  
 
   onDeleted() {
     this.log(`Double Power Point removed`);
@@ -162,4 +150,5 @@ class doublepowerpoint extends ZigBeeDevice {
 
 }
 
-module.exports = doublepowerpoint;
+module.exports = switch_4_gang_metering;
+

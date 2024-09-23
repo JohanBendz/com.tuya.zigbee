@@ -1,7 +1,7 @@
 {
-  "id": "doublepowerpoint",
+  "id": "doublepowerpoint2",
   "name": {
-    "en": "Double Power Point - With Metering"
+    "en": "Double Power Point"
   },
   "class": "socket",
   "platforms": ["local"],
@@ -24,15 +24,15 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TZ3210_7jnk7l3k"
+      "_TYZB01_hlla45kx"
     ],
     "productId": [
       "TS011F"
     ],
     "endpoints": {
       "1": {
-        "clusters": [0, 4, 5, 6, 1794, 2820],
-        "bindings": [6, 1794, 2820]
+        "clusters": [0, 4, 5, 6],
+        "bindings": [6]
       },
       "2": {
         "clusters": [6],

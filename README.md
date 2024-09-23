@@ -339,6 +339,9 @@ Supported devices:
 - Double Socket Smart Plug
     _TZ3000_jak16dll / TS011F
 
+- Double Power Point
+    _TYZB01_hlla45kx / TS011F
+
 - Double Power Point, with metering
     _TZ3210_7jnk7l3k / TS011F
 
@@ -469,6 +472,7 @@ Supported devices:
     _TZ3000_p8alo7qa / TS0012
     _TYZB01_6g8b7at8 / TS0012
     TUYATEC-nzrrvgco / TS0012
+    _TZ3000_qn8qvk9y / TS0002
 
 - 3 Gang Wall Switch
     _TYZB01_xiuox57i / TS0013
@@ -499,6 +503,9 @@ Supported devices:
     _TZE200_mexisfik / TS0601
     _TZE204_6wi2mope / TS0601
     _TZE204_iik0pquw / TS0601
+
+- 5 Gang Wall Switch
+    _TZE200_jwsjbxjs / TS0601
 
 - 6 Gang Wall Switch
     _TZE200_r731zlxk / TS0601
@@ -628,6 +635,7 @@ Supported devices:
     _TZ3000_ee8nrt2l / TS0044
     _TZ3000_uaa99arv / TS0044
     _TZ3000_a4xycprs / TS0044 (MOES)
+    _TZ3000_jcspr0tp / TS0044
 
 - 1 Button Smart Remote Controller
     _TZ3000_kjfzuycl / TS004F
