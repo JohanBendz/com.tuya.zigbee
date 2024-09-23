@@ -331,5 +331,8 @@
   },
   "0.2.58": {
     "en": "Uppdated/added device id's to a number of devices. Fix for Wall Switch 4 Gang using Tuya Cluster."
+  },
+  "0.2.59": {
+    "en": "Added devices/id's."
   }
 }
