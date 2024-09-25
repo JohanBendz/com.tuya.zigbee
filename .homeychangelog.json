@@ -337,5 +337,8 @@
   },
   "0.2.60": {
     "en": "Added more devices/id's."
+  },
+  "0.2.61": {
+    "en": "Some fixes and cleanup."
   }
 }

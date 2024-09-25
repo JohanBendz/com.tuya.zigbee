@@ -126,7 +126,7 @@ class wall_switch_5_gang_tuya extends TuyaSpecificClusterDevice {
   }
 
   onDeleted() {
-    this.log('6 Gang Wall Switch removed');
+    this.log('5 Gang Wall Switch removed');
   }
 }
 

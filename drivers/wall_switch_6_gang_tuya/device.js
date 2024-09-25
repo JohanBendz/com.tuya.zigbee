@@ -125,7 +125,7 @@ class wall_switch_6_gang_tuya extends TuyaSpecificClusterDevice {
 
       case V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchSix:
         this.log('Received on/off for sixth gang:', parsedValue);
-        if (subDeviceId === 'SixthGang') {
+        if (subDeviceId === 'sixthGang') {
           await this.setCapabilityValue('onoff', parsedValue).catch(this.error);
         }
         break;
