@@ -2,9 +2,6 @@
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { CLUSTER, Cluster, ZCLDataTypes } = require('zigbee-clusters');
-const TuyaOnOffCluster = require('../../lib/TuyaOnOffCluster');
-
-Cluster.addCluster(TuyaOnOffCluster);
 
 class doublepowerpoint2 extends ZigBeeDevice {
 
@@ -17,7 +14,7 @@ class doublepowerpoint2 extends ZigBeeDevice {
     this.log('Device data: ', subDeviceId);
 
     // Determine endpoint based on subDeviceId
-    const endpoint = subDeviceId === 'socket2' ? 2 : 1;
+    const endpoint = subDeviceId === 'socketTwo' ? 2 : 1;
     this.log(`Registering capabilities for endpoint ${endpoint}`);
 
     if (endpoint === 1) {
@@ -40,7 +37,7 @@ class doublepowerpoint2 extends ZigBeeDevice {
 
     // Attempt to configure instant reporting for the onOff attribute
     try {
-      await zclNode.endpoints[1].clusters.onOff.configureReporting({
+      await zclNode.endpoints[endpoint].clusters.onOff.configureReporting({
         attribute: 'onOff',
         minimumReportInterval: 1, // Minimum interval in seconds (instant reporting)
         maximumReportInterval: 600, // Maximum interval in seconds

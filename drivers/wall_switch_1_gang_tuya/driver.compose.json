@@ -3,7 +3,7 @@
     "name": {
       "en": "1 Gang Wall Switch"
     },
-    "class": "light",
+    "class": "socket",
     "platforms": ["local"],
     "connectivity": ["zigbee"],
     "capabilities": [

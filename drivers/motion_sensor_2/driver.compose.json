@@ -38,7 +38,7 @@
       "learnmode": {
         "image": "{{driverAssetsPath}}/icon.svg",
         "instruction": {
-          "en": "Use a pin to press the reset button for aprox 5 seconds until the LED blinks."
+          "en": "Press the reset button for aprox 5 seconds until the LED blinks."
         }
       }
     }

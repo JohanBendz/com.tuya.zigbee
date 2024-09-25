@@ -46,18 +46,11 @@
     }
   },
   "devices": {
-    "socket2": {
+    "socketTwo": {
       "class": "socket",
       "capabilities": ["onoff"],
-      "name": {
-        "en": "Double Power Point - Second socket"
-      },
-      "energy": {
-        "approximation": {
-          "usageOn": 0,
-          "usageOff": 0
-        }
-      }
+      "name": { "en": "Double Power Point - Second socket" },
+      "settings": []
     }
   }
 }

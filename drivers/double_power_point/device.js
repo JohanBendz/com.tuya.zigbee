@@ -2,9 +2,6 @@
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { CLUSTER, Cluster, ZCLDataTypes } = require('zigbee-clusters');
-const TuyaOnOffCluster = require('../../lib/TuyaOnOffCluster');
-
-Cluster.addCluster(TuyaOnOffCluster);
 
 class doublepowerpoint extends ZigBeeDevice {
 
@@ -33,7 +30,7 @@ class doublepowerpoint extends ZigBeeDevice {
     }
 
     // Determine endpoint based on subDeviceId
-    const endpoint = subDeviceId === 'socket2' ? 2 : 1;
+    const endpoint = subDeviceId === 'socketTwo' ? 2 : 1;
     this.log(`Registering capabilities for endpoint ${endpoint}`);
 
     // Register only applicable capabilities based on the endpoint

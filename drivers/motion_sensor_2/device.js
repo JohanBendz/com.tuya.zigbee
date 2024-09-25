@@ -18,68 +18,75 @@ class motion_sensor_2 extends ZigBeeDevice {
 					endpointId: 1,
 					cluster: CLUSTER.IAS_ZONE,
 					attributeName: 'zoneStatus',
-					minInterval: 65535,
-					maxInterval: 0,
-					minChange: 0,
+                    minInterval: 5, // Minimum interval between reports (seconds)
+                    maxInterval: 3600, // Maximum interval (1 hour)
+                    minChange: 0, // Report any change
 				},{
 					endpointId: 1,
 					cluster: CLUSTER.POWER_CONFIGURATION,
 					attributeName: 'batteryPercentageRemaining',
-					minInterval: 65535,
-					maxInterval: 0,
-					minChange: 0,
+                    minInterval: 60, // Minimum interval (1 minute)
+                    maxInterval: 21600, // Maximum interval (6 hours)
+                    minChange: 1, // Report changes greater than 1%
 				},{
 					endpointId: 1,
 					cluster: CLUSTER.ILLUMINANCE_MEASUREMENT,
 					attributeName: 'IlluminanceMeasured',
-					minInterval: 65535,
-					maxInterval: 0,
-					minChange: 0,
+                    minInterval: 60, // Minimum interval (1 minute)
+                    maxInterval: 3600, // Maximum interval (1 hour)
+                    minChange: 10, // Report changes above 10 lux
 				}
-			]);
+			]).catch(this.error);
 		}
 
-		// alarm_motion
+        // alarm_motion handler
 		zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME]
 		.on('attr.zoneStatus', this.onZoneStatusAttributeReport.bind(this));
 
-		// measure_battery // alarm_battery
+        // measure_battery and alarm_battery handler
 		zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
 		.on('attr.batteryPercentageRemaining', this.onBatteryPercentageRemainingAttributeReport.bind(this));
 		
-		// measure_illuminance
+        // measure_illuminance handler
 		zclNode.endpoints[1].clusters[CLUSTER.ILLUMINANCE_MEASUREMENT.NAME]
 		.on('attr.IlluminanceMeasured', this.onIlluminanceMeasuredAttributeReport.bind(this));
 
-		// Tuya specific cluster info
+        // Tuya specific cluster handler
 		zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processResponse(value));
 
 	}
 
+	// Handle motion status attribute reports
 	onZoneStatusAttributeReport(status) {
 		this.log("Motion status: ", status.alarm1);
 		this.setCapabilityValue('alarm_motion', status.alarm1).catch(this.error);
 	}
 
-	onBatteryPercentageRemainingAttributeReport(batteryPercentageRemaining) {
-		const batteryThreshold = this.getSetting('batteryThreshold') || 20;
-		this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", batteryPercentageRemaining/2);
-		this.setCapabilityValue('measure_battery', batteryPercentageRemaining/2).catch(this.error);
-		this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining/2 < batteryThreshold) ? true : false).catch(this.error);
-	}
+    // Handle battery status attribute reports
+    onBatteryPercentageRemainingAttributeReport(batteryPercentageRemaining) {
+        const batteryThreshold = this.getSetting('batteryThreshold') || 20;
+        const batteryLevel = batteryPercentageRemaining / 2; // Convert to percentage
+        this.log('measure_battery | Battery level (%):', batteryLevel);
+        this.setCapabilityValue('measure_battery', batteryLevel).catch(this.error);
+        this.setCapabilityValue('alarm_battery', batteryLevel < batteryThreshold).catch(this.error);
+    }
 	
-	onIlluminanceMeasuredAttributeReport(measuredValue) {
-    	this.log('measure_luminance | Luminance - measuredValue (lux):', measuredValue);
-	    this.setCapabilityValue('measure_luminance', measuredValue);
-  	}
+    // Handle illuminance attribute reports
+    onIlluminanceMeasuredAttributeReport(measuredValue) {
+        const luxValue = Math.round(Math.pow(10, ((measuredValue - 1) / 10000))); // Convert measured value to lux
+        this.log('measure_illuminance | Illuminance (lux):', luxValue);
+        this.setCapabilityValue('measure_illuminance', luxValue).catch(this.error);
+    }
 
-	processResponse(data) {
-		this.log(data);
-	}
+    // Process Tuya-specific data
+    processResponse(data) {
+        this.log('Tuya-specific cluster data:', data);
+    }
   		
-	onDeleted(){
-		this.log("Motion Sensor removed")
-	}
+    // Handle device removal
+    onDeleted() {
+        this.log('Motion Sensor removed');
+    }
 
 }
 
