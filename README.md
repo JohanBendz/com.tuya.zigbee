@@ -103,6 +103,7 @@ Supported devices:
     _TZ3000_qaaysllp / TS0201 (NEO)
     _TYZB01_ftdkanlj / TS0222
     _TYZB01_kvwjujy9 / TS0222
+    _TZ3210_huzkzqyk / TS0201
 
 - PIR Sensor
     TUYATEC-lha8pbwd / RH3040
@@ -125,6 +126,7 @@ Supported devices:
     _TZ3000_lf56vpxj / TS0202
     TUYATEC-dxnohkpd / RH3040
     _TZ3000_bsvqrxru / TS0202
+    _TYZB01_dr6sduka / TS0202 (TESLA)
 
 . Motion Sensor
     TUYATEC-bd5faf9p / RH3040 (Nedis)
@@ -185,6 +187,7 @@ Supported devices:
     _TZ3000_v7chgqso / TS0203
     _TZ3000_8yhypbo7 / TS0203
     _TZ1800_ejwkn2h2 / TY0203 (Silvercrest / Lidl)
+    _TZ3000_cqlnswn0 / TY0203 (TESLA)
 
 - Water Detector
     _TYZB01_sqmd19i1 / TS0207
@@ -374,6 +377,9 @@ Supported devices:
     _TZ3000_majwnphg / TS0001
     _TZ3000_6axxqqi2 / TS0001
 
+- 1 Gang Switch Module with metering
+    _TZ3000_prits6g4 / TS0001
+
 - 2 Gang Switch Module
     _TYZB01_zsl6z0pw / TS0003
     _TZ3000_4js9lo5d / TS0012
@@ -450,6 +456,7 @@ Supported devices:
     _TZ3000_hhiodade / TS0011
     _TZ3000_ysdv91bk / TS0001
     _TZ3000_7jx5ypra / TS0001
+    _TZ3000_3u4hripk / TS0011
 
 - 2 Gang Wall Switch
     _TYZB01_mtlhqn48 / TS0012
@@ -473,6 +480,7 @@ Supported devices:
     _TYZB01_6g8b7at8 / TS0012
     TUYATEC-nzrrvgco / TS0012
     _TZ3000_qn8qvk9y / TS0002
+    _TZ3000_s8r1qoyq / TS0012
 
 - 3 Gang Wall Switch
     _TYZB01_xiuox57i / TS0013
@@ -490,6 +498,7 @@ Supported devices:
     _TZ3000_lrgccsxm / TS0013
     _TZ3000_w05exif3 / TS0003
     _TZ3000_qewo8dlz / TS0013
+    _TZ3000_aezbqpcu / TS0013
 
 - 4 Gang Wall Switch
      _TZ3000_r0pmi2p3 / TS0014
@@ -758,6 +767,8 @@ Supported devices:
 - Smart Garden Irrigation Controller
     _TZ3210_eymunffl / TS0101 (Woox)
     _TZ3000_cjfmu5he / TS0049
+    _TZ3000_kz1anoi8 / TS0049
+    _TZ3000_mq4wujmp / TS0049
 
 - Zigbee Repeater
     _TZ3000_m0vaazab / TS0207
