@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.61",
+  "version": "0.2.62",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -2936,7 +2936,8 @@
           "Immax",
           "Visonic",
           "_TZ3000_hkcpblrs",
-          "_TZ3000_8yhypbo7"
+          "_TZ3000_8yhypbo7",
+          "_TZ3000_cqlnswn0"
         ],
         "productId": [
           "RH3001",
@@ -3427,7 +3428,8 @@
         "manufacturerName": [
           "_TZ3000_qaaysllp",
           "_TYZB01_ftdkanlj",
-          "_TYZB01_kvwjujy9"
+          "_TYZB01_kvwjujy9",
+          "_TZ3210_huzkzqyk"
         ],
         "productId": [
           "TS0201",
@@ -4334,7 +4336,8 @@
           "_TZ3040_6ygjfyll",
           "_TZ3040_bb6xaihh",
           "_TZ3000_nss8amz9",
-          "_TZ3000_bsvqrxru"
+          "_TZ3000_bsvqrxru",
+          "_TYZB01_dr6sduka"
         ],
         "productId": [
           "TS0202"
@@ -6959,7 +6962,9 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3210_eymunffl",
-          "_TZ3000_cjfmu5he"
+          "_TZ3000_cjfmu5he",
+          "_TZ3000_kz1anoi8",
+          "_TZ3000_mq4wujmp"
         ],
         "productId": [
           "TS0101",
@@ -8740,6 +8745,158 @@
         }
       },
       "settings": []
+    },
+    {
+      "id": "switch_1_gang_metering",
+      "name": {
+        "en": "1 Gang Switch Module with metering"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/switch_1_gang_metering/assets/images/large.png",
+        "small": "/drivers/switch_1_gang_metering/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_prits6g4"
+        ],
+        "productId": [
+          "TS0001"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6,
+              1794,
+              2820
+            ],
+            "bindings": [
+              6,
+              1794,
+              2820
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_1_gang_metering/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "metering_offset",
+          "type": "number",
+          "label": {
+            "en": "Metering Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "measure_offset",
+          "type": "number",
+          "label": {
+            "en": "Measure Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "minReportPower",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for power (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportCurrent",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for current (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportVoltage",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for voltage (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        }
+      ]
     },
     {
       "id": "switch_2_gang",
@@ -11332,7 +11489,8 @@
           "_TZ3000_hhiodade",
           "_TZ3000_6eyydfyg",
           "_TZ3000_ysdv91bk",
-          "_TZ3000_7jx5ypra"
+          "_TZ3000_7jx5ypra",
+          "_TZ3000_3u4hripk"
         ],
         "productId": [
           "TS0001",
@@ -11492,7 +11650,8 @@
           "_TZ3000_p8alo7qa",
           "_TYZB01_6g8b7at8",
           "TUYATEC-nzrrvgco",
-          "_TZ3000_qn8qvk9y"
+          "_TZ3000_qn8qvk9y",
+          "_TZ3000_s8r1qoyq"
         ],
         "productId": [
           "TS0002",
@@ -11613,7 +11772,8 @@
           "_TZ3000_5e5ptb24",
           "_TZ3000_lrgccsxm",
           "_TZ3000_w05exif3",
-          "_TZ3000_qewo8dlz"
+          "_TZ3000_qewo8dlz",
+          "_TZ3000_aezbqpcu"
         ],
         "productId": [
           "TS0003",

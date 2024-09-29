@@ -340,5 +340,8 @@
   },
   "0.2.61": {
     "en": "Some fixes and cleanup."
+  },
+  "0.2.62": {
+    "en": "Added device id's to a number of devices and made some fixes."
   }
 }
