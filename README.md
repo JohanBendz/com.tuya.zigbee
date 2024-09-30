@@ -188,6 +188,8 @@ Supported devices:
     _TZ3000_8yhypbo7 / TS0203
     _TZ1800_ejwkn2h2 / TY0203 (Silvercrest / Lidl)
     _TZ3000_cqlnswn0 / TY0203 (TESLA)
+    _TZ3000_qrldbmfn / TS0203
+    _TZ3000_gntwytxo / TS0203
 
 - Water Detector
     _TYZB01_sqmd19i1 / TS0207

@@ -39,18 +39,18 @@
         "bindings": [6]
       }
     },
+    "devices": {
+      "socketTwo": {
+        "class": "socket",
+        "capabilities": ["onoff"],
+        "name": { "en": "Double Power Point - Second socket" },
+        "settings": []
+      }
+    },
     "learnmode": {
       "instruction": {
         "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
       }
-    }
-  },
-  "devices": {
-    "socketTwo": {
-      "class": "socket",
-      "capabilities": ["onoff"],
-      "name": { "en": "Double Power Point - Second socket" },
-      "settings": []
     }
   }
 }
