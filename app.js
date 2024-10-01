@@ -7,6 +7,8 @@ const { debug } = require('zigbee-clusters');
 class tuyazigbee extends Homey.App {
 	
 	onInit() {
+		//require('inspector').open(9222, '0.0.0.0', true);
+
 		this.log('Tuya Zigbee app is running...');
 
 		// Register the action card for christmas lights
