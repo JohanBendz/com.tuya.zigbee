@@ -1,6 +1,5 @@
 'use strict';
 
-const Homey = require('homey');
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { CLUSTER } = require('zigbee-clusters');
 
@@ -18,7 +17,7 @@ class doorwindowsensor extends ZigBeeDevice {
   }
   
   onIASZoneStatusChangeNotification({zoneStatus, extendedStatus, zoneId, delay,}) {
-    this.log('IASZoneStatusChangeNotification received:', zoneStatus, extendedStatus, zoneId, delay);
+    this.log('Door/Windows Sensor IASZoneStatusChangeNotification received:', zoneStatus, extendedStatus, zoneId, delay);
     this.setCapabilityValue('alarm_contact', zoneStatus.alarm1).catch(this.error);
     this.setCapabilityValue('alarm_battery', zoneStatus.battery).catch(this.error);
   }

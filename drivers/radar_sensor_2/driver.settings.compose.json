@@ -1,0 +1,88 @@
+[
+  {
+    "id": "radar_sensitivity",
+    "type": "number",
+    "label": {
+      "en": "Radar sensitivity",
+      "nl": "Radar sensitiviteit"
+    },
+    "value": 7,
+    "min": 1,
+    "max": 9
+  },
+  {
+    "id": "minimum_range",
+    "type": "number",
+    "label": {
+      "en": "Minimum range",
+      "nl": "Minimale bereik"
+    },
+    "value": 0,
+    "min": 0,
+    "max": 9.5,
+    "units": {
+      "en": "meters",
+      "nl": "meters"
+    }
+  },
+  {
+    "id": "maximum_range",
+    "type": "number",
+    "label": {
+      "en": "Maximum range",
+      "nl": "Maximale bereik"
+    },
+    "value": 9.5,
+    "min": 0,
+    "max": 9.5,
+    "units": {
+      "en": "meters",
+      "nl": "meters"
+    }
+  },
+  {
+    "id": "detection_delay",
+    "type": "number",
+    "label": {
+      "en": "Detection delay",
+      "nl": "Detectie vertraging"
+    },
+    "value": 7,
+    "min": 0,
+    "max": 10,
+    "units": {
+      "en": "seconds",
+      "nl": "seconden"
+    }
+  },
+  {
+    "id": "fading_time",
+    "type": "number",
+    "label": {
+      "en": "Fading time",
+      "nl": "Reset tijd"
+    },
+    "value": 7,
+    "min": 0,
+    "max": 1500,
+    "units": {
+      "en": "seconds",
+      "nl": "seconden"
+    }
+  },
+  {
+    "id": "distance_update_interval",
+    "type": "number",
+    "label": {
+      "en": "Distance update interval",
+      "nl": "Afstand update interval"
+    },
+    "value": 10,
+    "min": 3,
+    "max": 60,
+    "units": {
+      "en": "seconds",
+      "nl": "seconden"
+    }
+  }
+]
