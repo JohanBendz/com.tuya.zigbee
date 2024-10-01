@@ -1,6 +1,5 @@
 'use strict';
 
-const Homey = require('homey');
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { debug, CLUSTER } = require('zigbee-clusters');
 
@@ -29,7 +28,7 @@ class dimmer_2_gang extends ZigBeeDevice {
     }
 
     onDeleted(){
-		this.log("2 Gang Dimmer, channel ", subDeviceId, " removed")
+		this.log("2 Gang Dimmer removed")
 	}
 
 }

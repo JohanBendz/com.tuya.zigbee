@@ -1,0 +1,25 @@
+{
+    "id": "target_distance_changed",
+    "title": {
+      "en": "Target distance changed"
+    },
+    "tokens": [
+      {
+        "name": "target_distance",
+        "type": "number",
+        "title": {
+          "en": "Target distance"
+        }
+      }
+    ],
+    "args": [
+      {
+        "name": "device",
+        "type": "device",
+        "placeholder": {
+          "en": "Select device"
+        },
+        "filter": "driver_id=radar_sensor_2"
+      }
+    ]
+  }

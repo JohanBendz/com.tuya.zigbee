@@ -171,6 +171,7 @@ Supported devices:
     _TZ3000_zgrffiwg / TS0203
     Immax / DoorWindow-Sensor-ZB3.0
     Visonic / MCT-340 E
+    zbeacon / DS01
     _TZ3000_decxrtwa / TS0203
     _TZ3000_hkcpblrs / TS0203 (Avatto)
     _TZ3000_yxqnffam / TS0203 (Immax Neo)
@@ -260,6 +261,7 @@ Supported devices:
     _TZE200_lyetpprm / TS0601
     _TZE200_ikvncluo / TS0601
     _TZE204_ztqnh5cg / TS0601
+    _TZE204_7gclukjs / TS0601
 
 - Air Detection Box
     _TZE200_yvx5lh6k / TS0601
@@ -655,6 +657,7 @@ Supported devices:
     _TZ3000_fa9mlvja / TS0041
     _TZ3000_yj6k7vfo / TS0041
     _TZ3000_ja5osu5g / TS004F
+    _TZ3000_qgwcxxws / TS0041
 
 - 4 Button Smart Remote Controller
     _TZ3000_fsiepnrh / TS0215A (Nedis)
