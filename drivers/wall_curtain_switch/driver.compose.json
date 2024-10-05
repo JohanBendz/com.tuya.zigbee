@@ -7,7 +7,8 @@
     "platforms": ["local"],
     "connectivity": ["zigbee"],
     "capabilities": [
-      "windowcoverings_set"
+      "windowcoverings_set",
+      "windowcoverings_state"
     ],
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",

@@ -399,6 +399,7 @@ Supported devices:
     _TZ3000_qaa59zqd / TS0002
     _TZ3000_qcgw8qfa / TS0002 (Zemismart)
     _TZ3000_jcfje0kb / TS0002
+    _TZ3000_ruxexjfz / TS0002
 
 - 2 Gang Switch Module with metering
     _TZ3000_zmy4lslw / TS0002
@@ -804,6 +805,9 @@ Supported devices:
 - Siren
     _TZE200_d0yu2xgi / TS0601
     _TZE204_t1blo2bj / TS0601
+
+- Finger Bot
+    _TZ3210_j4pdtz9v / TS0001 (MOES)
 
 To request additional devices, please use Github issue tracking: https://github.com/JohanBendz/com.tuya.zigbee/issues
 To get support from the community please use Athom Homey Community Forum: https://community.athom.com/t/tuya-zigbee-app/26439
