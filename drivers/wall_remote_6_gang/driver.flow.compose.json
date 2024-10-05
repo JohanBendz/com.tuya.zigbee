@@ -1,0 +1,90 @@
+{
+  "triggers": [
+    {
+      "id": "wall_remote_6_gang_buttons",
+      "title": {"en": "Button Action"},
+      "titleFormatted": {"en": "The [[action]]"},
+      "args": [
+        {
+          "name": "action",
+          "type": "dropdown",
+          "title": {"en": "Button Action"},
+          "values": [
+            {
+              "id": "one-oneClick",
+              "label": {
+                "en": "Button 1 | 1 Click"
+              }
+            },
+            {
+              "id": "one-twoClicks",
+              "label": {
+                "en": "Button 1 | 2 Clicks"
+              }
+            },
+            {
+              "id": "two-oneClick",
+              "label": {
+                "en": "Button 2 | 1 Click"
+              }
+            },
+            {
+              "id": "two-twoClicks",
+              "label": {
+                "en": "Button 2 | 2 Clicks"
+              }
+            },
+            {
+              "id": "three-oneClick",
+              "label": {
+                "en": "Button 3 | 1 Click"
+              }
+            },
+            {
+              "id": "three-twoClicks",
+              "label": {
+                "en": "Button 3 | 2 Clicks"
+              }
+            },
+            {
+              "id": "four-oneClick",
+              "label": {
+                "en": "Button 4 | 1 Click"
+              }
+            },
+            {
+              "id": "four-twoClicks",
+              "label": {
+                "en": "Button 4 | 2 Clicks"
+              }
+            },
+            {
+              "id": "five-oneClick",
+              "label": {
+                "en": "Button 5 | 1 Click"
+              }
+            },
+            {
+              "id": "five-twoClicks",
+              "label": {
+                "en": "Button 5 | 2 Clicks"
+              }
+            },
+            {
+              "id": "six-oneClick",
+              "label": {
+                "en": "Button 6 | 1 Click"
+              }
+            },
+            {
+              "id": "six-twoClicks",
+              "label": {
+                "en": "Button 6 | 2 Clicks"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

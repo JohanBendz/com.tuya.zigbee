@@ -651,6 +651,9 @@ Supported devices:
     _TZ3000_a4xycprs / TS0044 (MOES)
     _TZ3000_jcspr0tp / TS0044
 
+- 6 Gang Wall Remote
+    _TZ3000_iszegwpd / TS0046
+
 - 1 Button Smart Remote Controller
     _TZ3000_kjfzuycl / TS004F
     _TZ3000_rco1yzb1 / TS004F (Silvercrest / Lidl)

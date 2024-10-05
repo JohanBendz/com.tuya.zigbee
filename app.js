@@ -31,7 +31,7 @@ class tuyazigbee extends Homey.App {
 			return device.getWindowOpen();
 		});
 
-		// Register the action card for setting window open status
+/* 		// Register the action card for setting window open status
 		this.homey.flow.getActionCard('window_open_status_set_2')
 		.registerRunListener(async ({ device, window_open_status }) => {
 			this.log("Window is open Action Card Triggered");
@@ -43,7 +43,7 @@ class tuyazigbee extends Homey.App {
 		.registerRunListener(async ({ device }) => {
 			this.log("Window is open Condition Card Triggered");
 			return device.getWindowOpen();
-		});
+		}); */
 	}
 	
 }
