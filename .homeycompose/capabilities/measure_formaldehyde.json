@@ -30,7 +30,7 @@
         "pl": "Stężenie formaldehye w części na milion (ppm)"
     },
     "chartType": "spline",
-    "decimals": 2,
+    "decimals": 4,
     "getable": true,
     "setable": false,
     "uiComponent": "sensor",
@@ -66,7 +66,7 @@
                             "pl": "Formaldehyd"
                         },
                         "type": "number",
-                        "example": 20
+                        "example": 0.1
                     }
                 ]
             }

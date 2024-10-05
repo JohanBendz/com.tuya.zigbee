@@ -1,0 +1,26 @@
+{
+  "triggers": [],
+  "conditions": [],
+  "actions": [
+    {
+      "id": "set_finger_bot_mode",
+      "title": {
+        "en": "Set Finger Bot mode"
+      },
+      "titleFormatted": {
+        "en": "Set Finger Bot mode to [[finger_bot_mode]]"
+      },
+      "args": [
+        {
+          "name": "finger_bot_mode",
+          "type": "dropdown",
+          "values": [
+            { "id": "click", "label": { "en": "Click" } },
+            { "id": "switch", "label": { "en": "Switch" } },
+            { "id": "program", "label": { "en": "Program" } }
+          ]
+        }
+      ]
+    }
+  ]
+}

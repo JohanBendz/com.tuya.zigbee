@@ -349,5 +349,8 @@
   },
   "0.2.64": {
     "en": "Added a Tuya Diagnostic device and added a number of drivers/devices. Made som changes to helper files and made some fixes in a number of drivers."
+  },
+  "0.2.65": {
+    "en": "Added FingerBot and made som changes to helper files and made some fixes in a number of drivers."
   }
 }
