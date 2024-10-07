@@ -57,7 +57,7 @@ class doublepowerpoint extends ZigBeeDevice {
   async readBasicAttributes(zclNode, endpoint) {
     try {
       await zclNode.endpoints[endpoint].clusters.basic.readAttributes(
-        'manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'
+        ['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus']
       );
       this.log('Basic attributes read successfully');
     } catch (error) {

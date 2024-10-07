@@ -26,7 +26,7 @@ class relay_board_2_channel extends ZigBeeDevice {
 
         this.registerCapability('onoff', CLUSTER.ON_OFF, options);
 
-        await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
+        await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
         .catch(err => {
             this.error('Error when reading device attributes ', err);
         });

@@ -27,7 +27,7 @@ class doublepowerpoint2 extends ZigBeeDevice {
     if (!this.isSubDevice()) {
       try {
         // Read basic attributes for the first endpoint (main device)
-        await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus');
+        await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus']);
         this.log('Basic attributes read successfully');
       } catch (err) {
         this.error('Error when reading device attributes:', err);

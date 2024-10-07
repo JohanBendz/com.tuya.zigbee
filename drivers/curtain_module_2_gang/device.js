@@ -127,7 +127,7 @@ class curtain_module_2_gang extends ZigBeeDevice {
         await this._configureStateCapability(this.getSetting("has_state"));
 
         const attrs = await this.zclNode.endpoints[endpoint].clusters.windowCovering
-            .readAttributes("calibrationTime", "motorReversal")
+            .readAttributes(["calibrationTime", "motorReversal"])
             .catch((err) =>
                 this.error("Error when reading settings from device", err)
             );

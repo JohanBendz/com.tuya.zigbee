@@ -99,7 +99,7 @@ class wallcurtainswitch extends ZigBeeDevice {
         await this._configureStateCapability(this.getSetting("has_state"));
 
         const attrs = await this.zclNode.endpoints[1].clusters.windowCovering
-            .readAttributes("calibrationTime", "motorReversal")
+            .readAttributes(["calibrationTime", "motorReversal"])
             .catch((err) =>
                 this.error("Error when reading settings from device", err)
             );

@@ -18,7 +18,7 @@ class wall_switch_4_gang extends ZigBeeDevice {
         });
 
         try {
-          const indicatorMode = await this.zclNode.endpoints[1].clusters.onOff.readAttributes('indicatorMode');     
+          const indicatorMode = await this.zclNode.endpoints[1].clusters.onOff.readAttributes(['indicatorMode']);     
           this.log("Indicator Mode supported by device");
           await this.setSettings({
             indicator_mode: ZCLDataTypes.enum8IndicatorMode.args[0][indicatorMode.indicatorMode].toString()
@@ -28,7 +28,7 @@ class wall_switch_4_gang extends ZigBeeDevice {
         }
 
         if (!this.isSubDevice()) {
-          await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
+          await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
           .catch(err => {
               this.error('Error when reading device attributes ', err);
           });
