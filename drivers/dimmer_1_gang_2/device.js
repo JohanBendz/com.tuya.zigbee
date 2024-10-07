@@ -39,7 +39,7 @@ class dimmer_1_gang_2 extends ZigBeeDevice {
         ];
 
         try {
-            const result = await zclNode.endpoints[1].clusters.basic.readAttributes(...attributes);
+            const result = await zclNode.endpoints[1].clusters.basic.readAttributes([...attributes]);
             this.log("Device attributes read successfully:", result);
 
         } catch (err) {

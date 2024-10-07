@@ -40,8 +40,6 @@ class wall_switch_5_gang_tuya extends TuyaSpecificClusterDevice {
       await this._setupGang(zclNode, 'first gang', V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchOne);
     }
 
-    // Attach event listeners only once per physical device
-    if (!this.hasListenersAttached) {
       zclNode.endpoints[1].clusters.tuya.on("reporting", async (value) => {
         try {
           await this.processDatapoint(value);
@@ -58,8 +56,6 @@ class wall_switch_5_gang_tuya extends TuyaSpecificClusterDevice {
         }
       });
 
-      this.hasListenersAttached = true;
-    }
   }
 
   async _setupGang(zclNode, gangName, dpOnOff) {

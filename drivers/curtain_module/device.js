@@ -99,18 +99,20 @@ class curtain_module extends ZigBeeDevice {
         await this._configureStateCapability(this.getSetting("has_state"));
 
         const attrs = await this.zclNode.endpoints[1].clusters.windowCovering
-            .readAttributes("calibrationTime", "motorReversal")
-            .catch((err) =>
-                this.error("Error when reading settings from device", err)
-            );
-
-        if (attrs.calibrationTime) {
+        .readAttributes(["calibrationTime", "motorReversal"])
+        .catch((err) => {
+            this.error("Error when reading settings from device", err);
+            return {}; // Return an empty object in case of an error
+        });
+    
+        // Check if attrs is defined and contains the desired attributes
+        if (attrs && typeof attrs.calibrationTime !== 'undefined') {
             await this.setSettings({ movetime: attrs.calibrationTime / 10 });
         }
-
-        if (attrs.motorReversal) {
-            this.setSettings({ reverse: attrs.motorReversal === 'On' })
-        }
+        
+        if (attrs && typeof attrs.motorReversal !== 'undefined') {
+            await this.setSettings({ reverse: attrs.motorReversal === 'On' });
+        }    
 
         const moveOpen = this.homey.flow.getActionCard("move_open");
         moveOpen.registerRunListener(async (args, state) => {

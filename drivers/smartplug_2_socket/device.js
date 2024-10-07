@@ -31,9 +31,9 @@ class smartplug_2_socket extends ZigBeeDevice {
       this.minReportVoltage = this.getSetting('minReportVoltage') * 1000;
 
       try {
-        const relayStatus = await this.zclNode.endpoints[1].clusters.onOff.readAttributes('relayStatus');
-        const childLock = await this.zclNode.endpoints[1].clusters.onOff.readAttributes('childLock');
-        const indicatorMode = await this.zclNode.endpoints[1].clusters.onOff.readAttributes('indicatorMode');
+        const relayStatus = await this.zclNode.endpoints[1].clusters.onOff.readAttributes(['relayStatus']);
+        const childLock = await this.zclNode.endpoints[1].clusters.onOff.readAttributes(['childLock']);
+        const indicatorMode = await this.zclNode.endpoints[1].clusters.onOff.readAttributes(['indicatorMode']);
 
         this.log("Relay Status supported by device");
 
@@ -95,7 +95,7 @@ class smartplug_2_socket extends ZigBeeDevice {
         }
       });
 
-      await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
+      await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
         .catch(err => {
           this.error('Error when reading device attributes ', err);
         });

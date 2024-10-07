@@ -355,5 +355,8 @@
   },
   "0.2.66": {
     "en": "Crash fix."
+  },
+  "0.2.67": {
+    "en": "Updated Zigbee drivers and made some fixes"
   }
 }
