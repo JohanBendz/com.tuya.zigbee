@@ -8,7 +8,8 @@ class temphumidsensor2 extends ZigBeeDevice {
 
 	async onNodeInit({zclNode}) {
 
-		debug(true);
+/*     debug(true);
+    this.enableDebug(); */
 
 		this.printNode();
 

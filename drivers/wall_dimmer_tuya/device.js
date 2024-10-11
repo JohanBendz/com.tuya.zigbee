@@ -12,8 +12,8 @@ class wall_dimmer_tuya extends TuyaSpecificClusterDevice {
 
   async onNodeInit({ zclNode }) {
     this.printNode();
-    debug(true);
-    this.enableDebug();
+/*     debug(true);
+    this.enableDebug(); */
 
     // Read and log device attributes
     await this._readDeviceAttributes(zclNode);

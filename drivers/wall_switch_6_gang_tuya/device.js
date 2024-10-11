@@ -12,8 +12,8 @@ class wall_switch_6_gang_tuya extends TuyaSpecificClusterDevice {
 
   async onNodeInit({ zclNode }) {
     this.printNode();
-    debug(true);
-    this.enableDebug();
+/*     debug(true);
+    this.enableDebug(); */
 
     const { subDeviceId } = this.getData();
     this.log('Sub device ID:', subDeviceId);

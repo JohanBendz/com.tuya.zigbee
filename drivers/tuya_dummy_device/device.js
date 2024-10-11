@@ -10,8 +10,8 @@ class TuyaDiagnosticDevice extends require('homey-zigbeedriver').ZigBeeDevice {
 
   async onNodeInit({ zclNode }) {
     this.printNode();
-    debug(true);
-    this.enableDebug();
+/*     debug(true);
+    this.enableDebug(); */
 
     // Attach event listeners to log incoming data from Tuya clusters
     zclNode.endpoints[1].clusters.tuya.on("reporting", async (value) => {

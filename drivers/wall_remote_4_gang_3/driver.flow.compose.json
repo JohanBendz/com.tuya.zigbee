@@ -23,6 +23,12 @@
               }
             },
             {
+              "id": "leftUp-longPress",
+              "label": {
+                "en": "Upper Left Button: Long Press"
+              }
+            },
+            {
               "id": "rightUp-oneClick",
               "label": {
                 "en": "Upper Right Button: 1 Click"
@@ -32,6 +38,12 @@
               "id": "rightUp-twoClicks",
               "label": {
                 "en": "Upper Right Button: 2 Clicks"
+              }
+            },
+            {
+              "id": "rightUp-longPress",
+              "label": {
+                "en": "Upper Right Button: Long Press"
               }
             },
             {
@@ -47,6 +59,12 @@
               }
             },
             {
+              "id": "leftDown-longPress",
+              "label": {
+                "en": "Lower Left Button: Long Press"
+              }
+            },
+            {
               "id": "rightDown-oneClick",
               "label": {
                 "en": "Lower Right Button: 1 Click"
@@ -56,6 +74,12 @@
               "id": "rightDown-twoClicks",
               "label": {
                 "en": "Lower Right Button: 2 Clicks"
+              }
+            },
+            {
+              "id": "rightDown-longPress",
+              "label": {
+                "en": "Lower Right Button: Long Press"
               }
             }
           ]

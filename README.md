@@ -241,6 +241,7 @@ Supported devices:
     _TZE284_aao3yzhs / TS0601
     _TZE284_sgabhwa6 / TS0601
     _TZE200_2se8efxh / TS0601
+    _TZE284_g2e6cpnw / TS0601
 
 - Radar Sensor
     _TZE200_ztc6ggyl / TS0601
@@ -428,6 +429,7 @@ Supported devices:
     _TZE204_n9ctkb6j / TS0601
     _TZE204_9qhuzgo0 / TS0601
     _TZE204_dcnsggvz / TS0601
+    _TZE204_5cuocqty / TS0601
 
 - 2 Gang Dimmer Module
     _TYZB01_v8gtiaed / TS110F

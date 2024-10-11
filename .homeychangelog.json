@@ -358,5 +358,8 @@
   },
   "0.2.67": {
     "en": "Updated Zigbee drivers and made some fixes"
+  },
+  "0.2.68": {
+    "en": "Added some id's and killed some bugs"
   }
 }
