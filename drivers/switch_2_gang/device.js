@@ -9,7 +9,8 @@ class switch_2_gang extends ZigBeeDevice {
     async onNodeInit({zclNode}) {
 
         this.printNode();
-        debug(true);
+/*     debug(true);
+    this.enableDebug(); */
 
         if (!this.isSubDevice()) {
             await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])

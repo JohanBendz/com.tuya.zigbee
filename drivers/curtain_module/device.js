@@ -194,9 +194,9 @@ class curtain_module extends ZigBeeDevice {
                 },
                 reportOpts: {
                     configureAttributeReporting: {
-                        minInterval: 0, // No minimum reporting interval
-                        maxInterval: 300, // Maximally every ~5 minutes
-                        minChange: 1, // Report when value changed by 1
+                        minInterval: 60, // Minimum interval (1 minute)
+                        maxInterval: 21600, // Maximum interval (6 hours)
+                        minChange: 1, // Report changes greater than 1%
                     },
                 },
             });

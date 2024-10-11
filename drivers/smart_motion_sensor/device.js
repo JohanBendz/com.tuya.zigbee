@@ -22,9 +22,9 @@ class smart_motion_sensor extends ZigBeeDevice {
 					endpointId: 1,
 					cluster: CLUSTER.POWER_CONFIGURATION,
 					attributeName: 'batteryPercentageRemaining',
-					minInterval: 65535,
-					maxInterval: 0,
-					minChange: 0,
+          minInterval: 60, // Minimum interval (1 minute)
+          maxInterval: 21600, // Maximum interval (6 hours)
+          minChange: 1, // Report changes greater than 1%
 				}
 			]);
 		}

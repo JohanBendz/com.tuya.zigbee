@@ -37,7 +37,8 @@ const THERMOSTAT_DATA_POINTS = {
 class WallThermostatDevice extends TuyaSpecificClusterDevice {
     async onNodeInit({zclNode}) {
         this.printNode();
-        this.enableDebug();
+/*     debug(true);
+    this.enableDebug(); */
 
         if (!this.hasCapability('thermostat_programming')) {
           await this.addCapability('thermostat_programming');

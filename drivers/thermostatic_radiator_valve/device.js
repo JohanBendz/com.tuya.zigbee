@@ -23,7 +23,8 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
     async onNodeInit({ zclNode }) {
 
         this.printNode();
-        // this.enableDebug();
+/*     debug(true);
+    this.enableDebug(); */
 
         this.registerCapabilityListener('window_open', async (value, opts) => {
             this.debug('window_open:', value);
