@@ -6,7 +6,9 @@ const { debug, CLUSTER } = require('zigbee-clusters');
 class wall_remote_4_gang_3 extends ZigBeeDevice {
 
     async onNodeInit({ zclNode }) {
-      // debug(true);
+
+      var debounce = 0;
+      debug(true);
       this.printNode();
 
       const node = await this.homey.zigbee.getNode(this);
