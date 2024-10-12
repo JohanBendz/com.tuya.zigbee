@@ -367,5 +367,8 @@
   },
   "0.2.70": {
     "en": "Added Rain Sensor and made some updates to datapoints"
+  },
+  "0.2.71": {
+    "en": "2 button wall remote fix"
   }
 }
