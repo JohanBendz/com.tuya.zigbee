@@ -1,19 +1,25 @@
 'use strict';
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { debug, CLUSTER } = require('zigbee-clusters');
 
 class wall_remote_4_gang_3 extends ZigBeeDevice {
 
     async onNodeInit({ zclNode }) {
+      // debug(true);
       this.printNode();
 
       const node = await this.homey.zigbee.getNode(this);
       node.handleFrame = (endpointId, clusterId, frame, meta) => {
         if (clusterId === 6) {
-           this.log("endpointId:", endpointId, ", clusterId:", clusterId, ", frame:", frame, ", meta:", meta);
-           this.log("Frame JSON data:", frame.toJSON());
-           frame = frame.toJSON();
-           this.buttonCommandParser(endpointId, frame);
+          this.log("endpointId:", endpointId,", clusterId:", clusterId,", frame:", frame, ", meta:", meta);
+          this.log("Frame JSON data:", frame.toJSON());
+          debounce = debounce+1;
+          if (debounce===1){
+            this.buttonCommandParser(endpointId, frame);
+          } else {
+            debounce=0;
+          }
         }
       };
 
@@ -25,35 +31,10 @@ class wall_remote_4_gang_3 extends ZigBeeDevice {
 
     buttonCommandParser(ep, frame) {
       var button = ep === 1 ? 'leftUp' : ep === 2 ? 'rightUp' : ep === 3 ? 'leftDown' : 'rightDown';
-
-      // Handle based on frame data (assume frame.data[3] carries the event type)
-      if (frame.data[3] === 0) {
-        this.handleSingleClick(button);
-      } else if (frame.data[3] === 1) {
-        this.handleDoubleClick(button);
-      } else if (frame.data[3] === 2) {
-        this.handleLongPress(button);
-      } else {
-        this.log("Unknown button action received:", frame.data[3]);
-      }
-    }
-
-    handleSingleClick(button) {
-      return this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-oneClick` })
-        .then(() => this.log(`Triggered 4 Gang Wall Remote, action=${button}-oneClick`))
-        .catch(err => this.error('Error triggering 4 Gang Wall Remote', err));
-    }
-
-    handleDoubleClick(button) {
-      return this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-twoClicks` })
-        .then(() => this.log(`Triggered 4 Gang Wall Remote, action=${button}-twoClicks`))
-        .catch(err => this.error('Error triggering 4 Gang Wall Remote', err));
-    }
-
-    handleLongPress(button) {
-      return this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-longPress` })
-        .then(() => this.log(`Triggered 4 Gang Wall Remote, action=${button}-longPress`))
-        .catch(err => this.error('Error triggering 4 Gang Wall Remote', err));
+      var action = frame[3] === 0 ? 'oneClick' : frame[3] === 1 ? 'twoClicks' : 'longPress';
+      return this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-${action}` })
+      .then(() => this.log(`Triggered 4 Gang Smart Switch, action=${button}-${action}`))
+      .catch(err => this.error('Error triggering 4 Gang Smart Switch', err));
     }
 
     onDeleted() {

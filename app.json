@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.71",
+  "version": "0.2.72",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -581,7 +581,7 @@
               {
                 "id": "right-twoClicks",
                 "label": {
-                  "en": "right button was clicked 2 times"
+                  "en": "right button was pressed 2 times"
                 }
               },
               {
@@ -801,73 +801,73 @@
               {
                 "id": "leftUp-oneClick",
                 "label": {
-                  "en": "Upper Left Button: 1 Click"
+                  "en": "upper left button was pressed 1 time"
                 }
               },
               {
                 "id": "leftUp-twoClicks",
                 "label": {
-                  "en": "Upper Left Button: 2 Clicks"
+                  "en": "upper left button was pressed 2 times"
                 }
               },
               {
                 "id": "leftUp-longPress",
                 "label": {
-                  "en": "Upper Left Button: Long Press"
+                  "en": "upper left button was held down"
                 }
               },
               {
                 "id": "rightUp-oneClick",
                 "label": {
-                  "en": "Upper Right Button: 1 Click"
+                  "en": "upper right button was pressed 1 time"
                 }
               },
               {
                 "id": "rightUp-twoClicks",
                 "label": {
-                  "en": "Upper Right Button: 2 Clicks"
+                  "en": "upper right button was pressed 2 times"
                 }
               },
               {
                 "id": "rightUp-longPress",
                 "label": {
-                  "en": "Upper Right Button: Long Press"
+                  "en": "upper right button was held down"
                 }
               },
               {
                 "id": "leftDown-oneClick",
                 "label": {
-                  "en": "Lower Left Button: 1 Click"
+                  "en": "lower left button was pressed 1 time"
                 }
               },
               {
                 "id": "leftDown-twoClicks",
                 "label": {
-                  "en": "Lower Left Button: 2 Clicks"
+                  "en": "lower left button was pressed 2 times"
                 }
               },
               {
                 "id": "leftDown-longPress",
                 "label": {
-                  "en": "Lower Left Button: Long Press"
+                  "en": "lower left button was held down"
                 }
               },
               {
                 "id": "rightDown-oneClick",
                 "label": {
-                  "en": "Lower Right Button: 1 Click"
+                  "en": "lower right button was pressed 1 time"
                 }
               },
               {
                 "id": "rightDown-twoClicks",
                 "label": {
-                  "en": "Lower Right Button: 2 Clicks"
+                  "en": "lower right button was pressed 2 times"
                 }
               },
               {
                 "id": "rightDown-longPress",
                 "label": {
-                  "en": "Lower Right Button: Long Press"
+                  "en": "lower right button was held down"
                 }
               }
             ]
