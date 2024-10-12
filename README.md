@@ -128,7 +128,7 @@ Supported devices:
     _TZ3000_bsvqrxru / TS0202
     _TYZB01_dr6sduka / TS0202 (TESLA)
 
-. Motion Sensor
+- Motion Sensor
     TUYATEC-bd5faf9p / RH3040 (Nedis)
     _TZ1800_fcdjzz3s / TY0202 (Silvercrest / Lidl)
     _TZE200_3towulqd / TS0601
@@ -270,6 +270,9 @@ Supported devices:
     _TZE200_mja3fuja / TS0601
     _TZE200_ryfmq5rl / TS0601
     _TZE200_c2fmom5z / TS0601
+
+- Rain sensor
+    _TZ3210_tgvtvdoc / TS0207
 
 **Plugs, Sockets and Socket Strips**
 - Smart Plug, with metering
@@ -830,6 +833,7 @@ Major Code Contributors:
 - Jérôme Revillard, Neo Siren alarm
 - Thomas Ha, Thermostatic Radiator Valve
 - Julian M, Outdoor Smart Plug
+- Roelof Oomen, Rain sensor
 (Did you contribute with code and I forgot to name you? Give me a friendly reminder! )
 
 

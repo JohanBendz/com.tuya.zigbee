@@ -13,6 +13,7 @@ pids
 
 # Visual Studio Code
 vscode/
+.vscode/
 
 # Debug integration with VSCode
 .vscode/launch.json
