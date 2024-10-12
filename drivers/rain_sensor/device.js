@@ -4,17 +4,9 @@ const { debug, CLUSTER, Cluster } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
 const TuyaSpecificClusterDevice = require("../../lib/TuyaSpecificClusterDevice");
 const { getDataValue } = require('../../lib/TuyaHelpers');
+const { V1_RAIN_SENSOR_DATA_POINTS } = require('../../lib/TuyaDataPoints');
 
 Cluster.addCluster(TuyaSpecificCluster);
-
-// Device specific data points
-const RAIN_SENSOR_DATA_POINTS = {
-  illuminance: 101,
-  illuminance_average_20min: 102,
-  illuminance_maximum_today: 103,
-  cleaning_reminder: 104,
-  rain_intensity: 105
-};
 
 class RainSensor extends TuyaSpecificClusterDevice {
 
@@ -69,27 +61,27 @@ class RainSensor extends TuyaSpecificClusterDevice {
     this.log(`Processing DP ${dp}, Data Type: ${dataType}, Parsed Value:`, parsedValue);
 
     switch (dp) {
-      case RAIN_SENSOR_DATA_POINTS.illuminance:
+      case V1_RAIN_SENSOR_DATA_POINTS.illuminance:
         this.log('Received illuminance:', parsedValue);
         this.setCapabilityValue('measure_luminance', parsedValue).catch(this.error);
         break;
 
-      case RAIN_SENSOR_DATA_POINTS.illuminance_average_20min:
+      case V1_RAIN_SENSOR_DATA_POINTS.illuminance_average_20min:
         this.log('Received illuminance (20 min avg.):', parsedValue);
         this.setCapabilityValue('measure_luminance.20min', parsedValue).catch(this.error);
         break;
 
-      case RAIN_SENSOR_DATA_POINTS.illuminance_maximum_today:
+      case V1_RAIN_SENSOR_DATA_POINTS.illuminance_maximum_today:
         this.log('Received illuminance (max. today):', parsedValue);
         this.setCapabilityValue('measure_luminance.daily_max', parsedValue).catch(this.error);
         break;
 
-      case RAIN_SENSOR_DATA_POINTS.cleaning_reminder:
+      case V1_RAIN_SENSOR_DATA_POINTS.cleaning_reminder:
         this.log('Received cleaning reminder:', parsedValue);
         this.setCapabilityValue('alarm_cleaning', parsedValue !== 0).catch(this.error);
         break;
 
-      case RAIN_SENSOR_DATA_POINTS.rain_intensity:
+      case V1_RAIN_SENSOR_DATA_POINTS.rain_intensity:
         this.log('Received rain intensity:', parsedValue);
         this.setCapabilityValue('measure_voltage.rain', parsedValue / 1000).catch(this.error);
         break;
