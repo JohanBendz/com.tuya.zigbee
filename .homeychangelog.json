@@ -361,5 +361,8 @@
   },
   "0.2.68": {
     "en": "Added some id's and killed some bugs"
+  },
+  "0.2.69": {
+    "en": "4 button wall remote fix"
   }
 }

@@ -1,20 +1,16 @@
 'use strict';
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
-// const { CLUSTER } = require('zigbee-clusters');
 
 class wall_remote_4_gang_3 extends ZigBeeDevice {
 
-    async onNodeInit({zclNode}) {
-
+    async onNodeInit({ zclNode }) {
       this.printNode();
-      debug(true);
-      this.enableDebug();
 
       const node = await this.homey.zigbee.getNode(this);
       node.handleFrame = (endpointId, clusterId, frame, meta) => {
         if (clusterId === 6) {
-           this.log("endpointId:", endpointId,", clusterId:", clusterId,", frame:", frame, ", meta:", meta);
+           this.log("endpointId:", endpointId, ", clusterId:", clusterId, ", frame:", frame, ", meta:", meta);
            this.log("Frame JSON data:", frame.toJSON());
            frame = frame.toJSON();
            this.buttonCommandParser(endpointId, frame);
@@ -25,72 +21,48 @@ class wall_remote_4_gang_3 extends ZigBeeDevice {
       .registerRunListener(async (args, state) => {
         return (null, args.action === state.action);
       });
-    
     }
 
     buttonCommandParser(ep, frame) {
       var button = ep === 1 ? 'leftUp' : ep === 2 ? 'rightUp' : ep === 3 ? 'leftDown' : 'rightDown';
 
-      // Parse the frame to detect the type of click: single, double, or long press
-      var action;
+      // Handle based on frame data (assume frame.data[3] carries the event type)
       if (frame.data[3] === 0) {
-        action = 'oneClick'; // Single click
+        this.handleSingleClick(button);
       } else if (frame.data[3] === 1) {
-        action = 'twoClicks'; // Double click
+        this.handleDoubleClick(button);
       } else if (frame.data[3] === 2) {
-        action = 'longPress'; // Long press (assuming 2 indicates long press)
+        this.handleLongPress(button);
+      } else {
+        this.log("Unknown button action received:", frame.data[3]);
       }
+    }
 
-      this.log(`Detected action: ${action} on button ${button}`);
-
-      // Trigger the appropriate action based on the detected button press
-      this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-${action}` })
-        .then(() => this.log(`Triggered 4 Gang Wall Remote, action=${button}-${action}`))
+    handleSingleClick(button) {
+      return this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-oneClick` })
+        .then(() => this.log(`Triggered 4 Gang Wall Remote, action=${button}-oneClick`))
         .catch(err => this.error('Error triggering 4 Gang Wall Remote', err));
     }
 
-/*     buttonCommandParser(ep, frame) {
-      var button = ep === 1 ? 'leftUp' : ep === 2 ? 'rightUp' : ep === 3 ? 'leftDown' : 'rightDown';
-      var action = frame.data[3] === 0 ? 'oneClick' : 'twoClicks';
+    handleDoubleClick(button) {
+      return this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-twoClicks` })
+        .then(() => this.log(`Triggered 4 Gang Wall Remote, action=${button}-twoClicks`))
+        .catch(err => this.error('Error triggering 4 Gang Wall Remote', err));
+    }
 
-      // Debounce logic
-      if (!this.doubleClickReceived) {
-        // If it's a single click, set a timeout to allow for the possibility of a double click
-        if (action === 'oneClick') {
-          this.clickTimeout = setTimeout(() => {
-            this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-${action}` })
-              .then(() => this.log(`Triggered 4 Gang Wall Remote, action=${button}-${action}`))
-              .catch(err => this.error('Error triggering 4 Gang Wall Remote', err));
-          }, 300); // Adjust debounce time as needed
-        }
-      }
+    handleLongPress(button) {
+      return this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-longPress` })
+        .then(() => this.log(`Triggered 4 Gang Wall Remote, action=${button}-longPress`))
+        .catch(err => this.error('Error triggering 4 Gang Wall Remote', err));
+    }
 
-      // If it's a double click, cancel the pending single-click and process the double click
-      if (action === 'twoClicks') {
-        clearTimeout(this.clickTimeout); // Cancel the pending single-click action
-        this.doubleClickReceived = true;
-
-        // Trigger the double-click action
-        this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-${action}` })
-          .then(() => this.log(`Triggered 4 Gang Wall Remote, action=${button}-${action}`))
-          .catch(err => this.error('Error triggering 4 Gang Wall Remote', err));
-
-        // Reset the flag after a short timeout
-        setTimeout(() => {
-          this.doubleClickReceived = false;
-        }, 500); // Adjust time as needed
-      }
-    } */
-
-    onDeleted(){
-		this.log("4 Gang Wall Remote removed")
-	  }
+    onDeleted() {
+      this.log("4 Gang Wall Remote removed");
+    }
 
 }
 
 module.exports = wall_remote_4_gang_3;
-
-
 
 /*
   "ids": {
