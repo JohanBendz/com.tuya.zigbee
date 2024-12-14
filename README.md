@@ -71,6 +71,7 @@ Supported devices:
     _TZE200_yjjdcqsq / TS0601
     _TZE200_utkemkbs / TS0601
     _TZ3000_6uzkisv2 / TS0601
+    _TZ3000_akqdg6g7 / TS0201
 
 - LCD Temperature and Humidity Sensor
     _TZ2000_a476raq2 / TS0201
