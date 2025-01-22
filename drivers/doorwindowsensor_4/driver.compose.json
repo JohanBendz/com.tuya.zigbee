@@ -23,10 +23,12 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "zbeacon"
+      "zbeacon",
+      "_TZ3000_c8zfad4a"
     ],
     "productId": [
-      "DS01"
+      "DS01",
+      "TS0203"
     ],
     "endpoints": {
       "1": {

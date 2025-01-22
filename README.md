@@ -5,6 +5,7 @@ Some of the supported White Label Brands:
 - Alecto
 - Alice
 - Avatto
+- Benexmart
 - BSEED
 - Blitzwolf
 - eWeLight
@@ -191,6 +192,7 @@ Supported devices:
     _TZ3000_cqlnswn0 / TY0203 (TESLA)
     _TZ3000_qrldbmfn / TS0203
     _TZ3000_gntwytxo / TS0203
+    _TZ3000_c8zfad4a / TS0203 (GIRIER)
 
 - Water Detector
     _TYZB01_sqmd19i1 / TS0207
@@ -594,6 +596,7 @@ Supported devices:
 
 - RGB Spot GU10
     _TZ3000_kdpxju99 / TS0505A (LIVARNO LUX / Lidl)
+    _TZ3210_bfwvfyx1 / TS0505B (Benexmart) 
 
 - RGB Spot GardenLight
    _TZ3000_h1jnz6l8 / TS0505A (LIVARNO LUX / Lidl)
