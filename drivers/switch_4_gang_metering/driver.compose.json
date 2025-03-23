@@ -24,8 +24,8 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TZ3000_mmkbptmx"
-
+        "_TZ3000_mmkbptmx",
+        "_TZ3000_ltt60asa"
       ],
       "productId": [
         "TS0004"
