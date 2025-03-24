@@ -36,20 +36,20 @@
     ],
     "endpoints": {
       "1": {
-        "clusters": [0, 1, 6, 57344],
+        "clusters": [0, 6, 1, 57344],
         "bindings": [6],
         "outputClusters": [25, 10]
       },
       "2": {
-        "clusters": [1, 6],
+        "clusters": [6, 1],
         "bindings": [6]
       },
       "3": {
-        "clusters": [1, 6],
+        "clusters": [6, 1],
         "bindings": [6]
       },
       "4": {
-        "clusters": [1, 6],
+        "clusters": [6, 1],
         "bindings": [6]
       }
     },
