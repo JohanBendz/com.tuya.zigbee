@@ -1,56 +1,63 @@
 {
-    "id": "wall_remote_3_gang",
-    "name": {
-      "en": "3 Gang Wall Remote"
-    },
-    "class": "remote",
-    "platforms": ["local"],
-    "connectivity": ["zigbee"],
-    "capabilities": [
-    ],
-    "images": {
-      "large": "{{driverAssetsPath}}/images/large.png",
-      "small": "{{driverAssetsPath}}/images/small.png"
-    },
-    "energy": {
-      "batteries": [
-        "CR2032"
-      ]
-    },
-    "zigbee": {
+  "id": "wall_remote_3_gang",
+  "name": {
+    "en": "3 Gang Wall Remote"
+  },
+  "class": "remote",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "onoff",
+    "measure_battery"
+  ],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "energy": {
+    "batteries": ["CR2032"]
+  },
+  "zigbee": {
       "manufacturerName": [
-        "_TZ3000_a7ouggvs",
-        "_TYZB02_key8kk7r",
-        "_TZ3000_qzjcsmar",
-        "_TZ3000_rrjr1q0u",
-        "_TZ3000_w8jwkczz",
-        "_TZ3000_gbm10jnj",
-        "_TZ3000_yw5tvzsk",
-        "_TZ3000_sj7jbgks"
-      ],
-      "productId": [
-        "TS0043"
-      ],
-      "endpoints": {
-        "1": {
-          "clusters": [0, 6],
-          "bindings": [6]
-        },
-        "2": {
-          "clusters": [6],
-          "bindings": [6]
-        },
-        "3": {
-          "clusters": [6],
-          "bindings": [6]
-        }
+      "_TZ3000_bczr4e10",
+      "_TZ3000_a7ouggvs",
+      "_TZ3000_qzjcsmar",
+      "_TZ3000_rrjr1q0u",
+      "_TZ3000_w8jwkczz",
+      "_TYZB02_key8kk7r",
+      "_TZ3000_gbm10jnj",
+      "_TZ3000_yw5tvzsk",
+      "_TZ3000_sj7jbgks",
+      "_TZ3000_bi6lpsew",
+      "_TZ3000_famkxci2",
+      "_TZ3000_7ysdnebc",
+      "_TZ3000_1obmmd8k",
+      "_TZ3000_2mccw9py"
+    ],
+    "productId": ["TS0043"],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 6, 1, 57344],
+        "bindings": [6]
       },
-      "learnmode": {
-        "image": "{{driverAssetsPath}}/icon.svg",
-        "instruction": {
-          "en": "Press the left button for aprox 10 seconds (the LED should start blinking)."
-        }
+      "2": {
+        "clusters": [6, 1],
+        "bindings": [6]
+      },
+      "3": {
+        "clusters": [6, 1],
+        "bindings": [6]
+      },
+      "4": {
+        "clusters": [6, 1],
+        "bindings": [6]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Press the left button for approx 10 seconds (the LED should start blinking)."
       }
     }
-
+  }
 }
