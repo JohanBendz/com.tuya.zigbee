@@ -3,222 +3,194 @@
 const { Cluster, debug } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
 const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
+const { V1_SIREN_TEMPHUMID_SENSOR_DATA_POINTS: dataPoints } = require('../../lib/TuyaDataPoints');
 
 Cluster.addCluster(TuyaSpecificCluster);
 
-const dataPoints = {
-	TUYA_DP_VOLUME: 5,
-	TUYA_DP_DURATION: 7,
-	TUYA_DP_ALARM: 13,
-	TUYA_DP_BATTERY: 15,
-	TUYA_DP_MELODY: 21,
-};
+const volumeMapping = new Map([
+  [0, 'High'],
+  [1, 'Medium'],
+  [2, 'Low']
+]);
 
-const volumeMapping = new Map();
-volumeMapping.set(0, 'Low');
-volumeMapping.set(1, 'Medium');
-volumeMapping.set(2, 'High');
-
-const melodiesMapping = new Map();
-melodiesMapping.set(0, 'Doorbell Chime');
-melodiesMapping.set(1, 'Fur Elise');
-melodiesMapping.set(2, 'Westminster Chimes');
-melodiesMapping.set(3, 'Fast double door bell');
-melodiesMapping.set(4, 'William Tell Overture');
-melodiesMapping.set(5, 'Turkish March');
-melodiesMapping.set(6, 'Security Alarm');
-melodiesMapping.set(7, 'Chemical Spill Alert');
-melodiesMapping.set(8, 'Piercing Alarm Clock');
-melodiesMapping.set(9, 'Smoke Alarm');
-melodiesMapping.set(10, 'Dog Barking');
-melodiesMapping.set(11, 'Police Siren');
-melodiesMapping.set(12, 'Doorbell Chime (reverb)');
-melodiesMapping.set(13, 'Mechanical Telephone');
-melodiesMapping.set(14, 'Fire/Ambulance');
-melodiesMapping.set(15, '3/1 Elevator');
-melodiesMapping.set(16, 'Buzzing Alarm Clock');
-melodiesMapping.set(17, 'School Bell');
+const melodiesMapping = new Map([
+  [0, 'Doorbell Chime'],
+  [1, 'Fur Elise'],
+  [2, 'Westminster Chimes'],
+  [3, 'Fast double door bell'],
+  [4, 'William Tell Overture'],
+  [5, 'Turkish March'],
+  [6, 'Security Alarm'],
+  [7, 'Chemical Spill Alert'],
+  [8, 'Piercing Alarm Clock'],
+  [9, 'Smoke Alarm'],
+  [10, 'Dog Barking'],
+  [11, 'Police Siren'],
+  [12, 'Doorbell Chime (reverb)'],
+  [13, 'Mechanical Telephone'],
+  [14, 'Fire/Ambulance'],
+  [15, '3/1 Elevator'],
+  [16, 'Buzzing Alarm Clock'],
+  [17, 'School Bell']
+]);
 
 const dataTypes = {
-	raw: 0, // [ bytes ]
-	bool: 1, // [0/1]
-	value: 2, // [ 4 byte value ]
-	string: 3, // [ N byte string ]
-	enum: 4, // [ 0-255 ]
-	bitmap: 5, // [ 1,2,4 bytes ] as bits
+  raw: 0,
+  bool: 1,
+  value: 2,
+  string: 3,
+  enum: 4,
+  bitmap: 5,
 };
 
 const convertMultiByteNumberPayloadToSingleDecimalNumber = (chunks) => {
-	let value = 0;
-
-	for (let i = 0; i < chunks.length; i++) {
-		value = value << 8;
-		value += chunks[i];
-	}
-
-	return value;
+  return chunks.reduce((acc, byte) => (acc << 8) + byte, 0);
 };
 
 const getDataValue = (dpValue) => {
-	switch (dpValue.datatype) {
-		case dataTypes.raw:
-			return dpValue.data;
-		case dataTypes.bool:
-			return dpValue.data[0] === 1;
-		case dataTypes.value:
-			return convertMultiByteNumberPayloadToSingleDecimalNumber(dpValue.data);
-		case dataTypes.string:
-			let dataString = '';
-			for (let i = 0; i < dpValue.data.length; ++i) {
-				dataString += String.fromCharCode(dpValue.data[i]);
-			}
-			return dataString;
-		case dataTypes.enum:
-			return dpValue.data[0];
-		case dataTypes.bitmap:
-			return convertMultiByteNumberPayloadToSingleDecimalNumber(dpValue.data);
-	}
-}
+  switch (dpValue.datatype) {
+    case dataTypes.raw: return dpValue.data;
+    case dataTypes.bool: return dpValue.data[0] === 1;
+    case dataTypes.value: return convertMultiByteNumberPayloadToSingleDecimalNumber(dpValue.data);
+    case dataTypes.string: return String.fromCharCode(...dpValue.data);
+    case dataTypes.enum: return dpValue.data[0];
+    case dataTypes.bitmap: return convertMultiByteNumberPayloadToSingleDecimalNumber(dpValue.data);
+  }
+};
 
 class siren extends TuyaSpecificClusterDevice {
+  async onNodeInit({ zclNode }) {
+    this.printNode();
+    this.addCapability("measure_battery");
 
-	async onNodeInit({ zclNode }) {
+    this.registerCapabilityListener('onoff', async (value) => {
+      this.log('onoff: ', value);
+      await this.writeBool(dataPoints.alarm, value);
+    });
 
-		this.printNode();
+    zclNode.endpoints[1].clusters.tuya.on("response", v => this.processResponse(v));
+    zclNode.endpoints[1].clusters.tuya.on("reporting", v => this.processReporting(v));
+    zclNode.endpoints[1].clusters.tuya.on("datapoint", v => this.processDatapoint(v));
 
-		this.addCapability("measure_battery");
+    const actionAlarmState = this.homey.flow.getActionCard('siren_alarm_state');
+    actionAlarmState.registerRunListener(async (args, state) => {
+      try {
+        this.log('FlowCardAction Set Alarm state to:', args.siren_alarm_state);
+        const alarmState = args.siren_alarm_state !== 'off/disable';
+        await this.writeBool(dataPoints.alarm, alarmState);
+        return true;
+      } catch (error) {
+        this.error(error);
+        return false;
+      }
+    });
 
-		this.registerCapabilityListener('onoff', async (value) => {
-			this.log('onoff: ', value);
-			await this.writeBool(dataPoints.TUYA_DP_ALARM, value);
-		});
+    this.homey.flow.getActionCard('siren_volume_setting')
+      .registerRunListener(async (args) => {
+        this.log('Set Alarm volume to:', args.siren_volume_setting);
+        await this.sendAlarmVolume(args.siren_volume_setting);
+      });
 
-		zclNode.endpoints[1].clusters.tuya.on("response", value => this.processResponse(value));
-		zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processReporting(value));
-		zclNode.endpoints[1].clusters.tuya.on("datapoint", value => this.processDatapoint(value));
+    this.homey.flow.getActionCard('siren_alarm_duration')
+      .registerRunListener(async (args) => {
+        this.log('Set Alarm Duration to:', args.duration);
+        await this.sendAlarmDuration(args.duration);
+      });
 
-		this.log('Register action card listeners for node: ', this);
-		const actionAlarmState = this.homey.flow.getActionCard('siren_alarm_state');
-		actionAlarmState.registerRunListener(async (args, state) => {
-		  try {
-			this.log('FlowCardAction Set Alarm state (', state, ') to: ', args.siren_alarm_state);
-			const alarmStateRequested = args.siren_alarm_state !== 'off/disable';
-			await this.writeBool(dataPoints.TUYA_DP_ALARM, alarmStateRequested);
-		  } catch (error) {
-			this.log(error);
-			return false;
-		  }
-		  return true;
-		});
-	
-		const actionSirenVolume = this.homey.flow.getActionCard('siren_volume_setting');
-		actionSirenVolume.registerRunListener(async (args, state) => {
-		  this.log('FlowCardAction Set Alarm volume to: ', args.siren_volume_setting);
-		  args.device.sendAlarmVolume(args.siren_volume_setting);
-		});
-	
-		const actionAlarmDuration = this.homey.flow.getActionCard('siren_alarm_duration');
-		actionAlarmDuration.registerRunListener(async (args, state) => {
-		  this.log('FlowCardAction Set Alarm Duration to: ', args.duration);
-		  args.device.sendAlarmDuration(args.duration);
-		});
-	
-		const actionAlarmTune = this.homey.flow.getActionCard('siren_alarm_tune');
-		actionAlarmTune.registerRunListener(async (args, state) => {
-		  this.log('FlowCardAction Set Alarm Tune to: ', args.siren_alarm_tune);
-		  args.device.sendAlarmTune(args.siren_alarm_tune);
-		});
-	  }
-	
-	  async processResponse(data) {
-		this.log('########### Response: ', data);
-		const parsedValue = getDataValue(data);
-		this.log('Parsed value ', parsedValue);
-	  }
-	
-	  async processReporting(data) {
-		this.log('########### Reporting: ', data);
-		const parsedValue = getDataValue(data);
-		this.log('DP ', data.dp, ' with parsed value ', parsedValue);
-		switch (data.dp) {
-		  case dataPoints.TUYA_DP_ALARM:
-			this.log('Alarm state update: ', parsedValue);
-			this.setCapabilityValue('onoff', parsedValue).catch(this.error);
-			break;
-		  case dataPoints.TUYA_DP_VOLUME: // (05) volume [ENUM] 0:high 1:mid 2:low
-			this.log('Volume updated: ', volumeMapping.get(Number(parsedValue)), ' (', parsedValue, ')');
-			this.setSettings({
-			  alarmvolume: parsedValue?.toString(),
-			});
-			break;
-		  case dataPoints.TUYA_DP_DURATION: // (07) duration [VALUE] in seconds
-			this.log('Duration updated:', parsedValue, 's');
-			this.setSettings({
-			  alarmsoundtime: parsedValue,
-			});
-			break;
-		  case dataPoints.TUYA_DP_MELODY: // (21) melody [enum] 0..17
-			this.log('Melody updated: ', melodiesMapping.get(parsedValue), '(', parsedValue, ')');
-			this.setSettings({
-			  alarmtune: parsedValue?.toString(),
-			});
-			break;
-		  case dataPoints.TUYA_DP_BATTERY: // battery
-			this.log('Received battery percentage: ', parsedValue, '%');
-			this.setCapabilityValue('measure_battery', parsedValue).catch(this.error);
-			break;
-		  default:
-			this.log('DP ', data.dp, ' not handled!');
-		}
-	  }
-	
-	  async processDatapoint(data) {
-		this.log('########### Datapoint: ', data);
-		const parsedValue = getDataValue(data);
-		this.log('Parsed value ', parsedValue);
-	  }
-	
-	  onDeleted() {
-		this.log('ZigbeeSiren removed');
-	  }
-	
-	  async onSettings({ oldSettings, newSettings, changedKeys }) {
-		changedKeys.forEach((updatedSetting) => {
-		  this.log('########### Updated setting: ', updatedSetting, ' => ', newSettings[updatedSetting]);
-		  switch (updatedSetting) {
-			case 'alarmvolume':
-			  this.sendAlarmVolume(newSettings[updatedSetting]);
-			  break;
-			case 'alarmsoundtime':
-			  this.sendAlarmDuration(newSettings[updatedSetting]);
-			  break;
-			case 'alarmtune':
-			  this.sendAlarmTune(newSettings[updatedSetting]);
-			  break;
-			default:
-			  this.log('ERROR: Unknown setting: ', updatedSetting);
-			  break;
-		  }
-		});
-	  }
-	
-	  sendAlarmVolume(volume) { // (05) volume [ENUM] 0:high 1:mid 2:low
-		const volumeName = volumeMapping.get(Number(volume));
-		this.log('Sending alarm volume: ', volumeName, ' (', volume, ')');
-		this.writeEnum(dataPoints.TUYA_DP_VOLUME, volume);
-	  }
-	
-	  sendAlarmDuration(duration) {
-		this.log('Sending alarm duration: ', duration, 's');
-		this.writeData32(dataPoints.TUYA_DP_DURATION, duration);
-	  }
-	
-	  sendAlarmTune(tune) {
-		const tuneNr = Number(tune);
-		this.log('Sending alarm tune: ', melodiesMapping.get(tuneNr), ' (', tuneNr, ')');
-		this.writeEnum(dataPoints.TUYA_DP_MELODY, tuneNr);
-	  }
-	
-	}
+    this.homey.flow.getActionCard('siren_alarm_tune')
+      .registerRunListener(async (args) => {
+        this.log('Set Alarm Tune to:', args.siren_alarm_tune);
+        await this.sendAlarmTune(args.siren_alarm_tune);
+      });
+
+    this.homey.flow.getActionCard('siren_beep')
+      .registerRunListener(async () => {
+        this.log('FlowCardAction: Beep triggered');
+        await this.beep();
+        return true;
+      });
+  }
+
+  async processResponse(data) {
+    this.log('Response:', data);
+    this.log('Parsed value:', getDataValue(data));
+  }
+
+  async processReporting(data) {
+    const parsedValue = getDataValue(data);
+    this.log(`Reporting - DP ${data.dp}:`, parsedValue);
+
+    switch (data.dp) {
+      case dataPoints.alarm:
+        this.setCapabilityValue('onoff', parsedValue).catch(this.error);
+        break;
+      case dataPoints.volume:
+        this.setSettings({ alarmvolume: String(parsedValue) });
+        break;
+      case dataPoints.duration:
+        this.setSettings({ alarmsoundtime: parsedValue });
+        break;
+      case dataPoints.melody:
+        this.setSettings({ alarmtune: String(parsedValue) });
+        break;
+      case dataPoints.battery:
+        this.setCapabilityValue('measure_battery', parsedValue).catch(this.error);
+        break;
+      default:
+        this.log('Unhandled datapoint:', data);
+    }
+  }
+
+  async processDatapoint(data) {
+    this.log('Datapoint:', data);
+    this.log('Parsed value:', getDataValue(data));
+  }
+
+  onDeleted() {
+    this.log('Zigbee Siren removed');
+  }
+
+  async onSettings({ oldSettings, newSettings, changedKeys }) {
+    for (const key of changedKeys) {
+      this.log('Updated setting:', key, '=>', newSettings[key]);
+      switch (key) {
+        case 'alarmvolume':
+          await this.sendAlarmVolume(newSettings[key]);
+          break;
+        case 'alarmsoundtime':
+          await this.sendAlarmDuration(newSettings[key]);
+          break;
+        case 'alarmtune':
+          await this.sendAlarmTune(newSettings[key]);
+          break;
+        default:
+          this.log('Unknown setting:', key);
+      }
+    }
+  }
+
+  async sendAlarmVolume(volume) {
+    this.log('Sending alarm volume:', volumeMapping.get(Number(volume)), '(', volume, ')');
+    return this.writeEnum(dataPoints.volume, Number(volume));
+  }
+
+  async sendAlarmDuration(duration) {
+    this.log('Sending alarm duration:', duration);
+    return this.writeData32(dataPoints.duration, Number(duration));
+  }
+
+  async sendAlarmTune(tune) {
+    this.log('Sending alarm tune:', melodiesMapping.get(Number(tune)), '(', tune, ')');
+    return this.writeEnum(dataPoints.melody, Number(tune));
+  }
+
+  async beep() {
+    this.log('Beep command triggered');
+    await this.writeEnum(dataPoints.volume, 0); // High
+    await this.writeEnum(dataPoints.melody, 1); // Fur Elise
+    await this.writeData32(dataPoints.duration, 1); // 1 second
+    await this.writeBool(dataPoints.alarm, true);
+  }
+}
 
 module.exports = siren;
