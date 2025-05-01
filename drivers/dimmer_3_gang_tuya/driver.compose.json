@@ -1,13 +1,20 @@
 {
   "id": "dimmer_3_gang_tuya",
-  "name": { "en": "Tuya 3 Gang Controller" },
+  "name": { 
+    "en": "Moes Dimmer 3 Gang" 
+  },
   "class": "socket",
   "platforms": ["local"],
   "connectivity": ["zigbee"],
-  "capabilities": ["onoff", "dim"],
+  "capabilities": [
+    "onoff", 
+    "dim"
+  ],
   "capabilitiesOptions": {
     "dim": {
-      "opts": { "duration": true }
+      "opts": { 
+        "duration": true 
+      }
     }
   },
   "images": {
@@ -16,11 +23,24 @@
   },
   "energy": {
     "approximation": {
-      "usageOn": 0,
+      "usageOn": 15,
       "usageOff": 0
     }
   },
   "icon": "{{driverAssetsPath}}/icon.svg",
+  "pair": [
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
   "zigbee": {
     "manufacturerName": ["_TZE204_1v1dxkck"],
     "productId": ["TS0601"],
@@ -33,36 +53,142 @@
     "devices": {
       "secondGang": {
         "class": "socket",
-        "capabilities": ["onoff", "dim"],
+        "capabilities": [
+          "onoff", 
+          "dim"
+        ],
         "name": { 
-          "en": "Tuya 3 Gang Controller - Second" 
+          "en": "Moes Dimmer 2nd Gang" 
         },
         "energy": {
           "approximation": {
-            "usageOn": 0,
+            "usageOn": 15,
             "usageOff": 0
           }
         }
       },
       "thirdGang": {
         "class": "socket",
-        "capabilities": ["onoff", "dim"],
+        "capabilities": [
+          "onoff", 
+          "dim"
+        ],
         "name": {
-           "en": "Tuya 3 Gang Controller - Third"
-           },
+          "en": "Moes Dimmer 3rd Gang"
+        },
         "energy": {
           "approximation": {
-            "usageOn": 0,
+            "usageOn": 15,
             "usageOff": 0
           }
         }
       }
     },
     "learnmode": {
-      "image": "{{driverAssetsPath}}/icon.svg",
+      "image": "{{driverAssetsPath}}/learnmode.svg",
       "instruction": {
         "en": "Three tiles will be created, one for each channel. Press the reset switch rapidly 10 times until the unit makes a continuous beep sound to enter pairing mode."
       }
     }
-  }
+  },
+  "settings": [
+    {
+      "type": "group",
+      "label": {
+        "en": "Device Settings"
+      },
+      "children": [
+        {
+          "id": "minimumBrightness",
+          "type": "number",
+          "label": {
+            "en": "Minimum Brightness"
+          },
+          "hint": {
+            "en": "The minimum brightness level (0-100%)"
+          },
+          "value": 10,
+          "min": 0,
+          "max": 100,
+          "units": "%"
+        },
+        {
+          "id": "maximumBrightness",
+          "type": "number",
+          "label": {
+            "en": "Maximum Brightness"
+          },
+          "hint": {
+            "en": "The maximum brightness level (0-100%)"
+          },
+          "value": 100,
+          "min": 0,
+          "max": 100,
+          "units": "%"
+        },
+        {
+          "id": "powerOnState",
+          "type": "dropdown",
+          "label": {
+            "en": "Power On State"
+          },
+          "hint": {
+            "en": "State of the device after power is restored"
+          },
+          "value": "memory",
+          "values": [
+            {
+              "id": "off",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "on",
+              "label": {
+                "en": "On"
+              }
+            },
+            {
+              "id": "memory",
+              "label": {
+                "en": "Last State"
+              }
+            }
+          ]
+        },
+        {
+          "id": "backlightMode",
+          "type": "dropdown",
+          "label": {
+            "en": "Backlight Mode"
+          },
+          "hint": {
+            "en": "Indicator LED behavior"
+          },
+          "value": "normal",
+          "values": [
+            {
+              "id": "off",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "normal",
+              "label": {
+                "en": "Normal"
+              }
+            },
+            {
+              "id": "inverted",
+              "label": {
+                "en": "Inverted"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

@@ -1,0 +1,160 @@
+{
+  "actions": [
+    {
+      "id": "set_minimum_brightness",
+      "title": {
+        "en": "Set minimum brightness"
+      },
+      "titleFormatted": {
+        "en": "Set [[device]] minimum brightness to [[brightness]]%"
+      },
+      "hint": {
+        "en": "Set the minimum brightness level"
+      },
+      "args": [
+        {
+          "type": "device",
+          "name": "device",
+          "filter": "driver_id=dimmer_3_gang_tuya"
+        },
+        {
+          "type": "range",
+          "name": "brightness",
+          "title": {
+            "en": "Brightness"
+          },
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "label": "%",
+          "labelMultiplier": 1,
+          "labelDecimals": 0
+        }
+      ]
+    },
+    {
+      "id": "set_maximum_brightness",
+      "title": {
+        "en": "Set maximum brightness"
+      },
+      "titleFormatted": {
+        "en": "Set [[device]] maximum brightness to [[brightness]]%"
+      },
+      "hint": {
+        "en": "Set the maximum brightness level"
+      },
+      "args": [
+        {
+          "type": "device",
+          "name": "device",
+          "filter": "driver_id=dimmer_3_gang_tuya"
+        },
+        {
+          "type": "range",
+          "name": "brightness",
+          "title": {
+            "en": "Brightness"
+          },
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "label": "%",
+          "labelMultiplier": 1,
+          "labelDecimals": 0
+        }
+      ]
+    },
+    {
+      "id": "set_power_on_behavior",
+      "title": {
+        "en": "Set power-on behavior"
+      },
+      "titleFormatted": {
+        "en": "Set [[device]] power-on behavior to [[behavior]]"
+      },
+      "hint": {
+        "en": "Set the behavior when power is restored"
+      },
+      "args": [
+        {
+          "type": "device",
+          "name": "device",
+          "filter": "driver_id=dimmer_3_gang_tuya"
+        },
+        {
+          "type": "dropdown",
+          "name": "behavior",
+          "title": {
+            "en": "Behavior"
+          },
+          "values": [
+            {
+              "id": "off",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "on",
+              "label": {
+                "en": "On"
+              }
+            },
+            {
+              "id": "memory",
+              "label": {
+                "en": "Last State"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "set_backlight_mode",
+      "title": {
+        "en": "Set backlight mode"
+      },
+      "titleFormatted": {
+        "en": "Set [[device]] backlight mode to [[mode]]"
+      },
+      "hint": {
+        "en": "Set the LED indicator behavior"
+      },
+      "args": [
+        {
+          "type": "device",
+          "name": "device",
+          "filter": "driver_id=dimmer_3_gang_tuya"
+        },
+        {
+          "type": "dropdown",
+          "name": "mode",
+          "title": {
+            "en": "Mode"
+          },
+          "values": [
+            {
+              "id": "off",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "normal",
+              "label": {
+                "en": "Normal"
+              }
+            },
+            {
+              "id": "inverted",
+              "label": {
+                "en": "Inverted"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
