@@ -1,0 +1,102 @@
+{
+  "triggers": [
+    {
+      "id": "siren_alarm",
+      "title": { "en": "Siren Alarm" },
+      "titleFormatted": { "en": "Siren Alarm" },
+      "hint": { "en": "This card will trigger when siren is activated." },
+      "args": []
+    }
+  ],
+  "actions": [
+    {
+      "id": "siren_alarm_state",
+      "title": { "en": "Change the alarm state" },
+      "titleFormatted": { "en": "Change the alarm state to [[siren_alarm_state]]" },
+      "hint": { "en": "Change the alarm state; sound or silence the alarm" },
+      "args": [
+        {
+          "name": "siren_alarm_state",
+          "type": "dropdown",
+          "values": [
+            { "id": "off/disable", "label": { "en": "Silence alarm" } },
+            { "id": "on/enable", "label": { "en": "Sound alarm" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "siren_alarm_duration",
+      "title": { "en": "Switch on siren for X Seconds" },
+      "titleFormatted": { "en": "Switch on siren for [[duration]] Seconds" },
+      "args": [
+        {
+          "type": "number",
+          "name": "duration",
+          "min": 0,
+          "max": 65535,
+          "step": 1,
+          "label": { "en": "Seconds" },
+          "placeholder": { "en": "120" },
+          "title": { "en": "Duration of alarm in seconds" }
+        }
+      ]
+    },
+    {
+      "id": "siren_volume_setting",
+      "title": { "en": "Set volume of siren" },
+      "titleFormatted": { "en": "Set volume of siren to [[siren_volume]]" },
+      "hint": { "en": "Set volume of siren." },
+      "args": [
+        {
+          "name": "siren_volume",
+          "type": "dropdown",
+          "values": [
+            { "id": "2", "label": { "en": "Low" } },
+            { "id": "1", "label": { "en": "Middle" } },
+            { "id": "0", "label": { "en": "High (default)" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "siren_alarm_tune",
+      "title": { "en": "Set the alarm tune" },
+      "titleFormatted": { "en": "Set the alarm tune to [[siren_alarm_tune]]" },
+      "hint": { "en": "Choose the tune of the alarm sound" },
+      "args": [
+        {
+          "name": "siren_alarm_tune",
+          "type": "dropdown",
+          "values": [
+            { "id": "0", "label": { "en": "Doorbell Chime" } },
+            { "id": "1", "label": { "en": "For Elise (default)" } },
+            { "id": "2", "label": { "en": "Westminster Chimes" } },
+            { "id": "3", "label": { "en": "Fast double door bell" } },
+            { "id": "4", "label": { "en": "William Tell Overture" } },
+            { "id": "5", "label": { "en": "Turkish March" } },
+            { "id": "6", "label": { "en": "Security Alarm" } },
+            { "id": "7", "label": { "en": "Chemical Spill Alert" } },
+            { "id": "8", "label": { "en": "Piercing Alarm Clock" } },
+            { "id": "9", "label": { "en": "Smoke Alarm" } },
+            { "id": "10", "label": { "en": "Dog Barking" } },
+            { "id": "11", "label": { "en": "Police Siren" } },
+            { "id": "12", "label": { "en": "Doorbell Chime (reverb)" } },
+            { "id": "13", "label": { "en": "Mechanical Telephone" } },
+            { "id": "14", "label": { "en": "Fire/Ambulance" } },
+            { "id": "15", "label": { "en": "3/1 Elevator" } },
+            { "id": "16", "label": { "en": "Buzzing Alarm Clock" } },
+            { "id": "17", "label": { "en": "School Bell" } }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "siren_beep",
+      "title": { "en": "Beep the siren" },
+      "titleFormatted": { "en": "Beep the siren" },
+      "hint": { "en": "Emit a short sound from the siren (useful for testing or doorbell)" },
+      "args": []
+    }
+  ]
+}
