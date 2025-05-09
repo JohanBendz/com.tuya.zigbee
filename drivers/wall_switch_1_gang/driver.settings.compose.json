@@ -26,5 +26,33 @@
         }
       }
     ]
+  },
+  {
+    "id": "power_on_behavior",
+    "type": "radio",
+    "label": {
+      "en": "Power On Behavior"
+    },
+    "value": "2",
+    "values": [
+      {
+        "id": "0",
+        "label": {
+          "en": "Always Off"
+        }
+      },
+      {
+        "id": "1",
+        "label": {
+          "en": "Always On"
+        }
+      },
+      {
+        "id": "2",
+        "label": {
+          "en": "Restore Previous State"
+        }
+      }
+    ]
   }
- ]
+]
