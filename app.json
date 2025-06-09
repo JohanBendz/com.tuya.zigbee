@@ -318,7 +318,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=radar_sensor_2"
+            "filter": "driver_id=radar_sensor_3"
           }
         ]
       },
@@ -359,7 +359,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=radar_sensor_2"
+            "filter": "driver_id=radar_sensor_3"
           }
         ]
       },
@@ -400,7 +400,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=radar_sensor_2"
+            "filter": "driver_id=radar_sensor_3"
           }
         ]
       },
@@ -997,7 +997,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=radar_sensor_2"
+            "filter": "driver_id=radar_sensor_3"
           }
         ]
       },
@@ -1011,7 +1011,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=radar_sensor_2"
+            "filter": "driver_id=radar_sensor_3"
           }
         ]
       },
@@ -1025,7 +1025,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=radar_sensor_2"
+            "filter": "driver_id=radar_sensor_3"
           }
         ]
       },
@@ -1803,6 +1803,7 @@
       },
       "settings": [
         {
+          "id": "motor_control",
           "type": "group",
           "label": {
             "en": "Motor control",
@@ -1831,7 +1832,7 @@
               },
               "min": 3,
               "max": 900,
-              "step": "0.1",
+              "step": 0.1,
               "units": {
                 "en": "Seconds",
                 "de": "Sekunden"
@@ -1853,6 +1854,7 @@
           ]
         },
         {
+          "id": "controls",
           "type": "group",
           "label": {
             "en": "Controls",
@@ -4068,7 +4070,7 @@
       ]
     },
     {
-      "id": "radar_sensor_2",
+      "id": "radar_sensor_3",
       "name": {
         "en": "Radar Sensor ZG-205Z/W",
         "nl": "Radar Sensor ZG-205Z/W"
@@ -4088,8 +4090,8 @@
         "alarm_breathe_presence"
       ],
       "images": {
-        "large": "/drivers/radar_sensor_2/assets/images/large.png",
-        "small": "/drivers/radar_sensor_2/assets/images/small.png"
+        "large": "/drivers/radar_sensor_3/assets/images/large.png",
+        "small": "/drivers/radar_sensor_3/assets/images/small.png"
       },
       "energy": {
         "approximation": {
@@ -4122,7 +4124,7 @@
           }
         },
         "learnmode": {
-          "image": "/drivers/radar_sensor_2/assets/icon.svg",
+          "image": "/drivers/radar_sensor_3/assets/icon.svg",
           "instruction": {
             "en": "Press and hold the reset button for 6 seconds. When the indicator light flashes it is in pairing mode.",
             "nl": "Druk 6 seconden op de reset knop. Wacht tot de led gaat knipperen."
@@ -9952,7 +9954,7 @@
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
-      "icon": "/drivers/radar_sensor_2/assets/images/breathe_motion.svg",
+      "icon": "/drivers/radar_sensor_3/assets/images/breathe_motion.svg",
       "insights": true,
       "options": {
         "zoneActivity": true
@@ -10002,7 +10004,7 @@
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
-      "icon": "/drivers/radar_sensor_2/assets/images/large_motion.svg",
+      "icon": "/drivers/radar_sensor_3/assets/images/large_motion.svg",
       "insights": true,
       "options": {
         "zoneActivity": true
@@ -10068,7 +10070,7 @@
       "getable": true,
       "setable": false,
       "uiComponent": "sensor",
-      "icon": "/drivers/radar_sensor_2/assets/images/small_motion.svg",
+      "icon": "/drivers/radar_sensor_3/assets/images/small_motion.svg",
       "insights": true,
       "options": {
         "zoneActivity": true

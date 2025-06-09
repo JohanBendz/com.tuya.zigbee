@@ -16,7 +16,7 @@
   "getable": true,
   "setable": false,
   "uiComponent": "sensor",
-  "icon": "/drivers/radar_sensor_2/assets/images/large_motion.svg",
+  "icon": "/drivers/radar_sensor_3/assets/images/large_motion.svg",
   "insights": true,
   "options": {
     "zoneActivity": true
@@ -46,5 +46,5 @@
     "da": "Stor Nærvær alarm blev deaktiveret",
     "ru": "Большой сигнал Присутствие выключен",
     "pl": "Duży czujnik Obecność wyłączony"
-  }  
+  }
 }

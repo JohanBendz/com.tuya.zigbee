@@ -16,7 +16,7 @@
   "getable": true,
   "setable": false,
   "uiComponent": "sensor",
-  "icon": "/drivers/radar_sensor_2/assets/images/small_motion.svg",
+  "icon": "/drivers/radar_sensor_3/assets/images/small_motion.svg",
   "insights": true,
   "options": {
     "zoneActivity": true
