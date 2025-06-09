@@ -3,9 +3,9 @@
         {
             "id": "water_flow_changed",
             "title": {
-                "en": "water_flow-level changed",
-                "nl": "water_flow-niveau veranderd",
-                "de": "water_flowm-Niveau geändert",
+                "en": "Water flow-level changed",
+                "nl": "Water flow niveau veranderd",
+                "de": "Wasserflow Niveau geändert",
                 "fr": "Intensité lumineuse a été modifiée",
                 "it": "Intensità luminosa modificata",
                 "sv": "water_flowningsnivå ändrades",
@@ -17,7 +17,7 @@
             },
             "tokens": [
                 {
-                    "name": "water_flow",
+                    "name": "Water Flow",
                     "type": "number",
                     "title": {
                         "en": "Level",
