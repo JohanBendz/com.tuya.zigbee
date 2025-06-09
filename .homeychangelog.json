@@ -235,5 +235,146 @@
   },
   "0.2.26": {
     "en": "Prepping for central Tuya Datapoint and Helper structure."
+  },
+  "0.2.27": {
+    "en": "Adding devices and fixing issues."
+  },
+  "0.2.28": {
+    "en": "Adding more devices."
+  },
+  "0.2.29": {
+    "en": "A few fixes for dimmers."
+  },
+  "0.2.30": {
+    "en": "Fix for double power point."
+  },
+  "0.2.31": {
+    "en": "Fix for 2 gang dimmers."
+  },
+  "0.2.32": {
+    "en": "Fix for 2 gang dimmer."
+  },
+  "0.2.33": {
+    "en": "Fix for 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.34": {
+    "en": "Fix for 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.35": {
+    "en": "Added a number of new devices and made some fixed."
+  },
+  "0.2.36": {
+    "en": "Added a number of new devices and made some fixed."
+  },
+  "0.2.37": {
+    "en": "Consolidated common logic for data point parsing, schedule handling, and multi-byte conversions into shared modules for better reusability."
+  },
+  "0.2.38": {
+    "en": "Added a number of new devices and made some fixed."
+  },
+  "0.2.39": {
+    "en": "Fix for 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.40": {
+    "en": "Refactoring 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.41": {
+    "en": "Updated TuyaDataPoints.js and added verbose logging to 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.42": {
+    "en": "Updated TuyaDataPoints.js and rewrote 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.43": {
+    "en": "Updated driver for 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.44": {
+    "en": "Fix for 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.45": {
+    "en": "And one more fix."
+  },
+  "0.2.46": {
+    "en": "And even more fixes.."
+  },
+  "0.2.47": {
+    "en": "Added some devices and made some fixes.."
+  },
+  "0.2.48": {
+    "en": "Curtain module fix."
+  },
+  "0.2.49": {
+    "en": "Added devices."
+  },
+  "0.2.50": {
+    "en": "Fix for 1 gang dimmer using Tuya Cluster."
+  },
+  "0.2.51": {
+    "en": "Fix for 1 and 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.52": {
+    "en": "Added indicator light setting to all wall switches."
+  },
+  "0.2.53": {
+    "en": "Fixes to a few devices."
+  },
+  "0.2.54": {
+    "en": "Added Wall Switch 4 gang and updated a number of device drivers."
+  },
+  "0.2.55": {
+    "en": "Troubleshooting Wall Switch 4 gang."
+  },
+  "0.2.56": {
+    "en": "More fixes."
+  },
+  "0.2.57": {
+    "en": "Fix for Dual Power Point and Wall Switch 4 Gang using Tuya Cluster. Uppdated/added device id's to a number of devices."
+  },
+  "0.2.58": {
+    "en": "Uppdated/added device id's to a number of devices. Fix for Wall Switch 4 Gang using Tuya Cluster."
+  },
+  "0.2.59": {
+    "en": "Added devices/id's."
+  },
+  "0.2.60": {
+    "en": "Added more devices/id's."
+  },
+  "0.2.61": {
+    "en": "Some fixes and cleanup."
+  },
+  "0.2.62": {
+    "en": "Added device id's to a number of devices and made some fixes."
+  },
+  "0.2.63": {
+    "en": "Added device id's to a number of devices and made some fixes."
+  },
+  "0.2.64": {
+    "en": "Added a Tuya Diagnostic device and added a number of drivers/devices. Made som changes to helper files and made some fixes in a number of drivers."
+  },
+  "0.2.65": {
+    "en": "Added FingerBot and made som changes to helper files and made some fixes in a number of drivers."
+  },
+  "0.2.66": {
+    "en": "Crash fix."
+  },
+  "0.2.67": {
+    "en": "Updated Zigbee drivers and made some fixes"
+  },
+  "0.2.68": {
+    "en": "Added some id's and killed some bugs"
+  },
+  "0.2.69": {
+    "en": "4 button wall remote fix"
+  },
+  "0.2.70": {
+    "en": "Added Rain Sensor and made some updates to datapoints"
+  },
+  "0.2.71": {
+    "en": "2 button wall remote fix"
+  },
+  "0.2.72": {
+    "en": "2 and 4 button wall remote fix"
+  },
+  "0.2.73": {
+    "en": "4 button wall remote fix"
   }
 }

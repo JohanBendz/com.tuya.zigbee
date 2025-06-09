@@ -5,15 +5,21 @@
   "class": "thermostat",
   "capabilities": [
     "onoff",
+    "thermostat_programming",
     "measure_temperature",
-    "target_temperature"
+    "target_temperature",
+    "child_lock"
   ],
   "images": {
     "large": "{{driverAssetsPath}}/images/large.jpg",
     "small": "{{driverAssetsPath}}/images/small.jpg"
   },
   "zigbee": {
-    "manufacturerName": "_TZE200_aoclfnxz",
+    "manufacturerName": [
+      "_TZE200_aoclfnxz",
+      "_TZE204_aoclfnxz",
+      "_TZE200_2ekuz3dz"
+    ],
     "productId": [
       "TS0601"
     ],

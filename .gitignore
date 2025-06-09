@@ -13,6 +13,7 @@ pids
 
 # Visual Studio Code
 vscode/
+.vscode/
 
 # Debug integration with VSCode
 .vscode/launch.json
@@ -77,3 +78,35 @@ typings
 
 # Idea
 .idea/
+
+# Sensitive and config files
+.env.*
+*.env.local
+
+# CI/CD specific logs and files
+.circleci/
+.github/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Eclipse
+.project
+.classpath
+.settings/
+.metadata/

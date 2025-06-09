@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.26",
+  "version": "0.2.73",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -109,6 +109,31 @@
   },
   "flow": {
     "triggers": [
+      {
+        "id": "target_distance_changed",
+        "title": {
+          "en": "Target distance changed"
+        },
+        "tokens": [
+          {
+            "name": "target_distance",
+            "type": "number",
+            "title": {
+              "en": "Target distance"
+            }
+          }
+        ],
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "placeholder": {
+              "en": "Select device"
+            },
+            "filter": "driver_id=radar_sensor_2"
+          }
+        ]
+      },
       {
         "title": {
           "en": "The breath alarm turned off",
@@ -318,7 +343,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=radar_sensor_3"
+            "filter": "driver_id=radar_sensor_2"
           }
         ]
       },
@@ -359,7 +384,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=radar_sensor_3"
+            "filter": "driver_id=radar_sensor_2"
           }
         ]
       },
@@ -400,7 +425,161 @@
           {
             "type": "device",
             "name": "device",
+            "filter": "driver_id=radar_sensor_2"
+          }
+        ]
+      },
+      {
+        "id": "alarm_breathe_presence_trigger",
+        "title": {
+          "en": "Breath presence",
+          "nl": "Adem aanwezigheid",
+          "de": "Atempräsenz",
+          "fr": "Présence respiratoire",
+          "it": "Presenza del respiro",
+          "sv": "Andningsnärvaro",
+          "no": "Åndedrettsnærvær",
+          "es": "Presencia de la respiración",
+          "da": "Åndedræt nærvær",
+          "ru": "Присутствие дыхания",
+          "pl": "Obecność oddechu"
+        },
+        "titleFormatted": {
+          "en": "Breath presence",
+          "nl": "Adem aanwezigheid",
+          "de": "Atempräsenz",
+          "fr": "Présence respiratoire",
+          "it": "Presenza del respiro",
+          "sv": "Andningsnärvaro",
+          "no": "Åndedrettsnærvær",
+          "es": "Presencia de la respiración",
+          "da": "Åndedræt nærvær",
+          "ru": "Присутствие дыхания",
+          "pl": "Obecność oddechu"
+        },
+        "hint": {
+          "en": "This card will trigger when Breath Presence is activated.",
+          "nl": "Deze kaart wordt alleen geactiveerd wanneer de Adem aanwezigheid actief is.",
+          "de": "Diese Karte wird ausgelöst, wenn die Atempräsenz aktiviert wird."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
             "filter": "driver_id=radar_sensor_3"
+          }
+        ]
+      },
+      {
+        "id": "alarm_small_presence_trigger",
+        "title": {
+          "en": "Small Presence",
+          "nl": "Kleine Aanwezigheid",
+          "de": "Kleine Präsenz",
+          "fr": "Petite Présence",
+          "it": "Presenza Piccola",
+          "sv": "Liten Närvaro",
+          "no": "Liten Nærvær",
+          "es": "Pequeña Presencia",
+          "da": "Lille Nærvær",
+          "ru": "Маленькое Присутствие",
+          "pl": "Mała Obecność"
+        },
+        "titleFormatted": {
+          "en": "Small Presence",
+          "nl": "Kleine Aanwezigheid",
+          "de": "Kleine Präsenz",
+          "fr": "Petite Présence",
+          "it": "Presenza Piccola",
+          "sv": "Liten Närvaro",
+          "no": "Liten Nærvær",
+          "es": "Pequeña Presencia",
+          "da": "Lille Nærvær",
+          "ru": "Маленькое Присутствие",
+          "pl": "Mała Obecność"
+        },
+        "hint": {
+          "en": "This card will trigger when Small Presence is activated.",
+          "nl": "Deze kaart wordt alleen geactiveerd wanneer de Kleine aanwezigheid actief is.",
+          "de": "Diese Karte wird ausgelöst, wenn die Kleine Präsenz aktiviert wird."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_3"
+          }
+        ]
+      },
+      {
+        "id": "large_small_presence_trigger",
+        "title": {
+          "en": "Large Presence",
+          "nl": "Grote Aanwezigheid",
+          "de": "Große Präsenz",
+          "fr": "Grande Présence",
+          "it": "Presenza Ampia",
+          "sv": "Stor Närvaro",
+          "no": "Stor Nærvær",
+          "es": "Presencia Grande",
+          "da": "Stor Nærvær",
+          "ru": "Большое Присутствие",
+          "pl": "Duża Obecność"
+        },
+        "titleFormatted": {
+          "en": "Large Presence",
+          "nl": "Grote Aanwezigheid",
+          "de": "Große Präsenz",
+          "fr": "Grande Présence",
+          "it": "Presenza Ampia",
+          "sv": "Stor Närvaro",
+          "no": "Stor Nærvær",
+          "es": "Presencia Grande",
+          "da": "Stor Nærvær",
+          "ru": "Большое Присутствие",
+          "pl": "Duża Obecność"
+        },
+        "hint": {
+          "en": "This card will trigger when Large Presence is activated.",
+          "nl": "Deze kaart wordt alleen geactiveerd wanneer de Grote aanwezigheid actief is.",
+          "de": "Diese Karte wird ausgelöst, wenn die Große Präsenz aktiviert wird."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_3"
+          }
+        ]
+      },
+      {
+        "id": "siren_alarm",
+        "title": {
+          "en": "Siren Alarm",
+          "nl": "Sirene Alarm",
+          "de": "Sirenenalarm",
+          "sv": "Siren Alarm",
+          "it": "Allarme Sirena"
+        },
+        "titleFormatted": {
+          "en": "Siren Alarm",
+          "nl": "Sirene Alarm",
+          "de": "Sirenenalarm",
+          "sv": "Siren Alarm",
+          "it": "Allarme Sirena"
+        },
+        "hint": {
+          "en": "This card will trigger when siren is activated.",
+          "nl": "Deze kaart wordt alleen geactiveerd wanneer de sirene actief is.",
+          "de": "Diese Karte wird ausgelöst, wenn die Sirene aktiviert wird.",
+          "sv": "Detta kort kommer att utlösa när siren är aktiverad.",
+          "it": "Questa carta verrà attivata quando la sirena è attivata."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=siren"
           }
         ]
       },
@@ -426,6 +605,110 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=sirentemphumidsensor"
+          }
+        ]
+      },
+      {
+        "id": "smart_button_switch_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "Button had [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_button_switch"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "oneClick",
+                "label": {
+                  "en": "1 Click"
+                }
+              },
+              {
+                "id": "twoClicks",
+                "label": {
+                  "en": "2 Clicks"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "smart_knob_switch_button",
+        "title": {
+          "en": "Button",
+          "sv": "Knapp"
+        },
+        "titleFormatted": {
+          "en": "The [[button]]",
+          "sv": "[[button]]"
+        },
+        "hint": {
+          "en": "This card will trigger when the button is used",
+          "sv": "Detta kort körs när knappen används"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=smart_knob_switch"
+          },
+          {
+            "name": "button",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Used",
+              "sv": "Knappen används"
+            },
+            "values": [
+              {
+                "id": "press",
+                "label": {
+                  "en": "Pressed",
+                  "sv": "Nedtryckt"
+                }
+              },
+              {
+                "id": "left",
+                "label": {
+                  "en": "Rotated counter clockwise",
+                  "sv": "Roterats moturs"
+                }
+              },
+              {
+                "id": "right",
+                "label": {
+                  "en": "Rotated clockwise",
+                  "sv": "Roterats medurs"
+                }
+              },
+              {
+                "id": "hold-left",
+                "label": {
+                  "en": "Pressed and rotated counter clockwise",
+                  "sv": "Nedtyrckt och roterats moturs"
+                }
+              },
+              {
+                "id": "hold-right",
+                "label": {
+                  "en": "Pressed and rotated clockwise",
+                  "sv": "Nedtyrckt och roterats medurs"
+                }
+              }
+            ]
           }
         ]
       },
@@ -652,29 +935,44 @@
             "title": {
               "en": "Button Action"
             },
+            "titleFormatted": {
+              "en": "The [[action]]"
+            },
             "values": [
               {
                 "id": "left-oneClick",
                 "label": {
-                  "en": "Left Button: 1 Click"
+                  "en": "left button was pressed 1 time"
                 }
               },
               {
                 "id": "left-twoClicks",
                 "label": {
-                  "en": "Left Button: 2 Clicks"
+                  "en": "left button was pressed 2 times"
+                }
+              },
+              {
+                "id": "left-longPress",
+                "label": {
+                  "en": "left button was held down"
                 }
               },
               {
                 "id": "right-oneClick",
                 "label": {
-                  "en": "Right Button: 1 Click"
+                  "en": "right button was pressed 1 time"
                 }
               },
               {
                 "id": "right-twoClicks",
                 "label": {
-                  "en": "Right Button: 2 Clicks"
+                  "en": "right button was pressed 2 times"
+                }
+              },
+              {
+                "id": "right-longPress",
+                "label": {
+                  "en": "right button was held down"
                 }
               }
             ]
@@ -888,49 +1186,170 @@
               {
                 "id": "leftUp-oneClick",
                 "label": {
-                  "en": "Upper Left Button: 1 Click"
+                  "en": "upper left button was pressed 1 time"
                 }
               },
               {
                 "id": "leftUp-twoClicks",
                 "label": {
-                  "en": "Upper Left Button: 2 Clicks"
+                  "en": "upper left button was pressed 2 times"
+                }
+              },
+              {
+                "id": "leftUp-longPress",
+                "label": {
+                  "en": "upper left button was held down"
                 }
               },
               {
                 "id": "rightUp-oneClick",
                 "label": {
-                  "en": "Upper Right Button: 1 Click"
+                  "en": "upper right button was pressed 1 time"
                 }
               },
               {
                 "id": "rightUp-twoClicks",
                 "label": {
-                  "en": "Upper Right Button: 2 Clicks"
+                  "en": "upper right button was pressed 2 times"
+                }
+              },
+              {
+                "id": "rightUp-longPress",
+                "label": {
+                  "en": "upper right button was held down"
                 }
               },
               {
                 "id": "leftDown-oneClick",
                 "label": {
-                  "en": "Lower Left Button: 1 Click"
+                  "en": "lower left button was pressed 1 time"
                 }
               },
               {
                 "id": "leftDown-twoClicks",
                 "label": {
-                  "en": "Lower Left Button: 2 Clicks"
+                  "en": "lower left button was pressed 2 times"
+                }
+              },
+              {
+                "id": "leftDown-longPress",
+                "label": {
+                  "en": "lower left button was held down"
                 }
               },
               {
                 "id": "rightDown-oneClick",
                 "label": {
-                  "en": "Lower Right Button: 1 Click"
+                  "en": "lower right button was pressed 1 time"
                 }
               },
               {
                 "id": "rightDown-twoClicks",
                 "label": {
-                  "en": "Lower Right Button: 2 Clicks"
+                  "en": "lower right button was pressed 2 times"
+                }
+              },
+              {
+                "id": "rightDown-longPress",
+                "label": {
+                  "en": "lower right button was held down"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "wall_remote_6_gang_buttons",
+        "title": {
+          "en": "Button Action"
+        },
+        "titleFormatted": {
+          "en": "The [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_remote_6_gang"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Button Action"
+            },
+            "values": [
+              {
+                "id": "one-oneClick",
+                "label": {
+                  "en": "Button 1 | 1 Click"
+                }
+              },
+              {
+                "id": "one-twoClicks",
+                "label": {
+                  "en": "Button 1 | 2 Clicks"
+                }
+              },
+              {
+                "id": "two-oneClick",
+                "label": {
+                  "en": "Button 2 | 1 Click"
+                }
+              },
+              {
+                "id": "two-twoClicks",
+                "label": {
+                  "en": "Button 2 | 2 Clicks"
+                }
+              },
+              {
+                "id": "three-oneClick",
+                "label": {
+                  "en": "Button 3 | 1 Click"
+                }
+              },
+              {
+                "id": "three-twoClicks",
+                "label": {
+                  "en": "Button 3 | 2 Clicks"
+                }
+              },
+              {
+                "id": "four-oneClick",
+                "label": {
+                  "en": "Button 4 | 1 Click"
+                }
+              },
+              {
+                "id": "four-twoClicks",
+                "label": {
+                  "en": "Button 4 | 2 Clicks"
+                }
+              },
+              {
+                "id": "five-oneClick",
+                "label": {
+                  "en": "Button 5 | 1 Click"
+                }
+              },
+              {
+                "id": "five-twoClicks",
+                "label": {
+                  "en": "Button 5 | 2 Clicks"
+                }
+              },
+              {
+                "id": "six-oneClick",
+                "label": {
+                  "en": "Button 6 | 1 Click"
+                }
+              },
+              {
+                "id": "six-twoClicks",
+                "label": {
+                  "en": "Button 6 | 2 Clicks"
                 }
               }
             ]
@@ -997,7 +1416,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=radar_sensor_3"
+            "filter": "driver_id=radar_sensor_2"
           }
         ]
       },
@@ -1011,12 +1430,54 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=radar_sensor_3"
+            "filter": "driver_id=radar_sensor_2"
           }
         ]
       },
       {
         "id": "alarm_large_presence",
+        "title": {
+          "en": "Large Presence alarm !{{is|is not}} on",
+          "nl": "Groot aanwezigheidsalarm !{{is|is niet}} aan"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_2"
+          }
+        ]
+      },
+      {
+        "id": "alarm_breathe_presence_condition",
+        "title": {
+          "en": "Breath Presence alarm !{{is|is not}} on",
+          "nl": "Adem aanwezigheidsalarm !{{is|is niet}} aan"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_3"
+          }
+        ]
+      },
+      {
+        "id": "alarm_small_presence_condition",
+        "title": {
+          "en": "Small Presence alarm !{{is|is not}} on",
+          "nl": "Kleine aanwezigheidsalarm !{{is|is niet}} aan"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=radar_sensor_3"
+          }
+        ]
+      },
+      {
+        "id": "alarm_large_presence_condition",
         "title": {
           "en": "Large Presence alarm !{{is|is not}} on",
           "nl": "Groot aanwezigheidsalarm !{{is|is niet}} aan"
@@ -1276,6 +1737,463 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=curtain_module"
+          }
+        ]
+      },
+      {
+        "id": "move_open_2gang",
+        "title": {
+          "en": "Open",
+          "de": "Öffnen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=curtain_module_2_gang"
+          }
+        ]
+      },
+      {
+        "id": "move_close_2gang",
+        "title": {
+          "en": "Close",
+          "de": "Schließen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=curtain_module_2_gang"
+          }
+        ]
+      },
+      {
+        "id": "set_finger_bot_mode",
+        "title": {
+          "en": "Set Finger Bot mode"
+        },
+        "titleFormatted": {
+          "en": "Set Finger Bot mode to [[finger_bot_mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=fingerbot"
+          },
+          {
+            "name": "finger_bot_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "click",
+                "label": {
+                  "en": "Click"
+                }
+              },
+              {
+                "id": "switch",
+                "label": {
+                  "en": "Switch"
+                }
+              },
+              {
+                "id": "program",
+                "label": {
+                  "en": "Program"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "siren_alarm_state",
+        "title": {
+          "en": "Change the alarm state",
+          "nl": "Verander de alarm toestand",
+          "de": "Ändern des Alarmstatus",
+          "sv": "Ändra larmstatus",
+          "it": "Cambia lo stato di allarme"
+        },
+        "titleFormatted": {
+          "en": "Change the alarm state to [[siren_alarm_state]]",
+          "nl": "Verander de alarm toestand naar [[siren_alarm_state]]",
+          "de": "Ändern des Alarmstatus zu [[siren_alarm_state]]",
+          "sv": "Ändra larmstatus till [[siren_alarm_state]]",
+          "it": "Cambia lo stato di allarme in [[siren_alarm_state]]"
+        },
+        "hint": {
+          "en": "Change the alarm state; sound or silence the alarm",
+          "nl": "Verander de alarm toestand; luiden of uitschakelen van het alarm",
+          "de": "Ändern des Alarmstatus; Ein- oder ausschalten des Alarmtons.",
+          "sv": "Ändra larmstatus; ljud eller tysta larmet",
+          "it": "Cambia lo stato di allarme; suono o silenzia l'allarme"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=siren"
+          },
+          {
+            "name": "siren_alarm_state",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "off/disable",
+                "label": {
+                  "en": "Silence alarm",
+                  "nl": "Alarm stil",
+                  "de": "Stiller Alarm",
+                  "sv": "Tysta larmet",
+                  "it": "Silenzia l'allarme"
+                }
+              },
+              {
+                "id": "on/enable",
+                "label": {
+                  "en": "Sound alarm",
+                  "nl": "Alarm luiden",
+                  "de": "Akustischer Alarm",
+                  "sv": "Ljuda larmet",
+                  "it": "Suona l'allarme"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "siren_alarm_duration",
+        "title": {
+          "en": "Switch on siren for X Seconds",
+          "de": "Sirene für X Sekunden einschalten",
+          "nl": "Zet sirene aan voor X seconden",
+          "sv": "Sätt på siren i X sekunder",
+          "it": "Attiva la sirena per X secondi"
+        },
+        "titleFormatted": {
+          "en": "Switch on siren for [[duration]] Seconds",
+          "de": "Sirene für [[duration]] Sekunden einschalten",
+          "nl": "Zet sirene aan voor [[duration]] seconden",
+          "sv": "Sätt på siren i [[duration]] sekunder",
+          "it": "Attiva la sirena per [[duration]] secondi"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=siren"
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 0,
+            "max": 65535,
+            "step": 1,
+            "label": {
+              "en": "Seconds",
+              "de": "Sekunden",
+              "nl": "Seconden",
+              "sv": "Sekunder",
+              "it": "Secondi"
+            },
+            "placeholder": {
+              "en": "120"
+            },
+            "title": {
+              "en": "Duration of alarm in seconds",
+              "de": "Dauer des Alarms in Sekunden",
+              "nl": "Duur van het alarm in seconden",
+              "sv": "Längd av larmet i sekunder",
+              "it": "Durata dell'allarme in secondi"
+            }
+          }
+        ]
+      },
+      {
+        "id": "siren_volume_setting",
+        "title": {
+          "en": "Set volume of siren",
+          "nl": "Zet het volume van de sirene",
+          "de": "Einstellen der Lautstärke der Sirene",
+          "sv": "Ställ in volymen på siren",
+          "it": "Imposta il volume della sirena"
+        },
+        "titleFormatted": {
+          "en": "Set volume of siren to [[siren_volume]]",
+          "nl": "Zet het volume van de sirene naar [[siren_volume]]",
+          "de": "Einstellen der Lautstärke der Sirene auf [[siren_volume]]",
+          "sv": "Ställ in volymen på siren till [[siren_volume]]",
+          "it": "Imposta il volume della sirena su [[siren_volume]]"
+        },
+        "hint": {
+          "en": "Set volume of siren.",
+          "nl": "Zet het volume van de sirene.",
+          "de": "Einstellen der Lautstärke der Sirene",
+          "sv": "Ställ in volymen på siren",
+          "it": "Imposta il volume della sirena"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=siren"
+          },
+          {
+            "name": "siren_volume",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "2",
+                "label": {
+                  "en": "Low",
+                  "nl": "Laag",
+                  "de": "Niedrig",
+                  "sv": "Låg",
+                  "it": "Basso"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Midle",
+                  "nl": "Middelmatig",
+                  "de": "Mittel",
+                  "sv": "Mellan",
+                  "it": "Medio"
+                }
+              },
+              {
+                "id": "0",
+                "label": {
+                  "en": "High (default)",
+                  "nl": "Hoog (standaard)",
+                  "de": "Hoch (Standard)",
+                  "sv": "Hög (standard)",
+                  "it": "Alto (default)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "siren_alarm_tune",
+        "title": {
+          "en": "Set the alarm tune",
+          "nl": "Stel de alarm melodie in",
+          "de": "Einstellen des Alarmtons",
+          "sv": "Ställ in larmmelodin",
+          "it": "Imposta la melodia dell'allarme"
+        },
+        "titleFormatted": {
+          "en": "Set the alarm tune to [[siren_alarm_tune]]",
+          "nl": "Stel de alarm melodie in op [[siren_alarm_tune]]",
+          "de": "Einstellen des Alarmtons zu [[siren_alarm_tune]]",
+          "sv": "Ställ in larmmelodin till [[siren_alarm_tune]]",
+          "it": "Imposta la melodia dell'allarme su [[siren_alarm_tune]]"
+        },
+        "hint": {
+          "en": "Choose the tune of the alarm sound",
+          "nl": "Kies de melodie die gebruikt wordt bij alarm",
+          "de": "Wähle die Melodie des Alarmtons aus.",
+          "sv": "Välj larmmelodi",
+          "it": "Scegli la melodia del suono dell'allarme"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=siren"
+          },
+          {
+            "name": "siren_alarm_tune",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "0",
+                "label": {
+                  "en": "Doorbell Chime",
+                  "nl": "Doorbell Chime",
+                  "de": "Doorbell Chime",
+                  "sv": "Doorbell Chime",
+                  "it": "Doorbell Chime"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "For Elise (default)",
+                  "nl": "Fur Elise (standaard)",
+                  "de": "Fur Elise (Standard)",
+                  "sv": "Fur Elise (standard)",
+                  "it": "Fur Elise (default)"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Westminster Chimes",
+                  "nl": "Westminster Chimes",
+                  "de": "Westminster Chimes",
+                  "sv": "Westminster Chimes",
+                  "it": "Westminster Chimes"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Fast double door bell",
+                  "nl": "Fast double door bell",
+                  "de": "Fast double door bell",
+                  "sv": "Fast double door bell",
+                  "it": "Fast double door bell"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "William Tell Overture",
+                  "nl": "William Tell Overture",
+                  "de": "William Tell Overture",
+                  "sv": "William Tell Overture",
+                  "it": "William Tell Overture"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "Turkish March",
+                  "nl": "Turkish March",
+                  "de": "Turkish March",
+                  "sv": "Turkish March",
+                  "it": "Turkish March"
+                }
+              },
+              {
+                "id": "6",
+                "label": {
+                  "en": "Security Alarm",
+                  "nl": "Security Alarm",
+                  "de": "Security Alarm",
+                  "sv": "Security Alarm",
+                  "it": "Security Alarm"
+                }
+              },
+              {
+                "id": "7",
+                "label": {
+                  "en": "Chemical Spill Alert",
+                  "nl": "Chemical Spill Alert",
+                  "de": "Chemical Spill Alert",
+                  "sv": "Chemical Spill Alert",
+                  "it": "Chemical Spill Alert"
+                }
+              },
+              {
+                "id": "8",
+                "label": {
+                  "en": "Piercing Alarm Clock",
+                  "nl": "Piercing Alarm Clock",
+                  "de": "Piercing Alarm Clock",
+                  "sv": "Piercing Alarm Clock",
+                  "it": "Piercing Alarm Clock"
+                }
+              },
+              {
+                "id": "9",
+                "label": {
+                  "en": "Smoke Alarm",
+                  "nl": "Smoke Alarm",
+                  "de": "Smoke Alarm",
+                  "sv": "Smoke Alarm",
+                  "it": "Smoke Alarm"
+                }
+              },
+              {
+                "id": "10",
+                "label": {
+                  "en": "Dog Barking",
+                  "nl": "Dog Barking",
+                  "de": "Dog Barking",
+                  "sv": "Dog Barking",
+                  "it": "Dog Barking"
+                }
+              },
+              {
+                "id": "11",
+                "label": {
+                  "en": "Police Siren",
+                  "nl": "Police Siren",
+                  "de": "Police Siren",
+                  "sv": "Police Siren",
+                  "it": "Police Siren"
+                }
+              },
+              {
+                "id": "12",
+                "label": {
+                  "en": "Doorbell Chime (reverb)",
+                  "nl": "Doorbell Chime (reverb)",
+                  "de": "Doorbell Chime (reverb)",
+                  "sv": "Doorbell Chime (reverb)",
+                  "it": "Doorbell Chime (reverb)"
+                }
+              },
+              {
+                "id": "13",
+                "label": {
+                  "en": "Mechanical Telephone",
+                  "nl": "Mechanical Telephone",
+                  "de": "Mechanical Telephone",
+                  "sv": "Mechanical Telephone",
+                  "it": "Mechanical Telephone"
+                }
+              },
+              {
+                "id": "14",
+                "label": {
+                  "en": "Fire/Ambulance",
+                  "nl": "Fire/Ambulance",
+                  "de": "Fire/Ambulance",
+                  "sv": "Fire/Ambulance",
+                  "it": "Fire/Ambulance"
+                }
+              },
+              {
+                "id": "15",
+                "label": {
+                  "en": "3/1 Elevator",
+                  "nl": "3/1 Elevator",
+                  "de": "3/1 Elevator",
+                  "sv": "3/1 Elevator",
+                  "it": "3/1 Elevator"
+                }
+              },
+              {
+                "id": "16",
+                "label": {
+                  "en": "Buzzing Alarm Clock",
+                  "nl": "Buzzing Alarm Clock",
+                  "de": "Buzzing Alarm Clock",
+                  "sv": "Buzzing Alarm Clock",
+                  "it": "Buzzing Alarm Clock"
+                }
+              },
+              {
+                "id": "17",
+                "label": {
+                  "en": "School Bell",
+                  "nl": "School Bell",
+                  "de": "School Bell",
+                  "sv": "School Bell",
+                  "it": "School Bell"
+                }
+              }
+            ]
           }
         ]
       },
@@ -1677,6 +2595,34 @@
             }
           }
         ]
+      },
+      {
+        "id": "wall_move_open",
+        "title": {
+          "en": "Open",
+          "de": "Öffnen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_curtain_switch"
+          }
+        ]
+      },
+      {
+        "id": "wall_move_close",
+        "title": {
+          "en": "Close",
+          "de": "Schließen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=wall_curtain_switch"
+          }
+        ]
       }
     ]
   },
@@ -1774,9 +2720,11 @@
           "_TZ3000_zirycpws",
           "_TZ3000_femsaaua",
           "_TZ3000_e3vhyirx",
-          "_TZ3000_1dd0d5yi",
           "_TZ3000_jwv3cwak",
-          "_TZ3210_dwytrmda"
+          "_TZ3210_dwytrmda",
+          "_TZ3210_ol1uhvza",
+          "_TZ3000_eg7awg6a",
+          "_TZ3000_eafaa66e"
         ],
         "productId": [
           "TS130F"
@@ -1879,6 +2827,167 @@
       ]
     },
     {
+      "id": "curtain_module_2_gang",
+      "name": {
+        "en": "2 Gang Curtain Module"
+      },
+      "class": "windowcoverings",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "windowcoverings_set",
+        "windowcoverings_state"
+      ],
+      "images": {
+        "large": "/drivers/curtain_module_2_gang/assets/images/large.png",
+        "small": "/drivers/curtain_module_2_gang/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_j1xl73iw",
+          "_TZ3000_l6iqph4f"
+        ],
+        "productId": [
+          "TS130F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6,
+              258,
+              57345
+            ],
+            "bindings": [
+              258
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6,
+              258,
+              57345
+            ],
+            "bindings": [
+              258
+            ]
+          }
+        },
+        "devices": {
+          "secondModule": {
+            "class": "windowcoverings",
+            "name": {
+              "en": "2 Gang Curtain Module (2)"
+            },
+            "capabilities": [
+              "windowcoverings_set",
+              "windowcoverings_state"
+            ],
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/curtain_module_2_gang/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button for 10 seconds or power on/off 5 times to enter pairing mode (the LED should blink / device starts beeping)."
+          }
+        }
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Motor control",
+            "de": "Motorsteuerung"
+          },
+          "children": [
+            {
+              "id": "reverse",
+              "type": "checkbox",
+              "label": {
+                "en": "Reverse",
+                "de": "Rückwärts"
+              },
+              "value": false
+            },
+            {
+              "id": "movetime",
+              "type": "number",
+              "label": {
+                "en": "Movement time",
+                "de": "Bewegungszeit"
+              },
+              "hint": {
+                "en": "The time in seconds that the transition from 0-100% takes. Be aware that open/close might take a different amount of time.",
+                "de": "Die Zeit in Sekunden, die der Übergang von 0-100% dauert. Beachte, dass das Öffnen/Schließen unterschiedlich lange dauern kann."
+              },
+              "min": 3,
+              "max": 900,
+              "step": 0.1,
+              "units": {
+                "en": "Seconds",
+                "de": "Sekunden"
+              }
+            },
+            {
+              "id": "calibration_mode",
+              "type": "checkbox",
+              "label": {
+                "en": "Calibration mode",
+                "de": "Kalibrierungsmodus"
+              },
+              "hint": {
+                "en": "Activate to start calibration mode and deactivate to stop it. The elapsed time between will be used to calibrate 0-100%. If this does not work use the \"Movement time\" setting instead.",
+                "de": "Aktiviere diese Option, um den Kalibrierungsmodus zu starten, und deaktivieren, um ihn zu beenden. Die dazwischen verstrichene Zeit wird zum Kalibrieren von 0-100% verwendet. Wenn dies nicht funktioniert, verwende stattdessen die Einstellung \"Bewegungszeit\"."
+              },
+              "value": false
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Controls",
+            "de": "Steuerelemente"
+          },
+          "children": [
+            {
+              "id": "has_state",
+              "type": "checkbox",
+              "label": {
+                "en": "State control",
+                "de": "Zustandskontrolle"
+              },
+              "hint": {
+                "en": "When enabled controls for Up/Stop/Down will be shown in addition to the percent based controls. Some external integrations (e.g. Alexa) might not be able to determine the correct device type if enabled.",
+                "de": "Wenn diese Option aktiviert ist, werden zusätzlich zu den prozentualen Steuerelementen auch Steuerelemente für Auf/Stop/Ab angezeigt. Einige externe Integrationen (z. B. Alexa) sind möglicherweise nicht in der Lage, den richtigen Gerätetyp zu bestimmen, wenn diese Option aktiviert ist."
+              },
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "curtain_motor",
       "name": {
         "en": "Curtain Motor",
@@ -1907,6 +3016,7 @@
       "zigbee": {
         "manufacturerName": [
           "_TZE200_5zbp6j0u",
+          "_TZE200_bjzrowv2",
           "_TZE200_nkoabg8w",
           "_TZE200_xuzcvlku",
           "_TZE200_4vobcgd3",
@@ -1927,7 +3037,15 @@
           "_TZE200_cowvfni3",
           "_TZE200_hsgrhjpf",
           "_TZE200_68nvbio9",
-          "_TZE200_pw7mji0l"
+          "_TZE200_pw7mji0l",
+          "_TZE200_uj3f4wr5",
+          "_TZE204_1fuxihti",
+          "_TZE200_axgvo9jh",
+          "_TZE200_gaj531w3",
+          "_TZE200_yia0p3tr",
+          "_TZE200_nw1r9hp6",
+          "_TZE200_cf1sl3tj",
+          "_TZE200_9p5xmj5r"
         ],
         "productId": [
           "TS0601"
@@ -1998,6 +3116,138 @@
           "max": 100
         }
       ]
+    },
+    {
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_temperature"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "images": {
+        "large": "/drivers/dimmable_led_strip/assets/images/large.png",
+        "small": "/drivers/dimmable_led_strip/assets/images/small.png"
+      },
+      "id": "dimmable_led_strip",
+      "name": {
+        "en": "Dimmable LED Strip"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 50,
+          "usageOff": 1
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3210_invesber"
+        ],
+        "productId": [
+          "TS0502B"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8,
+              768
+            ],
+            "bindings": [
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/dimmable_led_strip/assets/icon.svg",
+          "instruction": {
+            "en": "Power on to enter pairing mode."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_temperature"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "images": {
+        "large": "/drivers/dimmable_recessed_led/assets/images/large.png",
+        "small": "/drivers/dimmable_recessed_led/assets/images/small.png"
+      },
+      "id": "dimmable_recessed_led",
+      "name": {
+        "en": "Dimmable Recessed LED"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 7,
+          "usageOff": 1
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3210_zdrhqmo0"
+        ],
+        "productId": [
+          "TS0502B"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8,
+              768
+            ],
+            "bindings": [
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/dimmable_recessed_led/assets/icon.svg",
+          "instruction": {
+            "en": "Power on to enter pairing mode."
+          }
+        }
+      },
+      "settings": []
     },
     {
       "id": "dimmer_1_gang",
@@ -2102,6 +3352,71 @@
       ]
     },
     {
+      "id": "dimmer_1_gang_2",
+      "name": {
+        "en": "1 Gang Dimmer Module"
+      },
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "capabilitiesOptions": {
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
+      "images": {
+        "large": "/drivers/dimmer_1_gang_2/assets/images/large.png",
+        "small": "/drivers/dimmer_1_gang_2/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3210_ngqk6jia"
+        ],
+        "productId": [
+          "TS110E"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              4,
+              5,
+              6,
+              8
+            ],
+            "bindings": [
+              6,
+              8
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/dimmer_1_gang_2/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "dimmer_1_gang_tuya",
       "name": {
         "en": "1 Gang Dimmer Module"
@@ -2137,7 +3452,16 @@
       "zigbee": {
         "manufacturerName": [
           "_TZE200_la2c2uo9",
-          "_TZE204_hlx9tnzb"
+          "_TZE204_hlx9tnzb",
+          "_TZE200_ip2akl4w",
+          "_TZE200_1agwnems",
+          "_TZE200_579lguh2",
+          "_TZE200_vucankjx",
+          "_TZE200_4mh6tyyo",
+          "_TZE204_n9ctkb6j",
+          "_TZE204_9qhuzgo0",
+          "_TZE204_dcnsggvz",
+          "_TZE204_5cuocqty"
         ],
         "productId": [
           "TS0601"
@@ -2148,9 +3472,13 @@
               0,
               4,
               5,
+              6,
+              8,
               61184
             ],
             "bindings": [
+              6,
+              8,
               25,
               10
             ]
@@ -2159,7 +3487,7 @@
         "learnmode": {
           "image": "/drivers/dimmer_1_gang_tuya/assets/icon.svg",
           "instruction": {
-            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+            "en": "Press the reset switch rapidly 10 times until the unit make a continously beep sound to enter pairing mode."
           }
         }
       },
@@ -2203,7 +3531,9 @@
           "_TYZB01_v8gtiaed",
           "_TZ3000_92chsky7",
           "_TZ3210_wdexaypg",
-          "_TZ3210_3mpwqzuu"
+          "_TZ3210_3mpwqzuu",
+          "_TZ3210_pagajpog",
+          "_TZ3210_4ubylghk"
         ],
         "productId": [
           "TS110F",
@@ -2298,7 +3628,10 @@
       "zigbee": {
         "manufacturerName": [
           "_TZE200_e3oitdyu",
-          "_TZE204_zenj4lxv"
+          "_TZE204_zenj4lxv",
+          "_TZE204_bxoo2swd",
+          "_TZE200_gwkapsoq",
+          "_TZE200_fjjbhx9d"
         ],
         "productId": [
           "TS0601"
@@ -2309,9 +3642,13 @@
               0,
               4,
               5,
+              6,
+              8,
               61184
             ],
             "bindings": [
+              6,
+              8,
               25,
               10
             ]
@@ -2338,7 +3675,7 @@
         "learnmode": {
           "image": "/drivers/dimmer_2_gang_tuya/assets/icon.svg",
           "instruction": {
-            "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+            "en": "Two tiles will be created, one for each channel of the device. Press the reset switch rapidly 10 times until the unit make a continously beep sound to enter pairing mode."
           }
         }
       },
@@ -2401,7 +3738,16 @@
           "_TZ3000_yxqnffam",
           "_TZ3000_9eeavbk5",
           "_TZ3000_yxqnffam",
-          "_TZ3000_a33rw7ou"
+          "_TZ3000_rcuyhwe3",
+          "_TZ3000_a33rw7ou",
+          "_TZ3000_6zvw8ham",
+          "_TZ3000_yfekcy3n",
+          "_TZ3000_cea5xugq",
+          "_TZ3000_1bwpjvlz",
+          "_TZ3000_au2o5e6q",
+          "_TZ3000_v7chgqso",
+          "_TZ3000_qrldbmfn",
+          "_TZ3000_gntwytxo"
         ],
         "productId": [
           "RH3001",
@@ -2412,6 +3758,7 @@
             "clusters": [
               0,
               1,
+              3,
               1280
             ],
             "bindings": [
@@ -2462,7 +3809,9 @@
           "_TZ3000_osu834un",
           "Immax",
           "Visonic",
-          "_TZ3000_hkcpblrs"
+          "_TZ3000_hkcpblrs",
+          "_TZ3000_8yhypbo7",
+          "_TZ3000_cqlnswn0"
         ],
         "productId": [
           "RH3001",
@@ -2521,7 +3870,8 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_zgrffiwg",
-          "_TZ3000_bpkijo14"
+          "_TZ3000_bpkijo14",
+          "_TZ3000_uvti8nkd"
         ],
         "productId": [
           "TS0203"
@@ -2549,9 +3899,64 @@
       "settings": []
     },
     {
+      "id": "doorwindowsensor_4",
+      "name": {
+        "en": "Door & Window Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_contact",
+        "alarm_battery",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/doorwindowsensor_4/assets/images/large.png",
+        "small": "/drivers/doorwindowsensor_4/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "zbeacon"
+        ],
+        "productId": [
+          "DS01"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1,
+              32,
+              1280
+            ],
+            "bindings": []
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/doorwindowsensor_4/assets/icon.svg",
+          "instruction": {
+            "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 7 seconds until the LED blinks slowly."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "double_power_point",
       "name": {
-        "en": "Double Power Point"
+        "en": "Double Power Point - With Metering"
       },
       "class": "socket",
       "platforms": [
@@ -2608,24 +4013,24 @@
             ]
           }
         },
+        "devices": {
+          "socketTwo": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "Double Power Point - Second socket"
+            },
+            "settings": []
+          }
+        },
         "learnmode": {
           "instruction": {
             "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
           }
         }
       },
-      "subdevices": [
-        {
-          "id": "seconddoublepowerpoint",
-          "name": {
-            "en": "Second Power Point"
-          },
-          "class": "socket",
-          "capabilities": [
-            "onoff"
-          ]
-        }
-      ],
       "settings": [
         {
           "id": "metering_offset",
@@ -2710,6 +4115,200 @@
       ]
     },
     {
+      "id": "double_power_point_2",
+      "name": {
+        "en": "Double Power Point"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/double_power_point_2/assets/images/large.png",
+        "small": "/drivers/double_power_point_2/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TYZB01_hlla45kx"
+        ],
+        "productId": [
+          "TS011F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "socketTwo": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "Double Power Point - Second socket"
+            },
+            "settings": []
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "fingerbot",
+      "name": {
+        "en": "Finger Bot"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_battery",
+        "finger_bot_mode"
+      ],
+      "images": {
+        "large": "/drivers/fingerbot/assets/images/large.png",
+        "small": "/drivers/fingerbot/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3210_j4pdtz9v"
+        ],
+        "productId": [
+          "TS0001"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              6,
+              61184
+            ],
+            "bindings": [
+              25,
+              10
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/fingerbot/assets/icon.svg",
+          "instruction": {
+            "en": "Press the button on the Finger Bot to enter pairing mode."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "reverse",
+          "type": "checkbox",
+          "label": {
+            "en": "Reverse mode"
+          },
+          "hint": {
+            "en": "Enable reverse operation mode."
+          }
+        },
+        {
+          "id": "lower_limit",
+          "type": "number",
+          "label": {
+            "en": "Lower movement limit (%)"
+          },
+          "hint": {
+            "en": "Set the lower limit of the Finger Bot's movement (in percentage)."
+          },
+          "value": 50,
+          "min": 0,
+          "max": 100,
+          "step": 1
+        },
+        {
+          "id": "upper_limit",
+          "type": "number",
+          "label": {
+            "en": "Upper movement limit (%)"
+          },
+          "hint": {
+            "en": "Set the upper limit of the Finger Bot's movement (in percentage)."
+          },
+          "value": 100,
+          "min": 0,
+          "max": 100,
+          "step": 1
+        },
+        {
+          "id": "delay",
+          "type": "number",
+          "label": {
+            "en": "Delay (seconds)"
+          },
+          "hint": {
+            "en": "Set the sustain time for the Finger Bot (in seconds)."
+          },
+          "value": 1,
+          "min": 0,
+          "max": 10,
+          "step": 1
+        },
+        {
+          "id": "touch",
+          "type": "checkbox",
+          "label": {
+            "en": "Touch control"
+          },
+          "hint": {
+            "en": "Enable touch control for the Finger Bot."
+          }
+        }
+      ]
+    },
+    {
       "id": "flood_sensor",
       "name": {
         "en": "Flood sensor"
@@ -2738,7 +4337,9 @@
         "manufacturerName": [
           "TUYATEC-3tipnsrx",
           "_TZ3000_4uvovz4r",
-          "_TZ3000_3dfewsk1"
+          "_TZ3000_3dfewsk1",
+          "_TZ3000_ww9i3e0y",
+          "_TZ3000_wuep9zng"
         ],
         "productId": [
           "RH3001",
@@ -2873,7 +4474,9 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_qaaysllp",
-          "_TYZB01_ftdkanlj"
+          "_TYZB01_ftdkanlj",
+          "_TYZB01_kvwjujy9",
+          "_TZ3210_huzkzqyk"
         ],
         "productId": [
           "TS0201",
@@ -3036,7 +4639,8 @@
           "_TZ3000_yd2e749y",
           "_TZ3000_ywagc4rj",
           "_TZ3000_itnrsufe",
-          "_TZ3000_bjawzodf"
+          "_TZ3000_bjawzodf",
+          "_TZ3210_ncw88jfq"
         ],
         "productId": [
           "TS0201",
@@ -3324,7 +4928,11 @@
         "manufacturerName": [
           "_TZE200_bjawzodf",
           "_TZE200_zl1kmjqx",
-          "_TZE200_locansqn"
+          "_TZE200_locansqn",
+          "_TZE200_bq5c8xfe",
+          "_TZE200_qyflbnbj",
+          "_TZE200_vs0skpuc",
+          "_TZE200_44af8vyi"
         ],
         "productId": [
           "TS0601"
@@ -3418,7 +5026,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "TUYATEC-bd5faf9p"
+          "TUYATEC-bd5faf9p",
+          "TUYATEC-zw6hxafz"
         ],
         "productId": [
           "RH3040"
@@ -3473,7 +5082,10 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE200_3towulqd"
+          "_TZE200_3towulqd",
+          "_TZE200_bh3n6gk8",
+          "_TZE200_1ibpyhdc",
+          "_TZE200_ttcovulf"
         ],
         "productId": [
           "TS0601"
@@ -3497,7 +5109,7 @@
         "learnmode": {
           "image": "/drivers/motion_sensor_2/assets/icon.svg",
           "instruction": {
-            "en": "Use a pin to press the reset button for aprox 5 seconds until the LED blinks."
+            "en": "Press the reset button for aprox 5 seconds until the LED blinks."
           }
         }
       },
@@ -3514,8 +5126,8 @@
           "value": 20,
           "attr": {
             "step": 1,
-            "min": 1,
-            "max": 99
+            "min": 10,
+            "max": 90
           }
         }
       ]
@@ -3704,7 +5316,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_pnzfdr9y"
+          "_TZ3000_pnzfdr9y",
+          "_TZ3000_br3laukf"
         ],
         "productId": [
           "TS0101"
@@ -3767,7 +5380,9 @@
           "_TZ3000_6ygjfyll",
           "_TZ3040_6ygjfyll",
           "_TZ3040_bb6xaihh",
-          "_TZ3000_nss8amz9"
+          "_TZ3000_nss8amz9",
+          "_TZ3000_bsvqrxru",
+          "_TYZB01_dr6sduka"
         ],
         "productId": [
           "TS0202"
@@ -3951,8 +5566,16 @@
           "_TZE204_ztc6ggyl",
           "_TZE204_7gclukjs",
           "_TZE204_qasjif9e",
-          "_TZE204_ijxvkhd0",
-          "_TZE204_sxm7l9xa"
+          "_TZE200_sgpeacqp",
+          "_TZE204_xsm7l9xa",
+          "_TZE200_wukb7rhc",
+          "_TZE200_xpq2rzhq",
+          "_TZE200_holel4dk",
+          "_TZE200_jva8ink8",
+          "_TZE200_lyetpprm",
+          "_TZE200_ikvncluo",
+          "_TZE204_ztqnh5cg",
+          "_TZE204_7gclukjs"
         ],
         "productId": [
           "TS0601"
@@ -3974,6 +5597,154 @@
         },
         "learnmode": {
           "image": "/drivers/radar_sensor/assets/icon.svg",
+          "instruction": {
+            "en": "Press and hold the reset button for 6 seconds. When the indicator light flashes it is in pairing mode.",
+            "nl": "Druk 6 seconden op de reset knop. Wacht tot de led gaat knipperen."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "radar_sensitivity",
+          "type": "number",
+          "label": {
+            "en": "Radar sensitivity",
+            "nl": "Radar sensitiviteit"
+          },
+          "value": 7,
+          "min": 1,
+          "max": 9
+        },
+        {
+          "id": "minimum_range",
+          "type": "number",
+          "label": {
+            "en": "Minimum range",
+            "nl": "Minimale bereik"
+          },
+          "value": 0,
+          "min": 0,
+          "max": 9.5,
+          "units": {
+            "en": "meters",
+            "nl": "meters"
+          }
+        },
+        {
+          "id": "maximum_range",
+          "type": "number",
+          "label": {
+            "en": "Maximum range",
+            "nl": "Maximale bereik"
+          },
+          "value": 9.5,
+          "min": 0,
+          "max": 9.5,
+          "units": {
+            "en": "meters",
+            "nl": "meters"
+          }
+        },
+        {
+          "id": "detection_delay",
+          "type": "number",
+          "label": {
+            "en": "Detection delay",
+            "nl": "Detectie vertraging"
+          },
+          "value": 7,
+          "min": 0,
+          "max": 10,
+          "units": {
+            "en": "seconds",
+            "nl": "seconden"
+          }
+        },
+        {
+          "id": "fading_time",
+          "type": "number",
+          "label": {
+            "en": "Fading time",
+            "nl": "Reset tijd"
+          },
+          "value": 7,
+          "min": 0,
+          "max": 1500,
+          "units": {
+            "en": "seconds",
+            "nl": "seconden"
+          }
+        },
+        {
+          "id": "distance_update_interval",
+          "type": "number",
+          "label": {
+            "en": "Distance update interval",
+            "nl": "Afstand update interval"
+          },
+          "value": 10,
+          "min": 3,
+          "max": 60,
+          "units": {
+            "en": "seconds",
+            "nl": "seconden"
+          }
+        }
+      ]
+    },
+    {
+      "id": "radar_sensor_2",
+      "name": {
+        "en": "Radar Sensor",
+        "nl": "Radar Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_luminance",
+        "alarm_motion",
+        "target_distance"
+      ],
+      "images": {
+        "large": "/drivers/radar_sensor_2/assets/images/large.png",
+        "small": "/drivers/radar_sensor_2/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE204_sxm7l9xa",
+          "_TZE204_ijxvkhd0"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              258,
+              61184
+            ],
+            "bindings": [
+              258,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/radar_sensor_2/assets/icon.svg",
           "instruction": {
             "en": "Press and hold the reset button for 6 seconds. When the indicator light flashes it is in pairing mode.",
             "nl": "Druk 6 seconden op de reset knop. Wacht tot de led gaat knipperen."
@@ -4370,6 +6141,367 @@
       ]
     },
     {
+      "id": "radar_sensor_ceiling",
+      "name": {
+        "en": "Radar Sensor ceiling"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_luminance",
+        "alarm_motion"
+      ],
+      "images": {
+        "large": "/drivers/radar_sensor_ceiling/assets/images/large.png",
+        "small": "/drivers/radar_sensor_ceiling/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_2aaelwxk"
+        ],
+        "productId": [
+          "TS0225"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1024,
+              1280,
+              57344,
+              57346,
+              60928,
+              61184
+            ],
+            "bindings": [
+              3,
+              57344,
+              57346,
+              60928,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/radar_sensor_ceiling/assets/icon.svg",
+          "instruction": {
+            "en": "Press and hold the reset button for 5 seconds. When the indicator light flashes it is in pairing mode."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "radar_sensitivity",
+          "type": "number",
+          "label": {
+            "en": "Radar sensitivity"
+          },
+          "value": 7,
+          "min": 1,
+          "max": 9
+        },
+        {
+          "id": "minimum_range",
+          "type": "number",
+          "label": {
+            "en": "Minimum range"
+          },
+          "value": 0,
+          "min": 0,
+          "max": 9.5,
+          "units": {
+            "en": "meters"
+          }
+        },
+        {
+          "id": "maximum_range",
+          "type": "number",
+          "label": {
+            "en": "Maximum range"
+          },
+          "value": 9.5,
+          "min": 0,
+          "max": 9.5,
+          "units": {
+            "en": "meters"
+          }
+        },
+        {
+          "id": "detection_delay",
+          "type": "number",
+          "label": {
+            "en": "Detection delay"
+          },
+          "value": 7,
+          "min": 0,
+          "max": 10,
+          "units": {
+            "en": "seconds"
+          }
+        },
+        {
+          "id": "fading_time",
+          "type": "number",
+          "label": {
+            "en": "Fading time"
+          },
+          "value": 7,
+          "min": 0,
+          "max": 1500,
+          "units": {
+            "en": "seconds"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rain_sensor",
+      "name": {
+        "en": "Rain sensor",
+        "nl": "Regensensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_battery",
+        "alarm_battery",
+        "alarm_water",
+        "alarm_cleaning",
+        "measure_luminance",
+        "measure_luminance.20min",
+        "measure_luminance.daily_max",
+        "measure_voltage.rain"
+      ],
+      "capabilitiesOptions": {
+        "measure_luminance.20min": {
+          "title": {
+            "en": "Luminance (20 min avg.)",
+            "nl": "Helderheid (20 min gem.)"
+          }
+        },
+        "measure_luminance.daily_max": {
+          "title": {
+            "en": "Luminance (24 h max.)",
+            "nl": "Helderheid (24 u max.)"
+          }
+        },
+        "measure_voltage.rain": {
+          "title": {
+            "en": "Rainfall intensity",
+            "nl": "Regenintensiteit"
+          }
+        }
+      },
+      "energy": {
+        "batteries": [
+          "INTERNAL"
+        ]
+      },
+      "images": {
+        "large": "/drivers/rain_sensor/assets/images/large.png",
+        "small": "/drivers/rain_sensor/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3210_tgvtvdoc"
+        ],
+        "productId": [
+          "TS0207"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              1,
+              1280,
+              61184
+            ],
+            "bindings": [
+              1,
+              1280,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/rain_sensor/assets/icon.svg",
+          "instruction": {
+            "en": "Press and hold the button for approx. 5 seconds until the LED blinks green.",
+            "nl": "Houd de knop voor ongeveer 5 seconden ingedrukt totdat de LED groen knippert."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "batteryThreshold",
+          "type": "number",
+          "label": {
+            "en": "Battery Low Alarm Voltage Threshold (%)"
+          },
+          "hint": {
+            "en": "This setting determines the threshold before a battery alarm is given."
+          },
+          "value": 20,
+          "attr": {
+            "step": 1,
+            "min": 1,
+            "max": 99
+          }
+        }
+      ]
+    },
+    {
+      "id": "relay_board_1_channel",
+      "name": {
+        "en": "1 Channel Relay Board"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/relay_board_1_channel/assets/images/large.png",
+        "small": "/drivers/relay_board_1_channel/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_g8n1n7lg"
+        ],
+        "productId": [
+          "TS0001"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/relay_board_1_channel/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button combined with 1 channel button for 10 seconds (the LED should blink green)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "relay_board_2_channel",
+      "name": {
+        "en": "2 Channel Relay Board"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/relay_board_2_channel/assets/images/large.png",
+        "small": "/drivers/relay_board_2_channel/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_nuenzetq"
+        ],
+        "productId": [
+          "TS0002"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "2 Channel Relay Board"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/relay_board_2_channel/assets/icon.svg",
+          "instruction": {
+            "en": "Two tiles will be created, one for each channel of the device. Press the setup button combined with 1 channel button for 10 seconds (the LED should blink green)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "relay_board_4_channel",
       "name": {
         "en": "4 Channel Relay Board"
@@ -4399,7 +6531,8 @@
           "_TZ3000_hdlpifbk",
           "_TZ3000_excgg5kb",
           "_TZ3000_u3oupgdy",
-          "_TZ3000_wkr3jqmr"
+          "_TZ3000_wkr3jqmr",
+          "_TZ3000_imaccztn"
         ],
         "productId": [
           "TS0004"
@@ -4615,11 +6748,13 @@
           "_TZ3000_hlijwsai",
           "_TZ3000_qd7hej8u",
           "_TZ3210_mja6r5ix",
-          "_TZ3000_q50zhdsc"
+          "_TZ3000_q50zhdsc",
+          "eWeLight"
         ],
         "productId": [
           "TS0505A",
-          "TS0505B"
+          "TS0505B",
+          "ZB-CL01"
         ],
         "endpoints": {
           "1": {
@@ -4641,6 +6776,144 @@
         },
         "learnmode": {
           "image": "/drivers/rgb_bulb_E27/assets/icon.svg",
+          "instruction": {
+            "en": "Power on to enter pairing mode."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation",
+        "light_temperature",
+        "light_mode"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "images": {
+        "large": "/drivers/rgb_ceiling_led_light/assets/images/large.png",
+        "small": "/drivers/rgb_ceiling_led_light/assets/images/small.png"
+      },
+      "id": "rgb_ceiling_led_light",
+      "name": {
+        "en": "RGB Ceiling Led Light"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 38,
+          "usageOff": 0.2
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3210_x13bu7za"
+        ],
+        "productId": [
+          "TS0505B"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8,
+              768
+            ],
+            "bindings": [
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/rgb_ceiling_led_light/assets/icon.svg",
+          "instruction": {
+            "en": "Power on to enter pairing mode."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation",
+        "light_temperature",
+        "light_mode"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "images": {
+        "large": "/drivers/rgb_floor_led_light/assets/images/large.png",
+        "small": "/drivers/rgb_floor_led_light/assets/images/small.png"
+      },
+      "id": "rgb_floor_led_light",
+      "name": {
+        "en": "Livarno Lux Atmosphere Floor LED Light"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 12.5,
+          "usageOff": 0.2
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_8uaoilu9"
+        ],
+        "productId": [
+          "TS0502A"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8,
+              768
+            ],
+            "bindings": [
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/rgb_floor_led_light/assets/icon.svg",
           "instruction": {
             "en": "Power on to enter pairing mode."
           }
@@ -4901,10 +7174,12 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_9cpuaca6"
+          "_TZ3000_9cpuaca6",
+          "_TZ3210_r0xgkft5"
         ],
         "productId": [
-          "TS0505A"
+          "TS0505A",
+          "TS0505B"
         ],
         "endpoints": {
           "1": {
@@ -5072,6 +7347,367 @@
       "settings": []
     },
     {
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation",
+        "light_temperature",
+        "light_mode"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "images": {
+        "large": "/drivers/rgb_wall_led_light/assets/images/large.png",
+        "small": "/drivers/rgb_wall_led_light/assets/images/small.png"
+      },
+      "id": "rgb_wall_led_light",
+      "name": {
+        "en": "Livarno Lux Smart LED Wall Light"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 10,
+          "usageOff": 0.2
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_utagpnzs",
+          "_TZ3000_5bsf8vaj"
+        ],
+        "productId": [
+          "TS0505A"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8,
+              768
+            ],
+            "bindings": [
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/rgb_wall_led_light/assets/icon.svg",
+          "instruction": {
+            "en": "Power on to enter pairing mode."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "siren",
+      "name": {
+        "en": "Siren"
+      },
+      "class": "other",
+      "capabilities": [
+        "onoff",
+        "measure_battery"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "greyout": false
+        }
+      },
+      "energy": {
+        "batteries": [
+          "CR123A",
+          "CR123A"
+        ]
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/siren/assets/images/small.png",
+        "large": "/drivers/siren/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE204_t1blo2bj"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              10,
+              25,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the button inside the battery compartment for aprox 5 seconds until the LED blinks rapidly.",
+            "sv": "Håll ned knappen inne i batterifacket i ca 5 sekunder tills LED-lampan blinkar snabbt.",
+            "it": "Tenere premuto il pulsante all'interno del vano batteria per cicrca 5 secondi finchè il LED non lampeggia rapidamente.",
+            "nl": "Houd de knop binnenin het batterijcompartiment ongeveer 5 seconden ingedrukt totdat de LED snel knippert.",
+            "de": "Drücken und halten Sie die Taste im Batteriefach ca. 5 Sekunden lang, bis die LED schnell blinkt."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "alarmvolume",
+          "type": "dropdown",
+          "label": {
+            "en": "Alarm volume",
+            "nl": "Alarm volume",
+            "de": "Alarm Lautstärke"
+          },
+          "value": "0",
+          "hint": {
+            "en": "Set the volume of the Alarm sound",
+            "nl": "Aanpassen volume van Alarm geluid",
+            "de": "Einstellen der Lautstärke des Alarmtons"
+          },
+          "values": [
+            {
+              "id": "2",
+              "label": {
+                "en": "Low",
+                "nl": "Laag",
+                "de": "Niedrig"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Midle",
+                "nl": "Middelmatig",
+                "de": "Mittel"
+              }
+            },
+            {
+              "id": "0",
+              "label": {
+                "en": "High (default)",
+                "nl": "Hoog (standaard)",
+                "de": "Hoch (Standard)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "alarmsoundtime",
+          "type": "number",
+          "value": 120,
+          "min": 1,
+          "max": 65535,
+          "step": 1,
+          "units": {
+            "en": "Seconds",
+            "de": "Sekunden",
+            "nl": "Seconden"
+          },
+          "label": {
+            "en": "Alarm duration time",
+            "nl": "Alarm duratie",
+            "de": "Alarmdauer"
+          },
+          "hint": {
+            "en": "Set the duration of the time the siren will sound its alarm music",
+            "nl": "Pas de tijd aan dat de sirene zijn alarm geluid laat horen",
+            "de": "Stellt die Zeitdauer ein, während der die Sirene Alarmton erklingt"
+          }
+        },
+        {
+          "id": "alarmtune",
+          "type": "dropdown",
+          "label": {
+            "en": "Alarm sound tune",
+            "nl": "Melodie/geluid alarm",
+            "de": "Alarm Melodie"
+          },
+          "value": "1",
+          "hint": {
+            "en": "Choose the tune of the alarm sound",
+            "nl": "Kies de melodie die gebruikt wordt bij alarm",
+            "de": "Wählt die Melodie des Alarmtons aus."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Doorbell Chime",
+                "nl": "Doorbell Chime",
+                "de": "Doorbell Chime"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "For Elise (default)",
+                "nl": "Fur Elise (standaard)",
+                "de": "Fur Elise (Standard)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Westminster Chimes",
+                "nl": "Westminster Chimes",
+                "de": "Westminster Chimes"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Fast double door bell",
+                "nl": "Fast double door bell",
+                "de": "Fast double door bell"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "William Tell Overture",
+                "nl": "William Tell Overture",
+                "de": "William Tell Overture"
+              }
+            },
+            {
+              "id": "5",
+              "label": {
+                "en": "Turkish March",
+                "nl": "Turkish March",
+                "de": "Turkish March"
+              }
+            },
+            {
+              "id": "6",
+              "label": {
+                "en": "Security Alarm",
+                "nl": "Security Alarm",
+                "de": "Security Alarm"
+              }
+            },
+            {
+              "id": "7",
+              "label": {
+                "en": "Chemical Spill Alert",
+                "nl": "Chemical Spill Alert",
+                "de": "Chemical Spill Alert"
+              }
+            },
+            {
+              "id": "8",
+              "label": {
+                "en": "Piercing Alarm Clock",
+                "nl": "Piercing Alarm Clock",
+                "de": "Piercing Alarm Clock"
+              }
+            },
+            {
+              "id": "9",
+              "label": {
+                "en": "Smoke Alarm",
+                "nl": "Smoke Alarm",
+                "de": "Smoke Alarm"
+              }
+            },
+            {
+              "id": "10",
+              "label": {
+                "en": "Dog Barking",
+                "nl": "Dog Barking",
+                "de": "Dog Barking"
+              }
+            },
+            {
+              "id": "11",
+              "label": {
+                "en": "Police Siren",
+                "nl": "Police Siren",
+                "de": "Police Siren"
+              }
+            },
+            {
+              "id": "12",
+              "label": {
+                "en": "Doorbell Chime (reverb)",
+                "nl": "Doorbell Chime (reverb)",
+                "de": "Doorbell Chime (reverb)"
+              }
+            },
+            {
+              "id": "13",
+              "label": {
+                "en": "Mechanical Telephone",
+                "nl": "Mechanical Telephone",
+                "de": "Mechanical Telephone"
+              }
+            },
+            {
+              "id": "14",
+              "label": {
+                "en": "Fire/Ambulance",
+                "nl": "Fire/Ambulance",
+                "de": "Fire/Ambulance"
+              }
+            },
+            {
+              "id": "15",
+              "label": {
+                "en": "3/1 Elevator",
+                "nl": "3/1 Elevator",
+                "de": "3/1 Elevator"
+              }
+            },
+            {
+              "id": "16",
+              "label": {
+                "en": "Buzzing Alarm Clock",
+                "nl": "Buzzing Alarm Clock",
+                "de": "Buzzing Alarm Clock"
+              }
+            },
+            {
+              "id": "17",
+              "label": {
+                "en": "School Bell",
+                "nl": "School Bell",
+                "de": "School Bell"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "sirentemphumidsensor",
       "name": {
         "en": "Siren, Temperature & Humidity Sensor"
@@ -5108,7 +7744,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE200_d0yu2xgi"
+          "_TZE200_d0yu2xgi",
+          "_TZE204_t1blo2bj"
         ],
         "productId": [
           "TS0601"
@@ -5458,6 +8095,352 @@
       "settings": []
     },
     {
+      "id": "smartPlug_DinRail",
+      "name": {
+        "en": "Smart Plug DIN Rail"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/smartPlug_DinRail/assets/images/large.png",
+        "small": "/drivers/smartPlug_DinRail/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_qeuvnohg",
+          "_TZ3000_cayepv1a",
+          "_TZ3000_lepzuhto",
+          "_TZ3000_qystbcjg"
+        ],
+        "productId": [
+          "TS0121",
+          "TSO121",
+          "TS011F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              1794,
+              2820,
+              1026,
+              57344,
+              57345
+            ],
+            "bindings": [
+              6,
+              1794,
+              2820,
+              1026,
+              57344,
+              57345
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "metering_offset",
+          "type": "number",
+          "label": {
+            "en": "Metering Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "measure_offset",
+          "type": "number",
+          "label": {
+            "en": "Measure Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "minReportPower",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for power (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportCurrent",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for current (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportVoltage",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for voltage (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "relay_status",
+          "type": "radio",
+          "label": {
+            "en": "Relay status"
+          },
+          "value": "2",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Remember last status"
+              }
+            }
+          ]
+        },
+        {
+          "id": "indicator_mode",
+          "type": "radio",
+          "label": {
+            "en": "Indicator mode"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Indicates status. The indicator comes on when the switch is turned on."
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Indicates position. The indicator comes on when the switch is turned off."
+              }
+            }
+          ]
+        },
+        {
+          "id": "child_lock",
+          "type": "radio",
+          "label": {
+            "en": "Child lock"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Release"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Lock"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smart_air_detection_box",
+      "name": {
+        "en": "Smart Air Detection Box"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_formaldehyde",
+        "measure_voc",
+        "measure_co2",
+        "measure_temperature",
+        "measure_humidity"
+      ],
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "images": {
+        "large": "/drivers/smart_air_detection_box/assets/images/large.png",
+        "small": "/drivers/smart_air_detection_box/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_yvx5lh6k",
+          "_TZE200_8ygsuhe1",
+          "_TZE200_mja3fuja",
+          "_TZE200_ryfmq5rl",
+          "_TZE200_c2fmom5z"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              4,
+              5,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smart_air_detection_box/assets/icon.svg",
+          "instruction": {
+            "en": "Press the RESET pinhole on the side of the unit for 5 seconds until LED blinks."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "smart_button_switch",
+      "name": {
+        "en": "Smart Button Switch"
+      },
+      "class": "remote",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/smart_button_switch/assets/images/large.png",
+        "small": "/drivers/smart_button_switch/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_fa9mlvja",
+          "_TZ3000_yj6k7vfo",
+          "_TZ3000_qgwcxxws"
+        ],
+        "productId": [
+          "TS0041"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smart_button_switch/assets/icon.svg",
+          "instruction": {
+            "en": "Press the button for aprox 10 seconds (the LED should start blinking)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "smart_door_window_sensor",
       "name": {
         "en": "Smart Door & Window Sensor (Lidl)"
@@ -5487,10 +8470,12 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ1800_ejwkn2h2"
+          "_TZ1800_ejwkn2h2",
+          "_TZ3000_rcuyhwe3"
         ],
         "productId": [
-          "TY0203"
+          "TY0203",
+          "TS0203"
         ],
         "endpoints": {
           "1": {
@@ -5570,10 +8555,14 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3210_eymunffl"
+          "_TZ3210_eymunffl",
+          "_TZ3000_cjfmu5he",
+          "_TZ3000_kz1anoi8",
+          "_TZ3000_mq4wujmp"
         ],
         "productId": [
-          "TS0101"
+          "TS0101",
+          "TS0049"
         ],
         "endpoints": {
           "1": {
@@ -5595,8 +8584,8 @@
         "learnmode": {
           "image": "/drivers/smart_garden_irrigation_control/assets/icon.svg",
           "instruction": {
-            "en": "Ensure the indicator light is flashing. If the indicatore light isn't flashing: press and hold the reset button for 5 seconds until the indicator light starts to flashing.",
-            "it": "Assicurarsi che l'indicatore lampeggi. Se l'indicatore non lampegga: tenere premuto il pulsante di reset per 5 secondi finchè l'indicatore non inizia a lampeggiare."
+            "en": "Ensure the indicator light is flashing. If the indicator light isn't flashing: press and hold on/off buttons for 5 seconds until the indicator light starts to flashing.",
+            "it": "Accertarsi che la spia lampeggi. Se la spia non lampeggia: tenere premuti i pulsanti di accensione/spegnimento per 5 secondi finché la spia non inizia a lampeggiare"
           }
         }
       },
@@ -5620,6 +8609,74 @@
           }
         }
       ]
+    },
+    {
+      "id": "smart_knob_switch",
+      "name": {
+        "en": "Smart Knob Switch",
+        "sv": "Smart knappdimmer"
+      },
+      "class": "remote",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "dim"
+      ],
+      "images": {
+        "large": "/drivers/smart_knob_switch/assets/images/large.png",
+        "small": "/drivers/smart_knob_switch/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_abrsvsou",
+          "_TZ3000_4fjiwweb",
+          "_TZ3000_qja6nq5z",
+          "_TZ3000_ixla93vd",
+          "_TZ3000_uri7ongn"
+        ],
+        "productId": [
+          "TS004F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              4,
+              6,
+              4096
+            ],
+            "bindings": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              25,
+              4096
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smart_knob_switch/assets/icon.svg",
+          "instruction": {
+            "en": "Press the side button for aprox 10 seconds (LED should start blinking).",
+            "sv": "Håll ned sidoknappen ca 10 sekunder (LED-lampan ska börja blinka)."
+          }
+        }
+      },
+      "settings": []
     },
     {
       "id": "smart_motion_sensor",
@@ -5706,7 +8763,9 @@
       "connectivity": [
         "zigbee"
       ],
-      "capabilities": [],
+      "capabilities": [
+        "measure_battery"
+      ],
       "images": {
         "large": "/drivers/smart_remote_1_button/assets/images/large.png",
         "small": "/drivers/smart_remote_1_button/assets/images/small.png"
@@ -5831,7 +8890,8 @@
         "manufacturerName": [
           "_TZ3000_fsiepnrh",
           "_TYZB01_qm6djpta",
-          "_TZ3000_p6ju8myv"
+          "_TZ3000_p6ju8myv",
+          "_TZ3000_eo3dttwe"
         ],
         "productId": [
           "TS0215A"
@@ -6116,7 +9176,10 @@
           "_TZ3000_eyzb8yg3",
           "_TZ3000_dksbtrzs",
           "_TZ3000_nkcobies",
-          "_TZ3000_j1v25l17"
+          "_TZ3000_j1v25l17",
+          "_TZ3000_waho4jtj",
+          "_TZ3000_3uimvkn6",
+          "_TZ3000_pjcqjtev"
         ],
         "productId": [
           "TS0121",
@@ -6576,7 +9639,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TYZB01_dsjszp0x"
+          "_TYZB01_dsjszp0x",
+          "_TYZB01_wqcac7lo"
         ],
         "productId": [
           "TS0205"
@@ -6632,7 +9696,13 @@
       "zigbee": {
         "manufacturerName": [
           "_TZE200_ntcy3xu1",
-          "_TZE200_m9skfctm"
+          "_TZE200_m9skfctm",
+          "_TZE200_rccxox8p",
+          "_TZE200_vzekyi4c",
+          "_TZE204_ntcy3xu1",
+          "_TZE200_t5p1vj8r",
+          "_TZE200_uebojraa",
+          "_TZE200_yh7aoahi"
         ],
         "productId": [
           "TS0601"
@@ -6660,6 +9730,62 @@
         }
       },
       "settings": []
+    },
+    {
+      "id": "smoke_sensor3",
+      "name": {
+        "en": "Smoke Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_battery",
+        "alarm_smoke",
+        "alarm_battery",
+        "alarm_tamper"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/smoke_sensor3/assets/images/large.png",
+        "small": "/drivers/smoke_sensor3/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3210_up3pngle"
+        ],
+        "productId": [
+          "TS0205"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1280
+            ],
+            "bindings": [
+              0,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smoke_sensor3/assets/icon.svg",
+          "instruction": {
+            "en": "Press the RESET pinhole on the side of the unit for 5 seconds until LED blinks."
+          }
+        }
+      }
     },
     {
       "id": "socket_power_strip",
@@ -6690,7 +9816,8 @@
           "_TZ3000_1obwwnmq",
           "_TZ3000_vzopcetz",
           "_TZ3000_4uf3d0ax",
-          "_TZ3000_wzauvbcs"
+          "_TZ3000_wzauvbcs",
+          "_TZ3000_vmpbygs5"
         ],
         "productId": [
           "TS011F"
@@ -7241,12 +10368,19 @@
           "usageOff": 0
         },
         "batteries": [
+          "AA",
           "AA"
         ]
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE200_myd45weu"
+          "_TZE200_myd45weu",
+          "_TZE200_ga1maeof",
+          "_TZE200_9cqcpkgb",
+          "_TZE204_myd45weu",
+          "_TZE284_aao3yzhs",
+          "_TZE284_sgabhwa6",
+          "_TZE200_2se8efxh"
         ],
         "productId": [
           "TS0601"
@@ -7264,6 +10398,65 @@
         },
         "learnmode": {
           "image": "/drivers/soilsensor/assets/icon.svg",
+          "instruction": {
+            "en": "Hold the button for 5 seconds, the button will blink.",
+            "nl": "Houd de knop 5 seconden ingedrukt, het knop zal knipperen."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "soilsensor_2",
+      "name": {
+        "en": "Soil Sensor",
+        "nl": "Vochtigheids Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "images": {
+        "large": "/drivers/soilsensor_2/assets/images/large.png",
+        "small": "/drivers/soilsensor_2/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA",
+          "AA"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE284_sgabhwa6",
+          "_TZE284_g2e6cpnw"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              61184
+            ],
+            "bindings": [
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/soilsensor_2/assets/icon.svg",
           "instruction": {
             "en": "Hold the button for 5 seconds, the button will blink.",
             "nl": "Houd de knop 5 seconden ingedrukt, het knop zal knipperen."
@@ -7311,7 +10504,6 @@
           "_TZ3000_tqlv4ug4",
           "_TZ3000_rmjr4ufz",
           "_TZ3000_mx3vgyea",
-          "_TZ3000_hhiodade",
           "_TZ3000_46t1rvdu",
           "_TZ3000_majwnphg",
           "_TZ3000_6axxqqi2"
@@ -7344,6 +10536,158 @@
         }
       },
       "settings": []
+    },
+    {
+      "id": "switch_1_gang_metering",
+      "name": {
+        "en": "1 Gang Switch Module with metering"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/switch_1_gang_metering/assets/images/large.png",
+        "small": "/drivers/switch_1_gang_metering/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_prits6g4"
+        ],
+        "productId": [
+          "TS0001"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6,
+              1794,
+              2820
+            ],
+            "bindings": [
+              6,
+              1794,
+              2820
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_1_gang_metering/assets/icon.svg",
+          "instruction": {
+            "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "metering_offset",
+          "type": "number",
+          "label": {
+            "en": "Metering Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "measure_offset",
+          "type": "number",
+          "label": {
+            "en": "Measure Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "minReportPower",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for power (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportCurrent",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for current (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportVoltage",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for voltage (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        }
+      ]
     },
     {
       "id": "switch_2_gang",
@@ -7380,9 +10724,12 @@
           "_TZ3000_bvrlqyj7",
           "_TZ3000_jl7qyupf",
           "_TZ3000_7ed9cqgi",
-          "_TZ3000_18ejxno0",
           "_TZ3000_llfaquvp",
-          "_TZ3000_lmlsduws"
+          "_TZ3000_lmlsduws",
+          "_TZ3000_qaa59zqd",
+          "_TZ3000_qcgw8qfa",
+          "_TZ3000_jcfje0kb",
+          "_TZ3000_ruxexjfz"
         ],
         "productId": [
           "TS0003",
@@ -7470,10 +10817,12 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_zmy4lslw"
+          "_TZ3000_zmy4lslw",
+          "_TZ3000_cayepv1a"
         ],
         "productId": [
-          "TS0002"
+          "TS0002",
+          "TS011F"
         ],
         "endpoints": {
           "1": {
@@ -7636,7 +10985,8 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_odzoiovu",
-          "_TZ3000_lvhy15ix"
+          "_TZ3000_lvhy15ix",
+          "_TZ3000_4o16jdca"
         ],
         "productId": [
           "TS0003"
@@ -7716,6 +11066,202 @@
       "settings": []
     },
     {
+      "id": "switch_4_gang_metering",
+      "name": {
+        "en": "4 Gang Switch Module with metering"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/switch_4_gang_metering/assets/images/large.png",
+        "small": "/drivers/switch_4_gang_metering/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_mmkbptmx"
+        ],
+        "productId": [
+          "TS0004"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6,
+              1794,
+              2820
+            ],
+            "bindings": [
+              6,
+              1794,
+              2820
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Gang Switch Module with metering - Second Switch"
+            },
+            "capabilitiesOptions": {
+              "measure_power": {
+                "approximated": true
+              }
+            }
+          },
+          "thirdSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Gang Switch Module with metering - Third Switch"
+            },
+            "capabilitiesOptions": {
+              "measure_power": {
+                "approximated": true
+              }
+            }
+          },
+          "fourthSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Gang Switch Module with metering - Fourth Switch"
+            },
+            "capabilitiesOptions": {
+              "measure_power": {
+                "approximated": true
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_4_gang_metering/assets/icon.svg",
+          "instruction": {
+            "en": "Four tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "metering_offset",
+          "type": "number",
+          "label": {
+            "en": "Metering Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "measure_offset",
+          "type": "number",
+          "label": {
+            "en": "Measure Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "minReportPower",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for power (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportCurrent",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for current (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportVoltage",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for voltage (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        }
+      ]
+    },
+    {
       "id": "temphumidsensor",
       "name": {
         "en": "Temperature & Humidity Sensor"
@@ -7760,7 +11306,9 @@
           "_TZ3000_8ybe88nf",
           "_TZ3000_fie1dpkm",
           "TUYATEC-riuj5xzs",
-          "TUYATEC-1uxx9cci"
+          "TUYATEC-1uxx9cci",
+          "_TZ3000_f2bw0b6k",
+          "TUYATEC-HaoiuWzy"
         ],
         "productId": [
           "RH3052",
@@ -7903,7 +11451,8 @@
       "zigbee": {
         "manufacturerName": [
           "_TZ3000_dowj6gyi",
-          "_TZ3000_0s1izerx"
+          "_TZ3000_0s1izerx",
+          "TUYATEC-qun7vq14"
         ],
         "productId": [
           "RH3052",
@@ -8049,10 +11598,15 @@
         "manufacturerName": [
           "_TZ3000_fllyghyj",
           "_TZ3000_xr3htd96",
-          "_TZ3000_saiqcn0y"
+          "_TZ3000_saiqcn0y",
+          "_TZE200_a8sdabtg",
+          "_TZ3000_utwgoauk",
+          "_TZ3000_zl1kmjqx",
+          "_TZ3000_6uzkisv2"
         ],
         "productId": [
-          "TS0201"
+          "TS0201",
+          "TS0601"
         ],
         "endpoints": {
           "1": {
@@ -8172,6 +11726,219 @@
       ]
     },
     {
+      "id": "temphumidsensor4",
+      "name": {
+        "en": "Temperature & Humidity Sensor",
+        "sv": "Temperatur- och fuktighetssensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "capabilitiesOptions": {},
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/temphumidsensor4/assets/images/small.png",
+        "large": "/drivers/temphumidsensor4/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE204_yjjdcqsq",
+          "_TZE200_vvmbj46n",
+          "_TZE200_yjjdcqsq",
+          "_TZE200_utkemkbs",
+          "_TZE204_upagmta9",
+          "_TZE204_utkemkbs",
+          "_TZE204_9yapgbuv",
+          "_TZE200_cirvgep4",
+          "_TZE204_cirvgep4"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              10,
+              25,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the reset button for aprox 10 seconds until the LED blinks rapidly.",
+            "sv": "Tryck in nollnings-knappen under ca 10 sekunder tills LED-lampan binkar snabbt"
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "temperature_offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset (°C)",
+            "it": "Offset della temperatura (°C)"
+          },
+          "hint": {
+            "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]",
+            "it": "Imposta un valore per compensare lo scostamento della temperatura.\nRange: -10 - 10, step ze 0.1, \ndefault: 0 [°C]",
+            "sv": "Ange ett värde för att korrigera felaktig temperatur.\nIntervall: -10 - 10, steg om 0.1, \nstandard: 0 [°C]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "humidity_offset",
+          "type": "number",
+          "label": {
+            "en": "Humidity offset (%)",
+            "nl": "Luchtvochtigheids compensatie (%)",
+            "it": "Offset dell'umidità (%)",
+            "sv": "Fuktighetskorrigering (%)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]",
+            "it": "Imposta un valore per compensare lo scostamento dell'umidità.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "sv": "Ange ett värde för att korrigera felaktig fuktighet.\nIntervall: -10 - 10, steg om 1, \nstandard: 0 [%]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "temphumidsensor5",
+      "name": {
+        "en": "Temperature & Humidity Sensor",
+        "sv": "Temperatur- och fuktighetssensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "capabilitiesOptions": {},
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/temphumidsensor5/assets/images/small.png",
+        "large": "/drivers/temphumidsensor5/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_9yapgbuv"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              10,
+              25,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the reset button for aprox 10 seconds until the LED blinks rapidly.",
+            "sv": "Tryck in nollnings-knappen under ca 10 sekunder tills LED-lampan binkar snabbt"
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "temperature_offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset (°C)",
+            "it": "Offset della temperatura (°C)"
+          },
+          "hint": {
+            "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]",
+            "it": "Imposta un valore per compensare lo scostamento della temperatura.\nRange: -10 - 10, step ze 0.1, \ndefault: 0 [°C]",
+            "sv": "Ange ett värde för att korrigera felaktig temperatur.\nIntervall: -10 - 10, steg om 0.1, \nstandard: 0 [°C]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "humidity_offset",
+          "type": "number",
+          "label": {
+            "en": "Humidity offset (%)",
+            "nl": "Luchtvochtigheids compensatie (%)",
+            "it": "Offset dell'umidità (%)",
+            "sv": "Fuktighetskorrigering (%)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]",
+            "it": "Imposta un valore per compensare lo scostamento dell'umidità.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "sv": "Ange ett värde för att korrigera felaktig fuktighet.\nIntervall: -10 - 10, steg om 1, \nstandard: 0 [%]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 1
+          }
+        }
+      ]
+    },
+    {
       "name": {
         "en": "Thermostatic Radiator Valve"
       },
@@ -8215,7 +11982,9 @@
           "_TZE200_mudxchsu",
           "_TZE200_7yoranx2",
           "_TZE200_e9ba97vf",
-          "_TZE200_kds0pmmv"
+          "_TZE200_kds0pmmv",
+          "_TZE200_kly8gjlz",
+          "_TZE200_py4cm3he"
         ],
         "productId": [
           "TS0601"
@@ -8626,6 +12395,48 @@
       "settings": []
     },
     {
+      "id": "tuya_dummy_device",
+      "name": {
+        "en": "Tuya Diagnostic Driver"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/tuya_dummy_device/assets/images/large.png",
+        "small": "/drivers/tuya_dummy_device/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE20X_xxxxxxxx"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              61184
+            ],
+            "bindings": [
+              61184
+            ]
+          }
+        }
+      },
+      "learnmode": {
+        "instruction": {
+          "en": "This driver will log all incoming Tuya datapoints. Please share diagnostic reports for analysis."
+        }
+      }
+    },
+    {
       "id": "valvecontroller",
       "name": {
         "en": "Valve Controller"
@@ -8658,7 +12469,8 @@
           "_TZ3000_tvuarksa",
           "_TZ3000_j9568h44",
           "_TZ3000_iedbgyxt",
-          "_TZ3000_w0ypwa1f"
+          "_TZ3000_w0ypwa1f",
+          "_TZ3000_5ucujjts"
         ],
         "productId": [
           "TS0111",
@@ -8732,7 +12544,8 @@
         "zigbee"
       ],
       "capabilities": [
-        "windowcoverings_set"
+        "windowcoverings_set",
+        "windowcoverings_state"
       ],
       "images": {
         "large": "/drivers/wall_curtain_switch/assets/images/large.png",
@@ -8750,7 +12563,11 @@
           "_TZ3000_8kzqqzu4",
           "_TZ3000_ltiqubue",
           "_TZ3000_dbpmpco1",
-          "_TZ3000_fvhunhxb"
+          "_TZ3000_fvhunhxb",
+          "_TZ3000_ctbafvhm",
+          "_TZ3000_qqdbccb3",
+          "_TZ3000_wptayaqr",
+          "_TZ3000_qa8s8vca"
         ],
         "productId": [
           "TS130F"
@@ -8775,7 +12592,82 @@
           }
         }
       },
-      "settings": []
+      "settings": [
+        {
+          "id": "wallcurtainswitch",
+          "type": "group",
+          "label": {
+            "en": "Motor control",
+            "de": "Motorsteuerung"
+          },
+          "children": [
+            {
+              "id": "reverse",
+              "type": "checkbox",
+              "label": {
+                "en": "Reverse",
+                "de": "Rückwärts"
+              },
+              "value": false
+            },
+            {
+              "id": "movetime",
+              "type": "number",
+              "label": {
+                "en": "Movement time",
+                "de": "Bewegungszeit"
+              },
+              "hint": {
+                "en": "The time in seconds that the transition from 0-100% takes. Be aware that open/close might take a different amount of time.",
+                "de": "Die Zeit in Sekunden, die der Übergang von 0-100% dauert. Beachte, dass das Öffnen/Schließen unterschiedlich lange dauern kann."
+              },
+              "min": 3,
+              "max": 900,
+              "step": 0.1,
+              "units": {
+                "en": "Seconds",
+                "de": "Sekunden"
+              }
+            },
+            {
+              "id": "calibration_mode",
+              "type": "checkbox",
+              "label": {
+                "en": "Calibration mode",
+                "de": "Kalibrierungsmodus"
+              },
+              "hint": {
+                "en": "Activate to start calibration mode and deactivate to stop it. The elapsed time between will be used to calibrate 0-100%. If this does not work use the \"Movement time\" setting instead.",
+                "de": "Aktiviere diese Option, um den Kalibrierungsmodus zu starten, und deaktivieren, um ihn zu beenden. Die dazwischen verstrichene Zeit wird zum Kalibrieren von 0-100% verwendet. Wenn dies nicht funktioniert, verwende stattdessen die Einstellung \"Bewegungszeit\"."
+              },
+              "value": false
+            }
+          ]
+        },
+        {
+          "id": "controls",
+          "type": "group",
+          "label": {
+            "en": "Controls",
+            "de": "Steuerelemente"
+          },
+          "children": [
+            {
+              "id": "has_state",
+              "type": "checkbox",
+              "label": {
+                "en": "State control",
+                "de": "Zustandskontrolle"
+              },
+              "hint": {
+                "en": "When enabled controls for Up/Stop/Down will be shown in addition to the percent based controls. Some external integrations (e.g. Alexa) might not be able to determine the correct device type if enabled.",
+                "de": "Wenn diese Option aktiviert ist, werden zusätzlich zu den prozentualen Steuerelementen auch Steuerelemente für Auf/Stop/Ab angezeigt. Einige externe Integrationen (z. B. Alexa) sind möglicherweise nicht in der Lage, den richtigen Gerätetyp zu bestimmen, wenn diese Option aktiviert ist."
+              },
+              "value": false
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "wall_dimmer_tuya",
@@ -8812,7 +12704,20 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE200_3p5ydos3"
+          "_TZE200_3p5ydos3",
+          "_TZE200_whpb9yts",
+          "_TZE200_ebwgzdqq",
+          "_TZE200_ctq0k47x",
+          "_TZE200_9i9dt8is",
+          "_TZE200_dfxkcots",
+          "_TZE200_w4cryh2i",
+          "_TZE200_ojzhk75b",
+          "_TZE200_9cxuhakf",
+          "_TZE200_a0syesf5",
+          "_TZE200_swaamsoy",
+          "_TZE200_p0gzbqct",
+          "_TZE204_vevc4c6g",
+          "_TZE200_0nauxa0p"
         ],
         "productId": [
           "TS0601"
@@ -8872,7 +12777,10 @@
           "_TZ3000_pzui3skt",
           "_TZ3000_f97vq5mn",
           "_TZ3000_fa9mlvja",
-          "_TZ3000_itb0omhv"
+          "_TZ3000_itb0omhv",
+          "_TZ3000_8rppvwda",
+          "_TZ3000_4upl1fcj",
+          "_TZ3000_q68478x7"
         ],
         "productId": [
           "TS0041"
@@ -9059,7 +12967,8 @@
         "manufacturerName": [
           "_TZ3000_vp6clf9d",
           "_TZ3000_ufhtxr59",
-          "_TZ3000_ee8nrt2l"
+          "_TZ3000_ee8nrt2l",
+          "_TZ3000_a4xycprs"
         ],
         "productId": [
           "TS0044"
@@ -9184,7 +13093,9 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_wkai4ga5"
+          "_TZ3000_wkai4ga5",
+          "_TZ3000_uaa99arv",
+          "_TZ3000_jcspr0tp"
         ],
         "productId": [
           "TS0044"
@@ -9234,6 +13145,316 @@
       "settings": []
     },
     {
+      "id": "wall_remote_6_gang",
+      "name": {
+        "en": "6 Gang Wall Remote"
+      },
+      "class": "remote",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [],
+      "images": {
+        "large": "/drivers/wall_remote_6_gang/assets/images/large.png",
+        "small": "/drivers/wall_remote_6_gang/assets/images/small.png"
+      },
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_iszegwpd"
+        ],
+        "productId": [
+          "TS0046"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "4": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "5": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "6": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_remote_6_gang/assets/icon.svg",
+          "instruction": {
+            "en": "Press pair button for aprox 10 seconds."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "wall_socket",
+      "name": {
+        "en": "Wall Socket with metering"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/wall_socket/assets/images/large.png",
+        "small": "/drivers/wall_socket/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_b28wrpvx",
+          "_TZ3000_4ux0ondb",
+          "_TZ3000_y4ona9me"
+        ],
+        "productId": [
+          "TS011F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6,
+              1794,
+              2820
+            ],
+            "bindings": [
+              6,
+              1794,
+              2820
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "metering_offset",
+          "type": "number",
+          "label": {
+            "en": "Metering Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "measure_offset",
+          "type": "number",
+          "label": {
+            "en": "Measure Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "minReportPower",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for power (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportCurrent",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for current (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportVoltage",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for voltage (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "relay_status",
+          "type": "radio",
+          "label": {
+            "en": "Relay status"
+          },
+          "value": "2",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Remember last status"
+              }
+            }
+          ]
+        },
+        {
+          "id": "indicator_mode",
+          "type": "radio",
+          "label": {
+            "en": "Indicator mode"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Indicates status. The indicator comes on when the switch is turned on."
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Indicates position. The indicator comes on when the switch is turned off."
+              }
+            }
+          ]
+        },
+        {
+          "id": "child_lock",
+          "type": "radio",
+          "label": {
+            "en": "Child lock"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Release"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Lock"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "wall_switch_1_gang",
       "name": {
         "en": "1 Gang Wall Switch"
@@ -9273,7 +13494,10 @@
           "_TZ3000_hafsqare",
           "_TZ3000_oaq83gqc",
           "_TZ3000_hhiodade",
-          "_TZ3000_6eyydfyg"
+          "_TZ3000_6eyydfyg",
+          "_TZ3000_ysdv91bk",
+          "_TZ3000_7jx5ypra",
+          "_TZ3000_3u4hripk"
         ],
         "productId": [
           "TS0001",
@@ -9334,9 +13558,9 @@
     {
       "id": "wall_switch_1_gang_tuya",
       "name": {
-        "en": "1 Gang Wall GPP Switch"
+        "en": "1 Gang Wall Switch"
       },
-      "class": "light",
+      "class": "socket",
       "platforms": [
         "local"
       ],
@@ -9425,7 +13649,16 @@
           "_TZ3000_5vujyute",
           "_TYZB01_2athzhfr",
           "_TZ3000_56bdyj21",
-          "_TZ3000_e98krvvk"
+          "_TZ3000_e98krvvk",
+          "_TZ3000_18ejxno0",
+          "_TZ3000_atp7xmd9",
+          "_TZ3000_mrqea2uu",
+          "_TZ3000_mklgayek",
+          "_TZ3000_p8alo7qa",
+          "_TYZB01_6g8b7at8",
+          "TUYATEC-nzrrvgco",
+          "_TZ3000_qn8qvk9y",
+          "_TZ3000_s8r1qoyq"
         ],
         "productId": [
           "TS0002",
@@ -9453,7 +13686,7 @@
         },
         "devices": {
           "secondSwitch": {
-            "class": "light",
+            "class": "socket",
             "capabilities": [
               "onoff"
             ],
@@ -9475,7 +13708,36 @@
           }
         }
       },
-      "settings": []
+      "settings": [
+        {
+          "id": "indicator_mode",
+          "type": "radio",
+          "label": {
+            "en": "Indicator mode"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Light Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Light on when switch turned on."
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Light on when the switch is turned off."
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "wall_switch_3_gang",
@@ -9515,7 +13777,10 @@
           "_TZ3000_qcdqw8nf",
           "_TZ3000_vvlivusi",
           "_TZ3000_5e5ptb24",
-          "_TZ3000_lrgccsxm"
+          "_TZ3000_lrgccsxm",
+          "_TZ3000_w05exif3",
+          "_TZ3000_qewo8dlz",
+          "_TZ3000_aezbqpcu"
         ],
         "productId": [
           "TS0003",
@@ -9588,7 +13853,36 @@
           }
         }
       },
-      "settings": []
+      "settings": [
+        {
+          "id": "indicator_mode",
+          "type": "radio",
+          "label": {
+            "en": "Indicator mode"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Light Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Light on when switch turned on."
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Light on when the switch is turned off."
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "wall_switch_4_gang",
@@ -9619,7 +13913,8 @@
         "manufacturerName": [
           "_TZ3000_r0pmi2p3",
           "_TZ3000_dku2cfsc",
-          "_TZ3000_fjt5218m"
+          "_TZ3000_fjt5218m",
+          "_TYZB01_bagt1e4o"
         ],
         "productId": [
           "TS0014",
@@ -9714,6 +14009,393 @@
           }
         }
       },
+      "settings": [
+        {
+          "id": "indicator_mode",
+          "type": "radio",
+          "label": {
+            "en": "Indicator mode"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Light Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Light on when switch turned on."
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Light on when the switch is turned off."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wall_switch_4_gang_tuya",
+      "name": {
+        "en": "4 Gang Wall Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/wall_switch_4_gang_tuya/assets/images/large.png",
+        "small": "/drivers/wall_switch_4_gang_tuya/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_shkxsgis",
+          "_TZE204_aagrxlbd",
+          "_TZE200_aqnazj70",
+          "_TZE200_di3tfv5b",
+          "_TZE200_mexisfik",
+          "_TZE204_6wi2mope",
+          "_TZE204_iik0pquw"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              25,
+              10
+            ]
+          }
+        },
+        "devices": {
+          "secondGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Gang Wall Switch - Second Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "thirdGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Gang Wall Switch - Third Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "fourthGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Gang Wall Switch - Fourth Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_switch_4_gang_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "Four tiles will be created, one for each channel of the device. Switch the unit on and off five times and hold for 5 seconds to enter pairing mode (the LED should flash red and blue)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "wall_switch_5_gang_tuya",
+      "name": {
+        "en": "5 Gang Wall Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/wall_switch_5_gang_tuya/assets/images/large.png",
+        "small": "/drivers/wall_switch_5_gang_tuya/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_jwsjbxjs"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              25,
+              10
+            ]
+          }
+        },
+        "devices": {
+          "secondGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "5 Gang Wall Switch - Second Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "thirdGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "5 Gang Wall Switch - Third Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "fourthGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "5 Gang Wall Switch - Fourth Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "fifthGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "5 Gang Wall Switch - Fifth Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_switch_5_gang_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "Five tiles will be created, one for each channel of the device. Switch the unit on and off five times and hold for 5 seconds to enter pairing mode (the LED should flash red and blue)."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "wall_switch_6_gang_tuya",
+      "name": {
+        "en": "6 Gang Wall Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/wall_switch_6_gang_tuya/assets/images/large.png",
+        "small": "/drivers/wall_switch_6_gang_tuya/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_r731zlxk",
+          "_TZE200_9mahtqtg"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              25,
+              10
+            ]
+          }
+        },
+        "devices": {
+          "secondGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "6 Gang Wall Switch - Second Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "thirdGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "6 Gang Wall Switch - Third Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "fourthGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "6 Gang Wall Switch - Fourth Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "fifthGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "6 Gang Wall Switch - Fifth Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "sixthGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "6 Gang Wall Switch - Sixth Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_switch_6_gang_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "Six tiles will be created, one for each channel of the device. Switch the unit on and off five times and hold for 5 seconds to enter pairing mode (the LED should flash red and blue)."
+          }
+        }
+      },
       "settings": []
     },
     {
@@ -9723,15 +14405,21 @@
       "class": "thermostat",
       "capabilities": [
         "onoff",
+        "thermostat_programming",
         "measure_temperature",
-        "target_temperature"
+        "target_temperature",
+        "child_lock"
       ],
       "images": {
         "large": "/drivers/wall_thermostat/assets/images/large.jpg",
         "small": "/drivers/wall_thermostat/assets/images/small.jpg"
       },
       "zigbee": {
-        "manufacturerName": "_TZE200_aoclfnxz",
+        "manufacturerName": [
+          "_TZE200_aoclfnxz",
+          "_TZE204_aoclfnxz",
+          "_TZE200_2ekuz3dz"
+        ],
         "productId": [
           "TS0601"
         ],
@@ -9805,7 +14493,11 @@
           "_TZ3000_0s9gukzt",
           "_TZ3000_kstbkt6a",
           "_TZ3000_mugyhz0q",
-          "_TZ3000_upgcbody"
+          "_TZ3000_upgcbody",
+          "_TZ3000_k4ej3ww2",
+          "_TZ3000_6oabgtzv",
+          "_TZ3000_ocjlo4ea",
+          "_TZ3000_awvmkayh"
         ],
         "productId": [
           "TS0207",
@@ -9862,7 +14554,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE200_qq9mpfhw"
+          "_TZE200_qq9mpfhw",
+          "_TZE200_jthf7vb6"
         ],
         "productId": [
           "TS0601"
@@ -9912,7 +14605,10 @@
           "_TZ3000_5k5vh43t",
           "_TZ3000_ufttklsz",
           "_TZ3000_gszjt2xx",
-          "_TZ3000_nkkl7uzv"
+          "_TZ3000_nkkl7uzv",
+          "_TZ3000_nlsszmzl",
+          "_TZ3000_misw04hq",
+          "_TZ3000_wlquqiiz"
         ],
         "productId": [
           "TS0207"
@@ -9985,6 +14681,17 @@
         "ru": "Сигнал дыхания выключен",
         "pl": "Czujnik oddechu wyłączony"
       }
+    },
+    "alarm_cleaning": {
+      "type": "boolean",
+      "title": {
+        "en": "Cleaning reminder",
+        "nl": "Schoonmaakherinnering"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "icon": "/assets/cleaning.svg"
     },
     "alarm_large_presence": {
       "title": {
@@ -10120,6 +14827,35 @@
       "getable": true,
       "setable": true
     },
+    "finger_bot_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Finger Bot Mode"
+      },
+      "getable": true,
+      "setable": true,
+      "values": [
+        {
+          "id": "click",
+          "title": {
+            "en": "Click"
+          }
+        },
+        {
+          "id": "switch",
+          "title": {
+            "en": "Switch"
+          }
+        },
+        {
+          "id": "program",
+          "title": {
+            "en": "Program"
+          }
+        }
+      ],
+      "uiComponent": "picker"
+    },
     "last_watering_time": {
       "type": "number",
       "title": {
@@ -10171,6 +14907,78 @@
           }
         }
       ]
+    },
+    "measure_formaldehyde": {
+      "type": "number",
+      "title": {
+        "en": "Formaldehyde",
+        "nl": "Formaldehyde",
+        "de": "Formaldehyd",
+        "fr": "Formaldéhyde",
+        "it": "Formaldeide",
+        "sv": "Formaldehyd",
+        "no": "Formaldehyd",
+        "es": "Formaldehído",
+        "da": "Formaldehyd",
+        "pl": "Formaldehyd"
+      },
+      "units": {
+        "en": "ppm",
+        "ru": "ч./млн."
+      },
+      "insights": true,
+      "desc": {
+        "en": "Formaldehyde in Parts-per-million (ppm)",
+        "nl": "Formaldehyde deeltjes per miljoen (ppm)",
+        "de": "Formaldehyd in Anteile pro Million (ppm)",
+        "fr": "Niveau de formaldéhyde en parts par million (ppm)",
+        "it": "Livello di formaldeide in parti per milione (ppm)",
+        "sv": "Formaldehyd i partiklar-per-miljon (ppm)",
+        "no": "Formaldehyd i partikler per million (ppm)",
+        "es": "Formaldehído en partes por millón (ppm)",
+        "da": "Formaldehyd i partikler-per-million (ppm)",
+        "pl": "Stężenie formaldehye w części na milion (ppm)"
+      },
+      "chartType": "spline",
+      "decimals": 4,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "measure_voc": {
+      "type": "number",
+      "title": {
+        "en": "VOC",
+        "nl": "VOC",
+        "de": "VOC",
+        "fr": "VOC",
+        "it": "VOC",
+        "sv": "VOC",
+        "no": "VOC",
+        "da": "VOC",
+        "pl": "VOC"
+      },
+      "units": {
+        "en": "ppm"
+      },
+      "insights": true,
+      "desc": {
+        "en": "VOC in Parts-per-million (ppm)",
+        "nl": "VOC deeltjes per miljoen (ppm)",
+        "de": "VOC in Anteile pro Million (ppm)",
+        "fr": "Niveau de VOC en parts par million (ppm)",
+        "it": "Livello di VOC in parti per milione (ppm)",
+        "sv": "VOC i partiklar-per-miljon (ppm)",
+        "no": "VOC i partikler per million (ppm)",
+        "es": "VOC en partes por millón (ppm)",
+        "da": "VOC i partikler-per-million (ppm)",
+        "pl": "Stężenie VOC w części na milion (ppm)"
+      },
+      "chartType": "spline",
+      "decimals": 2,
+      "getable": true,
+      "setable": false,
+      "uiVOCmponent": "sensor"
     },
     "measure_water_flow": {
       "type": "number",
@@ -10378,6 +15186,32 @@
           "id": "3",
           "title": {
             "en": "Holiday"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
+    },
+    "thermostat_programming": {
+      "type": "enum",
+      "title": {
+        "en": "Thermostat mode"
+      },
+      "desc": {
+        "en": "Mode of the thermostat"
+      },
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Manual"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Programming"
           }
         }
       ],

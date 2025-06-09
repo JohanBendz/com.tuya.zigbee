@@ -1,9 +1,9 @@
 {
     "id": "wall_switch_1_gang_tuya",
     "name": {
-      "en": "1 Gang Wall GPP Switch"
+      "en": "1 Gang Wall Switch"
     },
-    "class": "light",
+    "class": "socket",
     "platforms": ["local"],
     "connectivity": ["zigbee"],
     "capabilities": [

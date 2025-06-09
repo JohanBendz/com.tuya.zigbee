@@ -33,7 +33,16 @@
         "_TZ3000_5vujyute",
         "_TYZB01_2athzhfr",
         "_TZ3000_56bdyj21",
-        "_TZ3000_e98krvvk"
+        "_TZ3000_e98krvvk",
+        "_TZ3000_18ejxno0",
+        "_TZ3000_atp7xmd9",
+        "_TZ3000_mrqea2uu",
+        "_TZ3000_mklgayek",
+        "_TZ3000_p8alo7qa",
+        "_TYZB01_6g8b7at8",
+        "TUYATEC-nzrrvgco",
+        "_TZ3000_qn8qvk9y",
+        "_TZ3000_s8r1qoyq"
       ],
       "productId": [
         "TS0002",
@@ -52,7 +61,7 @@
       },
       "devices": {
         "secondSwitch": {
-          "class": "light",
+          "class": "socket",
           "capabilities": ["onoff"],
           "name": {
             "en": "2 Gang Wall Switch"

@@ -18,11 +18,13 @@
       "_TZ3000_hlijwsai",
       "_TZ3000_qd7hej8u",
       "_TZ3210_mja6r5ix",
-      "_TZ3000_q50zhdsc"
+      "_TZ3000_q50zhdsc",
+      "eWeLight"
     ],
     "productId": [
       "TS0505A",
-      "TS0505B"
+      "TS0505B",
+      "ZB-CL01"
     ],
     "endpoints": {
       "1": {

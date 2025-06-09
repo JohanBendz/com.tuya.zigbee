@@ -1,4 +1,3 @@
-
 'use strict';
 
 const { ZigBeeDriver } = require('homey-zigbeedriver');

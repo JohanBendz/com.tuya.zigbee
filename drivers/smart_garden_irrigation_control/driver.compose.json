@@ -28,10 +28,14 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TZ3210_eymunffl"
+      "_TZ3210_eymunffl",
+      "_TZ3000_cjfmu5he",
+      "_TZ3000_kz1anoi8",
+      "_TZ3000_mq4wujmp"
     ],
     "productId": [
-      "TS0101"
+      "TS0101",
+      "TS0049"
     ],
     "endpoints": {
       "1": {
@@ -42,8 +46,8 @@
     "learnmode": {
       "image": "{{driverAssetsPath}}/icon.svg",
       "instruction": {
-        "en": "Ensure the indicator light is flashing. If the indicatore light isn't flashing: press and hold the reset button for 5 seconds until the indicator light starts to flashing.",
-        "it": "Assicurarsi che l'indicatore lampeggi. Se l'indicatore non lampegga: tenere premuto il pulsante di reset per 5 secondi finchè l'indicatore non inizia a lampeggiare."
+        "en": "Ensure the indicator light is flashing. If the indicator light isn't flashing: press and hold on/off buttons for 5 seconds until the indicator light starts to flashing.",
+        "it": "Accertarsi che la spia lampeggi. Se la spia non lampeggia: tenere premuti i pulsanti di accensione/spegnimento per 5 secondi finché la spia non inizia a lampeggiare"
       }
     }
   }

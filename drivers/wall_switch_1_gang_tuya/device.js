@@ -16,12 +16,13 @@ class wall_switch_1_gang_tuya extends TuyaSpecificClusterDevice {
     await super.onNodeInit({ zclNode });
 
     this.printNode();
-   // debug(true);
+/*     debug(true);
+    this.enableDebug(); */
 
-    await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
+    await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
     .catch(err => {
-          this.error('Error when reading device attributes ', err);
-          });
+      this.error('Error when reading device attributes ', err);
+    });
 
     this.registerCapabilityListener('onoff', async (onOff) => {
       try{

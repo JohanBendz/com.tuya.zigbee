@@ -1,7 +1,7 @@
 {
     "triggers": [
         {
-            "id": "alarm_breathe_presence",
+            "id": "alarm_breathe_presence_trigger",
             "title": {
                 "en": "Breath presence",
                 "nl": "Adem aanwezigheid",
@@ -36,7 +36,7 @@
             "args": []
         },
         {
-            "id": "alarm_small_presence",
+            "id": "alarm_small_presence_trigger",
             "title": {
                 "en": "Small Presence",
                 "nl": "Kleine Aanwezigheid",
@@ -71,7 +71,7 @@
             "args": []
         },
         {
-            "id": "large_small_presence",
+            "id": "large_small_presence_trigger",
             "title": {
                 "en": "Large Presence",
                 "nl": "Grote Aanwezigheid",
@@ -108,21 +108,21 @@
     ],
     "conditions": [
         {
-            "id": "alarm_breathe_presence",
+            "id": "alarm_breathe_presence_condition",
             "title": {
                 "en": "Breath Presence alarm !{{is|is not}} on",
                 "nl": "Adem aanwezigheidsalarm !{{is|is niet}} aan"
             }
         },
         {
-            "id": "alarm_small_presence",
+            "id": "alarm_small_presence_condition",
             "title": {
                 "en": "Small Presence alarm !{{is|is not}} on",
                 "nl": "Kleine aanwezigheidsalarm !{{is|is niet}} aan"
             }
         },
         {
-            "id": "alarm_large_presence",
+            "id": "alarm_large_presence_condition",
             "title": {
                 "en": "Large Presence alarm !{{is|is not}} on",
                 "nl": "Groot aanwezigheidsalarm !{{is|is niet}} aan"

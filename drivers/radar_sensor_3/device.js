@@ -266,13 +266,13 @@ class radarSensor_3 extends TuyaSpecificClusterDevice {
     );
 
     this.breathCondition.registerRunListener(async (args, state) => {
-      return this.getCapabilityValue("alarm_breathe_presence");
+      return this.getCapabilityValue("alarm_breathe_presence_condition");
     });
     this.smallCondition.registerRunListener(async (args, state) => {
-      return this.getCapabilityValue("alarm_small_presence");
+      return this.getCapabilityValue("alarm_small_presence_condition");
     });
     this.largeCondition.registerRunListener(async (args, state) => {
-      return this.getCapabilityValue("alarm_large_presence");
+      return this.getCapabilityValue("alarm_large_presence_condition");
     });
 
 
@@ -346,9 +346,9 @@ class radarSensor_3 extends TuyaSpecificClusterDevice {
         switch (value) {
           case 0:
             this.log("None");
-            this.setCapabilityValue("alarm_small_presence", false);
-            this.setCapabilityValue("alarm_large_presence", false);
-            this.setCapabilityValue("alarm_breathe_presence", false);
+            this.setCapabilityValue("alarm_small_presence_trigger", false);
+            this.setCapabilityValue("alarm_large_presence_trigger", false);
+            this.setCapabilityValue("alarm_breathe_presence_trigger", false);
             this.breathAlarmOffTrigger.trigger();
             this.smallAlarmOffTrigger.trigger();
             this.largeAlarmOffTrigger.trigger();
@@ -356,18 +356,18 @@ class radarSensor_3 extends TuyaSpecificClusterDevice {
             break;
           case 1:
             this.log("Large");
-            this.setCapabilityValue("alarm_small_presence", false);
-            this.setCapabilityValue("alarm_large_presence", true);
-            this.setCapabilityValue("alarm_breathe_presence", false);
+            this.setCapabilityValue("alarm_small_presence_trigger", false);
+            this.setCapabilityValue("alarm_large_presence_trigger", true);
+            this.setCapabilityValue("alarm_breathe_presence_trigger", false);
             this.breathAlarmOffTrigger.trigger();
             this.smallAlarmOffTrigger.trigger();
             this.largeAlarmOnTrigger.trigger();
             break;
           case 2:
             this.log("Small");
-            this.setCapabilityValue("alarm_small_presence", true);
-            this.setCapabilityValue("alarm_large_presence", false);
-            this.setCapabilityValue("alarm_breathe_presence", false);
+            this.setCapabilityValue("alarm_small_presence_trigger", true);
+            this.setCapabilityValue("alarm_large_presence_trigger", false);
+            this.setCapabilityValue("alarm_breathe_presence_trigger", false);
 
             this.breathAlarmOffTrigger.trigger();
             this.smallAlarmOnTrigger.trigger();
@@ -375,9 +375,9 @@ class radarSensor_3 extends TuyaSpecificClusterDevice {
             break;
           case 3:
             this.log("Breathe");
-            this.setCapabilityValue("alarm_small_presence", false);
-            this.setCapabilityValue("alarm_large_presence", false);
-            this.setCapabilityValue("alarm_breathe_presence", true);
+            this.setCapabilityValue("alarm_small_presence_trigger", false);
+            this.setCapabilityValue("alarm_large_presence_trigger", false);
+            this.setCapabilityValue("alarm_breathe_presence_trigger", true);
             this.breathAlarmOnTrigger.trigger();
             this.smallAlarmOffTrigger.trigger();
             this.largeAlarmOffTrigger.trigger();

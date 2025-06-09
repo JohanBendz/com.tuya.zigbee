@@ -17,22 +17,46 @@ class IrrigationController extends ZigBeeDevice {
 
     this.registerCapability('onoff', CLUSTER.ON_OFF);
 
-    this.registerCapabilityListener("onoff", async (value, options) =>{
+    this.registerCapabilityListener("onoff", async (value, options) => {
       this.log("value "+value);
       this.log("options "+options.duration);
       if (value && options.duration != undefined ){
         await zclNode.endpoints[1].clusters['onOff'].setOn();
-        await new Promise(resolve => setTimeout(resolve, options.duration));
-        await zclNode.endpoints[1].clusters['onOff'].setOff();
-      }else if(value && options.duration === undefined){
+        this._onOffTimeout = this.homey.setTimeout(async () => {
+          await zclNode.endpoints[1].clusters['onOff'].setOff();
+        }, options.duration);
+      } else if(value && options.duration === undefined){
         await zclNode.endpoints[1].clusters['onOff'].setOn();
-      }else if(!value && options.duration === undefined){
+      } else if(!value && options.duration === undefined){
         await zclNode.endpoints[1].clusters['onOff'].setOff();
       }
     });
   
-    // measure_battery // alarm_battery
-		zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME].on('attr.batteryPercentageRemaining', this.onBatteryPercentageRemainingAttributeReport.bind(this));
+    await this.configureAttributeReporting([
+      {
+          endpointId: 1,
+          cluster: CLUSTER.POWER_CONFIGURATION,
+          attributeName: 'batteryPercentageRemaining',
+          minInterval: 60, // Minimum interval (1 minute)
+          maxInterval: 21600, // Maximum interval (6 hours)
+          minChange: 1, // Report changes greater than 1%
+      }
+    ]);
+
+    zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION].on('report', (report) => {
+      if (report.batteryPercentageRemaining !== undefined) {
+        const batteryPercentage = report.batteryPercentageRemaining / 2; // Convert to percentage
+        const batteryThreshold = this.getSetting('batteryThreshold') || 20;
+        this.log('Battery percentage received:', batteryPercentage);
+
+        this.setCapabilityValue('measure_battery', batteryPercentage).catch((err) => {
+          this.error('Failed to update battery level', err);
+        });
+
+        this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining/2 < batteryThreshold) ? true : false).catch(this.error);
+
+      }
+    });
 
   }
 
@@ -40,12 +64,11 @@ class IrrigationController extends ZigBeeDevice {
     this.log('Smart irrigation controller removed');
   }
 
-  onBatteryPercentageRemainingAttributeReport(batteryPercentageRemaining) {
-		const batteryThreshold = this.getSetting('batteryThreshold') || 20;
-		this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", batteryPercentageRemaining/2);
-		this.setCapabilityValue('measure_battery', batteryPercentageRemaining/2).catch(this.error);
-		this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining/2 < batteryThreshold) ? true : false).catch(this.error);
-	}
+  onUninit() {
+    if (this._onOffTimeout) {
+      this.homey.clearTimeout(this._onOffTimeout);
+    }
+  }
 
 }
 

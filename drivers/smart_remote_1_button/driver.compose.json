@@ -6,7 +6,9 @@
     "class": "remote",
     "platforms": ["local"],
     "connectivity": ["zigbee"],
-    "capabilities": [ ],
+    "capabilities": [
+      "measure_battery"
+    ],
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",
       "small": "{{driverAssetsPath}}/images/small.png"

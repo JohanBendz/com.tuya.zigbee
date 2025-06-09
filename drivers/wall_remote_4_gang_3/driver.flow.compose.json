@@ -13,49 +13,73 @@
             {
               "id": "leftUp-oneClick",
               "label": {
-                "en": "Upper Left Button: 1 Click"
+                "en": "upper left button was pressed 1 time"
               }
             },
             {
               "id": "leftUp-twoClicks",
               "label": {
-                "en": "Upper Left Button: 2 Clicks"
+                "en": "upper left button was pressed 2 times"
+              }
+            },
+            {
+              "id": "leftUp-longPress",
+              "label": {
+                "en": "upper left button was held down"
               }
             },
             {
               "id": "rightUp-oneClick",
               "label": {
-                "en": "Upper Right Button: 1 Click"
+                "en": "upper right button was pressed 1 time"
               }
             },
             {
               "id": "rightUp-twoClicks",
               "label": {
-                "en": "Upper Right Button: 2 Clicks"
+                "en": "upper right button was pressed 2 times"
+              }
+            },
+            {
+              "id": "rightUp-longPress",
+              "label": {
+                "en": "upper right button was held down"
               }
             },
             {
               "id": "leftDown-oneClick",
               "label": {
-                "en": "Lower Left Button: 1 Click"
+                "en": "lower left button was pressed 1 time"
               }
             },
             {
               "id": "leftDown-twoClicks",
               "label": {
-                "en": "Lower Left Button: 2 Clicks"
+                "en": "lower left button was pressed 2 times"
+              }
+            },
+            {
+              "id": "leftDown-longPress",
+              "label": {
+                "en": "lower left button was held down"
               }
             },
             {
               "id": "rightDown-oneClick",
               "label": {
-                "en": "Lower Right Button: 1 Click"
+                "en": "lower right button was pressed 1 time"
               }
             },
             {
               "id": "rightDown-twoClicks",
               "label": {
-                "en": "Lower Right Button: 2 Clicks"
+                "en": "lower right button was pressed 2 times"
+              }
+            },
+            {
+              "id": "rightDown-longPress",
+              "label": {
+                "en": "lower right button was held down"
               }
             }
           ]

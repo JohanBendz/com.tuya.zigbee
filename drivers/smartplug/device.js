@@ -40,7 +40,7 @@ class smartplug extends ZigBeeDevice {
         this.getClusterEndpoint(CLUSTER.ELECTRICAL_MEASUREMENT)
       ]
       .clusters[CLUSTER.ELECTRICAL_MEASUREMENT.NAME]
-      .readAttributes('acPowerMultiplier', 'acPowerDivisor');
+      .readAttributes(['acPowerMultiplier', 'acPowerDivisor']);
       this.activePowerFactor = acPowerMultiplier / acPowerDivisor;
       this.log("Active Power Factor: ", this.meteringFactor);
     }
@@ -49,15 +49,15 @@ class smartplug extends ZigBeeDevice {
         this.getClusterEndpoint(CLUSTER.METERING)
       ]
       .clusters[CLUSTER.METERING.NAME]
-      .readAttributes('multiplier', 'divisor');
+      .readAttributes(['multiplier', 'divisor']);
       this.meteringFactor = multiplier / divisor;
       this.log("Metering Factor: ", this.meteringFactor);
     } */
  
     try {
-      const relayStatus = await this.zclNode.endpoints[1].clusters.onOff.readAttributes('relayStatus');
-      const childLock = await this.zclNode.endpoints[1].clusters.onOff.readAttributes('childLock');
-      const indicatorMode = await this.zclNode.endpoints[1].clusters.onOff.readAttributes('indicatorMode');
+      const relayStatus = await this.zclNode.endpoints[1].clusters.onOff.readAttributes(['relayStatus']);
+      const childLock = await this.zclNode.endpoints[1].clusters.onOff.readAttributes(['childLock']);
+      const indicatorMode = await this.zclNode.endpoints[1].clusters.onOff.readAttributes(['indicatorMode']);
 
       this.log("Relay Status supported by device");
 
@@ -111,7 +111,7 @@ class smartplug extends ZigBeeDevice {
       }
     });
 
-    await zclNode.endpoints[1].clusters.basic.readAttributes('manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus')
+    await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
     .catch(err => {
         this.error('Error when reading device attributes ', err);
     });
