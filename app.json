@@ -843,7 +843,7 @@
           "de": "Wasserflow Niveau geändert",
           "fr": "Intensité lumineuse a été modifiée",
           "it": "Intensità luminosa modificata",
-          "sv": "water_flowningsnivå ändrades",
+          "sv": "water flowningsnivå ändrades",
           "no": "Dempingsnivå ble endret",
           "es": "La intensidad de la luz ha cambiado",
           "da": "Lysniveau ændret",
@@ -5574,8 +5574,7 @@
           "_TZE200_jva8ink8",
           "_TZE200_lyetpprm",
           "_TZE200_ikvncluo",
-          "_TZE204_ztqnh5cg",
-          "_TZE204_7gclukjs"
+          "_TZE204_ztqnh5cg"
         ],
         "productId": [
           "TS0601"
@@ -5881,16 +5880,21 @@
             "clusters": [
               0,
               3,
+              1024,
               1280,
-              57346,
-              61184,
-              60928,
               57344,
-              1024
+              57346,
+              60928,
+              61184
             ],
             "bindings": [
               258,
-              61148
+              61148,
+              3,
+              57344,
+              57346,
+              60928,
+              61184
             ]
           }
         },
@@ -6137,132 +6141,6 @@
               }
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "radar_sensor_ceiling",
-      "name": {
-        "en": "Radar Sensor ceiling"
-      },
-      "class": "sensor",
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "zigbee"
-      ],
-      "capabilities": [
-        "measure_luminance",
-        "alarm_motion"
-      ],
-      "images": {
-        "large": "/drivers/radar_sensor_ceiling/assets/images/large.png",
-        "small": "/drivers/radar_sensor_ceiling/assets/images/small.png"
-      },
-      "energy": {
-        "approximation": {
-          "usageOn": 0,
-          "usageOff": 0
-        }
-      },
-      "zigbee": {
-        "manufacturerName": [
-          "_TZE200_2aaelwxk"
-        ],
-        "productId": [
-          "TS0225"
-        ],
-        "endpoints": {
-          "1": {
-            "clusters": [
-              0,
-              3,
-              1024,
-              1280,
-              57344,
-              57346,
-              60928,
-              61184
-            ],
-            "bindings": [
-              3,
-              57344,
-              57346,
-              60928,
-              61184
-            ]
-          }
-        },
-        "learnmode": {
-          "image": "/drivers/radar_sensor_ceiling/assets/icon.svg",
-          "instruction": {
-            "en": "Press and hold the reset button for 5 seconds. When the indicator light flashes it is in pairing mode."
-          }
-        }
-      },
-      "settings": [
-        {
-          "id": "radar_sensitivity",
-          "type": "number",
-          "label": {
-            "en": "Radar sensitivity"
-          },
-          "value": 7,
-          "min": 1,
-          "max": 9
-        },
-        {
-          "id": "minimum_range",
-          "type": "number",
-          "label": {
-            "en": "Minimum range"
-          },
-          "value": 0,
-          "min": 0,
-          "max": 9.5,
-          "units": {
-            "en": "meters"
-          }
-        },
-        {
-          "id": "maximum_range",
-          "type": "number",
-          "label": {
-            "en": "Maximum range"
-          },
-          "value": 9.5,
-          "min": 0,
-          "max": 9.5,
-          "units": {
-            "en": "meters"
-          }
-        },
-        {
-          "id": "detection_delay",
-          "type": "number",
-          "label": {
-            "en": "Detection delay"
-          },
-          "value": 7,
-          "min": 0,
-          "max": 10,
-          "units": {
-            "en": "seconds"
-          }
-        },
-        {
-          "id": "fading_time",
-          "type": "number",
-          "label": {
-            "en": "Fading time"
-          },
-          "value": 7,
-          "min": 0,
-          "max": 1500,
-          "units": {
-            "en": "seconds"
-          }
         }
       ]
     },

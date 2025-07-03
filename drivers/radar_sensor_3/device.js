@@ -1,6 +1,7 @@
 "use strict";
 
-const { Cluster, CLUSTER } = require("zigbee-clusters");
+
+const { Cluster, CLUSTER, debug } = require("zigbee-clusters");
 const TuyaSpecificCluster = require("../../lib/TuyaSpecificCluster");
 const TuyaSpecificClusterDevice = require("../../lib/TuyaSpecificClusterDevice");
 
@@ -100,6 +101,7 @@ Cluster.addCluster(TuyaSpecificCluster);
 // }
 
 const setDeviceDatapoints = (manufacturerName) => {
+
   switch (manufacturerName) {
     case "_TZE200_2aaelwxk":
       return {
@@ -128,19 +130,33 @@ const setDeviceDatapoints = (manufacturerName) => {
         auto2: 119,
         auto3: 120,
       };
-      break;
-
     default:
-    // return {
-    //   tshpsPresenceState: 1,
-    //   tshpscSensitivity: 2,
-    //   tshpsMinimumRange: 3,
-    //   tshpsMaximumRange: 4,
-    //   tshpsTargetDistance: 9,
-    //   tshpsDetectionDelay: 101,
-    //   tshpsFadingTime: 102,
-    //   tshpsIlluminanceLux: 104,
-    // };
+      return {
+        presence: 1, // [0/1]
+        motion_detection_sensitivity: 2, // [0-10, 1, x]
+        mov_minimum_distance: 3, //
+        motion_detection_distance: 4, // [0-10, 0.01, m]
+        human_motion_state: 101, // [enum(0,1,2,3) none, large, small, breathe]
+        fading_time: 102, // [0-28800, 1, s]
+        motion_false_detection: 103, // [0-10, 1, x]
+        small_motion_detection_distance: 104, // [0-6, 0.01, m]
+        small_motion_detection_sensitivity: 105, // [0-10, 1, x]
+        illuminance_value: 106, // (lux)
+        indicator: 107, // LED Indicator
+        static_detection_distance: 108, // [0-6, 0.01, m]
+        static_detection_sensitivity: 109, // [0-10, 1, x]
+        micro_minimum_distance: 110,
+        motionless_minimum_distance: 111,
+        reset_setting: 112,
+        breathe_false_detection: 113, // [0/1]
+        time: 114,
+        alarm_time: 115, // [1-60, 1, m]
+        alarm_volume: 116, // [enum(0: low, 1: medium, 2: high, 3: mute)]
+        working_mode: 117, // [enum(0: arm, 1: off, 2: alarm, 3: doorbell)]
+        auto1: 118,
+        auto2: 119,
+        auto3: 120,
+      };
   }
 };
 
@@ -228,13 +244,19 @@ const getDataValue = (dpValue) => {
   }
 };
 
-class radarSensor_3 extends TuyaSpecificClusterDevice {
+class radarSensor3 extends TuyaSpecificClusterDevice {
   async onNodeInit({ zclNode }) {
-    this.manufacturerName = this.getSetting("zb_manufacturer_name");
 
+    // Read basic device attributes
+    const basicAttributes = await zclNode.endpoints[1].clusters.basic.readAttributes(
+      ['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus']
+    ).catch(err => {
+      this.error('Error when reading device attributes:', err.message, err);
+    });
+    this.printNodeDetails(basicAttributes);
+
+    this.manufacturerName = basicAttributes.manufacturerName;
     this.dataPoints = setDeviceDatapoints(this.manufacturerName);
-
-     this.printNode();
 
     this.breathAlarmOffTrigger = this.homey.flow.getTriggerCard(
       "the-breath-alarm-turned-off"
@@ -276,23 +298,6 @@ class radarSensor_3 extends TuyaSpecificClusterDevice {
     });
 
 
-    await zclNode.endpoints[1].clusters.basic
-      .readAttributes(
-        "zclVersion",
-        "appVersion",
-        "stackVersion",
-        "hwVersion",
-        "manufacturerName",
-        "modelId",
-        "powerSource",
-        "deviceEnabled",
-        "swBuildId",
-        "attributeReportingStatus"
-      )
-      .catch((err) => {
-        this.error("Error when reading device attributes ", err);
-      });
-
     zclNode.endpoints[1].clusters.tuya.on("response", (value) =>
       this.updatePosition(value)
     );
@@ -319,6 +324,12 @@ class radarSensor_3 extends TuyaSpecificClusterDevice {
     );
   }
 
+  printNodeDetails(basicAttributes) {
+    this.log("Initializing node with the following details:");
+    this.log("Manufacturer:", basicAttributes.manufacturerName);
+    this.log("Model ID:", basicAttributes.modelId);
+  }
+
   processReporting(data) {
     this.log("########### Reporting: ", data);
   }
@@ -334,98 +345,107 @@ class radarSensor_3 extends TuyaSpecificClusterDevice {
     const value = getDataValue(data);
     const dataType = data.datatype;
 
-    switch (dp) {
-      case this.dataPoints.presence:
-        this.log("presence state: ", value);
-        this.setCapabilityValue("alarm_motion", Boolean(value));
-        break;
+    if (this.dataPoints !== undefined) {
 
-      case this.dataPoints.human_motion_state:
-        this.log("IAS Zone: ", value);
+      switch (dp) {
+        case this.dataPoints.presence:
+          this.log("presence state: ", value);
+          this.setCapabilityValue("alarm_motion", Boolean(value));
+          break;
 
-        switch (value) {
-          case 0:
-            this.log("None");
-            this.setCapabilityValue("alarm_small_presence_trigger", false);
-            this.setCapabilityValue("alarm_large_presence_trigger", false);
-            this.setCapabilityValue("alarm_breathe_presence_trigger", false);
-            this.breathAlarmOffTrigger.trigger();
-            this.smallAlarmOffTrigger.trigger();
-            this.largeAlarmOffTrigger.trigger();
+        case this.dataPoints.human_motion_state:
+          this.log("IAS Zone: ", value);
 
-            break;
-          case 1:
-            this.log("Large");
-            this.setCapabilityValue("alarm_small_presence_trigger", false);
-            this.setCapabilityValue("alarm_large_presence_trigger", true);
-            this.setCapabilityValue("alarm_breathe_presence_trigger", false);
-            this.breathAlarmOffTrigger.trigger();
-            this.smallAlarmOffTrigger.trigger();
-            this.largeAlarmOnTrigger.trigger();
-            break;
-          case 2:
-            this.log("Small");
-            this.setCapabilityValue("alarm_small_presence_trigger", true);
-            this.setCapabilityValue("alarm_large_presence_trigger", false);
-            this.setCapabilityValue("alarm_breathe_presence_trigger", false);
+          switch (value) {
+            case 0:
+              this.log("None");
+              this.setCapabilityValue("alarm_small_presence", false);
+              this.setCapabilityValue("alarm_large_presence", false);
+              this.setCapabilityValue("alarm_breathe_presence", false);
+              this.breathAlarmOffTrigger.trigger();
+              this.smallAlarmOffTrigger.trigger();
+              this.largeAlarmOffTrigger.trigger();
 
-            this.breathAlarmOffTrigger.trigger();
-            this.smallAlarmOnTrigger.trigger();
-            this.largeAlarmOffTrigger.trigger();
-            break;
-          case 3:
-            this.log("Breathe");
-            this.setCapabilityValue("alarm_small_presence_trigger", false);
-            this.setCapabilityValue("alarm_large_presence_trigger", false);
-            this.setCapabilityValue("alarm_breathe_presence_trigger", true);
-            this.breathAlarmOnTrigger.trigger();
-            this.smallAlarmOffTrigger.trigger();
-            this.largeAlarmOffTrigger.trigger();
-            break;
-        }
-        break;
+              break;
+            case 1:
+              this.log("Large");
+              this.setCapabilityValue("alarm_small_presence", false);
+              this.setCapabilityValue("alarm_large_presence", true);
+              this.setCapabilityValue("alarm_breathe_presence", false);
+              this.breathAlarmOffTrigger.trigger();
+              this.smallAlarmOffTrigger.trigger();
+              this.largeAlarmOnTrigger.trigger();
+              break;
+            case 2:
+              this.log("Small");
+              this.setCapabilityValue("alarm_small_presence", true);
+              this.setCapabilityValue("alarm_large_presence", false);
+              this.setCapabilityValue("alarm_breathe_presence", false);
 
-      case this.dataPoints.illuminance_value:
-        this.onIlluminanceMeasuredAttributeReport(value);
-        break;
+              this.breathAlarmOffTrigger.trigger();
+              this.smallAlarmOnTrigger.trigger();
+              this.largeAlarmOffTrigger.trigger();
+              break;
+            case 3:
+              this.log("Breathe");
+              this.setCapabilityValue("alarm_small_presence", false);
+              this.setCapabilityValue("alarm_large_presence", false);
+              this.setCapabilityValue("alarm_breathe_presence", true);
+              this.breathAlarmOnTrigger.trigger();
+              this.smallAlarmOffTrigger.trigger();
+              this.largeAlarmOffTrigger.trigger();
+              break;
+          }
+          break;
 
-      // INIT SETTINGS VALUES
-      case this.dataPoints.motion_detection_sensitivity:
-      case this.dataPoints.mov_minimum_distance:
-      case this.dataPoints.motion_detection_distance:
-      case this.dataPoints.fading_time:
-      case this.dataPoints.motion_false_detection:
-      case this.dataPoints.small_motion_detection_distance:
-      case this.dataPoints.small_motion_detection_sensitivity:
-      case this.dataPoints.indicator:
-      case this.dataPoints.static_detection_distance:
-      case this.dataPoints.static_detection_sensitivity:
-      case this.dataPoints.micro_minimum_distance:
-      case this.dataPoints.motionless_minimum_distance:
-      case this.dataPoints.breathe_false_detection:
-      case this.dataPoints.alarm_time:
-      case this.dataPoints.alarm_volume:
-      case this.dataPoints.working_mode:
-      case this.dataPoints.auto1:
-      case this.dataPoints.auto2:
-      case this.dataPoints.auto3:
-        const settings = this.getSettings();
-        const dataPointKey = Object.keys(this.dataPoints).find(
-          (key) => this.dataPoints[key] === dp
-        );
-        this.log("Setting value for key --> ", dataPointKey, " = ", value);
-        if (!dataPointKey && !settings[dataPointKey]) {
-          this.log("No settings for key --> ", dataPointKey);
-        }
-        if (dataPointKey && settings[dataPointKey] && this.isFirstInit()) {
-          await this.setSettings({
-            [dataPointKey]: value,
-          });
-        }
-        break;
+        case this.dataPoints.illuminance_value:
+          this.onIlluminanceMeasuredAttributeReport(value);
+          break;
 
-      default:
-        this.log("Unknown Datapoint -->", "DP: " + dp, "Value: " + value);
+        // INIT SETTINGS VALUES
+        case this.dataPoints.motion_detection_sensitivity:
+        case this.dataPoints.mov_minimum_distance:
+        case this.dataPoints.motion_detection_distance:
+        case this.dataPoints.fading_time:
+        case this.dataPoints.motion_false_detection:
+        case this.dataPoints.small_motion_detection_distance:
+        case this.dataPoints.small_motion_detection_sensitivity:
+        case this.dataPoints.indicator:
+        case this.dataPoints.static_detection_distance:
+        case this.dataPoints.static_detection_sensitivity:
+        case this.dataPoints.micro_minimum_distance:
+        case this.dataPoints.motionless_minimum_distance:
+        case this.dataPoints.breathe_false_detection:
+        case this.dataPoints.alarm_time:
+        case this.dataPoints.alarm_volume:
+        case this.dataPoints.working_mode:
+        case this.dataPoints.auto1:
+        case this.dataPoints.auto2:
+        case this.dataPoints.auto3:
+          const settings = this.getSettings();
+          const dataPointKey = Object.keys(this.dataPoints).find(
+            (key) => this.dataPoints[key] === dp
+          );
+          this.log("Setting value for key --> ", dataPointKey, " = ", value);
+          if (!dataPointKey && !settings[dataPointKey]) {
+            this.log("No settings for key --> ", dataPointKey);
+          }
+          if (dataPointKey && settings[dataPointKey] && this.isFirstInit()) {
+            await this.setSettings({
+              [dataPointKey]: value,
+            });
+          }
+          break;
+
+        default:
+          this.log("Unknown Datapoint -->", "DP: " + dp, "Value: " + value);
+      }
+    } else {
+      this.log(
+        "No dataPoints defined for this device, please check the manufacturerName",
+        this.dataPoints
+      );
+      this.log("Unknown Datapoint -->", "DP: " + dp, "Value: " + value);
     }
   }
 
@@ -433,7 +453,7 @@ class radarSensor_3 extends TuyaSpecificClusterDevice {
     this.log("Radar sensor removed");
   }
 
-  async onSettings({newSettings, changedKeys }) {
+  async onSettings({ newSettings, changedKeys }) {
     //
     changedKeys.forEach((updatedSetting) => {
       this.log(
@@ -571,7 +591,7 @@ class radarSensor_3 extends TuyaSpecificClusterDevice {
   }
 }
 
-module.exports = radarSensor_3;
+module.exports = radarSensor3;
 
 // {
 //   "ids": {

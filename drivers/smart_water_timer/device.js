@@ -1,10 +1,10 @@
 'use strict';
 
-const Homey = require('homey');
-const { Cluster, debug, CLUSTER } = require('zigbee-clusters');
-const TuyaSpecificClusterDevice = require("../../lib/TuyaSpecificClusterDevice");
+// const Homey = require('homey');
 
-const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
+const { Cluster, debug, CLUSTER } = require("zigbee-clusters");
+const TuyaSpecificClusterDevice = require("../../lib/TuyaSpecificClusterDevice");
+const TuyaSpecificCluster = require("../../lib/TuyaSpecificCluster");
 
 Cluster.addCluster(TuyaSpecificCluster);
 
@@ -59,7 +59,22 @@ const setDeviceDatapoints = (manufacturerName) => {
         error: 104,
         max_min: 108,
       };
-      break;
+    default:
+      return {
+        valve_state_auto_shutdown: 2,
+        water_flow: 3,
+
+        shutdown_timer: 11,
+        remaining_watering_time: 101,
+        valve_state: 102, // countdown | Integer | {   "unit": "s",   "min": 0,   "max": 86400,   "scale": 0,   "step": 1
+
+        last_watering_time: 107,
+        battery: 110,
+
+        // DP received but not usefull for Homey
+        error: 104,
+        max_min: 108,
+      };
   }
 };
 
@@ -126,15 +141,15 @@ class SmartWaterTimer extends TuyaSpecificClusterDevice {
       } else {
         value = 100;
       }
-      this.writeInteger(this.dataPoints.valve_state, value);
+      this.writeData32(this.dataPoints.valve_state, value);
     });
 
     // Handler for waterflow
     this.registerCapability("measure_water_flow", CLUSTER.SCENES);
     this.registerCapabilityListener("measure_water_flow", async (value, options) => {
       this.log("measure_water_flow value: " + value * 100);
-      this.writeInteger(this.dataPoints.valve_state, value * 100);
-      if(value <= 0) {
+      this.writeData32(this.dataPoints.valve_state, value * 100);
+      if (value <= 0) {
         this.setCapabilityValue("onoff", false);
       } else {
         this.setCapabilityValue("onoff", true);
@@ -151,57 +166,58 @@ class SmartWaterTimer extends TuyaSpecificClusterDevice {
   async updateInformation(data) {
     const dp = data.dp;
     const value = getDataValue(data);
+    if (this.dataPoints !== undefined) {
+      switch (dp) {
+        case this.dataPoints.water_flow:
+          this.log("Current water flow in %: " + value);
+          this.setCapabilityValue("meter_valve_state", value).catch(
+            this.error
+          );
+          // this.setCapabilityValue("water_flow", Boolean(value));
+          break;
 
-    switch (dp) {
-      case this.dataPoints.water_flow:
-        this.log("Current water flow in %: " + value);
-        this.setCapabilityValue("meter_valve_state", value ).catch(
-          this.error
-        );
-        // this.setCapabilityValue("water_flow", Boolean(value));
-        break;
+        case this.dataPoints.last_watering_time:
+          this.log("Duration of the last watering in seconds: " + value);
+          this.setCapabilityValue("last_watering_time", value).catch(this.error);
+          // this.setCapabilityValue("last_watering_time", value);
+          break;
 
-      case this.dataPoints.last_watering_time:
-        this.log("Duration of the last watering in seconds: " + value);
-        this.setCapabilityValue("last_watering_time", value).catch(this.error);
-        // this.setCapabilityValue("last_watering_time", value);
-        break;
+        case this.dataPoints.remaining_watering_time:
+          this.log("remaining_watering_time: " + value);
+          this.setCapabilityValue("remaining_watering_time", value).catch(
+            this.error
+          );
+          break;
 
-      case this.dataPoints.remaining_watering_time:
-        this.log("remaining_watering_time: " + value);
-        this.setCapabilityValue("remaining_watering_time", value).catch(
-          this.error
-        );
-        break;
+        // case this.dataPoints.valve_state:
+        //   this.log("Set valve to %: " + value/100);
+        //   this.setCapabilityValue("meter_valve_state", value/100).catch(this.error);
+        //   // this.setCapabilityValue("valve_state", value);
+        //   break;
 
-      // case this.dataPoints.valve_state:
-      //   this.log("Set valve to %: " + value/100);
-      //   this.setCapabilityValue("meter_valve_state", value/100).catch(this.error);
-      //   // this.setCapabilityValue("valve_state", value);
-      //   break;
+        case this.dataPoints.shutdown_timer:
+          this.log("Auto shutdown in seconds.: " + value);
+          this.setCapabilityValue("shutdown_timer", value).catch(this.error);
+          break;
 
-      case this.dataPoints.shutdown_timer:
-        this.log("Auto shutdown in seconds.: " + value);
-        this.setCapabilityValue("shutdown_timer", value).catch(this.error);
-        break;
+        case this.dataPoints.valve_state_auto_shutdown:
+          this.log("Set valve to % with auto shutdown: " + value);
+          this.setCapabilityValue("valve_state_auto_shutdown", value).catch(
+            this.error
+          );
+          break;
 
-      case this.dataPoints.valve_state_auto_shutdown:
-        this.log("Set valve to % with auto shutdown: " + value);
-        this.setCapabilityValue("valve_state_auto_shutdown", value).catch(
-          this.error
-        );
-        break;
+        case this.dataPoints.battery:
+          this.log("battery_level: " + value);
+          this.setCapabilityValue(
+            "measure_battery",
+            value
+          ).catch(this.error);
+          break;
 
-      case this.dataPoints.battery:
-        this.log("battery_level: " + value);
-        this.setCapabilityValue(
-          "measure_battery",
-          value
-        ).catch(this.error);
-        break;
-
-      default:
-        this.log("dp value", dp, value);
+        default:
+          this.log("dp value", dp, value);
+      }
     }
   }
 
