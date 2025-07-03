@@ -128,6 +128,15 @@ Supported devices:
     _TZ3000_bsvqrxru / TS0202
     _TYZB01_dr6sduka / TS0202 (TESLA)
 
+- Radar Sensor
+    _TZE200_ztc6ggyl / TS0601
+    _TZE201_ztc6ggyl / TS0601
+    _TZE202_ztc6ggyl / TS0601
+    _TZE203_ztc6ggyl / TS0601
+    _TZE204_ztc6ggyl / TS0601
+    _TZE200_2aaelwxk / TS0225
+
+. Motion Sensor
 - Motion Sensor
     TUYATEC-bd5faf9p / RH3040 (Nedis)
     _TZ1800_fcdjzz3s / TY0202 (Silvercrest / Lidl)
@@ -783,6 +792,14 @@ Supported devices:
     _TZ3000_cjfmu5he / TS0049
     _TZ3000_kz1anoi8 / TS0049
     _TZ3000_mq4wujmp / TS0049
+
+- Smart Garden Irrigation With Timer
+    _TZE200_arge1ptm / TS0601 (QOTO QT-05M)
+    _TZE200_xlppj4f5 / TS0601 (Immax Neo QT-05M)
+
+- Smart Garden Irrigation With Timer
+    _TZE200_arge1ptm / TS0601 (QOTO QT-05M)
+    _TZE200_xlppj4f5 / TS0601 (Immax Neo QT-05M)
 
 - Zigbee Repeater
     _TZ3000_m0vaazab / TS0207

@@ -33,7 +33,8 @@
       "productId": [
         "TS0111",
         "TS0001",
-        "TS011F"
+        "TS011F",
+        "TS0001"
       ],
       "endpoints": {
         "1": {
