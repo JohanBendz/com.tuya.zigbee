@@ -40,7 +40,7 @@ const setDeviceDatapoints = (manufacturerName) => {
 
     default:
       return {
-        shpsPresenceState: 1,
+        tshpsPresenceState: 1,
         tshpscSensitivity: 2,
         tshpsMinimumRange: 3,
         tshpsMaximumRange: 4,
@@ -95,8 +95,16 @@ const getDataValue = (dpValue) => {
 
 class radarSensor extends TuyaSpecificClusterDevice {
   async onNodeInit({ zclNode }) {
-    this.manufacturerName = this.getSetting("zb_manufacturer_name");
 
+    // Read basic device attributes
+    const basicAttributes = await zclNode.endpoints[1].clusters.basic.readAttributes(
+      ['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus']
+    ).catch(err => {
+      this.error('Error when reading device attributes:', err.message, err);
+    });
+
+    this.manufacturerName = basicAttributes.manufacturerName;
+    // this.manufacturerName = this.getSetting("zb_manufacturer_name");
     this.dataPoints = setDeviceDatapoints(this.manufacturerName);
 
     zclNode.endpoints[1].clusters.tuya.on("response", (value) =>
@@ -126,11 +134,21 @@ class radarSensor extends TuyaSpecificClusterDevice {
         this.log("target distance: " + value)
         switch (this.manufacturerName) {
           case "_TZE204_7gclukjs":
+            if (value > 0) {
                this.setCapabilityValue("target_distance", value / 10);
+            } else {
+              this.setCapabilityValue("target_distance", 0);
+            }
+
           break;
           default:
-            if (new Date().getSeconds() % 10 === 0) {
-              this.setCapabilityValue("target_distance", value / 100);
+            if (new Date().getSeconds() % 3 === 0) {
+              if (value > 0) {
+                this.setCapabilityValue("target_distance", value / 100);
+              } else {
+                this.setCapabilityValue("target_distance", 0);
+              }
+
             }
         }
 
