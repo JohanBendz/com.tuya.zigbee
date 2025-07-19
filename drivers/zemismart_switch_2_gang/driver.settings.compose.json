@@ -1,0 +1,52 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Device Settings"
+    },
+    "children": [
+      {
+        "id": "backlight_enabled",
+        "type": "checkbox",
+        "label": {
+          "en": "Backlight"
+        },
+        "hint": {
+          "en": "Enable or disable the button LED indicator (only available on main device)"
+        },
+        "value": true
+      },
+      {
+        "id": "power_on_behavior",
+        "type": "radio",
+        "label": {
+          "en": "Power-On Behavior"
+        },
+        "hint": {
+          "en": "Switch state when power is restored after an outage (only available on main device)"
+        },
+        "value": "2",
+        "values": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Always Off"
+            }
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Always On"
+            }
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Restore Previous State"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

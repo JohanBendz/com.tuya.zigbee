@@ -1,0 +1,41 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Device Settings"
+    },
+    "children": [
+      {
+        "id": "power_on_behavior",
+        "type": "dropdown",
+        "label": {
+          "en": "Power-On Behavior"
+        },
+        "hint": {
+          "en": "How switches behave when power returns after outage"
+        },
+        "value": "memory",
+        "values": [
+          {
+            "id": "off",
+            "label": {
+              "en": "Always Off"
+            }
+          },
+          {
+            "id": "on",
+            "label": {
+              "en": "Always On"
+            }
+          },
+          {
+            "id": "memory",
+            "label": {
+              "en": "Remember Last State"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

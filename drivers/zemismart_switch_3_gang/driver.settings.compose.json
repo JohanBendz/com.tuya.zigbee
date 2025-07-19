@@ -1,0 +1,52 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Device Settings"
+    },
+    "children": [
+      {
+        "id": "power_on_behavior",
+        "type": "radio",
+        "label": {
+          "en": "Power-On Behavior"
+        },
+        "hint": {
+          "en": "Switch state when power is restored after an outage (individual per gang)"
+        },
+        "value": "2",
+        "values": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Always Off"
+            }
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Always On"
+            }
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Restore Previous State"
+            }
+          }
+        ]
+      },
+      {
+        "id": "backlight_enabled",
+        "type": "checkbox",
+        "label": {
+          "en": "Backlight"
+        },
+        "hint": {
+          "en": "Enable LED backlight indicator (device-wide setting, controlled by Gang 1 only)"
+        },
+        "value": true
+      }
+    ]
+  }
+]
