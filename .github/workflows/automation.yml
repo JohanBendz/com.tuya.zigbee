@@ -1,0 +1,42 @@
+name: Automated Tuya Zigbee Contributions
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 12 * * *'
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+jobs:
+  process_contributions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.MY_PAT }}
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install Dependencies
+        run: pip install PyGithub markdown requests openai
+      - name: Configure Git
+        run: |
+          git config user.name "dlnraja (via Automation)"
+          git config user.email "dlnraja@users.noreply.github.com"
+      - name: Run Automation Script
+        id: process_logic
+        env:
+          GITHUB_TOKEN: ${{ secrets.MY_PAT }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python scripts/auto_contributor.py
+      - name: Commit and Push Changes
+        run: |
+          git add .
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "feat(automated): Process new devices and update documentation"
+            git push
+          else
+            echo "No changes to commit"
+          fi
