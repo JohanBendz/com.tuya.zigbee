@@ -8,7 +8,10 @@
   "connectivity": ["zigbee"],
   "capabilities": [
     "onoff",
-    "measure_battery"
+    "measure_battery",
+    "alarm_battery",
+    "measure_voltage",
+    "measure_amperage"
   ],
   "images": {
     "large": "{{driverAssetsPath}}/images/large.png",
