@@ -16,10 +16,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          # Utilise le token généré par GitHub pour l'authentification
           token: ${{ secrets.GITHUB_TOKEN }}
-          # Récupère tout l'historique pour permettre la synchronisation
-          fetch-depth: 0
+          fetch-depth: 0 # Important: fetch all history for rebase
 
       - name: Sync Fork with Upstream
         run: |
@@ -33,7 +31,7 @@ jobs:
           echo "Fetching upstream changes..."
           git fetch upstream
           
-          echo "Rebasing local master on upstream/master..."
+          echo "Checking out master and rebasing on upstream/master..."
           git checkout master
           git rebase upstream/master
           
