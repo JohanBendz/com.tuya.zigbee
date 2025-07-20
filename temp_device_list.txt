@@ -1,0 +1,43 @@
+| Device Name | Manufacturer ID | Product Link |
+|---|---|---|
+| RGB Led Light Bar | `manufacturerName` | |
+| Smart Motion Sensor (Lidl) | `manufacturerName` | |
+| Smart Motion Sensor (Lidl) | `name` | |
+| Smart Motion Sensor (Lidl) | `manufacturerName` | |
+| 4 Gang Wall Remote | `manufacturerName` | |
+| 4 Gang Wall Remote | `name` | |
+| 4 Gang Wall Remote | `manufacturerName` | |
+| 1 Gang Switch Module | `manufacturerName` | |
+| Outdoor Plug without metering | `manufacturerName` | |
+| Tunable Spot GU10 | `manufacturerName` | |
+| RGB Spot Garden light | `manufacturerName` | |
+| 3 Gang Wall Remote | `manufacturerName` | |
+| PIR Sensor | `manufacturerName` | |
+| Smart PIR Motion Sensor | `manufacturerName` | |
+| Temperature & Humidity Sensor | `manufacturerName` | |
+| 1 button Smart Remote Controller | `manufacturerName` | |
+| RGB Bulb E27 | `manufacturerName` | |
+| Water Leak Sensor | `manufacturerName` | |
+| Flood sensor | `manufacturerName` | |
+| Siren | `manufacturerName` | |
+| Temperature & Humidity Sensor | `manufacturerName` | |
+| Door & Window Sensor | `manufacturerName` | |
+| LCD Temperature, Humidity and Luminance Sensor | `manufacturerName` | |
+| LCD Temperature, Humidity and Luminance Sensor | `name` | |
+| LCD Temperature, Humidity and Luminance Sensor | `manufacturerName` | |
+| 3 Gang Switch Module | `manufacturerName` | |
+| Soil Sensor | `manufacturerName` | |
+| Soil Sensor | `manufacturerName` | |
+| RGB Spot GU10 | `manufacturerName` | |
+| Outdoor Smart Socket | `manufacturerName` | |
+| 6 Gang Wall Remote | `manufacturerName` | |
+| Dimmable LED Strip | `manufacturerName` | |
+| Dimmable LED Strip | `name` | |
+| Dimmable LED Strip | `manufacturerName` | |
+| Tunable Bulb E14 | `manufacturerName` | |
+| Smart Knob Switch | `manufacturerName` | |
+| Smart Plug DIN Rail | `manufacturerName` | |
+| Smart Plug DIN Rail | `name` | |
+| Smart Plug DIN Rail | `manufacturerName` | |
+| Wall Thermostat | `manufacturerName` | |
+| Wall Thermostat | `manufacturerName` | |
