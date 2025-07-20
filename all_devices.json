@@ -1,0 +1,1581 @@
+[
+  {
+    "device_name": "RGB Led Light Bar",
+    "manufacturer_names": [
+      "_TZ3000_gek6snaj",
+      "_TZ3210_iystcadi"
+    ],
+    "product_ids": [
+      "TS0505A",
+      "TS0505B"
+    ]
+  },
+  {
+    "device_name": "Smart Motion Sensor (Lidl)",
+    "manufacturer_names": [
+      "_TZ1800_fcdjzz3s"
+    ],
+    "product_ids": [
+      "TY0202"
+    ]
+  },
+  {
+    "device_name": "4 Gang Wall Remote",
+    "manufacturer_names": [
+      "_TZ3000_wkai4ga5",
+      "_TZ3000_uaa99arv",
+      "_TZ3000_jcspr0tp"
+    ],
+    "product_ids": [
+      "TS0044"
+    ]
+  },
+  {
+    "device_name": "1 Gang Switch Module",
+    "manufacturer_names": [
+      "_TYZB01_ncutbjdi",
+      "_TYZB01_aneiicmq",
+      "_TZ3000_zmy1waw6",
+      "_TZ3000_pmvbt5hh",
+      "_TZ3000_sjpl9eg3",
+      "_TZ3000_m9af2l6g",
+      "_TZ3000_ji4araar",
+      "_TZ3000_qmi1cfuq",
+      "_TZ3000_npzfdcof",
+      "_TZ3000_tqlv4ug4",
+      "_TZ3000_rmjr4ufz",
+      "_TZ3000_mx3vgyea",
+      "_TZ3000_46t1rvdu",
+      "_TZ3000_majwnphg",
+      "_TZ3000_6axxqqi2"
+    ],
+    "product_ids": [
+      "TS0003",
+      "TS011F",
+      "TS0011",
+      "TS000F",
+      "TS0001"
+    ]
+  },
+  {
+    "device_name": "Outdoor Plug without metering",
+    "manufacturer_names": [
+      "_TZ3000_pnzfdr9y",
+      "_TZ3000_br3laukf"
+    ],
+    "product_ids": [
+      "TS0101"
+    ]
+  },
+  {
+    "device_name": "Tunable Spot GU10",
+    "manufacturer_names": [
+      "_TZ3000_el5kt5im"
+    ],
+    "product_ids": [
+      "TS0502A"
+    ]
+  },
+  {
+    "device_name": "RGB Spot Garden light",
+    "manufacturer_names": [
+      "_TZ3000_h1jnz6l8"
+    ],
+    "product_ids": [
+      "TS0505A"
+    ]
+  },
+  {
+    "device_name": "3 Gang Wall Remote",
+    "manufacturer_names": [
+      "_TZ3000_bczr4e10",
+      "_TZ3000_a7ouggvs",
+      "_TZ3000_qzjcsmar",
+      "_TZ3000_rrjr1q0u",
+      "_TZ3000_w8jwkczz",
+      "_TYZB02_key8kk7r",
+      "_TZ3000_gbm10jnj",
+      "_TZ3000_yw5tvzsk",
+      "_TZ3000_sj7jbgks",
+      "_TZ3000_bi6lpsew",
+      "_TZ3000_famkxci2",
+      "_TZ3000_7ysdnebc",
+      "_TZ3000_1obmmd8k",
+      "_TZ3000_2mccw9py"
+    ],
+    "product_ids": [
+      "TS0043"
+    ]
+  },
+  {
+    "device_name": "PIR Sensor",
+    "manufacturer_names": [
+      "TUYATEC-lha8pbwd",
+      "TUYATEC-zn9wyqtr",
+      "TUYATEC-53o41joc",
+      "TUYATEC-deetibst",
+      "TUYATEC-dgtxmihe",
+      "TUYATEC-b5g40alm",
+      "TUYATEC-dxnohkpd"
+    ],
+    "product_ids": [
+      "RH3040"
+    ]
+  },
+  {
+    "device_name": "Smart PIR Motion Sensor",
+    "manufacturer_names": [
+      "_TYZB01_jytabjkb",
+      "_TYZB01_dl7cejts",
+      "_TZ3000_mmtwjmaq",
+      "_TZ3000_kmh5qpmb",
+      "_TZ3000_msl6wxk9",
+      "_TZ3000_mcxw5ehu",
+      "_TZ3000_otvn3lne",
+      "_TZ3000_6ygjfyll",
+      "_TZ3040_6ygjfyll",
+      "_TZ3040_bb6xaihh",
+      "_TZ3000_nss8amz9",
+      "_TZ3000_bsvqrxru",
+      "_TYZB01_dr6sduka"
+    ],
+    "product_ids": [
+      "TS0202"
+    ]
+  },
+  {
+    "device_name": "Temperature & Humidity Sensor",
+    "manufacturer_names": [
+      "_TZE204_yjjdcqsq",
+      "_TZE200_vvmbj46n",
+      "_TZE200_yjjdcqsq",
+      "_TZE200_utkemkbs",
+      "_TZE204_upagmta9",
+      "_TZE204_utkemkbs",
+      "_TZE204_9yapgbuv",
+      "_TZE200_cirvgep4",
+      "_TZE204_cirvgep4"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "1 button Smart Remote Controller",
+    "manufacturer_names": [
+      "_TZ3000_kjfzuycl",
+      "_TZ3000_rco1yzb1",
+      "_TZ3000_yirp2pgd"
+    ],
+    "product_ids": [
+      "TS004F"
+    ]
+  },
+  {
+    "device_name": "RGB Bulb E27",
+    "manufacturer_names": [
+      "_TZ3000_dbou1ap4",
+      "_TZ3000_keabpigv",
+      "_TZ3000_12sxjap4",
+      "_TZ3000_hlijwsai",
+      "_TZ3000_qd7hej8u",
+      "_TZ3210_mja6r5ix",
+      "_TZ3000_q50zhdsc",
+      "eWeLight"
+    ],
+    "product_ids": [
+      "TS0505A",
+      "TS0505B",
+      "ZB-CL01"
+    ]
+  },
+  {
+    "device_name": "Water Leak Sensor",
+    "manufacturer_names": [
+      "_TZE200_qq9mpfhw",
+      "_TZE200_jthf7vb6"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "Flood sensor",
+    "manufacturer_names": [
+      "TUYATEC-3tipnsrx",
+      "_TZ3000_4uvovz4r",
+      "_TZ3000_3dfewsk1",
+      "_TZ3000_ww9i3e0y",
+      "_TZ3000_wuep9zng"
+    ],
+    "product_ids": [
+      "RH3001",
+      "TS0207"
+    ]
+  },
+  {
+    "device_name": "Siren",
+    "manufacturer_names": [
+      "_TZE204_t1blo2bj"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "Temperature & Humidity Sensor",
+    "manufacturer_names": [
+      "_TZE200_9yapgbuv"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "Door & Window Sensor",
+    "manufacturer_names": [
+      "TUYATEC-g3gl6cgy",
+      "TUYATEC-Bfq2i2Sy",
+      "TUYATEC-abkehqus",
+      "TUYATEC-sb6t7ett",
+      "TUYATEC-rkqiqvcs",
+      "TUYATEC-crr8qb0p",
+      "_TZ3000_ebar6ljy",
+      "TUYATEC-kbqf60nt",
+      "TUYATEC-r9hgssol",
+      "TUYATEC-trhrga6p",
+      "TUYATEC-ip9ganvw",
+      "_TYZB01_xph99wvr",
+      "_TZ3000_2mbfxlzr",
+      "_TZ3000_402jjyro",
+      "_TZ3000_6jeesvrt",
+      "_TZ3000_26fmupbb",
+      "_TZ3000_bmg14ax2",
+      "_TZ3000_oxslv1c9",
+      "_TZ3000_bzxlofth",
+      "_TZ3000_bzxloft",
+      "_TZ3000_n2egfsli",
+      "_TZ3000_7d8yme6f",
+      "_TZ3000_rgchmad8",
+      "_TZ3000_au1rjicn",
+      "_TZ3000_4ugnzsli",
+      "TUYATEC-7qunn4gq",
+      "_TZ3000_decxrtwa",
+      "_TZ3000_yxqnffam",
+      "_TZ3000_9eeavbk5",
+      "_TZ3000_yxqnffam",
+      "_TZ3000_rcuyhwe3",
+      "_TZ3000_a33rw7ou",
+      "_TZ3000_6zvw8ham",
+      "_TZ3000_yfekcy3n",
+      "_TZ3000_cea5xugq",
+      "_TZ3000_1bwpjvlz",
+      "_TZ3000_au2o5e6q",
+      "_TZ3000_v7chgqso",
+      "_TZ3000_qrldbmfn",
+      "_TZ3000_gntwytxo"
+    ],
+    "product_ids": [
+      "RH3001",
+      "TS0203"
+    ]
+  },
+  {
+    "device_name": "LCD Temperature, Humidity and Luminance Sensor",
+    "manufacturer_names": [
+      "_TZ3000_qaaysllp",
+      "_TYZB01_ftdkanlj",
+      "_TYZB01_kvwjujy9",
+      "_TZ3210_huzkzqyk"
+    ],
+    "product_ids": [
+      "TS0201",
+      "TS0222"
+    ]
+  },
+  {
+    "device_name": "3 Gang Switch Module",
+    "manufacturer_names": [
+      "_TZ3000_odzoiovu",
+      "_TZ3000_lvhy15ix",
+      "_TZ3000_4o16jdca"
+    ],
+    "product_ids": [
+      "TS0003"
+    ]
+  },
+  {
+    "device_name": "Soil Sensor",
+    "manufacturer_names": [
+      "_TZE284_sgabhwa6",
+      "_TZE284_g2e6cpnw"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "RGB Spot GU10",
+    "manufacturer_names": [
+      "_TZ3000_kdpxju99"
+    ],
+    "product_ids": [
+      "TS0505A"
+    ]
+  },
+  {
+    "device_name": "Outdoor Smart Socket",
+    "manufacturer_names": [
+      "_TZ3000_uwkja6z1"
+    ],
+    "product_ids": [
+      "TS011F"
+    ]
+  },
+  {
+    "device_name": "6 Gang Wall Remote",
+    "manufacturer_names": [
+      "_TZ3000_iszegwpd"
+    ],
+    "product_ids": [
+      "TS0046"
+    ]
+  },
+  {
+    "device_name": "Dimmable LED Strip",
+    "manufacturer_names": [
+      "_TZ3210_invesber"
+    ],
+    "product_ids": [
+      "TS0502B"
+    ]
+  },
+  {
+    "device_name": "Tunable Bulb E14",
+    "manufacturer_names": [
+      "_TZ3000_oborybow"
+    ],
+    "product_ids": [
+      "TS0502A"
+    ]
+  },
+  {
+    "device_name": "Smart Knob Switch",
+    "manufacturer_names": [
+      "_TZ3000_abrsvsou",
+      "_TZ3000_4fjiwweb",
+      "_TZ3000_qja6nq5z",
+      "_TZ3000_ixla93vd",
+      "_TZ3000_uri7ongn"
+    ],
+    "product_ids": [
+      "TS004F"
+    ]
+  },
+  {
+    "device_name": "Smart Plug DIN Rail",
+    "manufacturer_names": [
+      "_TZ3000_qeuvnohg",
+      "_TZ3000_cayepv1a",
+      "_TZ3000_lepzuhto",
+      "_TZ3000_qystbcjg"
+    ],
+    "product_ids": [
+      "TS0121",
+      "TSO121",
+      "TS011F"
+    ]
+  },
+  {
+    "device_name": "Wall Thermostat",
+    "manufacturer_names": [
+      "_TZE200_aoclfnxz",
+      "_TZE204_aoclfnxz",
+      "_TZE200_2ekuz3dz"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "2 Channel Relay Board",
+    "manufacturer_names": [
+      "_TZ3000_nuenzetq"
+    ],
+    "product_ids": [
+      "TS0002"
+    ]
+  },
+  {
+    "device_name": "Water Detector",
+    "manufacturer_names": [
+      "_TYZB01_sqmd19i1",
+      "_TYST11_qq9mpfhw",
+      "_TZ3000_fxvjhdyl",
+      "_TZ3000_eit7p838",
+      "_TZ3000_t6jriawg",
+      "_TZ3000_85czd6fy",
+      "_TZ3000_kyb656no",
+      "_TZ3000_0s9gukzt",
+      "_TZ3000_kstbkt6a",
+      "_TZ3000_mugyhz0q",
+      "_TZ3000_upgcbody",
+      "_TZ3000_k4ej3ww2",
+      "_TZ3000_6oabgtzv",
+      "_TZ3000_ocjlo4ea",
+      "_TZ3000_awvmkayh"
+    ],
+    "product_ids": [
+      "TS0207",
+      "q9mpfhw"
+    ]
+  },
+  {
+    "device_name": "3 Socket Power Strip",
+    "manufacturer_names": [
+      "_TZ3000_1obwwnmq",
+      "_TZ3000_vzopcetz",
+      "_TZ3000_4uf3d0ax",
+      "_TZ3000_wzauvbcs",
+      "_TZ3000_vmpbygs5"
+    ],
+    "product_ids": [
+      "TS011F"
+    ]
+  },
+  {
+    "device_name": "2 Gang Wall Remote",
+    "manufacturer_names": [
+      "_TZ3000_owgcnkrh",
+      "_TYZB02_keyjhapk",
+      "_TZ3000_oikiyf3b",
+      "_TZ3000_dfgbtub0",
+      "_TZ3000_h1c2eamp",
+      "_TZ3400_keyjhapk",
+      "_TZ3000_5e235jpa",
+      "_TZ3000_fkvaniuu"
+    ],
+    "product_ids": [
+      "TS0042"
+    ]
+  },
+  {
+    "device_name": "Dimmable Recessed LED",
+    "manufacturer_names": [
+      "_TZ3210_zdrhqmo0"
+    ],
+    "product_ids": [
+      "TS0502B"
+    ]
+  },
+  {
+    "device_name": "Motion Sensor",
+    "manufacturer_names": [
+      "TUYATEC-bd5faf9p",
+      "TUYATEC-zw6hxafz"
+    ],
+    "product_ids": [
+      "RH3040"
+    ]
+  },
+  {
+    "device_name": "Double Power Point",
+    "manufacturer_names": [
+      "_TYZB01_hlla45kx"
+    ],
+    "product_ids": [
+      "TS011F"
+    ]
+  },
+  {
+    "device_name": "Smart Garden Irrigation Controller",
+    "manufacturer_names": [
+      "_TZ3210_eymunffl",
+      "_TZ3000_cjfmu5he",
+      "_TZ3000_kz1anoi8",
+      "_TZ3000_mq4wujmp"
+    ],
+    "product_ids": [
+      "TS0101",
+      "TS0049"
+    ]
+  },
+  {
+    "device_name": "1 Gang Dimmer Module",
+    "manufacturer_names": [
+      "_TZ3210_ngqk6jia"
+    ],
+    "product_ids": [
+      "TS110E"
+    ]
+  },
+  {
+    "device_name": "5 Gang Wall Switch",
+    "manufacturer_names": [
+      "_TZE200_jwsjbxjs"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "Siren, Temperature & Humidity Sensor",
+    "manufacturer_names": [
+      "_TZE200_d0yu2xgi",
+      "_TZE204_t1blo2bj"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "Door & Window Sensor",
+    "manufacturer_names": [
+      "_TZ3000_zgrffiwg",
+      "_TZ3000_bpkijo14",
+      "_TZ3000_uvti8nkd"
+    ],
+    "product_ids": [
+      "TS0203"
+    ]
+  },
+  {
+    "device_name": "Thermostatic Radiator Valve",
+    "manufacturer_names": [
+      "_TZE200_sur6q7ko",
+      "_TZE200_hue3yfsn",
+      "_TZE200_husqqvux",
+      "_TZE200_lnbfnyxd",
+      "_TZE200_lllliz3p",
+      "_TZE200_mudxchsu",
+      "_TZE200_7yoranx2",
+      "_TZE200_e9ba97vf",
+      "_TZE200_kds0pmmv",
+      "_TZE200_kly8gjlz",
+      "_TZE200_py4cm3he"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "Smoke Sensor",
+    "manufacturer_names": [
+      "_TZE200_ntcy3xu1",
+      "_TZE200_m9skfctm",
+      "_TZE200_rccxox8p",
+      "_TZE200_vzekyi4c",
+      "_TZE204_ntcy3xu1",
+      "_TZE200_t5p1vj8r",
+      "_TZE200_uebojraa",
+      "_TZE200_yh7aoahi"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "LCD Temperature & Humidity Sensor",
+    "manufacturer_names": [
+      "_TZ2000_a476raq2",
+      "_TZ2000_xogb73am",
+      "_TZ2000_avdnvykf",
+      "_TZ2000_hjsgdkfl",
+      "_TYZB01_a476raq2",
+      "_TYZB01_hjsgdkfl",
+      "_TYZB01_iuepbmpv",
+      "_TZ3000_rusu2vzb",
+      "_TZ3000_yd2e749y",
+      "_TZ3000_ywagc4rj",
+      "_TZ3000_itnrsufe",
+      "_TZ3000_bjawzodf",
+      "_TZ3210_ncw88jfq"
+    ],
+    "product_ids": [
+      "TS0201",
+      "TY0201"
+    ]
+  },
+  {
+    "device_name": "2 Gang Curtain Module",
+    "manufacturer_names": [
+      "_TZ3000_j1xl73iw",
+      "_TZ3000_l6iqph4f"
+    ],
+    "product_ids": [
+      "TS130F"
+    ]
+  },
+  {
+    "device_name": "1 Gang Switch Module with metering",
+    "manufacturer_names": [
+      "_TZ3000_prits6g4"
+    ],
+    "product_ids": [
+      "TS0001"
+    ]
+  },
+  {
+    "device_name": "4 button Smart Remote Controller",
+    "manufacturer_names": [
+      "_TZ3000_fsiepnrh",
+      "_TYZB01_qm6djpta",
+      "_TZ3000_p6ju8myv",
+      "_TZ3000_eo3dttwe"
+    ],
+    "product_ids": [
+      "TS0215A"
+    ]
+  },
+  {
+    "device_name": "4 Button Remote",
+    "manufacturer_names": [
+      "_TZ3000_u3nv1jwk"
+    ],
+    "product_ids": [
+      "TS0044"
+    ]
+  },
+  {
+    "device_name": "Smoke Sensor",
+    "manufacturer_names": [
+      "_TZ3210_up3pngle"
+    ],
+    "product_ids": [
+      "TS0205"
+    ]
+  },
+  {
+    "device_name": "Double Power Point - With Metering",
+    "manufacturer_names": [
+      "_TZ3210_7jnk7l3k"
+    ],
+    "product_ids": [
+      "TS011F"
+    ]
+  },
+  {
+    "device_name": "Smart Plug without metering",
+    "manufacturer_names": [
+      "_TZ3000_kdi2o9m6",
+      "_TZ3000_ew31dmgx",
+      "_TZ3000_dpo1ysak",
+      "_TZ3000_plyvnuf5",
+      "_TZ3000_hyfvrar3",
+      "_TZ3000_cymsnfvf",
+      "_TZ3000_upjrsxh1",
+      "_TZ3000_wamqdr3f"
+    ],
+    "product_ids": [
+      "TS011F"
+    ]
+  },
+  {
+    "device_name": "Door & Window Sensor",
+    "manufacturer_names": [
+      "TUYATEC-0l6xaqmi",
+      "_TZ3000_7tbsruql",
+      "_TZ3000_osu834un",
+      "Immax",
+      "Visonic",
+      "_TZ3000_hkcpblrs",
+      "_TZ3000_8yhypbo7",
+      "_TZ3000_cqlnswn0"
+    ],
+    "product_ids": [
+      "RH3001",
+      "TS0203",
+      "DoorWindow-Sensor-ZB3.0",
+      "MCT-340 E"
+    ]
+  },
+  {
+    "device_name": "Radar Sensor",
+    "manufacturer_names": [
+      "_TZE204_sxm7l9xa",
+      "_TZE204_ijxvkhd0"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "Zigbee Repeater",
+    "manufacturer_names": [
+      "_TZ3000_m0vaazab",
+      "_TZ3000_5k5vh43t",
+      "_TZ3000_ufttklsz",
+      "_TZ3000_gszjt2xx",
+      "_TZ3000_nkkl7uzv",
+      "_TZ3000_nlsszmzl",
+      "_TZ3000_misw04hq",
+      "_TZ3000_wlquqiiz"
+    ],
+    "product_ids": [
+      "TS0207"
+    ]
+  },
+  {
+    "device_name": "Soil Sensor",
+    "manufacturer_names": [
+      "_TZE200_myd45weu",
+      "_TZE200_ga1maeof",
+      "_TZE200_9cqcpkgb",
+      "_TZE204_myd45weu",
+      "_TZE284_aao3yzhs",
+      "_TZE284_sgabhwa6",
+      "_TZE200_2se8efxh"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "4 Gang Wall Remote",
+    "manufacturer_names": [
+      "_TZ3000_xabckq1v"
+    ],
+    "product_ids": [
+      "TS004F"
+    ]
+  },
+  {
+    "device_name": "Slim motion sensor",
+    "manufacturer_names": [
+      "_TZ3000_lf56vpxj"
+    ],
+    "product_ids": [
+      "TS0202"
+    ]
+  },
+  {
+    "device_name": "3 Gang Wall Switch",
+    "manufacturer_names": [
+      "_TYZB01_xiuox57i",
+      "_TYZB01_b8cr31hp",
+      "_TZ3000_wyhuocal",
+      "_TZ3000_cdamjqm9",
+      "_TYZB01_mqel1whf",
+      "_TZ3000_hlwm8e96",
+      "_TZ3000_thhxrept",
+      "_TZ3000_2dlwlvex",
+      "_TZ3000_qcdqw8nf",
+      "_TZ3000_vvlivusi",
+      "_TZ3000_5e5ptb24",
+      "_TZ3000_lrgccsxm",
+      "_TZ3000_w05exif3",
+      "_TZ3000_qewo8dlz",
+      "_TZ3000_aezbqpcu"
+    ],
+    "product_ids": [
+      "TS0003",
+      "TS0013",
+      "TS0043"
+    ]
+  },
+  {
+    "device_name": "Door & Window Sensor",
+    "manufacturer_names": [
+      "zbeacon"
+    ],
+    "product_ids": [
+      "DS01"
+    ]
+  },
+  {
+    "device_name": "Radar Sensor",
+    "manufacturer_names": [
+      "_TZE200_ztc6ggyl",
+      "_TZE201_ztc6ggyl",
+      "_TZE202_ztc6ggyl",
+      "_TZE203_ztc6ggyl",
+      "_TZE204_ztc6ggyl",
+      "_TZE204_qasjif9e",
+      "_TZE200_sgpeacqp",
+      "_TZE204_xsm7l9xa",
+      "_TZE200_wukb7rhc",
+      "_TZE200_xpq2rzhq",
+      "_TZE200_holel4dk",
+      "_TZE200_jva8ink8",
+      "_TZE200_lyetpprm",
+      "_TZE200_ikvncluo",
+      "_TZE204_ztqnh5cg",
+      "_TZE204_7gclukjs"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "1 Gang Wall Switch",
+    "manufacturer_names": [
+      "_TZE200_gbagoilo"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "Smart Button Switch",
+    "manufacturer_names": [
+      "_TZ3000_fa9mlvja",
+      "_TZ3000_yj6k7vfo",
+      "_TZ3000_qgwcxxws"
+    ],
+    "product_ids": [
+      "TS0041"
+    ]
+  },
+  {
+    "device_name": "Motion Sensor",
+    "manufacturer_names": [
+      "_TZE200_3towulqd",
+      "_TZE200_bh3n6gk8",
+      "_TZE200_1ibpyhdc",
+      "_TZE200_ttcovulf"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "Smoke Sensor",
+    "manufacturer_names": [
+      "_TYZB01_dsjszp0x",
+      "_TYZB01_wqcac7lo"
+    ],
+    "product_ids": [
+      "TS0205"
+    ]
+  },
+  {
+    "device_name": "RGB LED Strip",
+    "manufacturer_names": [
+      "_TZ3000_riwp3k79"
+    ],
+    "product_ids": [
+      "TS0505A"
+    ]
+  },
+  {
+    "device_name": "RGB Mood Light",
+    "manufacturer_names": [
+      "_TZ3000_9cpuaca6",
+      "_TZ3210_r0xgkft5"
+    ],
+    "product_ids": [
+      "TS0505A",
+      "TS0505B"
+    ]
+  },
+  {
+    "device_name": "Tunable Bulb E27",
+    "manufacturer_names": [
+      "_TZ3000_49qchf10"
+    ],
+    "product_ids": [
+      "TS0502A"
+    ]
+  },
+  {
+    "device_name": "1 button Smart Remote Controller",
+    "manufacturer_names": [
+      "_TZ3000_ja5osu5g"
+    ],
+    "product_ids": [
+      "TS004F"
+    ]
+  },
+  {
+    "device_name": "Smart Air Detection Box",
+    "manufacturer_names": [
+      "_TZE200_yvx5lh6k",
+      "_TZE200_8ygsuhe1",
+      "_TZE200_mja3fuja",
+      "_TZE200_ryfmq5rl",
+      "_TZE200_c2fmom5z"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "Power Strip 4 Sockets",
+    "manufacturer_names": [
+      "_TZ3000_o005nuxx",
+      "_TZ3000_cfnprab5"
+    ],
+    "product_ids": [
+      "TS011F"
+    ]
+  },
+  {
+    "device_name": "Temperature & Humidity Sensor",
+    "manufacturer_names": [
+      "TUYATEC-g3gl6cgy",
+      "TUYATEC-Bfq2i2Sy",
+      "TUYATEC-abkehqus",
+      "TUYATEC-yg5dcbfu",
+      "TUYATEC-prhs1rsd",
+      "TUYATEC-gqhxixyk",
+      "TUYATEC-vmgh3fxd",
+      "TUYATEC-ojmxeikg",
+      "TUYATEC-ojmxeikq",
+      "TUYATEC-1g3tawnp",
+      "_TZ3000_i8jfiezr",
+      "TUYATEC-v3uxbuxy",
+      "_TZ3000_bguser20",
+      "_TZ3000_8ybe88nf",
+      "_TZ3000_fie1dpkm",
+      "TUYATEC-riuj5xzs",
+      "TUYATEC-1uxx9cci",
+      "_TZ3000_f2bw0b6k",
+      "TUYATEC-HaoiuWzy"
+    ],
+    "product_ids": [
+      "RH3052",
+      "TS0201"
+    ]
+  },
+  {
+    "device_name": "1 Channel Relay Board",
+    "manufacturer_names": [
+      "_TZ3000_g8n1n7lg"
+    ],
+    "product_ids": [
+      "TS0001"
+    ]
+  },
+  {
+    "device_name": "1 Gang Dimmer Module",
+    "manufacturer_names": [
+      "_TYZB01_qezuin6k",
+      "_TZ3210_ngqk6jia",
+      "_TZ3000_ktuoyvt5",
+      "_TZ3210_zxbtub8r",
+      "_TZ3210_weaqkhab",
+      "_TZ3210_k1msuvg6",
+      "_TZ3000_mgusv51k"
+    ],
+    "product_ids": [
+      "TS110F",
+      "TS110E",
+      "TS0052"
+    ]
+  },
+  {
+    "device_name": "Rain sensor",
+    "manufacturer_names": [
+      "_TZ3210_tgvtvdoc"
+    ],
+    "product_ids": [
+      "TS0207"
+    ]
+  },
+  {
+    "device_name": "1 Gang Wall Switch",
+    "manufacturer_names": [
+      "_TYZB01_xfpdrwvc",
+      "_TZ3000_9hpxg80k",
+      "_TZ3000_f8tmviy0",
+      "_TZ3000_gidy6sjs",
+      "_TYZB01_qeqvmvti",
+      "_TYZB01_seqwasot",
+      "_TZ3000_hktqahrq",
+      "_TZ3000_yl3zuyaw",
+      "_TZ3000_3wkqni6o",
+      "_TZ3000_oex7egmt",
+      "_TZ3000_hafsqare",
+      "_TZ3000_oaq83gqc",
+      "_TZ3000_hhiodade",
+      "_TZ3000_6eyydfyg",
+      "_TZ3000_ysdv91bk",
+      "_TZ3000_7jx5ypra",
+      "_TZ3000_3u4hripk"
+    ],
+    "product_ids": [
+      "TS0001",
+      "TS0011"
+    ]
+  },
+  {
+    "device_name": "Temperature & Humidity Sensor",
+    "manufacturer_names": [
+      "_TZ3000_dowj6gyi",
+      "_TZ3000_0s1izerx",
+      "TUYATEC-qun7vq14"
+    ],
+    "product_ids": [
+      "RH3052",
+      "TS0201"
+    ]
+  },
+  {
+    "device_name": "RGB Ceiling Led Light",
+    "manufacturer_names": [
+      "_TZ3210_x13bu7za"
+    ],
+    "product_ids": [
+      "TS0505B"
+    ]
+  },
+  {
+    "device_name": "Wall Switch (1/4 Gang)",
+    "manufacturer_names": [
+      "_TZ3000_r0pmi2p3",
+      "_TZ3000_dku2cfsc",
+      "_TZ3000_fjt5218m",
+      "_TYZB01_bagt1e4o"
+    ],
+    "product_ids": [
+      "TS0014",
+      "TS0044"
+    ]
+  },
+  {
+    "device_name": "Smart Door & Window Sensor (Lidl)",
+    "manufacturer_names": [
+      "_TZ1800_ejwkn2h2",
+      "_TZ3000_rcuyhwe3"
+    ],
+    "product_ids": [
+      "TY0203",
+      "TS0203"
+    ]
+  },
+  {
+    "device_name": "4 Gang Wall Switch",
+    "manufacturer_names": [
+      "_TZE200_shkxsgis",
+      "_TZE204_aagrxlbd",
+      "_TZE200_aqnazj70",
+      "_TZE200_di3tfv5b",
+      "_TZE200_mexisfik",
+      "_TZE204_6wi2mope",
+      "_TZE204_iik0pquw"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "4 Channel Relay Board",
+    "manufacturer_names": [
+      "_TZ3000_hdlpifbk",
+      "_TZ3000_excgg5kb",
+      "_TZ3000_u3oupgdy",
+      "_TZ3000_wkr3jqmr",
+      "_TZ3000_imaccztn"
+    ],
+    "product_ids": [
+      "TS0004"
+    ]
+  },
+  {
+    "device_name": "LCD Temperature & Humidity Sensor",
+    "manufacturer_names": [
+      "_TYZB01_cbiezpds"
+    ],
+    "product_ids": [
+      "SM0201"
+    ]
+  },
+  {
+    "device_name": "Temperature & Humidity Sensor",
+    "manufacturer_names": [
+      "_TZ3000_fllyghyj",
+      "_TZ3000_xr3htd96",
+      "_TZ3000_saiqcn0y",
+      "_TZE200_a8sdabtg",
+      "_TZ3000_utwgoauk",
+      "_TZ3000_zl1kmjqx",
+      "_TZ3000_6uzkisv2"
+    ],
+    "product_ids": [
+      "TS0201",
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "2 Gang Switch Module",
+    "manufacturer_names": [
+      "_TYZB01_zsl6z0pw",
+      "_TZ3000_4js9lo5d",
+      "_TZ3000_pmz6mjyu",
+      "_TYZB01_digziiav",
+      "_TZ3000_fisb3ajo",
+      "_TZ3000_bvrlqyj7",
+      "_TZ3000_jl7qyupf",
+      "_TZ3000_7ed9cqgi",
+      "_TZ3000_llfaquvp",
+      "_TZ3000_lmlsduws",
+      "_TZ3000_qaa59zqd",
+      "_TZ3000_qcgw8qfa",
+      "_TZ3000_jcfje0kb",
+      "_TZ3000_ruxexjfz"
+    ],
+    "product_ids": [
+      "TS0003",
+      "TS0012",
+      "TS011F",
+      "TS0002",
+      "TS0013"
+    ]
+  },
+  {
+    "device_name": "Radar Sensor ceiling",
+    "manufacturer_names": [
+      "_TZE200_2aaelwxk"
+    ],
+    "product_ids": [
+      "TS0225"
+    ]
+  },
+  {
+    "device_name": "4 Gang Wall Remote",
+    "manufacturer_names": [
+      "_TZ3000_vp6clf9d",
+      "_TZ3000_ufhtxr59",
+      "_TZ3000_ee8nrt2l",
+      "_TZ3000_a4xycprs"
+    ],
+    "product_ids": [
+      "TS0044"
+    ]
+  },
+  {
+    "device_name": "Double Socket Smart Plug",
+    "manufacturer_names": [
+      "_TZ3000_jak16dll"
+    ],
+    "product_ids": [
+      "TS011F"
+    ]
+  },
+  {
+    "device_name": "Wall Socket with metering",
+    "manufacturer_names": [
+      "_TZ3000_b28wrpvx",
+      "_TZ3000_4ux0ondb",
+      "_TZ3000_y4ona9me"
+    ],
+    "product_ids": [
+      "TS011F"
+    ]
+  },
+  {
+    "device_name": "Wall mounted Curtain Switch",
+    "manufacturer_names": [
+      "_TZ3000_dph3rpss",
+      "_TZ3000_8kzqqzu4",
+      "_TZ3000_ltiqubue",
+      "_TZ3000_dbpmpco1",
+      "_TZ3000_fvhunhxb",
+      "_TZ3000_ctbafvhm",
+      "_TZ3000_qqdbccb3",
+      "_TZ3000_wptayaqr",
+      "_TZ3000_qa8s8vca"
+    ],
+    "product_ids": [
+      "TS130F"
+    ]
+  },
+  {
+    "device_name": "1 Gang Wall Remote",
+    "manufacturer_names": [
+      "_TYZB02_keyjqthh",
+      "_TZ3000_tk3s5tyg",
+      "_TZ3000_fkp5zyho",
+      "_TZ3000_axpdxqgu",
+      "_TZ3000_peszejy7",
+      "_TZ3000_pzui3skt",
+      "_TZ3000_f97vq5mn",
+      "_TZ3000_fa9mlvja",
+      "_TZ3000_itb0omhv",
+      "_TZ3000_8rppvwda",
+      "_TZ3000_4upl1fcj",
+      "_TZ3000_q68478x7"
+    ],
+    "product_ids": [
+      "TS0041"
+    ]
+  },
+  {
+    "device_name": "2 Gang Switch Module with metering",
+    "manufacturer_names": [
+      "_TZ3000_zmy4lslw",
+      "_TZ3000_cayepv1a"
+    ],
+    "product_ids": [
+      "TS0002",
+      "TS011F"
+    ]
+  },
+  {
+    "device_name": "2 Gang Wall Switch",
+    "manufacturer_names": [
+      "_TYZB01_mtlhqn48",
+      "_TYZB01_6sadkhcy",
+      "_TZ3000_fvh3pjaz",
+      "_TZ3000_svoqrno4",
+      "TUYATEC-O6SNCwd6",
+      "_TYZB01_vzrytttn",
+      "_TZ3000_nta0gb8h",
+      "_TZ3000_lupfd8zu",
+      "_TZ3000_yhagrqmd",
+      "_TZ3000_5vujyute",
+      "_TYZB01_2athzhfr",
+      "_TZ3000_56bdyj21",
+      "_TZ3000_e98krvvk",
+      "_TZ3000_18ejxno0",
+      "_TZ3000_atp7xmd9",
+      "_TZ3000_mrqea2uu",
+      "_TZ3000_mklgayek",
+      "_TZ3000_p8alo7qa",
+      "_TYZB01_6g8b7at8",
+      "TUYATEC-nzrrvgco",
+      "_TZ3000_qn8qvk9y",
+      "_TZ3000_s8r1qoyq"
+    ],
+    "product_ids": [
+      "TS0002",
+      "TS0012",
+      "TS0042"
+    ]
+  },
+  {
+    "device_name": "4 Gang Switch Module with metering",
+    "manufacturer_names": [
+      "_TZ3000_mmkbptmx",
+      "_TZ3000_ltt60asa"
+    ],
+    "product_ids": [
+      "TS0004"
+    ]
+  },
+  {
+    "device_name": "Finger Bot",
+    "manufacturer_names": [
+      "_TZ3210_j4pdtz9v"
+    ],
+    "product_ids": [
+      "TS0001"
+    ]
+  },
+  {
+    "device_name": "Power Strip Socket 1/4",
+    "manufacturer_names": [
+      "_TYZB01_vkwryfdr"
+    ],
+    "product_ids": [
+      "TS0115"
+    ]
+  },
+  {
+    "device_name": "2 Gang Dimmer Module",
+    "manufacturer_names": [
+      "_TYZB01_v8gtiaed",
+      "_TZ3000_92chsky7",
+      "_TZ3210_wdexaypg",
+      "_TZ3210_3mpwqzuu",
+      "_TZ3210_pagajpog",
+      "_TZ3210_4ubylghk"
+    ],
+    "product_ids": [
+      "TS110F",
+      "TS110E"
+    ]
+  },
+  {
+    "device_name": "6 Gang Wall Switch",
+    "manufacturer_names": [
+      "_TZE200_r731zlxk",
+      "_TZE200_9mahtqtg"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "Wall Dimmer",
+    "manufacturer_names": [
+      "_TZE200_3p5ydos3",
+      "_TZE200_whpb9yts",
+      "_TZE200_ebwgzdqq",
+      "_TZE200_ctq0k47x",
+      "_TZE200_9i9dt8is",
+      "_TZE200_dfxkcots",
+      "_TZE200_w4cryh2i",
+      "_TZE200_ojzhk75b",
+      "_TZE200_9cxuhakf",
+      "_TZE200_a0syesf5",
+      "_TZE200_swaamsoy",
+      "_TZE200_p0gzbqct",
+      "_TZE204_vevc4c6g",
+      "_TZE200_0nauxa0p"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "RGB Bulb E14",
+    "manufacturer_names": [
+      "_TZ3000_odygigth"
+    ],
+    "product_ids": [
+      "TS0505A"
+    ]
+  },
+  {
+    "device_name": "Valve Controller",
+    "manufacturer_names": [
+      "_TYZB01_ymcdbl3u",
+      "_TZ3000_o4cjetlm",
+      "_TYZB01_4tlksk8a",
+      "_TZ3000_tvuarksa",
+      "_TZ3000_j9568h44",
+      "_TZ3000_iedbgyxt",
+      "_TZ3000_w0ypwa1f",
+      "_TZ3000_5ucujjts"
+    ],
+    "product_ids": [
+      "TS0111",
+      "TS0001",
+      "TS011F"
+    ]
+  },
+  {
+    "device_name": "1 Gang Dimmer Module",
+    "manufacturer_names": [
+      "_TZE200_la2c2uo9",
+      "_TZE204_hlx9tnzb",
+      "_TZE200_ip2akl4w",
+      "_TZE200_1agwnems",
+      "_TZE200_579lguh2",
+      "_TZE200_vucankjx",
+      "_TZE200_4mh6tyyo",
+      "_TZE204_n9ctkb6j",
+      "_TZE204_9qhuzgo0",
+      "_TZE204_dcnsggvz",
+      "_TZE204_5cuocqty"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "Tuya Diagnostic Driver",
+    "manufacturer_names": [
+      "_TZE20X_xxxxxxxx"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "Power Strip 4 Sockets",
+    "manufacturer_names": [
+      "LELLKI"
+    ],
+    "product_ids": [
+      "JZ-ZB-004"
+    ]
+  },
+  {
+    "device_name": "Curtain Module",
+    "manufacturer_names": [
+      "_TZ3000_vd43bbfq",
+      "_TZ3000_1dd0d5yi",
+      "_TZ3000_ke7pzj5d",
+      "_TZ3000_fccpjz5z",
+      "_TZ3000_4uuaja4a",
+      "_TZ3000_zirycpws",
+      "_TZ3000_femsaaua",
+      "_TZ3000_e3vhyirx",
+      "_TZ3000_jwv3cwak",
+      "_TZ3210_dwytrmda",
+      "_TZ3210_ol1uhvza",
+      "_TZ3000_eg7awg6a",
+      "_TZ3000_eafaa66e"
+    ],
+    "product_ids": [
+      "TS130F"
+    ]
+  },
+  {
+    "device_name": "Smart Plug with metering",
+    "manufacturer_names": [
+      "_TZ3000_3ooaz3ng",
+      "_TYZB01_iuepbmpv",
+      "_TZ3000_g5xawfcq",
+      "_TZ3000_vtscrpmw",
+      "_TZ3000_rdtixbnu",
+      "_TZ3000_8nkb7mof",
+      "_TZ3000_cphmq0q7",
+      "_TZ3000_ew3ldmgx",
+      "_TZ3000_dpo1ysak",
+      "_TZ3000_w0qqde0g",
+      "_TZ3000_mraovvmm",
+      "_TZ3000_u5u4cakc",
+      "_TZ3000_typdpdpg",
+      "_TZ3000_gjnozsaz",
+      "_TZ3000_amdymr7l",
+      "_TZ3000_amdymr71",
+      "_TZ3000_typdpbpg",
+      "_TZ3000_ksw8qtmt",
+      "_TZ3000_zloso4jk",
+      "_TZ3000_5f43h46b",
+      "_TZ3000_cehuw1lw",
+      "_TZ3000_5f43h46b",
+      "_TZ3000_fqoynhku",
+      "_TZ3000_ynmowqk2",
+      "_TZ3000_kx0pris5",
+      "_TZ3000_hdopuwv6",
+      "_TZ3000_bfn1w0mm",
+      "_TZ3000_0zfrhq4i",
+      "_TZ3000_gznh2xla",
+      "_TZ3000_ss98ec5d",
+      "_TZ3000_gnjozsaz",
+      "_TZ3000_gvn91tmx",
+      "_TZ3000_1h2x4akh",
+      "_TZ3000_r6buo8ba",
+      "_TZ3000_2putqrmw",
+      "_TZ3000_5ity3zyu",
+      "_TZ3000_okaz9tjs",
+      "_TZ3000_eyzb8yg3",
+      "_TZ3000_dksbtrzs",
+      "_TZ3000_nkcobies",
+      "_TZ3000_j1v25l17",
+      "_TZ3000_waho4jtj",
+      "_TZ3000_3uimvkn6",
+      "_TZ3000_pjcqjtev"
+    ],
+    "product_ids": [
+      "TS0121",
+      "TSO121",
+      "TS011F"
+    ]
+  },
+  {
+    "device_name": "RGB LED Strip Controller",
+    "manufacturer_names": [
+      "_TZ3000_obacbukl",
+      "_TZ3000_dl4pxp1r",
+      "_TZ3000_qqjaziws",
+      "_TZ3000_i8l0nqdu",
+      "_TZ3000_ukuvyhaa",
+      "_TZ3210_k1pe6ibm"
+    ],
+    "product_ids": [
+      "TS0503A",
+      "TS0503B",
+      "TS0505B",
+      "TS0504B"
+    ]
+  },
+  {
+    "device_name": "Curtain Motor",
+    "manufacturer_names": [
+      "_TZE200_5zbp6j0u",
+      "_TZE200_bjzrowv2",
+      "_TZE200_nkoabg8w",
+      "_TZE200_xuzcvlku",
+      "_TZE200_4vobcgd3",
+      "_TZE200_nogaemzt",
+      "_TZE200_r0jdjrvi",
+      "_TZE200_pk0sfzvr",
+      "_TZE200_fdtjuw7u",
+      "_TZE200_zpzndjez",
+      "_TZE200_wmcdj3aq",
+      "_TZE200_cowvfni3",
+      "_TZE200_rddyvrci",
+      "_TZE200_nueqqe6k",
+      "_TZE200_xaabybja",
+      "_TZE200_rmymn92d",
+      "_TZE200_3i3exuay",
+      "_TZE200_nogaemzt",
+      "_TZE200_zah67ekd",
+      "_TZE200_cowvfni3",
+      "_TZE200_hsgrhjpf",
+      "_TZE200_68nvbio9",
+      "_TZE200_pw7mji0l",
+      "_TZE200_uj3f4wr5",
+      "_TZE204_1fuxihti",
+      "_TZE200_axgvo9jh",
+      "_TZE200_gaj531w3",
+      "_TZE200_yia0p3tr",
+      "_TZE200_nw1r9hp6",
+      "_TZE200_cf1sl3tj",
+      "_TZE200_9p5xmj5r"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "Livarno Lux Smart LED Wall Light",
+    "manufacturer_names": [
+      "_TZ3000_utagpnzs",
+      "_TZ3000_5bsf8vaj"
+    ],
+    "product_ids": [
+      "TS0505A"
+    ]
+  },
+  {
+    "device_name": "Livarno Lux Atmosphere Floor LED Light",
+    "manufacturer_names": [
+      "_TZ3000_8uaoilu9"
+    ],
+    "product_ids": [
+      "TS0502A"
+    ]
+  },
+  {
+    "device_name": "LCD Temperature & Humidity Sensor",
+    "manufacturer_names": [
+      "_TZE200_bjawzodf",
+      "_TZE200_zl1kmjqx",
+      "_TZE200_locansqn",
+      "_TZE200_bq5c8xfe",
+      "_TZE200_qyflbnbj",
+      "_TZE200_vs0skpuc",
+      "_TZE200_44af8vyi"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "Christmas Lights",
+    "manufacturer_names": [
+      "_TZE200_s8gkrkxk"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  },
+  {
+    "device_name": "Smart Switch",
+    "manufacturer_names": [
+      "_TYZB01_phjeraqq"
+    ],
+    "product_ids": [
+      "TS0001"
+    ]
+  },
+  {
+    "device_name": "2 Gang Dimmer Module",
+    "manufacturer_names": [
+      "_TZE200_e3oitdyu",
+      "_TZE204_zenj4lxv",
+      "_TZE204_bxoo2swd",
+      "_TZE200_gwkapsoq",
+      "_TZE200_fjjbhx9d"
+    ],
+    "product_ids": [
+      "TS0601"
+    ]
+  }
+]
