@@ -1,42 +1,55 @@
 name: Automated Tuya Zigbee Contributions
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 12 * * *'
+
 permissions:
   contents: write
   pull-requests: write
-  issues: write
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * *' # Runs once a day at 2 AM UTC
+
 jobs:
-  process_contributions:
+  process_issues:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.MY_PAT }}
-      - name: Setup Python
-        uses: actions/setup-python@v4
+          # Utilise le token généré par GitHub pour l'authentification
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Récupère tout l'historique pour permettre la synchronisation
+          fetch-depth: 0
+
+      - name: Sync Fork with Upstream
+        run: |
+          echo "Setting up Git..."
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          echo "Adding upstream remote..."
+          git remote add upstream https://github.com/JohanBendz/com.tuya.zigbee.git
+          
+          echo "Fetching upstream changes..."
+          git fetch upstream
+          
+          echo "Rebasing local master on upstream/master..."
+          git checkout master
+          git rebase upstream/master
+          
+          echo "Pushing changes to origin..."
+          git push origin master --force
+        shell: bash
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          python-version: '3.10'
-      - name: Install Dependencies
-        run: pip install PyGithub markdown requests openai
-      - name: Configure Git
-        run: |
-          git config user.name "dlnraja (via Automation)"
-          git config user.email "dlnraja@users.noreply.github.com"
-      - name: Run Automation Script
-        id: process_logic
-        env:
-          GITHUB_TOKEN: ${{ secrets.MY_PAT }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: python scripts/auto_contributor.py
-      - name: Commit and Push Changes
-        run: |
-          git add .
-          if ! git diff-index --quiet HEAD; then
-            git commit -m "feat(automated): Process new devices and update documentation"
-            git push
-          else
-            echo "No changes to commit"
-          fi
+          node-version: '20'
+
+      - name: Execute Contribution Logic
+        id: contribution
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const script = require('./.github/scripts/contribute.js');
+            await script({github, context});
