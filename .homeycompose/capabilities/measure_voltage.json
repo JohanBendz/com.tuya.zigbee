@@ -1,0 +1,15 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Voltage"
+  },
+  "getable": true,
+  "setable": false,
+  "units": {
+    "en": "V"
+  },
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Voltage"
+  }
+}
