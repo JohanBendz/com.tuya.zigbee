@@ -1,0 +1,50 @@
+drivers/rgb_led_light_bar/driver.compose.json:    "manufacturerName": [
+drivers/smart_motion_sensor/device.js:    "manufacturerName": "_TZ1800_fcdjzz3s"
+drivers/smart_motion_sensor/device.js:                "name": "manufacturerName",
+drivers/smart_motion_sensor/driver.compose.json:      "manufacturerName": ["_TZ1800_fcdjzz3s"],
+drivers/wall_remote_4_gang_3/device.js:    "manufacturerName": "_TZ3000_wkai4ga5"
+drivers/wall_remote_4_gang_3/device.js:                "name": "manufacturerName",
+drivers/wall_remote_4_gang_3/driver.compose.json:      "manufacturerName": [
+drivers/switch_1_gang/device.js:        await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
+drivers/switch_1_gang/driver.compose.json:      "manufacturerName": [
+drivers/outdoor_plug/device.js:    await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
+drivers/outdoor_plug/driver.compose.json:    "manufacturerName": [
+drivers/tunable_spot_GU10/driver.compose.json:    "manufacturerName": [
+drivers/rgb_spot_GardenLight/driver.compose.json:    "manufacturerName": [
+drivers/wall_remote_3_gang/driver.compose.json:      "manufacturerName": [
+drivers/pirsensor/driver.compose.json:    "manufacturerName": [
+drivers/pir_sensor_2/driver.compose.json:    "manufacturerName": [
+drivers/temphumidsensor4/device.js:		await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
+drivers/temphumidsensor4/driver.compose.json:    "manufacturerName": [
+drivers/smart_remote_1_button/driver.compose.json:      "manufacturerName": [
+drivers/rgb_bulb_E27/driver.compose.json:    "manufacturerName": [
+drivers/water_leak_sensor_tuya/device.js:        await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
+drivers/water_leak_sensor_tuya/driver.compose.json:    "manufacturerName": [
+drivers/flood_sensor/driver.compose.json:    "manufacturerName": [
+drivers/siren/driver.compose.json:    "manufacturerName": [
+drivers/temphumidsensor5/driver.compose.json:    "manufacturerName": [
+drivers/doorwindowsensor/driver.compose.json:    "manufacturerName": [
+drivers/lcdtemphumidluxsensor/device.js:    "manufacturerName": "_TZ3000_qaaysllp"
+drivers/lcdtemphumidluxsensor/device.js:                "name": "manufacturerName",
+drivers/lcdtemphumidluxsensor/driver.compose.json:    "manufacturerName": [
+drivers/switch_3_gang/device.js:            await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
+drivers/switch_3_gang/driver.compose.json:      "manufacturerName": [
+drivers/soilsensor_2/device.js:    await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
+drivers/soilsensor_2/device.js:    "manufacturerName": "_TZE284_sgabhwa6"
+drivers/soilsensor_2/driver.compose.json:    "manufacturerName": [
+drivers/rgb_spot_GU10/driver.compose.json:    "manufacturerName": [
+drivers/outdoor_2_socket/device.js:    await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
+drivers/outdoor_2_socket/device.secondSocket.js:    await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
+drivers/outdoor_2_socket/driver.compose.json:    "manufacturerName": [
+drivers/wall_remote_6_gang/driver.compose.json:      "manufacturerName": [
+drivers/dimmable_led_strip/device.js:  "manufacturerName": "_TZ3000_dbou1ap4"
+drivers/dimmable_led_strip/device.js:              "name": "manufacturerName",
+drivers/dimmable_led_strip/driver.compose.json:    "manufacturerName": [
+drivers/tunable_bulb_E14/driver.compose.json:    "manufacturerName": [
+drivers/smart_knob_switch/driver.compose.json:      "manufacturerName": [
+drivers/smartPlug_DinRail/device.js:    await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
+drivers/smartPlug_DinRail/device.js:  "manufacturerName": "_TZ3000_vtscrpmw"
+drivers/smartPlug_DinRail/device.js:              "name": "manufacturerName",
+drivers/smartPlug_DinRail/driver.compose.json:	"manufacturerName": [
+drivers/wall_thermostat/device.js:    "manufacturerName": "_TZE204_aoclfnxz"
+drivers/wall_thermostat/device.js:    "manufacturerName": "_TZE204_aoclfnxz",
