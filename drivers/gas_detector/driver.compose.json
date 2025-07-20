@@ -1,0 +1,42 @@
+{
+    "id": "gas_detector",
+    "name": {
+        "en": "Smart Gas Detector"
+    },
+    "class": "sensor",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+        "alarm_gas",
+        "alarm_problem"
+    ],
+    "energy": {
+        "approximation": {
+            "usageConstant": 1.5
+        }
+    },
+    "images": {
+        "large": "{{driverAssetsPath}}/images/large.png",
+        "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "zigbee": {
+        "manufacturerName": [
+            "_TYZB01_0w3d5uw3"
+        ],
+        "productId": [
+            "TS0204"
+        ],
+        "endpoints": {
+            "1": {
+                "clusters": [0, 3, 1280, 2821],
+                "bindings": [3, 1280]
+            }
+        },
+        "learnmode": {
+            "image": "{{driverAssetsPath}}/icon.svg",
+            "instruction": {
+                "en": "1. Insert detector into socket and wait 3 minutes for warmup. 2. Press and hold reset button for 2 seconds until green LED flashes quickly. 3. Pairing complete when green LED turns off."
+            }
+        }
+    }
+}
