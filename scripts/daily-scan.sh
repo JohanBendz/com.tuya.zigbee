@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-echo "[$(date)] Daily-scan illimité + icons IA + 7 langues"
-# logique réelle ici
+echo "[$(date)] Daily-scan illimitÃ© + icons IA + 7 langues"
+# Placeholder â€“ logique rÃ©elle ici
