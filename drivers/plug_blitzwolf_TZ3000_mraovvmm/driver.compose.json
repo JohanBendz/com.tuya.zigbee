@@ -1,0 +1,12 @@
+﻿{
+  \"id\": \"plug_blitzwolf_TZ3000_mraovvmm\",
+  \"name\": { \"en\": \"Device TS011F\" },
+  \"class\": \"sensor\",
+  \"capabilities\": [\"measure_temperature\"],
+  \"images\": { \"large\": \"assets/icon.svg\", \"small\": \"assets/icon.svg\" },
+  \"zigbee\": {
+    \"manufacturerName\": [\"TUYATEC\"],
+    \"productId\": [\"TS011F\"],
+    \"endpoints\": { \"1\": { \"clusters\": [\"msTemperatureMeasurement\"] } }
+  }
+}
