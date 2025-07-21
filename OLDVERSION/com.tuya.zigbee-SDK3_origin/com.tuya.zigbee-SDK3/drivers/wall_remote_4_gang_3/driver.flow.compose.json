@@ -1,0 +1,90 @@
+{
+  "triggers": [
+    {
+      "id": "wall_remote_4_gang_buttons_3",
+      "title": {"en": "Button Action"},
+      "titleFormatted": {"en": "The [[action]]"},
+      "args": [
+        {
+          "name": "action",
+          "type": "dropdown",
+          "title": {"en": "Button Action"},
+          "values": [
+            {
+              "id": "leftUp-oneClick",
+              "label": {
+                "en": "upper left button was pressed 1 time"
+              }
+            },
+            {
+              "id": "leftUp-twoClicks",
+              "label": {
+                "en": "upper left button was pressed 2 times"
+              }
+            },
+            {
+              "id": "leftUp-longPress",
+              "label": {
+                "en": "upper left button was held down"
+              }
+            },
+            {
+              "id": "rightUp-oneClick",
+              "label": {
+                "en": "upper right button was pressed 1 time"
+              }
+            },
+            {
+              "id": "rightUp-twoClicks",
+              "label": {
+                "en": "upper right button was pressed 2 times"
+              }
+            },
+            {
+              "id": "rightUp-longPress",
+              "label": {
+                "en": "upper right button was held down"
+              }
+            },
+            {
+              "id": "leftDown-oneClick",
+              "label": {
+                "en": "lower left button was pressed 1 time"
+              }
+            },
+            {
+              "id": "leftDown-twoClicks",
+              "label": {
+                "en": "lower left button was pressed 2 times"
+              }
+            },
+            {
+              "id": "leftDown-longPress",
+              "label": {
+                "en": "lower left button was held down"
+              }
+            },
+            {
+              "id": "rightDown-oneClick",
+              "label": {
+                "en": "lower right button was pressed 1 time"
+              }
+            },
+            {
+              "id": "rightDown-twoClicks",
+              "label": {
+                "en": "lower right button was pressed 2 times"
+              }
+            },
+            {
+              "id": "rightDown-longPress",
+              "label": {
+                "en": "lower right button was held down"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

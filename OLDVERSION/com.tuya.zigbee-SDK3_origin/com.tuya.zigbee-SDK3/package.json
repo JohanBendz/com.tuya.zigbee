@@ -1,0 +1,39 @@
+{
+  "name": "com.tuya.zigbee",
+  "version": "0.2.73",
+  "description": "Adds support for Tuya Zigbee devices to Homey",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "Tuya",
+    "Zigbee"
+  ],
+  "author": "Johan Bendz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JohanBendz/com.tuya.zigbee.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JohanBendz/com.tuya.zigbee/issues"
+  },
+  "homepage": "https://bortbytt.se/2022/02/03/tuya-zigbee/",
+  "engines": {
+    "node": ">=12"
+  },
+  "contributors": [
+    "Johan Bendz <johan_bendz@hotmail.com>"
+  ],
+  "funding": {
+    "type": "paypal",
+    "url": "https://www.paypal.me/johanbendz"
+  },
+  "dependencies": {
+    "homey-zigbeedriver": "^2.1.4",
+    "zigbee-clusters": "^2.4.1"
+  }
+}

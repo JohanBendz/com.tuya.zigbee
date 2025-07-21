@@ -1,0 +1,55 @@
+{
+    "title": {"en": "Start effect"},
+    "titleFormatted": {"en": "Effect is [[effect_name]] with speed [[effect_speed]] and color(s) [[effect_color_0]], [[effect_color_1]], [[effect_color_2]], [[effect_color_3]], [[effect_color_4]], [[effect_color_5]], [[effect_color_6]], [[effect_color_7]], [[effect_color_8]]"},
+    "hint": {
+        "en": "Choose a light pattern and a speed for it. You can also choose what colors the pattern should have, this is not mandatory."
+    },
+    "args": [
+    {
+        "name": "christmas_lights_device",
+        "type": "device",
+        "filter": "driver_id=christmas_lights"
+    },
+    {
+        "type": "dropdown",
+        "name": "effect_name",
+        "title": {"en": "Effect"},
+        "values": [
+            {"id": "steady","label": {"en": "Steady"}},
+            {"id": "snow","label": {"en": "Snow"}},
+            {"id": "rainbow","label": {"en": "Rainbow"}},
+            {"id": "snake","label": {"en": "Snake"}},
+            {"id": "twinkle","label": {"en": "Twinkle"}},
+            {"id": "firework","label": {"en": "Firework"}},
+            {"id": "horizontal_flag","label": {"en": "Horizontal Flag"}},
+            {"id": "waves","label": {"en": "Waves"}},
+            {"id": "updown","label": {"en": "Up and Down"}},
+            {"id": "vintage","label": {"en": "Vintage"}},
+            {"id": "fading","label": {"en": "Fading"}},
+            {"id": "collide","label": {"en": "Collide"}},
+            {"id": "strobe","label": {"en": "Strobe"}},
+            {"id": "sparkles","label": {"en": "Sparkles"}},
+            {"id": "carnaval","label": {"en": "Carnaval"}},
+            {"id": "glow","label": {"en": "Glow"}}
+        ]
+    },
+    {
+        "type": "range",
+        "name": "effect_speed",
+        "title": {"en": "Speed"},
+        "label": "/64",
+        "min": 0,
+        "max": 64,
+        "step": 1
+    },
+    { "type": "color", "name": "effect_color_0", "title": {"en": "color 0"} },
+    { "type": "color", "name": "effect_color_1", "title": {"en": "color 1"} },
+    { "type": "color", "name": "effect_color_2", "title": {"en": "color 2"} },
+    { "type": "color", "name": "effect_color_3", "title": {"en": "color 3"} },
+    { "type": "color", "name": "effect_color_4", "title": {"en": "color 4"} },
+    { "type": "color", "name": "effect_color_5", "title": {"en": "color 5"} },
+    { "type": "color", "name": "effect_color_6", "title": {"en": "color 6"} },
+    { "type": "color", "name": "effect_color_7", "title": {"en": "color 7"} },
+    { "type": "color", "name": "effect_color_8", "title": {"en": "color 8"} }
+    ]
+}

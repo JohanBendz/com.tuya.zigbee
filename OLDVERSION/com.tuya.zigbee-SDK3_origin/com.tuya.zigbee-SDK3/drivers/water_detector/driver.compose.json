@@ -1,0 +1,66 @@
+{
+  "id": "waterdetector",
+  "name": {
+    "en": "Water Detector"
+  },
+  "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "alarm_contact",
+    "alarm_water",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "CR2032"
+    ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TYZB01_sqmd19i1",
+      "_TYST11_qq9mpfhw",
+      "_TZ3000_fxvjhdyl",
+      "_TZ3000_eit7p838",
+      "_TZ3000_t6jriawg",
+      "_TZ3000_85czd6fy",
+      "_TZ3000_kyb656no",
+      "_TZ3000_0s9gukzt",
+      "_TZ3000_kstbkt6a",
+      "_TZ3000_mugyhz0q",
+      "_TZ3000_upgcbody",
+      "_TZ3000_k4ej3ww2",
+      "_TZ3000_6oabgtzv",
+      "_TZ3000_ocjlo4ea",
+      "_TZ3000_awvmkayh"
+    ],
+    "productId": [
+      "TS0207",
+      "q9mpfhw"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          3,
+          1280
+        ],
+        "bindings": [
+          1,
+          1280
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Push the button for aprox 10 seconds until the LED blinks rapidly. If nothing happens; put two fingers against the detectors and repeat."
+      }
+    }
+  }
+}

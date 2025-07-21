@@ -1,0 +1,63 @@
+{
+  "id": "sirentemphumidsensor",
+  "name": {
+    "en": "Siren, Temperature & Humidity Sensor"
+  },
+  "class": "other",
+  "capabilities": [
+    "onoff",
+    "measure_temperature",
+    "measure_humidity",
+    "measure_battery",
+    "alarm_battery",
+    "alarm_siren"
+  ],
+  "capabilitiesOptions": {
+    "onoff": {
+      "greyout": false
+    }
+  },
+  "energy": {
+      "batteries": ["CR123A","CR123A"]
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZE200_d0yu2xgi",
+      "_TZE204_t1blo2bj"
+    ],
+    "productId": [
+      "TS0601"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          4,
+          5,
+          61184
+        ],
+        "bindings": [
+          10,
+          25,
+          61184
+        ]
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press and hold the button inside the battery compartment for aprox 5 seconds until the LED blinks rapidly.",
+        "it": "Tenere premuto il pulsante all'interno del vano batteria per cicrca 5 secondi finchè il LED non lampeggia rapidamente."
+      }
+    }
+  }
+}

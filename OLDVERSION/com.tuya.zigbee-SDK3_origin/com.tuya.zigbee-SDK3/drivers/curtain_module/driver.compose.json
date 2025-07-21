@@ -1,0 +1,66 @@
+{
+  "id": "curtainmodule",
+  "name": {
+    "en": "Curtain Module"
+  },
+  "class": "windowcoverings",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [
+    "windowcoverings_set",
+    "windowcoverings_state"
+  ],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "energy": {
+    "approximation": {
+      "usageOn": 0,
+      "usageOff": 0
+    }
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_vd43bbfq",
+      "_TZ3000_1dd0d5yi",
+      "_TZ3000_ke7pzj5d",
+      "_TZ3000_fccpjz5z",
+      "_TZ3000_4uuaja4a",
+      "_TZ3000_zirycpws",
+      "_TZ3000_femsaaua",
+      "_TZ3000_e3vhyirx",
+      "_TZ3000_jwv3cwak",
+      "_TZ3210_dwytrmda",
+      "_TZ3210_ol1uhvza",
+      "_TZ3000_eg7awg6a",
+      "_TZ3000_eafaa66e"
+    ],
+    "productId": [
+      "TS130F"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          4,
+          5,
+          258
+        ],
+        "bindings": [
+          258
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Press the setup button for 10 seconds or power on/off 5 times to enter pairing mode (the LED should blink / device starts beeping)."
+      }
+    }
+  }
+}

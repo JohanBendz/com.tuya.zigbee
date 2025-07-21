@@ -1,0 +1,77 @@
+{
+  "id": "wall_remote_3_gang",
+  "name": {
+    "en": "3 Gang Wall Remote"
+  },
+  "class": "button",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": ["measure_battery", "alarm_battery"],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_xiuox57i",
+      "_TZ3000_cdamjqm9",
+      "_TYZB01_b8cr31hp",
+      "_TZ3000_wyhuocal",
+      "_TZ3000_hlwm8e96",
+      "_TZ3000_thhxrept",
+      "_TZ3000_2dlwlvex",
+      "_TZ3000_qcdqw8nf",
+      "_TZ3000_vvlivusi",
+      "_TZ3000_5e5ptb24",
+      "_TZ3000_lrgccsxm",
+      "_TZ3000_w05exif3",
+      "_TZ3000_qewo8dlz",
+      "_TZ3000_aezbqpcu",
+      "_TZ3000_bzczr4e1"
+    ],
+    "productId": ["TS0043"],
+    "endpoints": {
+      "1": {
+        "clusters": [6, 1],
+        "bindings": [6]
+      },
+      "2": {
+        "clusters": [6],
+        "bindings": [6]
+      },
+      "3": {
+        "clusters": [6],
+        "bindings": [6]
+      }
+    },
+    "devices": {
+      "button1": {
+        "endpoint": 1,
+        "class": "button",
+        "name": {
+          "en": "Button 1"
+        }
+      },
+      "button2": {
+        "endpoint": 2,
+        "class": "button",
+        "name": {
+          "en": "Button 2"
+        }
+      },
+      "button3": {
+        "endpoint": 3,
+        "class": "button",
+        "name": {
+          "en": "Button 3"
+        }
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Remove the cover and hold the pairing button for 10 seconds."
+      }
+    }
+  }
+}

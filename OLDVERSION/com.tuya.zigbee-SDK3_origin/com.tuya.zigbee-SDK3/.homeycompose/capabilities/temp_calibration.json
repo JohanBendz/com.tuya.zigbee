@@ -1,0 +1,15 @@
+{
+    "type": "number",
+    "title": {
+      "en": "Temperature Calibration"
+    },
+    "uiComponent": "slider",
+    "getable": true,
+    "setable": true,
+    "min": -10,
+    "max": 10,
+    "step": 0.1,
+    "units": {
+      "en": "°C"
+    }
+}

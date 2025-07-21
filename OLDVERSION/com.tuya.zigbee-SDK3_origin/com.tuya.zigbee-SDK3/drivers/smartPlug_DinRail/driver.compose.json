@@ -1,0 +1,49 @@
+{
+  "id": "smartplugDinRail",
+  "name": {
+    "en": "Smart Plug DIN Rail"
+  },
+  "class": "socket",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "onoff",
+    "measure_power",
+    "meter_power",
+    "measure_current",
+    "measure_voltage"
+  ],
+  "capabilitiesOptions": {
+    "measure_power": {
+      "approximated": true
+    }
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+	"manufacturerName": [
+		"_TZ3000_qeuvnohg",
+		"_TZ3000_cayepv1a",
+    "_TZ3000_lepzuhto",
+    "_TZ3000_qystbcjg"
+	],
+	"productId": [
+		"TS0121",
+		"TSO121",
+		"TS011F"
+	],
+    "endpoints": {
+      "1": {
+        "clusters": [ 0, 3, 4, 5, 6, 1794, 2820, 1026, 57344, 57345 ],
+        "bindings": [ 6, 1794, 2820, 1026, 57344, 57345 ]
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+      }
+    }
+  }
+}

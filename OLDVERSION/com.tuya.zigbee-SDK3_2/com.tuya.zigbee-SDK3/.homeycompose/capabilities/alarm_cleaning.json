@@ -1,0 +1,11 @@
+{
+    "type": "boolean",
+    "title": {
+        "en": "Cleaning reminder",
+        "nl": "Schoonmaakherinnering"
+    },
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor",
+    "icon": "/assets/cleaning.svg"
+}

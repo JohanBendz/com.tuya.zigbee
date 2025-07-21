@@ -1,0 +1,109 @@
+{
+  "id": "com.tuya.zigbee",
+  "version": "0.2.73",
+  "compatibility": ">=5.0.0",
+  "platforms": [
+    "local"
+  ],
+  "sdk": 3,
+  "name": {
+    "en": "Tuya Zigbee"
+  },
+  "description": {
+    "en": "Control your white label Zigbee devices made by Tuya"
+  },
+  "tags": {
+    "en": [
+      "Tuya",
+      "Alecto",
+      "Blitzwolf",
+      "Ejlink",
+      "Lidl",
+      "Livarno",
+      "Lonsonho",
+      "Malmbergs",
+      "Moes",
+      "Nedis",
+      "Neo",
+      "Samotech",
+      "Silvercrest",
+      "Smart9",
+      "Zemismart",      
+      "Zigbee",
+      "Woox",
+      "Sensor",
+      "Temperature",
+      "Humidity",
+      "Motion",
+      "Door",
+      "Window",
+      "PIR",
+      "Plug",
+      "Switch",
+      "Valve",
+      "Water",
+      "Smoke",
+      "CO",
+      "Gas",
+      "LED",
+      "Light",
+      "RGB",
+      "Christmas",
+      "Socket",
+      "Dimmer",
+      "Blind",
+      "Shutter",
+      "Curtain"
+    ]
+  },
+  "category": [
+    "lights",
+    "security",
+    "appliances"
+  ],
+  "brandColor": "#FF4800",
+  "permissions": [
+    "homey:wireless:zigbee"
+  ],
+  "homeyCommunityTopicId": 26439,
+  "source": "https://github.com/JohanBendz/com.tuya.zigbee",
+  "support": "mailto:johan_bendz@hotmail.com",
+  "bugs": {
+    "url": "https://github.com/JohanBendz/com.tuya.zigbee/issues"
+  },
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Johan Bendz",
+    "email": "johan_bendz@hotmail.com"
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "JohanBendz"
+      }
+    }
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Johan Bendz",
+        "email": "johan_bendz@hotmail.com"
+      },
+      {
+        "name": "Martijn Aben",
+        "email": "lidl@escabe.org"
+      },
+      {
+        "name": "Jurgen Heine",
+        "email": "jurgen2.heine@gmail.com"
+      },
+      {
+        "name": "Morris Haid",
+        "email": "mhaid2016@outlook.com"
+      }
+    ]
+  }
+}

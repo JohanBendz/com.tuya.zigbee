@@ -1,0 +1,56 @@
+{
+    "id": "wall_remote_4_gang",
+    "name": {
+      "en": "4 Gang Wall Remote"
+    },
+    "class": "remote",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+    ],
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "energy": {
+      "batteries": [
+        "CR2032"
+      ]
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TZ3000_vp6clf9d",
+        "_TZ3000_ufhtxr59",
+        "_TZ3000_ee8nrt2l",
+        "_TZ3000_a4xycprs"
+      ],
+      "productId": [
+        "TS0044"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 6],
+          "bindings": [6]
+        },
+        "2": {
+          "clusters": [6],
+          "bindings": [6]
+        },
+        "3": {
+          "clusters": [6],
+          "bindings": [6]
+        },
+        "4": {
+          "clusters": [6],
+          "bindings": [6]
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Press the lower left button for aprox 10 seconds (all LED should start blinking)."
+        }
+      }
+    }
+
+}

@@ -1,0 +1,63 @@
+{
+  "id": "temphumidsensor3",
+  "name": {
+    "en": "Temperature & Humidity Sensor",
+    "it": "Sensore di temperatura ed umidità"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "measure_battery",
+    "alarm_battery",
+    "measure_humidity",
+    "measure_temperature"
+  ],
+  "energy": {
+      "batteries": ["AAA","AAA"]
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_fllyghyj",
+      "_TZ3000_xr3htd96",
+      "_TZ3000_saiqcn0y",
+      "_TZE200_a8sdabtg",
+      "_TZ3000_utwgoauk",
+      "_TZ3000_zl1kmjqx",
+      "_TZ3000_6uzkisv2"
+    ],
+    "productId": [
+      "TS0201",
+      "TS0601"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          1026,
+          1029
+        ],
+        "bindings": [
+          1,
+          1026,
+          1029
+        ]
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press and hold the button inside the battery compartment for aprox 5 seconds until the LED blinks rapidly.",
+        "it": "Tenere premuto il pulsante all'interno del vano batteria per cicrca 5 secondi finchè il LED non lampeggia rapidamente."
+      }
+    }
+  }
+}
