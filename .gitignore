@@ -9,3 +9,7 @@
 *.key
 *.pem
 .secrets/
+.env
+.env.*.local
+*.key
+*.pem
