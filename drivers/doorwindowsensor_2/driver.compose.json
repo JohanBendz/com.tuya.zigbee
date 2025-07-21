@@ -29,13 +29,15 @@
       "Visonic",
       "_TZ3000_hkcpblrs",
       "_TZ3000_8yhypbo7",
-      "_TZ3000_cqlnswn0"
+      "_TZ3000_cqlnswn0",
+      "_TZE200_pay2byax"
     ],
     "productId": [
       "RH3001",
       "TS0203",
       "DoorWindow-Sensor-ZB3.0",
-      "MCT-340 E"
+      "MCT-340 E",
+      "TS0601"
     ],
     "endpoints": {
       "1": {
