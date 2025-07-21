@@ -23,7 +23,9 @@
   },
   "energy": {
     "batteries": [
-      "AA", "AA", "AA"
+      "AA",
+      "AA",
+      "AA"
     ]
   },
   "zigbee": {

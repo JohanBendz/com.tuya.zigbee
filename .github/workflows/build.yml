@@ -1,4 +1,4 @@
-﻿name: Build & Test
+name: Build & Test
 on: [push, pull_request]
 jobs:
   build:
@@ -7,6 +7,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 18 }
-      - run: npm ci
+      - run: npm install
+      - run: npm install -g homey
+      - run: homey app validate
       - run: npm run lint --if-present
       - run: npm test --if-present

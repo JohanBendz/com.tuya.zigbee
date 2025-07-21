@@ -1,0 +1,22 @@
+{
+  "id": "{{driver_id}}",
+  "name": {
+    "en": "{{driver_name}}"
+  },
+  "class": "socket",
+  "capabilities": [
+    "onoff"
+  ],
+  "zigbee": {
+    "manufacturerName": "Tuya",
+    "productId": [],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          6
+        ]
+      }
+    }
+  }
+}

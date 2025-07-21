@@ -2,13 +2,19 @@
   "triggers": [
     {
       "id": "wall_remote_4_gang_buttons_2",
-      "title": {"en": "Button"},
-      "titleFormatted": {"en": "The [[button]]"},
+      "title": {
+        "en": "Button"
+      },
+      "titleFormatted": {
+        "en": "The [[button]]"
+      },
       "args": [
         {
           "name": "button",
           "type": "dropdown",
-          "title": {"en": "Button Pressed"},
+          "title": {
+            "en": "Button Pressed"
+          },
           "values": [
             {
               "id": "leftUp",

@@ -27,7 +27,8 @@
       "usageOff": 0
     },
     "batteries": [
-      "AA", "AA"
+      "AA",
+      "AA"
     ]
   },
   "zigbee": {

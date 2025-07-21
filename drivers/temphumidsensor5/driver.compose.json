@@ -13,7 +13,9 @@
   ],
   "capabilitiesOptions": {},
   "energy": {
-      "batteries": ["CR2032"]
+    "batteries": [
+      "CR2032"
+    ]
   },
   "platforms": [
     "local"

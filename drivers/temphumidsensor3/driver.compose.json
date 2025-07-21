@@ -12,7 +12,10 @@
     "measure_temperature"
   ],
   "energy": {
-      "batteries": ["AAA","AAA"]
+    "batteries": [
+      "AAA",
+      "AAA"
+    ]
   },
   "platforms": [
     "local"

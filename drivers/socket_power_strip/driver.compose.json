@@ -4,8 +4,12 @@
     "en": "3 Socket Power Strip"
   },
   "class": "socket",
-  "platforms": ["local"],
-  "connectivity": ["zigbee"],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
   "capabilities": [
     "onoff"
   ],
@@ -31,22 +35,43 @@
     ],
     "endpoints": {
       "1": {
-        "clusters": [0, 4, 5, 6],
-        "bindings": [6]
+        "clusters": [
+          0,
+          4,
+          5,
+          6
+        ],
+        "bindings": [
+          6
+        ]
       },
       "2": {
-        "clusters": [4, 5, 6],
-        "bindings": [6]
+        "clusters": [
+          4,
+          5,
+          6
+        ],
+        "bindings": [
+          6
+        ]
       },
       "3": {
-        "clusters": [4, 5, 6],
-        "bindings": [6]
+        "clusters": [
+          4,
+          5,
+          6
+        ],
+        "bindings": [
+          6
+        ]
       }
     },
     "devices": {
       "socket2": {
         "class": "socket",
-        "capabilities": ["onoff"],
+        "capabilities": [
+          "onoff"
+        ],
         "name": {
           "en": "Power Strip Socket 2"
         },
@@ -59,7 +84,9 @@
       },
       "socket3": {
         "class": "socket",
-        "capabilities": ["onoff"],
+        "capabilities": [
+          "onoff"
+        ],
         "name": {
           "en": "Power Strip Socket 3"
         },

@@ -3,7 +3,9 @@
   "name": {
     "en": "Tunable Bulb E14"
   },
-  "$extends": ["light_white_ambiance"],
+  "$extends": [
+    "light_white_ambiance"
+  ],
   "energy": {
     "approximation": {
       "usageOn": 7,
@@ -19,8 +21,20 @@
     ],
     "endpoints": {
       "1": {
-        "clusters": [0, 3, 4, 5, 6, 8, 768],
-        "bindings": [6, 8, 768]
+        "clusters": [
+          0,
+          3,
+          4,
+          5,
+          6,
+          8,
+          768
+        ],
+        "bindings": [
+          6,
+          8,
+          768
+        ]
       }
     },
     "learnmode": {
@@ -30,5 +44,4 @@
       }
     }
   }
-
 }

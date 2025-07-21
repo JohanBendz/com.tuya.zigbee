@@ -1,12 +1,17 @@
-﻿{
-  \"id\": \"sensor_temp_TUYATEC-g3gl6cgy\",
-  \"name\": { \"en\": \"Device RH3052\" },
-  \"class\": \"sensor\",
-  \"capabilities\": [\"measure_temperature\"],
-  \"images\": { \"large\": \"assets/icon.svg\", \"small\": \"assets/icon.svg\" },
-  \"zigbee\": {
-    \"manufacturerName\": [\"TUYATEC\"],
-    \"productId\": [\"RH3052\"],
-    \"endpoints\": { \"1\": { \"clusters\": [\"msTemperatureMeasurement\"] } }
+{
+  "id": "sensor_temp_TUYATEC-g3gl6cgy",
+  "name": { "en": "Device RH3052" },
+  "class": "sensor",
+  "capabilities": ["measure_temperature"],
+  "zigbee": {
+    "manufacturerName": "TUYATEC",
+    "productId": "RH3052",
+    "endpoints": {
+      "1": {
+        "clusters": [
+          1026
+        ]
+      }
+    }
   }
 }

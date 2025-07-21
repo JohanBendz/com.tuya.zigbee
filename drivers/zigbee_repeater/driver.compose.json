@@ -4,10 +4,13 @@
     "en": "Zigbee Repeater"
   },
   "class": "other",
-  "platforms": ["local"],
-  "connectivity": ["zigbee"],
-  "capabilities": [
+  "platforms": [
+    "local"
   ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [],
   "images": {
     "large": "{{driverAssetsPath}}/images/large.png",
     "small": "{{driverAssetsPath}}/images/small.png"

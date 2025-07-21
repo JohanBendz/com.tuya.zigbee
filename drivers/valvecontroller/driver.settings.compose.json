@@ -1,5 +1,7 @@
 [
   {
-    "$extends": ["powerOnState"]
+    "$extends": [
+      "powerOnState"
+    ]
   }
 ]

@@ -13,7 +13,10 @@
   ],
   "capabilitiesOptions": {},
   "energy": {
-      "batteries": ["AAA","AAA"]
+    "batteries": [
+      "AAA",
+      "AAA"
+    ]
   },
   "platforms": [
     "local"

@@ -4,8 +4,12 @@
     "en": "Temperature & Humidity Sensor"
   },
   "class": "sensor",
-  "platforms": ["local"],
-  "connectivity": ["zigbee"],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
   "capabilities": [
     "measure_temperature",
     "measure_humidity",

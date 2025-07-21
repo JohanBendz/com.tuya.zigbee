@@ -7,8 +7,8 @@
       "it": "Offset della temperatura (°C)"
     },
     "hint": {
-      "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]",
-      "it": "Imposta un valore per compensare lo scostamento della temperatura.\nRange: -10 - 10, step ze 0.1, \ndefault: 0 [°C]"
+      "en": "Set a value to compensate a temperature offset.nRange: -10 - 10, step size 0.1, ndefault: 0 [°C]",
+      "it": "Imposta un valore per compensare lo scostamento della temperatura.nRange: -10 - 10, step ze 0.1, ndefault: 0 [°C]"
     },
     "value": 0,
     "attr": {
@@ -26,9 +26,9 @@
       "it": "Offset dell'umidità (%)"
     },
     "hint": {
-      "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
-      "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]",
-      "it": "Imposta un valore per compensare lo scostamento dell'umidità.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]"
+      "en": "Set a correction to compensate a humidity offset.nRange: -10 - 10, step size 1, ndefault: 0 [%]",
+      "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.nBereik: -10 - 10, stap grootte 1, nstandaard: 0 [%]",
+      "it": "Imposta un valore per compensare lo scostamento dell'umidità.nRange: -10 - 10, step size 1, ndefault: 0 [%]"
     },
     "value": 0,
     "attr": {

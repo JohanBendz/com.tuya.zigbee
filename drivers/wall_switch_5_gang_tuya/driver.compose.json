@@ -4,9 +4,15 @@
     "en": "5 Gang Wall Switch"
   },
   "class": "socket",
-  "platforms": ["local"],
-  "connectivity": ["zigbee"],
-  "capabilities": ["onoff"],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [
+    "onoff"
+  ],
   "images": {
     "large": "{{driverAssetsPath}}/images/large.png",
     "small": "{{driverAssetsPath}}/images/small.png"
@@ -26,14 +32,24 @@
     ],
     "endpoints": {
       "1": {
-        "clusters": [0, 4, 5, 61184],
-        "bindings": [25, 10]
+        "clusters": [
+          0,
+          4,
+          5,
+          61184
+        ],
+        "bindings": [
+          25,
+          10
+        ]
       }
     },
     "devices": {
       "secondGang": {
         "class": "socket",
-        "capabilities": ["onoff"],
+        "capabilities": [
+          "onoff"
+        ],
         "name": {
           "en": "5 Gang Wall Switch - Second Gang"
         },
@@ -46,7 +62,9 @@
       },
       "thirdGang": {
         "class": "socket",
-        "capabilities": ["onoff"],
+        "capabilities": [
+          "onoff"
+        ],
         "name": {
           "en": "5 Gang Wall Switch - Third Gang"
         },
@@ -59,7 +77,9 @@
       },
       "fourthGang": {
         "class": "socket",
-        "capabilities": ["onoff"],
+        "capabilities": [
+          "onoff"
+        ],
         "name": {
           "en": "5 Gang Wall Switch - Fourth Gang"
         },
@@ -72,7 +92,9 @@
       },
       "fifthGang": {
         "class": "socket",
-        "capabilities": ["onoff"],
+        "capabilities": [
+          "onoff"
+        ],
         "name": {
           "en": "5 Gang Wall Switch - Fifth Gang"
         },
