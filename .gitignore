@@ -2,3 +2,10 @@
 *.log
 .env
 .homeybuild/
+# Secrets & local
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+.secrets/
