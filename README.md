@@ -838,3 +838,11 @@ Major Code Contributors:
 
 
 I would also like to thank everyone who contributes with device information, testing and beer!
+
+## ?? Derniers ajouts 22/07/2025
+- Daily-scan illimité  
+- Icônes IA  
+- Traductions 7 langues  
+- Lot-1 : 5 nouveaux devices + fixes  
+- Auto-comment issues/PR  
+- Git-notes historique complet
