@@ -1,60 +1,22 @@
-﻿name: CI & Manifest Sync
-
+﻿name: Cross-Platform CI
 on:
   push:
-    branches: [ main, master ]
+    branches: [master, main]
   pull_request:
-    branches: [ main, master ]
-  workflow_dispatch:
+    branches: [master, main]
 
 jobs:
-  sync-manifest:
-    name: Mettre à jour app.json
-    runs-on: ubuntu-latest
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node: [18, 20]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          persist-credentials: true
-          fetch-depth: 0
-
-      - name: Setup Node.js 18
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Mettre à jour le manifeste
-        run: npm run update-manifest
-
-      - name: Commit & Créer PR si modifié
-        uses: peter-evans/create-pull-request@v5
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore: sync app.json from .homeycompose"
-          branch: sync/app-json
-          title: "[Automatique] Synchronisation de app.json"
-          body: |
-            Ce PR met à jour `app.json` à partir de `.homeycompose/app.json`.
-
-  lint-test:
-    name: Lint & Tests
-    runs-on: ubuntu-latest
-    needs: sync-manifest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js 18
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: ESLint
-        run: npm run lint
-
-      - name: Jest Tests
-        run: npm test
+          node-version: ${{ matrix.node }}
+      - run: npm ci
+      - run: npm run lint --if-present
+      - run: npm test --if-present

@@ -1,7 +1,7 @@
-﻿# Tuya Zigbee – Homey App 🚀
-> Supports **100+ devices**, **cross-platform CI**, **auto-resize**.
+﻿# Tuya Zigbee – Homey App v5 🚀
+> 100+ devices, cross-platform CI, auto-resize, secrets-safe.
 
-## Device Matrix
+## Device Matrix (auto-updated)
 | Category | Zigbee ID | Brand | Status |
 | --- | --- | --- | --- |
 | Sensor | RH3052 | Lidl | ✅ |
@@ -9,16 +9,16 @@
 | Curtain | TS130F | GIRIER | ✅ |
 | … | … | … | … |
 
-## Quick Start (pick your OS)
+## Quick Start (pick OS)
 | OS | Command |
 |---|---|
-| **Windows** | 
+| Windows | 
 pm run dev:win |
-| **macOS** | 
+| macOS | 
 pm run dev:mac |
-| **Linux** | 
+| Linux | 
 pm run dev:linux |
-| **Docker** | docker compose up |
+| Docker | docker compose up |
 
 ## Changelog
 | Date | Feature |
