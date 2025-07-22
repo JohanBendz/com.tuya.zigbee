@@ -49,7 +49,7 @@ class motion_sensor_2 extends ZigBeeDevice {
 		
         // measure_illuminance handler
 		zclNode.endpoints[1].clusters[CLUSTER.ILLUMINANCE_MEASUREMENT.NAME]
-		.on('attr.IlluminanceMeasured', this.onIlluminanceMeasuredAttributeReport.bind(this));
+		.on('attr.measuredValue', this.onIlluminanceMeasuredAttributeReport.bind(this));
 
         // Tuya specific cluster handler
 		zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processResponse(value));
