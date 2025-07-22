@@ -1,0 +1,17 @@
+name: Sync master to rebuild/ai-bootstrap
+
+on:
+  schedule:
+    - cron: '30 4 1 * *'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+      - name: Pousser vers rebuild/ai-bootstrap
+        run: |
+          git checkout -B rebuild/ai-bootstrap
+          git push origin rebuild/ai-bootstrap --force

@@ -9,8 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install deps
         run: npm install
       - name: Run linter
         run: echo "No linter yet"
+      - name: Run tests
+        run: npm test

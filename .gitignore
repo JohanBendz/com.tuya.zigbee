@@ -1,7 +1,7 @@
-
 .env
 *.key
 *.pem
 node_modules/
 progress.json
 ai-benchmark/*.json
+tuya-backup-*.zip

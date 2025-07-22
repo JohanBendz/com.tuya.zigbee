@@ -1,0 +1,26 @@
+name: PR and Issue Bot
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const { data: prs } = await github.pulls.list({ owner, repo, state: 'open', per_page: 5 });
+            for (const pr of prs) {
+              await github.issues.createComment({ owner, repo, issue_number: pr.number, body: '🤖 Merci pour la PR ! Elle sera revue prochainement.' });
+            }
+            const { data: issues } = await github.issues.listForRepo({ owner, repo, state: 'open', per_page: 5 });
+            for (const issue of issues) {
+              if (!issue.pull_request) {
+                await github.issues.createComment({ owner, repo, issue_number: issue.number, body: '🤖 Merci pour votre issue ! Elle sera traitée rapidement.' });
+              }
+            }

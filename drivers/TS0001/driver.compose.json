@@ -1,0 +1,14 @@
+{
+  "id": "TS0001",
+  "name": {
+    "en": "Generic Switch",
+    "fr": "Interrupteur Générique"
+  },
+  "class": "socket",
+  "capabilities": ["onoff"],
+  "zigbee": {
+    "modelId": "TS0001",
+    "manufacturerName": "_TZ3000_abc123"
+  },
+  "icon": "icon.svg"
+}
