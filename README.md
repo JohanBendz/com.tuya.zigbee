@@ -127,3 +127,15 @@ MIT Â© Johan Bendz, contributors & fork maintainers.
 | 
 pm run update-manifest | Génère app.json depuis .homeycompose/app.json |
 
+
+## Scripts Dev
+
+| Commande                  | Description                                             |
+|---------------------------|---------------------------------------------------------|
+| 
+pm run update-manifest | Génère app.json depuis .homeycompose/app.json          |
+| 
+pm run lint            | Lance ESLint                                           |
+| 
+pm test                | Lance les tests Jest                                   |
+
