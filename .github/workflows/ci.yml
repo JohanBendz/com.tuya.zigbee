@@ -1,48 +1,37 @@
-<<<<<<< HEAD
-
-name: CI
-
+﻿name: CI & Manifest Sync
 on:
-  push:
-    branches: [ master ]
-=======
-# .github/workflows/ci.yml
-name: Lint & Test
-on:
-  push:
-    branches: [ "master", "main" ]
-  pull_request:
-    branches: [ "master", "main" ]
->>>>>>> fix/readme-validation
-
+  push: { branches: [ 'master' ] }
+  pull_request: { branches: [ 'master' ] }
+  workflow_dispatch:
 jobs:
-  build:
+  sync-manifest:
     runs-on: ubuntu-latest
     steps:
-<<<<<<< HEAD
       - uses: actions/checkout@v4
-      - name: Install deps
-        run: npm install
-      - name: Run linter
-        run: echo "No linter yet"
-      - name: Run tests
-        run: npm test
-=======
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'npm'
-
-      - name: Install deps
-        run: npm ci
-
-      - name: Lint
-        run: npm run lint --if-present
-
-      - name: Test
-        run: npm test --if-present
->>>>>>> fix/readme-validation
+      - run: npm ci
+      - run: npm run update-manifest
+      - name: Validate Homey app
+        run: npx homey app validate
+      - uses: peter-evans/create-pull-request@v5
+        with:
+          token: UTF8{{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: sync app.json"
+          branch: sync/app-json
+          title: "[Automatisé] sync app.json"
+  lint-test:
+    needs: sync-manifest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
