@@ -120,3 +120,10 @@ pm run lint && npm test
 
 MIT Â© Johan Bendz, contributors & fork maintainers.
 >>>>>>> fix/readme-validation
+
+##  Scripts Dev
+| Commande | Description |
+|----------|-------------|
+| 
+pm run update-manifest | Génère app.json depuis .homeycompose/app.json |
+
