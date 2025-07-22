@@ -1,5 +1,4 @@
-﻿<<<<<<< HEAD
-{
+﻿{
   "name": "com.tuya.zigbee",
   "version": "1.0.0",
   "scripts": {
@@ -20,7 +19,6 @@
     "ts-node": "^10.9.1",
     "chai": "^4.3.10",
     "@types/mocha": "^10.0.1"
-=======
 ï»¿{
   \"name\": \"com.tuya.zigbee\",
   \"version\": \"0.1.9\",
@@ -32,7 +30,6 @@
   \"devDependencies\": {
     \"eslint\": \"^8.57.0\",
     \"jest\": \"^29.7.0\"
->>>>>>> fix/readme-validation
   }
 }
 
