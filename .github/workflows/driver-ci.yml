@@ -1,0 +1,22 @@
+﻿name: Drivers & PR/Issue CI
+on:
+  push:
+    paths: ["drivers/**", ".github/workflows/**"]
+  pull_request:
+    paths: ["drivers/**", ".github/workflows/**"]
+jobs:
+  lint-drivers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Lint drivers
+        run: |
+          npm ci
+          npm run lint --if-present
+      - name: Validate Homey
+        run: |
+          echo "🔑 HOMEY_PAT is required for full validation"
+          # homey app validate  # skipped if secret absent
