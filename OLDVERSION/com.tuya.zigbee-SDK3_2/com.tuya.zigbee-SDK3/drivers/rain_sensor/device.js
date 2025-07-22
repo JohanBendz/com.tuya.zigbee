@@ -49,9 +49,9 @@ class RainSensor extends TuyaSpecificClusterDevice {
 
   onBatteryPercentageRemainingAttributeReport(batteryPercentageRemaining) {
     const batteryThreshold = this.getSetting('batteryThreshold') || 20;
-    this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", batteryPercentageRemaining / 2);
-    this.setCapabilityValue('measure_battery', batteryPercentageRemaining / 2).catch(this.error);
-    this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining / 2 < batteryThreshold) ? true : false).catch(this.error);
+    this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", batteryPercentageRemaining / BATTERY_PERCENTAGE_DIVISOR);
+    this.setCapabilityValue('measure_battery', batteryPercentageRemaining / BATTERY_PERCENTAGE_DIVISOR).catch(this.error);
+    this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining / BATTERY_PERCENTAGE_DIVISOR < batteryThreshold) ? true : false).catch(this.error);
   }
 
   async processDatapoint(data) {
