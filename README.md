@@ -19,8 +19,7 @@
 - `deploy.ps1` : déploiement auto
 - `repair_project.ps1` : restauration des fichiers critiques
 - `mega_restore.ps1` : restauration avancée depuis une sauvegarde
-- `merge_manufacturers.py` : fusionne les identifiants fabricants depuis Z2M et Home Assistant
-- `data/manufacturer_ids.json` : identifiants fabricants fusionnés
+
 
 ## Commandes utiles
 ```powershell
@@ -43,8 +42,7 @@ npm test
 * Bench IA mensuel (Claude, GPT, DALL·E…)
 * Parsing Z2M → Homey automatisé
 * Backup Google Drive automatique
-* Traitement quotidien de 5 PR et issues via GitHub Actions
-* Fusion automatique des PR validées vers master chaque nuit
+
 
 ## Crédits
 
