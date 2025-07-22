@@ -1,0 +1,55 @@
+{
+  "id": "pirsensor",
+  "name": {
+    "en": "PIR Sensor"
+  },
+  "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "alarm_motion",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "CR2032"
+    ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "TUYATEC-lha8pbwd",
+      "TUYATEC-zn9wyqtr",
+      "TUYATEC-53o41joc",
+      "TUYATEC-deetibst",
+      "TUYATEC-dgtxmihe",
+      "TUYATEC-b5g40alm",
+      "TUYATEC-dxnohkpd"
+    ],
+    "productId": [
+      "RH3040"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          1280
+        ],
+        "bindings": [
+          1,
+          1280
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/learn.svg",
+      "instruction": {
+        "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
+      }
+    }
+  }
+}

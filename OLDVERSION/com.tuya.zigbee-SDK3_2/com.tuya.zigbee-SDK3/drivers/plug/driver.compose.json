@@ -1,0 +1,54 @@
+{
+  "id": "plug",
+  "name": {
+    "en": "Smart Plug without metering"
+  },
+  "class": "socket",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "onoff"
+  ],
+  "capabilitiesOptions": {
+    "measure_power": {
+      "approximated": true
+    }
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_kdi2o9m6",
+      "_TZ3000_ew31dmgx",
+      "_TZ3000_dpo1ysak",
+      "_TZ3000_plyvnuf5",
+      "_TZ3000_hyfvrar3",
+      "_TZ3000_cymsnfvf",
+      "_TZ3000_upjrsxh1",
+      "_TZ3000_wamqdr3f"
+    ],
+    "productId": [
+      "TS011F"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          4,
+          5,
+          6
+        ],
+        "bindings": [
+          6
+        ]
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+      }
+    }
+  }
+}

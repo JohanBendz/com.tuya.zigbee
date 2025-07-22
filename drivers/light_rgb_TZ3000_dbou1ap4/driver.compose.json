@@ -1,0 +1,12 @@
+﻿{
+  \"id\": \"light_rgb_TZ3000_dbou1ap4\",
+  \"name\": { \"en\": \"Device TS0505A\" },
+  \"class\": \"sensor\",
+  \"capabilities\": [\"measure_temperature\"],
+  \"images\": { \"large\": \"assets/icon.svg\", \"small\": \"assets/icon.svg\" },
+  \"zigbee\": {
+    \"manufacturerName\": [\"TUYATEC\"],
+    \"productId\": [\"TS0505A\"],
+    \"endpoints\": { \"1\": { \"clusters\": [\"msTemperatureMeasurement\"] } }
+  }
+}

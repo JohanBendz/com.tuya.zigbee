@@ -1,0 +1,51 @@
+{
+  "id": "doorwindowsensor_4",
+  "name": {
+    "en": "Door & Window Sensor"
+  },
+  "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "alarm_contact",
+    "alarm_battery",
+    "measure_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "AAA",
+      "AAA"
+    ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "zbeacon"
+    ],
+    "productId": [
+      "DS01"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          3,
+          1,
+          32,
+          1280
+        ],
+        "bindings": [
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 7 seconds until the LED blinks slowly."
+      }
+    }
+  }
+}

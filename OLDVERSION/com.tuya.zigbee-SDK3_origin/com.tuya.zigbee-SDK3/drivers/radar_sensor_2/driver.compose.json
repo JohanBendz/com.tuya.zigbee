@@ -1,0 +1,48 @@
+{
+    "id": "radar_sensor_2",
+    "name": {
+      "en": "Radar Sensor",
+      "nl": "Radar Sensor"
+    },
+    "class": "sensor",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "measure_luminance",
+      "alarm_motion",
+      "target_distance"
+    ],
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "energy": {
+      "approximation": {
+        "usageOn": 0,
+        "usageOff": 0
+      }
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TZE204_sxm7l9xa",
+        "_TZE204_ijxvkhd0"
+      ],
+      "productId": [
+        "TS0601"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 4, 5, 258, 61184],
+          "bindings": [258, 61184]
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Press and hold the reset button for 6 seconds. When the indicator light flashes it is in pairing mode.",
+          "nl": "Druk 6 seconden op de reset knop. Wacht tot de led gaat knipperen."
+        }
+      }
+    }
+
+}

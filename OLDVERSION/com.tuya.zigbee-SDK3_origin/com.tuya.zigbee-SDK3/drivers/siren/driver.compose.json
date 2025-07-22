@@ -1,0 +1,61 @@
+{
+  "id": "siren",
+  "name": {
+    "en": "Siren"
+  },
+  "class": "other",
+  "capabilities": [
+    "onoff",
+    "measure_battery"
+  ],
+  "capabilitiesOptions": {
+    "onoff": {
+      "greyout": false
+    }
+  },
+  "energy": {
+      "batteries": ["CR123A","CR123A"]
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZE204_t1blo2bj"
+    ],
+    "productId": [
+      "TS0601"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          4,
+          5,
+          61184
+        ],
+        "bindings": [
+          10,
+          25,
+          61184
+        ]
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press and hold the button inside the battery compartment for aprox 5 seconds until the LED blinks rapidly.",
+        "sv": "Håll ned knappen inne i batterifacket i ca 5 sekunder tills LED-lampan blinkar snabbt.",
+        "it": "Tenere premuto il pulsante all'interno del vano batteria per cicrca 5 secondi finchè il LED non lampeggia rapidamente.",
+        "nl": "Houd de knop binnenin het batterijcompartiment ongeveer 5 seconden ingedrukt totdat de LED snel knippert.",
+        "de": "Drücken und halten Sie die Taste im Batteriefach ca. 5 Sekunden lang, bis die LED schnell blinkt."
+      }
+    }
+  }
+}

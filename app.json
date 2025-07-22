@@ -1,0 +1,32 @@
+﻿# Tuya Zigbee – Homey App
+
+## Changelog
+| 2025-07-21 | auto | auto | Full restoration |
+
+## Supported Devices
+| Brand | Model | Zigbee ID | Product Link |
+|-------|-------|-----------|--------------|
+| Lidl  | RGB E27 | \_TZ3000_dbou1ap4\ | https://www.lidl.de |
+| MOES  | 1-Gang Switch | \_TYZB01_qeqvmvti\ | https://moes.com |
+| GiEX  | Soil Sensor | \_TZE200_myd45weu\ | https://giex.com |
+
+## Quick Start
+\\\powershell
+git clone https://github.com/dlnraja/com.tuya.zigbee.git
+cd com.tuya.zigbee
+homey app install
+\\\
+"@ | Set-Content README.md -Encoding UTF8
+
+# app.json
+@"
+{
+  \"id\": \"com.tuya.zigbee\",
+  \"version\": \"0.1.9\",
+  \"sdk\": 3,
+  \"name\": { \"en\": \"Tuya Zigbee\" },
+  \"description\": { \"en\": \"Adds support for Tuya Zigbee devices\" },
+  \"category\": [\"lights\",\"sensors\",\"socket\"],
+  \"permissions\": [\"zigbee\"],
+  \"drivers\": []
+}

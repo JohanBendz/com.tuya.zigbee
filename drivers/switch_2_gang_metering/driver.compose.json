@@ -1,0 +1,67 @@
+{
+    "id": "switch_2_gang_metering",
+    "name": {
+      "en": "2 Gang Switch Module with metering"
+    },
+    "class": "socket",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "onoff",
+      "measure_power",
+      "meter_power",
+      "measure_current",
+      "measure_voltage"
+    ],
+    "capabilitiesOptions": {
+      "measure_power": {
+        "approximated": true
+      }
+    },
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TZ3000_zmy4lslw",
+        "_TZ3000_cayepv1a"
+
+      ],
+      "productId": [
+        "TS0002",
+        "TS011F"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 4, 5, 6, 1794, 2820],
+          "bindings": [6, 1794, 2820]
+        },
+        "2": {
+          "clusters": [4, 5, 6],
+          "bindings": [6]
+        }
+      },
+      "devices": {
+        "secondSwitch": {
+          "class": "socket",
+          "capabilities": ["onoff"],
+          "name": {
+            "en": "2 Gang Switch Module with metering - Second Switch"
+          },
+          "capabilitiesOptions": {
+            "measure_power": {
+              "approximated": true
+            }
+          }
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        }
+      }
+    }
+
+}

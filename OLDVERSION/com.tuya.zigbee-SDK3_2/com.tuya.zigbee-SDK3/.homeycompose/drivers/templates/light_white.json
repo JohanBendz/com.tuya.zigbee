@@ -1,0 +1,18 @@
+{
+    "class": "light",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+    "onoff",
+    "dim"
+    ],
+    "capabilitiesOptions": {
+        "onoff": {
+            "setOnDim": false
+        }
+    },
+    "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+    }
+}

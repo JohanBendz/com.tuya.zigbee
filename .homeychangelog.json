@@ -1,0 +1,380 @@
+{
+  "0.0.1": {
+    "en": "Added support for Tuya Zigbee Temperature & Humidity Sensor"
+  },
+  "0.0.2": {
+    "en": "Added support for Malmbergs White Label Brand"
+  },
+  "0.0.3": {
+    "en": "Added support for Tuya Zigbee LCD Temperature & Humidity Sensor"
+  },
+  "0.0.4": {
+    "en": "Added support for Alecto White Label Brand"
+  },
+  "0.0.5": {
+    "en": "Added support for Smart9 White Label Brand"
+  },
+  "0.0.6": {
+    "en": "Added support for Blitzwolf White Label Brand"
+  },
+  "0.0.7": {
+    "en": "Added support for Zemismart White Label Brand"
+  },
+  "0.1.0": {
+    "en": "Rewrite for SDK3 / Homey Firmware v5"
+  },
+  "0.1.1": {
+    "en": "Added support for more white label devices and killed some bugs"
+  },
+  "0.1.2": {
+    "en": "Rewrite to use IASZone Cluster (Good job adding support for it TED!)"
+  },
+  "0.1.3": {
+    "en": "Composer fix"
+  },
+  "0.1.4": {
+    "en": "Added support for Smart Plug (needs testing)"
+  },
+  "0.1.5": {
+    "en": "Added support for Samotech White Label Brand"
+  },
+  "0.1.6": {
+    "en": "Added support for 1 Gang Switch Module and 2 Gang Switch Module"
+  },
+  "0.1.7": {
+    "en": "Added product ID's and fixed 2 Gang Switch Module Channel 2"
+  },
+  "0.1.8": {
+    "en": "Added 1 Gang Dimmer Module, 2 Gang Dimmer Module and added support for Lonsonho White Label Brand"
+  },
+  "0.1.9": {
+    "en": "Added Valve Controller (Gas/Water)"
+  },
+  "0.1.10": {
+    "en": "Added 1 Gang Wall Switch, 2 Gang Wall Switch and 3 Gang Wall Switch"
+  },
+  "0.1.11": {
+    "en": "Added some product id's"
+  },
+  "0.1.12": {
+    "en": "Added some more product id's"
+  },
+  "0.1.13": {
+    "en": "Added support for LED Strip Controller"
+  },
+  "0.1.14": {
+    "en": "Added support for RGB Bulb E27, RGB Bulb E14, RGB Spot GU10, RGB LED Strip, Tunable Bulb E27, Tunable Bulb E14, Tunable Spot GU10, Plug, 3 Socket Power Strip"
+  },
+  "0.1.15": {
+    "en": "Fix: Power Strip only triggered socket 1"
+  },
+  "0.1.16": {
+    "en": "Added Smart Door/Window Sensor (Lidl)"
+  },
+  "0.1.17": {
+    "en": "Fix for RGB Bulb/LED Brightness issues"
+  },
+  "0.1.18": {
+    "en": "Fix for Door/Window Sensor (Lidl)"
+  },
+  "0.1.19": {
+    "en": "Added support for Christmas Lights (Lidl)"
+  },
+  "0.1.20": {
+    "en": "Added support for Lidl Smart Motion Sensor and Lidl Smart Door/Window Sensor (old driver for Lidl Smart Door/Window Sensor removed)"
+  },
+  "0.1.22": {
+    "en": "Fix for Smart Plug with Metering"
+  },
+  "0.1.23": {
+    "en": "Fix for Smart Door / Window and Smart Motion Sensors"
+  },
+  "0.1.24": {
+    "en": "Added support for 4 Socket Power Strip and added product ID's to some devices (and some changes to Smart Plug)"
+  },
+  "0.1.26": {
+    "en": "Typo correction"
+  },
+  "0.1.27": {
+    "en": "Extended use of Composer templates. Fix for Smart Plug with metering"
+  },
+  "0.1.28": {
+    "en": "Fix for Smart Plug with metering"
+  },
+  "0.1.29": {
+    "en": "Added support for BlitzWolf Smart Light Switch Module 1 Gang"
+  },
+  "0.1.31": {
+    "en": "Troubleshooting Smart Plug with metering"
+  },
+  "0.1.33": {
+    "en": "Test Device - Wall Remote 3 Gang"
+  },
+  "0.1.34": {
+    "en": "Fix for Christmas Lights firework effect. Fix for Smart Plug. Added some Device ID's."
+  },
+  "0.1.37": {
+    "en": "Fix for Smart Plug."
+  },
+  "0.1.38": {
+    "en": "Support for Curtain Switch Module and additional PIR Sensor."
+  },
+  "0.1.39": {
+    "en": "Fix for RGB lights. Added support for Lidl/Livarno Spot GardenLight. Added calibration to Curtain Module. Added some Id's to already supported units."
+  },
+  "0.1.41": {
+    "en": "Fix for RGB and Tunable White lights."
+  },
+  "0.1.42": {
+    "en": "Polished code for release to app store. Already paired lights MUST be removed and paired again to get color/temperature functionality."
+  },
+  "0.1.43": {
+    "en": "Potential fix for Tunable White lights. Added some device id's to already supported devices."
+  },
+  "0.1.44": {
+    "en": "Potential fix for Tunable White lights."
+  },
+  "0.1.45": {
+    "en": "Fix for Tunable White lights deployed to Live version in App Store."
+  },
+  "0.1.46": {
+    "en": "Added support for LED Mood Light and LED Bar Light by Livarno LUX/Lidl."
+  },
+  "0.1.47": {
+    "en": "Added support for Water Detector and Zigbee Repeater."
+  },
+  "0.1.49": {
+    "en": "Added Diagnostic Driver - for use when your device is not yet supported and the developer needs data to be able to add it. Always talk to the developer in Athom Community Forum before using this driver."
+  },
+  "0.1.50": {
+    "en": "Added support for 1 Gang, 2 Gang and 3 Gang Wall Remotes (battery operated)."
+  },
+  "0.1.51": {
+    "en": "Added a few device Id's for already supported units."
+  },
+  "0.1.53": {
+    "en": "1 / 2 / 3 / 4 (added) Gang Wall Remotes now working. Added support for 4 button Smart Remote Controller."
+  },
+  "0.1.54": {
+    "en": "Added more device ID's to the Wall Remotes."
+  },
+  "0.1.55": {
+    "en": "Added extra logging for some devices with issues."
+  },
+  "0.2.0": {
+    "en": "Added support for 71 new device ID's and 8 new devices. Upgraded Homey Zigbee Driver"
+  },
+  "0.2.1": {
+    "en": "Fix for LCD Temp/Hum/Lux sensor"
+  },
+  "0.2.2": {
+    "en": "Added metering capability to _TZ3000_mraovvmm / TS011F (Blitzwolf)"
+  },
+  "0.2.3": {
+    "en": "Added support for a number of devices"
+  },
+  "0.2.4": {
+    "en": "Added support for one more type of LCD Temperature & Humidity Sensor. Added better power measuring functionality to some devices."
+  },
+  "0.2.5": {
+    "en": "Corrected typo that resulted in smart plugs not working"
+  },
+  "0.2.6": {
+    "en": "Added support for a number of devices"
+  },
+  "0.2.7": {
+    "en": "Added support for a number of devices and added functionality to some already added."
+  },
+  "0.2.10": {
+    "en": "Fix for Wall Remotes."
+  },
+  "0.2.11": {
+    "en": "New test version with a number of new deviced added."
+  },
+  "0.2.12": {
+    "en": "Added support for a number of devices."
+  },
+  "0.2.13": {
+    "en": "Added support for a number of devices and made some fixes."
+  },
+  "0.2.14": {
+    "en": "Multiple new devices added."
+  },
+  "0.2.15": {
+    "en": "Fix."
+  },
+  "0.2.16": {
+    "en": "Fix."
+  },
+  "0.2.17": {
+    "en": "Fixes for a few test devices."
+  },
+  "0.2.18": {
+    "en": "Added some extra codes for already supported devices and made a few fixes."
+  },
+  "0.2.19": {
+    "en": "Some new devices, added codes for some already added devices and a few fixes."
+  },
+  "0.2.20": {
+    "en": "Some new devices, new functionality for some devices and a few fixes."
+  },
+  "0.2.21": {
+    "en": "Some new devices, added codes for some already added devices and a few fixes."
+  },
+  "0.2.22": {
+    "en": "A bunch of new devices and added codes for already added devices."
+  },
+  "0.2.23": {
+    "en": "Minor fixes for a few drivers."
+  },
+  "0.2.24": {
+    "en": "Minor fixes for a few drivers."
+  },
+  "0.2.25": {
+    "en": "Fix for Motion Sensor."
+  },
+  "0.2.26": {
+    "en": "Prepping for central Tuya Datapoint and Helper structure."
+  },
+  "0.2.27": {
+    "en": "Adding devices and fixing issues."
+  },
+  "0.2.28": {
+    "en": "Adding more devices."
+  },
+  "0.2.29": {
+    "en": "A few fixes for dimmers."
+  },
+  "0.2.30": {
+    "en": "Fix for double power point."
+  },
+  "0.2.31": {
+    "en": "Fix for 2 gang dimmers."
+  },
+  "0.2.32": {
+    "en": "Fix for 2 gang dimmer."
+  },
+  "0.2.33": {
+    "en": "Fix for 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.34": {
+    "en": "Fix for 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.35": {
+    "en": "Added a number of new devices and made some fixed."
+  },
+  "0.2.36": {
+    "en": "Added a number of new devices and made some fixed."
+  },
+  "0.2.37": {
+    "en": "Consolidated common logic for data point parsing, schedule handling, and multi-byte conversions into shared modules for better reusability."
+  },
+  "0.2.38": {
+    "en": "Added a number of new devices and made some fixed."
+  },
+  "0.2.39": {
+    "en": "Fix for 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.40": {
+    "en": "Refactoring 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.41": {
+    "en": "Updated TuyaDataPoints.js and added verbose logging to 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.42": {
+    "en": "Updated TuyaDataPoints.js and rewrote 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.43": {
+    "en": "Updated driver for 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.44": {
+    "en": "Fix for 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.45": {
+    "en": "And one more fix."
+  },
+  "0.2.46": {
+    "en": "And even more fixes.."
+  },
+  "0.2.47": {
+    "en": "Added some devices and made some fixes.."
+  },
+  "0.2.48": {
+    "en": "Curtain module fix."
+  },
+  "0.2.49": {
+    "en": "Added devices."
+  },
+  "0.2.50": {
+    "en": "Fix for 1 gang dimmer using Tuya Cluster."
+  },
+  "0.2.51": {
+    "en": "Fix for 1 and 2 gang dimmer using Tuya Cluster."
+  },
+  "0.2.52": {
+    "en": "Added indicator light setting to all wall switches."
+  },
+  "0.2.53": {
+    "en": "Fixes to a few devices."
+  },
+  "0.2.54": {
+    "en": "Added Wall Switch 4 gang and updated a number of device drivers."
+  },
+  "0.2.55": {
+    "en": "Troubleshooting Wall Switch 4 gang."
+  },
+  "0.2.56": {
+    "en": "More fixes."
+  },
+  "0.2.57": {
+    "en": "Fix for Dual Power Point and Wall Switch 4 Gang using Tuya Cluster. Uppdated/added device id's to a number of devices."
+  },
+  "0.2.58": {
+    "en": "Uppdated/added device id's to a number of devices. Fix for Wall Switch 4 Gang using Tuya Cluster."
+  },
+  "0.2.59": {
+    "en": "Added devices/id's."
+  },
+  "0.2.60": {
+    "en": "Added more devices/id's."
+  },
+  "0.2.61": {
+    "en": "Some fixes and cleanup."
+  },
+  "0.2.62": {
+    "en": "Added device id's to a number of devices and made some fixes."
+  },
+  "0.2.63": {
+    "en": "Added device id's to a number of devices and made some fixes."
+  },
+  "0.2.64": {
+    "en": "Added a Tuya Diagnostic device and added a number of drivers/devices. Made som changes to helper files and made some fixes in a number of drivers."
+  },
+  "0.2.65": {
+    "en": "Added FingerBot and made som changes to helper files and made some fixes in a number of drivers."
+  },
+  "0.2.66": {
+    "en": "Crash fix."
+  },
+  "0.2.67": {
+    "en": "Updated Zigbee drivers and made some fixes"
+  },
+  "0.2.68": {
+    "en": "Added some id's and killed some bugs"
+  },
+  "0.2.69": {
+    "en": "4 button wall remote fix"
+  },
+  "0.2.70": {
+    "en": "Added Rain Sensor and made some updates to datapoints"
+  },
+  "0.2.71": {
+    "en": "2 button wall remote fix"
+  },
+  "0.2.72": {
+    "en": "2 and 4 button wall remote fix"
+  },
+  "0.2.73": {
+    "en": "4 button wall remote fix"
+  }
+}

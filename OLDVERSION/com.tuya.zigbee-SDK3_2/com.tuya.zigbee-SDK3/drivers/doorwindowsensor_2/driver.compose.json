@@ -1,0 +1,60 @@
+{
+  "id": "doorwindowsensor2",
+  "name": {
+    "en": "Door & Window Sensor"
+  },
+  "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "alarm_contact",
+    "alarm_tamper",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "CR2032"
+    ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "TUYATEC-0l6xaqmi",
+      "_TZ3000_7tbsruql",
+      "_TZ3000_osu834un",
+      "Immax",
+      "Visonic",
+      "_TZ3000_hkcpblrs",
+      "_TZ3000_8yhypbo7",
+      "_TZ3000_cqlnswn0"
+    ],
+    "productId": [
+      "RH3001",
+      "TS0203",
+      "DoorWindow-Sensor-ZB3.0",
+      "MCT-340 E"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          1280
+        ],
+        "bindings": [
+          1,
+          1280
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Open the device and press the reset button gently for aprox 10 seconds until the LED blinks rapidly."
+      }
+    }
+  }
+}

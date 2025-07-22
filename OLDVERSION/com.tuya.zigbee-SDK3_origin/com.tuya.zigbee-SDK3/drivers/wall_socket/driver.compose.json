@@ -1,0 +1,46 @@
+{
+  "id": "wall_socket",
+  "name": {
+    "en": "Wall Socket with metering"
+  },
+  "class": "socket",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "onoff",
+    "measure_power",
+    "meter_power",
+    "measure_current",
+    "measure_voltage"
+  ],
+  "capabilitiesOptions": {
+    "measure_power": {
+      "approximated": true
+    }
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_b28wrpvx",
+      "_TZ3000_4ux0ondb",
+      "_TZ3000_y4ona9me"
+    ],
+    "productId": [
+      "TS011F"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 4, 5, 6, 1794, 2820],
+        "bindings": [6, 1794, 2820]
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+      }
+    }
+  }
+}

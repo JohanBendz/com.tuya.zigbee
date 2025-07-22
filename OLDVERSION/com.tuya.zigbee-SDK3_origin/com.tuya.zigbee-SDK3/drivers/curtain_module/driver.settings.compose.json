@@ -1,0 +1,76 @@
+[
+    {
+        "id": "motor_control",
+        "type": "group",
+        "label": {
+            "en": "Motor control",
+            "de": "Motorsteuerung"
+        },
+        "children": [
+            {
+                "id": "reverse",
+                "type": "checkbox",
+                "label": {
+                    "en": "Reverse",
+                    "de": "Rückwärts"
+                },
+                "value": false
+            },
+            {
+                "id": "movetime",
+                "type": "number",
+                "label": {
+                    "en": "Movement time",
+                    "de": "Bewegungszeit"
+                },
+                "hint": {
+                    "en": "The time in seconds that the transition from 0-100% takes. Be aware that open/close might take a different amount of time.",
+                    "de": "Die Zeit in Sekunden, die der Übergang von 0-100% dauert. Beachte, dass das Öffnen/Schließen unterschiedlich lange dauern kann."
+                },
+                "min": 3,
+                "max": 900,
+                "step": 0.1,
+                "units": {
+                    "en": "Seconds",
+                    "de": "Sekunden"
+                }
+            },
+            {
+                "id": "calibration_mode",
+                "type": "checkbox",
+                "label": {
+                    "en": "Calibration mode",
+                    "de": "Kalibrierungsmodus"
+                },
+                "hint": {
+                    "en": "Activate to start calibration mode and deactivate to stop it. The elapsed time between will be used to calibrate 0-100%. If this does not work use the \"Movement time\" setting instead.",
+                    "de": "Aktiviere diese Option, um den Kalibrierungsmodus zu starten, und deaktivieren, um ihn zu beenden. Die dazwischen verstrichene Zeit wird zum Kalibrieren von 0-100% verwendet. Wenn dies nicht funktioniert, verwende stattdessen die Einstellung \"Bewegungszeit\"."
+                },
+                "value": false
+            }
+        ]
+    },
+    {
+        "id": "controls",
+        "type": "group",
+        "label": {
+            "en": "Controls",
+            "de": "Steuerelemente"
+        },
+        "children": [
+            {
+                "id": "has_state",
+                "type": "checkbox",
+                "label": {
+                    "en": "State control",
+                    "de": "Zustandskontrolle"
+                },
+                "hint": {
+                    "en": "When enabled controls for Up/Stop/Down will be shown in addition to the percent based controls. Some external integrations (e.g. Alexa) might not be able to determine the correct device type if enabled.",
+                    "de": "Wenn diese Option aktiviert ist, werden zusätzlich zu den prozentualen Steuerelementen auch Steuerelemente für Auf/Stop/Ab angezeigt. Einige externe Integrationen (z. B. Alexa) sind möglicherweise nicht in der Lage, den richtigen Gerätetyp zu bestimmen, wenn diese Option aktiviert ist."
+                },
+                "value": false
+            }
+        ]
+    }
+]

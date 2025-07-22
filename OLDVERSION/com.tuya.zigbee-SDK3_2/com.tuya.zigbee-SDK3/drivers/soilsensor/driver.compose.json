@@ -1,0 +1,65 @@
+{
+  "id": "soilsensor",
+  "name": {
+    "en": "Soil Sensor",
+    "nl": "Vochtigheids Sensor"
+  },
+  "class": "sensor",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [
+    "measure_temperature",
+    "measure_humidity",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "energy": {
+    "approximation": {
+      "usageOn": 0,
+      "usageOff": 0
+    },
+    "batteries": [
+      "AA", "AA"
+    ]
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZE200_myd45weu",
+      "_TZE200_ga1maeof",
+      "_TZE200_9cqcpkgb",
+      "_TZE204_myd45weu",
+      "_TZE284_aao3yzhs",
+      "_TZE284_sgabhwa6",
+      "_TZE200_2se8efxh"
+    ],
+    "productId": [
+      "TS0601"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          61184
+        ],
+        "bindings": [
+          61184
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Hold the button for 5 seconds, the button will blink.",
+        "nl": "Houd de knop 5 seconden ingedrukt, het knop zal knipperen."
+      }
+    }
+  }
+}

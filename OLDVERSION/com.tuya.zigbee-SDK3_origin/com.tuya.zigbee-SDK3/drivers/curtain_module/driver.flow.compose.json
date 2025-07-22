@@ -1,0 +1,12 @@
+{
+    "actions": [
+      {
+        "id": "move_open",
+        "title": { "en": "Open", "de": "Öffnen" }
+      },
+      {
+        "id": "move_close",
+        "title": { "en": "Close", "de": "Schließen" }
+      }
+    ]
+  }

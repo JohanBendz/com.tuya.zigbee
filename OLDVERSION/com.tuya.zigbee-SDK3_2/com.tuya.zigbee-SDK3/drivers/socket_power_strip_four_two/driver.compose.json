@@ -1,0 +1,111 @@
+{
+  "id": "socket_power_strip_four_two",
+  "name": {
+    "en": "Power Strip 4 Sockets"
+  },
+  "class": "socket",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "onoff"
+  ],
+  "capabilitiesOptions": {
+    "measure_power": {
+      "approximated": true
+    }
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_o005nuxx",
+      "_TZ3000_cfnprab5"
+    ],
+    "productId": [
+      "TS011F"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 4, 5, 6],
+        "bindings": [6]
+      },
+      "2": {
+        "clusters": [4, 5, 6],
+        "bindings": [6]
+      },
+      "3": {
+        "clusters": [4, 5, 6],
+        "bindings": [6]
+      },
+      "4": {
+        "clusters": [4, 5, 6],
+        "bindings": [6]
+      },
+      "5": {
+        "clusters": [4, 5, 6],
+        "bindings": [6]
+      }
+    },
+    "devices": {
+      "socket2": {
+        "class": "socket",
+        "capabilities": ["onoff"],
+        "name": {
+          "en": "Power Strip Socket 2/4"
+        },
+        "energy": {
+          "approximation": {
+            "usageOn": 0,
+            "usageOff": 0
+          }
+        }
+      },
+      "socket3": {
+        "class": "socket",
+        "capabilities": ["onoff"],
+        "name": {
+          "en": "Power Strip Socket 3/4"
+        },
+        "energy": {
+          "approximation": {
+            "usageOn": 0,
+            "usageOff": 0
+          }
+        }
+      },
+      "socket4": {
+        "class": "socket",
+        "capabilities": ["onoff"],
+        "name": {
+          "en": "Power Strip Socket 4/4"
+        },
+        "energy": {
+          "approximation": {
+            "usageOn": 0,
+            "usageOff": 0
+          }
+        }
+      },
+      "usb": {
+        "class": "socket",
+        "capabilities": ["onoff"],
+        "name": {
+          "en": "Power Strip USB"
+        },
+        "energy": {
+          "approximation": {
+            "usageOn": 0,
+            "usageOff": 0
+          }
+        }
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "A tile for each socket will be created. Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "id": "doublepowerpoint2",
+  "name": {
+    "en": "Double Power Point"
+  },
+  "class": "socket",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "onoff",
+    "measure_power",
+    "meter_power",
+    "measure_current",
+    "measure_voltage"
+  ],
+  "capabilitiesOptions": {
+    "measure_power": {
+      "approximated": true
+    }
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TYZB01_hlla45kx"
+    ],
+    "productId": [
+      "TS011F"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 4, 5, 6],
+        "bindings": [6]
+      },
+      "2": {
+        "clusters": [6],
+        "bindings": [6]
+      }
+    },
+    "devices": {
+      "socketTwo": {
+        "class": "socket",
+        "capabilities": ["onoff"],
+        "name": { "en": "Double Power Point - Second socket" },
+        "settings": []
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+      }
+    }
+  }
+}

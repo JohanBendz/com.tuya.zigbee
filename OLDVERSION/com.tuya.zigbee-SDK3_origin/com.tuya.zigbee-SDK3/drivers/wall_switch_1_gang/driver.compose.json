@@ -1,0 +1,60 @@
+{
+    "id": "wall_switch_1_gang",
+    "name": {
+      "en": "1 Gang Wall Switch"
+    },
+    "class": "socket",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "onoff"
+    ],
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "energy": {
+      "approximation": {
+        "usageOn": 0,
+        "usageOff": 0
+      }
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TYZB01_xfpdrwvc",
+        "_TZ3000_9hpxg80k",
+        "_TZ3000_f8tmviy0",
+        "_TZ3000_gidy6sjs",
+        "_TYZB01_qeqvmvti",
+        "_TYZB01_seqwasot",
+        "_TZ3000_hktqahrq",
+        "_TZ3000_yl3zuyaw",
+        "_TZ3000_3wkqni6o",
+        "_TZ3000_oex7egmt",
+        "_TZ3000_hafsqare",
+        "_TZ3000_oaq83gqc",
+        "_TZ3000_hhiodade",
+        "_TZ3000_6eyydfyg",
+        "_TZ3000_ysdv91bk",
+        "_TZ3000_7jx5ypra",
+        "_TZ3000_3u4hripk"
+      ],
+      "productId": [
+        "TS0001",
+        "TS0011"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 3, 4, 5, 6],
+          "bindings": [6]
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Press the button for 7 seconds (until LED starts blinking)."
+        }
+      }
+    }
+
+}

@@ -1,0 +1,75 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Formaldehyde",
+        "nl": "Formaldehyde",
+        "de": "Formaldehyd",
+        "fr": "Formaldéhyde",
+        "it": "Formaldeide",
+        "sv": "Formaldehyd",
+        "no": "Formaldehyd",
+        "es": "Formaldehído",
+        "da": "Formaldehyd",
+        "pl": "Formaldehyd"
+    },
+    "units": {
+        "en": "ppm",
+        "ru": "ч./млн."
+    },
+    "insights": true,
+    "desc": {
+        "en": "Formaldehyde in Parts-per-million (ppm)",
+        "nl": "Formaldehyde deeltjes per miljoen (ppm)",
+        "de": "Formaldehyd in Anteile pro Million (ppm)",
+        "fr": "Niveau de formaldéhyde en parts par million (ppm)",
+        "it": "Livello di formaldeide in parti per milione (ppm)",
+        "sv": "Formaldehyd i partiklar-per-miljon (ppm)",
+        "no": "Formaldehyd i partikler per million (ppm)",
+        "es": "Formaldehído en partes por millón (ppm)",
+        "da": "Formaldehyd i partikler-per-million (ppm)",
+        "pl": "Stężenie formaldehye w części na milion (ppm)"
+    },
+    "chartType": "spline",
+    "decimals": 4,
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor",
+    "$flow": {
+        "triggers": [
+            {
+                "id": "measure_formaldehyde_changed",
+                "title": {
+                    "en": "The formaldehyde-level changed",
+                    "nl": "Het formaldehyde niveau is veranderd",
+                    "de": "Der Formaldehyd-Gehalt hat sich geändert",
+                    "fr": "Le niveau de formaldéhyde a changé",
+                    "it": "Il livello di formaldeide è cambiato",
+                    "sv": "Formaldehyd-nivån ändrades",
+                    "no": "Formaldehyd-nivet ble endret",
+                    "es": "El nivel de formaldehído ha cambiado",
+                    "da": "Formaldehyd-niveauet har ændret sig",
+                    "pl": "Zmiana poziomu stężenia formaldehyd"
+                },
+                "tokens": [
+                    {
+                        "name": "measure_formaldehyde",
+                        "title": {
+                            "en": "Formaldehyde",
+                            "nl": "Formaldehyde",
+                            "de": "Formaldehyd",
+                            "fr": "Formaldéhyde",
+                            "it": "Formaldeide",
+                            "sv": "Formaldehyd",
+                            "no": "Formaldehyd",
+                            "es": "Formaldehído",
+                            "da": "Formaldehyd",
+                            "pl": "Formaldehyd"
+                        },
+                        "type": "number",
+                        "example": 0.1
+                    }
+                ]
+            }
+        ]
+    }
+}

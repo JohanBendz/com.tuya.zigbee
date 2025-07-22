@@ -1,0 +1,9 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Child Lock"
+  },
+  "uiComponent": "toggle",
+  "getable": true,
+  "setable": true
+}

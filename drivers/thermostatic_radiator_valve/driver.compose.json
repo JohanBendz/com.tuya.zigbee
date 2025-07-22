@@ -1,0 +1,76 @@
+{
+    "name": {
+        "en": "Thermostatic Radiator Valve"
+    },
+    "class": "thermostat",
+    "capabilities": [
+        "alarm_battery",
+        "target_temperature",
+        "thermostat_preset",
+        "window_open"
+    ],
+    "capabilitiesOptions": {
+        "target_temperature": {
+            "min": 5,
+            "max": 30,
+            "step": 0.5
+        }
+    },
+    "platforms": [
+        "local"
+    ],
+    "connectivity": [
+        "zigbee"
+    ],
+    "energy": {
+        "batteries": [
+            "AA",
+            "AA"
+        ]
+    },
+    "images": {
+        "small": "{{driverAssetsPath}}/images/moes_zigbee_3_small.png",
+        "large": "{{driverAssetsPath}}/images/moes_zigbee_3_large.png"
+    },
+    "zigbee": {
+        "manufacturerName": [
+            "_TZE200_sur6q7ko",
+            "_TZE200_hue3yfsn",
+            "_TZE200_husqqvux",
+            "_TZE200_lnbfnyxd",
+            "_TZE200_lllliz3p",
+            "_TZE200_mudxchsu",
+            "_TZE200_7yoranx2",
+            "_TZE200_e9ba97vf",
+            "_TZE200_kds0pmmv",
+            "_TZE200_kly8gjlz",
+            "_TZE200_py4cm3he"
+        ],
+        "productId": [
+            "TS0601"
+        ],
+        "endpoints": {
+            "1": {
+                "clusters": [
+                  0,
+                  4,
+                  5,
+                  10,
+                  25,
+                  61184
+                ],
+                "bindings": [
+                  10,
+                  25,
+                  61184
+                ]
+              }
+        },
+        "learnmode": {
+            "image": "{{driverAssetsPath}}/images/moes_zigbee_3_pair.png",
+            "instruction": {
+                "en": "Press 'Pair' button for 5 seconds until antenna symbol starts to blink."
+            }
+        }
+    }
+}
