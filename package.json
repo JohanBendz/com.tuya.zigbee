@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+﻿<<<<<<< HEAD
 {
   "name": "com.tuya.zigbee",
   "version": "1.0.0",
@@ -21,7 +21,7 @@
     "chai": "^4.3.10",
     "@types/mocha": "^10.0.1"
 =======
-﻿{
+ï»¿{
   \"name\": \"com.tuya.zigbee\",
   \"version\": \"0.1.9\",
   \"main\": \"app.js\",
@@ -35,3 +35,4 @@
 >>>>>>> fix/readme-validation
   }
 }
+
