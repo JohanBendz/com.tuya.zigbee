@@ -1,0 +1,6 @@
+﻿{
+  "id": "RH3052_Tuya",
+  "name": { "en": "Temp/Humidity Sensor" },
+  "category": ["sensor"],
+  "zigbee": { "productId": ["RH3052"] }
+}
