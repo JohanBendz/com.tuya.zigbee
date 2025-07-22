@@ -20,6 +20,7 @@
 - `repair_project.ps1` : restauration des fichiers critiques
 - `mega_restore.ps1` : restauration avancée depuis une sauvegarde
 
+
 ## Commandes utiles
 ```powershell
 # Déploiement
@@ -41,6 +42,7 @@ npm test
 * Bench IA mensuel (Claude, GPT, DALL·E…)
 * Parsing Z2M → Homey automatisé
 * Backup Google Drive automatique
+
 
 ## Crédits
 

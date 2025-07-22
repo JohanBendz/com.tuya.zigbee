@@ -1,6 +1,4 @@
 {
   "id": "TS0001",
-  "name": { "en": "Generic Switch", "fr": "Interrupteur Générique" },
-  "class": "socket",
-  "capabilities": ["onoff"]
+
 }

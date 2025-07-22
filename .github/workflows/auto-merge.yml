@@ -1,0 +1,27 @@
+name: Auto merge PRs to master
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const prs = await github.paginate(github.pulls.list, { owner, repo, state: 'open', base: 'master' });
+            for (const pr of prs) {
+              try {
+                await github.pulls.merge({ owner, repo, pull_number: pr.number, merge_method: 'squash' });
+                console.log(`Merged PR #${pr.number}`);
+              } catch (err) {
+                console.log(`Could not merge PR #${pr.number}: ${err.message}`);
+              }
+            }
+
