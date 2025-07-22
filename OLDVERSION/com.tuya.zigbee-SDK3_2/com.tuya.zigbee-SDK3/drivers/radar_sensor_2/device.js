@@ -76,7 +76,7 @@ class radarSensor2 extends TuyaSpecificClusterDevice {
         break;
 
       case V2_RADAR_SENSOR_DATA_POINTS.targetDistance:
-        const distanceUpdateInterval = this.getSetting('distance_update_interval') ?? 10;
+        const distanceUpdateInterval = this.getSetting('distance_update_interval') || 10;
         if (new Date().getSeconds() % distanceUpdateInterval === 0) {
           this.setCapabilityValue('target_distance', parsedValue / 100).catch(this.error); // converting to meters
           // Trigger the custom flow card for target distance change
