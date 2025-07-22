@@ -1,11 +1,17 @@
 {
   "id": "com.tuya.zigbee",
+<<<<<<< HEAD
   "version": "0.2.73",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
   ],
   "sdk": 3,
+=======
+  "version": "0.0.10",
+  "compatibility": ">=3.2.0",
+  "sdk": 2,
+>>>>>>> upstream/master
   "name": {
     "en": "Tuya Zigbee"
   },

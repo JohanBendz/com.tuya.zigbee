@@ -26,6 +26,7 @@
       "_TZ2000_a476raq2",
       "_TZ2000_xogb73am",
       "_TZ2000_avdnvykf",
+<<<<<<< HEAD
       "_TZ2000_hjsgdkfl",
       "_TYZB01_a476raq2",
       "_TYZB01_hjsgdkfl",
@@ -36,6 +37,11 @@
       "_TZ3000_itnrsufe",
       "_TZ3000_bjawzodf",
       "_TZ3210_ncw88jfq"
+=======
+      "_TYZB01_a476raq2",
+      "_TYZB01_hjsgdkfl",
+      "_TZ2000_hjsgdkfl"
+>>>>>>> upstream/master
     ],
     "productId": [
       "TS0201",

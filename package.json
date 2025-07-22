@@ -1,7 +1,13 @@
 <<<<<<< HEAD
 {
   "name": "com.tuya.zigbee",
+<<<<<<< HEAD
   "version": "1.0.0",
+=======
+  "version": "0.0.9",
+  "description": "Adds support for Tuya Zigbee devices to Homey",
+  "main": "app.js",
+>>>>>>> upstream/master
   "scripts": {
     "start": "node dashboard/index.js",
     "sync-drivers": "node scripts/z2m-parser.js",
