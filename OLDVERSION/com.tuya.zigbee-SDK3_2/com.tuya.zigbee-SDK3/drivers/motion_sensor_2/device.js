@@ -31,7 +31,7 @@ class motion_sensor_2 extends ZigBeeDevice {
 				},{
 					endpointId: 1,
 					cluster: CLUSTER.ILLUMINANCE_MEASUREMENT,
-					attributeName: 'IlluminanceMeasured',
+					attributeName: 'measuredValue',
                     minInterval: 60, // Minimum interval (1 minute)
                     maxInterval: 3600, // Maximum interval (1 hour)
                     minChange: 10, // Report changes above 10 lux
