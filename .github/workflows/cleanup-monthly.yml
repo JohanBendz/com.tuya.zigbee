@@ -1,0 +1,209 @@
+name: Monthly Cleanup - Tuya Zigbee Project
+
+on:
+  schedule:
+    - cron: '0 2 1 * *'
+  workflow_dispatch:
+    inputs:
+      force_cleanup:
+        description: 'Force cleanup even if not scheduled'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  cleanup:
+    name: Nettoyage Automatique Mensuel
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Analyse Avant Nettoyage
+        id: before_analysis
+        run: |
+          echo "=== ANALYSE AVANT NETTOYAGE ==="
+          echo "Date: $(date)"
+          echo "Taille repo: $(du -sh . | cut -f1)"
+          echo "Nombre fichiers: $(find . -type f | wc -l)"
+          
+          # Sauvegarder les métriques
+          echo "before_size=$(du -s . | cut -f1)" >> $GITHUB_OUTPUT
+          echo "before_files=$(find . -type f | wc -l)" >> $GITHUB_OUTPUT
+          
+      - name: Nettoyage Fichiers Temporaires
+        run: |
+          echo "=== NETTOYAGE FICHIERS TEMPORAIRES ==="
+          
+          # Supprimer les fichiers temporaires
+          find . -name "*.tmp" -delete
+          find . -name "*.temp" -delete
+          find . -name "*.cache" -delete
+          find . -name "*.bak" -delete
+          find . -name "*.old" -delete
+          find . -name "*.orig" -delete
+          find . -name "*.rej" -delete
+          find . -name "*.swp" -delete
+          find . -name "*.swo" -delete
+          find . -name "*~" -delete
+          
+          # Supprimer les dossiers temporaires
+          find . -type d -name ".temp" -exec rm -rf {} + 2>/dev/null || true
+          find . -type d -name ".cache" -exec rm -rf {} + 2>/dev/null || true
+          find . -type d -name ".tmp" -exec rm -rf {} + 2>/dev/null || true
+          find . -type d -name "temp" -exec rm -rf {} + 2>/dev/null || true
+          find . -type d -name "cache" -exec rm -rf {} + 2>/dev/null || true
+          
+          echo "Fichiers temporaires supprimés"
+          
+      - name: Nettoyage Dépendances
+        run: |
+          echo "=== NETTOYAGE DÉPENDANCES ==="
+          
+          # Supprimer node_modules s'il existe
+          if [ -d "node_modules" ]; then
+            rm -rf node_modules
+            echo "node_modules supprimé"
+          fi
+          
+          # Supprimer les fichiers de lock
+          rm -f package-lock.json
+          rm -f yarn.lock
+          rm -f pnpm-lock.yaml
+          
+          echo "Fichiers de lock supprimés"
+          
+      - name: Nettoyage Builds
+        run: |
+          echo "=== NETTOYAGE BUILDS ==="
+          
+          # Supprimer les dossiers de build
+          rm -rf dist/ 2>/dev/null || true
+          rm -rf build/ 2>/dev/null || true
+          rm -rf out/ 2>/dev/null || true
+          rm -rf .next/ 2>/dev/null || true
+          rm -rf .nuxt/ 2>/dev/null || true
+          rm -rf .vercel/ 2>/dev/null || true
+          
+          # Supprimer les fichiers de build Homey
+          rm -rf .homeybuild/ 2>/dev/null || true
+          rm -rf .homeycompose/cache/ 2>/dev/null || true
+          rm -rf .homeycompose/temp/ 2>/dev/null || true
+          
+          echo "Dossiers de build supprimés"
+          
+      - name: Nettoyage Logs
+        run: |
+          echo "=== NETTOYAGE LOGS ==="
+          
+          # Supprimer les logs sauf auto-update.log
+          find . -name "*.log" ! -name "auto-update.log" -delete
+          find . -name "npm-debug.log*" -delete
+          find . -name "yarn-debug.log*" -delete
+          find . -name "yarn-error.log*" -delete
+          
+          # Supprimer les dossiers de logs
+          rm -rf logs/ 2>/dev/null || true
+          
+          echo "Logs supprimés (sauf auto-update.log)"
+          
+      - name: Nettoyage Archives
+        run: |
+          echo "=== NETTOYAGE ARCHIVES ==="
+          
+          # Supprimer les archives
+          find . -name "*.tar.gz" -delete
+          find . -name "*.zip" -delete
+          find . -name "*.7z" -delete
+          find . -name "*.rar" -delete
+          
+          # Supprimer les dossiers d'archives
+          rm -rf archives/ 2>/dev/null || true
+          rm -rf backup_*/ 2>/dev/null || true
+          rm -rf restore_*/ 2>/dev/null || true
+          rm -rf intelligent-backup_*/ 2>/dev/null || true
+          
+          echo "Archives supprimées"
+          
+      - name: Analyse Après Nettoyage
+        id: after_analysis
+        run: |
+          echo "=== ANALYSE APRÈS NETTOYAGE ==="
+          echo "Date: $(date)"
+          echo "Taille repo: $(du -sh . | cut -f1)"
+          echo "Nombre fichiers: $(find . -type f | wc -l)"
+          
+          # Sauvegarder les métriques
+          echo "after_size=$(du -s . | cut -f1)" >> $GITHUB_OUTPUT
+          echo "after_files=$(find . -type f | wc -l)" >> $GITHUB_OUTPUT
+          
+      - name: Calcul Économies
+        run: |
+          echo "=== CALCUL ÉCONOMIES ==="
+          
+          BEFORE_SIZE=${{ steps.before_analysis.outputs.before_size }}
+          AFTER_SIZE=${{ steps.after_analysis.outputs.after_size }}
+          BEFORE_FILES=${{ steps.before_analysis.outputs.before_files }}
+          AFTER_FILES=${{ steps.after_analysis.outputs.after_files }}
+          
+          # Calculer les économies
+          SIZE_SAVED=$((BEFORE_SIZE - AFTER_SIZE))
+          FILES_SAVED=$((BEFORE_FILES - AFTER_FILES))
+          PERCENT_SIZE=$((SIZE_SAVED * 100 / BEFORE_SIZE))
+          PERCENT_FILES=$((FILES_SAVED * 100 / BEFORE_FILES))
+          
+          echo "RÉSULTATS NETTOYAGE:"
+          echo "- Taille économisée: ${SIZE_SAVED} KB (${PERCENT_SIZE}%)"
+          echo "- Fichiers supprimés: ${FILES_SAVED} (${PERCENT_FILES}%)"
+          echo "- Taille finale: ${AFTER_SIZE} KB"
+          echo "- Fichiers finaux: ${AFTER_FILES}"
+          
+      - name: Commit et Push
+        run: |
+          echo "=== COMMIT ET PUSH ==="
+          
+          # Configurer Git
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          # Ajouter les changements
+          git add -A
+          
+          # Vérifier s'il y a des changements
+          if git diff --staged --quiet; then
+            echo "Aucun changement à commiter"
+          else
+            # Commit avec message détaillé
+            git commit -m "AUTO-CLEANUP: Nettoyage automatique mensuel
+
+MÉTRIQUES:
+- Taille avant: ${{ steps.before_analysis.outputs.before_size }} KB
+- Taille après: ${{ steps.after_analysis.outputs.after_size }} KB
+- Économie: $(({{ steps.before_analysis.outputs.before_size }} - {{ steps.after_analysis.outputs.after_size }})) KB
+- Fichiers supprimés: $(({{ steps.before_analysis.outputs.before_files }} - {{ steps.after_analysis.outputs.after_files }}))
+
+NETTOYAGE:
+- Fichiers temporaires supprimés
+- Dépendances nettoyées
+- Builds supprimés
+- Logs nettoyés
+- Archives supprimées
+
+Timestamp: $(date -u)
+Workflow: cleanup-monthly.yml"
+
+            # Push
+            git push origin ${{ github.ref }}
+            echo "Changements commités et poussés"
+          fi
+          
+      - name: Rapport Final
+        run: |
+          echo "=== RAPPORT FINAL ==="
+          echo "NETTOYAGE MENSUEL TERMINÉ"
+          echo "Repo optimisé pour la communauté Homey"
+          echo "Prochain nettoyage: 1er du mois prochain"
+          echo "Timestamp: $(date -u)" 

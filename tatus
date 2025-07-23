@@ -1,0 +1,10 @@
+[33m995c15a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mconflict-resolution-strategy[m[33m)[m 🧹 NETTOYAGE: Suppression fichiers obsolètes et optimisation structure projet
+[33ma7938f0[m 🔧 CONFIGURATION: Ajout fichiers de configuration Cursor, ESLint, workflows GitHub Actions et VSCode
+[33mb81dfe0[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m ci: auto-update auto-update.log [skip ci]
+[33m460ee5e[m docs(i18n): insertion complète des contenus multilingues (EN, FR, TA, DE, ES, IT, NL) dans le README principal, accessibilité maximale. Paris/Europe time.
+[33m633c3b8[m fix(pages): création du dossier docs avec dashboard/index.html pour GitHub Pages, compatibilité déploiement web. Paris/Europe time.
+[33maa63d5f[m docs(i18n): anglais en premier partout (README, dashboard, workflows), liens visibles pour toutes les langues, accessibilité et cohérence internationale. Paris/Europe time.
+[33mfbe4f02[m docs(readme): enrichissement liens, espace communautaire, contributeurs, inspiration anciens README, accessibilité et navigation améliorées. Paris/Europe time.
+[33ma13734c[m docs(locales): génération automatique README multilingue (DE, ES, IT, NL), intégration dashboard avec drapeaux, accessibilité maximale. Paris/Europe time.
+[33md95ae4e[m docs(locales): ajout README traduit en tamoul (Sri Lanka) pour la documentation multilingue, automatisation et accessibilité. Paris/Europe time.
+[33m38dac2d[m ci(deps): ajout workflow auto-installation mensuelle des dépendances, robustesse accrue, log automatisé. Paris/Europe time.

@@ -1,0 +1,44 @@
+name: Cleanup Repository
+
+on:
+  schedule:
+    - cron: '0 2 1 * *'
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Cleanup files
+        run: |
+          # Remove temporary files
+          find . -name "*.tmp" -delete
+          find . -name "*.temp" -delete
+          find . -name "*.cache" -delete
+          find . -name "*.bak" -delete
+          find . -name "*.old" -delete
+          
+          # Remove build directories
+          rm -rf dist/ build/ out/ .next/ .nuxt/ .vercel/
+          rm -rf .homeybuild/ .homeycompose/cache/ .homeycompose/temp/
+          
+          # Remove logs except auto-update.log
+          find . -name "*.log" ! -name "auto-update.log" -delete
+          
+          # Remove archives
+          find . -name "*.tar.gz" -delete
+          find . -name "*.zip" -delete
+          find . -name "*.7z" -delete
+          rm -rf archives/ backup_*/ restore_*/
+          
+          echo "Cleanup completed"
+          
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git diff --staged --quiet || git commit -m "Auto cleanup - $(date)"
+          git push 
