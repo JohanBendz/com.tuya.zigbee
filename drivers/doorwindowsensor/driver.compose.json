@@ -60,11 +60,13 @@
       "_TZ3000_au2o5e6q",
       "_TZ3000_v7chgqso",
       "_TZ3000_qrldbmfn",
-      "_TZ3000_gntwytxo"
+      "_TZ3000_gntwytxo",
+      "_TZE200_pay2byax"
     ],
     "productId": [
       "RH3001",
-      "TS0203"
+      "TS0203",
+      "TS0601"
     ],
     "endpoints": {
       "1": {
