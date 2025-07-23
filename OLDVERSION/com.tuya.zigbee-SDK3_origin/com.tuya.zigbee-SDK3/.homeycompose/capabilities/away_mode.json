@@ -1,9 +1,0 @@
-{
-    "type": "boolean",
-    "title": {
-      "en": "Away Mode"
-    },
-    "uiComponent": "toggle",
-    "getable": true,
-    "setable": true
-}

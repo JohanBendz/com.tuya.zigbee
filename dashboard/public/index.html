@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuya Zigbee - Dashboard de Monitoring</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-home"></i>
+                    <h1>Tuya Zigbee Dashboard</h1>
+                </div>
+                <div class="status-indicator">
+                    <span class="status-dot online"></span>
+                    <span class="status-text">Système Opérationnel</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <ul>
+                <li><a href="#overview" class="active"><i class="fas fa-chart-line"></i> Vue d'ensemble</a></li>
+                <li><a href="#devices"><i class="fas fa-microchip"></i> Devices</a></li>
+                <li><a href="#workflows"><i class="fas fa-cogs"></i> Workflows</a></li>
+                <li><a href="#logs"><i class="fas fa-file-alt"></i> Logs</a></li>
+                <li><a href="#bench"><i class="fas fa-robot"></i> Bench IA</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Overview Section -->
+            <section id="overview" class="section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Total Devices</h3>
+                            <div class="stat-number">338</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                                <span class="progress-text">85% Intégrés</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>IA Modules</h3>
+                            <div class="stat-number">6</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%"></div>
+                                </div>
+                                <span class="progress-text">75% Opérationnels</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Langues</h3>
+                            <div class="stat-number">6</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 60%"></div>
+                                </div>
+                                <span class="progress-text">60% Traduites</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Workflows</h3>
+                            <div class="stat-number">12</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 100%"></div>
+                                </div>
+                                <span class="progress-text">100% Opérationnels</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-section">
+                    <div class="chart-container">
+                        <h3><i class="fas fa-chart-pie"></i> Répartition des Devices</h3>
+                        <canvas id="devicesChart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3><i class="fas fa-chart-line"></i> Évolution du Projet</h3>
+                        <canvas id="evolutionChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Real-time Updates -->
+                <div class="realtime-section">
+                    <h3><i class="fas fa-clock"></i> Mises à jour en temps réel</h3>
+                    <div class="updates-list" id="updatesList">
+                        <div class="update-item">
+                            <span class="update-time">16:30</span>
+                            <span class="update-text">✅ Workflow ci.yml corrigé et opérationnel</span>
+                        </div>
+                        <div class="update-item">
+                            <span class="update-time">16:25</span>
+                            <span class="update-text">🔄 Enrichissement Z2M en cours (156 devices)</span>
+                        </div>
+                        <div class="update-item">
+                            <span class="update-time">16:20</span>
+                            <span class="update-text">🎨 Génération d'icônes cohérentes lancée</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Devices Section -->
+            <section id="devices" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-microchip"></i> Gestion des Devices</h2>
+                    <div class="filters">
+                        <select id="deviceFilter">
+                            <option value="all">Tous les devices</option>
+                            <option value="implemented">Implémentés</option>
+                            <option value="in-progress">En cours</option>
+                            <option value="planned">Planifiés</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="devices-grid" id="devicesGrid">
+                    <!-- Devices will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Workflows Section -->
+            <section id="workflows" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-cogs"></i> État des Workflows</h2>
+                </div>
+                
+                <div class="workflows-grid">
+                    <div class="workflow-card success">
+                        <div class="workflow-header">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>ci.yml</h3>
+                        </div>
+                        <div class="workflow-status">
+                            <span class="status-badge success">Opérationnel</span>
+                            <span class="last-run">Dernière exécution: 16:30</span>
+                        </div>
+                        <div class="workflow-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card success">
+                        <div class="workflow-header">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>deploy.yml</h3>
+                        </div>
+                        <div class="workflow-status">
+                            <span class="status-badge success">Opérationnel</span>
+                            <span class="last-run">Dernière exécution: 16:25</span>
+                        </div>
+                        <div class="workflow-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="workflow-card warning">
+                        <div class="workflow-header">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h3>bench-ia.yml</h3>
+                        </div>
+                        <div class="workflow-status">
+                            <span class="status-badge warning">En cours</span>
+                            <span class="last-run">Dernière exécution: 16:20</span>
+                        </div>
+                        <div class="workflow-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Logs Section -->
+            <section id="logs" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-file-alt"></i> Logs Système</h2>
+                    <button class="refresh-btn" onclick="refreshLogs()">
+                        <i class="fas fa-sync-alt"></i> Actualiser
+                    </button>
+                </div>
+                
+                <div class="logs-container">
+                    <div class="log-entry info">
+                        <span class="log-time">16:30:15</span>
+                        <span class="log-level">INFO</span>
+                        <span class="log-message">Dashboard initialisé avec succès</span>
+                    </div>
+                    <div class="log-entry success">
+                        <span class="log-time">16:29:45</span>
+                        <span class="log-level">SUCCESS</span>
+                        <span class="log-message">47 drivers restaurés depuis les branches supprimées</span>
+                    </div>
+                    <div class="log-entry warning">
+                        <span class="log-time">16:28:30</span>
+                        <span class="log-level">WARNING</span>
+                        <span class="log-message">156 devices Z2M en cours d'intégration</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bench IA Section -->
+            <section id="bench" class="section">
+                <div class="section-header">
+                    <h2><i class="fas fa-robot"></i> Benchmark IA</h2>
+                </div>
+                
+                <div class="bench-grid">
+                    <div class="bench-card">
+                        <div class="bench-header">
+                            <i class="fas fa-brain"></i>
+                            <h3>Z2M Parser</h3>
+                        </div>
+                        <div class="bench-score">
+                            <div class="score-circle">
+                                <span class="score-number">80</span>
+                                <span class="score-percent">%</span>
+                            </div>
+                        </div>
+                        <div class="bench-details">
+                            <p>Performance: Excellente</p>
+                            <p>Devices traités: 156/200</p>
+                        </div>
+                    </div>
+
+                    <div class="bench-card">
+                        <div class="bench-header">
+                            <i class="fas fa-home"></i>
+                            <h3>HA Integration</h3>
+                        </div>
+                        <div class="bench-score">
+                            <div class="score-circle">
+                                <span class="score-number">70</span>
+                                <span class="score-percent">%</span>
+                            </div>
+                        </div>
+                        <div class="bench-details">
+                            <p>Performance: Bonne</p>
+                            <p>Devices traités: 89/150</p>
+                        </div>
+                    </div>
+
+                    <div class="bench-card">
+                        <div class="bench-header">
+                            <i class="fas fa-palette"></i>
+                            <h3>Icon Generator</h3>
+                        </div>
+                        <div class="bench-score">
+                            <div class="score-circle">
+                                <span class="score-number">100</span>
+                                <span class="score-percent">%</span>
+                            </div>
+                        </div>
+                        <div class="bench-details">
+                            <p>Performance: Parfaite</p>
+                            <p>Icônes générées: 338/338</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html> 

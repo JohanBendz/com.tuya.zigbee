@@ -1,0 +1,29 @@
+{
+  "deviceName": "TS0044",
+  "style": {
+    "type": "remote",
+    "shape": "square",
+    "style": "outline",
+    "color": "#764ba2",
+    "icon": "fas fa-gamepad"
+  },
+  "iconFiles": {
+    "64": {
+      "path": "C:\\Users\\HP\\Desktop\\tuya_repair\\repo\\assets\\icons\\TS0044-64.png",
+      "size": 64,
+      "exists": false
+    },
+    "128": {
+      "path": "C:\\Users\\HP\\Desktop\\tuya_repair\\repo\\assets\\icons\\TS0044-128.png",
+      "size": 128,
+      "exists": false
+    },
+    "256": {
+      "path": "C:\\Users\\HP\\Desktop\\tuya_repair\\repo\\assets\\icons\\TS0044-256.png",
+      "size": 256,
+      "exists": false
+    }
+  },
+  "created": "2025-07-23T17:54:03.981Z",
+  "generator": "icon-generator.js"
+}
