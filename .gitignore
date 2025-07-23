@@ -18,3 +18,105 @@ archives/
 *.zip
 backup_*.tar.gz
 intelligent-backup_*.tar.gz
+
+# 🧹 OPTIMISATION - FICHIERS OBSOLÈTES
+*.tmp
+*.temp
+*.cache
+*.bak
+*.old
+*.orig
+*.rej
+*.swp
+*.swo
+*~
+
+# 📦 OPTIMISATION - DEPENDENCIES
+node_modules/
+.npm/
+.yarn/
+.yarnrc
+package-lock.json.bak
+
+# 🗂️ OPTIMISATION - DOSSIERS TEMPORAIRES
+.temp/
+.cache/
+.build/
+.dist/
+.tmp/
+.tmp_*/
+
+# 📊 OPTIMISATION - LOGS
+logs/*.log
+!auto-update.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 🧪 OPTIMISATION - TESTS
+coverage/
+.nyc_output/
+test-results/
+.jest/
+.cypress/
+
+# 🔧 OPTIMISATION - BUILD
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# 📱 OPTIMISATION - MOBILE/IDE
+.vscode/settings.json
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# 🗄️ OPTIMISATION - DATA
+data/*.json.bak
+data/*.json.tmp
+data/cache/
+data/temp/
+
+# 🛠️ OPTIMISATION - TOOLS
+tools/*.tmp
+tools/cache/
+tools/temp/
+
+# 📚 OPTIMISATION - DOCS
+docs/_build/
+docs/.doctrees/
+docs/.cache/
+
+# 🎨 OPTIMISATION - ASSETS
+assets/temp/
+assets/cache/
+assets/*.tmp
+assets/*.bak
+
+# 🔄 OPTIMISATION - BACKUP
+backup_*/
+restore_*/
+*.backup
+*.restore
+
+# 📋 OPTIMISATION - SCRIPTS
+scripts/*.tmp
+scripts/cache/
+scripts/temp/
+*.ps1.bak
+*.sh.bak
+
+# 🏠 OPTIMISATION - HOMEY
+.homeycompose/cache/
+.homeycompose/temp/
+.homeycompose/*.tmp
+.homeyplugins.json.bak
+
+# 🔍 OPTIMISATION - ANALYSIS
+.eslintcache
+.stylelintcache
+.prettiercache
