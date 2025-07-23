@@ -1,292 +1,44 @@
-name: 🧹 Cleanup Repository
+name: Cleanup Repository
 
 on:
   schedule:
-    # Nettoyage mensuel le 1er du mois à 2h00 UTC
     - cron: '0 2 1 * *'
   workflow_dispatch:
-    # Permet le déclenchement manuel
-  release:
-    types: [published]
-    # Déclenchement à chaque release publiée
 
 jobs:
   cleanup:
-    name: 🧹 Nettoyage automatique du repository
     runs-on: ubuntu-latest
-    
     steps:
-      - name: 📥 Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: 🔧 Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: 'npm'
-
-      - name: 📊 Analyse de la taille du repo
-        id: analyze
+      - uses: actions/checkout@v4
+      
+      - name: Cleanup files
         run: |
-          echo "📊 ANALYSE DE LA TAILLE DU REPOSITORY"
-          echo "======================================"
+          # Remove temporary files
+          find . -name "*.tmp" -delete
+          find . -name "*.temp" -delete
+          find . -name "*.cache" -delete
+          find . -name "*.bak" -delete
+          find . -name "*.old" -delete
           
-          # Taille totale du repo
-          REPO_SIZE=$(du -sh . | cut -f1)
-          echo "📦 Taille totale: $REPO_SIZE"
+          # Remove build directories
+          rm -rf dist/ build/ out/ .next/ .nuxt/ .vercel/
+          rm -rf .homeybuild/ .homeycompose/cache/ .homeycompose/temp/
           
-          # Nombre de fichiers
-          FILE_COUNT=$(find . -type f | wc -l)
-          echo "📄 Nombre de fichiers: $FILE_COUNT"
+          # Remove logs except auto-update.log
+          find . -name "*.log" ! -name "auto-update.log" -delete
           
-          # Taille des dossiers principaux
-          echo "📁 Taille des dossiers principaux:"
-          du -sh node_modules/ 2>/dev/null || echo "node_modules/: N/A"
-          du -sh .homeybuild/ 2>/dev/null || echo ".homeybuild/: N/A"
-          du -sh .homeycompose/ 2>/dev/null || echo ".homeycompose/: N/A"
-          du -sh dist/ 2>/dev/null || echo "dist/: N/A"
-          du -sh build/ 2>/dev/null || echo "build/: N/A"
-          du -sh OLDVERSION/ 2>/dev/null || echo "OLDVERSION/: N/A"
-          du -sh archives/ 2>/dev/null || echo "archives/: N/A"
+          # Remove archives
+          find . -name "*.tar.gz" -delete
+          find . -name "*.zip" -delete
+          find . -name "*.7z" -delete
+          rm -rf archives/ backup_*/ restore_*/
           
-          # Fichiers volumineux (>1MB)
-          echo "📊 Fichiers volumineux (>1MB):"
-          find . -type f -size +1M -exec ls -lh {} \; 2>/dev/null | head -10 || echo "Aucun fichier volumineux trouvé"
+          echo "Cleanup completed"
           
-          # Sauvegarde des métriques
-          echo "repo_size=$REPO_SIZE" >> $GITHUB_OUTPUT
-          echo "file_count=$FILE_COUNT" >> $GITHUB_OUTPUT
-
-      - name: 🧹 Nettoyage des fichiers temporaires
+      - name: Commit changes
         run: |
-          echo "🧹 NETTOYAGE DES FICHIERS TEMPORAIRES"
-          echo "======================================"
-          
-          # Suppression des fichiers temporaires
-          echo "🗑️ Suppression des fichiers temporaires..."
-          find . -name "*.tmp" -delete 2>/dev/null || true
-          find . -name "*.temp" -delete 2>/dev/null || true
-          find . -name "*.cache" -delete 2>/dev/null || true
-          find . -name "*.bak" -delete 2>/dev/null || true
-          find . -name "*.old" -delete 2>/dev/null || true
-          find . -name "*.orig" -delete 2>/dev/null || true
-          find . -name "*.rej" -delete 2>/dev/null || true
-          find . -name "*.swp" -delete 2>/dev/null || true
-          find . -name "*.swo" -delete 2>/dev/null || true
-          find . -name "*~" -delete 2>/dev/null || true
-          
-          # Suppression des dossiers temporaires
-          echo "🗑️ Suppression des dossiers temporaires..."
-          rm -rf .temp/ 2>/dev/null || true
-          rm -rf .cache/ 2>/dev/null || true
-          rm -rf .tmp/ 2>/dev/null || true
-          rm -rf temp/ 2>/dev/null || true
-          rm -rf cache/ 2>/dev/null || true
-          
-          echo "✅ Nettoyage des fichiers temporaires terminé"
-
-      - name: 🗄️ Nettoyage des archives et backups
-        run: |
-          echo "🗄️ NETTOYAGE DES ARCHIVES ET BACKUPS"
-          echo "===================================="
-          
-          # Suppression des archives
-          echo "🗑️ Suppression des archives..."
-          find . -name "*.tar.gz" -delete 2>/dev/null || true
-          find . -name "*.zip" -delete 2>/dev/null || true
-          find . -name "*.7z" -delete 2>/dev/null || true
-          find . -name "*.rar" -delete 2>/dev/null || true
-          
-          # Suppression des backups
-          echo "🗑️ Suppression des backups..."
-          find . -name "backup_*" -delete 2>/dev/null || true
-          find . -name "restore_*" -delete 2>/dev/null || true
-          find . -name "intelligent-backup_*" -delete 2>/dev/null || true
-          
-          # Suppression des dossiers d'archives
-          echo "🗑️ Suppression des dossiers d'archives..."
-          rm -rf archive/ 2>/dev/null || true
-          rm -rf archives/ 2>/dev/null || true
-          rm -rf backup_*/ 2>/dev/null || true
-          rm -rf restore_*/ 2>/dev/null || true
-          
-          echo "✅ Nettoyage des archives terminé"
-
-      - name: 📦 Nettoyage des dépendances et builds
-        run: |
-          echo "📦 NETTOYAGE DES DÉPENDANCES ET BUILDS"
-          echo "======================================"
-          
-          # Suppression des dépendances
-          echo "🗑️ Suppression des dépendances..."
-          rm -rf node_modules/ 2>/dev/null || true
-          rm -rf .npm/ 2>/dev/null || true
-          rm -rf .yarn/ 2>/dev/null || true
-          rm -f package-lock.json 2>/dev/null || true
-          rm -f yarn.lock 2>/dev/null || true
-          
-          # Suppression des builds
-          echo "🗑️ Suppression des builds..."
-          rm -rf dist/ 2>/dev/null || true
-          rm -rf build/ 2>/dev/null || true
-          rm -rf out/ 2>/dev/null || true
-          rm -rf .next/ 2>/dev/null || true
-          rm -rf .nuxt/ 2>/dev/null || true
-          rm -rf .vercel/ 2>/dev/null || true
-          
-          # Suppression des caches Homey
-          echo "🗑️ Suppression des caches Homey..."
-          rm -rf .homeybuild/ 2>/dev/null || true
-          rm -rf .homeycompose/cache/ 2>/dev/null || true
-          rm -rf .homeycompose/temp/ 2>/dev/null || true
-          
-          echo "✅ Nettoyage des dépendances terminé"
-
-      - name: 📊 Nettoyage des données volumineuses
-        run: |
-          echo "📊 NETTOYAGE DES DONNÉES VOLUMINEUSES"
-          echo "====================================="
-          
-          # Suppression des fichiers de données volumineux
-          echo "🗑️ Suppression des fichiers de données volumineux..."
-          rm -f data/manufacturer_ids.json 2>/dev/null || true
-          rm -f data/manufacturer_ids_ha.json 2>/dev/null || true
-          rm -f data/manufacturer_ids_z2m.json 2>/dev/null || true
-          
-          # Suppression des fichiers de rapports volumineux
-          echo "🗑️ Suppression des rapports volumineux..."
-          find . -name "*.report.json" -delete 2>/dev/null || true
-          find . -name "*.benchmark.json" -delete 2>/dev/null || true
-          find . -name "*.analysis.json" -delete 2>/dev/null || true
-          
-          # Suppression des images volumineuses (garder SVG)
-          echo "🗑️ Suppression des images volumineuses..."
-          find assets/icons/ -name "*.png" -delete 2>/dev/null || true
-          find assets/icons/ -name "*.jpg" -delete 2>/dev/null || true
-          find assets/icons/ -name "*.jpeg" -delete 2>/dev/null || true
-          find assets/images/ -name "*.png" -delete 2>/dev/null || true
-          find assets/images/ -name "*.jpg" -delete 2>/dev/null || true
-          find assets/images/ -name "*.jpeg" -delete 2>/dev/null || true
-          
-          echo "✅ Nettoyage des données volumineuses terminé"
-
-      - name: 📋 Nettoyage des logs et caches
-        run: |
-          echo "📋 NETTOYAGE DES LOGS ET CACHES"
-          echo "================================"
-          
-          # Suppression des logs (garder auto-update.log)
-          echo "🗑️ Suppression des logs..."
-          find . -name "*.log" -not -name "auto-update.log" -delete 2>/dev/null || true
-          rm -rf logs/ 2>/dev/null || true
-          
-          # Suppression des caches
-          echo "🗑️ Suppression des caches..."
-          rm -f .eslintcache 2>/dev/null || true
-          rm -f .stylelintcache 2>/dev/null || true
-          rm -f .prettiercache 2>/dev/null || true
-          
-          echo "✅ Nettoyage des logs terminé"
-
-      - name: 🗂️ Nettoyage des dossiers obsolètes
-        run: |
-          echo "🗂️ NETTOYAGE DES DOSSIERS OBSOLÈTES"
-          echo "==================================="
-          
-          # Suppression des dossiers obsolètes
-          echo "🗑️ Suppression des dossiers obsolètes..."
-          rm -rf OLDVERSION/ 2>/dev/null || true
-          rm -rf tools/ 2>/dev/null || true
-          rm -rf test/ 2>/dev/null || true
-          rm -rf docs/ 2>/dev/null || true
-          
-          echo "✅ Nettoyage des dossiers obsolètes terminé"
-
-      - name: 📊 Analyse post-nettoyage
-        id: post_analyze
-        run: |
-          echo "📊 ANALYSE POST-NETTOYAGE"
-          echo "========================="
-          
-          # Taille après nettoyage
-          REPO_SIZE_AFTER=$(du -sh . | cut -f1)
-          echo "📦 Taille après nettoyage: $REPO_SIZE_AFTER"
-          
-          # Nombre de fichiers après nettoyage
-          FILE_COUNT_AFTER=$(find . -type f | wc -l)
-          echo "📄 Nombre de fichiers après nettoyage: $FILE_COUNT_AFTER"
-          
-          # Sauvegarde des métriques
-          echo "repo_size_after=$REPO_SIZE_AFTER" >> $GITHUB_OUTPUT
-          echo "file_count_after=$FILE_COUNT_AFTER" >> $GITHUB_OUTPUT
-
-      - name: 🔄 Commit et push des changements
-        run: |
-          echo "🔄 COMMIT ET PUSH DES CHANGEMENTS"
-          echo "================================="
-          
-          # Configuration Git
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          
-          # Ajout des changements
           git add -A
-          
-          # Vérification s'il y a des changements
-          if git diff --staged --quiet; then
-            echo "ℹ️ Aucun changement à commiter"
-          else
-            # Commit avec message détaillé
-            git commit -m "🧹 CLEANUP: Nettoyage automatique du repository
-
-📊 MÉTRIQUES:
-- Taille avant: ${{ steps.analyze.outputs.repo_size }}
-- Taille après: ${{ steps.post_analyze.outputs.repo_size_after }}
-- Fichiers avant: ${{ steps.analyze.outputs.file_count }}
-- Fichiers après: ${{ steps.post_analyze.outputs.file_count_after }}
-
-🗑️ NETTOYAGE EFFECTUÉ:
-- Fichiers temporaires supprimés
-- Archives et backups supprimés
-- Dépendances et builds supprimés
-- Données volumineuses supprimées
-- Logs et caches nettoyés
-- Dossiers obsolètes supprimés
-
-🚀 OPTIMISATION POUR LA COMMUNAUTÉ HOMEY
-- Repo allégé pour téléchargement rapide
-- Seules les sources essentielles conservées
-- Dépendances à installer localement
-- Builds à générer localement
-
-📅 Déclenchement: ${{ github.event_name }}
-⏰ Timestamp: $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
-            
-            # Push des changements
-            git push origin ${{ github.ref }}
-            echo "✅ Changements commités et pushés"
-          fi
-
-      - name: 📊 Rapport de nettoyage
-        run: |
-          echo "📊 RAPPORT DE NETTOYAGE"
-          echo "======================="
-          echo "📦 Taille avant: ${{ steps.analyze.outputs.repo_size }}"
-          echo "📦 Taille après: ${{ steps.post_analyze.outputs.repo_size_after }}"
-          echo "📄 Fichiers avant: ${{ steps.analyze.outputs.file_count }}"
-          echo "📄 Fichiers après: ${{ steps.post_analyze.outputs.file_count_after }}"
-          echo "🎯 Déclenchement: ${{ github.event_name }}"
-          echo "⏰ Timestamp: $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
-          echo "✅ Nettoyage terminé avec succès !"
-
-      - name: 🔔 Notification de nettoyage
-        if: github.event_name == 'schedule'
-        run: |
-          echo "🔔 NOTIFICATION DE NETTOYAGE MENSUEL"
-          echo "===================================="
-          echo "🧹 Nettoyage mensuel automatique effectué"
-          echo "📊 Repo optimisé pour la communauté Homey"
-          echo "📅 Prochain nettoyage: 1er du mois prochain" 
+          git diff --staged --quiet || git commit -m "Auto cleanup - $(date)"
+          git push 

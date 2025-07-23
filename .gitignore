@@ -1,123 +1,26 @@
-# 🚀 GITIGNORE - Tuya Zigbee Project
-# Exclusions pour optimiser la taille du repo pour la communauté Homey
+# GITIGNORE - Tuya Zigbee Project
+# Optimisé pour la communauté Homey - Exclusion des fichiers compilés
 
-# 📁 DOSSIERS EXCLUS
+# DEPENDENCIES
 node_modules/
-.git/
+.npm/
+.yarn/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# BUILD FILES
+dist/
+build/
+out/
+.next/
+.nuxt/
+.vercel/
 .homeybuild/
-.homeycompose/
-.vscode/
-dist/
-build/
-out/
-.next/
-.nuxt/
-
-# 📄 FICHIERS EXCLUS
-*.log
-*.tmp
-*.temp
-*.bak
-*.old
-*.orig
-*.rej
-*.swp
-*.swo
-*~
-
-# 🗂️ FICHIERS DE CONFIGURATION
-.env
-*.key
-*.pem
-.eslintcache
-.stylelintcache
-.prettiercache
-
-# 📦 FICHIERS DE BUILD
-dist/
-build/
-out/
-.next/
-.nuxt/
-
-# 🧪 FICHIERS DE TEST
-coverage/
-.nyc_output/
-test-results/
-.jest/
-.cypress/
-
-# 📊 FICHIERS DE DONNÉES
-*.json.bak
-*.json.tmp
-data/cache/
-data/temp/
-
-# 🔄 FICHIERS DE BACKUP
-backup_*/
-restore_*/
-*.backup
-*.restore
-
-# 📋 FICHIERS DE DOCUMENTATION
-*.md.bak
-*.md.tmp
-docs/_build/
-docs/.doctrees/
-docs/.cache/
-
-# 🎨 FICHIERS D'ASSETS
-assets/temp/
-assets/cache/
-assets/*.tmp
-assets/*.bak
-
-# 📱 FICHIERS SYSTÈME
-.DS_Store
-Thumbs.db
-*.iml
-.idea/
-
-# 🏠 FICHIERS HOMEY
 .homeycompose/cache/
 .homeycompose/temp/
-.homeycompose/*.tmp
-.homeyplugins.json.bak
 
-# 🔍 FICHIERS D'ANALYSE
-.eslintcache
-.stylelintcache
-.prettiercache
-
-# 📊 FICHIERS DE LOGS
-logs/*.log
-!auto-update.log
-*.log.*
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# 🗄️ FICHIERS D'ARCHIVES
-archive/
-archives/
-*.tar.gz
-*.zip
-backup_*.tar.gz
-intelligent-backup_*.tar.gz
-
-# 🛠️ FICHIERS DE TOOLS
-tools/*.tmp
-tools/cache/
-tools/temp/
-
-# 📋 FICHIERS DE SCRIPTS
-scripts/*.tmp
-scripts/cache/
-scripts/temp/
-*.ps1.bak
-*.sh.bak
-
-# 🧹 FICHIERS OBSOLÈTES
+# TEMPORARY FILES
 *.tmp
 *.temp
 *.cache
@@ -129,112 +32,40 @@ scripts/temp/
 *.swo
 *~
 
-# 📦 FICHIERS DE DEPENDENCIES
-.npm/
-.yarn/
-.yarnrc
-package-lock.json.bak
+# LOGS
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+!auto-update.log
 
-# 🗂️ DOSSIERS TEMPORAIRES
-.temp/
-.cache/
-.build/
-.dist/
-.tmp/
-.tmp_*/
-
-# 🧪 FICHIERS DE TESTS
-coverage/
-.nyc_output/
-test-results/
-.jest/
-.cypress/
-
-# 🔧 FICHIERS DE BUILD
-dist/
-build/
-out/
-.next/
-.nuxt/
-
-# 📱 FICHIERS MOBILE/IDE
-.vscode/settings.json
-.idea/
-*.iml
-.DS_Store
-Thumbs.db
-
-# 🗄️ FICHIERS DE DATA
-data/*.json.bak
-data/*.json.tmp
-data/cache/
-data/temp/
-
-# 🛠️ FICHIERS DE TOOLS
-tools/*.tmp
-tools/cache/
-tools/temp/
-
-# 📚 FICHIERS DE DOCS
-docs/_build/
-docs/.doctrees/
-docs/.cache/
-
-# 🎨 FICHIERS D'ASSETS
-assets/temp/
-assets/cache/
-assets/*.tmp
-assets/*.bak
-
-# 🔄 FICHIERS DE BACKUP
-backup_*/
-restore_*/
-*.backup
-*.restore
-
-# 📋 FICHIERS DE SCRIPTS
-scripts/*.tmp
-scripts/cache/
-scripts/temp/
-*.ps1.bak
-*.sh.bak
-
-# 🏠 FICHIERS DE HOMEY
-.homeycompose/cache/
-.homeycompose/temp/
-.homeycompose/*.tmp
-.homeyplugins.json.bak
-
-# 🔍 FICHIERS D'ANALYSE
-.eslintcache
-.stylelintcache
-.prettiercache
-
-# 🗄️ FICHIERS D'ARCHIVES COMPLÈTES
-OLDVERSION/
-archives/
-backup_*/
+# ARCHIVES
 *.tar.gz
 *.zip
 *.7z
 *.rar
+archives/
+backup_*/
+restore_*/
+intelligent-backup_*/
 
-# 📦 FICHIERS DE DEPENDENCIES COMPLÈTES
-node_modules/
-.npm/
-.yarn/
-package-lock.json
-yarn.lock
+# CACHE FILES
+.eslintcache
+.stylelintcache
+.prettiercache
+.cache/
+.temp/
+.tmp/
 
-# 🏗️ FICHIERS DE BUILD COMPLÈTES
-dist/
-build/
-out/
-.next/
-.nuxt/
-.vercel/
+# SYSTEM FILES
+.DS_Store
+Thumbs.db
+*.iml
+.idea/
+.vscode/settings.json
 
-# 📊 FICHIERS DE DONNÉES VOLUMINEUXES
+# DATA FILES (volumineux)
 data/manufacturer_ids.json
 data/manufacturer_ids_ha.json
 data/manufacturer_ids_z2m.json
@@ -242,7 +73,7 @@ data/manufacturer_ids_z2m.json
 *.xlsx
 *.xls
 
-# 🎨 FICHIERS D'ASSETS VOLUMINEUXS
+# IMAGES (garder SVG)
 assets/icons/*.png
 assets/icons/*.jpg
 assets/icons/*.jpeg
@@ -252,52 +83,23 @@ assets/images/*.jpeg
 !assets/icons/*.svg
 !assets/images/*.svg
 
-# 📋 FICHIERS DE RAPPORTS VOLUMINEUXS
+# REPORTS (volumineux)
 *.report.json
 *.benchmark.json
 *.analysis.json
-!auto-update.log
 
-# 🗄️ FICHIERS D'ARCHIVES VOLUMINEUSES
-*.tar.gz
-*.zip
-*.7z
-*.rar
-backup_*/
-restore_*/
-intelligent-backup_*/
-
-# 📦 FICHIERS DE CACHE VOLUMINEUXS
-.cache/
-.temp/
-.tmp/
-*.cache
-*.tmp
-*.temp
-
-# 🏠 FICHIERS HOMEY VOLUMINEUXS
-.homeybuild/
-.homeycompose/cache/
-.homeycompose/temp/
-.homeyplugins.json.bak
-
-# 📊 FICHIERS DE LOGS VOLUMINEUXS
-logs/
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-!auto-update.log
-
-# 🗄️ DOSSIERS COMPLÈTS À EXCLURE
+# OBSOLETE DIRECTORIES
 OLDVERSION/
-archives/
-backup_*/
-restore_*/
 tools/
-data/
 test/
 docs/
-logs/
-temp/
-cache/
+
+# ENVIRONMENT
+.env
+*.key
+*.pem
+
+# BACKUP FILES
+*.backup
+*.restore
+.homeyplugins.json.bak
