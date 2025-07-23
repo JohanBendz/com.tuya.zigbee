@@ -1,0 +1,44 @@
+name: Migrate Tokens & Rebuild Project
+
+on:
+  workflow_dispatch:
+
+jobs:
+  migrate_and_rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT || secrets.FULLTOKEN }}
+
+      - name: Replace GH_PAT by FULLTOKEN in all workflow files
+        run: |
+          find .github/workflows/ -type f -name '*.yml' -exec sed -i 's/GH_PAT/FULLTOKEN/g' {} +
+
+      - name: Add rebuild-full-project.yml if missing (example)
+        run: |
+          FILE=.github/workflows/rebuild-full-project.yml
+          if [ ! -f "$FILE" ]; then
+            cat <<EOT > $FILE
+name: Rebuild Full Project
+on:
+  workflow_dispatch:
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: \${{ secrets.FULLTOKEN }}
+      - name: Restore or rebuild project files
+        run: |
+          echo "Your full rebuild logic here"
+EOT
+          fi
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "github-actions-bot@users.noreply.github.com"
+          git config --global user.name "github-actions-bot"
+          git checkout -b auto/migrate-fulltoken ||
