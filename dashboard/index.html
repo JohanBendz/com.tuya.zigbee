@@ -1,10 +1,10 @@
 <!DOCTYPE html><html><head><meta charset='utf-8'><title>Tuya Patch 22/07/2025</title></head>
 <body><h1>Dashboard</h1>
 <ul><li>Daily-scan illimité</li><li>7 langues</li><li>Historique drivers</li></ul>
-<!-- Ajout barre de sélection de langue -->
+<!-- Ajout barre de sélection de langue (anglais en premier) -->
 <div id="lang-bar" style="text-align:center; margin: 1em 0;">
-  <button onclick="setLang('fr')">🇫🇷</button>
   <button onclick="setLang('en')">🇬🇧</button>
+  <button onclick="setLang('fr')">🇫🇷</button>
   <button onclick="setLang('ta')">🇱🇰</button>
   <button onclick="setLang('de')">🇩🇪</button>
   <button onclick="setLang('es')">🇪🇸</button>
@@ -21,7 +21,7 @@ function setLang(lang) {
 <!-- Zone d’affichage du README traduit -->
 <div id="readme-content" style="white-space:pre-wrap; background:#f9f9f9; padding:1em; border-radius:8px; margin:2em auto; max-width:900px;"></div>
 <script>
-// Affiche la version FR par défaut
-setLang('fr');
+// Affiche la version EN par défaut
+setLang('en');
 </script>
 </body></html>
