@@ -1,0 +1,92 @@
+name: Rebuild Full Project
+
+on:
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 1. Fallback : Si ZIP lite existe, on décompresse
+      - name: Restore from ZIP Lite (if available)
+        id: unzip
+        run: |
+          if [ -f "./tools/lite-backup.zip" ]; then
+            unzip -o ./tools/lite-backup.zip -d ./
+            echo "files_restored=1" >> $GITHUB_ENV
+          else
+            echo "ZIP Lite not found. Will fallback on static sources."
+            echo "files_restored=0" >> $GITHUB_ENV
+          fi
+
+      # 2. Restaure quelques fichiers critiques (README, scripts) si manquants
+      - name: Restore critical files (README, scripts)
+        if: env.files_restored != '1'
+        run: |
+          # Exemple README.md
+          cat <<'EOF' > README.md
+          # com.tuya.zigbee
+          (insère ici le contenu complet que tu veux avoir par défaut)
+          EOF
+          # Exemple repair_project.ps1
+          cat <<'EOF' > repair_project.ps1
+          #!/usr/bin/env pwsh
+          Write-Output "Script auto-restore PowerShell."
+          # Met ici le code complet ou minimal viable
+          EOF
+
+      # 3. (Optionnel) Télécharge les fichiers manquants via RAW, GIST, etc.
+      - name: Download missing files from external (fallback)
+        if: env.files_restored != '1'
+        run: |
+          # Ex: Récupérer un manifest ou driver depuis GitHub Raw
+          curl -fsSL https://raw.githubusercontent.com/dlnraja/com.tuya.zigbee/master/.github/workflows/bench-ia.yml -o .github/workflows/bench-ia.yml || true
+          # Ajoute d’autres wget/curl pour d’autres fichiers critiques si besoin
+
+      # 4. Génère un workflow de réparation auto en cas de push failed
+      - name: Generate repair workflow (push fail-safe)
+        run: |
+          cat <<'EOF' > .github/workflows/repair-on-push-fail.yml
+          name: Repair on Push Fail
+          on:
+            workflow_run:
+              workflows: ["Rebuild Full Project"]
+              types:
+                - completed
+          jobs:
+            repair:
+              if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+              runs-on: ubuntu-latest
+              steps:
+                - name: Checkout
+                  uses: actions/checkout@v4
+                - name: Log issue
+                  run: echo "Push failed. Triggered auto-repair at $(date -u)." >> push-repair.log
+                - name: Push repair log
+                  run: |
+                    git config --global user.name "repair-bot"
+                    git config --global user.email "bot@dlnraja.com"
+                    git add push-repair.log
+                    git commit -m "chore: auto-repair after push fail"
+                    git push
+          EOF
+
+      # 5. Commit et push
+      - name: Commit and push all restored/generated files
+        run: |
+          git config --global user.name "dlraja-bot"
+          git config --global user.email "bot@dlnraja.com"
+          git add .
+          git commit -m "restore: rebuilt all project files via workflow (auto, fallback: $files_restored)" || echo "No changes to commit"
+          git push
+
+      # 6. Créer le log détaillé de l’opération
+      - name: Create detailed restore log
+        run: |
+          echo "Restore operation completed at $(date -u)" > restore-operation.log
+          git add restore-operation.log
+          git commit -m "docs: restore operation log" || true
+          git push
