@@ -1,0 +1,17 @@
+name: Monthly backup ZIP
+on:
+  schedule:
+    - cron: '0 1 1 * *'
+  workflow_dispatch:
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create zip
+        run: |
+          zip -r repo_backup_$(date +%Y%m%d).zip .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: monthly-backup
+          path: repo_backup_*.zip
