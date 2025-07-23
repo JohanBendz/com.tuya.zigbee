@@ -1,4 +1,4 @@
-{
+﻿{
   "id": "smartplug",
   "name": {
     "en": "Smart Plug with metering"
@@ -6,7 +6,11 @@
   "class": "socket",
   "platforms": ["local"],
   "connectivity": ["zigbee"],
-  "capabilities": [
+  "capabilities": [      "measure_battery",
+      "alarm_battery",
+      "button",
+      "measure_voltage",
+      "measure_current",
     "onoff",
     "measure_power",
     "meter_power",
@@ -87,3 +91,4 @@
     }
   }
 }
+

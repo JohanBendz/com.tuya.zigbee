@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 const { ZigBeeDevice, Util } = require('homey-zigbeedriver');
 const { CLUSTER } = require('zigbee-clusters');
@@ -302,3 +302,4 @@ module.exports = motion_sensor;
       }
     }
   } */
+

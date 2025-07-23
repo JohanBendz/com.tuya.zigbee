@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { CLUSTER, Cluster, ZCLDataTypes} = require('zigbee-clusters');
@@ -9,6 +9,86 @@ Cluster.addCluster(TuyaOnOffCluster);
 class smartplug extends ZigBeeDevice {
 
   async onNodeInit({zclNode}) {
+    // Gestion de la batterie intelligente
+    this.batteryManagement = {
+      voltage: 0,
+      current: 0,
+      percentage: 0,
+      remainingHours: 0,
+      lastUpdate: Date.now()
+    };
+
+    // Enregistrer la capacite de mesure de batterie
+    this.registerCapability('measure_battery', CLUSTER.POWER_CONFIGURATION, {
+      get: 'batteryPercentageRemaining',
+      report: 'batteryPercentageRemaining',
+      reportParser: (value) => {
+        const percentage = Math.round(value / 2);
+        this.batteryManagement.percentage = percentage;
+        this.updateBatteryAutonomy();
+        return percentage;
+      },
+    });
+
+    // Enregistrer la capacite d'alerte de batterie
+    this.registerCapability('alarm_battery', CLUSTER.POWER_CONFIGURATION, {
+      get: 'batteryAlarmState',
+      report: 'batteryAlarmState',
+      reportParser: (value) => {
+        const alarm = value === 1;
+        if (alarm) {
+          this.log('ALERTE BATTERIE: Niveau critique atteint!');
+        }
+        return alarm;
+      },
+    });
+
+    // Mettre a jour l'autonomie de la batterie toutes les heures
+    this.batteryUpdateInterval = setInterval(async () => {
+      await this.updateBatteryAutonomy();
+    }, 3600000); // 1 heure
+  }
+
+  // Methode pour mettre a jour l'autonomie de la batterie
+  async updateBatteryAutonomy() {
+    try {
+      const batteryVoltage = await this.zclNode.endpoints[1].clusters.powerConfiguration.readAttributes(['batteryVoltage']);
+      const batteryPercentage = await this.zclNode.endpoints[1].clusters.powerConfiguration.readAttributes(['batteryPercentageRemaining']);
+      
+      if (batteryVoltage && batteryPercentage) {
+        this.batteryManagement.voltage = batteryVoltage.batteryVoltage / 10; // Convertir en volts
+        this.batteryManagement.percentage = Math.round(batteryPercentage.batteryPercentageRemaining / 2);
+        this.batteryManagement.current = (this.batteryManagement.percentage / 100) * 0.1; // Estimation du courant
+        this.batteryManagement.remainingHours = Math.round((this.batteryManagement.percentage * 24) / 100); // Estimation de l'autonomie
+        this.batteryManagement.lastUpdate = Date.now();
+        
+        this.log('Batterie mise a jour:', this.batteryManagement);
+        
+        // Alerte si la batterie est faible
+        if (this.batteryManagement.percentage < 20) {
+          this.log('ALERTE: Batterie faible!', this.batteryManagement.percentage + '%');
+          await this.triggerFlow('battery_low');
+        }
+      }
+    } catch (error) {
+      this.log('Erreur lors de la mise a jour de la batterie:', error);
+    }
+  }
+
+  // Methode pour dÃ©clencher les flows
+  async triggerFlow(triggerType) {
+    try {
+      const flowCards = this.homey.flow.getDeviceTriggerCards();
+      const card = flowCards.find(card => card.id === triggerType);
+      
+      if (card) {
+        await card.trigger(this, {}, {});
+        this.log(Flow dÃ©clenchÃ©: );
+      }
+    } catch (error) {
+      this.log(Erreur lors du dÃ©clenchement du flow :, error);
+    }
+  }
 
     this.printNode();
 
@@ -726,3 +806,4 @@ module.exports = smartplug;
     }
   }
 } */
+

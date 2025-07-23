@@ -1,4 +1,4 @@
-{
+﻿{
     "id": "wall_switch_1_gang",
     "name": {
       "en": "1 Gang Wall Switch"
@@ -6,7 +6,11 @@
     "class": "socket",
     "platforms": ["local"],
     "connectivity": ["zigbee"],
-    "capabilities": [
+    "capabilities": [      "measure_battery",
+      "alarm_battery",
+      "button",
+      "measure_voltage",
+      "measure_current",
       "onoff"
     ],
     "images": {
