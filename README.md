@@ -13,26 +13,50 @@
 
 ---
 
+# 🇬🇧 English
+
 # 🚀 com.tuya.zigbee – Functional Vision & Global Architecture
 
-*(English version first, see below for French and other languages)*
-
-[...insérer ici le contenu principal anglais du README, déjà généré dans locales/en.md...]
+[...contenu complet de locales/en.md ici...]
 
 ---
+
+# 🇫🇷 Français
 
 # 🚀 com.tuya.zigbee – Vision fonctionnelle & architecture globale
 
-*(Version française ci-dessous)*
-
-[...insérer ici le contenu principal français du README, déjà généré dans locales/fr.md...]
+[...contenu complet de locales/fr.md ici...]
 
 ---
 
+# 🇱🇰 தமிழ் (Tamil)
+
 # 🚀 com.tuya.zigbee – செயல்பாட்டு பார்வை மற்றும் உலகளாவிய கட்டமைப்பு
 
-*(தமிழ் மொழி கீழே, voir plus bas pour Tamil)*
+[...contenu complet de locales/ta.md ici...]
 
-[...insérer ici le contenu principal tamoul du README, déjà généré dans locales/ta.md...]
+---
+
+# 🇩🇪 Deutsch
+
+[...contenu complet de locales/de.md ici...]
+
+---
+
+# 🇪🇸 Español
+
+[...contenu complet de locales/es.md ici...]
+
+---
+
+# 🇮🇹 Italiano
+
+[...contenu complet de locales/it.md ici...]
+
+---
+
+# 🇳🇱 Nederlands
+
+[...contenu complet de locales/nl.md ici...]
 
 ---
