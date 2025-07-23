@@ -1,0 +1,22 @@
+name: Auto Update Log (Push Test)
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 */6 * * *" # toutes les 6h
+jobs:
+  update-log:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+      - name: Update auto-update.log
+        run: |
+          echo "Update at $(date -u)" >> auto-update.log
+      - name: Commit and Push
+        run: |
+          git config --global user.name 'dlnraja-bot'
+          git config --global user.email 'bot@dlnraja.com'
+          git add auto-update.log
+          git commit -m "ci: auto-update auto-update.log [skip ci]" || echo "Nothing to commit"
+          git push || echo "Nothing to push"
