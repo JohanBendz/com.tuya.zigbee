@@ -62,11 +62,15 @@ function Invoke-Script {
             $psScriptPath = "scripts/$ScriptName.ps1"
             if (Test-Path $psScriptPath) {
                 Write-Host "Lancement avec PowerShell: $ScriptName.ps1" -ForegroundColor Green
+                Write-Host ""
                 & pwsh -File $psScriptPath $Args
-                return $LASTEXITCODE
+                $exitCode = $LASTEXITCODE
+                Write-Host ""
+                return $exitCode
             }
             else {
                 Write-Host "Script PowerShell non trouvé: $ScriptName.ps1" -ForegroundColor Red
+                Write-Host ""
                 return 1
             }
         }
@@ -74,11 +78,15 @@ function Invoke-Script {
             $shScriptPath = "scripts/$ScriptName.sh"
             if (Test-Path $shScriptPath) {
                 Write-Host "Lancement avec Bash: $ScriptName.sh" -ForegroundColor Green
+                Write-Host ""
                 & bash $shScriptPath $Args
-                return $LASTEXITCODE
+                $exitCode = $LASTEXITCODE
+                Write-Host ""
+                return $exitCode
             }
             else {
                 Write-Host "Script Bash non trouvé: $ScriptName.sh" -ForegroundColor Red
+                Write-Host ""
                 return 1
             }
         }
@@ -86,16 +94,21 @@ function Invoke-Script {
             $shScriptPath = "scripts/$ScriptName.sh"
             if (Test-Path $shScriptPath) {
                 Write-Host "Lancement avec Sh: $ScriptName.sh" -ForegroundColor Green
+                Write-Host ""
                 & sh $shScriptPath $Args
-                return $LASTEXITCODE
+                $exitCode = $LASTEXITCODE
+                Write-Host ""
+                return $exitCode
             }
             else {
                 Write-Host "Script Sh non trouvé: $ScriptName.sh" -ForegroundColor Red
+                Write-Host ""
                 return 1
             }
         }
         default {
             Write-Host "Shell non supporté: $ShellType" -ForegroundColor Red
+            Write-Host ""
             return 1
         }
     }
@@ -119,6 +132,7 @@ for ($i = 0; $i -lt $args.Count; $i++) {
         "compatibilite" { $ScriptName = "test-compatibilite" }
         default {
             Write-Host "Option inconnue: $($args[$i])" -ForegroundColor Red
+            Write-Host ""
             Show-Help
             exit 1
         }
@@ -128,16 +142,19 @@ for ($i = 0; $i -lt $args.Count; $i++) {
 # Vérification du script demandé
 if ([string]::IsNullOrEmpty($ScriptName)) {
     Write-Host "❌ Aucun script spécifié" -ForegroundColor Red
+    Write-Host ""
     Show-Help
     exit 1
 }
 
 Write-Host "LANCEMENT UNIVERSEL - Tuya Zigbee Project" -ForegroundColor Cyan
 Write-Host "=============================================" -ForegroundColor Cyan
+Write-Host ""
 
 # Détection du shell
 $ShellType = Get-ShellType
 Write-Host "Shell détecté: $ShellType" -ForegroundColor White
+Write-Host ""
 
 # Construction des arguments
 $Args = ""
@@ -150,16 +167,23 @@ if ($Force) {
 
 Write-Host "Script demandé: $ScriptName" -ForegroundColor White
 Write-Host "Arguments: $Args" -ForegroundColor White
+Write-Host ""
 
 # Lancement du script
 Write-Host "Lancement en cours..." -ForegroundColor Yellow
+Write-Host ""
+Start-Sleep -Milliseconds 100
+
 $ExitCode = Invoke-Script -ScriptName $ScriptName -ShellType $ShellType -Args $Args
 
+Write-Host ""
 if ($ExitCode -eq 0) {
     Write-Host "✅ Script exécuté avec succès" -ForegroundColor Green
+    Write-Host ""
     exit 0
 }
 else {
     Write-Host "❌ Erreur lors de l'exécution du script" -ForegroundColor Red
+    Write-Host ""
     exit 1
 } 

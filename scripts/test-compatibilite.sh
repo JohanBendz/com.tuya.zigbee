@@ -11,18 +11,20 @@ CYAN='\033[0;36m'
 WHITE='\033[1;37m'
 NC='\033[0m' # No Color
 
-echo -e "${CYAN}TEST DE COMPATIBILITÉ POWERSHELL/BASH${NC}"
-echo "=========================================="
-
 # Variables
 PS_SCRIPTS=()
 SH_SCRIPTS=()
 MISSING_SH=()
 MISSING_PS=()
 
+echo -e "${CYAN}TEST DE COMPATIBILITÉ POWERSHELL/BASH${NC}"
+echo "=========================================="
+echo ""
+
 # 1) Analyse des scripts PowerShell
 echo -e "${YELLOW}1. ANALYSE DES SCRIPTS POWERSHELL${NC}"
 echo "====================================="
+echo ""
 
 for ps_script in scripts/*.ps1; do
     if [ -f "$ps_script" ]; then
@@ -30,10 +32,12 @@ for ps_script in scripts/*.ps1; do
         echo -e "${GREEN}✅ $ps_script${NC}"
     fi
 done
+echo ""
 
 # 2) Analyse des scripts Bash
 echo -e "${YELLOW}2. ANALYSE DES SCRIPTS BASH${NC}"
 echo "==============================="
+echo ""
 
 for sh_script in scripts/*.sh; do
     if [ -f "$sh_script" ]; then
@@ -41,10 +45,12 @@ for sh_script in scripts/*.sh; do
         echo -e "${GREEN}✅ $sh_script${NC}"
     fi
 done
+echo ""
 
 # 3) Comparaison et identification des manquants
 echo -e "${YELLOW}3. COMPARAISON DES SCRIPTS${NC}"
 echo "============================="
+echo ""
 
 # Scripts PowerShell avec leurs équivalents Bash
 declare -A PS_TO_SH=(
@@ -54,6 +60,8 @@ declare -A PS_TO_SH=(
     ["setup-auto-readme.ps1"]="setup-auto-readme.sh"
     ["diagnostic-complet.ps1"]="diagnostic-complet.sh"
     ["validation-finale.ps1"]="validation-finale.sh"
+    ["test-compatibilite.ps1"]="test-compatibilite.sh"
+    ["run-universal.ps1"]="run-universal.sh"
 )
 
 # Vérifier les équivalents manquants
@@ -74,10 +82,12 @@ for ps_script in "${!PS_TO_SH[@]}"; do
         fi
     fi
 done
+echo ""
 
 # 4) Test de fonctionnement des scripts Bash
 echo -e "${YELLOW}4. TEST DE FONCTIONNEMENT BASH${NC}"
 echo "================================="
+echo ""
 
 for sh_script in scripts/*.sh; do
     if [ -f "$sh_script" ]; then
@@ -94,12 +104,15 @@ for sh_script in scripts/*.sh; do
         else
             echo -e "${YELLOW}⚠️ $script_name - Test basique${NC}"
         fi
+        sleep 0.05
     fi
 done
+echo ""
 
 # 5) Génération du rapport de compatibilité
 echo -e "${YELLOW}5. RAPPORT DE COMPATIBILITÉ${NC}"
 echo "================================="
+echo ""
 
 REPORT_FILE="COMPATIBILITE-REPORT-$(date +%Y%m%d-%H%M%S).md"
 
@@ -185,14 +198,18 @@ echo -e "${WHITE}Scripts PowerShell: ${#PS_SCRIPTS[@]}${NC}"
 echo -e "${WHITE}Scripts Bash: ${#SH_SCRIPTS[@]}${NC}"
 echo -e "${WHITE}Équivalents manquants: ${#MISSING_SH[@]}${NC}"
 echo -e "${WHITE}Rapport généré: $REPORT_FILE${NC}"
+echo ""
 
 if [ ${#MISSING_SH[@]} -eq 0 ]; then
     echo -e "${GREEN}✅ COMPATIBILITÉ PARFAITE${NC}"
     echo -e "${CYAN}🎉 Tous les scripts ont leurs équivalents${NC}"
+    echo ""
 else
     echo -e "${YELLOW}⚠️ COMPATIBILITÉ PARTIELLE${NC}"
     echo -e "${CYAN}🔧 ${#MISSING_SH[@]} équivalents Bash manquants${NC}"
+    echo ""
 fi
 
 echo -e "${GREEN}TEST DE COMPATIBILITÉ TERMINÉ !${NC}"
-echo -e "${CYAN}Mode YOLO Intelligent activé - Compatibilité cross-platform${NC}" 
+echo -e "${CYAN}Mode YOLO Intelligent activé - Compatibilité cross-platform${NC}"
+echo "" 

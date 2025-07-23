@@ -9,30 +9,36 @@ $MissingPs = @()
 
 Write-Host "TEST DE COMPATIBILITÉ POWERSHELL/BASH" -ForegroundColor Cyan
 Write-Host "==========================================" -ForegroundColor Cyan
+Write-Host ""
 
 # 1) Analyse des scripts PowerShell
 Write-Host "1. ANALYSE DES SCRIPTS POWERSHELL" -ForegroundColor Yellow
 Write-Host "=====================================" -ForegroundColor Yellow
+Write-Host ""
 
 $psScripts = Get-ChildItem scripts/*.ps1 -ErrorAction SilentlyContinue
 foreach ($script in $psScripts) {
     $PsScripts += $script.Name
     Write-Host "✅ $($script.FullName)" -ForegroundColor Green
 }
+Write-Host ""
 
 # 2) Analyse des scripts Bash
 Write-Host "2. ANALYSE DES SCRIPTS BASH" -ForegroundColor Yellow
 Write-Host "===============================" -ForegroundColor Yellow
+Write-Host ""
 
 $shScripts = Get-ChildItem scripts/*.sh -ErrorAction SilentlyContinue
 foreach ($script in $shScripts) {
     $ShScripts += $script.Name
     Write-Host "✅ $($script.FullName)" -ForegroundColor Green
 }
+Write-Host ""
 
 # 3) Comparaison et identification des manquants
 Write-Host "3. COMPARAISON DES SCRIPTS" -ForegroundColor Yellow
 Write-Host "=============================" -ForegroundColor Yellow
+Write-Host ""
 
 # Scripts PowerShell avec leurs équivalents Bash
 $PsToSh = @{
@@ -66,10 +72,12 @@ foreach ($psScript in $PsToSh.Keys) {
         }
     }
 }
+Write-Host ""
 
 # 4) Test de fonctionnement des scripts PowerShell
 Write-Host "4. TEST DE FONCTIONNEMENT POWERSHELL" -ForegroundColor Yellow
 Write-Host "=====================================" -ForegroundColor Yellow
+Write-Host ""
 
 foreach ($psScript in $psScripts) {
     $scriptName = $psScript.Name
@@ -88,11 +96,14 @@ foreach ($psScript in $psScripts) {
     catch {
         Write-Host "⚠️ $scriptName - Test basique" -ForegroundColor Yellow
     }
+    Start-Sleep -Milliseconds 50
 }
+Write-Host ""
 
 # 5) Génération du rapport de compatibilité
 Write-Host "5. RAPPORT DE COMPATIBILITÉ" -ForegroundColor Yellow
 Write-Host "=================================" -ForegroundColor Yellow
+Write-Host ""
 
 $ReportFile = "COMPATIBILITE-REPORT-$(Get-Date -Format 'yyyyMMdd-HHmmss').md"
 
@@ -195,15 +206,19 @@ Write-Host "Scripts PowerShell: $($PsScripts.Count)" -ForegroundColor White
 Write-Host "Scripts Bash: $($ShScripts.Count)" -ForegroundColor White
 Write-Host "Équivalents manquants: $($MissingSh.Count)" -ForegroundColor White
 Write-Host "Rapport généré: $ReportFile" -ForegroundColor White
+Write-Host ""
 
 if ($MissingSh.Count -eq 0) {
     Write-Host "✅ COMPATIBILITÉ PARFAITE" -ForegroundColor Green
     Write-Host "🎉 Tous les scripts ont leurs équivalents" -ForegroundColor Cyan
+    Write-Host ""
 }
 else {
     Write-Host "⚠️ COMPATIBILITÉ PARTIELLE" -ForegroundColor Yellow
     Write-Host "🔧 $($MissingSh.Count) équivalents Bash manquants" -ForegroundColor Cyan
+    Write-Host ""
 }
 
 Write-Host "TEST DE COMPATIBILITÉ TERMINÉ !" -ForegroundColor Green
-Write-Host "Mode YOLO Intelligent activé - Compatibilité cross-platform" -ForegroundColor Cyan 
+Write-Host "Mode YOLO Intelligent activé - Compatibilité cross-platform" -ForegroundColor Cyan
+Write-Host "" 

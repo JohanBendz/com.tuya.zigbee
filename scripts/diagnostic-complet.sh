@@ -16,6 +16,7 @@ REPORT_FILE="DIAGNOSTIC-COMPLET-$(date +%Y%m%d-%H%M%S).md"
 
 echo -e "${CYAN}DIAGNOSTIC COMPLET DU PROJET${NC}"
 echo "==============================="
+echo ""
 
 # Fonction pour ajouter au rapport
 add_to_report() {
@@ -33,6 +34,7 @@ EOF
 # 1) Analyse de la structure du projet
 echo -e "${YELLOW}1. ANALYSE DE LA STRUCTURE${NC}"
 echo "============================"
+echo ""
 
 REPO_SIZE=$(du -sm . | cut -f1)
 FILE_COUNT=$(find . -type f | wc -l)
@@ -41,6 +43,7 @@ DIR_COUNT=$(find . -type d | wc -l)
 echo -e "${WHITE}Taille du repo: ${REPO_SIZE} MB${NC}"
 echo -e "${WHITE}Nombre de fichiers: $FILE_COUNT${NC}"
 echo -e "${WHITE}Nombre de dossiers: $DIR_COUNT${NC}"
+echo ""
 
 add_to_report "### Structure du Projet"
 add_to_report "- Taille du repository: ${REPO_SIZE} MB"
@@ -50,12 +53,14 @@ add_to_report "- Nombre de dossiers: $DIR_COUNT"
 # 2) Analyse des drivers
 echo -e "${YELLOW}2. ANALYSE DES DRIVERS${NC}"
 echo "======================="
+echo ""
 
 DRIVER_COUNT=$(find drivers -name "*.js" -type f 2>/dev/null | wc -l)
 DRIVER_DIRS=$(find drivers -type d 2>/dev/null | wc -l)
 
 echo -e "${WHITE}Nombre de drivers: $DRIVER_COUNT${NC}"
 echo -e "${WHITE}Dossiers de drivers: $DRIVER_DIRS${NC}"
+echo ""
 
 add_to_report ""
 add_to_report "### Drivers Supportés"
@@ -65,12 +70,14 @@ add_to_report "- Dossiers de drivers: $DRIVER_DIRS"
 # 3) Analyse des langues
 echo -e "${YELLOW}3. ANALYSE DES LANGUES${NC}"
 echo "====================="
+echo ""
 
 LANGUAGE_FILES=$(find locales -name "*.json" -o -name "*.md" 2>/dev/null | wc -l)
 LANGUAGES=$(find locales -name "*.json" -o -name "*.md" 2>/dev/null | xargs -n 1 basename | sort | uniq | tr '\n' ', ' | sed 's/,$//')
 
 echo -e "${WHITE}Nombre de langues: $LANGUAGE_FILES${NC}"
 echo -e "${WHITE}Langues supportées: $LANGUAGES${NC}"
+echo ""
 
 add_to_report ""
 add_to_report "### Support Multilingue"
@@ -80,10 +87,12 @@ add_to_report "- Langues supportées: $LANGUAGES"
 # 4) Analyse des workflows
 echo -e "${YELLOW}4. ANALYSE DES WORKFLOWS${NC}"
 echo "========================"
+echo ""
 
 WORKFLOW_COUNT=$(find .github/workflows -name "*.yml" -o -name "*.yaml" 2>/dev/null | wc -l)
 
 echo -e "${WHITE}Nombre de workflows: $WORKFLOW_COUNT${NC}"
+echo ""
 
 add_to_report ""
 add_to_report "### Workflows GitHub"
@@ -92,6 +101,7 @@ add_to_report "- Nombre de workflows: $WORKFLOW_COUNT"
 # 5) Analyse des scripts
 echo -e "${YELLOW}5. ANALYSE DES SCRIPTS${NC}"
 echo "====================="
+echo ""
 
 PS_SCRIPTS=$(find scripts -name "*.ps1" 2>/dev/null | wc -l)
 SH_SCRIPTS=$(find scripts -name "*.sh" 2>/dev/null | wc -l)
@@ -100,6 +110,7 @@ JS_SCRIPTS=$(find scripts -name "*.js" 2>/dev/null | wc -l)
 echo -e "${WHITE}Scripts PowerShell: $PS_SCRIPTS${NC}"
 echo -e "${WHITE}Scripts Bash: $SH_SCRIPTS${NC}"
 echo -e "${WHITE}Scripts JavaScript: $JS_SCRIPTS${NC}"
+echo ""
 
 add_to_report ""
 add_to_report "### Scripts Disponibles"
@@ -110,12 +121,14 @@ add_to_report "- Scripts JavaScript: $JS_SCRIPTS"
 # 6) Analyse des assets
 echo -e "${YELLOW}6. ANALYSE DES ASSETS${NC}"
 echo "====================="
+echo ""
 
 ASSET_COUNT=$(find assets -type f 2>/dev/null | wc -l)
 ASSET_SIZE=$(du -sm assets 2>/dev/null | cut -f1 || echo "0")
 
 echo -e "${WHITE}Nombre d'assets: $ASSET_COUNT${NC}"
 echo -e "${WHITE}Taille des assets: ${ASSET_SIZE} MB${NC}"
+echo ""
 
 add_to_report ""
 add_to_report "### Assets"
@@ -125,12 +138,14 @@ add_to_report "- Taille des assets: ${ASSET_SIZE} MB"
 # 7) Analyse du dashboard
 echo -e "${YELLOW}7. ANALYSE DU DASHBOARD${NC}"
 echo "========================"
+echo ""
 
 if [ -d "dashboard" ]; then
     DASHBOARD_FILES=$(find dashboard -type f | wc -l)
     DASHBOARD_SIZE=$(du -sm dashboard | cut -f1)
     echo -e "${WHITE}Fichiers dashboard: $DASHBOARD_FILES${NC}"
     echo -e "${WHITE}Taille dashboard: ${DASHBOARD_SIZE} MB${NC}"
+    echo ""
     
     add_to_report ""
     add_to_report "### Dashboard"
@@ -138,6 +153,7 @@ if [ -d "dashboard" ]; then
     add_to_report "- Taille dashboard: ${DASHBOARD_SIZE} MB"
 else
     echo -e "${RED}Dashboard non trouvé${NC}"
+    echo ""
     add_to_report ""
     add_to_report "### Dashboard"
     add_to_report "- Status: Non trouvé"
@@ -146,6 +162,7 @@ fi
 # 8) Analyse Git
 echo -e "${YELLOW}8. ANALYSE GIT${NC}"
 echo "==============="
+echo ""
 
 if [ -d ".git" ]; then
     BRANCH=$(git branch --show-current 2>/dev/null || echo "unknown")
@@ -155,6 +172,7 @@ if [ -d ".git" ]; then
     echo -e "${WHITE}Branche actuelle: $BRANCH${NC}"
     echo -e "${WHITE}Nombre de commits: $COMMIT_COUNT${NC}"
     echo -e "${WHITE}Dernier commit: $LAST_COMMIT${NC}"
+    echo ""
     
     add_to_report ""
     add_to_report "### Git Repository"
@@ -163,6 +181,7 @@ if [ -d ".git" ]; then
     add_to_report "- Dernier commit: $LAST_COMMIT"
 else
     echo -e "${RED}Repository Git non trouvé${NC}"
+    echo ""
     add_to_report ""
     add_to_report "### Git Repository"
     add_to_report "- Status: Non trouvé"
@@ -171,6 +190,7 @@ fi
 # 9) Analyse des dépendances
 echo -e "${YELLOW}9. ANALYSE DES DÉPENDANCES${NC}"
 echo "=========================="
+echo ""
 
 if [ -f "package.json" ]; then
     DEP_COUNT=$(grep -c '"dependencies"' package.json || echo "0")
@@ -178,6 +198,7 @@ if [ -f "package.json" ]; then
     
     echo -e "${WHITE}Dépendances: $DEP_COUNT${NC}"
     echo -e "${WHITE}Dépendances dev: $DEV_DEP_COUNT${NC}"
+    echo ""
     
     add_to_report ""
     add_to_report "### Dépendances"
@@ -185,6 +206,7 @@ if [ -f "package.json" ]; then
     add_to_report "- Dépendances dev: $DEV_DEP_COUNT"
 else
     echo -e "${YELLOW}package.json non trouvé${NC}"
+    echo ""
     add_to_report ""
     add_to_report "### Dépendances"
     add_to_report "- Status: package.json non trouvé"
@@ -193,6 +215,7 @@ fi
 # 10) Analyse des fichiers critiques
 echo -e "${YELLOW}10. ANALYSE FICHIERS CRITIQUES${NC}"
 echo "==============================="
+echo ""
 
 CRITICAL_FILES=("app.js" "app.json" "package.json" "README.md" ".gitignore")
 MISSING_FILES=()
@@ -208,10 +231,12 @@ for file in "${CRITICAL_FILES[@]}"; do
         MISSING_FILES+=("$file")
     fi
 done
+echo ""
 
 # 11) Test des scripts
 echo -e "${YELLOW}11. TEST DES SCRIPTS${NC}"
 echo "====================="
+echo ""
 
 SCRIPTS_TO_TEST=("scripts/update-readme.sh" "scripts/cleanup-repo.sh" "scripts/sync-drivers.sh")
 
@@ -229,10 +254,12 @@ for script in "${SCRIPTS_TO_TEST[@]}"; do
         add_to_report "- ❌ $script manquant"
     fi
 done
+echo ""
 
 # 12) Calcul du score de santé
 echo -e "${YELLOW}12. CALCUL DU SCORE DE SANTÉ${NC}"
 echo "==============================="
+echo ""
 
 SCORE=0
 TOTAL_TESTS=0
@@ -273,6 +300,7 @@ else
 fi
 
 echo -e "${WHITE}Score de santé: $SCORE/$TOTAL_TESTS (${HEALTH_PERCENT}%)${NC}"
+echo ""
 
 add_to_report ""
 add_to_report "## 🏥 SCORE DE SANTÉ"
@@ -284,6 +312,7 @@ add_to_report "- Pourcentage: ${HEALTH_PERCENT}%"
 # 13) Recommandations
 echo -e "${YELLOW}13. RECOMMANDATIONS${NC}"
 echo "====================="
+echo ""
 
 RECOMMENDATIONS=()
 
@@ -305,6 +334,7 @@ fi
 
 if [ ${#RECOMMENDATIONS[@]} -eq 0 ]; then
     echo -e "${GREEN}✅ Aucune recommandation critique${NC}"
+    echo ""
     add_to_report ""
     add_to_report "### Recommandations"
     add_to_report "- ✅ Aucune recommandation critique"
@@ -313,6 +343,7 @@ else
     for rec in "${RECOMMENDATIONS[@]}"; do
         echo -e "${WHITE}- $rec${NC}"
     done
+    echo ""
     
     add_to_report ""
     add_to_report "### Recommandations"
@@ -324,6 +355,7 @@ fi
 # 14) Rapport final
 echo -e "${GREEN}📊 RAPPORT FINAL${NC}"
 echo "==============="
+echo ""
 
 add_to_report ""
 add_to_report "## 📊 RÉSUMÉ"
@@ -347,12 +379,16 @@ add_to_report "*Rapport généré automatiquement - Mode YOLO Intelligent*"
 echo -e "${WHITE}Rapport généré: $REPORT_FILE${NC}"
 echo -e "${WHITE}Score de santé: ${HEALTH_PERCENT}%${NC}"
 echo -e "${WHITE}Timestamp: $(date +%Y-%m-%d %H:%M:%S UTC)${NC}"
+echo ""
 
 if [ $HEALTH_PERCENT -ge 80 ]; then
     echo -e "${GREEN}✅ PROJET EN BONNE SANTÉ${NC}"
+    echo ""
 else
     echo -e "${YELLOW}⚠️ PROJET NÉCESSITE DES AMÉLIORATIONS${NC}"
+    echo ""
 fi
 
 echo -e "${GREEN}DIAGNOSTIC TERMINÉ AVEC SUCCÈS !${NC}"
-echo -e "${CYAN}Mode YOLO Intelligent activé - Optimisation continue${NC}" 
+echo -e "${CYAN}Mode YOLO Intelligent activé - Optimisation continue${NC}"
+echo "" 

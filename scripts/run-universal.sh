@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # RUN UNIVERSAL - Tuya Zigbee Project
-# Script de lancement universel avec détection automatique du shell
+# Script de lancement universel avec détection automatique du shell (Bash version)
 
 # Couleurs pour l'affichage
 RED='\033[0;31m'
@@ -65,25 +65,34 @@ run_script() {
         "powershell")
             if [ -f "scripts/${script_name}.ps1" ]; then
                 echo -e "${GREEN}Lancement avec PowerShell: ${script_name}.ps1${NC}"
+                echo ""
                 pwsh -File "scripts/${script_name}.ps1" $args
-                return $?
+                local exit_code=$?
+                echo ""
+                return $exit_code
             else
                 echo -e "${RED}Script PowerShell non trouvé: ${script_name}.ps1${NC}"
+                echo ""
                 return 1
             fi
             ;;
         "bash"|"sh")
             if [ -f "scripts/${script_name}.sh" ]; then
                 echo -e "${GREEN}Lancement avec Bash: ${script_name}.sh${NC}"
+                echo ""
                 bash "scripts/${script_name}.sh" $args
-                return $?
+                local exit_code=$?
+                echo ""
+                return $exit_code
             else
                 echo -e "${RED}Script Bash non trouvé: ${script_name}.sh${NC}"
+                echo ""
                 return 1
             fi
             ;;
         *)
             echo -e "${RED}Shell non supporté: $shell_type${NC}"
+            echo ""
             return 1
             ;;
     esac
@@ -92,12 +101,12 @@ run_script() {
 # Parsing des arguments
 while [[ $# -gt 0 ]]; do
     case $1 in
-        -d|--dry-run)
-            DRY_RUN=true
-            shift
-            ;;
         -f|--force)
             FORCE=true
+            shift
+            ;;
+        -d|--dry-run)
+            DRY_RUN=true
             shift
             ;;
         -h|--help)
@@ -109,7 +118,8 @@ while [[ $# -gt 0 ]]; do
             shift
             ;;
         *)
-            echo "Option inconnue: $1"
+            echo -e "${RED}Option inconnue: $1${NC}"
+            echo ""
             show_help
             exit 1
             ;;
@@ -119,16 +129,19 @@ done
 # Vérification du script demandé
 if [ -z "$SCRIPT_NAME" ]; then
     echo -e "${RED}❌ Aucun script spécifié${NC}"
+    echo ""
     show_help
     exit 1
 fi
 
 echo -e "${CYAN}LANCEMENT UNIVERSEL - Tuya Zigbee Project${NC}"
 echo "============================================="
+echo ""
 
 # Détection du shell
 SHELL_TYPE=$(detect_shell)
 echo -e "${WHITE}Shell détecté: $SHELL_TYPE${NC}"
+echo ""
 
 # Construction des arguments
 ARGS=""
@@ -138,6 +151,10 @@ fi
 if [ "$FORCE" = true ]; then
     ARGS="$ARGS --force"
 fi
+
+echo -e "${WHITE}Script demandé: $SCRIPT_NAME${NC}"
+echo -e "${WHITE}Arguments: $ARGS${NC}"
+echo ""
 
 # Mapping des noms de scripts
 case $SCRIPT_NAME in
@@ -164,19 +181,22 @@ case $SCRIPT_NAME in
         ;;
     *)
         echo -e "${RED}❌ Script inconnu: $SCRIPT_NAME${NC}"
+        echo ""
         exit 1
         ;;
 esac
 
-echo -e "${WHITE}Script demandé: $SCRIPT_NAME${NC}"
-echo -e "${WHITE}Arguments: $ARGS${NC}"
-
 # Lancement du script
 echo -e "${YELLOW}Lancement en cours...${NC}"
+echo ""
+sleep 0.1
+
 if run_script "$ACTUAL_SCRIPT" "$SHELL_TYPE" "$ARGS"; then
     echo -e "${GREEN}✅ Script exécuté avec succès${NC}"
+    echo ""
     exit 0
 else
     echo -e "${RED}❌ Erreur lors de l'exécution du script${NC}"
+    echo ""
     exit 1
 fi 
