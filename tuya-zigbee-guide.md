@@ -1,13 +1,4 @@
-# ⚠️ URGENT - TOKEN GITHUB EXPOSÉ ⚠️
 
-**ACTION IMMÉDIATE REQUISE :**
-
-1. **RÉVOQUE CE TOKEN MAINTENANT** :
-   - Va sur https://github.com/settings/tokens
-   - Supprime le token commençant par `ghp_58uEZ...`
-   - Crée immédiatement un nouveau token
-
-2. **NE PLUS JAMAIS** partager un token dans un prompt
 
 ---
 
