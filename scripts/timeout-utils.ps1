@@ -1,25 +1,25 @@
 # TIMEOUT UTILS - Tuya Zigbee Project
-# Module utilitaire pour gérer les timeouts et éviter les boucles infinies
+# Module utilitaire pour gerer les timeouts et eviter les boucles infinies
 
-# Configuration des timeouts par défaut
+# Configuration des timeouts par defaut
 $script:DefaultTimeouts = @{
-    "Short" = 30      # 30 secondes pour les opérations rapides
-    "Medium" = 120    # 2 minutes pour les opérations moyennes
-    "Long" = 300      # 5 minutes pour les opérations longues
-    "VeryLong" = 600  # 10 minutes pour les opérations très longues
-    "Infinite" = 0    # Pas de timeout (à utiliser avec précaution)
+    "Short" = 30      # 30 secondes pour les operations rapides
+    "Medium" = 120    # 2 minutes pour les operations moyennes
+    "Long" = 300      # 5 minutes pour les operations longues
+    "VeryLong" = 600  # 10 minutes pour les operations tres longues
+    "Infinite" = 0    # Pas de timeout (a utiliser avec precaution)
 }
 
-# Fonction pour exécuter une commande avec timeout
+# Fonction pour executer une commande avec timeout
 function Invoke-WithTimeout {
     param(
         [scriptblock]$ScriptBlock,
         [int]$TimeoutSeconds = 120,
-        [string]$OperationName = "Opération",
+        [string]$OperationName = "Operation",
         [switch]$ContinueOnTimeout = $false
     )
     
-    Write-Host "⏱️ Début: $OperationName (timeout: $TimeoutSeconds secondes)" -ForegroundColor Cyan
+    Write-Host "Debut: $OperationName (timeout: $TimeoutSeconds secondes)" -ForegroundColor Cyan
     
     $job = Start-Job -ScriptBlock $ScriptBlock
     
@@ -29,22 +29,22 @@ function Invoke-WithTimeout {
         if ($result) {
             $output = Receive-Job -Job $job
             Remove-Job -Job $job
-            Write-Host "✅ $OperationName terminé avec succès" -ForegroundColor Green
+            Write-Host "OK $OperationName termine avec succes" -ForegroundColor Green
             return $output
         } else {
-            Write-Host "⏰ TIMEOUT: $OperationName a dépassé $TimeoutSeconds secondes" -ForegroundColor Red
+            Write-Host "TIMEOUT: $OperationName a depasse $TimeoutSeconds secondes" -ForegroundColor Red
             Stop-Job -Job $job
             Remove-Job -Job $job
             
             if ($ContinueOnTimeout) {
-                Write-Host "⚠️ Continuation malgré le timeout" -ForegroundColor Yellow
+                Write-Host "Continuation malgre le timeout" -ForegroundColor Yellow
                 return $null
             } else {
                 throw "Timeout atteint pour $OperationName"
             }
         }
     } catch {
-        Write-Host "❌ ERREUR dans $OperationName : $($_.Exception.Message)" -ForegroundColor Red
+        Write-Host "ERREUR dans $OperationName : $($_.Exception.Message)" -ForegroundColor Red
         if ($job) {
             Stop-Job -Job $job -ErrorAction SilentlyContinue
             Remove-Job -Job $job -ErrorAction SilentlyContinue
@@ -53,7 +53,7 @@ function Invoke-WithTimeout {
     }
 }
 
-# Fonction pour exécuter une boucle avec timeout
+# Fonction pour executer une boucle avec timeout
 function Invoke-LoopWithTimeout {
     param(
         [scriptblock]$LoopScript,
@@ -62,7 +62,7 @@ function Invoke-LoopWithTimeout {
         [string]$LoopName = "Boucle"
     )
     
-    Write-Host "🔄 Début: $LoopName (max: $MaxIterations itérations, timeout: $TimeoutSeconds secondes)" -ForegroundColor Cyan
+    Write-Host "Debut: $LoopName (max: $MaxIterations iterations, timeout: $TimeoutSeconds secondes)" -ForegroundColor Cyan
     
     $startTime = Get-Date
     $iteration = 0
@@ -72,30 +72,30 @@ function Invoke-LoopWithTimeout {
         $elapsedTime = (Get-Date) - $startTime
         
         if ($elapsedTime.TotalSeconds -gt $TimeoutSeconds) {
-            Write-Host "⏰ TIMEOUT: $LoopName a dépassé $TimeoutSeconds secondes après $iteration itérations" -ForegroundColor Red
+            Write-Host "TIMEOUT: $LoopName a depasse $TimeoutSeconds secondes apres $iteration iterations" -ForegroundColor Red
             return $false
         }
         
         try {
             $result = & $LoopScript
             if ($result -eq $false) {
-                Write-Host "✅ $LoopName terminé normalement après $iteration itérations" -ForegroundColor Green
+                Write-Host "OK $LoopName termine normalement apres $iteration iterations" -ForegroundColor Green
                 return $true
             }
         } catch {
-            Write-Host "❌ ERREUR dans $LoopName (itération $iteration): $($_.Exception.Message)" -ForegroundColor Red
+            Write-Host "ERREUR dans $LoopName (iteration $iteration): $($_.Exception.Message)" -ForegroundColor Red
             return $false
         }
         
-        # Petite pause pour éviter de surcharger le CPU
+        # Petite pause pour eviter de surcharger le CPU
         Start-Sleep -Milliseconds 100
     }
     
-    Write-Host "🔄 MAX ITERATIONS: $LoopName a atteint $MaxIterations itérations" -ForegroundColor Yellow
+    Write-Host "MAX ITERATIONS: $LoopName a atteint $MaxIterations iterations" -ForegroundColor Yellow
     return $false
 }
 
-# Fonction pour exécuter une commande Git avec timeout
+# Fonction pour executer une commande Git avec timeout
 function Invoke-GitWithTimeout {
     param(
         [string]$GitCommand,
@@ -111,7 +111,7 @@ function Invoke-GitWithTimeout {
     return Invoke-WithTimeout -ScriptBlock $scriptBlock -TimeoutSeconds $TimeoutSeconds -OperationName $OperationName -ArgumentList $GitCommand
 }
 
-# Fonction pour exécuter npm avec timeout
+# Fonction pour executer npm avec timeout
 function Invoke-NpmWithTimeout {
     param(
         [string]$NpmCommand,
@@ -127,7 +127,7 @@ function Invoke-NpmWithTimeout {
     return Invoke-WithTimeout -ScriptBlock $scriptBlock -TimeoutSeconds $TimeoutSeconds -OperationName $OperationName -ArgumentList $NpmCommand
 }
 
-# Fonction pour exécuter un script avec timeout
+# Fonction pour executer un script avec timeout
 function Invoke-ScriptWithTimeout {
     param(
         [string]$ScriptPath,
@@ -144,7 +144,7 @@ function Invoke-ScriptWithTimeout {
     return Invoke-WithTimeout -ScriptBlock $scriptBlock -TimeoutSeconds $TimeoutSeconds -OperationName $OperationName -ArgumentList $ScriptPath, $Arguments
 }
 
-# Fonction pour vérifier l'état d'un processus avec timeout
+# Fonction pour verifier l'etat d'un processus avec timeout
 function Test-ProcessWithTimeout {
     param(
         [string]$ProcessName,
@@ -180,7 +180,7 @@ function Wait-FileWithTimeout {
     return Invoke-WithTimeout -ScriptBlock $scriptBlock -TimeoutSeconds $TimeoutSeconds -OperationName $OperationName -ArgumentList $FilePath
 }
 
-# Fonction pour exécuter une commande système avec timeout
+# Fonction pour executer une commande systeme avec timeout
 function Invoke-SystemCommandWithTimeout {
     param(
         [string]$Command,
@@ -198,18 +198,18 @@ function Invoke-SystemCommandWithTimeout {
 
 # Fonction pour nettoyer les jobs en cours
 function Clear-TimeoutJobs {
-    Write-Host "🧹 Nettoyage des jobs en cours..." -ForegroundColor Yellow
+    Write-Host "Nettoyage des jobs en cours..." -ForegroundColor Yellow
     
     $jobs = Get-Job -ErrorAction SilentlyContinue
     if ($jobs) {
         foreach ($job in $jobs) {
-            Write-Host "Arrêt du job: $($job.Name)" -ForegroundColor Yellow
+            Write-Host "Arret du job: $($job.Name)" -ForegroundColor Yellow
             Stop-Job -Job $job -ErrorAction SilentlyContinue
             Remove-Job -Job $job -ErrorAction SilentlyContinue
         }
     }
     
-    Write-Host "✅ Nettoyage terminé" -ForegroundColor Green
+    Write-Host "Nettoyage termine" -ForegroundColor Green
 }
 
 # Fonction pour afficher les statistiques de timeout
@@ -218,8 +218,8 @@ function Show-TimeoutStats {
         [hashtable]$Stats
     )
     
-    Write-Host "📊 STATISTIQUES TIMEOUT" -ForegroundColor Cyan
-    Write-Host "=======================" -ForegroundColor Cyan
+    Write-Host "STATISTIQUES TIMEOUT" -ForegroundColor Cyan
+    Write-Host "====================" -ForegroundColor Cyan
     
     foreach ($stat in $Stats.GetEnumerator()) {
         Write-Host "$($stat.Key): $($stat.Value)" -ForegroundColor White
@@ -246,24 +246,9 @@ function Set-TimeoutConfiguration {
             $script:DefaultTimeouts.VeryLong = 300
         }
         default {
-            # Configuration par défaut (Development)
+            # Configuration par defaut (Development)
         }
     }
     
-    Write-Host "⚙️ Configuration timeouts pour $Environment" -ForegroundColor Green
-}
-
-# Export des fonctions
-Export-ModuleMember -Function @(
-    'Invoke-WithTimeout',
-    'Invoke-LoopWithTimeout',
-    'Invoke-GitWithTimeout',
-    'Invoke-NpmWithTimeout',
-    'Invoke-ScriptWithTimeout',
-    'Test-ProcessWithTimeout',
-    'Wait-FileWithTimeout',
-    'Invoke-SystemCommandWithTimeout',
-    'Clear-TimeoutJobs',
-    'Show-TimeoutStats',
-    'Set-TimeoutConfiguration'
-) 
+    Write-Host "Configuration timeouts pour $Environment" -ForegroundColor Green
+} 
