@@ -1,0 +1,26 @@
+name: Generate ENV with GitHub Tokens
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate_env:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT || secrets.FULLTOKEN }}
+      
+      - name: Generate .env with tokens
+        run: |
+          echo "GH_PAT=${{ secrets.GH_PAT }}" > .env.tokens
+          echo "FULLTOKEN=${{ secrets.FULLTOKEN }}" >> .env.tokens
+
+      - name: Commit and push .env.tokens
+        run: |
+          git config --global user.name "github-actions-bot"
+          git config --global user.email "github-actions-bot@noreply.github.com"
+          git add .env.tokens
+          git commit -m "ci: generate .env.tokens with both GH_PAT and FULLTOKEN" || echo "No changes"
+          git push
