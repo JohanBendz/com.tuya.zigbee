@@ -1,0 +1,31 @@
+{
+  "totalIcons": 0,
+  "styles": {},
+  "sizes": {},
+  "colors": {
+    "primary": "#667eea",
+    "secondary": "#764ba2",
+    "success": "#4ade80",
+    "warning": "#fbbf24",
+    "error": "#f87171"
+  },
+  "recommendations": {
+    "preferredStyle": "flat",
+    "preferredShape": "rounded",
+    "preferredColors": [
+      "#667eea",
+      "#764ba2"
+    ],
+    "sizeStandards": {
+      "small": 64,
+      "medium": 128,
+      "large": 256
+    },
+    "consistencyRules": [
+      "Utiliser des formes arrondies pour les contrôles",
+      "Utiliser des cercles pour les capteurs",
+      "Utiliser des gradients pour les lumières",
+      "Maintenir une palette de couleurs cohérente"
+    ]
+  }
+}
