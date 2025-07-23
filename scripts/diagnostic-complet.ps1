@@ -76,9 +76,9 @@ Write-Host "=====================" -ForegroundColor Yellow
 try {
     $driverAnalysisScript = {
         if (Test-Path "drivers") {
-            $driverFiles = Get-ChildItem -Path "drivers" -Filter "*.js" -Recurse -ErrorAction SilentlyContinue
+            $driverFiles = Get-ChildItem -Path "drivers" -Directory -ErrorAction SilentlyContinue
             $driverCount = $driverFiles.Count
-            $deviceTypes = $driverFiles | ForEach-Object { $_.BaseName } | Sort-Object | Get-Unique
+            $deviceTypes = $driverFiles | ForEach-Object { $_.Name } | Sort-Object | Get-Unique
         } else {
             $driverCount = 0
             $deviceTypes = @()

@@ -5,12 +5,8 @@
     "nl": "Regensensor"
   },
   "class": "sensor",
-  "platforms": [
-    "local"
-  ],
-  "connectivity": [
-    "zigbee"
-  ],
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
   "capabilities": [
     "measure_battery",
     "alarm_battery",
@@ -52,10 +48,7 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TZ3210_tgvtvdoc",
-      "_TZ3000_abc123",
-      "_TYZB01_def456",
-      "_TZ3000_ghi789"
+      "_TZ3210_tgvtvdoc"
     ],
     "productId": [
       "TS0207"
