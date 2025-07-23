@@ -9,3 +9,4 @@ tuya-backup-*.zip
 # Garde tous les .log SAUF auto-update.log
 !auto-update.log
 *.log
+!auto-update.log
