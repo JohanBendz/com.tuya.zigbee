@@ -177,3 +177,47 @@ Créer la solution la plus complète, automatisée et résiliente pour intégrer
 - (Voir aussi les workflows auto-bench-ia.yml, auto-security-audit.yml, auto-translate.yml, etc.)
 
 ---
+
+## 🌐 Liens utiles & Communauté
+
+- [Forum Homey Community (Tuya Zigbee)](https://community.athom.com/t/tuya-zigbee-app/26439)
+- [Suivi des issues et demandes de device](https://github.com/JohanBendz/com.tuya.zigbee/issues)
+- [Espace communautaire & évolutions de traduction](https://discord.gg/athom) *(ou créez un espace Matrix/Forum dédié)*
+- [Documentation officielle Homey](https://apps.developer.homey.app/the-basics/app)
+
+---
+
+## 🤝 Contribuer & Espace communautaire
+
+- **Proposer un nouveau device** : ouvrez une issue GitHub ou postez sur le forum.
+- **Traduire ou améliorer la doc** : proposez vos corrections via PR ou sur l’espace communautaire.
+- **Participer à l’évolution** : rejoignez le Discord/Forum, suivez les releases, proposez des idées !
+- **Suivi des traductions** : toutes les langues sont dans `/locales/` et affichées dans le dashboard (sélection par drapeau).
+
+---
+
+## 👏 Contributeurs principaux
+
+- Martijn Aben, Christmas Lights
+- Jurgen Heine, color issues on RGB lights
+- Tim Koos et Tom van der Geer, 4 Channel Relay Board
+- Raffaele De Lauri, Smart Garden Irrigation Controller
+- Bert van Hoekelen, Curtain Motors, Zy m100 Radar Sensor
+- Łukasz Krutul, plugs & Tuya reporting
+- Jesper Bach, Smart Remote 1 Button
+- Patrick van der Poel, Soil sensor
+- Ben Grohbiel, Wall Thermostat
+- Jérôme Revillard, Neo Siren alarm
+- Thomas Ha, Thermostatic Radiator Valve
+- Julian M, Outdoor Smart Plug
+- Roelof Oomen, Rain sensor
+
+*(Vous avez contribué et n’êtes pas cité ? Faites-le savoir sur le forum ou par PR !)*
+
+---
+
+## 🙏 Remerciements
+
+Merci à tous les testeurs, contributeurs, traducteurs, et à la communauté Homey/Tuya pour leur soutien, leurs retours et leur enthousiasme !
+
+---
