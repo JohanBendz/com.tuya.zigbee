@@ -149,3 +149,31 @@ Créer la solution la plus complète, automatisée et résiliente pour intégrer
 - Génération automatique de documentation technique détaillée (API, flows, capabilities)
 
 ---
+
+## 🚀 Nouvelles fonctionnalités automatisées (2025)
+
+### Installation et vérification automatique des dépendances
+- Script `scripts/install-deps.js` : vérifie et installe toutes les dépendances critiques et optionnelles (npm, python, IA, outils Homey, etc.).
+- Tolérance intelligente : si une dépendance optionnelle échoue, l’automatisation continue sans bloquer le run.
+- Log détaillé dans `logs/install_deps.log`.
+- Intégration dans les workflows YAML pour garantir un environnement toujours prêt.
+
+### Automatisations mensuelles IA, sécurité, traduction, dashboard
+- **Benchmark IA** : chaque mois, bench multi-IA sur les drivers (parsing, traduction, icônes, etc.), résultats dans `ai-benchmark/` et dashboard.
+- **Audit sécurité** : scan mensuel CodeQL/Snyk, rapport dans `logs/security_audit.log`, badge dans le dashboard.
+- **Traduction multilingue** : traduction automatique de la doc, README, changelog, dashboard, drivers (EN/FR/Tamil/UE), résultats dans `locales/`.
+- **Génération d’icônes** : création/amélioration automatique des icônes SVG/PNG via IA.
+- **Dashboard dynamique** : suivi en temps réel des KPI, logs, bench IA, sécurité, traduction, enrichissement drivers.
+- **Auto-release notes** : changelog multilingue généré à chaque release mensuelle.
+- **Bot Discord/Telegram** : notifications CI/backup/erreur, résumé mensuel automatisé.
+- **Auto-enrichissement drivers** : ajout automatique des nouveaux devices/supports depuis Z2M/HA/Internet.
+
+---
+
+## 🛠️ Scripts et workflows clés
+- `scripts/install-deps.js` : installation/vérification tolérante des dépendances.
+- `scripts/merge_enrich_drivers.js` : fusion, enrichissement, logs, traçabilité.
+- `.github/workflows/auto-enrich-drivers.yml` : enrichissement automatique à chaque push/PR/cron.
+- (Voir aussi les workflows auto-bench-ia.yml, auto-security-audit.yml, auto-translate.yml, etc.)
+
+---

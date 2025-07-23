@@ -1,0 +1,26 @@
+name: Auto-installation Dépendances
+
+on:
+  schedule:
+    - cron: '0 5 1 * *'
+  workflow_dispatch:
+
+jobs:
+  install-deps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Installer les dépendances critiques et optionnelles
+        run: node scripts/install-deps.js
+      - name: Commit & Push log installation dépendances
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "github-actions"
+          git add logs/install_deps.log
+          git commit -m "chore(deps): log auto-installation mensuelle des dépendances [bot]" || echo "Nothing to commit"
+          git push 
