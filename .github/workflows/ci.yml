@@ -26,20 +26,25 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # npm ci supprimé car il casse en l'absence de package-lock.json
-
       - name: Update manifest
         run: npm run update-manifest
 
-      - name: Validate Homey app
-        run: npx homey app validate
+      - name: Validate Homey app (if token present)
+        run: |
+          if [ -n "${{ secrets.HOMEY_PAT }}" ]; then
+            npx homey app validate
+          else
+            echo "No Homey token, skipping validation."
+          fi
 
-      # Si tu as besoin de synchroniser ou PR, adapte ici
-      - name: Create PR if needed
-        uses: peter-evans/create-pull-request@v5
+  lint-test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: "chore: sync manifest"
-          branch: sync/auto-sync-manifest
-          title: "Sync manifest auto"
-          body: "Automatic sync of manifest (CI workflow)"
+          node-version: 18
+      - run: npm install
+      - run: npm run lint --if-present
+      - run: npm test --if-present
