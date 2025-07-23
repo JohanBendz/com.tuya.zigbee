@@ -10,3 +10,11 @@ tuya-backup-*.zip
 !auto-update.log
 *.log
 !auto-update.log
+
+# 🛡️ PROTECTION ARCHIVES - NE JAMAIS PUSHER
+archive/
+archives/
+*.tar.gz
+*.zip
+backup_*.tar.gz
+intelligent-backup_*.tar.gz
