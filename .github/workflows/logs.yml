@@ -1,0 +1,20 @@
+name: Commit Log Export
+
+on:
+  workflow_dispatch:
+
+jobs:
+  export-log:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export Git Log (3 jours)
+        run: |
+          git log --since="3 days ago" --all --pretty=format:"%h | %ad | %d | %s" --date=iso > logs/commits-$(date +%F).md
+      - name: Commit & Push commit logs
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add logs/commits-*.md
+          git commit -m "docs: export commit logs $(date +%F-%Hh%M)" || echo "No changes"
+          git push
