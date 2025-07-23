@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .env
 *.key
 *.pem
@@ -6,10 +5,7 @@ node_modules/
 progress.json
 ai-benchmark/*.json
 tuya-backup-*.zip
-=======
-﻿node_modules/
+.homeybuild/
+# Garde tous les .log SAUF auto-update.log
 !auto-update.log
 *.log
-.env
-.homeybuild/
->>>>>>> fix/readme-validation
