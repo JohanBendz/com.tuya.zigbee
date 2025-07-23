@@ -1,12 +1,29 @@
-﻿name: Build & Test
-on: [push, pull_request]
+﻿name: Build & Deploy
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 18 }
-      - run: npm ci
-      - run: npm run lint --if-present
-      - run: npm test --if-present
+        with:
+          node-version: 18
+      - run: npm install
+      - run: npm run lint
+      - run: npm run build
+      - run: node scripts/icon-generator.js
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-files
+          path: |
+            assets/
+            drivers/
+            lib/
+            scripts/
+            dashboard/

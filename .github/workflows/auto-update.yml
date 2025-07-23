@@ -15,42 +15,43 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 18 }
       - run: npm install
-      - run: npm run update-manifest
+      - run: npm run lint
+      - run: npm run build
+      - run: node scripts/icon-generator.js
       - name: Validate Homey App (optional)
         run: npx homey app validate || echo "Homey validate failed, continuing..."
-      - run: npm run lint
-      - run: npm test
+      - run: npm test --if-present
 
-  fetch-external-devices:
+  sync-drivers:
     needs: build-and-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v4
-        with: { python-version: 3.10 }
-      - name: Fetch device IDs
-        run: python3 tools/fetch_hass_z2m_devices.py --out drivers/new_devices.json
-      - name: Generate drivers
-        run: node scripts/generate-drivers.js drivers/new_devices.json
-      - name: Rebuild README
-        run: npm run rebuild-readme
+      - uses: actions/setup-node@v4
+        with: { node-version: 18 }
+      - run: npm install
+      - name: Sync drivers
+        run: npm run sync-drivers --if-present
+      - name: Generate icons
+        run: node scripts/icon-generator.js
       - name: Commit & Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: automated devices import & README update"
+          commit_message: "🚀 YOLO: Automated drivers sync & icons generation"
           file_pattern: |
             drivers/**
-            README.md
+            assets/icons/**
+            assets/icon-*.json
 
   create-pull-request:
-    needs: fetch-external-devices
+    needs: sync-drivers
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Create PR
         uses: peter-evans/create-pull-request@v5
         with:
-          title: "[Automated] Devices import + README rebuild"
-          branch: auto/devices-update
-          commit-message: "chore: devices imported and docs rebuilt"
-          labels: automation, dependencies
+          title: "[YOLO] Automated drivers sync & icons generation"
+          branch: yolo/auto-update
+          commit-message: "🚀 YOLO: Automated update"
+          labels: automation, yolo
