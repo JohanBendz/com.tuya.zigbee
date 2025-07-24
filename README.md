@@ -2,7 +2,7 @@
 
 [![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://github.com/dlnraja/com.tuya.zigbee)
 [![Homey SDK](https://img.shields.io/badge/Homey%20SDK-3.0-green.svg)](https://apps.homey.app/)
-[![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-yellow.svg)](./LICENSE)
 [![YOLO Mode](https://img.shields.io/badge/YOLO%20Mode-Enabled-red.svg)](https://github.com/dlnraja/com.tuya.zigbee)
 [![Automation](https://img.shields.io/badge/Automation-100%25-brightgreen.svg)](https://github.com/dlnraja/com.tuya.zigbee)
 [![Devices](https://img.shields.io/badge/Devices-123+-orange.svg)](https://github.com/dlnraja/com.tuya.zigbee)
@@ -321,7 +321,7 @@ Créer la solution la plus complète, automatisée et résiliente pour intégrer
 
 ## 📄 **Licence**
 
-Ce projet est sous licence **MIT**. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+Ce projet est sous licence **MIT**. Voir le fichier [LICENSE](./LICENSE) pour plus de détails.
 
 ---
 
