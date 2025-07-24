@@ -10,7 +10,9 @@
     "benchmark-ai": "node scripts/benchmark-ai.js",
     "merge-enrich-drivers": "node scripts/merge_enrich_drivers.js",
     "lint": "eslint . --ext .js",
-    "test": "mocha -r ts-node/register test/test-driver.ts && jest"
+    "test": "mocha -r ts-node/register test/test-driver.ts && jest",
+    "build": "echo 'Build Homey placeholder'",
+    "update-manifest": "echo 'Update manifest placeholder'"
   },
   "dependencies": {
     "axios": "^1.5.0",

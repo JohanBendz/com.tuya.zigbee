@@ -92,9 +92,9 @@ jobs:
       - name: 📦 Install Dependencies Intelligentes
         run: npm ci
         
-      - name: 🔨 Build Intelligent
+      - name: 🛠️ Build Intelligent
         run: |
-          echo "🔨 Build intelligent en cours"
+          echo "🛠️ Build intelligent en cours"
           npm run build || echo "Build terminé avec optimisations"
           
       - name: 📊 Analyse de Performance Intelligente

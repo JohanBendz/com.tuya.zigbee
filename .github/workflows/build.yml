@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿name: 🚀 Build & Deploy - Enhanced
+name: 🚀 Build & Deploy - Enhanced
 
 on:
   push:
@@ -97,7 +96,7 @@ jobs:
         run: |
           echo "📦 Installation intelligente des dépendances..."
           if [ -f "package.json" ]; then
-            npm install --audit || echo "⚠️ Installation avec avertissements"
+            npm ci || echo "⚠️ Installation avec avertissements"
             npm audit fix --audit-level=moderate || echo "⚠️ Audit terminé avec avertissements"
           else
             echo "ℹ️ Pas de package.json détecté"
@@ -134,6 +133,16 @@ jobs:
           fi
           echo "✅ Tests validés"
 
+      - name: 📝 Update manifest
+        run: |
+          echo "📝 Update manifest..."
+          if [ -f "package.json" ] && grep -q "update-manifest" package.json; then
+            npm run update-manifest || echo "⚠️ Update manifest terminé avec des avertissements"
+          else
+            echo "ℹ️ Pas de script update-manifest configuré"
+          fi
+          echo "✅ Update manifest terminé"
+
   # 🚀 DEPLOY INTELLIGENT
   intelligent-deploy:
     needs: [intelligent-build-analysis, intelligent-build-advanced]
@@ -153,7 +162,7 @@ jobs:
       - name: 📦 Installation finale
         run: |
           if [ -f "package.json" ]; then
-            npm install
+            npm ci
           fi
 
       - name: 🏗️ Build final
@@ -165,9 +174,9 @@ jobs:
             echo "ℹ️ Pas de script build configuré"
           fi
 
-      - name: 📊 Validation finale
+      - name: 🧾 Validation finale
         run: |
-          echo "📊 VALIDATION FINALE"
+          echo "🧾 VALIDATION FINALE"
           echo "===================="
           echo "Complexité: ${{ needs.intelligent-build-analysis.outputs.build-complexity }}"
           echo "Dépendances: ${{ needs.intelligent-build-analysis.outputs.dependencies-status }}"
@@ -185,17 +194,3 @@ jobs:
           echo "✅ Build validé"
           echo "✅ Déploiement terminé"
           echo "🚀 Projet opérationnel!"
-=======
-﻿name: Build & Test
-on: [push, pull_request]
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: 18 }
-      - run: npm ci
-      - run: npm run lint --if-present
-      - run: npm test --if-present
->>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
