@@ -1,0 +1,36 @@
+{
+  "id": "rgb_mood_light",
+  "name": {
+    "en": "RGB Mood Light"
+  },
+  "$extends": ["light_color_ambiance"],
+  "energy": {
+    "approximation": {
+      "usageOn": 8,
+      "usageOff": 0.2
+    }
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_9cpuaca6",
+      "_TZ3210_r0xgkft5"
+    ],
+    "productId": [
+      "TS0505A",
+      "TS0505B"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 3, 4, 5, 6, 8, 768],
+        "bindings": [6, 8, 768]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Power on to enter pairing mode."
+      }
+    }
+  }
+
+}

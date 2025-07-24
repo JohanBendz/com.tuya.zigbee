@@ -1,0 +1,19 @@
+name: Backup mensuel Google Drive
+
+on:
+  schedule:
+    - cron: '0 4 1 * *'
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Installer rclone
+        run: curl https://rclone.org/install.sh | sudo bash
+      - name: Archiver le repo
+        run: zip -r tuya-backup-$(date +%Y%m%d).zip .
+      - name: Uploader sur Google Drive
+        env:
+          RCLONE_CONFIG: ${{ secrets.RCLONE_CONFIG }}
+        run: rclone copy tuya-backup-$(date +%Y%m%d).zip gdrive:com.tuya.zigbee/backups/

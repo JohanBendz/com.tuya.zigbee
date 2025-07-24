@@ -1,0 +1,7 @@
+
+{
+  "id": "TS0201",
+  "name": { "en": "Temperature Sensor", "fr": "Capteur Température" },
+  "class": "sensor",
+  "capabilities": ["measure_temperature"]
+}

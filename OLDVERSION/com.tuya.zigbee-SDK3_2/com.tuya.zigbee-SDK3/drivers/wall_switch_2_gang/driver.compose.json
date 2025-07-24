@@ -1,0 +1,85 @@
+{
+    "id": "wall_switch_2_gang",
+    "name": {
+      "en": "2 Gang Wall Switch"
+    },
+    "class": "socket",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "onoff"
+    ],
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "energy": {
+      "approximation": {
+        "usageOn": 0,
+        "usageOff": 0
+      }
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TYZB01_mtlhqn48",
+        "_TYZB01_6sadkhcy",
+        "_TZ3000_fvh3pjaz",
+        "_TZ3000_svoqrno4",
+        "TUYATEC-O6SNCwd6",
+        "_TYZB01_vzrytttn",
+        "_TZ3000_nta0gb8h",
+        "_TZ3000_lupfd8zu",
+        "_TZ3000_yhagrqmd",
+        "_TZ3000_5vujyute",
+        "_TYZB01_2athzhfr",
+        "_TZ3000_56bdyj21",
+        "_TZ3000_e98krvvk",
+        "_TZ3000_18ejxno0",
+        "_TZ3000_atp7xmd9",
+        "_TZ3000_mrqea2uu",
+        "_TZ3000_mklgayek",
+        "_TZ3000_p8alo7qa",
+        "_TYZB01_6g8b7at8",
+        "TUYATEC-nzrrvgco",
+        "_TZ3000_qn8qvk9y",
+        "_TZ3000_s8r1qoyq"
+      ],
+      "productId": [
+        "TS0002",
+        "TS0012",
+        "TS0042"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 6],
+          "bindings": [6]
+        },
+        "2": {
+          "clusters": [6],
+          "bindings": [6]
+        }
+      },
+      "devices": {
+        "secondSwitch": {
+          "class": "socket",
+          "capabilities": ["onoff"],
+          "name": {
+            "en": "2 Gang Wall Switch"
+          },
+          "energy": {
+            "approximation": {
+              "usageOn": 0,
+              "usageOff": 0
+            }
+          }
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "A tile for each button will be created. Remove the front and press the setup button for 10 seconds (the LED should start blinking)."
+        }
+      }
+    }
+
+}

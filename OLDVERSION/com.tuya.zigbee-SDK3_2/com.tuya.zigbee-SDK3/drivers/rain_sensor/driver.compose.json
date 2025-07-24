@@ -1,0 +1,78 @@
+{
+  "id": "RainSensor",
+  "name": {
+    "en": "Rain sensor",
+    "nl": "Regensensor"
+  },
+  "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "measure_battery",
+    "alarm_battery",
+    "alarm_water",
+    "alarm_cleaning",
+    "measure_luminance",
+    "measure_luminance.20min",
+    "measure_luminance.daily_max",
+    "measure_voltage.rain"
+  ],
+  "capabilitiesOptions": {
+    "measure_luminance.20min": {
+      "title": {
+        "en": "Luminance (20 min avg.)",
+        "nl": "Helderheid (20 min gem.)"
+      }
+    },
+    "measure_luminance.daily_max": {
+      "title": {
+        "en": "Luminance (24 h max.)",
+        "nl": "Helderheid (24 u max.)"
+      }
+    },
+    "measure_voltage.rain": {
+      "title": {
+        "en": "Rainfall intensity",
+        "nl": "Regenintensiteit"
+      }
+    }
+  },
+  "energy": {
+    "batteries": [
+      "INTERNAL"
+    ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3210_tgvtvdoc"
+    ],
+    "productId": [
+      "TS0207"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          1,
+          1280,
+          61184
+        ],
+        "bindings": [
+          1,
+          1280,
+          61184
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Press and hold the button for approx. 5 seconds until the LED blinks green.",
+        "nl": "Houd de knop voor ongeveer 5 seconden ingedrukt totdat de LED groen knippert."
+      }
+    }
+  }
+}

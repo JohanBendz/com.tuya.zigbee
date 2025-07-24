@@ -1,0 +1,20 @@
+name: Benchmark IA Mensuel
+
+on:
+  schedule:
+    - cron: '15 4 1 * *'
+
+jobs:
+  bench-ia:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lancer le benchmark IA
+        run: node tools/benchmark-ia.js
+      - name: Commit résultats
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "github-actions"
+          git add ai-benchmark/
+          git commit -m "chore(ia): maj benchmark IA mensuel [bot]" || echo "Nothing to commit"
+          git push

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "reverse",
+    "type": "radio",
+    "label": {
+      "en": "Motor moves in reverse direction",
+      "nl": "Motor beweegt in omgekeerde richting"
+    },
+    "value": "0",
+    "values": [
+      {
+        "id": "0",
+        "label": {
+          "en": "Off",
+          "nl": "Uit"
+        }
+      },
+      {
+        "id": "1",
+        "label": {
+          "en": "On",
+          "nl": "Aan"
+        }
+      }
+    ]
+  },
+  {
+    "id": "max_open_percentage",
+    "type": "number",
+    "label": {
+      "en": "Maximum open percentage",
+      "nl": "Maximale open percentage"
+    },
+    "hint": {
+      "en": "The maximum percentage of the curtain that can be opened. This is used to prevent the window from being opened too far.",
+      "nl": "Het maximale percentage van het raam dat geopend kan worden. Dit wordt gebruikt om te voorkomen dat het gordijn te ver open gaat."
+    },
+    "value": 100,
+    "min": 0,
+    "max": 100
+  }
+]

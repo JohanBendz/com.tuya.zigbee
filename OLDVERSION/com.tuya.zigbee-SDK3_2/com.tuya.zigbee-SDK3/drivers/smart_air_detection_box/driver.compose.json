@@ -1,0 +1,50 @@
+{
+    "id": "smart_air_detection_box",
+    "name": {
+        "en": "Smart Air Detection Box"
+    },
+    "class": "sensor",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+        "measure_formaldehyde",
+        "measure_voc",
+        "measure_co2",
+        "measure_temperature",
+        "measure_humidity"
+    ],
+    "energy": {
+        "approximation": {
+            "usageOn": 0,
+            "usageOff": 0
+        }
+    },
+    "images": {
+        "large": "{{driverAssetsPath}}/images/large.png",
+        "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "zigbee": {
+        "manufacturerName": [
+            "_TZE200_yvx5lh6k",
+            "_TZE200_8ygsuhe1",
+            "_TZE200_mja3fuja",
+            "_TZE200_ryfmq5rl",
+            "_TZE200_c2fmom5z"
+        ],
+        "productId": [
+            "TS0601"
+        ],
+        "endpoints": {
+            "1": {
+                "clusters": [0, 4, 5, 61184],
+                "bindings": [4, 5, 61184]
+            }
+        },
+        "learnmode": {
+            "image": "{{driverAssetsPath}}/icon.svg",
+            "instruction": {
+                "en": "Press the RESET pinhole on the side of the unit for 5 seconds until LED blinks."
+            }
+        }
+    }
+}

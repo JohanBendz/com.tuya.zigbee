@@ -1,0 +1,55 @@
+{
+  "id": "floodsensor",
+  "name": {
+    "en": "Flood sensor"
+  },
+  "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "alarm_water",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "CR2032"
+    ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "TUYATEC-3tipnsrx",
+      "_TZ3000_4uvovz4r",
+      "_TZ3000_3dfewsk1",
+      "_TZ3000_ww9i3e0y",
+      "_TZ3000_wuep9zng"
+    ],
+    "productId": [
+      "RH3001",
+      "TS0207"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          3,
+          1280
+        ],
+        "bindings": [
+          1,
+          1280
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Push the button for aprox 10 seconds until the LED blinks rapidly. If nothing happens; put two fingers against the detectors and repeat."
+      }
+    }
+  }
+}

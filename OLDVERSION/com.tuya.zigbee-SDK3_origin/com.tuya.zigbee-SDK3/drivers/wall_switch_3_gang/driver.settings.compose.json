@@ -1,0 +1,30 @@
+[
+    {
+      "id": "indicator_mode",
+      "type": "radio",
+      "label": {
+        "en": "Indicator mode"
+      },
+      "value": "1",
+      "values": [
+        {
+          "id": "0",
+          "label": {
+            "en": "Light Off"
+          }
+        },
+        {
+          "id": "1",
+          "label": {
+            "en": "Light on when switch turned on."
+          }
+        },
+        {
+          "id": "2",
+          "label": {
+            "en": "Light on when the switch is turned off."
+          }
+        }
+      ]
+    }
+]

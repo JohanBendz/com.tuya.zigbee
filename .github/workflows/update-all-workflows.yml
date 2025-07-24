@@ -1,0 +1,39 @@
+
+name: Update all workflows with dual token
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update_tokens:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT || secrets.FULLTOKEN }}
+
+      - name: Update token usage in all workflow files
+        run: |
+          find .github/workflows/ -type f -name '*.yml' \
+            -exec sed -i 's/\${{ secrets.GH_PAT }}/\${{ secrets.GH_PAT || secrets.FULLTOKEN }}/g' {} +
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "github-actions-bot@users.noreply.github.com"
+          git config --global user.name "github-actions-bot"
+          git checkout -b update-dual-token || git checkout update-dual-token
+          git add .github/workflows/
+          git commit -m "feat: dual-token GH_PAT||FULLTOKEN in all workflows" || echo "No changes to commit"
+          git push origin update-dual-token
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GH_PAT || secrets.FULLTOKEN }}
+          commit-message: "feat: dual-token support in workflows"
+          title: "feat: Update all workflows to use GH_PAT||FULLTOKEN"
+          branch: update-dual-token
+          base: master
+          body: |
+            Ce PR met à jour tous les workflows pour supporter à la fois `GH_PAT` et `FULLTOKEN` comme token d'authentification.

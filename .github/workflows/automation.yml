@@ -1,0 +1,53 @@
+name: Automated Tuya Zigbee Contributions
+
+permissions:
+  contents: write
+  pull-requests: write
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * *' # Runs once a day at 2 AM UTC
+
+jobs:
+  process_issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0 # Important: fetch all history for rebase
+
+      - name: Sync Fork with Upstream
+        run: |
+          echo "Setting up Git..."
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          echo "Adding upstream remote..."
+          git remote add upstream https://github.com/JohanBendz/com.tuya.zigbee.git
+          
+          echo "Fetching upstream changes..."
+          git fetch upstream
+          
+          echo "Checking out master and rebasing on upstream/master..."
+          git checkout master
+          git rebase upstream/master
+          
+          echo "Pushing changes to origin..."
+          git push origin master --force
+        shell: bash
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Execute Contribution Logic
+        id: contribution
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const script = require('./.github/scripts/contribute.js');
+            await script({github, context});

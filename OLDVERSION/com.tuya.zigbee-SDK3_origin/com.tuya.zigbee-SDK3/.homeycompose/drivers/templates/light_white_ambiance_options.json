@@ -1,0 +1,17 @@
+{
+    "capabilitiesOptions": {
+        "onoff": {
+            "setOnDim": false
+        },
+        "dim": {
+            "opts": {
+            "duration": true
+            }
+        },
+        "light_temperature": {
+            "opts": {
+            "duration": true
+            }
+        }
+    }
+}

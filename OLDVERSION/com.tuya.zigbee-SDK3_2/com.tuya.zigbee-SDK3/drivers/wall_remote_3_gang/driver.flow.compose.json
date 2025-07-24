@@ -1,0 +1,27 @@
+{
+  "id": "wall_remote_4_gang_flow",
+  "name": { "en": "4 Gang Wall Remote Flows" },
+  "triggers": [
+    {
+      "id": "button_pressed",
+      "title": { "en": "Button pressed" },
+      "args": [
+        {
+          "name": "device",
+          "type": "device",
+          "filter": "driver_id=wall_remote_4_gang"
+        },
+        {
+          "name": "button",
+          "type": "dropdown",
+          "values": [
+            { "id": "button1", "label": { "en": "Button 1" } },
+            { "id": "button2", "label": { "en": "Button 2" } },
+            { "id": "button3", "label": { "en": "Button 3" } },
+            { "id": "button4", "label": { "en": "Button 4" } }
+          ]
+        }
+      ]
+    }
+  ]
+}

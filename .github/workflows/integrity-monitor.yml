@@ -1,0 +1,23 @@
+name: Monitoring intégrité & auto-réparation
+
+on:
+  push:
+    branches: [ master ]
+  schedule:
+    - cron: '0 4 * * *'
+
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vérifier l’intégrité des fichiers critiques
+        run: |
+          CRITICAL="drivers/ dashboard/ tools/ README.md"
+          for FILE in $CRITICAL; do
+            if [ ! -e "$FILE" ]; then
+              echo "::warning file=$FILE::ATTENTION : Fichier critique absent : $FILE"
+            else
+              echo "✅ $FILE OK"
+            fi
+          done

@@ -1,0 +1,23 @@
+# .github/workflows/push-with-pat.yml
+name: Push with PAT
+on: workflow_dispatch
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Do something (build, inject, etc.)
+        run: |
+          echo "Préparation du code..."
+
+      - name: Push to master
+        run: |
+          git config --global user.email "bot@dlnraja.com"
+          git config --global user.name "Bot"
+          git add .
+          git commit -m "feat: update from GitHub Action"
+          git push origin master

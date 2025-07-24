@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <path d="M12 2L2 7v9l10 5 10-5V7z" fill="#ff6600"/>
+</svg>
+=======
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 
@@ -113,3 +118,4 @@
      id="path868"
      d="M 10530,3120 V 1580 h 440 440 l -2,1538 -3,1537 -437,3 -438,2 z"
      inkscape:connector-curvature="0" /></g></svg>
+>>>>>>> fix/readme-validation

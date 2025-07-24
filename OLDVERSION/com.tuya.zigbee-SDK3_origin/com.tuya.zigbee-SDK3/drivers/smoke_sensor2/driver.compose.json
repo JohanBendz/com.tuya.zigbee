@@ -1,0 +1,50 @@
+{
+    "id": "smoke_sensor2",
+    "name": {
+      "en": "Smoke Sensor"
+    },
+    "class": "sensor",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "measure_battery",
+      "alarm_smoke",
+      "alarm_tamper",
+      "alarm_battery"
+    ],
+    "energy": {
+      "batteries": ["AAA","AAA"]
+    },
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TZE200_ntcy3xu1",
+        "_TZE200_m9skfctm",
+        "_TZE200_rccxox8p",
+        "_TZE200_vzekyi4c",
+        "_TZE204_ntcy3xu1",
+        "_TZE200_t5p1vj8r",
+        "_TZE200_uebojraa",
+        "_TZE200_yh7aoahi"
+      ],
+      "productId": [
+        "TS0601"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 4, 5, 61184],
+          "bindings": [4, 5, 61184]
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Press the RESET pinhole on the side of the unit for 5 seconds until LED blinks."
+        }
+      }
+    }
+
+}

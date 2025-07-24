@@ -1,0 +1,102 @@
+{
+    "id": "switch_4_gang_metering",
+    "name": {
+      "en": "4 Gang Switch Module with metering"
+    },
+    "class": "socket",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "onoff",
+      "measure_power",
+      "meter_power",
+      "measure_current",
+      "measure_voltage"
+    ],
+    "capabilitiesOptions": {
+      "measure_power": {
+        "approximated": true
+      }
+    },
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TZ3000_mmkbptmx",
+        "_TZ3000_ltt60asa"
+
+      ],
+      "productId": [
+        "TS0004"
+      ],
+      "endpoints": {
+         "1": {
+        "clusters": [3, 4, 5, 6, 1794, 2820, 57344, 57345, 0],
+        "bindings": [6, 1794, 2820]
+      },
+      "2": {
+        "clusters": [4, 5, 6],
+        "bindings": [6]
+      },
+      "3": {
+        "clusters": [4, 5, 6],
+        "bindings": [6]
+      },
+      "4": {
+        "clusters": [4, 5, 6],
+        "bindings": [6]
+      },
+      "242": {
+        "clusters": [],
+        "bindings": [33]
+      }
+    },
+      "devices": {
+        "secondSwitch": {
+          "class": "socket",
+          "capabilities": ["onoff"],
+          "name": {
+            "en": "4 Gang Switch Module with metering - Second Switch"
+          },
+          "capabilitiesOptions": {
+            "measure_power": {
+              "approximated": true
+            }
+          }
+        },
+        "thirdSwitch": {
+          "class": "socket",
+          "capabilities": ["onoff"],
+          "name": {
+            "en": "4 Gang Switch Module with metering - Third Switch"
+          },
+          "capabilitiesOptions": {
+            "measure_power": {
+              "approximated": true
+            }
+          }
+        },
+        "fourthSwitch": {
+          "class": "socket",
+          "capabilities": ["onoff"],
+          "name": {
+            "en": "4 Gang Switch Module with metering - Fourth Switch"
+          },
+          "capabilitiesOptions": {
+            "measure_power": {
+              "approximated": true
+            }
+          }
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Four tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        }
+      }
+    }
+
+}

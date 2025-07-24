@@ -1,0 +1,43 @@
+{
+  "id": "rgb_bulb_E27",
+  "name": {
+    "en": "RGB Bulb E27"
+  },
+  "$extends": ["light_color_ambiance"],
+  "energy": {
+    "approximation": {
+      "usageOn": 9,
+      "usageOff": 1
+    }
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_dbou1ap4",
+      "_TZ3000_keabpigv",
+      "_TZ3000_12sxjap4",
+      "_TZ3000_hlijwsai",
+      "_TZ3000_qd7hej8u",
+      "_TZ3210_mja6r5ix",
+      "_TZ3000_q50zhdsc",
+      "eWeLight"
+    ],
+    "productId": [
+      "TS0505A",
+      "TS0505B",
+      "ZB-CL01"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 3, 4, 5, 6, 8, 768],
+        "bindings": [6, 8, 768]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Power on to enter pairing mode."
+      }
+    }
+  }
+
+}

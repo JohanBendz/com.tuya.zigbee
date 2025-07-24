@@ -1,0 +1,55 @@
+{
+  "id": "outdoorsmart2socket",
+  "name": {
+    "en": "Outdoor Smart Socket"
+  },
+  "class": "socket",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "onoff",
+    "meter_power",
+    "measure_power",
+    "measure_current",
+    "measure_voltage"
+  ],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_uwkja6z1"
+    ],
+    "productId": [
+      "TS011F"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 3, 4, 5, 6, 1794, 2820, 57344, 57345],
+        "bindings": [10, 25]
+      },
+      "2": {
+        "clusters": [6],
+        "bindings": [6]
+      }
+    },
+    "devices": {
+      "secondSocket": {
+        "class": "socket",
+        "name": {
+          "en": "Outdoor Smart Socket #2"
+        },
+        "capabilities": [
+          "onoff"
+        ],
+        "settings": [] 
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press and hold down on/off switch for aprox 5 seconds until the WiFi icon blinks rapidly."
+      }
+    }
+  }
+}
