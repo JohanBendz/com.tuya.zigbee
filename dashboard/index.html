@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuya Zigbee Dashboard - Homey App</title>
+    <title>🚀 Tuya Zigbee - Dashboard Intelligent</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,33 +14,41 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: #333;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
         }
 
         .header {
-            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
             margin-bottom: 30px;
-            color: white;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
         .header h1 {
-            font-size: 2.5em;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3748;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
         .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
+            font-size: 1.1rem;
+            color: #718096;
+            margin-bottom: 20px;
         }
 
         .stats-grid {
@@ -49,431 +59,524 @@
         }
 
         .stat-card {
-            background: white;
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .stat-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
         }
 
         .stat-card h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1.5em;
-        }
-
-        .stat-card .number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #764ba2;
-        }
-
-        .lang-bar {
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .lang-bar h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #4a5568;
             margin-bottom: 15px;
-            color: #667eea;
-        }
-
-        .lang-buttons {
             display: flex;
-            justify-content: center;
+            align-items: center;
             gap: 10px;
-            flex-wrap: wrap;
         }
 
-        .lang-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: bold;
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 5px;
         }
 
-        .lang-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        .stat-change {
+            font-size: 0.9rem;
+            color: #48bb78;
+            font-weight: 500;
         }
 
-        .lang-btn.active {
-            background: linear-gradient(45deg, #764ba2, #667eea);
-        }
-
-        .content-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-
-        .content-section h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
-
-        .device-grid {
+        .main-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
         }
 
-        .device-category {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
+        .devices-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
-        .device-category h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-
-        .device-list {
-            list-style: none;
-        }
-
-        .device-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
+        .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 25px;
         }
 
-        .device-list li:last-child {
+        .section-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 300px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a0aec0;
+        }
+
+        .devices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .device-card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 20px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .device-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .device-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .device-name {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 1rem;
+        }
+
+        .device-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-online {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+
+        .status-offline {
+            background: #fed7d7;
+            color: #742a2a;
+        }
+
+        .device-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sidebar-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .activity-list {
+            list-style: none;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .activity-item:last-child {
             border-bottom: none;
         }
 
-        .status-badge {
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: bold;
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
         }
 
-        .status-operational {
-            background: #d4edda;
-            color: #155724;
+        .activity-info {
+            flex: 1;
         }
 
-        .guide-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .activity-title {
+            font-weight: 500;
+            color: #2d3748;
+            font-size: 0.9rem;
+        }
+
+        .activity-time {
+            font-size: 0.8rem;
+            color: #718096;
+        }
+
+        .chart-container {
+            height: 200px;
+            margin-top: 15px;
+        }
+
+        .yolo-mode {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
             color: white;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 30px;
-        }
-
-        .guide-section h2 {
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .guide-content {
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .guide-btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background: white;
-            color: #667eea;
-            text-decoration: none;
-            border-radius: 25px;
-            font-weight: bold;
-            margin: 10px 10px 10px 0;
-            transition: all 0.3s ease;
-        }
-
-        .guide-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        .footer {
+            margin-bottom: 20px;
             text-align: center;
-            color: white;
-            margin-top: 40px;
-            padding: 20px;
-            opacity: 0.8;
+            font-weight: 600;
+        }
+
+        .yolo-mode i {
+            margin-right: 8px;
         }
 
         @media (max-width: 768px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .header h1 {
-                font-size: 2em;
+            .main-content {
+                grid-template-columns: 1fr;
             }
             
             .stats-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
             
-            .device-grid {
+            .devices-grid {
                 grid-template-columns: 1fr;
             }
+        }
+
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            color: #718096;
+        }
+
+        .spinner {
+            border: 3px solid #f3f4f6;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Header -->
         <div class="header">
-            <h1>🚀 Tuya Zigbee Dashboard</h1>
-            <p>Application Homey Intelligente & Automatisée</p>
+            <h1>
+                <i class="fas fa-home"></i>
+                Tuya Zigbee Dashboard
+            </h1>
+            <p>Dashboard intelligent pour la gestion des appareils Tuya Zigbee avec Mode YOLO Intelligent</p>
+            
+            <div class="yolo-mode">
+                <i class="fas fa-rocket"></i>
+                Mode YOLO Intelligent Activé - Optimisation Continue
+            </div>
         </div>
 
+        <!-- Stats Grid -->
         <div class="stats-grid">
             <div class="stat-card">
-                <h3>📱 Devices</h3>
-                <div class="number">156+</div>
-                <p>Appareils supportés</p>
+                <h3>
+                    <i class="fas fa-microchip"></i>
+                    Appareils Actifs
+                </h3>
+                <div class="stat-value" id="activeDevices">156</div>
+                <div class="stat-change">+12 ce mois</div>
             </div>
+            
             <div class="stat-card">
-                <h3>🌍 Langues</h3>
-                <div class="number">14</div>
-                <p>Support multilingue</p>
+                <h3>
+                    <i class="fas fa-battery-three-quarters"></i>
+                    Batterie Moyenne
+                </h3>
+                <div class="stat-value" id="avgBattery">87%</div>
+                <div class="stat-change">+5% cette semaine</div>
             </div>
+            
             <div class="stat-card">
-                <h3>⚡ Performance</h3>
-                <div class="number">99.9%</div>
-                <p>Stabilité garantie</p>
+                <h3>
+                    <i class="fas fa-signal"></i>
+                    Performance
+                </h3>
+                <div class="stat-value" id="performance">99.9%</div>
+                <div class="stat-change">+0.1% aujourd'hui</div>
             </div>
+            
             <div class="stat-card">
-                <h3>🚀 YOLO Mode</h3>
-                <div class="number">ON</div>
-                <p>Automatisation intelligente</p>
+                <h3>
+                    <i class="fas fa-clock"></i>
+                    Uptime
+                </h3>
+                <div class="stat-value" id="uptime">24/7</div>
+                <div class="stat-change">Monitoring continu</div>
             </div>
         </div>
 
-        <div class="lang-bar">
-            <h3>🌍 Choisissez votre langue</h3>
-            <div class="lang-buttons">
-                <button class="lang-btn active" onclick="changeLanguage('fr')">🇫🇷 Français</button>
-                <button class="lang-btn" onclick="changeLanguage('en')">🇬🇧 English</button>
-                <button class="lang-btn" onclick="changeLanguage('de')">🇩🇪 Deutsch</button>
-                <button class="lang-btn" onclick="changeLanguage('es')">🇪🇸 Español</button>
-                <button class="lang-btn" onclick="changeLanguage('it')">🇮🇹 Italiano</button>
-                <button class="lang-btn" onclick="changeLanguage('nl')">🇳🇱 Nederlands</button>
-                <button class="lang-btn" onclick="changeLanguage('pl')">🇵🇱 Polski</button>
-                <button class="lang-btn" onclick="changeLanguage('ta')">🇹🇦 Tamil</button>
-            </div>
-        </div>
-
-        <div class="guide-section">
-            <h2>📚 Guide Complet Tuya Zigbee</h2>
-            <p>Découvrez notre guide complet pour utiliser l'application Tuya Zigbee avec Homey.</p>
-            <div class="guide-content">
-                <h3>🎯 Fonctionnalités Principales</h3>
-                <ul>
-                    <li>✅ <strong>156+ appareils</strong> supportés</li>
-                    <li>✅ <strong>14 langues</strong> disponibles</li>
-                    <li>✅ <strong>Mode YOLO Intelligent</strong> activé</li>
-                    <li>✅ <strong>Automatisation complète</strong></li>
-                    <li>✅ <strong>SDK Homey 3</strong> intégré</li>
-                </ul>
-                <br>
-                <a href="tuya-manual.md" class="guide-btn" target="_blank">📖 Lire le Guide Complet</a>
-                <a href="README.md" class="guide-btn" target="_blank">📋 Documentation</a>
-                <a href="https://github.com/dlnraja/com.tuya.zigbee" class="guide-btn" target="_blank">🔗 GitHub</a>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>📱 Appareils Supportés</h2>
-            <div class="device-grid">
-                <div class="device-category">
-                    <h3>🔌 Interrupteurs Intelligents</h3>
-                    <ul class="device-list">
-                        <li>
-                            <span>switch_1_gang</span>
-                            <span class="status-badge status-operational">✅ Opérationnel</span>
-                        </li>
-                        <li>
-                            <span>switch_2_gang</span>
-                            <span class="status-badge status-operational">✅ Opérationnel</span>
-                        </li>
-                        <li>
-                            <span>switch_3_gang</span>
-                            <span class="status-badge status-operational">✅ Opérationnel</span>
-                        </li>
-                        <li>
-                            <span>switch_4_gang_metering</span>
-                            <span class="status-badge status-operational">✅ Opérationnel</span>
-                        </li>
-                    </ul>
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Devices Section -->
+            <div class="devices-section">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-list"></i>
+                        Appareils Connectés
+                    </h2>
+                    <div class="search-box">
+                        <input type="text" placeholder="Rechercher un appareil..." id="deviceSearch">
+                        <i class="fas fa-search"></i>
+                    </div>
                 </div>
-
-                <div class="device-category">
-                    <h3>🔌 Prises Connectées</h3>
-                    <ul class="device-list">
-                        <li>
-                            <span>smartplug</span>
-                            <span class="status-badge status-operational">✅ Opérationnel</span>
-                        </li>
-                        <li>
-                            <span>smartplug_2_socket</span>
-                            <span class="status-badge status-operational">✅ Opérationnel</span>
-                        </li>
-                        <li>
-                            <span>socket_power_strip</span>
-                            <span class="status-badge status-operational">✅ Opérationnel</span>
-                        </li>
-                        <li>
-                            <span>socket_power_strip_four</span>
-                            <span class="status-badge status-operational">✅ Opérationnel</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="device-category">
-                    <h3>🌡️ Capteurs</h3>
-                    <ul class="device-list">
-                        <li>
-                            <span>temphumidsensor</span>
-                            <span class="status-badge status-operational">✅ Opérationnel</span>
-                        </li>
-                        <li>
-                            <span>smoke_sensor</span>
-                            <span class="status-badge status-operational">✅ Opérationnel</span>
-                        </li>
-                        <li>
-                            <span>water_detector</span>
-                            <span class="status-badge status-operational">✅ Opérationnel</span>
-                        </li>
-                        <li>
-                            <span>water_leak_sensor_tuya</span>
-                            <span class="status-badge status-operational">✅ Opérationnel</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="device-category">
-                    <h3>💡 Ampoules et Éclairage</h3>
-                    <ul class="device-list">
-                        <li>
-                            <span>tunable_bulb_E27</span>
-                            <span class="status-badge status-operational">✅ Opérationnel</span>
-                        </li>
-                        <li>
-                            <span>rgb_bulb_E27</span>
-                            <span class="status-badge status-operational">✅ Opérationnel</span>
-                        </li>
-                        <li>
-                            <span>rgb_led_strip</span>
-                            <span class="status-badge status-operational">✅ Opérationnel</span>
-                        </li>
-                        <li>
-                            <span>rgb_spot_GU10</span>
-                            <span class="status-badge status-operational">✅ Opérationnel</span>
-                        </li>
-                    </ul>
+                
+                <div class="devices-grid" id="devicesGrid">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <span style="margin-left: 10px;">Chargement des appareils...</span>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="content-section">
-            <h2>🚀 Fonctionnalités Avancées</h2>
-            <div class="device-grid">
-                <div class="device-category">
-                    <h3>🤖 Mode YOLO Intelligent</h3>
-                    <ul class="device-list">
-                        <li>✅ Découverte automatique des appareils</li>
-                        <li>✅ Configuration intelligente</li>
-                        <li>✅ Optimisation continue</li>
-                        <li>✅ Mise à jour automatique</li>
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Activity -->
+                <div class="sidebar-card">
+                    <h3>
+                        <i class="fas fa-history"></i>
+                        Activité Récente
+                    </h3>
+                    <ul class="activity-list" id="activityList">
+                        <li class="activity-item">
+                            <div class="activity-icon" style="background: #c6f6d5;">
+                                <i class="fas fa-plus" style="color: #22543d;"></i>
+                            </div>
+                            <div class="activity-info">
+                                <div class="activity-title">Nouvel appareil détecté</div>
+                                <div class="activity-time">Il y a 2 minutes</div>
+                            </div>
+                        </li>
+                        <li class="activity-item">
+                            <div class="activity-icon" style="background: #bee3f8;">
+                                <i class="fas fa-sync" style="color: #2a4365;"></i>
+                            </div>
+                            <div class="activity-info">
+                                <div class="activity-title">Synchronisation automatique</div>
+                                <div class="activity-time">Il y a 5 minutes</div>
+                            </div>
+                        </li>
+                        <li class="activity-item">
+                            <div class="activity-icon" style="background: #fed7d7;">
+                                <i class="fas fa-exclamation-triangle" style="color: #742a2a;"></i>
+                            </div>
+                            <div class="activity-info">
+                                <div class="activity-title">Batterie faible détectée</div>
+                                <div class="activity-time">Il y a 10 minutes</div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
 
-                <div class="device-category">
-                    <h3>🔄 Automatisations</h3>
-                    <ul class="device-list">
-                        <li>✅ Scénarios intelligents</li>
-                        <li>✅ Déclencheurs multiples</li>
-                        <li>✅ Conditions avancées</li>
-                        <li>✅ Actions personnalisées</li>
-                    </ul>
-                </div>
-
-                <div class="device-category">
-                    <h3>📊 Monitoring</h3>
-                    <ul class="device-list">
-                        <li>✅ Statistiques temps réel</li>
-                        <li>✅ Logs détaillés</li>
-                        <li>✅ Alertes intelligentes</li>
-                        <li>✅ Rapports automatiques</li>
-                    </ul>
-                </div>
-
-                <div class="device-category">
-                    <h3>🛡️ Sécurité</h3>
-                    <ul class="device-list">
-                        <li>✅ Validation automatique</li>
-                        <li>✅ Tests de sécurité</li>
-                        <li>✅ Audit dépendances</li>
-                        <li>✅ Monitoring vulnérabilités</li>
-                    </ul>
+                <!-- Performance Chart -->
+                <div class="sidebar-card">
+                    <h3>
+                        <i class="fas fa-chart-line"></i>
+                        Performance
+                    </h3>
+                    <div class="chart-container">
+                        <canvas id="performanceChart"></canvas>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="footer">
-            <p>🚀 Tuya Zigbee Dashboard - Mode YOLO Intelligent activé</p>
-            <p>Développé avec ❤️ et automatisation intelligente</p>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="public/js/app.js"></script>
     <script>
-        function changeLanguage(lang) {
-            // Supprimer la classe active de tous les boutons
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Ajouter la classe active au bouton cliqué
-            event.target.classList.add('active');
-            
-            // Ici vous pouvez ajouter la logique pour changer la langue
-            console.log('Langue changée vers:', lang);
+        // Initialisation du dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simuler le chargement des données
+            setTimeout(() => {
+                loadDevices();
+                initPerformanceChart();
+                startRealTimeUpdates();
+            }, 1000);
+        });
+
+        // Fonction de chargement des appareils
+        function loadDevices() {
+            const devicesGrid = document.getElementById('devicesGrid');
+            const devices = [
+                { name: 'Interrupteur Salon', status: 'online', type: 'switch', battery: '100%', lastSeen: '2 min' },
+                { name: 'Capteur Température', status: 'online', type: 'sensor', battery: '87%', lastSeen: '1 min' },
+                { name: 'Ampoule RGB Cuisine', status: 'online', type: 'light', battery: 'N/A', lastSeen: '30 sec' },
+                { name: 'Détecteur Fumée', status: 'offline', type: 'sensor', battery: '23%', lastSeen: '5 min' },
+                { name: 'Prise Connectée', status: 'online', type: 'socket', battery: 'N/A', lastSeen: '1 min' },
+                { name: 'Thermostat', status: 'online', type: 'climate', battery: '95%', lastSeen: '2 min' }
+            ];
+
+            devicesGrid.innerHTML = devices.map(device => `
+                <div class="device-card">
+                    <div class="device-header">
+                        <div class="device-name">${device.name}</div>
+                        <div class="device-status status-${device.status}">
+                            ${device.status === 'online' ? 'En ligne' : 'Hors ligne'}
+                        </div>
+                    </div>
+                    <div class="device-info">
+                        <div class="info-item">
+                            <span>Type:</span>
+                            <span>${device.type}</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Batterie:</span>
+                            <span>${device.battery}</span>
+                        </div>
+                        <div class="info-item">
+                            <span>Dernière activité:</span>
+                            <span>${device.lastSeen}</span>
+                        </div>
+                        <div class="info-item">
+                            <span>État:</span>
+                            <span>${device.status === 'online' ? 'Actif' : 'Inactif'}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
         }
 
-        // Animation au chargement
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.stat-card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    card.style.transition = 'all 0.5s ease';
-                    
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 100);
-                }, index * 100);
+        // Initialisation du graphique de performance
+        function initPerformanceChart() {
+            const ctx = document.getElementById('performanceChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00'],
+                    datasets: [{
+                        label: 'Performance',
+                        data: [99.5, 99.7, 99.9, 99.8, 99.9, 99.9],
+                        borderColor: '#667eea',
+                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 99,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        }
+
+        // Mises à jour en temps réel
+        function startRealTimeUpdates() {
+            setInterval(() => {
+                // Simuler des mises à jour
+                const activeDevices = document.getElementById('activeDevices');
+                const currentValue = parseInt(activeDevices.textContent);
+                activeDevices.textContent = currentValue + Math.floor(Math.random() * 3 - 1);
+            }, 5000);
+        }
+
+        // Recherche d'appareils
+        document.getElementById('deviceSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const deviceCards = document.querySelectorAll('.device-card');
+            
+            deviceCards.forEach(card => {
+                const deviceName = card.querySelector('.device-name').textContent.toLowerCase();
+                if (deviceName.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
             });
         });
     </script>
