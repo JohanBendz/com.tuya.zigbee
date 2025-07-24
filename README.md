@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 [![YOLO Mode](https://img.shields.io/badge/YOLO%20Mode-Enabled-red.svg)](https://github.com/dlnraja/com.tuya.zigbee)
 [![Automation](https://img.shields.io/badge/Automation-100%25-brightgreen.svg)](https://github.com/dlnraja/com.tuya.zigbee)
-[![Devices](https://img.shields.io/badge/Devices-117+-orange.svg)](https://github.com/dlnraja/com.tuya.zigbee)
+[![Devices](https://img.shields.io/badge/Devices-0+-orange.svg)](https://github.com/dlnraja/com.tuya.zigbee)
 [![Languages](https://img.shields.io/badge/Languages-14-purple.svg)](https://github.com/dlnraja/com.tuya.zigbee)
 [![Performance](https://img.shields.io/badge/Performance-99.9%25-success.svg)](https://github.com/dlnraja/com.tuya.zigbee)
 [![Drivers](https://img.shields.io/badge/Drivers-117%2F117-brightgreen.svg)](https://github.com/dlnraja/com.tuya.zigbee)
