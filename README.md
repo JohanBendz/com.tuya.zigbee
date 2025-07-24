@@ -75,153 +75,137 @@ Créer la solution la plus complète, automatisée et résiliente pour intégrer
 
 ---
 
-## 📱 **Appareils Supportés (117+ Drivers)**
+## 📱 **Appareils Supportés (117+ Drivers) avec Manufacturer IDs et Product IDs**
 
 ### **🔌 Interrupteurs Intelligents**
-| Appareil | Statut | Fonctionnalités |
-|----------|--------|-----------------|
-| handheld remote 4 buttons | ✅ Opérationnel | onoff |
-| smart button switch | ✅ Opérationnel | onoff |
-| smart knob switch | ✅ Opérationnel | onoff |
-| smart remote 1 button | ✅ Opérationnel | onoff |
-| smart remote 1 button 2 | ✅ Opérationnel | onoff |
-| smart remote 4 buttons | ✅ Opérationnel | onoff |
-| smart switch | ✅ Opérationnel | onoff |
-| switch 1 gang | ✅ Opérationnel | onoff |
-| switch 1 gang metering | ✅ Opérationnel | onoff |
-| switch 2 gang | ✅ Opérationnel | onoff |
-| switch 2 gang metering | ✅ Opérationnel | onoff |
-| switch 3 gang | ✅ Opérationnel | onoff |
-| switch 4 gang metering | ✅ Opérationnel | onoff |
-| wall curtain switch | ✅ Opérationnel | onoff |
-| wall switch 1 gang | ✅ Opérationnel | onoff |
-| wall switch 1 gang tuya | ✅ Opérationnel | onoff |
-| wall switch 2 gang | ✅ Opérationnel | onoff |
-| wall switch 3 gang | ✅ Opérationnel | onoff |
-| wall switch 4 gang | ✅ Opérationnel | onoff |
-| wall switch 4 gang tuya | ✅ Opérationnel | onoff |
-| wall switch 5 gang tuya | ✅ Opérationnel | onoff |
-| wall switch 6 gang tuya | ✅ Opérationnel | onoff |
+| Appareil | Manufacturer IDs | Product IDs | Statut |
+|----------|------------------|-------------|--------|
+| 4 Button Remote | _TZ3000_u3nv1jwk | TS0044 | ✅ Opérationnel |
+| Smart Button Switch | _TZ3000_fa9mlvja, _TZ3000_yj6k7vfo, _TZ3000_qgwcxxws | TS0041 | ✅ Opérationnel |
+| Smart Knob Switch | _TZ3000_abrsvsou, _TZ3000_4fjiwweb, _TZ3000_qja6nq5z... | TS004F | ✅ Opérationnel |
+| 1 button Smart Remote Controller | _TZ3000_kjfzuycl, _TZ3000_rco1yzb1, _TZ3000_yirp2pgd | TS004F | ✅ Opérationnel |
+| 1 button Smart Remote Controller | _TZ3000_ja5osu5g | TS004F | ✅ Opérationnel |
+| 4 button Smart Remote Controller | _TZ3000_fsiepnrh, _TYZB01_qm6djpta, _TZ3000_p6ju8myv... | TS0215A | ✅ Opérationnel |
+| Smart Switch | _TYZB01_phjeraqq | TS0001 | ✅ Opérationnel |
+| 1 Gang Switch Module | _TYZB01_ncutbjdi, _TYZB01_aneiicmq, _TZ3000_zmy1waw6... | TS0003, TS011F, TS0011... | ✅ Opérationnel |
+| 1 Gang Switch Module with metering | _TZ3000_prits6g4 | TS0001 | ✅ Opérationnel |
+| 2 Gang Switch Module | _TYZB01_zsl6z0pw, _TZ3000_4js9lo5d, _TZ3000_pmz6mjyu... | TS0003, TS0012, TS011F... | ✅ Opérationnel |
+| 2 Gang Switch Module with metering | _TZ3000_zmy4lslw, _TZ3000_cayepv1a | TS0002, TS011F | ✅ Opérationnel |
+| 3 Gang Switch Module | _TZ3000_odzoiovu, _TZ3000_lvhy15ix, _TZ3000_4o16jdca | TS0003 | ✅ Opérationnel |
+| 4 Gang Switch Module with metering | _TZ3000_mmkbptmx | TS0004 | ✅ Opérationnel |
+| Wall mounted Curtain Switch | _TZ3000_dph3rpss, _TZ3000_8kzqqzu4, _TZ3000_ltiqubue... | TS130F | ✅ Opérationnel |
+| 1 Gang Wall Switch | _TZE200_gbagoilo | TS0601 | ✅ Opérationnel |
+| 4 Gang Wall Switch | _TZE200_shkxsgis, _TZE204_aagrxlbd, _TZE200_aqnazj70... | TS0601 | ✅ Opérationnel |
+| 5 Gang Wall Switch | _TZE200_jwsjbxjs | TS0601 | ✅ Opérationnel |
+| 6 Gang Wall Switch | _TZE200_r731zlxk, _TZE200_9mahtqtg | TS0601 | ✅ Opérationnel |
 
 ### **🔌 Prises Connectées**
-| Appareil | Statut | Fonctionnalités |
-|----------|--------|-----------------|
-| double power point | ✅ Opérationnel | onoff |
-| double power point 2 | ✅ Opérationnel | onoff |
-| outdoor 2 socket | ✅ Opérationnel | onoff |
-| outdoor plug | ✅ Opérationnel | onoff |
-| plug | ✅ Opérationnel | onoff |
-| plug blitzwolf TZ3000 mraovvmm | ✅ Opérationnel | onoff |
-| smartplug | ✅ Opérationnel | onoff |
-| smartplug 2 socket | ✅ Opérationnel | onoff |
-| smartPlug DinRail | ✅ Opérationnel | onoff |
-| smart plug | ✅ Opérationnel | onoff |
-| socket power strip | ✅ Opérationnel | onoff |
-| socket power strip four | ✅ Opérationnel | onoff |
-| socket power strip four three | ✅ Opérationnel | onoff |
-| socket power strip four two | ✅ Opérationnel | onoff |
-| wall socket | ✅ Opérationnel | onoff |
+| Appareil | Manufacturer IDs | Product IDs | Statut |
+|----------|------------------|-------------|--------|
+| Double Power Point - With Metering | _TZ3210_7jnk7l3k | TS011F | ✅ Opérationnel |
+| Double Power Point | _TYZB01_hlla45kx | TS011F | ✅ Opérationnel |
+| Outdoor Smart Socket | _TZ3000_uwkja6z1 | TS011F | ✅ Opérationnel |
+| Outdoor Plug without metering | _TZ3000_pnzfdr9y, _TZ3000_br3laukf | TS0101 | ✅ Opérationnel |
+| Smart Plug without metering | _TZ3000_kdi2o9m6, _TZ3000_ew31dmgx, _TZ3000_dpo1ysak... | TS011F | ✅ Opérationnel |
+| Double Socket Smart Plug | _TZ3000_jak16dll | TS011F | ✅ Opérationnel |
+| Smart Plug DIN Rail | _TZ3000_qeuvnohg, _TZ3000_cayepv1a, _TZ3000_lepzuhto... | TS0121, TSO121, TS011F | ✅ Opérationnel |
+| 3 Socket Power Strip | _TZ3000_1obwwnmq, _TZ3000_vzopcetz, _TZ3000_4uf3d0ax... | TS011F | ✅ Opérationnel |
+| Power Strip Socket 1/4 | _TYZB01_vkwryfdr | TS0115 | ✅ Opérationnel |
+| Power Strip 4 Sockets | LELLKI | JZ-ZB-004 | ✅ Opérationnel |
+| Power Strip 4 Sockets | _TZ3000_o005nuxx, _TZ3000_cfnprab5 | TS011F | ✅ Opérationnel |
+| Wall Socket with metering | _TZ3000_b28wrpvx, _TZ3000_4ux0ondb, _TZ3000_y4ona9me | TS011F | ✅ Opérationnel |
+
 
 ### **📡 Capteurs & Détecteurs**
-| Appareil | Statut | Fonctionnalités |
-|----------|--------|-----------------|
-| doorwindowsensor | ✅ Opérationnel | onoff |
-| doorwindowsensor 2 | ✅ Opérationnel | onoff |
-| doorwindowsensor 3 | ✅ Opérationnel | onoff |
-| doorwindowsensor 4 | ✅ Opérationnel | onoff |
-| flood sensor | ✅ Opérationnel | onoff |
-| lcdtemphumidluxsensor | ✅ Opérationnel | onoff |
-| lcdtemphumidsensor | ✅ Opérationnel | onoff |
-| lcdtemphumidsensor 2 | ✅ Opérationnel | onoff |
-| lcdtemphumidsensor 3 | ✅ Opérationnel | onoff |
-| motion sensor | ✅ Opérationnel | onoff |
-| motion sensor 2 | ✅ Opérationnel | onoff |
-| multi sensor | ✅ Opérationnel | onoff |
-| pirsensor | ✅ Opérationnel | onoff |
-| pir sensor 2 | ✅ Opérationnel | onoff |
-| radar sensor | ✅ Opérationnel | onoff |
-| radar sensor 2 | ✅ Opérationnel | onoff |
-| radar sensor ceiling | ✅ Opérationnel | onoff |
-| rain sensor | ✅ Opérationnel | onoff |
-| sensor temp TUYATEC g3gl6cgy | ✅ Opérationnel | onoff |
-| sirentemphumidsensor | ✅ Opérationnel | onoff |
-| slim motion sensor | ✅ Opérationnel | onoff |
-| smart door window sensor | ✅ Opérationnel | onoff |
-| smart motion sensor | ✅ Opérationnel | onoff |
-| smoke sensor | ✅ Opérationnel | onoff |
-| smoke sensor2 | ✅ Opérationnel | onoff |
-| smoke sensor3 | ✅ Opérationnel | onoff |
-| soilsensor | ✅ Opérationnel | onoff |
-| soilsensor 2 | ✅ Opérationnel | onoff |
-| water detector | ✅ Opérationnel | onoff |
-| water leak sensor tuya | ✅ Opérationnel | onoff |
+| Appareil | Manufacturer IDs | Product IDs | Statut |
+|----------|------------------|-------------|--------|
+| Door & Window Sensor | TUYATEC-g3gl6cgy, TUYATEC-Bfq2i2Sy, TUYATEC-abkehqus... | RH3001, TS0203 | ✅ Opérationnel |
+| Door & Window Sensor | TUYATEC-0l6xaqmi, _TZ3000_7tbsruql, _TZ3000_osu834un... | RH3001, TS0203, DoorWindow-Sensor-ZB3.0... | ✅ Opérationnel |
+| Door & Window Sensor | _TZ3000_zgrffiwg, _TZ3000_bpkijo14, _TZ3000_uvti8nkd | TS0203 | ✅ Opérationnel |
+| Door & Window Sensor | zbeacon | DS01 | ✅ Opérationnel |
+| Flood sensor | TUYATEC-3tipnsrx, _TZ3000_4uvovz4r, _TZ3000_3dfewsk1... | RH3001, TS0207 | ✅ Opérationnel |
+| LCD Temperature, Humidity and Luminance Sensor | _TZ3000_qaaysllp, _TYZB01_ftdkanlj, _TYZB01_kvwjujy9... | TS0201, TS0222 | ✅ Opérationnel |
+| LCD Temperature & Humidity Sensor | _TZ2000_a476raq2, _TZ2000_xogb73am, _TZ2000_avdnvykf... | TS0201, TY0201 | ✅ Opérationnel |
+| LCD Temperature & Humidity Sensor | _TYZB01_cbiezpds | SM0201 | ✅ Opérationnel |
+| LCD Temperature & Humidity Sensor | _TZE200_bjawzodf, _TZE200_zl1kmjqx, _TZE200_locansqn... | TS0601 | ✅ Opérationnel |
+| Motion Sensor | _TZE200_3towulqd, _TZE200_bh3n6gk8, _TZE200_1ibpyhdc... | TS0601 | ✅ Opérationnel |
+| PIR Sensor | TUYATEC-lha8pbwd, TUYATEC-zn9wyqtr, TUYATEC-53o41joc... | RH3040 | ✅ Opérationnel |
+| Smart PIR Motion Sensor | _TYZB01_jytabjkb, _TYZB01_dl7cejts, _TZ3000_mmtwjmaq... | TS0202 | ✅ Opérationnel |
+| Radar Sensor | _TZE200_ztc6ggyl, _TZE201_ztc6ggyl, _TZE202_ztc6ggyl... | TS0601 | ✅ Opérationnel |
+| Radar Sensor | _TZE204_sxm7l9xa, _TZE204_ijxvkhd0 | TS0601 | ✅ Opérationnel |
+| Radar Sensor ceiling | _TZE200_2aaelwxk | TS0225 | ✅ Opérationnel |
+| Siren, Temperature & Humidity Sensor | _TZE200_d0yu2xgi, _TZE204_t1blo2bj | TS0601 | ✅ Opérationnel |
+| Slim motion sensor | _TZ3000_lf56vpxj | TS0202 | ✅ Opérationnel |
+| Smart Door & Window Sensor (Lidl) | _TZ1800_ejwkn2h2, _TZ3000_rcuyhwe3 | TY0203, TS0203 | ✅ Opérationnel |
+| Smart Motion Sensor (Lidl) | _TZ1800_fcdjzz3s | TY0202 | ✅ Opérationnel |
+| Smoke Sensor | _TZE200_ntcy3xu1, _TZE200_m9skfctm, _TZE200_rccxox8p... | TS0601 | ✅ Opérationnel |
+| Smoke Sensor | _TZ3210_up3pngle | TS0205 | ✅ Opérationnel |
+| Soil Sensor | _TZE200_myd45weu, _TZE200_ga1maeof, _TZE200_9cqcpkgb... | TS0601 | ✅ Opérationnel |
+| Soil Sensor | _TZE284_sgabhwa6, _TZE284_g2e6cpnw | TS0601 | ✅ Opérationnel |
+| Temperature & Humidity Sensor | TUYATEC-g3gl6cgy, TUYATEC-Bfq2i2Sy, TUYATEC-abkehqus... | RH3052, TS0201 | ✅ Opérationnel |
+| Temperature & Humidity Sensor | _TZ3000_dowj6gyi, _TZ3000_0s1izerx, TUYATEC-qun7vq14 | RH3052, TS0201 | ✅ Opérationnel |
+| Temperature & Humidity Sensor | _TZ3000_fllyghyj, _TZ3000_xr3htd96, _TZ3000_saiqcn0y... | TS0201, TS0601 | ✅ Opérationnel |
+| Temperature & Humidity Sensor | _TZE204_yjjdcqsq, _TZE200_vvmbj46n, _TZE200_yjjdcqsq... | TS0601 | ✅ Opérationnel |
+| Temperature & Humidity Sensor | _TZE200_9yapgbuv | TS0601 | ✅ Opérationnel |
+| Water Detector | _TYZB01_sqmd19i1, _TYST11_qq9mpfhw, _TZ3000_fxvjhdyl... | TS0207, q9mpfhw | ✅ Opérationnel |
+| Water Leak Sensor | _TZE200_qq9mpfhw, _TZE200_jthf7vb6 | TS0601 | ✅ Opérationnel |
 
 ### **💡 Éclairage Intelligent**
-| Appareil | Statut | Fonctionnalités |
-|----------|--------|-----------------|
-| christmas lights | ✅ Opérationnel | onoff |
-| light rgb TZ3000 dbou1ap4 | ✅ Opérationnel | onoff |
-| rgb bulb E14 | ✅ Opérationnel | onoff |
-| rgb bulb E27 | ✅ Opérationnel | onoff |
-| rgb ceiling led light | ✅ Opérationnel | onoff |
-| rgb floor led light | ✅ Opérationnel | onoff |
-| rgb led light bar | ✅ Opérationnel | onoff |
-| rgb led strip | ✅ Opérationnel | onoff |
-| rgb led strip controller | ✅ Opérationnel | onoff |
-| rgb mood light | ✅ Opérationnel | onoff |
-| rgb spot GardenLight | ✅ Opérationnel | onoff |
-| rgb spot GU10 | ✅ Opérationnel | onoff |
-| rgb wall led light | ✅ Opérationnel | onoff |
-| tunable bulb E14 | ✅ Opérationnel | onoff |
-| tunable bulb E27 | ✅ Opérationnel | onoff |
+| Appareil | Manufacturer IDs | Product IDs | Statut |
+|----------|------------------|-------------|--------|
+| Christmas Lights | _TZE200_s8gkrkxk | TS0601 | ✅ Opérationnel |
+| RGB Bulb E14 | _TZ3000_odygigth | TS0505A | ✅ Opérationnel |
+| RGB Bulb E27 | _TZ3000_dbou1ap4, _TZ3000_keabpigv, _TZ3000_12sxjap4... | TS0505A, TS0505B, ZB-CL01 | ✅ Opérationnel |
+| RGB Ceiling Led Light | _TZ3210_x13bu7za | TS0505B | ✅ Opérationnel |
+| Livarno Lux Atmosphere Floor LED Light | _TZ3000_8uaoilu9 | TS0502A | ✅ Opérationnel |
+| RGB Led Light Bar | _TZ3000_gek6snaj, _TZ3210_iystcadi | TS0505A, TS0505B | ✅ Opérationnel |
+| RGB LED Strip | _TZ3000_riwp3k79 | TS0505A | ✅ Opérationnel |
+| RGB LED Strip Controller | _TZ3000_obacbukl, _TZ3000_dl4pxp1r, _TZ3000_qqjaziws... | TS0503A, TS0503B, TS0505B... | ✅ Opérationnel |
+| RGB Mood Light | _TZ3000_9cpuaca6, _TZ3210_r0xgkft5 | TS0505A, TS0505B | ✅ Opérationnel |
+| RGB Spot Garden light | _TZ3000_h1jnz6l8 | TS0505A | ✅ Opérationnel |
+| RGB Spot GU10 | _TZ3000_kdpxju99 | TS0505A | ✅ Opérationnel |
+| Livarno Lux Smart LED Wall Light | _TZ3000_utagpnzs, _TZ3000_5bsf8vaj | TS0505A | ✅ Opérationnel |
+| Tunable Bulb E14 | _TZ3000_oborybow | TS0502A | ✅ Opérationnel |
+| Tunable Bulb E27 | _TZ3000_49qchf10 | TS0502A | ✅ Opérationnel |
 
 ### **🌡️ Climatisation & Stores**
-| Appareil | Statut | Fonctionnalités |
-|----------|--------|-----------------|
-| curtain module | ✅ Opérationnel | onoff |
-| curtain module 2 gang | ✅ Opérationnel | onoff |
-| thermostat | ✅ Opérationnel | onoff |
-| thermostat 2 | ✅ Opérationnel | onoff |
-| thermostat 3 | ✅ Opérationnel | onoff |
+| Appareil | Manufacturer IDs | Product IDs | Statut |
+|----------|------------------|-------------|--------|
+| 2 Gang Curtain Module | _TZ3000_j1xl73iw, _TZ3000_l6iqph4f | TS130F | ✅ Opérationnel |
+| Curtain Motor | _TZE200_5zbp6j0u, _TZE200_bjzrowv2, _TZE200_nkoabg8w... | TS0601 | ✅ Opérationnel |
+| Thermostatic Radiator Valve | _TZE200_sur6q7ko, _TZE200_hue3yfsn, _TZE200_husqqvux... | TS0601 | ✅ Opérationnel |
+| Wall Thermostat | _TZE200_aoclfnxz, _TZE204_aoclfnxz, _TZE200_2ekuz3dz | TS0601 | ✅ Opérationnel |
 
 ### **🔧 Autres Appareils**
-| Appareil | Statut | Fonctionnalités |
-|----------|--------|-----------------|
-| 2 gang switch | ✅ Opérationnel | onoff |
-| 3 gang switch | ✅ Opérationnel | onoff |
-| 4 gang switch | ✅ Opérationnel | onoff |
-| 5 gang switch | ✅ Opérationnel | onoff |
-| 6 gang switch | ✅ Opérationnel | onoff |
-| air purifier | ✅ Opérationnel | onoff |
-| air purifier 2 | ✅ Opérationnel | onoff |
-| air purifier 3 | ✅ Opérationnel | onoff |
-| air purifier 4 | ✅ Opérationnel | onoff |
-| air purifier 5 | ✅ Opérationnel | onoff |
-| air purifier 6 | ✅ Opérationnel | onoff |
-| air purifier 7 | ✅ Opérationnel | onoff |
-| air purifier 8 | ✅ Opérationnel | onoff |
-| air purifier 9 | ✅ Opérationnel | onoff |
-| air purifier 10 | ✅ Opérationnel | onoff |
-| air purifier 11 | ✅ Opérationnel | onoff |
-| air purifier 12 | ✅ Opérationnel | onoff |
-| air purifier 13 | ✅ Opérationnel | onoff |
-| air purifier 14 | ✅ Opérationnel | onoff |
-| air purifier 15 | ✅ Opérationnel | onoff |
-| air purifier 16 | ✅ Opérationnel | onoff |
-| air purifier 17 | ✅ Opérationnel | onoff |
-| air purifier 18 | ✅ Opérationnel | onoff |
-| air purifier 19 | ✅ Opérationnel | onoff |
-| air purifier 20 | ✅ Opérationnel | onoff |
-| air purifier 21 | ✅ Opérationnel | onoff |
-| air purifier 22 | ✅ Opérationnel | onoff |
-| air purifier 23 | ✅ Opérationnel | onoff |
-| air purifier 24 | ✅ Opérationnel | onoff |
-| air purifier 25 | ✅ Opérationnel | onoff |
-| air purifier 26 | ✅ Opérationnel | onoff |
-| air purifier 27 | ✅ Opérationnel | onoff |
-| air purifier 28 | ✅ Opérationnel | onoff |
-| air purifier 29 | ✅ Opérationnel | onoff |
-| air purifier 30 | ✅ Opérationnel | onoff |
+| Appareil | Manufacturer IDs | Product IDs | Statut |
+|----------|------------------|-------------|--------|
+| Dimmable LED Strip | _TZ3210_invesber | TS0502B | ✅ Opérationnel |
+| Dimmable Recessed LED | _TZ3210_zdrhqmo0 | TS0502B | ✅ Opérationnel |
+| 1 Gang Dimmer Module | _TYZB01_qezuin6k, _TZ3210_ngqk6jia, _TZ3000_ktuoyvt5... | TS110F, TS110E, TS0052 | ✅ Opérationnel |
+| 1 Gang Dimmer Module | _TZ3210_ngqk6jia | TS110E | ✅ Opérationnel |
+| 1 Gang Dimmer Module | _TZE200_la2c2uo9, _TZE204_hlx9tnzb, _TZE200_ip2akl4w... | TS0601 | ✅ Opérationnel |
+| 2 Gang Dimmer Module | _TYZB01_v8gtiaed, _TZ3000_92chsky7, _TZ3210_wdexaypg... | TS110F, TS110E | ✅ Opérationnel |
+| 2 Gang Dimmer Module | _TZE200_e3oitdyu, _TZE204_zenj4lxv, _TZE204_bxoo2swd... | TS0601 | ✅ Opérationnel |
+| Finger Bot | _TZ3210_j4pdtz9v | TS0001 | ✅ Opérationnel |
+| 1 Channel Relay Board | _TZ3000_g8n1n7lg | TS0001 | ✅ Opérationnel |
+| 2 Channel Relay Board | _TZ3000_nuenzetq | TS0002 | ✅ Opérationnel |
+| 4 Channel Relay Board | _TZ3000_hdlpifbk, _TZ3000_excgg5kb, _TZ3000_u3oupgdy... | TS0004 | ✅ Opérationnel |
+| Siren | _TZE204_t1blo2bj | TS0601 | ✅ Opérationnel |
+| Smart Air Detection Box | _TZE200_yvx5lh6k, _TZE200_8ygsuhe1, _TZE200_mja3fuja... | TS0601 | ✅ Opérationnel |
+| Smart Garden Irrigation Controller | _TZ3210_eymunffl, _TZ3000_cjfmu5he, _TZ3000_kz1anoi8... | TS0101, TS0049 | ✅ Opérationnel |
+| Temperature Sensor |  |  | ✅ Opérationnel |
+| Tunable Spot GU10 | _TZ3000_el5kt5im | TS0502A | ✅ Opérationnel |
+| Tuya Diagnostic Driver | _TZE20X_xxxxxxxx | TS0601 | ✅ Opérationnel |
+| Valve Controller | _TYZB01_ymcdbl3u, _TZ3000_o4cjetlm, _TYZB01_4tlksk8a... | TS0111, TS0001, TS011F | ✅ Opérationnel |
+| Wall Dimmer | _TZE200_3p5ydos3, _TZE200_whpb9yts, _TZE200_ebwgzdqq... | TS0601 | ✅ Opérationnel |
+| 1 Gang Wall Remote | _TYZB02_keyjqthh, _TZ3000_tk3s5tyg, _TZ3000_fkp5zyho... | TS0041 | ✅ Opérationnel |
+| 2 Gang Wall Remote | _TZ3000_owgcnkrh, _TYZB02_keyjhapk, _TZ3000_oikiyf3b... | TS0042 | ✅ Opérationnel |
+| 3 Gang Wall Remote | _TZ3000_a7ouggvs, _TYZB02_key8kk7r, _TZ3000_qzjcsmar... | TS0043 | ✅ Opérationnel |
+| 4 Gang Wall Remote | _TZ3000_vp6clf9d, _TZ3000_ufhtxr59, _TZ3000_ee8nrt2l... | TS0044 | ✅ Opérationnel |
+| 4 Gang Wall Remote | _TZ3000_xabckq1v | TS004F | ✅ Opérationnel |
+| 4 Gang Wall Remote | _TZ3000_wkai4ga5, _TZ3000_uaa99arv, _TZ3000_jcspr0tp | TS0044 | ✅ Opérationnel |
+| 6 Gang Wall Remote | _TZ3000_iszegwpd | TS0046 | ✅ Opérationnel |
+| Zigbee Repeater | _TZ3000_m0vaazab, _TZ3000_5k5vh43t, _TZ3000_ufttklsz... | TS0207 | ✅ Opérationnel |
 
 ---
 
