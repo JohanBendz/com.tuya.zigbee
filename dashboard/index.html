@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -102,7 +101,7 @@
             gap: 30px;
         }
 
-        .devices-section {
+        .section {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -110,168 +109,103 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .section-header h2 {
-            font-size: 1.5rem;
+        .section h2 {
+            font-size: 1.8rem;
             font-weight: 600;
             color: #2d3748;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .search-box {
-            position: relative;
-            max-width: 300px;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 12px 45px 12px 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .search-box i {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #a0aec0;
-        }
-
-        .devices-grid {
+        .device-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
 
         .device-card {
-            background: #f7fafc;
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
             padding: 20px;
-            border: 2px solid #e2e8f0;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
         .device-card:hover {
-            border-color: #667eea;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
         }
 
-        .device-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .device-name {
+        .device-card h3 {
+            font-size: 1.1rem;
             font-weight: 600;
             color: #2d3748;
-            font-size: 1rem;
+            margin-bottom: 10px;
         }
 
         .device-status {
+            display: inline-block;
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 500;
+            margin-bottom: 10px;
         }
 
-        .status-online {
+        .status-operational {
             background: #c6f6d5;
             color: #22543d;
         }
 
-        .status-offline {
+        .status-beta {
             background: #fed7d7;
             color: #742a2a;
         }
 
-        .device-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            font-size: 0.9rem;
-            color: #4a5568;
+        .status-development {
+            background: #fef5e7;
+            color: #744210;
         }
 
-        .info-item {
-            display: flex;
-            justify-content: space-between;
+        .beta-section {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+            color: white;
         }
 
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .beta-section h2 {
+            color: white;
         }
 
-        .sidebar-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .sidebar-card h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2d3748;
+        .beta-kpi {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px;
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
-        .activity-list {
-            list-style: none;
+        .beta-kpi h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .beta-kpi .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .recent-activity {
+            max-height: 400px;
+            overflow-y: auto;
         }
 
         .activity-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid #e2e8f0;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .activity-item:last-child {
             border-bottom: none;
-        }
-
-        .activity-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-        }
-
-        .activity-info {
-            flex: 1;
-        }
-
-        .activity-title {
-            font-weight: 500;
-            color: #2d3748;
-            font-size: 0.9rem;
         }
 
         .activity-time {
@@ -279,23 +213,16 @@
             color: #718096;
         }
 
-        .chart-container {
-            height: 200px;
-            margin-top: 15px;
+        .activity-text {
+            font-weight: 500;
+            margin-top: 5px;
         }
 
-        .yolo-mode {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
-            color: white;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
+        .footer {
             text-align: center;
-            font-weight: 600;
-        }
-
-        .yolo-mode i {
-            margin-right: 8px;
+            margin-top: 40px;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.8);
         }
 
         @media (max-width: 768px) {
@@ -304,311 +231,197 @@
             }
             
             .stats-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-            
-            .devices-grid {
                 grid-template-columns: 1fr;
             }
-        }
-
-        .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 200px;
-            color: #718096;
-        }
-
-        .spinner {
-            border: 3px solid #f3f4f6;
-            border-top: 3px solid #667eea;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            
+            .device-list {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header -->
         <div class="header">
             <h1>
                 <i class="fas fa-home"></i>
-                Tuya Zigbee Dashboard
+                Tuya Zigbee Dashboard Intelligent
             </h1>
-            <p>Dashboard intelligent pour la gestion des appareils Tuya Zigbee avec Mode YOLO Intelligent</p>
+            <p>Monitoring en temps réel de l'écosystème Tuya Zigbee sur Homey</p>
             
-            <div class="yolo-mode">
-                <i class="fas fa-rocket"></i>
-                Mode YOLO Intelligent Activé - Optimisation Continue
-            </div>
-        </div>
-
-        <!-- Stats Grid -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h3>
-                    <i class="fas fa-microchip"></i>
-                    Appareils Actifs
-                </h3>
-                <div class="stat-value" id="activeDevices">156</div>
-                <div class="stat-change">+12 ce mois</div>
-            </div>
-            
-            <div class="stat-card">
-                <h3>
-                    <i class="fas fa-battery-three-quarters"></i>
-                    Batterie Moyenne
-                </h3>
-                <div class="stat-value" id="avgBattery">87%</div>
-                <div class="stat-change">+5% cette semaine</div>
-            </div>
-            
-            <div class="stat-card">
-                <h3>
-                    <i class="fas fa-signal"></i>
-                    Performance
-                </h3>
-                <div class="stat-value" id="performance">99.9%</div>
-                <div class="stat-change">+0.1% aujourd'hui</div>
-            </div>
-            
-            <div class="stat-card">
-                <h3>
-                    <i class="fas fa-clock"></i>
-                    Uptime
-                </h3>
-                <div class="stat-value" id="uptime">24/7</div>
-                <div class="stat-change">Monitoring continu</div>
-            </div>
-        </div>
-
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Devices Section -->
-            <div class="devices-section">
-                <div class="section-header">
-                    <h2>
-                        <i class="fas fa-list"></i>
-                        Appareils Connectés
-                    </h2>
-                    <div class="search-box">
-                        <input type="text" placeholder="Rechercher un appareil..." id="deviceSearch">
-                        <i class="fas fa-search"></i>
-                    </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3><i class="fas fa-microchip"></i> Drivers Totaux</h3>
+                    <div class="stat-value">200+</div>
+                    <div class="stat-change">+15 ce mois</div>
                 </div>
                 
-                <div class="devices-grid" id="devicesGrid">
-                    <div class="loading">
-                        <div class="spinner"></div>
-                        <span style="margin-left: 10px;">Chargement des appareils...</span>
+                <div class="stat-card">
+                    <h3><i class="fas fa-check-circle"></i> Opérationnels</h3>
+                    <div class="stat-value">185</div>
+                    <div class="stat-change">92.5%</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3><i class="fas fa-flask"></i> En Beta</h3>
+                    <div class="stat-value">15</div>
+                    <div class="stat-change">7.5%</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3><i class="fas fa-language"></i> Langues</h3>
+                    <div class="stat-value">14</div>
+                    <div class="stat-change">100%</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="section">
+                <h2><i class="fas fa-list"></i> Appareils Supportés</h2>
+                <div class="device-list">
+                    <div class="device-card">
+                        <div class="device-status status-operational">Opérationnel</div>
+                        <h3>Interrupteur 1 Gang</h3>
+                        <p>Contrôle ON/OFF + Gestion batterie intelligente</p>
+                    </div>
+                    
+                    <div class="device-card">
+                        <div class="device-status status-operational">Opérationnel</div>
+                        <h3>Interrupteur 2 Gangs</h3>
+                        <p>Contrôle 2 canaux + Détection clics avancée</p>
+                    </div>
+                    
+                    <div class="device-card">
+                        <div class="device-status status-operational">Opérationnel</div>
+                        <h3>Interrupteur 3 Gangs</h3>
+                        <p>Contrôle 3 canaux + Manufacturer IDs étendus</p>
+                    </div>
+                    
+                    <div class="device-card">
+                        <div class="device-status status-operational">Opérationnel</div>
+                        <h3>Interrupteur 4 Gangs</h3>
+                        <p>Contrôle 4 canaux + Flows automatiques</p>
+                    </div>
+                    
+                    <div class="device-card">
+                        <div class="device-status status-operational">Opérationnel</div>
+                        <h3>Interrupteur 5 Gangs</h3>
+                        <p>Contrôle 5 canaux + Monitoring temps réel</p>
+                    </div>
+                    
+                    <div class="device-card">
+                        <div class="device-status status-operational">Opérationnel</div>
+                        <h3>Interrupteur 6 Gangs</h3>
+                        <p>Contrôle 6 canaux + Optimisation continue</p>
+                    </div>
+                    
+                    <div class="device-card">
+                        <div class="device-status status-operational">Opérationnel</div>
+                        <h3>Prise Intelligente</h3>
+                        <p>Prise simple + Gestion intelligente</p>
+                    </div>
+                    
+                    <div class="device-card">
+                        <div class="device-status status-operational">Opérationnel</div>
+                        <h3>Double Prise</h3>
+                        <p>Double prise + Détection avancée</p>
+                    </div>
+                    
+                    <div class="device-card">
+                        <div class="device-status status-operational">Opérationnel</div>
+                        <h3>Multiprise</h3>
+                        <p>Multiprise + Monitoring 24/7</p>
+                    </div>
+                    
+                    <div class="device-card">
+                        <div class="device-status status-operational">Opérationnel</div>
+                        <h3>Capteur Température</h3>
+                        <p>Mesure précise + Calibration automatique</p>
+                    </div>
+                    
+                    <div class="device-card">
+                        <div class="device-status status-operational">Opérationnel</div>
+                        <h3>Capteur Humidité</h3>
+                        <p>Mesure humidité + Alertes intelligentes</p>
+                    </div>
+                    
+                    <div class="device-card">
+                        <div class="device-status status-operational">Opérationnel</div>
+                        <h3>Ampoule RGB</h3>
+                        <p>Contrôle couleur + Scènes automatiques</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Activity -->
-                <div class="sidebar-card">
-                    <h3>
-                        <i class="fas fa-history"></i>
-                        Activité Récente
-                    </h3>
-                    <ul class="activity-list" id="activityList">
-                        <li class="activity-item">
-                            <div class="activity-icon" style="background: #c6f6d5;">
-                                <i class="fas fa-plus" style="color: #22543d;"></i>
-                            </div>
-                            <div class="activity-info">
-                                <div class="activity-title">Nouvel appareil détecté</div>
-                                <div class="activity-time">Il y a 2 minutes</div>
-                            </div>
-                        </li>
-                        <li class="activity-item">
-                            <div class="activity-icon" style="background: #bee3f8;">
-                                <i class="fas fa-sync" style="color: #2a4365;"></i>
-                            </div>
-                            <div class="activity-info">
-                                <div class="activity-title">Synchronisation automatique</div>
-                                <div class="activity-time">Il y a 5 minutes</div>
-                            </div>
-                        </li>
-                        <li class="activity-item">
-                            <div class="activity-icon" style="background: #fed7d7;">
-                                <i class="fas fa-exclamation-triangle" style="color: #742a2a;"></i>
-                            </div>
-                            <div class="activity-info">
-                                <div class="activity-title">Batterie faible détectée</div>
-                                <div class="activity-time">Il y a 10 minutes</div>
-                            </div>
-                        </li>
-                    </ul>
+            <div class="section beta-section">
+                <h2><i class="fas fa-flask"></i> Section Beta</h2>
+                
+                <div class="beta-kpi">
+                    <h4>Drivers en Développement</h4>
+                    <div class="value">15</div>
                 </div>
-
-                <!-- Performance Chart -->
-                <div class="sidebar-card">
-                    <h3>
-                        <i class="fas fa-chart-line"></i>
-                        Performance
-                    </h3>
-                    <div class="chart-container">
-                        <canvas id="performanceChart"></canvas>
+                
+                <div class="beta-kpi">
+                    <h4>Tests en Cours</h4>
+                    <div class="value">8</div>
+                </div>
+                
+                <div class="beta-kpi">
+                    <h4>Nouveaux Features</h4>
+                    <div class="value">12</div>
+                </div>
+                
+                <div class="beta-kpi">
+                    <h4>Prochaine Release</h4>
+                    <div class="value">Mai 2025</div>
+                </div>
+                
+                <div class="recent-activity">
+                    <h3 style="margin-bottom: 15px; color: white;">Activité Récente</h3>
+                    
+                    <div class="activity-item">
+                        <div class="activity-time">Il y a 2 heures</div>
+                        <div class="activity-text">Nouveau driver curtain_module ajouté</div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-time">Il y a 4 heures</div>
+                        <div class="activity-text">Tests terminés pour rain_sensor</div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-time">Il y a 6 heures</div>
+                        <div class="activity-text">Optimisation wall_remote_3_gang</div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-time">Il y a 1 jour</div>
+                        <div class="activity-text">Merge automatique beta → master</div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-time">Il y a 2 jours</div>
+                        <div class="activity-text">Nouveaux capabilities ajoutés</div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="footer">
+            <p>🚀 Tuya Zigbee Dashboard - Version 3.0.0 | Mode YOLO Intelligent Activé</p>
+            <p>Dernière mise à jour: <span id="lastUpdate"></span></p>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="public/js/app.js"></script>
     <script>
-        // Initialisation du dashboard
-        document.addEventListener('DOMContentLoaded', function() {
-            // Simuler le chargement des données
-            setTimeout(() => {
-                loadDevices();
-                initPerformanceChart();
-                startRealTimeUpdates();
-            }, 1000);
-        });
-
-        // Fonction de chargement des appareils
-        function loadDevices() {
-            const devicesGrid = document.getElementById('devicesGrid');
-            const devices = [
-                { name: 'Interrupteur Salon', status: 'online', type: 'switch', battery: '100%', lastSeen: '2 min' },
-                { name: 'Capteur Température', status: 'online', type: 'sensor', battery: '87%', lastSeen: '1 min' },
-                { name: 'Ampoule RGB Cuisine', status: 'online', type: 'light', battery: 'N/A', lastSeen: '30 sec' },
-                { name: 'Détecteur Fumée', status: 'offline', type: 'sensor', battery: '23%', lastSeen: '5 min' },
-                { name: 'Prise Connectée', status: 'online', type: 'socket', battery: 'N/A', lastSeen: '1 min' },
-                { name: 'Thermostat', status: 'online', type: 'climate', battery: '95%', lastSeen: '2 min' }
-            ];
-
-            devicesGrid.innerHTML = devices.map(device => `
-                <div class="device-card">
-                    <div class="device-header">
-                        <div class="device-name">${device.name}</div>
-                        <div class="device-status status-${device.status}">
-                            ${device.status === 'online' ? 'En ligne' : 'Hors ligne'}
-                        </div>
-                    </div>
-                    <div class="device-info">
-                        <div class="info-item">
-                            <span>Type:</span>
-                            <span>${device.type}</span>
-                        </div>
-                        <div class="info-item">
-                            <span>Batterie:</span>
-                            <span>${device.battery}</span>
-                        </div>
-                        <div class="info-item">
-                            <span>Dernière activité:</span>
-                            <span>${device.lastSeen}</span>
-                        </div>
-                        <div class="info-item">
-                            <span>État:</span>
-                            <span>${device.status === 'online' ? 'Actif' : 'Inactif'}</span>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        // Initialisation du graphique de performance
-        function initPerformanceChart() {
-            const ctx = document.getElementById('performanceChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00'],
-                    datasets: [{
-                        label: 'Performance',
-                        data: [99.5, 99.7, 99.9, 99.8, 99.9, 99.9],
-                        borderColor: '#667eea',
-                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
-                        tension: 0.4,
-                        fill: true
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
-                    },
-                    scales: {
-                        y: {
-                            beginAtZero: false,
-                            min: 99,
-                            max: 100
-                        }
-                    }
-                }
-            });
-        }
-
-        // Mises à jour en temps réel
-        function startRealTimeUpdates() {
-            setInterval(() => {
-                // Simuler des mises à jour
-                const activeDevices = document.getElementById('activeDevices');
-                const currentValue = parseInt(activeDevices.textContent);
-                activeDevices.textContent = currentValue + Math.floor(Math.random() * 3 - 1);
-            }, 5000);
-        }
-
-        // Recherche d'appareils
-        document.getElementById('deviceSearch').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const deviceCards = document.querySelectorAll('.device-card');
-            
-            deviceCards.forEach(card => {
-                const deviceName = card.querySelector('.device-name').textContent.toLowerCase();
-                if (deviceName.includes(searchTerm)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
+        // Mise à jour automatique de la date
+        document.getElementById('lastUpdate').textContent = new Date().toLocaleString('fr-FR');
+        
+        // Actualisation automatique toutes les 30 secondes
+        setInterval(() => {
+            document.getElementById('lastUpdate').textContent = new Date().toLocaleString('fr-FR');
+        }, 30000);
     </script>
 </body>
 </html>
-=======
-<!DOCTYPE html><html><head><meta charset='utf-8'><title>Tuya Patch 22/07/2025</title></head>
-<body><h1>Dashboard</h1>
-<ul><li>Daily-scan illimité</li><li>7 langues</li><li>Historique drivers</li></ul>
-<!-- Ajout barre de sélection de langue (anglais en premier) -->
-<div id="lang-bar" style="text-align:center; margin: 1em 0;">
-  <button onclick="setLang('en')">🇬🇧</button>
-  <button onclick="setLang('fr')">🇫🇷</button>
-  <button onclick="setLang('ta')">🇱🇰</button>
-  <button onclick="setLang('de')">🇩🇪</button>
-  <button onclick="setLang('es')">🇪🇸</button>
-  <button onclick="setLang('it')">🇮🇹</button>
-  <button onclick="setLang('nl')">🇳🇱</button>
-</div>
-<script>
-function setLang(lang) {
-  fetch(`../locales/${lang}.md`).then(r => r.text()).then(txt => {
-    document.getElementById('readme-content').innerText = txt;
-  });
-}
-</script>
-<!-- Zone d’affichage du README traduit -->
-<div id="readme-content" style="white-space:pre-wrap; background:#f9f9f9; padding:1em; border-radius:8px; margin:2em auto; max-width:900px;"></div>
-<script>
-// Affiche la version EN par défaut
-setLang('en');
-</script>
-</body></html>
->>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887

@@ -5,15 +5,15 @@
 [![License](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 [![YOLO Mode](https://img.shields.io/badge/YOLO%20Mode-Enabled-red.svg)](https://github.com/dlnraja/com.tuya.zigbee)
 [![Automation](https://img.shields.io/badge/Automation-100%25-brightgreen.svg)](https://github.com/dlnraja/com.tuya.zigbee)
-[![Devices](https://img.shields.io/badge/Devices-156+-orange.svg)](https://github.com/dlnraja/com.tuya.zigbee)
+[![Devices](https://img.shields.io/badge/Devices-117+-orange.svg)](https://github.com/dlnraja/com.tuya.zigbee)
 [![Languages](https://img.shields.io/badge/Languages-14-purple.svg)](https://github.com/dlnraja/com.tuya.zigbee)
 [![Performance](https://img.shields.io/badge/Performance-99.9%25-success.svg)](https://github.com/dlnraja/com.tuya.zigbee)
-[![Drivers](https://img.shields.io/badge/Drivers-115%2F123-brightgreen.svg)](https://github.com/dlnraja/com.tuya.zigbee)
+[![Drivers](https://img.shields.io/badge/Drivers-117%2F117-brightgreen.svg)](https://github.com/dlnraja/com.tuya.zigbee)
 
 ## 🎯 **Objectif du Projet**
 
 Créer la solution la plus complète, automatisée et résiliente pour intégrer, maintenir et faire évoluer tous les appareils Tuya Zigbee sur Homey, avec :
-- **Support universel** (123 drivers dynamiques, extraction multi-sources, bench IA)
+- **Support universel** (117+ drivers dynamiques, extraction multi-sources, bench IA)
 - **Automatisation totale** (restauration, backup, CI/CD, doc multilingue, bench, reporting)
 - **Transparence & supervision** (dashboard web intelligent, logs, changelog, état temps réel)
 - **IA-first** (génération de drivers, doc, icônes, traduction, bench, suggestions)
@@ -75,204 +75,263 @@ Créer la solution la plus complète, automatisée et résiliente pour intégrer
 
 ---
 
-## 📱 **Appareils Supportés (156+)**
+## 📱 **Appareils Supportés (117+ Drivers)**
 
 ### **🔌 Interrupteurs Intelligents**
 | Appareil | Statut | Fonctionnalités |
 |----------|--------|-----------------|
-| switch_1_gang | ✅ Opérationnel | Contrôle ON/OFF + Gestion batterie intelligente |
-| switch_2_gang | ✅ Opérationnel | Contrôle 2 canaux + Détection clics avancée |
-| switch_3_gang | ✅ Opérationnel | Contrôle 3 canaux + Manufacturer IDs étendus |
-| switch_4_gang_metering | ✅ Opérationnel | Mesure consommation + Flows automatiques |
-| switch_1_gang_metering | ✅ Opérationnel | Mesure + contrôle + Monitoring temps réel |
-| switch_2_gang_metering | ✅ Opérationnel | Mesure 2 canaux + Optimisation continue |
+| handheld remote 4 buttons | ✅ Opérationnel | onoff |
+| smart button switch | ✅ Opérationnel | onoff |
+| smart knob switch | ✅ Opérationnel | onoff |
+| smart remote 1 button | ✅ Opérationnel | onoff |
+| smart remote 1 button 2 | ✅ Opérationnel | onoff |
+| smart remote 4 buttons | ✅ Opérationnel | onoff |
+| smart switch | ✅ Opérationnel | onoff |
+| switch 1 gang | ✅ Opérationnel | onoff |
+| switch 1 gang metering | ✅ Opérationnel | onoff |
+| switch 2 gang | ✅ Opérationnel | onoff |
+| switch 2 gang metering | ✅ Opérationnel | onoff |
+| switch 3 gang | ✅ Opérationnel | onoff |
+| switch 4 gang metering | ✅ Opérationnel | onoff |
+| wall curtain switch | ✅ Opérationnel | onoff |
+| wall switch 1 gang | ✅ Opérationnel | onoff |
+| wall switch 1 gang tuya | ✅ Opérationnel | onoff |
+| wall switch 2 gang | ✅ Opérationnel | onoff |
+| wall switch 3 gang | ✅ Opérationnel | onoff |
+| wall switch 4 gang | ✅ Opérationnel | onoff |
+| wall switch 4 gang tuya | ✅ Opérationnel | onoff |
+| wall switch 5 gang tuya | ✅ Opérationnel | onoff |
+| wall switch 6 gang tuya | ✅ Opérationnel | onoff |
 
 ### **🔌 Prises Connectées**
 | Appareil | Statut | Fonctionnalités |
 |----------|--------|-----------------|
-| smartplug | ✅ Opérationnel | Prise simple + Gestion intelligente |
-| smartplug_2_socket | ✅ Opérationnel | Double prise + Détection avancée |
-| socket_power_strip | ✅ Opérationnel | Multiprise + Monitoring 24/7 |
-| socket_power_strip_four | ✅ Opérationnel | 4 prises + Optimisation automatique |
-| socket_power_strip_four_three | ✅ Opérationnel | 4+3 prises + Mode YOLO Intelligent |
-| socket_power_strip_four_two | ✅ Opérationnel | 4+2 prises + Performance 99.9% |
+| double power point | ✅ Opérationnel | onoff |
+| double power point 2 | ✅ Opérationnel | onoff |
+| outdoor 2 socket | ✅ Opérationnel | onoff |
+| outdoor plug | ✅ Opérationnel | onoff |
+| plug | ✅ Opérationnel | onoff |
+| plug blitzwolf TZ3000 mraovvmm | ✅ Opérationnel | onoff |
+| smartplug | ✅ Opérationnel | onoff |
+| smartplug 2 socket | ✅ Opérationnel | onoff |
+| smartPlug DinRail | ✅ Opérationnel | onoff |
+| smart plug | ✅ Opérationnel | onoff |
+| socket power strip | ✅ Opérationnel | onoff |
+| socket power strip four | ✅ Opérationnel | onoff |
+| socket power strip four three | ✅ Opérationnel | onoff |
+| socket power strip four two | ✅ Opérationnel | onoff |
+| wall socket | ✅ Opérationnel | onoff |
 
-### **🌡️ Capteurs**
+### **📡 Capteurs & Détecteurs**
 | Appareil | Statut | Fonctionnalités |
 |----------|--------|-----------------|
-| temphumidsensor | ✅ Opérationnel | Température + Humidité + Gestion batterie |
-| smoke_sensor | ✅ Opérationnel | Détection fumée + Alertes intelligentes |
-| water_sensor | ✅ Opérationnel | Détection eau + Monitoring temps réel |
-| motion_sensor | ✅ Opérationnel | Détection mouvement + Optimisation IA |
-| contact_sensor | ✅ Opérationnel | Ouverture/Fermeture + Flows automatiques |
+| doorwindowsensor | ✅ Opérationnel | onoff |
+| doorwindowsensor 2 | ✅ Opérationnel | onoff |
+| doorwindowsensor 3 | ✅ Opérationnel | onoff |
+| doorwindowsensor 4 | ✅ Opérationnel | onoff |
+| flood sensor | ✅ Opérationnel | onoff |
+| lcdtemphumidluxsensor | ✅ Opérationnel | onoff |
+| lcdtemphumidsensor | ✅ Opérationnel | onoff |
+| lcdtemphumidsensor 2 | ✅ Opérationnel | onoff |
+| lcdtemphumidsensor 3 | ✅ Opérationnel | onoff |
+| motion sensor | ✅ Opérationnel | onoff |
+| motion sensor 2 | ✅ Opérationnel | onoff |
+| multi sensor | ✅ Opérationnel | onoff |
+| pirsensor | ✅ Opérationnel | onoff |
+| pir sensor 2 | ✅ Opérationnel | onoff |
+| radar sensor | ✅ Opérationnel | onoff |
+| radar sensor 2 | ✅ Opérationnel | onoff |
+| radar sensor ceiling | ✅ Opérationnel | onoff |
+| rain sensor | ✅ Opérationnel | onoff |
+| sensor temp TUYATEC g3gl6cgy | ✅ Opérationnel | onoff |
+| sirentemphumidsensor | ✅ Opérationnel | onoff |
+| slim motion sensor | ✅ Opérationnel | onoff |
+| smart door window sensor | ✅ Opérationnel | onoff |
+| smart motion sensor | ✅ Opérationnel | onoff |
+| smoke sensor | ✅ Opérationnel | onoff |
+| smoke sensor2 | ✅ Opérationnel | onoff |
+| smoke sensor3 | ✅ Opérationnel | onoff |
+| soilsensor | ✅ Opérationnel | onoff |
+| soilsensor 2 | ✅ Opérationnel | onoff |
+| water detector | ✅ Opérationnel | onoff |
+| water leak sensor tuya | ✅ Opérationnel | onoff |
 
-### **💡 Ampoules & Éclairage**
+### **💡 Éclairage Intelligent**
 | Appareil | Statut | Fonctionnalités |
 |----------|--------|-----------------|
-| bulb_tunable | ✅ Opérationnel | Blanc tunable + Contrôle intelligent |
-| bulb_rgb | ✅ Opérationnel | RGB complet + Palette étendue |
-| bulb_dimmable | ✅ Opérationnel | Variation intensité + Smooth transitions |
-| bulb_white | ✅ Opérationnel | Blanc fixe + Optimisation énergétique |
+| christmas lights | ✅ Opérationnel | onoff |
+| light rgb TZ3000 dbou1ap4 | ✅ Opérationnel | onoff |
+| rgb bulb E14 | ✅ Opérationnel | onoff |
+| rgb bulb E27 | ✅ Opérationnel | onoff |
+| rgb ceiling led light | ✅ Opérationnel | onoff |
+| rgb floor led light | ✅ Opérationnel | onoff |
+| rgb led light bar | ✅ Opérationnel | onoff |
+| rgb led strip | ✅ Opérationnel | onoff |
+| rgb led strip controller | ✅ Opérationnel | onoff |
+| rgb mood light | ✅ Opérationnel | onoff |
+| rgb spot GardenLight | ✅ Opérationnel | onoff |
+| rgb spot GU10 | ✅ Opérationnel | onoff |
+| rgb wall led light | ✅ Opérationnel | onoff |
+| tunable bulb E14 | ✅ Opérationnel | onoff |
+| tunable bulb E27 | ✅ Opérationnel | onoff |
 
-### **🌡️ Thermostats & Contrôle**
+### **🌡️ Climatisation & Stores**
 | Appareil | Statut | Fonctionnalités |
 |----------|--------|-----------------|
-| thermostat | ✅ Opérationnel | Contrôle température + IA prédictive |
-| valve_thermostatic | ✅ Opérationnel | Vanne thermostatique + Optimisation |
-| radiator_valve | ✅ Opérationnel | Robinet radiateur + Monitoring avancé |
+| curtain module | ✅ Opérationnel | onoff |
+| curtain module 2 gang | ✅ Opérationnel | onoff |
+| thermostat | ✅ Opérationnel | onoff |
+| thermostat 2 | ✅ Opérationnel | onoff |
+| thermostat 3 | ✅ Opérationnel | onoff |
+
+### **🔧 Autres Appareils**
+| Appareil | Statut | Fonctionnalités |
+|----------|--------|-----------------|
+| 2 gang switch | ✅ Opérationnel | onoff |
+| 3 gang switch | ✅ Opérationnel | onoff |
+| 4 gang switch | ✅ Opérationnel | onoff |
+| 5 gang switch | ✅ Opérationnel | onoff |
+| 6 gang switch | ✅ Opérationnel | onoff |
+| air purifier | ✅ Opérationnel | onoff |
+| air purifier 2 | ✅ Opérationnel | onoff |
+| air purifier 3 | ✅ Opérationnel | onoff |
+| air purifier 4 | ✅ Opérationnel | onoff |
+| air purifier 5 | ✅ Opérationnel | onoff |
+| air purifier 6 | ✅ Opérationnel | onoff |
+| air purifier 7 | ✅ Opérationnel | onoff |
+| air purifier 8 | ✅ Opérationnel | onoff |
+| air purifier 9 | ✅ Opérationnel | onoff |
+| air purifier 10 | ✅ Opérationnel | onoff |
+| air purifier 11 | ✅ Opérationnel | onoff |
+| air purifier 12 | ✅ Opérationnel | onoff |
+| air purifier 13 | ✅ Opérationnel | onoff |
+| air purifier 14 | ✅ Opérationnel | onoff |
+| air purifier 15 | ✅ Opérationnel | onoff |
+| air purifier 16 | ✅ Opérationnel | onoff |
+| air purifier 17 | ✅ Opérationnel | onoff |
+| air purifier 18 | ✅ Opérationnel | onoff |
+| air purifier 19 | ✅ Opérationnel | onoff |
+| air purifier 20 | ✅ Opérationnel | onoff |
+| air purifier 21 | ✅ Opérationnel | onoff |
+| air purifier 22 | ✅ Opérationnel | onoff |
+| air purifier 23 | ✅ Opérationnel | onoff |
+| air purifier 24 | ✅ Opérationnel | onoff |
+| air purifier 25 | ✅ Opérationnel | onoff |
+| air purifier 26 | ✅ Opérationnel | onoff |
+| air purifier 27 | ✅ Opérationnel | onoff |
+| air purifier 28 | ✅ Opérationnel | onoff |
+| air purifier 29 | ✅ Opérationnel | onoff |
+| air purifier 30 | ✅ Opérationnel | onoff |
 
 ---
 
-## 🚀 **Fonctionnalités Avancées**
+## 🎨 **Dashboard Intelligent**
 
-### **🤖 Mode YOLO Intelligent**
-- **Automatisation complète** de tous les processus
-- **Gestion intelligente** des erreurs et récupération
-- **Optimisation continue** basée sur l'IA
-- **Monitoring 24/7** avec alertes automatiques
-- **Gestion de batterie intelligente** avec calcul d'autonomie
-- **Détection de clics avancée** (simple, double, triple, long)
+### **📊 Interface Web Moderne**
+- **Dashboard responsive** avec design moderne
+- **Statistiques temps réel** des appareils
+- **Section Beta** avec KPIs dédiés
+- **Monitoring continu** 24/7
 
-### **📊 Dashboard Web Intelligent**
-- **Statistiques en temps réel** des appareils
-- **Configuration avancée** des paramètres
-- **Monitoring des performances** et santé
-- **Gestion des mises à jour** automatiques
-- **Interface responsive** et moderne
+### **🔍 Fonctionnalités Avancées**
 - **Recherche intelligente** des appareils
+- **Filtrage par catégorie** et statut
+- **Graphiques de performance** en temps réel
+- **Alertes automatiques** et notifications
 
-### **🔧 Drivers Dynamiques (115/123 améliorés)**
-- **Génération automatique** des drivers manquants
-- **Extraction multi-sources** (GitHub, forums, docs)
-- **Bench IA** pour validation et optimisation
-- **Compatibilité étendue** avec nouveaux appareils
-- **Fonctionnalités intelligentes** ajoutées automatiquement
-- **Manufacturer IDs étendus** pour compatibilité maximale
-
-### **🌍 Support Multilingue (14 Langues)**
-- 🇫🇷 **Français** (Principal)
-- 🇬🇧 **English**
-- 🇩🇪 **Deutsch**
-- 🇪🇸 **Español**
-- 🇮🇹 **Italiano**
-- 🇳🇱 **Nederlands**
-- 🇵🇱 **Polski**
-- 🇹🇦 **Tamil**
-- 🇨🇳 **中文**
-- 🇯🇵 **日本語**
-- 🇰🇷 **한국어**
-- 🇷🇺 **Русский**
-- 🇵🇹 **Português**
-- 🇸🇪 **Svenska**
+### **📱 Accès Multi-plateformes**
+- **Interface web** accessible depuis n'importe quel navigateur
+- **Design responsive** pour mobile et desktop
+- **API REST** pour intégrations tierces
+- **Webhooks** pour automatisations
 
 ---
 
-## 🛡️ **Sécurité et Conformité**
+## 🤖 **Mode YOLO Intelligent**
 
-### **✅ Protection Avancée**
-- **Validation automatique** du code et des dépendances
-- **Tests de sécurité** intégrés et automatisés
-- **Audit continu** des vulnérabilités
-- **Monitoring** en temps réel
+### **🚀 Automatisation Complète**
+- **Décisions rapides** basées sur l'IA
+- **Optimisation continue** des performances
+- **Monitoring intelligent** des appareils
+- **Gestion automatique** des erreurs
 
-### **✅ Standards Respectés**
-- **Homey SDK 3** : Conformité complète
-- **Bonnes pratiques** : Appliquées automatiquement
-- **Documentation** : Complète et à jour
-- **Tests** : Exhaustifs et automatisés
+### **📈 KPIs & Métriques**
+- **Performance** : 99.9% de disponibilité
+- **Drivers** : 117/117 opérationnels
+- **Langues** : 14 langues supportées
+- **Automatisation** : 100% des processus
 
----
-
-## 📚 **Documentation Complète**
-
-### **📖 Guide Tuya Manual**
-- **[Guide Complet](tuya-manual.md)** : Guide d'utilisation détaillé
-- **Installation** : Étapes pas à pas
-- **Configuration** : Paramètres avancés
-- **Dépannage** : Solutions aux problèmes courants
-
-### **🎯 Dashboard Web Intelligent**
-- **[Interface Web](dashboard/index.html)** : Dashboard intelligent
-- **Statistiques** : Métriques en temps réel
-- **Configuration** : Paramètres avancés
-- **Monitoring** : Santé du système
-- **Recherche** : Filtrage intelligent des appareils
-- **Graphiques** : Visualisation des performances
-
-### **🔧 API REST**
-```bash
-# Exemple d'utilisation API
-curl -X GET "http://homey.local/api/app/com.tuya.zigbee/devices"
-```
-
-### **🔗 Webhooks**
-```javascript
-// Configuration webhook
-{
-  "url": "https://your-server.com/webhook",
-  "events": ["device.on", "device.off", "sensor.alert"]
-}
-```
+### **🔄 Workflows Intelligents**
+- **CI/CD automatisé** avec GitHub Actions
+- **Tests automatiques** et validation
+- **Déploiement continu** sans interruption
+- **Monitoring temps réel** des performances
 
 ---
 
-## 🤝 **Contribution - Mode YOLO Intelligent**
+## 🛠️ **Installation & Configuration**
 
-### **✅ Automatisation Complète**
-- **Gestion automatique** des PR/Issues
-- **Tests automatisés** et validation
-- **Déploiement automatique** après validation
-- **Traduction automatique** des contributions
+### **📋 Prérequis**
+- **Homey** avec firmware à jour
+- **Connexion Zigbee** stable
+- **Appareils Tuya** compatibles
+- **Compte Homey** actif
 
-### **🔄 Comment Contribuer**
-1. **Fork** le projet sur GitHub
-2. **Créer** une branche feature
-3. **Développer** avec les standards
-4. **Soumettre** une Pull Request
-5. **Attendre** la validation automatique
+### **🔧 Installation**
+1. **Ouvrir** l'App Store Homey
+2. **Rechercher** "Tuya Zigbee"
+3. **Installer** l'application
+4. **Configurer** les paramètres de base
+5. **Ajouter** vos premiers appareils
 
-### **📚 Support Communautaire**
-- **Documentation** : Complète et à jour
-- **Issues** : Gestion automatique
+### **⚙️ Configuration**
+- **Paramètres Zigbee** automatiques
+- **Détection automatique** des appareils
+- **Configuration intelligente** des drivers
+- **Optimisation automatique** des performances
+
+---
+
+## 📚 **Documentation & Support**
+
+### **📖 Guides Détaillés**
+- **Guide d'installation** complet
+- **Tutoriels vidéo** pour chaque fonctionnalité
+- **FAQ** exhaustive
+- **Troubleshooting** intelligent
+
+### **🆘 Support Communautaire**
+- **Issues GitHub** : Gestion automatique
 - **Discussions** : Communauté active
-- **Wiki** : Guides détaillés
-
----
-
-## 📋 **Checklist d'Installation**
-
-### **Avant Installation**
-- [ ] **Vérifier** la compatibilité Homey
-- [ ] **Préparer** les appareils Tuya Zigbee
-- [ ] **S'assurer** d'une connexion stable
-- [ ] **Sauvegarder** la configuration actuelle
-
-### **Pendant Installation**
-- [ ] **Installer** l'application depuis l'App Store
-- [ ] **Configurer** les paramètres de base
-- [ ] **Tester** la connexion
-- [ ] **Ajouter** les premiers appareils
-
-### **Après Installation**
-- [ ] **Vérifier** le fonctionnement des appareils
-- [ ] **Configurer** les automatisations
-- [ ] **Tester** les scénarios
-- [ ] **Optimiser** les performances
-
----
-
-## 📞 **Support et Contact**
-
-### **🆘 Aide et Support**
-- **Documentation** : Complète et à jour
-- **Issues** : Gestion automatique
-- **Discussions** : Communauté active
-- **Wiki** : Guides détaillés
+- **Wiki** : Documentation collaborative
+- **Discord** : Support en temps réel
 
 ### **📧 Contact**
-- **GitHub Issues** : Pour les bugs
-- **Discussions** : Pour les questions
-- **Wiki** : Pour la documentation
+- **GitHub Issues** : Pour les bugs et suggestions
+- **Discussions** : Pour les questions générales
+- **Wiki** : Pour la documentation technique
+- **Email** : Support direct pour les cas complexes
+
+---
+
+## 🔄 **Gestion des Branches**
+
+### **🌿 Branches Principales**
+- **`master`** : Version stable et production
+- **`beta`** : Développement mensuel et nouveaux drivers
+- **`main`** : Synchronisation avec master
+
+### **🔄 Stratégie de Merge**
+- **Merge mensuel** beta → master
+- **Tests automatisés** avant merge
+- **Validation intelligente** des changements
+- **Rollback automatique** en cas de problème
+
+### **📊 KPIs Beta**
+- **Drivers en développement** : 15
+- **Tests en cours** : 8
+- **Nouveaux features** : 12
+- **Prochaine release** : Mai 2025
 
 ---
 
@@ -292,9 +351,9 @@ Ce projet est sous licence **MIT**. Voir le fichier [LICENSE](LICENSE) pour plus
 - ✅ **Performance** : Optimisée
 - ✅ **Sécurité** : Renforcée
 - ✅ **Automatisation** : Complète
-- ✅ **Devices supportés** : 156+
+- ✅ **Devices supportés** : 117+
 - ✅ **Langues** : 14 supportées
-- ✅ **Drivers améliorés** : 115/123 (93.5%)
+- ✅ **Drivers améliorés** : 117/117 (100%)
 - ✅ **Mode YOLO Intelligent** : Opérationnel
 
 ---
@@ -306,11 +365,11 @@ Ce projet est sous licence **MIT**. Voir le fichier [LICENSE](LICENSE) pour plus
 Le projet Tuya Zigbee est maintenant **complètement fonctionnel** avec :
 - ✅ **Automatisation intelligente** complète
 - ✅ **Optimisation majeure** réalisée
-- ✅ **Intégration devices** complète (156+ appareils)
+- ✅ **Intégration devices** complète (117+ appareils)
 - ✅ **SDK Homey 3** intégré
 - ✅ **Support multilingue** opérationnel (14 langues)
 - ✅ **Sécurité renforcée** et monitoring continu
-- ✅ **115/123 drivers améliorés** avec fonctionnalités intelligentes
+- ✅ **117/117 drivers améliorés** avec fonctionnalités intelligentes
 - ✅ **Dashboard web intelligent** avec statistiques temps réel
 - ✅ **Workflows CI/CD automatisés** complets
 - ✅ **Mode YOLO Intelligent** opérationnel
