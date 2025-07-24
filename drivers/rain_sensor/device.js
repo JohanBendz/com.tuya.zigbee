@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 const { debug, CLUSTER, Cluster } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
@@ -10,7 +10,7 @@ Cluster.addCluster(TuyaSpecificCluster);
 
 class RainSensor extends TuyaSpecificClusterDevice {
 
-  async onNodeInit({ zclNode }) {
+  async onInit({ zclNode }) {
 
     this.printNode();
 
@@ -18,7 +18,7 @@ class RainSensor extends TuyaSpecificClusterDevice {
       await this.configureAttributeReporting([
         {
           endpointId: 1,
-          cluster: CLUSTER.POWER_CONFIGURATION,
+          cluster: 'genPowerCfg',
           attributeName: 'batteryPercentageRemaining',
           minInterval: 60, // Minimum interval (1 minute)
           maxInterval: 21600, // Maximum interval (6 hours)
@@ -33,7 +33,7 @@ class RainSensor extends TuyaSpecificClusterDevice {
     }
 
     // measure_battery // alarm_battery
-    zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
+    zclNode.endpoints[1].clusters['genPowerCfg'.NAME]
       .on('attr.batteryPercentageRemaining', this.onBatteryPercentageRemainingAttributeReport.bind(this));
 
     // Attach event listeners to handle incoming data from Tuya clusters
@@ -98,3 +98,4 @@ class RainSensor extends TuyaSpecificClusterDevice {
 }
 
 module.exports = RainSensor;
+

@@ -1,14 +1,14 @@
-'use strict';
+﻿'use strict';
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { CLUSTER, Cluster, ZCLDataTypes } = require('zigbee-clusters');
 const TuyaOnOffCluster = require('../../lib/TuyaOnOffCluster');
 
 Cluster.addCluster(TuyaOnOffCluster);
 
-class switch_1_gang_metering extends ZigBeeDevice {
+class switch_1_gang_metering extends ZigbeeDevice {
 
-  async onNodeInit({ zclNode }) {
+  async onInit({ zclNode }) {
 
     this.printNode();
 
@@ -20,7 +20,7 @@ class switch_1_gang_metering extends ZigBeeDevice {
     this.minReportVoltage = this.getSetting('minReportVoltage') * 1000;
 
     // Register onoff capability for the single endpoint (1)
-    this.registerCapability('onoff', CLUSTER.ON_OFF, {
+    this.registerCapability('onoff', 'genOnOff', {
       endpoint: 1,
       getOpts: {
         getOnStart: true,
@@ -188,3 +188,4 @@ module.exports = switch_1_gang_metering;
         "bindings": {}
       }
     } */
+

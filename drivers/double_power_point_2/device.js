@@ -1,11 +1,11 @@
-'use strict';
+﻿'use strict';
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { CLUSTER } = require('zigbee-clusters');
 
-class doublepowerpoint2 extends ZigBeeDevice {
+class doublepowerpoint2 extends ZigbeeDevice {
 
-  async onNodeInit({ zclNode }) {
+  async onInit({ zclNode }) {
 
     this.printNode();
 
@@ -16,7 +16,7 @@ class doublepowerpoint2 extends ZigBeeDevice {
     const endpoint = subDeviceId === 'socketTwo' ? 2 : 1;
 
     // Register the onOff capability for the correct endpoint
-    this.registerCapability('onoff', CLUSTER.ON_OFF, {
+    this.registerCapability('onoff', 'genOnOff', {
       endpoint: endpoint,
       getOpts: {
         getOnStart: true,   // Get current state on startup
@@ -65,3 +65,4 @@ class doublepowerpoint2 extends ZigBeeDevice {
 }
 
 module.exports = doublepowerpoint2;
+

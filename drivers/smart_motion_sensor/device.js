@@ -1,11 +1,11 @@
-'use strict';
+﻿'use strict';
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { debug, CLUSTER } = require('zigbee-clusters');
 
-class smart_motion_sensor extends ZigBeeDevice {
+class smart_motion_sensor extends ZigbeeDevice {
 
-	async onNodeInit({ zclNode }) {
+	async onInit({ zclNode }) {
 
 		this.printNode();
 
@@ -20,7 +20,7 @@ class smart_motion_sensor extends ZigBeeDevice {
 					minChange: 0,
 				},{
 					endpointId: 1,
-					cluster: CLUSTER.POWER_CONFIGURATION,
+					cluster: 'genPowerCfg',
 					attributeName: 'batteryPercentageRemaining',
           minInterval: 60, // Minimum interval (1 minute)
           maxInterval: 21600, // Maximum interval (6 hours)
@@ -34,7 +34,7 @@ class smart_motion_sensor extends ZigBeeDevice {
 		.on('attr.zoneStatus', this.onZoneStatusAttributeReport.bind(this));
 
 		// measure_battery // alarm_battery
-		zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
+		zclNode.endpoints[1].clusters['genPowerCfg'.NAME]
 		.on('attr.batteryPercentageRemaining', this.onBatteryPercentageRemainingAttributeReport.bind(this));
 
 	}

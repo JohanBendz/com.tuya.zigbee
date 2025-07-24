@@ -1,13 +1,13 @@
 ﻿'use strict';
 
 const Homey = require('homey');
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { debug, CLUSTER } = require('zigbee-clusters');
 
-class wall_switch_3_gang extends ZigBeeDevice {
+class wall_switch_3_gang extends ZigbeeDevice {
 
-  async onNodeInit({zclNode}) {
-    await super.onNodeInit({zclNode});
+  async onInit({zclNode}) {
+    await super.onInit({zclNode});
 
     this.printNode();
 
@@ -24,7 +24,7 @@ class wall_switch_3_gang extends ZigBeeDevice {
     };
 
     // Enregistrer la capacite de mesure de batterie
-    this.registerCapability('measure_battery', CLUSTER.POWER_CONFIGURATION, {
+    this.registerCapability('measure_battery', 'genPowerCfg', {
       get: 'batteryPercentageRemaining',
       report: 'batteryPercentageRemaining',
       reportParser: (value) => {
@@ -36,7 +36,7 @@ class wall_switch_3_gang extends ZigBeeDevice {
     });
 
     // Enregistrer la capacite d'alerte de batterie
-    this.registerCapability('alarm_battery', CLUSTER.POWER_CONFIGURATION, {
+    this.registerCapability('alarm_battery', 'genPowerCfg', {
       get: 'batteryAlarmState',
       report: 'batteryAlarmState',
       reportParser: (value) => {
@@ -49,7 +49,7 @@ class wall_switch_3_gang extends ZigBeeDevice {
     });
 
     // Enregistrer la mesure de voltage
-    this.registerCapability('measure_voltage', CLUSTER.POWER_CONFIGURATION, {
+    this.registerCapability('measure_voltage', 'genPowerCfg', {
       get: 'batteryVoltage',
       report: 'batteryVoltage',
       reportParser: (value) => {
@@ -61,7 +61,7 @@ class wall_switch_3_gang extends ZigBeeDevice {
     });
 
     // Enregistrer la mesure de courant
-    this.registerCapability('measure_current', CLUSTER.POWER_CONFIGURATION, {
+    this.registerCapability('measure_current', 'genPowerCfg', {
       get: 'batteryCurrent',
       report: 'batteryCurrent',
       reportParser: (value) => {
@@ -73,12 +73,12 @@ class wall_switch_3_gang extends ZigBeeDevice {
     });
 
     // Enregistrer la capacite de bouton
-    this.registerCapability('button', CLUSTER.ON_OFF, {
+    this.registerCapability('button', 'genOnOff', {
       endpoint: subDeviceId === 'secondSwitch' ? 2 : subDeviceId === 'thirdSwitch' ? 3 : 1,
     });
 
     // Enregistrer la capacite onoff
-    this.registerCapability('onoff', CLUSTER.ON_OFF, {
+    this.registerCapability('onoff', 'genOnOff', {
       endpoint: subDeviceId === 'secondSwitch' ? 2 : subDeviceId === 'thirdSwitch' ? 3 : 1,
     });
 
@@ -248,3 +248,4 @@ class wall_switch_3_gang extends ZigBeeDevice {
 }
 
 module.exports = wall_switch_3_gang;
+

@@ -1,11 +1,11 @@
-'use strict';
+﻿'use strict';
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 // const { CLUSTER } = require('zigbee-clusters');
 
-class smart_button_switch extends ZigBeeDevice {
+class smart_button_switch extends ZigbeeDevice {
 
-    async onNodeInit({zclNode}) {
+    async onInit({zclNode}) {
         this.printNode();
 
         const node = await this.homey.zigbee.getNode(this);

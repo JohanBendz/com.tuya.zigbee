@@ -1,11 +1,11 @@
-'use strict';
+﻿'use strict';
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { debug, CLUSTER } = require('zigbee-clusters');
 
-class waterdetector extends ZigBeeDevice {
+class waterdetector extends ZigbeeDevice {
 		
-	async onNodeInit({zclNode}) {
+	async onInit({zclNode}) {
 
 		this.printNode();
 

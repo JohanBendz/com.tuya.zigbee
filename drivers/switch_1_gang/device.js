@@ -1,12 +1,12 @@
-'use strict';
+﻿'use strict';
 
 const Homey = require('homey');
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { debug, CLUSTER } = require('zigbee-clusters');
 
-class switch_1_gang extends ZigBeeDevice {
+class switch_1_gang extends ZigbeeDevice {
 
-    async onNodeInit({zclNode}) {
+    async onInit({zclNode}) {
 
         this.printNode();
 /*     debug(true);
@@ -17,7 +17,7 @@ class switch_1_gang extends ZigBeeDevice {
             this.error('Error when reading device attributes ', err);
         });
 
-        this.registerCapability('onoff', CLUSTER.ON_OFF);
+        this.registerCapability('onoff', 'genOnOff');
 
     }
 

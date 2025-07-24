@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 const { Cluster, debug } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
@@ -87,7 +87,7 @@ const getDataValue = (dpValue) => {
 
 class sensortemphumidsensor extends TuyaSpecificClusterDevice {
 
-	async onNodeInit({ zclNode }) {
+	async onInit({ zclNode }) {
 
 		this.printNode();
 
@@ -244,11 +244,11 @@ class sensortemphumidsensor extends TuyaSpecificClusterDevice {
 				break;
 
 			case 0x6B: // Neo Min Alarm Temperature -20 .. 80
-				this.log('Neo Min Alarm Temperature is ', measuredValue, '°C');
+				this.log('Neo Min Alarm Temperature is ', measuredValue, 'Â°C');
 				break;
 
 			case 0x6C: // Neo Max Alarm Temperature -20 .. 80
-				this.log('Neo Max Alarm Temperature is ', measuredValue, '°C');
+				this.log('Neo Max Alarm Temperature is ', measuredValue, 'Â°C');
 				break;
 
 			case 0x6D: // Neo Min Alarm Humidity 1..100
@@ -369,3 +369,4 @@ class sensortemphumidsensor extends TuyaSpecificClusterDevice {
 }
 
 module.exports = sensortemphumidsensor;
+

@@ -1,15 +1,15 @@
-'use strict';
+﻿'use strict';
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { debug, CLUSTER } = require('zigbee-clusters');
 
-class outdoorplug extends ZigBeeDevice {
+class outdoorplug extends ZigbeeDevice {
 		
-	async onNodeInit({zclNode}) {
+	async onInit({zclNode}) {
 
     this.printNode();
 
-    this.registerCapability('onoff', CLUSTER.ON_OFF, {
+    this.registerCapability('onoff', 'genOnOff', {
       getOpts: {
         getOnStart: true,
         pollInterval: 15000,

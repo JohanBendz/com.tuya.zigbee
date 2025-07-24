@@ -1,6 +1,6 @@
-"use strict";
+﻿"use strict";
 
-const { ZigBeeDevice } = require("homey-zigbeedriver");
+const { ZigbeeDevice } = require("homey-meshdriver");
 const { Cluster, debug, CLUSTER } = require("zigbee-clusters");
 const TuyaWindowCoveringCluster = require("../../lib/TuyaWindowCoveringCluster");
 const { mapValueRange } = require('../../lib/util');
@@ -11,7 +11,7 @@ const UP_OPEN = 'upOpen';
 const DOWN_CLOSE = 'downClose';
 const REPORT_DEBOUNCER = 5000;
 
-class wallcurtainswitch extends ZigBeeDevice {
+class wallcurtainswitch extends ZigbeeDevice {
 
     invertPercentageLiftValue = false;
 
@@ -21,14 +21,14 @@ class wallcurtainswitch extends ZigBeeDevice {
         this._reportDebounceEnabled = false;
     }
 
-    async onNodeInit({ zclNode }) {
-        await super.onNodeInit({ zclNode });
+    async onInit({ zclNode }) {
+        await super.onInit({ zclNode });
 
         this.printNode();
 
         // code borrowed from here most recent version of zigbee driver to handle lift percentage + invert correctly
         // remove once the package was updated
-        // https://github.com/athombv/node-homey-zigbeedriver/blob/master/lib/system/capabilities/windowcoverings_set/windowCovering.js
+        // https://github.com/athombv/node-homey-meshdriver/blob/master/lib/system/capabilities/windowcoverings_set/windowCovering.js
         this.registerCapability(
             "windowcoverings_set",
             CLUSTER.WINDOW_COVERING,
@@ -50,7 +50,7 @@ class wallcurtainswitch extends ZigBeeDevice {
 
                     // Override goToLiftPercentage to enforce blind to open/close completely
                     if (value === 0 || value === 1) {
-                      this.debug(`set → \`windowcoverings_set\`: ${value} → setParser → ${value === 1 ? UP_OPEN : DOWN_CLOSE}`);
+                      this.debug(`set â†’ \`windowcoverings_set\`: ${value} â†’ setParser â†’ ${value === 1 ? UP_OPEN : DOWN_CLOSE}`);
                       const { endpoint } = this._getClusterCapabilityConfiguration('windowcoverings_set', CLUSTER.WINDOW_COVERING);
                       const windowCoveringEndpoint = endpoint ?? this.getClusterEndpoint(CLUSTER.WINDOW_COVERING);
                       if (windowCoveringEndpoint === null) throw new Error('missing_window_covering_cluster');
@@ -70,7 +70,7 @@ class wallcurtainswitch extends ZigBeeDevice {
                       // Round, otherwise might not be accepted by device
                       percentageLiftValue: Math.round(mappedValue),
                     };
-                    this.debug(`set → \`windowcoverings_set\`: ${value} → setParser → goToLiftPercentage`, gotToLiftPercentageCommand);
+                    this.debug(`set â†’ \`windowcoverings_set\`: ${value} â†’ setParser â†’ goToLiftPercentage`, gotToLiftPercentageCommand);
                     // Send goToLiftPercentage command
                     return gotToLiftPercentageCommand;
                 },
@@ -206,3 +206,4 @@ class wallcurtainswitch extends ZigBeeDevice {
 }
 
 module.exports = wallcurtainswitch;
+

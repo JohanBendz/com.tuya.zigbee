@@ -1,12 +1,12 @@
-'use strict';
+﻿'use strict';
 
 const Homey = require('homey');
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { debug, CLUSTER } = require('zigbee-clusters');
 
-class socket_power_strip extends ZigBeeDevice {
+class socket_power_strip extends ZigbeeDevice {
 		
-	async onNodeInit({zclNode}) {
+	async onInit({zclNode}) {
 
 		this.printNode();
 
@@ -18,7 +18,7 @@ class socket_power_strip extends ZigBeeDevice {
         const { subDeviceId } = this.getData();
         this.log("Device data: ", subDeviceId);
 
-        this.registerCapability('onoff', CLUSTER.ON_OFF, {
+        this.registerCapability('onoff', 'genOnOff', {
             endpoint: subDeviceId === 'socket2' ? 2 : subDeviceId === 'socket3' ? 3 : 1,
         });
 

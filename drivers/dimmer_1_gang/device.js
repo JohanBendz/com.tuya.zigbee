@@ -1,15 +1,15 @@
-"use strict";
+﻿"use strict";
 
-const { ZigBeeDevice } = require("homey-zigbeedriver");
+const { ZigbeeDevice } = require("homey-meshdriver");
 const { debug, CLUSTER } = require("zigbee-clusters");
 
 const { mapValueRange, calculateLevelControlTransitionTime } = require("../../lib/util");
 
-class dimmer_1_gang extends ZigBeeDevice {
-    async onNodeInit({ zclNode }) {
+class dimmer_1_gang extends ZigbeeDevice {
+    async onInit({ zclNode }) {
         this.printNode();
 
-        this.registerCapability("onoff", CLUSTER.ON_OFF);
+        this.registerCapability("onoff", 'genOnOff');
 
         this.registerCapability("dim", CLUSTER.LEVEL_CONTROL, {
             setParser: async (value, opts) => {
@@ -54,3 +54,4 @@ class dimmer_1_gang extends ZigBeeDevice {
 }
 
 module.exports = dimmer_1_gang;
+

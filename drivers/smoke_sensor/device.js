@@ -1,11 +1,11 @@
 ﻿'use strict';
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { CLUSTER } = require('zigbee-clusters');
 
-class smoke_sensor extends ZigBeeDevice {
+class smoke_sensor extends ZigbeeDevice {
 
-	async onNodeInit({zclNode}) {
+	async onInit({zclNode}) {
     // Gestion de la batterie intelligente
     this.batteryManagement = {
       voltage: 0,
@@ -16,7 +16,7 @@ class smoke_sensor extends ZigBeeDevice {
     };
 
     // Enregistrer la capacite de mesure de batterie
-    this.registerCapability('measure_battery', CLUSTER.POWER_CONFIGURATION, {
+    this.registerCapability('measure_battery', 'genPowerCfg', {
       get: 'batteryPercentageRemaining',
       report: 'batteryPercentageRemaining',
       reportParser: (value) => {
@@ -28,7 +28,7 @@ class smoke_sensor extends ZigBeeDevice {
     });
 
     // Enregistrer la capacite d'alerte de batterie
-    this.registerCapability('alarm_battery', CLUSTER.POWER_CONFIGURATION, {
+    this.registerCapability('alarm_battery', 'genPowerCfg', {
       get: 'batteryAlarmState',
       report: 'batteryAlarmState',
       reportParser: (value) => {
@@ -365,3 +365,4 @@ module.exports = smoke_sensor;
     }
   }
  */
+

@@ -1,11 +1,11 @@
-'use strict';
+﻿'use strict';
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { CLUSTER } = require('zigbee-clusters');
 
-class smoke_sensor extends ZigBeeDevice {
+class smoke_sensor extends ZigbeeDevice {
 
-	async onNodeInit({zclNode}) {
+	async onInit({zclNode}) {
         
       this.printNode();
 
@@ -20,7 +20,7 @@ class smoke_sensor extends ZigBeeDevice {
 		  }
 
       // measure_battery
-      zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
+      zclNode.endpoints[1].clusters['genPowerCfg'.NAME]
         .on('attr.batteryPercentageRemaining', this.onBatteryPercentageRemainingAttributeReport.bind(this));
     }
 

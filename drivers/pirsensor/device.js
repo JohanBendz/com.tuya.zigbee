@@ -1,12 +1,12 @@
-'use strict';
+﻿'use strict';
 
 const Homey = require('homey');
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { debug, CLUSTER } = require('zigbee-clusters');
 
-class pirsensor extends ZigBeeDevice {
+class pirsensor extends ZigbeeDevice {
 
-	async onNodeInit({zclNode}) {
+	async onInit({zclNode}) {
 
 		this.printNode();
 
@@ -30,4 +30,5 @@ class pirsensor extends ZigBeeDevice {
 }
 
 module.exports = pirsensor;
+
 

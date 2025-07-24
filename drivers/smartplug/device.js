@@ -1,14 +1,14 @@
 ﻿'use strict';
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { CLUSTER, Cluster, ZCLDataTypes} = require('zigbee-clusters');
 const TuyaOnOffCluster = require('../../lib/TuyaOnOffCluster');
 
 Cluster.addCluster(TuyaOnOffCluster);
 
-class smartplug extends ZigBeeDevice {
+class smartplug extends ZigbeeDevice {
 
-  async onNodeInit({zclNode}) {
+  async onInit({zclNode}) {
     // Gestion de la batterie intelligente
     this.batteryManagement = {
       voltage: 0,
@@ -19,7 +19,7 @@ class smartplug extends ZigBeeDevice {
     };
 
     // Enregistrer la capacite de mesure de batterie
-    this.registerCapability('measure_battery', CLUSTER.POWER_CONFIGURATION, {
+    this.registerCapability('measure_battery', 'genPowerCfg', {
       get: 'batteryPercentageRemaining',
       report: 'batteryPercentageRemaining',
       reportParser: (value) => {
@@ -31,7 +31,7 @@ class smartplug extends ZigBeeDevice {
     });
 
     // Enregistrer la capacite d'alerte de batterie
-    this.registerCapability('alarm_battery', CLUSTER.POWER_CONFIGURATION, {
+    this.registerCapability('alarm_battery', 'genPowerCfg', {
       get: 'batteryAlarmState',
       report: 'batteryAlarmState',
       reportParser: (value) => {
@@ -107,7 +107,7 @@ class smartplug extends ZigBeeDevice {
     }
 
     // onOff
-    this.registerCapability('onoff', CLUSTER.ON_OFF, {
+    this.registerCapability('onoff', 'genOnOff', {
       getOpts: {
         getOnStart: true,
         pollInterval: 60000
@@ -806,4 +806,5 @@ module.exports = smartplug;
     }
   }
 } */
+
 

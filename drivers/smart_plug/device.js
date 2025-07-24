@@ -1,4 +1,4 @@
-'use strict';
-const { ZigBeeDevice } = require('homey-zigbeedriver');
-class TS011F extends ZigBeeDevice {}
+﻿'use strict';
+const { ZigbeeDevice } = require('homey-meshdriver');
+class TS011F extends ZigbeeDevice {}
 module.exports = TS011F;

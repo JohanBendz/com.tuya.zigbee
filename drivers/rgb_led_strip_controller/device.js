@@ -1,6 +1,6 @@
-'use strict';
+﻿'use strict';
 
-const { ZigBeeLightDevice } = require('homey-zigbeedriver');
+const { ZigBeeLightDevice } = require('homey-meshdriver');
 
 class rgb_led_strip_controller extends ZigBeeLightDevice {}
 

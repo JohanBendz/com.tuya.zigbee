@@ -1,12 +1,12 @@
-'use strict';
+﻿'use strict';
 
 const Homey = require('homey');
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { debug, CLUSTER } = require('zigbee-clusters');
 
-class temphumidsensor2 extends ZigBeeDevice {
+class temphumidsensor2 extends ZigbeeDevice {
 
-	async onNodeInit({zclNode}) {
+	async onInit({zclNode}) {
 
 /*     debug(true);
     this.enableDebug(); */
@@ -22,7 +22,7 @@ class temphumidsensor2 extends ZigBeeDevice {
 		.on('attr.measuredValue', this.onRelativeHumidityMeasuredAttributeReport.bind(this));
 
 		// measure_battery // alarm_battery
-		zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
+		zclNode.endpoints[1].clusters['genPowerCfg'.NAME]
 		.on('attr.batteryPercentageRemaining', this.onBatteryPercentageRemainingAttributeReport.bind(this));
 
 	}
@@ -55,3 +55,4 @@ class temphumidsensor2 extends ZigBeeDevice {
 }
 
 module.exports = temphumidsensor2;
+

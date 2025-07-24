@@ -1,7 +1,7 @@
-'use strict';
+﻿'use strict';
 
 const Homey = require('homey');
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { Cluster, debug, CLUSTER } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
 
@@ -9,13 +9,13 @@ Cluster.addCluster(TuyaSpecificCluster);
 
 const DEFAULT_ONOFF_DURATION = 1000
 
-class IrrigationController extends ZigBeeDevice {
+class IrrigationController extends ZigbeeDevice {
 
-  async onNodeInit({zclNode}) {
+  async onInit({zclNode}) {
 
     this.printNode();
 
-    this.registerCapability('onoff', CLUSTER.ON_OFF);
+    this.registerCapability('onoff', 'genOnOff');
 
     this.registerCapabilityListener("onoff", async (value, options) => {
       this.log("value "+value);
@@ -35,7 +35,7 @@ class IrrigationController extends ZigBeeDevice {
     await this.configureAttributeReporting([
       {
           endpointId: 1,
-          cluster: CLUSTER.POWER_CONFIGURATION,
+          cluster: 'genPowerCfg',
           attributeName: 'batteryPercentageRemaining',
           minInterval: 60, // Minimum interval (1 minute)
           maxInterval: 21600, // Maximum interval (6 hours)
@@ -43,7 +43,7 @@ class IrrigationController extends ZigBeeDevice {
       }
     ]);
 
-    zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION].on('report', (report) => {
+    zclNode.endpoints[1].clusters['genPowerCfg'].on('report', (report) => {
       if (report.batteryPercentageRemaining !== undefined) {
         const batteryPercentage = report.batteryPercentageRemaining / 2; // Convert to percentage
         const batteryThreshold = this.getSetting('batteryThreshold') || 20;
@@ -73,3 +73,4 @@ class IrrigationController extends ZigBeeDevice {
 }
 
 module.exports = IrrigationController;
+

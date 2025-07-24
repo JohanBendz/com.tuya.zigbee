@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 const { debug, Cluster } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
@@ -10,7 +10,7 @@ Cluster.addCluster(TuyaSpecificCluster);
 
 class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
 
-  async onNodeInit({ zclNode }) {
+  async onInit({ zclNode }) {
     this.printNode();
 /*     debug(true);
     this.enableDebug(); */
@@ -189,3 +189,4 @@ class dimmer_2_gang_tuya extends TuyaSpecificClusterDevice {
 }
 
 module.exports = dimmer_2_gang_tuya;
+

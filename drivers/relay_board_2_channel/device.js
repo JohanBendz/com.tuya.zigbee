@@ -1,12 +1,12 @@
-'use strict';
+﻿'use strict';
 
 const Homey = require('homey');
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { debug, CLUSTER } = require('zigbee-clusters');
 
-class relay_board_2_channel extends ZigBeeDevice {
+class relay_board_2_channel extends ZigbeeDevice {
 
-    async onNodeInit({zclNode}) {
+    async onInit({zclNode}) {
 
         this.printNode();
 
@@ -24,7 +24,7 @@ class relay_board_2_channel extends ZigBeeDevice {
                 break;
         }
 
-        this.registerCapability('onoff', CLUSTER.ON_OFF, options);
+        this.registerCapability('onoff', 'genOnOff', options);
 
         await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
         .catch(err => {

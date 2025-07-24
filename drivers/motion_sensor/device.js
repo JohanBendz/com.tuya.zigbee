@@ -1,15 +1,15 @@
 ﻿'use strict';
 
-const { ZigBeeDevice, Util } = require('homey-zigbeedriver');
+const { ZigbeeDevice, Util } = require('homey-meshdriver');
 const { CLUSTER } = require('zigbee-clusters');
 
 const BATTERY_UPDATE_INTERVAL = 1000 * 60 * 30;
 
-class motion_sensor extends ZigBeeDevice {
+class motion_sensor extends ZigbeeDevice {
 
-	async onNodeInit({ zclNode }) {
+	async onInit({ zclNode }) {
 		this.printNode();
-        this._powerConfiguration = zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME];
+        this._powerConfiguration = zclNode.endpoints[1].clusters['genPowerCfg'.NAME];
 
         const iasZone = zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME];
         iasZone.onZoneStatusChangeNotification = this.onZoneStatusChanged.bind(this);
@@ -302,4 +302,5 @@ module.exports = motion_sensor;
       }
     }
   } */
+
 

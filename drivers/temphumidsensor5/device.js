@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 const { Cluster, debug } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
@@ -49,7 +49,7 @@ const getDataValue = (dpValue) => {
 
 class temphumidsensor5 extends TuyaSpecificClusterDevice {
 
-	async onNodeInit({ zclNode }) {
+	async onInit({ zclNode }) {
 
 		this.printNode();
 
@@ -135,3 +135,4 @@ class temphumidsensor5 extends TuyaSpecificClusterDevice {
 }
 
 module.exports = temphumidsensor5;
+

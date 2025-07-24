@@ -1,11 +1,11 @@
-'use strict';
+﻿'use strict';
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 // const { CLUSTER } = require('zigbee-clusters');
 
-class smart_knob_switch extends ZigBeeDevice {
+class smart_knob_switch extends ZigbeeDevice {
 
-  async onNodeInit({ zclNode }) {
+  async onInit({ zclNode }) {
 
     var debounce = 0;
     this.printNode();

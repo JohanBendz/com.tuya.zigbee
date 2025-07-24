@@ -1,10 +1,10 @@
-'use strict';
+﻿'use strict';
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 
-class zigbeerepeater extends ZigBeeDevice {
+class zigbeerepeater extends ZigbeeDevice {
 		
-	async onNodeInit({zclNode}) {
+	async onInit({zclNode}) {
 
 		this.printNode();
 

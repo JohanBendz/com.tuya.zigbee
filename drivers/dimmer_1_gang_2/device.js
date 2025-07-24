@@ -1,11 +1,11 @@
-"use strict";
+﻿"use strict";
 
-const { ZigBeeDevice } = require("homey-zigbeedriver");
+const { ZigbeeDevice } = require("homey-meshdriver");
 const { debug, CLUSTER } = require("zigbee-clusters");
 
-class dimmer_1_gang_2 extends ZigBeeDevice {
+class dimmer_1_gang_2 extends ZigbeeDevice {
 
-    async onNodeInit({ zclNode }) {
+    async onInit({ zclNode }) {
         this.printNodeDetails(zclNode);
 
         try {
@@ -23,7 +23,7 @@ class dimmer_1_gang_2 extends ZigBeeDevice {
     }
 
     registerDeviceCapabilities() {
-        this.registerCapability('onoff', CLUSTER.ON_OFF, { endpoint: 1 });
+        this.registerCapability('onoff', 'genOnOff', { endpoint: 1 });
         this.registerCapability('dim', CLUSTER.LEVEL_CONTROL, { endpoint: 1 });
         this.log("Capabilities for onoff and dim registered for endpoint 1.");
     }
@@ -53,3 +53,4 @@ class dimmer_1_gang_2 extends ZigBeeDevice {
 }
 
 module.exports = dimmer_1_gang_2;
+

@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 const { Cluster } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
@@ -12,8 +12,8 @@ Cluster.addCluster(TuyaOnOffCluster);
 
 class FingerBotTuya extends TuyaSpecificClusterDevice {
 
-  async onNodeInit({ zclNode }) {
-    await super.onNodeInit({ zclNode });
+  async onInit({ zclNode }) {
+    await super.onInit({ zclNode });
 
     this.printNode();
 
@@ -71,7 +71,7 @@ class FingerBotTuya extends TuyaSpecificClusterDevice {
     zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processResponse(value));
     zclNode.endpoints[1].clusters.tuya.on("response", value => this.processResponse(value));
 
-    this.log("🚀 Finger Bot initialized!");
+    this.log("ðŸš€ Finger Bot initialized!");
   }
 
   async _updateSettings() {
@@ -126,3 +126,4 @@ class FingerBotTuya extends TuyaSpecificClusterDevice {
 }
 
 module.exports = FingerBotTuya;
+

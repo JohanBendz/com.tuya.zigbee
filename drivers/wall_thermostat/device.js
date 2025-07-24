@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 const TuyaSpecificCluster = require("../../lib/TuyaSpecificCluster");
 const TuyaOnOffCluster = require("../../lib/TuyaOnOffCluster");
@@ -35,7 +35,7 @@ const THERMOSTAT_DATA_POINTS = {
  * - This code is using the Tuya cluster to receive and send Tuya data points back and forth between Homey and the Wall Thermostat.
  */
 class WallThermostatDevice extends TuyaSpecificClusterDevice {
-    async onNodeInit({zclNode}) {
+    async onInit({zclNode}) {
         this.printNode();
 /*     debug(true);
     this.enableDebug(); */
@@ -75,7 +75,7 @@ class WallThermostatDevice extends TuyaSpecificClusterDevice {
         zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processResponse(value));
         zclNode.endpoints[1].clusters.tuya.on("response", value => this.processResponse(value));
 
-        this.log("🚀 Wall Thermostat booted up!");
+        this.log("ðŸš€ Wall Thermostat booted up!");
     }
 
     async processResponse(data) {

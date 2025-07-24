@@ -1,4 +1,4 @@
-"use strict";
+﻿"use strict";
 
 const { Cluster } = require("zigbee-clusters");
 const TuyaSpecificCluster = require("../../lib/TuyaSpecificCluster");
@@ -61,7 +61,7 @@ const getDataValue = (dpValue) => {
 };
 
 class SmartAirDetectionBox extends TuyaSpecificClusterDevice {
-    async onNodeInit({ zclNode }) {
+    async onInit({ zclNode }) {
         this.printNode();
 
         zclNode.endpoints[1].clusters.tuya.on("response", (value) =>
@@ -113,3 +113,4 @@ class SmartAirDetectionBox extends TuyaSpecificClusterDevice {
 }
 
 module.exports = SmartAirDetectionBox;
+

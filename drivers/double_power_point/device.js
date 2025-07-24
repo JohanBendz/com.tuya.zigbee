@@ -1,14 +1,14 @@
-'use strict';
+﻿'use strict';
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { CLUSTER, Cluster, ZCLDataTypes } = require('zigbee-clusters');
 const TuyaOnOffCluster = require('../../lib/TuyaOnOffCluster');
 
 Cluster.addCluster(TuyaOnOffCluster);
 
-class doublepowerpoint extends ZigBeeDevice {
+class doublepowerpoint extends ZigbeeDevice {
 
-  async onNodeInit({ zclNode }) {
+  async onInit({ zclNode }) {
     const { subDeviceId } = this.getData();
 
     this.printNode();
@@ -67,7 +67,7 @@ class doublepowerpoint extends ZigBeeDevice {
 
   async registerCapabilities(zclNode, { endpoint }) {
     // Register onOff capability with the correct options
-    this.registerCapability('onoff', CLUSTER.ON_OFF, { endpoint }, {
+    this.registerCapability('onoff', 'genOnOff', { endpoint }, {
       getOpts: {
         getOnStart: true
       }
@@ -160,3 +160,4 @@ class doublepowerpoint extends ZigBeeDevice {
 }
 
 module.exports = doublepowerpoint;
+

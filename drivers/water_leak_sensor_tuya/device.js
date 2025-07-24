@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 const { Cluster } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
@@ -8,7 +8,7 @@ Cluster.addCluster(TuyaSpecificCluster);
 
 class TuyaWaterLeakSensor extends TuyaSpecificClusterDevice {
 
-    async onNodeInit({ zclNode }) {
+    async onInit({ zclNode }) {
         
         this.printNode();
 
@@ -66,4 +66,5 @@ class TuyaWaterLeakSensor extends TuyaSpecificClusterDevice {
 }
 
 module.exports = TuyaWaterLeakSensor;
+
 

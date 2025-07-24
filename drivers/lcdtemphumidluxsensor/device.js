@@ -1,12 +1,12 @@
-'use strict';
+﻿'use strict';
 
 const Homey = require('homey');
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { debug, CLUSTER } = require('zigbee-clusters');
 
-class lcdtemphumidluxsensor extends ZigBeeDevice {
+class lcdtemphumidluxsensor extends ZigbeeDevice {
 	
-	async onNodeInit({zclNode}) {
+	async onInit({zclNode}) {
 
 /*     debug(true);
     this.enableDebug(); */
@@ -17,7 +17,7 @@ class lcdtemphumidluxsensor extends ZigBeeDevice {
 			await this.configureAttributeReporting([
 				{
 					endpointId: 1,
-					cluster: CLUSTER.POWER_CONFIGURATION,
+					cluster: 'genPowerCfg',
 					attributeName: 'batteryPercentageRemaining',
           minInterval: 60, // Minimum interval (1 minute)
           maxInterval: 21600, // Maximum interval (6 hours)
@@ -39,7 +39,7 @@ class lcdtemphumidluxsensor extends ZigBeeDevice {
 		.on('attr.measuredValue', this.onIlluminanceMeasuredAttributeReport.bind(this));
 
 		// measure_battery // alarm_battery
-		zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
+		zclNode.endpoints[1].clusters['genPowerCfg'.NAME]
 		.on('attr.batteryPercentageRemaining', this.onBatteryPercentageRemainingAttributeReport.bind(this));
 
 	}

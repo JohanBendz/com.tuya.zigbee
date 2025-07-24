@@ -1,14 +1,14 @@
-'use strict';
+﻿'use strict';
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { CLUSTER, Cluster, ZCLDataTypes} = require('zigbee-clusters');
 const TuyaOnOffCluster = require('../../lib/TuyaOnOffCluster');
 
 Cluster.addCluster(TuyaOnOffCluster);
 
-class outdoor2socket_1 extends ZigBeeDevice {
+class outdoor2socket_1 extends ZigbeeDevice {
 
-  async onNodeInit({zclNode}) {
+  async onInit({zclNode}) {
 
     await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
     .catch(err => {
@@ -21,7 +21,7 @@ class outdoor2socket_1 extends ZigBeeDevice {
     this.log('Device data: ', subDeviceId);
 
     // onOff
-    this.registerCapability('onoff', CLUSTER.ON_OFF, {
+    this.registerCapability('onoff', 'genOnOff', {
       getOpts: {
         getOnStart: true,
         pollInterval: 60000
@@ -91,3 +91,4 @@ class outdoor2socket_1 extends ZigBeeDevice {
 }
 
 module.exports = outdoor2socket_1;
+

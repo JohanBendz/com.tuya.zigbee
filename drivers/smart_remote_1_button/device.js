@@ -1,14 +1,14 @@
-"use strict";
+﻿"use strict";
 
-const { ZigBeeDevice } = require("homey-zigbeedriver");
+const { ZigbeeDevice } = require("homey-meshdriver");
 const { CLUSTER } = require('zigbee-clusters');
 
-class smart_remote_1b extends ZigBeeDevice {
-  async onNodeInit({ zclNode }) {
+class smart_remote_1b extends ZigbeeDevice {
+  async onInit({ zclNode }) {
     this.printNode();
 
     // Bind the OnOff cluster for handling button events
-    await zclNode.endpoints[1].clusters[CLUSTER.ON_OFF].bind();
+    await zclNode.endpoints[1].clusters['genOnOff'].bind();
 
     // Handle the frame for button events
     zclNode.handleFrame = (endpointId, clusterId, frame, meta) => {
@@ -21,7 +21,7 @@ class smart_remote_1b extends ZigBeeDevice {
     await this.configureAttributeReporting([
       {
           endpointId: 1,
-          cluster: CLUSTER.POWER_CONFIGURATION,
+          cluster: 'genPowerCfg',
           attributeName: 'batteryPercentageRemaining',
           minInterval: 60, // Minimum interval (1 minute)
           maxInterval: 21600, // Maximum interval (6 hours)
@@ -29,7 +29,7 @@ class smart_remote_1b extends ZigBeeDevice {
       }
     ]);
 
-    zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION].on('report', (report) => {
+    zclNode.endpoints[1].clusters['genPowerCfg'].on('report', (report) => {
       if (report.batteryPercentageRemaining !== undefined) {
         const batteryPercentage = report.batteryPercentageRemaining / 2; // Convert to percentage
         this.log('Battery percentage received:', batteryPercentage);
@@ -67,3 +67,4 @@ class smart_remote_1b extends ZigBeeDevice {
 }
 
 module.exports = smart_remote_1b;
+
