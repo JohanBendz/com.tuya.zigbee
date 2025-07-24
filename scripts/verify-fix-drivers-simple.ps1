@@ -208,4 +208,3 @@ if ($driversFixed -gt 0) {
 
 Write-Host "`nVERIFY FIX DRIVERS SIMPLE TERMINÉ!" -ForegroundColor Green
 Write-Host "===================================" -ForegroundColor Green
-Write-Host "SDK Homey 3 - Cohérence vérifiée et corrigée" -ForegroundColor White 
