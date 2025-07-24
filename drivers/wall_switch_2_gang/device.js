@@ -1,17 +1,12 @@
-<<<<<<< HEAD
 ﻿'use strict';
-=======
-'use strict';
->>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
 
 const Homey = require('homey');
-const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { ZigbeeDevice } = require('homey-meshdriver');
 const { debug, CLUSTER } = require('zigbee-clusters');
 
-class wall_switch_2_gang extends ZigBeeDevice {
+class wall_switch_2_gang extends ZigbeeDevice {
 
-    async onNodeInit({zclNode}) {
-<<<<<<< HEAD
+    async onInit({zclNode}) {
     // Variables pour la gestion intelligente des clics
     this.clickState = {
       singleClick: false,
@@ -100,7 +95,7 @@ class wall_switch_2_gang extends ZigBeeDevice {
     };
 
     // Enregistrer la capacite de mesure de batterie
-    this.registerCapability('measure_battery', CLUSTER.POWER_CONFIGURATION, {
+    this.registerCapability('measure_battery', 'genPowerCfg', {
       get: 'batteryPercentageRemaining',
       report: 'batteryPercentageRemaining',
       reportParser: (value) => {
@@ -112,7 +107,7 @@ class wall_switch_2_gang extends ZigBeeDevice {
     });
 
     // Enregistrer la capacite d'alerte de batterie
-    this.registerCapability('alarm_battery', CLUSTER.POWER_CONFIGURATION, {
+    this.registerCapability('alarm_battery', 'genPowerCfg', {
       get: 'batteryAlarmState',
       report: 'batteryAlarmState',
       reportParser: (value) => {
@@ -170,15 +165,13 @@ class wall_switch_2_gang extends ZigBeeDevice {
       this.log(Erreur lors du dÃ©clenchement du flow :, error);
     }
   }
-=======
->>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
 
         this.printNode();
 
         const { subDeviceId } = this.getData();
         this.log("Device data: ", subDeviceId);
 
-        this.registerCapability('onoff', CLUSTER.ON_OFF, {
+        this.registerCapability('onoff', 'genOnOff', {
             endpoint: subDeviceId === 'secondSwitch' ? 2 : 1,
         });
 
@@ -215,8 +208,5 @@ class wall_switch_2_gang extends ZigBeeDevice {
 
 }
 
-<<<<<<< HEAD
 module.exports = wall_switch_2_gang;
-=======
-module.exports = wall_switch_2_gang;
->>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
+
