@@ -6,7 +6,13 @@ const { ZigbeeDevice } = require('homey-meshdriver');
 class history extends ZigbeeDevice {
   async onInit({zclNode}) {
     this.printNode();
-    // Ajoutez ici l'enregistrement des capacités si besoin
+    // Enregistrement automatique de la capacité onoff
+    this.registerCapability('onoff', 'genOnOff', {
+      getOpts: {
+        getOnStart: true,
+        pollInterval: 60000
+      }
+    });
   }
 }
 
