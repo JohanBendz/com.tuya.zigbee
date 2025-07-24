@@ -1,0 +1,24 @@
+{
+  "id": "multi_sensor",
+  "name": {
+    "en": "Multi Sensor"
+  },
+  "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": ["onoff"],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": ["_TZ3000_multi_sensor"],
+    "productId": ["TSxxxx"],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 6],
+        "bindings": [6]
+      }
+    }
+  }
+} 

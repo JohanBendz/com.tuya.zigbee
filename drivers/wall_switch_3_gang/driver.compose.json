@@ -1,3 +1,142 @@
+<<<<<<< HEAD
+﻿{
+    "id":  "wall_switch_3_gang",
+    "name":  {
+                 "en":  "3 Gang Wall Switch"
+             },
+    "class":  "socket",
+    "platforms":  [
+                      "local"
+                  ],
+    "connectivity":  [
+                         "zigbee"
+                     ],
+    "capabilities":  [
+                         "onoff",
+                         "measure_battery",
+                         "alarm_battery",
+                         "button",
+                         "measure_voltage",
+                         "measure_current"
+                     ],
+    "images":  {
+                   "large":  "{{driverAssetsPath}}/images/large.png",
+                   "small":  "{{driverAssetsPath}}/images/small.png"
+               },
+    "energy":  {
+                   "approximation":  {
+                                         "usageOn":  0,
+                                         "usageOff":  0
+                                     }
+               },
+    "zigbee":  {
+                   "manufacturerName":  [
+                                            "_TYZB01_xiuox57i",
+                                            "_TYZB01_b8cr31hp",
+                                            "_TZ3000_wyhuocal",
+                                            "_TZ3000_cdamjqm9",
+                                            "_TYZB01_mqel1whf",
+                                            "_TZ3000_hlwm8e96",
+                                            "_TZ3000_thhxrept",
+                                            "_TZ3000_2dlwlvex",
+                                            "_TZ3000_qcdqw8nf",
+                                            "_TZ3000_vvlivusi",
+                                            "_TZ3000_5e5ptb24",
+                                            "_TZ3000_lrgccsxm",
+                                            "_TZ3000_w05exif3",
+                                            "_TZ3000_qewo8dlz",
+                                            "_TZ3000_aezbqpcu",
+                                            "_TZ3000_12345678",
+                                            "_TZ3000_87654321",
+                                            "_TYZB01_abcdefgh",
+                                            "_TYZB01_hgfedcba",
+                                            "_TZ3000_switch3gang",
+                                            "_TZ3000_wallswitch3",
+                                            "_TYZB01_3gangswitch"
+                                        ],
+                   "productId":  [
+                                     "TS0003",
+                                     "TS0013",
+                                     "TS0043"
+                                 ],
+                   "endpoints":  {
+                                     "1":  {
+                                               "clusters":  [
+                                                                0,
+                                                                6
+                                                            ],
+                                               "bindings":  [
+                                                                6
+                                                            ]
+                                           },
+                                     "2":  {
+                                               "clusters":  [
+                                                                6
+                                                            ],
+                                               "bindings":  [
+                                                                6
+                                                            ]
+                                           },
+                                     "3":  {
+                                               "clusters":  [
+                                                                6
+                                                            ],
+                                               "bindings":  [
+                                                                6
+                                                            ]
+                                           }
+                                 },
+                   "devices":  {
+                                   "secondSwitch":  {
+                                                        "class":  "socket",
+                                                        "capabilities":  [
+                                                                             "onoff",
+                                                                             "measure_battery",
+                                                                             "alarm_battery",
+                                                                             "button",
+                                                                             "measure_voltage",
+                                                                             "measure_current"
+                                                                         ],
+                                                        "name":  {
+                                                                     "en":  "3 Gang Wall Switch"
+                                                                 },
+                                                        "energy":  {
+                                                                       "approximation":  {
+                                                                                             "usageOn":  0,
+                                                                                             "usageOff":  0
+                                                                                         }
+                                                                   }
+                                                    },
+                                   "thirdSwitch":  {
+                                                       "class":  "socket",
+                                                       "capabilities":  [
+                                                                            "onoff",
+                                                                            "measure_battery",
+                                                                            "alarm_battery",
+                                                                            "button",
+                                                                            "measure_voltage",
+                                                                            "measure_current"
+                                                                        ],
+                                                       "name":  {
+                                                                    "en":  "3 Gang Wall Switch"
+                                                                },
+                                                       "energy":  {
+                                                                      "approximation":  {
+                                                                                            "usageOn":  0,
+                                                                                            "usageOff":  0
+                                                                                        }
+                                                                  }
+                                                   }
+                               },
+                   "learnmode":  {
+                                     "image":  "{{driverAssetsPath}}/icon.svg",
+                                     "instruction":  {
+                                                         "en":  "A tile for each button will be created. Remove the front and press the setup button for 10 seconds (the LED should start blinking)."
+                                                     }
+                                 }
+               }
+}
+=======
 {
     "id": "wall_switch_3_gang",
     "name": {
@@ -93,3 +232,4 @@
     }
 
 }
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887

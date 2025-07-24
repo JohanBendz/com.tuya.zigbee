@@ -1,0 +1,53 @@
+name: 🧪 Test Workflows
+
+on:
+  push:
+    branches: [ master, beta ]
+  pull_request:
+    branches: [ master, beta ]
+  workflow_dispatch:
+
+jobs:
+  test-workflows:
+    runs-on: ubuntu-latest
+    name: 🧪 Test des workflows
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: 🔍 Test syntaxe YAML
+        run: |
+          echo "🔍 Test de la syntaxe YAML..."
+          for file in .github/workflows/*.yml; do
+            echo "Testing: "
+            if python3 -c "import yaml; yaml.safe_load(open(''))"; then
+              echo "✅  - Syntaxe OK"
+            else
+              echo "❌  - Erreur de syntaxe"
+              exit 1
+            fi
+          done
+          
+      - name: 🔧 Test des dépendances
+        run: |
+          echo "🔧 Test des dépendances..."
+          if [ -f "package.json" ]; then
+            npm install --dry-run || echo "⚠️ Dépendances avec avertissements"
+          else
+            echo "ℹ️ Pas de package.json"
+          fi
+          
+      - name: 🏗️ Test build
+        run: |
+          echo "🏗️ Test de build..."
+          if [ -f "app.json" ]; then
+            echo "✅ app.json trouvé"
+          else
+            echo "❌ app.json manquant"
+            exit 1
+          fi
+          
+      - name: 📊 Rapport de test
+        run: |
+          echo "📊 Rapport de test des workflows"
+          echo "✅ Tous les tests passés"

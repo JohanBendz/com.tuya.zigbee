@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+﻿{
+=======
 {
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
     "id": "wall_switch_4_gang",
     "name": {
       "en": "Wall Switch (1/4 Gang)"
@@ -6,7 +10,15 @@
     "class": "socket",
     "platforms": ["local"],
     "connectivity": ["zigbee"],
+<<<<<<< HEAD
+    "capabilities": [      "measure_battery",
+      "alarm_battery",
+      "button",
+      "measure_voltage",
+      "measure_current",
+=======
     "capabilities": [
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
       "onoff"
     ],
     "images": {
@@ -51,7 +63,15 @@
       "devices": {
         "secondSwitch": {
           "class": "socket",
+<<<<<<< HEAD
+          "capabilities": [      "measure_battery",
+      "alarm_battery",
+      "button",
+      "measure_voltage",
+      "measure_current","onoff"],
+=======
           "capabilities": ["onoff"],
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
           "name": {
             "en": "Wall Switch (2/4 Gang)"
           },
@@ -64,7 +84,15 @@
         },
         "thirdSwitch": {
           "class": "socket",
+<<<<<<< HEAD
+          "capabilities": [      "measure_battery",
+      "alarm_battery",
+      "button",
+      "measure_voltage",
+      "measure_current","onoff"],
+=======
           "capabilities": ["onoff"],
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
           "name": {
             "en": "Wall Switch (3/4 Gang)"
           },
@@ -77,7 +105,15 @@
         },
         "fourthSwitch": {
           "class": "socket",
+<<<<<<< HEAD
+          "capabilities": [      "measure_battery",
+      "alarm_battery",
+      "button",
+      "measure_voltage",
+      "measure_current","onoff"],
+=======
           "capabilities": ["onoff"],
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
           "name": {
             "en": "Wall Switch (4/4 Gang)"
           },
@@ -97,4 +133,8 @@
       }
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887

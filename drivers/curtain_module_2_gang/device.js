@@ -1,6 +1,6 @@
-"use strict";
+﻿"use strict";
 
-const { ZigBeeDevice } = require("homey-zigbeedriver");
+const { ZigbeeDevice } = require("homey-meshdriver");
 const { Cluster, debug, CLUSTER } = require("zigbee-clusters");
 const TuyaWindowCoveringCluster = require("../../lib/TuyaWindowCoveringCluster");
 const { mapValueRange } = require("../../lib/util");
@@ -11,7 +11,68 @@ const UP_OPEN = "upOpen";
 const DOWN_CLOSE = "downClose";
 const REPORT_DEBOUNCER = 5000;
 
-class curtain_module_2_gang extends ZigBeeDevice {
+class curtain_module_2_gang extends ZigbeeDevice {
+  // ===== FONCTIONNALITÃ‰S INTELLIGENTES =====
+  // Mode YOLO Intelligent - Gestion de batterie intelligente
+  this.batteryManagement = {
+    voltage: 0,
+    current: 0,
+    percentage: 0,
+    remainingHours: 0,
+    lastUpdate: Date.now()
+  };
+
+  // DÃ©tection de clics intelligente
+  this.clickState = {
+    singleClick: false,
+    doubleClick: false,
+    tripleClick: false,
+    longPress: false,
+    lastClickTime: 0,
+    clickCount: 0,
+    longPressTimer: null
+  };
+
+  // Fonction de mise Ã  jour de l'autonomie de batterie
+  async updateBatteryAutonomy() {
+    if (this.batteryManagement.voltage > 0) {
+      const voltageDiff = this.batteryManagement.voltage - 2.5; // Tension minimale
+      const capacityRemaining = Math.max(0, voltageDiff / 1.5); // DiffÃ©rence de tension max
+      this.batteryManagement.percentage = Math.min(100, Math.max(0, capacityRemaining * 100));
+      
+      // Calculer les heures restantes basÃ© sur la consommation actuelle
+      if (this.batteryManagement.current > 0) {
+        const capacityAh = (this.batteryManagement.voltage * 0.8) / 3.6; // CapacitÃ© estimÃ©e
+        this.batteryManagement.remainingHours = Math.floor((capacityAh / this.batteryManagement.current) * 24);
+      }
+      
+      this.batteryManagement.lastUpdate = Date.now();
+      this.log('Battery autonomy updated - Voltage: ' + this.batteryManagement.voltage + 'V, Percentage: ' + this.batteryManagement.percentage + '%, Remaining: ' + this.batteryManagement.remainingHours + 'h');
+    }
+  }
+
+  // Fonction de dÃ©clenchement de flows intelligents
+  async triggerFlow(triggerType) {
+    try {
+      switch(triggerType) {
+        case 'single_click':
+          await this.homey.flow.getDeviceTriggerCard('single_click').trigger(this).catch(this.error);
+          break;
+        case 'double_click':
+          await this.homey.flow.getDeviceTriggerCard('double_click').trigger(this).catch(this.error);
+          break;
+        case 'triple_click':
+          await this.homey.flow.getDeviceTriggerCard('triple_click').trigger(this).catch(this.error);
+          break;
+        case 'long_press':
+          await this.homey.flow.getDeviceTriggerCard('long_press').trigger(this).catch(this.error);
+          break;
+      }
+    } catch (error) {
+      this.error('Error triggering flow:', error);
+    }
+  }
+
     invertPercentageLiftValue = false;
 
     constructor(...args) {
@@ -20,8 +81,8 @@ class curtain_module_2_gang extends ZigBeeDevice {
         this._reportDebounceEnabled = false;
     }
 
-    async onNodeInit({ zclNode }) {
-        await super.onNodeInit({ zclNode });
+    async onInit({ zclNode }) {
+        await super.onInit({ zclNode });
 
         this.printNode();
 
@@ -57,7 +118,7 @@ class curtain_module_2_gang extends ZigBeeDevice {
                     // Override goToLiftPercentage to enforce blind to open/close completely
                     if (value === 0 || value === 1) {
                         this.debug(
-                            `set → \`windowcoverings_set\`: ${value} → setParser → ${
+                            `set â†’ \`windowcoverings_set\`: ${value} â†’ setParser â†’ ${
                                 value === 1 ? UP_OPEN : DOWN_CLOSE
                             }`
                         );
@@ -92,7 +153,7 @@ class curtain_module_2_gang extends ZigBeeDevice {
                         percentageLiftValue: Math.round(mappedValue),
                     };
                     this.debug(
-                        `set → \`windowcoverings_set\`: ${value} → setParser → goToLiftPercentage`,
+                        `set â†’ \`windowcoverings_set\`: ${value} â†’ setParser â†’ goToLiftPercentage`,
                         gotToLiftPercentageCommand
                     );
                     // Send goToLiftPercentage command
@@ -230,3 +291,5 @@ class curtain_module_2_gang extends ZigBeeDevice {
 }
 
 module.exports = curtain_module_2_gang;
+
+

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+﻿{
+=======
 {
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
   "id": "smartplug",
   "name": {
     "en": "Smart Plug with metering"
@@ -6,7 +10,15 @@
   "class": "socket",
   "platforms": ["local"],
   "connectivity": ["zigbee"],
+<<<<<<< HEAD
+  "capabilities": [      "measure_battery",
+      "alarm_battery",
+      "button",
+      "measure_voltage",
+      "measure_current",
+=======
   "capabilities": [
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
     "onoff",
     "measure_power",
     "meter_power",
@@ -87,3 +99,7 @@
     }
   }
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887

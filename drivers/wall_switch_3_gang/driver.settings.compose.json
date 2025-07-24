@@ -1,3 +1,93 @@
+<<<<<<< HEAD
+﻿{
+    "id": "wall_switch_3_gang",
+    "title": {
+        "en": "3 Gang Wall Switch Settings"
+    },
+    "children": [
+        {
+            "id": "indicator_mode",
+            "type": "dropdown",
+            "label": {
+                "en": "Indicator Mode"
+            },
+            "value": "0",
+            "values": [
+                {
+                    "id": "0",
+                    "label": {
+                        "en": "Off"
+                    }
+                },
+                {
+                    "id": "1",
+                    "label": {
+                        "en": "On"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "battery_settings",
+            "type": "group",
+            "label": {
+                "en": "Battery Settings"
+            },
+            "children": [
+                {
+                    "id": "battery_low_threshold",
+                    "type": "number",
+                    "label": {
+                        "en": "Battery Low Threshold (%)"
+                    },
+                    "value": 20,
+                    "min": 5,
+                    "max": 50
+                },
+                {
+                    "id": "battery_update_interval",
+                    "type": "number",
+                    "label": {
+                        "en": "Battery Update Interval (hours)"
+                    },
+                    "value": 1,
+                    "min": 0.5,
+                    "max": 24
+                }
+            ]
+        },
+        {
+            "id": "click_settings",
+            "type": "group",
+            "label": {
+                "en": "Click Settings"
+            },
+            "children": [
+                {
+                    "id": "long_press_duration",
+                    "type": "number",
+                    "label": {
+                        "en": "Long Press Duration (seconds)"
+                    },
+                    "value": 2,
+                    "min": 1,
+                    "max": 5
+                },
+                {
+                    "id": "double_click_timeout",
+                    "type": "number",
+                    "label": {
+                        "en": "Double Click Timeout (ms)"
+                    },
+                    "value": 300,
+                    "min": 100,
+                    "max": 1000
+                }
+            ]
+        }
+    ]
+}
+=======
 [
     {
       "id": "indicator_mode",
@@ -28,3 +118,4 @@
       ]
     }
 ]
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887

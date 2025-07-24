@@ -1,0 +1,165 @@
+name: 🤖 Intelligent Triage Bot
+
+on:
+  schedule:
+    - cron: '0 */1 * * *'  # Toutes les heures
+  workflow_dispatch:
+  issues:
+    types: [opened, reopened]
+  pull_request:
+    types: [opened, reopened]
+
+env:
+  BOT_NAME: "Tuya Zigbee Intelligent Bot"
+  MAX_ITEMS: 20
+  ENABLE_STATS: true
+
+jobs:
+  intelligent-triage:
+    runs-on: ubuntu-latest
+    name: 🤖 Triage intelligent
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v3
+
+      - name: 🤖 Traitement PRs
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            
+            console.log('🤖 Traitement des PRs...');
+            
+            const { data: prs } = await github.pulls.list({
+              owner, repo, state: 'open', per_page: 20
+            });
+            
+            for (const pr of prs) {
+              console.log(`📝 PR #${pr.number}: ${pr.title}`);
+              
+              // Commentaire intelligent
+              const comment = `🤖 **PR Analysée**\n\n` +
+                            `📊 **Détails:**\n` +
+                            `- Titre: ${pr.title}\n` +
+                            `- Auteur: @${pr.user.login}\n` +
+                            `- Fichiers: ${pr.changed_files}\n` +
+                            `- Ajouts: +${pr.additions}\n` +
+                            `- Suppressions: -${pr.deletions}\n\n` +
+                            `🔄 **Prochaines étapes:**\n` +
+                            `1. ✅ Vérification automatique\n` +
+                            `2. 🔍 Revue par l'équipe\n` +
+                            `3. 🚀 Merge si approuvé\n\n` +
+                            `*Mode YOLO Intelligent activé*`;
+              
+              await github.issues.createComment({
+                owner, repo, issue_number: pr.number, body: comment
+              });
+              
+              // Labels automatiques
+              const labels = [];
+              if (pr.title.toLowerCase().includes('fix')) labels.push('bug');
+              if (pr.title.toLowerCase().includes('feature')) labels.push('enhancement');
+              if (pr.title.toLowerCase().includes('doc')) labels.push('documentation');
+              if (pr.changed_files > 10) labels.push('large-change');
+              
+              if (labels.length > 0) {
+                await github.issues.addLabels({
+                  owner, repo, issue_number: pr.number, labels
+                });
+              }
+            }
+            
+            console.log(`✅ ${prs.length} PRs traitées`);
+
+      - name: 🤖 Traitement Issues
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            
+            console.log('🤖 Traitement des Issues...');
+            
+            const { data: issues } = await github.issues.listForRepo({
+              owner, repo, state: 'open', per_page: 20
+            });
+            
+            const pureIssues = issues.filter(issue => !issue.pull_request);
+            
+            for (const issue of pureIssues) {
+              console.log(`📝 Issue #${issue.number}: ${issue.title}`);
+              
+              // Commentaire intelligent
+              const comment = `🤖 **Issue Analysée**\n\n` +
+                            `📊 **Détails:**\n` +
+                            `- Titre: ${issue.title}\n` +
+                            `- Auteur: @${issue.user.login}\n` +
+                            `- Créée: ${new Date(issue.created_at).toLocaleDateString()}\n` +
+                            `- Labels: ${issue.labels.map(l => l.name).join(', ') || 'Aucun'}\n\n` +
+                            `🔄 **Prochaines étapes:**\n` +
+                            `1. ✅ Vérification automatique\n` +
+                            `2. 🔍 Analyse par l'équipe\n` +
+                            `3. 🚀 Résolution prioritaire\n\n` +
+                            `*Mode YOLO Intelligent activé*`;
+              
+              await github.issues.createComment({
+                owner, repo, issue_number: issue.number, body: comment
+              });
+              
+              // Labels automatiques
+              const labels = [];
+              if (issue.title.toLowerCase().includes('bug')) labels.push('bug');
+              if (issue.title.toLowerCase().includes('feature')) labels.push('enhancement');
+              if (issue.title.toLowerCase().includes('question')) labels.push('question');
+              if (issue.title.toLowerCase().includes('driver')) labels.push('driver');
+              if (issue.title.toLowerCase().includes('urgent')) labels.push('urgent');
+              
+              if (labels.length > 0) {
+                await github.issues.addLabels({
+                  owner, repo, issue_number: issue.number, labels
+                });
+              }
+            }
+            
+            console.log(`✅ ${pureIssues.length} Issues traitées`);
+
+  statistics:
+    runs-on: ubuntu-latest
+    name: 📊 Statistiques
+    if: env.ENABLE_STATS == 'true'
+    steps:
+      - name: 📊 Génération rapport
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            
+            const { data: prs } = await github.pulls.list({
+              owner, repo, state: 'open', per_page: 100
+            });
+            
+            const { data: issues } = await github.issues.listForRepo({
+              owner, repo, state: 'open', per_page: 100
+            });
+            
+            const pureIssues = issues.filter(issue => !issue.pull_request);
+            
+            const report = `📊 **RAPPORT TRIAGE INTELLIGENT**\n\n` +
+                          `🕐 **Timestamp:** ${new Date().toLocaleString()}\n` +
+                          `🤖 **Bot:** ${process.env.BOT_NAME}\n\n` +
+                          `📈 **Statistiques:**\n` +
+                          `- PRs ouvertes: ${prs.length}\n` +
+                          `- Issues ouvertes: ${pureIssues.length}\n` +
+                          `- Total éléments: ${prs.length + pureIssues.length}\n\n` +
+                          `✅ **Actions effectuées:**\n` +
+                          `- Commentaires automatiques ajoutés\n` +
+                          `- Labels automatiques appliqués\n` +
+                          `- Triage intelligent terminé\n\n` +
+                          `🚀 **Mode YOLO Intelligent activé**`;
+            
+            console.log(report); 

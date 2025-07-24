@@ -1,0 +1,205 @@
+# 🚀 CURSOR IGNORE - Tuya Zigbee Project
+
+# 📁 DOSSIERS EXCLUS
+node_modules/
+.git/
+.homeybuild/
+.homeycompose/
+.vscode/
+
+# 📄 FICHIERS EXCLUS
+*.log
+*.tmp
+*.temp
+*.bak
+*.old
+*.orig
+*.rej
+*.swp
+*.swo
+*~
+
+# 🗂️ FICHIERS DE CONFIGURATION
+.env
+*.key
+*.pem
+.eslintcache
+.stylelintcache
+.prettiercache
+
+# 📦 FICHIERS DE BUILD
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# 🧪 FICHIERS DE TEST
+coverage/
+.nyc_output/
+test-results/
+.jest/
+.cypress/
+
+# 📊 FICHIERS DE DONNÉES
+*.json.bak
+*.json.tmp
+data/cache/
+data/temp/
+
+# 🔄 FICHIERS DE BACKUP
+backup_*/
+restore_*/
+*.backup
+*.restore
+
+# 📋 FICHIERS DE DOCUMENTATION
+*.md.bak
+*.md.tmp
+docs/_build/
+docs/.doctrees/
+docs/.cache/
+
+# 🎨 FICHIERS D'ASSETS
+assets/temp/
+assets/cache/
+assets/*.tmp
+assets/*.bak
+
+# 📱 FICHIERS SYSTÈME
+.DS_Store
+Thumbs.db
+*.iml
+.idea/
+
+# 🏠 FICHIERS HOMEY
+.homeycompose/cache/
+.homeycompose/temp/
+.homeycompose/*.tmp
+.homeyplugins.json.bak
+
+# 🔍 FICHIERS D'ANALYSE
+.eslintcache
+.stylelintcache
+.prettiercache
+
+# 📊 FICHIERS DE LOGS
+logs/*.log
+!auto-update.log
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 🗄️ FICHIERS D'ARCHIVES
+archive/
+archives/
+*.tar.gz
+*.zip
+backup_*.tar.gz
+intelligent-backup_*.tar.gz
+
+# 🛠️ FICHIERS DE TOOLS
+tools/*.tmp
+tools/cache/
+tools/temp/
+
+# 📋 FICHIERS DE SCRIPTS
+scripts/*.tmp
+scripts/cache/
+scripts/temp/
+*.ps1.bak
+*.sh.bak
+
+# 🧹 FICHIERS OBSOLÈTES
+*.tmp
+*.temp
+*.cache
+*.bak
+*.old
+*.orig
+*.rej
+*.swp
+*.swo
+*~
+
+# 📦 FICHIERS DE DEPENDENCIES
+.npm/
+.yarn/
+.yarnrc
+package-lock.json.bak
+
+# 🗂️ DOSSIERS TEMPORAIRES
+.temp/
+.cache/
+.build/
+.dist/
+.tmp/
+.tmp_*/
+
+# 🧪 FICHIERS DE TESTS
+coverage/
+.nyc_output/
+test-results/
+.jest/
+.cypress/
+
+# 🔧 FICHIERS DE BUILD
+dist/
+build/
+out/
+.next/
+.nuxt/
+
+# 📱 FICHIERS MOBILE/IDE
+.vscode/settings.json
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# 🗄️ FICHIERS DE DATA
+data/*.json.bak
+data/*.json.tmp
+data/cache/
+data/temp/
+
+# 🛠️ FICHIERS DE TOOLS
+tools/*.tmp
+tools/cache/
+tools/temp/
+
+# 📚 FICHIERS DE DOCS
+docs/_build/
+docs/.doctrees/
+docs/.cache/
+
+# 🎨 FICHIERS D'ASSETS
+assets/temp/
+assets/cache/
+assets/*.tmp
+assets/*.bak
+
+# 🔄 FICHIERS DE BACKUP
+backup_*/
+restore_*/
+*.backup
+*.restore
+
+# 📋 FICHIERS DE SCRIPTS
+scripts/*.tmp
+scripts/cache/
+scripts/temp/
+*.ps1.bak
+*.sh.bak
+
+# 🏠 FICHIERS DE HOMEY
+.homeycompose/cache/
+.homeycompose/temp/
+.homeycompose/*.tmp
+.homeyplugins.json.bak
+
+# 🔍 FICHIERS D'ANALYSE
+.eslintcache
+.stylelintcache
+.prettiercache 

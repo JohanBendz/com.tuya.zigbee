@@ -1,12 +1,73 @@
-.env
-*.key
-*.pem
+# Node.js & npm
 node_modules/
-progress.json
-ai-benchmark/*.json
-tuya-backup-*.zip
-.homeybuild/
-# Garde tous les .log SAUF auto-update.log
-!auto-update.log
+package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Fichiers temporaires et artefacts de build
+.DS_Store
 *.log
-!auto-update.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# Fichiers compilés
+*.out
+*.o
+*.obj
+*.exe
+*.dll
+*.class
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.a
+*.lib
+*.bin
+*.map
+*.tsbuildinfo
+
+# Artefacts npm/npx
+.npm/
+.npx/
+
+# Dossiers de build
+build/
+dist/
+coverage/
+
+# Fichiers Homey générés
+.homeycompose/
+
+# Archives et backups
+*.zip
+*.tar.gz
+*.7z
+*.rar
+backup*
+
+# Fichiers de test
+*.test.js
+*.spec.js
+*.test.ts
+*.spec.ts
+
+# Fichiers d'environnement
+.env
+.env.*
+
+# Fichiers de configuration d'éditeur
+.vscode/
+.idea/
+*.sublime*
+
+# Fichiers système
+Thumbs.db
+Desktop.ini
+
+# Fichiers de rapport
+*.md.report

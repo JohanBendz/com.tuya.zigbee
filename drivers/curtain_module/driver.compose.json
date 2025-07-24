@@ -38,10 +38,20 @@
       "_TZ3210_dwytrmda",
       "_TZ3210_ol1uhvza",
       "_TZ3000_eg7awg6a",
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      "_TZ3000_eafaa66e"
+=======
+>>>>>>> origin/master
       "_TZ3000_eafaa66e",
       "_TZ3000_abc123",
       "_TYZB01_def456",
       "_TZ3000_ghi789"
+<<<<<<< HEAD
+=======
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
+>>>>>>> origin/master
     ],
     "productId": [
       "TS130F"
@@ -66,4 +76,12 @@
       }
     }
   }
+<<<<<<< HEAD
 }
+=======
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
+>>>>>>> origin/master

@@ -1,0 +1,29 @@
+{
+  "deviceName": "TS0001",
+  "style": {
+    "type": "device",
+    "shape": "square",
+    "style": "flat",
+    "color": "#667eea",
+    "icon": "fas fa-microchip"
+  },
+  "iconFiles": {
+    "64": {
+      "path": "C:\\Users\\HP\\Desktop\\tuya_repair\\repo\\assets\\icons\\TS0001-64.png",
+      "size": 64,
+      "exists": false
+    },
+    "128": {
+      "path": "C:\\Users\\HP\\Desktop\\tuya_repair\\repo\\assets\\icons\\TS0001-128.png",
+      "size": 128,
+      "exists": false
+    },
+    "256": {
+      "path": "C:\\Users\\HP\\Desktop\\tuya_repair\\repo\\assets\\icons\\TS0001-256.png",
+      "size": 256,
+      "exists": false
+    }
+  },
+  "created": "2025-07-23T17:54:03.965Z",
+  "generator": "icon-generator.js"
+}

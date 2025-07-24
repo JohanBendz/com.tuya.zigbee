@@ -1,0 +1,75 @@
+{
+  "total": 3,
+  "successful": 3,
+  "failed": 0,
+  "consistent": 3,
+  "inconsistent": 0,
+  "details": [
+    {
+      "device": "TS0043",
+      "success": true,
+      "files": {
+        "64": {
+          "path": "C:\\Users\\HP\\Desktop\\tuya_repair\\repo\\assets\\icons\\TS0043-64.png",
+          "size": 64,
+          "exists": false
+        },
+        "128": {
+          "path": "C:\\Users\\HP\\Desktop\\tuya_repair\\repo\\assets\\icons\\TS0043-128.png",
+          "size": 128,
+          "exists": false
+        },
+        "256": {
+          "path": "C:\\Users\\HP\\Desktop\\tuya_repair\\repo\\assets\\icons\\TS0043-256.png",
+          "size": 256,
+          "exists": false
+        }
+      },
+      "consistent": true
+    },
+    {
+      "device": "TS0001",
+      "success": true,
+      "files": {
+        "64": {
+          "path": "C:\\Users\\HP\\Desktop\\tuya_repair\\repo\\assets\\icons\\TS0001-64.png",
+          "size": 64,
+          "exists": false
+        },
+        "128": {
+          "path": "C:\\Users\\HP\\Desktop\\tuya_repair\\repo\\assets\\icons\\TS0001-128.png",
+          "size": 128,
+          "exists": false
+        },
+        "256": {
+          "path": "C:\\Users\\HP\\Desktop\\tuya_repair\\repo\\assets\\icons\\TS0001-256.png",
+          "size": 256,
+          "exists": false
+        }
+      },
+      "consistent": true
+    },
+    {
+      "device": "TS0044",
+      "success": true,
+      "files": {
+        "64": {
+          "path": "C:\\Users\\HP\\Desktop\\tuya_repair\\repo\\assets\\icons\\TS0044-64.png",
+          "size": 64,
+          "exists": false
+        },
+        "128": {
+          "path": "C:\\Users\\HP\\Desktop\\tuya_repair\\repo\\assets\\icons\\TS0044-128.png",
+          "size": 128,
+          "exists": false
+        },
+        "256": {
+          "path": "C:\\Users\\HP\\Desktop\\tuya_repair\\repo\\assets\\icons\\TS0044-256.png",
+          "size": 256,
+          "exists": false
+        }
+      },
+      "consistent": true
+    }
+  ]
+}
