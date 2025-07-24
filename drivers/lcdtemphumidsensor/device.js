@@ -1,67 +1,95 @@
+/**
+ * File: drivers/lcdtemphumidsensor/device.js
+ * Version: 6.2.0 - Simplified
+ * Description: LCD Temperature & Humidity Sensor driver for TS0201 _TZ3000_ywagc4rj
+ * Battery: CR2450, End device - no automatic reporting
+ */
+
 'use strict';
 
-const Homey = require('homey');
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { CLUSTER } = require('zigbee-clusters');
 
-class lcdtemphumidsensor extends ZigBeeDevice {
-	
-	async onNodeInit({zclNode}) {
+class LcdTempHumidSensor extends ZigBeeDevice {
 
-		this.printNode();
+  async onNodeInit({ zclNode }) {
+    this.printNode();
+    this.log('LCD Temperature & Humidity Sensor v6.2.0 - Simplified');
+    
+    // Setup listeners for sensor data
+    zclNode.endpoints[1].clusters[CLUSTER.TEMPERATURE_MEASUREMENT.NAME]
+      .on('attr.measuredValue', this._onTemperatureReport.bind(this));
+    
+    zclNode.endpoints[1].clusters[CLUSTER.RELATIVE_HUMIDITY_MEASUREMENT.NAME]
+      .on('attr.measuredValue', this._onHumidityReport.bind(this));
+    
+    // Battery listeners - try both percentage and voltage
+    const powerCluster = zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME];
+    powerCluster.on('attr.batteryPercentageRemaining', this._onBatteryPercentageReport.bind(this));
+    powerCluster.on('attr.batteryVoltage', this._onBatteryVoltageReport.bind(this));
+    
+    this.log('Device initialized successfully');
+  }
 
-/* 		if (this.isFirstInit()){
-			await this.configureAttributeReporting([
-				{
-					endpointId: 1,
-					cluster: CLUSTER.POWER_CONFIGURATION,
-					attributeName: 'batteryPercentageRemaining',
-                    minInterval: 60, // Minimum interval (1 minute)
-                    maxInterval: 21600, // Maximum interval (6 hours)
-                    minChange: 1, // Report changes greater than 1%
-				}
-			]);
-		} */
+  _onTemperatureReport(measuredValue) {
+    try {
+      const finalValue = Math.round((measuredValue / 100) * 10) / 10; // 1 decimal place
+      
+      this.log(`Temperature: ${finalValue}°C`);
+      this.setCapabilityValue('measure_temperature', finalValue).catch(this.error);
+    } catch (error) {
+      this.error('Temperature processing error:', error);
+    }
+  }
 
-		// measure_temperature
-		zclNode.endpoints[1].clusters[CLUSTER.TEMPERATURE_MEASUREMENT.NAME]
-		.on('attr.measuredValue', this.onTemperatureMeasuredAttributeReport.bind(this));
-  
-		// measure_humidity
-		zclNode.endpoints[1].clusters[CLUSTER.RELATIVE_HUMIDITY_MEASUREMENT.NAME]
-		.on('attr.measuredValue', this.onRelativeHumidityMeasuredAttributeReport.bind(this));
+  _onHumidityReport(measuredValue) {
+    try {
+      const baseValue = measuredValue / 10; // Convert from 0.1% units (NOT 0.01%)
+      const finalValue = Math.round(Math.max(0, Math.min(100, baseValue)) * 10) / 10; // 1 decimal, clamped
+      
+      this.log(`Humidity: ${finalValue}%`);
+      this.setCapabilityValue('measure_humidity', finalValue).catch(this.error);
+    } catch (error) {
+      this.error('Humidity processing error:', error);
+    }
+  }
 
-		// measure_battery // alarm_battery
-		zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
-		.on('attr.batteryPercentageRemaining', this.onBatteryPercentageRemainingAttributeReport.bind(this));
+  _onBatteryPercentageReport(batteryPercentageRemaining) {
+    try {
+      const batteryPercent = Math.max(0, Math.min(100, Math.round(batteryPercentageRemaining / 2)));
+      const isLow = batteryPercent < 20; // Fixed 20% threshold
+      
+      this.log(`Battery: ${batteryPercent}% (low: ${isLow})`);
+      this.setCapabilityValue('measure_battery', batteryPercent).catch(this.error);
+      this.setCapabilityValue('alarm_battery', isLow).catch(this.error);
+    } catch (error) {
+      this.error('Battery percentage processing error:', error);
+    }
+  }
 
-	}
+  _onBatteryVoltageReport(batteryVoltage) {
+    try {
+      // Convert voltage to percentage (CR2450: 3.0V nominal, 2.0V minimum)
+      const voltage = batteryVoltage / 10;
+      const batteryPercent = Math.max(0, Math.min(100, Math.round(((voltage - 2.0) / (3.0 - 2.0)) * 100)));
+      const isLow = batteryPercent < 20; // Fixed 20% threshold
+      
+      this.log(`Battery: ${batteryPercent}% (${voltage}V, low: ${isLow})`);
+      this.setCapabilityValue('measure_battery', batteryPercent).catch(this.error);
+      this.setCapabilityValue('alarm_battery', isLow).catch(this.error);
+    } catch (error) {
+      this.error('Battery voltage processing error:', error);
+    }
+  }
 
-	onTemperatureMeasuredAttributeReport(measuredValue) {
-		const temperatureOffset = this.getSetting('temperature_offset') || 0;
-		const parsedValue = this.getSetting('temperature_decimals') === '2' ? Math.round((measuredValue / 100) * 100) / 100 : Math.round((measuredValue / 100) * 10) / 10;
-		this.log('measure_temperature | temperatureMeasurement - measuredValue (temperature):', parsedValue, '+ temperature offset', temperatureOffset);
-		this.setCapabilityValue('measure_temperature', parsedValue + temperatureOffset).catch(this.error);
-	}
+  _roundToDecimals(value, decimals) {
+    const factor = Math.pow(10, decimals);
+    return Math.round(value * factor) / factor;
+  }
 
-	onRelativeHumidityMeasuredAttributeReport(measuredValue) {
-		const humidityOffset = this.getSetting('humidity_offset') || 0;
-		const parsedValue = this.getSetting('humidity_decimals') === '2' ? Math.round((measuredValue / 100) * 100) / 100 : Math.round((measuredValue / 100) * 10) / 10;
-		this.log('measure_humidity | relativeHumidity - measuredValue (humidity):', parsedValue, '+ humidity offset', humidityOffset);
-		this.setCapabilityValue('measure_humidity', parsedValue + humidityOffset).catch(this.error);
-	}
-
-	onBatteryPercentageRemainingAttributeReport(batteryPercentageRemaining) {
-		const batteryThreshold = this.getSetting('batteryThreshold') || 20;
-		this.log("measure_battery | powerConfiguration - batteryPercentageRemaining (%): ", batteryPercentageRemaining/2);
-		this.setCapabilityValue('measure_battery', batteryPercentageRemaining/2).catch(this.error);
-		this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining/2 < batteryThreshold) ? true : false).catch(this.error);
-	}
-
-	onDeleted(){
-	this.log("temphumidsensor removed")
-	}
-
+  onDeleted() {
+    this.log('Device removed');
+  }
 }
 
-module.exports = lcdtemphumidsensor;
+module.exports = LcdTempHumidSensor;
