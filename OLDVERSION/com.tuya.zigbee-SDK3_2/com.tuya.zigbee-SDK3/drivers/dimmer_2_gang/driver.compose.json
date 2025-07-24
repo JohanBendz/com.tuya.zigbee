@@ -1,0 +1,79 @@
+{
+    "id": "dimmer_2_gang",
+    "name": {
+      "en": "2 Gang Dimmer Module"
+    },
+    "class": "light",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "onoff",
+      "dim"
+    ],
+    "capabilitiesOptions": {
+      "dim": {
+          "opts": {
+          "duration": true
+          }
+      }
+    },
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "energy": {
+      "approximation": {
+        "usageOn": 0,
+        "usageOff": 0
+      }
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TYZB01_v8gtiaed",
+        "_TZ3000_92chsky7",
+        "_TZ3210_wdexaypg",
+        "_TZ3210_3mpwqzuu",
+        "_TZ3210_pagajpog",
+        "_TZ3210_4ubylghk"
+      ],
+      "productId": [
+        "TS110F",
+        "TS110E"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 1, 4, 5, 6, 8],
+          "bindings": [6, 8]
+        },
+        "2": {
+          "clusters": [6, 8],
+          "bindings": [6, 8]
+        }
+      },
+      "devices": {
+        "secondDimmer": {
+          "class": "light",
+          "capabilities": [
+            "onoff",
+            "dim"
+          ],
+          "name": {
+            "en": "2 Gang Dimmer Module"
+          },
+          "energy": {
+            "approximation": {
+              "usageOn": 0,
+              "usageOff": 0
+            }
+          }
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Two tiles will be created, one for each channel of the device. Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        }
+      }
+    }
+
+}

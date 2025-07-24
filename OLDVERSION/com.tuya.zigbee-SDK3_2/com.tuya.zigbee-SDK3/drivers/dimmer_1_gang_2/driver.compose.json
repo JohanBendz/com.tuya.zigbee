@@ -1,0 +1,51 @@
+{
+    "id": "dimmer_1_gang_2",
+    "name": {
+      "en": "1 Gang Dimmer Module"
+    },
+    "class": "light",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "onoff",
+      "dim"
+    ],
+    "capabilitiesOptions": {
+      "dim": {
+          "opts": {
+          "duration": true
+          }
+      }
+    },
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "energy": {
+      "approximation": {
+        "usageOn": 0,
+        "usageOff": 0
+      }
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TZ3210_ngqk6jia"
+      ],
+      "productId": [
+        "TS110E"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 1, 4, 5, 6, 8],
+          "bindings": [6, 8]
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        }
+      }
+    }
+
+}

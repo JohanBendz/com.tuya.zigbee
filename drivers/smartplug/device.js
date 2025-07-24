@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿'use strict';
+=======
+'use strict';
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { CLUSTER, Cluster, ZCLDataTypes} = require('zigbee-clusters');
@@ -9,6 +13,7 @@ Cluster.addCluster(TuyaOnOffCluster);
 class smartplug extends ZigBeeDevice {
 
   async onNodeInit({zclNode}) {
+<<<<<<< HEAD
     // Gestion de la batterie intelligente
     this.batteryManagement = {
       voltage: 0,
@@ -89,6 +94,8 @@ class smartplug extends ZigBeeDevice {
       this.log(Erreur lors du dÃ©clenchement du flow :, error);
     }
   }
+=======
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
 
     this.printNode();
 
@@ -806,4 +813,7 @@ module.exports = smartplug;
     }
   }
 } */
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887

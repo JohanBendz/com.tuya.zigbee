@@ -1,0 +1,75 @@
+{
+    "id": "curtain_motor",
+    "name": {
+      "en": "Curtain Motor",
+      "nl": "Gordijn Motor"
+    },
+    "class": "curtain",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "windowcoverings_set"
+    ],
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "energy": {
+      "approximation": {
+        "usageOn": 0,
+        "usageOff": 0
+      }
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TZE200_5zbp6j0u",
+        "_TZE200_bjzrowv2",
+        "_TZE200_nkoabg8w",
+        "_TZE200_xuzcvlku",
+        "_TZE200_4vobcgd3",
+        "_TZE200_nogaemzt",
+        "_TZE200_r0jdjrvi",
+        "_TZE200_pk0sfzvr",
+        "_TZE200_fdtjuw7u",
+        "_TZE200_zpzndjez",
+        "_TZE200_wmcdj3aq",
+        "_TZE200_cowvfni3",
+        "_TZE200_rddyvrci",
+        "_TZE200_nueqqe6k",
+        "_TZE200_xaabybja",
+        "_TZE200_rmymn92d",
+        "_TZE200_3i3exuay",
+        "_TZE200_nogaemzt",
+        "_TZE200_zah67ekd",
+        "_TZE200_cowvfni3",
+        "_TZE200_hsgrhjpf",
+        "_TZE200_68nvbio9",
+        "_TZE200_pw7mji0l",
+        "_TZE200_uj3f4wr5",
+        "_TZE204_1fuxihti",
+        "_TZE200_axgvo9jh",
+        "_TZE200_gaj531w3",
+        "_TZE200_yia0p3tr",
+        "_TZE200_nw1r9hp6",
+        "_TZE200_cf1sl3tj",
+        "_TZE200_9p5xmj5r"
+      ],
+      "productId": [
+        "TS0601"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 10, 4, 5, 258, 61184],
+          "bindings": [258, 61184]
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Press the reset button 3 times, then press and hold the reset button until the led lights up.",
+          "nl": "Druk 3 keer op de reset knop. Druk daarna nog een keer en houd de knop vast tot dat de led blijft branden."
+        }
+      }
+    }
+
+}

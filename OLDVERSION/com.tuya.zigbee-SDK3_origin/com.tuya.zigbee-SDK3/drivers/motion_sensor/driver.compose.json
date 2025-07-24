@@ -1,0 +1,41 @@
+{
+    "id": "motion_sensor",
+    "name": {
+      "en": "Motion Sensor"
+    },
+    "class": "sensor",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "alarm_motion",
+      "measure_battery"
+    ],
+    "energy": {
+      "batteries": ["CR2450"]
+    },
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "TUYATEC-bd5faf9p",
+        "TUYATEC-zw6hxafz"
+      ],
+      "productId": [
+        "RH3040"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 1, 1280],
+          "bindings": [1, 1280]
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Push the setup button on the side of the device for aprox 5 seconds until the LED blinks rapidly. If the pairing does not start, press the setup button again for 10-15 seconds until the led stops blinking and then try again."
+        }
+      }
+    }
+  }

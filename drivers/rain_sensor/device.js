@@ -1,4 +1,5 @@
 'use strict';
+<<<<<<< HEAD
 
 const { debug, CLUSTER, Cluster } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
@@ -98,3 +99,8 @@ class RainSensor extends TuyaSpecificClusterDevice {
 }
 
 module.exports = RainSensor;
+=======
+const { ZigBeeDevice } = require('homey-zigbeedriver');
+class TS0207 extends ZigBeeDevice {}
+module.exports = TS0207;
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887

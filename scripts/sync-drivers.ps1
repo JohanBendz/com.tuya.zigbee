@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿# SYNC DRIVERS - Tuya Zigbee Project
 # Script de synchronisation des drivers
 
@@ -27,3 +28,13 @@ Get-ChildItem -Path "drivers" -Directory | ForEach-Object {
 }
 
 Write-Host "SYNCHRONISATION TERMINÉE" -ForegroundColor Green
+=======
+﻿param(
+  [string]\ = \"templates\driver.compose.json\"
+)
+Get-ChildItem drivers -Directory | ForEach-Object {
+  if (-not (Test-Path \"$_\driver.compose.json\")) {
+    Copy-Item \ \"$_\driver.compose.json\"
+  }
+}
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887

@@ -1,0 +1,60 @@
+{
+    "id": "switch_1_gang",
+    "name": {
+      "en": "1 Gang Switch Module"
+    },
+    "class": "socket",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "onoff"
+    ],
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "energy": {
+      "approximation": {
+        "usageOn": 0,
+        "usageOff": 0
+      }
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TYZB01_ncutbjdi",
+        "_TYZB01_aneiicmq",
+        "_TZ3000_zmy1waw6",
+        "_TZ3000_pmvbt5hh",
+        "_TZ3000_sjpl9eg3",
+        "_TZ3000_m9af2l6g",
+        "_TZ3000_ji4araar",
+        "_TZ3000_qmi1cfuq",
+        "_TZ3000_npzfdcof",
+        "_TZ3000_tqlv4ug4",
+        "_TZ3000_rmjr4ufz",
+        "_TZ3000_mx3vgyea",
+        "_TZ3000_46t1rvdu",
+        "_TZ3000_majwnphg",
+        "_TZ3000_6axxqqi2"
+      ],
+      "productId": [
+        "TS0003",
+        "TS011F",
+        "TS0011",
+        "TS000F",
+        "TS0001"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 4, 5, 6],
+          "bindings": [6]
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+        }
+      }
+    }
+}

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿{
+=======
+{
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
     "id": "wall_switch_2_gang",
     "name": {
       "en": "2 Gang Wall Switch"
@@ -6,11 +10,15 @@
     "class": "socket",
     "platforms": ["local"],
     "connectivity": ["zigbee"],
+<<<<<<< HEAD
     "capabilities": [      "measure_battery",
       "alarm_battery",
       "button",
       "measure_voltage",
       "measure_current",
+=======
+    "capabilities": [
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
       "onoff"
     ],
     "images": {
@@ -66,11 +74,15 @@
       "devices": {
         "secondSwitch": {
           "class": "socket",
+<<<<<<< HEAD
           "capabilities": [      "measure_battery",
       "alarm_battery",
       "button",
       "measure_voltage",
       "measure_current","onoff"],
+=======
+          "capabilities": ["onoff"],
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
           "name": {
             "en": "2 Gang Wall Switch"
           },
@@ -90,4 +102,8 @@
       }
     }
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887

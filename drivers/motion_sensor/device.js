@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿'use strict';
+=======
+'use strict';
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
 
 const { ZigBeeDevice, Util } = require('homey-zigbeedriver');
 const { CLUSTER } = require('zigbee-clusters');
@@ -302,4 +306,7 @@ module.exports = motion_sensor;
       }
     }
   } */
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887

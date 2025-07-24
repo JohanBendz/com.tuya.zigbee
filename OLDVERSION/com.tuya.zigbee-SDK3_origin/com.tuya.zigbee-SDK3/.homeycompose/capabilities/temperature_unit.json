@@ -1,0 +1,27 @@
+{
+    "type": "enum",
+    "title": {
+      "en": "Temperature Unit",
+      "nl": "Temperatuureenheid"
+    },
+    "values": [
+      {
+        "id": "C",
+        "title": {
+          "en": "Celsius",
+          "nl": "Celsius"
+        }
+      },
+      {
+        "id": "F",
+        "title": {
+          "en": "Fahrenheit",
+          "nl": "Fahrenheit"
+        }
+      }
+    ],
+    "getable": true,
+    "setable": true,
+    "capabilitiesOptions": {}
+  }
+  

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 
 # will automaticall assign repository owner as reviewer:
@@ -5,3 +6,12 @@
 
 # not valid as habbo656 does not have write access to this repository:
 # /drivers/thermostatic_radiator_valve @habbo656
+=======
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# will automaticall assign repository owner as reviewer:
+* @JohanBendz
+
+# not valid as habbo656 does not have write access to this repository:
+# /drivers/thermostatic_radiator_valve @habbo656
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887

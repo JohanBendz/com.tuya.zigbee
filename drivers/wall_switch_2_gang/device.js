@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿'use strict';
+=======
+'use strict';
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
 
 const Homey = require('homey');
 const { ZigBeeDevice } = require('homey-zigbeedriver');
@@ -7,6 +11,7 @@ const { debug, CLUSTER } = require('zigbee-clusters');
 class wall_switch_2_gang extends ZigBeeDevice {
 
     async onNodeInit({zclNode}) {
+<<<<<<< HEAD
     // Variables pour la gestion intelligente des clics
     this.clickState = {
       singleClick: false,
@@ -165,6 +170,8 @@ class wall_switch_2_gang extends ZigBeeDevice {
       this.log(Erreur lors du dÃ©clenchement du flow :, error);
     }
   }
+=======
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
 
         this.printNode();
 
@@ -208,4 +215,8 @@ class wall_switch_2_gang extends ZigBeeDevice {
 
 }
 
+<<<<<<< HEAD
 module.exports = wall_switch_2_gang;
+=======
+module.exports = wall_switch_2_gang;
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887

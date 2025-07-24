@@ -1,0 +1,30 @@
+{
+  "triggers": [
+    {
+      "id": "smart_remote_1_button_2",
+      "title": {"en": "Button Action"},
+      "titleFormatted": {"en": "Button had [[action]]"},
+      "args": [
+        {
+          "name": "action",
+          "type": "dropdown",
+          "title": {"en": "Button Action"},
+          "values": [
+            {
+              "id": "oneClick",
+              "label": {
+                "en": "1 Click"
+              }
+            },
+            {
+              "id": "twoClicks",
+              "label": {
+                "en": "2 Clicks"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

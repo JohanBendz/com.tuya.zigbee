@@ -1,0 +1,100 @@
+{
+    "id": "wall_switch_4_gang",
+    "name": {
+      "en": "Wall Switch (1/4 Gang)"
+    },
+    "class": "socket",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "onoff"
+    ],
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "energy": {
+      "approximation": {
+        "usageOn": 0,
+        "usageOff": 0
+      }
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TZ3000_r0pmi2p3",
+        "_TZ3000_dku2cfsc",
+        "_TZ3000_fjt5218m",
+        "_TYZB01_bagt1e4o"
+      ],
+      "productId": [
+        "TS0014",
+        "TS0044"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 6],
+          "bindings": [6]
+        },
+        "2": {
+          "clusters": [6],
+          "bindings": [6]
+        },
+        "3": {
+          "clusters": [6],
+          "bindings": [6]
+        },
+        "4": {
+          "clusters": [6],
+          "bindings": [6]
+        }
+      },
+      "devices": {
+        "secondSwitch": {
+          "class": "socket",
+          "capabilities": ["onoff"],
+          "name": {
+            "en": "Wall Switch (2/4 Gang)"
+          },
+          "energy": {
+            "approximation": {
+              "usageOn": 0,
+              "usageOff": 0
+            }
+          }
+        },
+        "thirdSwitch": {
+          "class": "socket",
+          "capabilities": ["onoff"],
+          "name": {
+            "en": "Wall Switch (3/4 Gang)"
+          },
+          "energy": {
+            "approximation": {
+              "usageOn": 0,
+              "usageOff": 0
+            }
+          }
+        },
+        "fourthSwitch": {
+          "class": "socket",
+          "capabilities": ["onoff"],
+          "name": {
+            "en": "Wall Switch (4/4 Gang)"
+          },
+          "energy": {
+            "approximation": {
+              "usageOn": 0,
+              "usageOff": 0
+            }
+          }
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "A tile for each button will be created. Press the first button (or the setup button if one exists) for 10 seconds (the LED should start blinking)."
+        }
+      }
+    }
+
+}

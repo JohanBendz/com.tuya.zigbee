@@ -1,0 +1,54 @@
+{
+  "triggers": [
+    {
+      "id": "wall_remote_3_gang_buttons",
+      "title": {"en": "Button Action"},
+      "titleFormatted": {"en": "The [[action]]"},
+      "args": [
+        {
+          "name": "action",
+          "type": "dropdown",
+          "title": {"en": "Button Action"},
+          "values": [
+            {
+              "id": "left-oneClick",
+              "label": {
+                "en": "Left Button: 1 Click"
+              }
+            },
+            {
+              "id": "left-twoClicks",
+              "label": {
+                "en": "Left Button: 2 Clicks"
+              }
+            },
+            {
+              "id": "right-oneClick",
+              "label": {
+                "en": "Right Button: 1 Click"
+              }
+            },
+            {
+              "id": "right-twoClicks",
+              "label": {
+                "en": "Right Button: 2 Clicks"
+              }
+            },
+            {
+              "id": "center-oneClick",
+              "label": {
+                "en": "Center Button: 1 Click"
+              }
+            },
+            {
+              "id": "center-twoClicks",
+              "label": {
+                "en": "Center Button: 2 Clicks"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

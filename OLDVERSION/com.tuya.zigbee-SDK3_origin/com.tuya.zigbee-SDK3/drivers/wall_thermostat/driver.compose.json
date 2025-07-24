@@ -1,0 +1,55 @@
+{
+  "name": {
+    "en": "Wall Thermostat"
+  },
+  "class": "thermostat",
+  "capabilities": [
+    "onoff",
+    "thermostat_programming",
+    "measure_temperature",
+    "target_temperature",
+    "child_lock"
+  ],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.jpg",
+    "small": "{{driverAssetsPath}}/images/small.jpg"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZE200_aoclfnxz",
+      "_TZE204_aoclfnxz",
+      "_TZE200_2ekuz3dz"
+    ],
+    "productId": [
+      "TS0601"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          513,
+          1026,
+          61184
+        ],
+        "bindings": [
+          25,
+          10,
+          61184
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "/drivers/my_driver/assets/icon.svg",
+      "instruction": {
+        "en": "Press the arrow down button for 8s when the thermostat is off."
+      }
+    }
+  }
+}

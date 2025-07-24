@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use strict";
 
 const { ZigBeeDevice } = require("homey-zigbeedriver");
@@ -208,3 +209,9 @@ class curtain_module extends ZigBeeDevice {
 }
 
 module.exports = curtain_module;
+=======
+'use strict';
+const { ZigBeeDevice } = require('homey-zigbeedriver');
+class TS130F extends ZigBeeDevice {}
+module.exports = TS130F;
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887

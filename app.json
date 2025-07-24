@@ -1,67 +1,34 @@
-﻿{
-  "id": "com.tuya.zigbee",
-  "version": "0.1.9",
-  "sdk": 3,
-  "name": {
-    "en": "Tuya Zigbee",
-    "fr": "Tuya Zigbee",
-    "de": "Tuya Zigbee",
-    "es": "Tuya Zigbee",
-    "it": "Tuya Zigbee",
-    "nl": "Tuya Zigbee"
-  },
-  "description": {
-    "en": "Adds support for Tuya Zigbee devices with intelligent automation",
-    "fr": "Ajoute le support pour les appareils Tuya Zigbee avec automatisation intelligente",
-    "de": "Fügt Unterstützung für Tuya Zigbee-Geräte mit intelligenter Automatisierung hinzu",
-    "es": "Añade soporte para dispositivos Tuya Zigbee con automatización inteligente",
-    "it": "Aggiunge il supporto per dispositivi Tuya Zigbee con automazione intelligente",
-    "nl": "Voegt ondersteuning toe voor Tuya Zigbee-apparaten met intelligente automatisering"
-  },
-  "category": [
-    "lights",
-    "sensors",
-    "socket",
-    "switches",
-    "climate"
-  ],
-  "permissions": [
-    "zigbee",
-    "homey:manager:api"
-  ],
-  "drivers": [],
-  "images": {
-    "small": "assets/icon.svg",
-    "large": "assets/icon.svg"
-  },
-  "author": {
-    "name": "YOLO Team",
-    "email": "yolo@tuya-zigbee.com"
-  },
-  "homepage": "https://github.com/dlnraja/com.tuya.zigbee",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dlnraja/com.tuya.zigbee.git"
-  },
-  "bugs": {
-    "url": "https://github.com/dlnraja/com.tuya.zigbee/issues"
-  },
-  "license": "MIT",
-  "keywords": [
-    "tuya",
-    "zigbee",
-    "homey",
-    "automation",
-    "intelligent",
-    "yolo"
-  ],
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "dependencies": {
-    "homey": "^3.0.0",
-    "zigbee-clusters": "^1.0.0"
-  }
+﻿# Tuya Zigbee – Homey App
+
+## Changelog
+| 2025-07-21 | auto | auto | Full restoration |
+
+## Supported Devices
+| Brand | Model | Zigbee ID | Product Link |
+|-------|-------|-----------|--------------|
+| Lidl  | RGB E27 | \_TZ3000_dbou1ap4\ | https://www.lidl.de |
+| MOES  | 1-Gang Switch | \_TYZB01_qeqvmvti\ | https://moes.com |
+| GiEX  | Soil Sensor | \_TZE200_myd45weu\ | https://giex.com |
+
+## Quick Start
+\\\powershell
+git clone https://github.com/dlnraja/com.tuya.zigbee.git
+cd com.tuya.zigbee
+homey app install
+\\\
+"@ | Set-Content README.md -Encoding UTF8
+
+# app.json
+@"
+{
+  \"id\": \"com.tuya.zigbee\",
+  \"version\": \"0.1.9\",
+  \"sdk\": 3,
+  \"name\": { \"en\": \"Tuya Zigbee\" },
+  \"description\": { \"en\": \"Adds support for Tuya Zigbee devices\" },
+  \"category\": [\"lights\",\"sensors\",\"socket\"],
+  \"permissions\": [\"zigbee\"],
+  \"drivers\": []
 }
 
 

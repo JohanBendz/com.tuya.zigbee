@@ -1,0 +1,34 @@
+{
+  "id": "tunable_spot_GU10",
+  "name": {
+    "en": "Tunable Spot GU10"
+  },
+  "$extends": ["light_white_ambiance"],
+  "energy": {
+    "approximation": {
+      "usageOn": 5,
+      "usageOff": 1
+    }
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_el5kt5im"
+    ],
+    "productId": [
+      "TS0502A"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 3, 4, 5, 6, 8, 768],
+        "bindings": [6, 8, 768]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Power on to enter pairing mode."
+      }
+    }
+  }
+
+}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿name: 🚀 Build & Deploy - Enhanced
 
 on:
@@ -184,3 +185,17 @@ jobs:
           echo "✅ Build validé"
           echo "✅ Déploiement terminé"
           echo "🚀 Projet opérationnel!"
+=======
+﻿name: Build & Test
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 18 }
+      - run: npm ci
+      - run: npm run lint --if-present
+      - run: npm test --if-present
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887

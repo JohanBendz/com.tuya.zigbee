@@ -1,0 +1,90 @@
+{
+  "id": "doorwindowsensor",
+  "name": {
+    "en": "Door & Window Sensor"
+  },
+  "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "alarm_contact",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "CR2032"
+    ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "TUYATEC-g3gl6cgy",
+      "TUYATEC-Bfq2i2Sy",
+      "TUYATEC-abkehqus",
+      "TUYATEC-sb6t7ett",
+      "TUYATEC-rkqiqvcs",
+      "TUYATEC-crr8qb0p",
+      "_TZ3000_ebar6ljy",
+      "TUYATEC-kbqf60nt",
+      "TUYATEC-r9hgssol",
+      "TUYATEC-trhrga6p",
+      "TUYATEC-ip9ganvw",
+      "_TYZB01_xph99wvr",
+      "_TZ3000_2mbfxlzr",
+      "_TZ3000_402jjyro",
+      "_TZ3000_6jeesvrt",
+      "_TZ3000_26fmupbb",
+      "_TZ3000_bmg14ax2",
+      "_TZ3000_oxslv1c9",
+      "_TZ3000_bzxlofth",
+      "_TZ3000_bzxloft",
+      "_TZ3000_n2egfsli",
+      "_TZ3000_7d8yme6f",
+      "_TZ3000_rgchmad8",
+      "_TZ3000_au1rjicn",
+      "_TZ3000_4ugnzsli",
+      "TUYATEC-7qunn4gq",
+      "_TZ3000_decxrtwa",
+      "_TZ3000_yxqnffam",
+      "_TZ3000_9eeavbk5",
+      "_TZ3000_yxqnffam",
+      "_TZ3000_rcuyhwe3",
+      "_TZ3000_a33rw7ou",
+      "_TZ3000_6zvw8ham",
+      "_TZ3000_yfekcy3n",
+      "_TZ3000_cea5xugq",
+      "_TZ3000_1bwpjvlz",
+      "_TZ3000_au2o5e6q",
+      "_TZ3000_v7chgqso",
+      "_TZ3000_qrldbmfn",
+      "_TZ3000_gntwytxo"
+    ],
+    "productId": [
+      "RH3001",
+      "TS0203"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          3,
+          1280
+        ],
+        "bindings": [
+          1,
+          1280
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/learn.svg",
+      "instruction": {
+        "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
+      }
+    }
+  }
+}

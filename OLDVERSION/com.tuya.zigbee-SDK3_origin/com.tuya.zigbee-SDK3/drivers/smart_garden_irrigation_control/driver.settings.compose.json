@@ -1,0 +1,20 @@
+[
+    {
+      "id": "batteryThreshold",
+      "type": "number",
+      "label": {
+        "en": "Battery Low Alarm Voltage Threshold (%)",
+        "it": "Soglia dell'allarme di batteria scarica "
+      },
+      "hint": {
+        "en": "This setting determines the threshold before a battery alarm is given.",
+        "it": "Quest'impostazione determina la soglia alla quale l'allarme di batteria scarica viene dato"
+      },
+      "value": 20,
+      "attr": {
+        "step": 1,
+        "min": 1,
+        "max": 99
+      }
+    }
+  ]

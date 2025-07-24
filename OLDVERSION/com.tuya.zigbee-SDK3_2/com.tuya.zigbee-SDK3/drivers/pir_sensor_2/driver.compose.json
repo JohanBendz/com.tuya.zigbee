@@ -1,0 +1,62 @@
+{
+  "id": "pir_sensor_2",
+  "name": {
+    "en": "Smart PIR Motion Sensor"
+  },
+  "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "alarm_motion",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "CR123A"
+    ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TYZB01_jytabjkb",
+      "_TYZB01_dl7cejts",
+      "_TZ3000_mmtwjmaq",
+      "_TZ3000_kmh5qpmb",
+      "_TZ3000_msl6wxk9",
+      "_TZ3000_mcxw5ehu",
+      "_TZ3000_otvn3lne",
+      "_TZ3000_6ygjfyll",
+      "_TZ3040_6ygjfyll",
+      "_TZ3040_bb6xaihh",
+      "_TZ3000_nss8amz9",
+      "_TZ3000_bsvqrxru",
+      "_TYZB01_dr6sduka"
+    ],
+    "productId": [
+      "TS0202"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          3,
+          1280
+        ],
+        "bindings": [
+          1,
+          1280
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/learn.svg",
+      "instruction": {
+        "en": "Press the reset button for aprox 5 seconds until the LED blinks."
+      }
+    }
+  }
+}

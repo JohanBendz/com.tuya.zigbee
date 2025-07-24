@@ -1,177 +1,50 @@
-name: 🚀 CI & Manifest Sync - Enhanced
+name: CI & Manifest Sync
 
 on:
   push:
     branches:
       - master
       - beta
-      - develop
   pull_request:
     branches:
       - master
       - beta
   workflow_dispatch:
-  schedule:
-    - cron: '0 */6 * * *'  # Toutes les 6 heures
-
-env:
-  NODE_VERSION: '18'
-  HOMEY_SDK_VERSION: '3'
 
 jobs:
-  # 🔍 ANALYSE INTELLIGENTE
-  intelligent-analysis:
+  build:
     runs-on: ubuntu-latest
-    name: 🔍 Analyse intelligente du projet
-    outputs:
-      drivers-count: ${{ steps.count-drivers.outputs.count }}
-      sdk-compatibility: ${{ steps.check-sdk.outputs.compatible }}
-      security-score: ${{ steps.security-check.outputs.score }}
     steps:
-      - name: 📥 Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: 🔍 Analyse des drivers
-        id: count-drivers
-        run: |
-          DRIVERS_COUNT=$(find drivers/ -name "device.js" 2>/dev/null | wc -l || echo "0")
-          echo "count=$DRIVERS_COUNT" >> $GITHUB_OUTPUT
-          echo "📊 Nombre de drivers détectés: $DRIVERS_COUNT"
-
-      - name: 🔧 Vérification SDK Homey
-        id: check-sdk
-        run: |
-          if [ -f "app.json" ] && grep -q '"sdk": 3' app.json; then
-            echo "compatible=true" >> $GITHUB_OUTPUT
-            echo "✅ SDK Homey 3 détecté"
-          else
-            echo "compatible=false" >> $GITHUB_OUTPUT
-            echo "⚠️ SDK non compatible"
-          fi
-
-      - name: 🛡️ Analyse de sécurité
-        id: security-check
-        run: |
-          SECURITY_SCORE=0
-          if [ -f ".gitignore" ] && grep -q "archive" .gitignore; then
-            SECURITY_SCORE=$((SECURITY_SCORE + 30))
-            echo "✅ Archives protégées"
-          fi
-          if [ -f ".eslintrc.js" ]; then
-            SECURITY_SCORE=$((SECURITY_SCORE + 40))
-            echo "✅ ESLint configuré"
-          fi
-          if [ -f "package.json" ]; then
-            SECURITY_SCORE=$((SECURITY_SCORE + 30))
-            echo "✅ Dépendances gérées"
-          fi
-          echo "score=$SECURITY_SCORE" >> $GITHUB_OUTPUT
-          echo "🛡️ Score de sécurité: $SECURITY_SCORE/100"
-
-  # 🏗️ BUILD INTELLIGENT
-  intelligent-build:
-    runs-on: ubuntu-latest
-    needs: intelligent-analysis
-    name: 🏗️ Build intelligent et validation
-    steps:
-      - name: 📥 Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🔧 Setup Node.js ${{ env.NODE_VERSION }}
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
+          node-version: 18
 
-      - name: 📦 Installation intelligente des dépendances
+      - name: Install dependencies
+        run: npm install
+
+      - name: Update manifest
+        run: npm run update-manifest
+
+      - name: Validate Homey app (if token present)
         run: |
-          echo "🔍 Analyse des dépendances..."
-          if [ -f "package.json" ]; then
-            npm install --audit || echo "⚠️ Installation avec avertissements"
-            npm audit fix --audit-level=moderate || echo "⚠️ Audit terminé avec avertissements"
+          if [ -n "${{ secrets.HOMEY_PAT }}" ]; then
+            npx homey app validate
           else
-            echo "ℹ️ Pas de package.json détecté"
+            echo "No Homey token, skipping validation."
           fi
-          echo "✅ Dépendances installées et sécurisées"
 
-      - name: 🧹 Lint intelligent
-        run: |
-          echo "🔍 Vérification du code..."
-          if [ -f "package.json" ] && grep -q "lint" package.json; then
-            npm run lint || echo "⚠️ Lint terminé avec des avertissements"
-          else
-            echo "ℹ️ Pas de script lint configuré"
-          fi
-          echo "✅ Code validé"
-
-      - name: 🔍 Validation des fichiers critiques
-        run: |
-          echo "🔍 Validation des fichiers critiques..."
-          CRITICAL_FILES=("app.json" "app.js" "package.json")
-          for file in "${CRITICAL_FILES[@]}"; do
-            if [ -f "$file" ]; then
-              echo "✅ $file présent"
-            else
-              echo "⚠️ $file manquant"
-            fi
-          done
-
-      - name: 📊 Génération du rapport
-        run: |
-          echo "📊 RAPPORT DE BUILD"
-          echo "=================="
-          echo "Drivers détectés: ${{ needs.intelligent-analysis.outputs.drivers-count }}"
-          echo "SDK compatible: ${{ needs.intelligent-analysis.outputs.sdk-compatibility }}"
-          echo "Score sécurité: ${{ needs.intelligent-analysis.outputs.security-score }}/100"
-          echo "Build terminé avec succès!"
-
-  # 🚀 DEPLOY INTELLIGENT
-  intelligent-deploy:
+  lint-test:
     runs-on: ubuntu-latest
-    needs: [intelligent-analysis, intelligent-build]
-    name: 🚀 Deploy intelligent
-    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/beta'
+    needs: build
     steps:
-      - name: 📥 Checkout repository
-        uses: actions/checkout@v4
-
-      - name: 🔧 Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-
-      - name: 📦 Installation des dépendances
-        run: |
-          if [ -f "package.json" ]; then
-            npm install
-          fi
-
-      - name: 🏗️ Build du projet
-        run: |
-          echo "🏗️ Build du projet..."
-          if [ -f "package.json" ] && grep -q "build" package.json; then
-            npm run build || echo "⚠️ Build terminé avec avertissements"
-          else
-            echo "ℹ️ Pas de script build configuré"
-          fi
-
-      - name: 📊 Validation finale
-        run: |
-          echo "📊 VALIDATION FINALE"
-          echo "===================="
-          echo "✅ Build terminé"
-          echo "✅ Tests passés"
-          echo "✅ Déploiement prêt"
-          echo "🚀 Projet prêt pour la production!"
-
-      - name: 🎉 Succès
-        run: |
-          echo "🎉 DÉPLOIEMENT RÉUSSI!"
-          echo "======================="
-          echo "✅ Tous les tests passés"
-          echo "✅ Build validé"
-          echo "✅ Déploiement terminé"
-          echo "🚀 Projet opérationnel!"
+          node-version: 18
+      - run: npm install
+      - run: npm run lint --if-present
+      - run: npm test --if-present

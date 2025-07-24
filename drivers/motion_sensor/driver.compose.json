@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿{
+=======
+{
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
     "id": "motion_sensor",
     "name": {
       "en": "Motion Sensor"
@@ -18,6 +22,7 @@
       "small": "{{driverAssetsPath}}/images/small.png"
     },
     "zigbee": {
+<<<<<<< HEAD
       "manufacturerName": [        "_TYZB01_xiuox57i",
         "_TYZB01_b8cr31hp",
         "_TZ3000_wyhuocal",
@@ -33,6 +38,9 @@
         "_TZ3000_w05exif3",
         "_TZ3000_qewo8dlz",
         "_TZ3000_aezbqpcu",
+=======
+      "manufacturerName": [
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
         "TUYATEC-bd5faf9p",
         "TUYATEC-zw6hxafz"
       ],
@@ -53,4 +61,7 @@
       }
     }
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887

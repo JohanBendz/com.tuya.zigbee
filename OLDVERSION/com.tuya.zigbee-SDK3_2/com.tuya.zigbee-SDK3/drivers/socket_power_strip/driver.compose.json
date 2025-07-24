@@ -1,0 +1,80 @@
+{
+  "id": "socket_power_strip",
+  "name": {
+    "en": "3 Socket Power Strip"
+  },
+  "class": "socket",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "onoff"
+  ],
+  "capabilitiesOptions": {
+    "measure_power": {
+      "approximated": true
+    }
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_1obwwnmq",
+      "_TZ3000_vzopcetz",
+      "_TZ3000_4uf3d0ax",
+      "_TZ3000_wzauvbcs",
+      "_TZ3000_vmpbygs5"
+    ],
+    "productId": [
+      "TS011F"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 4, 5, 6],
+        "bindings": [6]
+      },
+      "2": {
+        "clusters": [4, 5, 6],
+        "bindings": [6]
+      },
+      "3": {
+        "clusters": [4, 5, 6],
+        "bindings": [6]
+      }
+    },
+    "devices": {
+      "socket2": {
+        "class": "socket",
+        "capabilities": ["onoff"],
+        "name": {
+          "en": "Power Strip Socket 2"
+        },
+        "energy": {
+          "approximation": {
+            "usageOn": 0,
+            "usageOff": 0
+          }
+        }
+      },
+      "socket3": {
+        "class": "socket",
+        "capabilities": ["onoff"],
+        "name": {
+          "en": "Power Strip Socket 3"
+        },
+        "energy": {
+          "approximation": {
+            "usageOn": 0,
+            "usageOff": 0
+          }
+        }
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "A tile for each socket will be created. Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+      }
+    }
+  }
+}

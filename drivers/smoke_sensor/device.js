@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿'use strict';
+=======
+'use strict';
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { CLUSTER } = require('zigbee-clusters');
@@ -6,6 +10,7 @@ const { CLUSTER } = require('zigbee-clusters');
 class smoke_sensor extends ZigBeeDevice {
 
 	async onNodeInit({zclNode}) {
+<<<<<<< HEAD
     // Gestion de la batterie intelligente
     this.batteryManagement = {
       voltage: 0,
@@ -86,6 +91,8 @@ class smoke_sensor extends ZigBeeDevice {
       this.log(Erreur lors du dÃ©clenchement du flow :, error);
     }
   }
+=======
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
         
       this.printNode();
 
@@ -364,4 +371,8 @@ module.exports = smoke_sensor;
       }
     }
   }
+<<<<<<< HEAD
  */
+=======
+ */
+>>>>>>> 2968528d15b99b4e9d4174069d0bf00c50d07887
