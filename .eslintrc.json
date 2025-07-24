@@ -1,3 +1,4 @@
 {
-  "extends": "athom/homey-app"
+  "root": true,
+  "extends": ["athom"]
 } 
