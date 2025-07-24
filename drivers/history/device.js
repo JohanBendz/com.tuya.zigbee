@@ -1,14 +1,13 @@
-﻿'use strict';
+'use strict';
 
 const Homey = require('homey');
 const { ZigbeeDevice } = require('homey-meshdriver');
 
-class multi_sensor extends ZigbeeDevice {
+class history extends ZigbeeDevice {
   async onInit({zclNode}) {
     this.printNode();
     // Ajoutez ici l'enregistrement des capacités si besoin
   }
 }
 
-module.exports = multi_sensor;
-
+module.exports = history; 

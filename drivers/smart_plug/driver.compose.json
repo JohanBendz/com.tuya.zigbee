@@ -1,7 +1,7 @@
 {
-  "id": "TS0001",
+  "id": "smart_plug",
   "name": {
-    "en": "TS0001 Device"
+    "en": "Smart Plug"
   },
   "class": "socket",
   "platforms": ["local"],
@@ -12,8 +12,8 @@
     "small": "{{driverAssetsPath}}/images/small.png"
   },
   "zigbee": {
-    "manufacturerName": ["_TZ3000_TS0001"],
-    "productId": ["TS0001"],
+    "manufacturerName": ["_TZ3000_smart_plug"],
+    "productId": ["TSxxxx"],
     "endpoints": {
       "1": {
         "clusters": [0, 6],
@@ -21,4 +21,4 @@
       }
     }
   }
-}
+} 
