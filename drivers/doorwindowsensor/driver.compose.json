@@ -61,12 +61,14 @@
       "_TZ3000_v7chgqso",
       "_TZ3000_qrldbmfn",
       "_TZ3000_gntwytxo",
-      "_TZE200_pay2byax"
+      "_TZE200_pay2byax",
+      "eWeLink"
     ],
     "productId": [
       "RH3001",
       "TS0203",
-      "TS0601"
+      "TS0601",
+      "CK-TLSR8656-SS5-01(7003)",
     ],
     "endpoints": {
       "1": {
