@@ -32,11 +32,13 @@
       "_TZE200_a8sdabtg",
       "_TZ3000_utwgoauk",
       "_TZ3000_zl1kmjqx",
-      "_TZ3000_6uzkisv2"
+      "_TZ3000_6uzkisv2",
+      "HOBEIAN"
     ],
     "productId": [
       "TS0201",
-      "TS0601"
+      "TS0601",
+      "ZG-204ZV"
     ],
     "endpoints": {
       "1": {
