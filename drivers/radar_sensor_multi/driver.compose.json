@@ -1,0 +1,48 @@
+{
+    "id": "radar_sensor_multi",
+    "name": {
+      "en": "Radar Multi-Sensor (10G)",
+      "nl": "Radar Multi-Sensor (10G)"
+    },
+    "class": "sensor",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "measure_luminance",
+      "measure_temperature",
+      "measure_humidity",
+      "alarm_motion"
+    ],
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "energy": {
+      "approximation": {
+        "usageOn": 0,
+        "usageOff": 0
+      }
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TZE200_rhgsbacq"
+      ],
+      "productId": [
+        "TS0601"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 1, 3, 1024, 1026, 1029, 1280, 61184],
+          "bindings": [61184]
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Press and hold the reset button for 6 seconds. When the indicator light flashes it is in pairing mode.",
+          "nl": "Druk 6 seconden op de reset knop. Wacht tot de led gaat knipperen."
+        }
+      }
+    }
+
+}
