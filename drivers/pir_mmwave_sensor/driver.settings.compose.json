@@ -1,0 +1,98 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Motion Settings"
+    },
+    "children": [
+      {
+        "id": "fading_time",
+        "type": "number",
+        "label": {
+          "en": "Motion keep time"
+        },
+        "hint": {
+          "en": "How long motion stays active after detection (seconds)"
+        },
+        "value": 60,
+        "min": 0,
+        "max": 28800,
+        "units": {
+          "en": "seconds"
+        }
+      },
+      {
+        "id": "motion_detection_sensitivity",
+        "type": "number",
+        "label": {
+          "en": "Motion detection sensitivity"
+        },
+        "hint": {
+          "en": "Higher value = more sensitive (0-19)"
+        },
+        "value": 7,
+        "min": 0,
+        "max": 19
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Light Settings"
+    },
+    "children": [
+      {
+        "id": "illuminance_interval",
+        "type": "number",
+        "label": {
+          "en": "Light sensing interval"
+        },
+        "hint": {
+          "en": "How often to update light level (minutes)"
+        },
+        "value": 5,
+        "min": 1,
+        "max": 720,
+        "units": {
+          "en": "minutes"
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Device Settings"
+    },
+    "children": [
+      {
+        "id": "indicator",
+        "type": "checkbox",
+        "label": {
+          "en": "LED indicator"
+        },
+        "hint": {
+          "en": "Enable LED indicator light"
+        },
+        "value": true
+      },
+      {
+        "id": "batteryThreshold",
+        "type": "number",
+        "label": {
+          "en": "Battery alarm threshold"
+        },
+        "hint": {
+          "en": "Trigger low battery alarm at this percentage"
+        },
+        "value": 20,
+        "min": 5,
+        "max": 50,
+        "units": {
+          "en": "%"
+        }
+      }
+    ]
+  }
+]
