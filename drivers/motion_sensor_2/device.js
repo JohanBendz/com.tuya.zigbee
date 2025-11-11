@@ -31,7 +31,7 @@ class motion_sensor_2 extends ZigBeeDevice {
 				},{
 					endpointId: 1,
 					cluster: CLUSTER.ILLUMINANCE_MEASUREMENT,
-					attributeName: 'IlluminanceMeasured',
+					attributeName: 'measuredValue',
                     minInterval: 60, // Minimum interval (1 minute)
                     maxInterval: 3600, // Maximum interval (1 hour)
                     minChange: 10, // Report changes above 10 lux
@@ -49,7 +49,7 @@ class motion_sensor_2 extends ZigBeeDevice {
 		
         // measure_illuminance handler
 		zclNode.endpoints[1].clusters[CLUSTER.ILLUMINANCE_MEASUREMENT.NAME]
-		.on('attr.IlluminanceMeasured', this.onIlluminanceMeasuredAttributeReport.bind(this));
+		.on('attr.measuredValue', this.onIlluminanceMeasuredAttributeReport.bind(this));
 
         // Tuya specific cluster handler
 		zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processResponse(value));
@@ -74,8 +74,8 @@ class motion_sensor_2 extends ZigBeeDevice {
     // Handle illuminance attribute reports
     onIlluminanceMeasuredAttributeReport(measuredValue) {
         const luxValue = Math.round(Math.pow(10, ((measuredValue - 1) / 10000))); // Convert measured value to lux
-        this.log('measure_illuminance | Illuminance (lux):', luxValue);
-        this.setCapabilityValue('measure_illuminance', luxValue).catch(this.error);
+        this.log('measure_luminance | Illuminance (lux):', luxValue);
+        this.setCapabilityValue('measure_luminance', luxValue).catch(this.error);
     }
 
     // Process Tuya-specific data
