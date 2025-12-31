@@ -10925,34 +10925,32 @@
         }
       ]
     },
-        {
+    {
       "id": "temphumidsensor6",
       "name": {
-        "en": "Temperature & Humidity Sensor",
-        "sv": "Temperatur- och fuktighetssensor"
+        "en": "Temperature & Humidity Sensor"
       },
       "class": "sensor",
-      "capabilities": [
-        "measure_temperature",
-        "measure_humidity",
-        "measure_battery",
-        "alarm_battery"
-      ],
-      "capabilitiesOptions": {},
-      "energy": {
-        "batteries": [
-          "CR2032"
-        ]
-      },
       "platforms": [
         "local"
       ],
       "connectivity": [
         "zigbee"
       ],
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2450"
+        ]
+      },
       "images": {
-        "small": "/drivers/temphumidsensor6/assets/images/small.png",
-        "large": "/drivers/temphumidsensor6/assets/images/large.png"
+        "large": "/drivers/temphumidsensor6/assets/images/large.png",
+        "small": "/drivers/temphumidsensor6/assets/images/small.png"
       },
       "zigbee": {
         "manufacturerName": [
@@ -10965,21 +10963,21 @@
           "1": {
             "clusters": [
               0,
-              4,
-              5,
-              61184
+              1,
+              1026,
+              1029
             ],
             "bindings": [
-              10,
-              25,
-              61184
+              1,
+              1026,
+              1029
             ]
           }
         },
         "learnmode": {
+          "image": "/drivers/temphumidsensor6/assets/learn.svg",
           "instruction": {
-            "en": "Press and hold the reset button for aprox 10 seconds until the LED blinks rapidly.",
-            "sv": "Tryck in nollnings-knappen under ca 10 sekunder tills LED-lampan binkar snabbt"
+            "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 3 seconds until the LED blinks rapidly."
           }
         }
       },
@@ -10988,13 +10986,10 @@
           "id": "temperature_offset",
           "type": "number",
           "label": {
-            "en": "Temperature offset (°C)",
-            "it": "Offset della temperatura (°C)"
+            "en": "Temperature offset (°C)"
           },
           "hint": {
-            "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]",
-            "it": "Imposta un valore per compensare lo scostamento della temperatura.\nRange: -10 - 10, step ze 0.1, \ndefault: 0 [°C]",
-            "sv": "Ange ett värde för att korrigera felaktig temperatur.\nIntervall: -10 - 10, steg om 0.1, \nstandard: 0 [°C]"
+            "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]"
           },
           "value": 0,
           "attr": {
@@ -11004,26 +10999,70 @@
           }
         },
         {
+          "id": "temperature_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Temperature reporting decimals"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report temperature value with 1 decimal (21.4 °C)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report temperature value with 2 decimals (21.37 °C)"
+              }
+            }
+          ]
+        },
+        {
           "id": "humidity_offset",
           "type": "number",
           "label": {
             "en": "Humidity offset (%)",
-            "nl": "Luchtvochtigheids compensatie (%)",
-            "it": "Offset dell'umidità (%)",
-            "sv": "Fuktighetskorrigering (%)"
+            "nl": "Luchtvochtigheids compensatie (%)"
           },
           "hint": {
             "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
-            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]",
-            "it": "Imposta un valore per compensare lo scostamento dell'umidità.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
-            "sv": "Ange ett värde för att korrigera felaktig fuktighet.\nIntervall: -10 - 10, steg om 1, \nstandard: 0 [%]"
+            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]"
           },
           "value": 0,
           "attr": {
             "min": -10,
             "max": 10,
             "step": 1
+          },
+          "units": {
+            "en": "%",
+            "nl": "%"
           }
+        },
+        {
+          "id": "humidity_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Humidity reporting"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report humidity value with 1 decimal (35.2 %)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report humidity value with 2 decimals (35.19 %)"
+              }
+            }
+          ]
         }
       ]
     },
