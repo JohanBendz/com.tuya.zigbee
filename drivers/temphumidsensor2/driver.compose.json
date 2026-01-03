@@ -25,11 +25,13 @@
     "manufacturerName": [
       "_TZ3000_dowj6gyi",
       "_TZ3000_0s1izerx",
-      "TUYATEC-qun7vq14"
+      "TUYATEC-qun7vq14",
+      "HOBEIAN"
     ],
     "productId": [
       "RH3052",
-      "TS0201"
+      "TS0201",
+      "ZG-227Z"
     ],
     "endpoints": {
       "1": {
@@ -37,7 +39,8 @@
           0,
           1,
           1026,
-          1029
+          1029,
+          61184
         ],
         "bindings": [
           1,

@@ -11,6 +11,7 @@ Some of the supported White Label Brands:
 - GiEX
 - GIRIER
 - Hangzlou
+- HOBEIAN
 - Inmax
 - Lidl
 - Livarno LUX
@@ -71,6 +72,7 @@ Supported devices:
     _TZE200_yjjdcqsq / TS0601
     _TZE200_utkemkbs / TS0601
     _TZ3000_6uzkisv2 / TS0601
+    HOBEIAN / ZG-227Z
 
 - LCD Temperature and Humidity Sensor
     _TZ2000_a476raq2 / TS0201
