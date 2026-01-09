@@ -1415,7 +1415,7 @@
             "type": "dropdown",
             "values": [
               {
-                "id": "2",
+                "id": "0",
                 "label": {
                   "en": "Low",
                   "nl": "Laag",
@@ -1435,7 +1435,7 @@
                 }
               },
               {
-                "id": "0",
+                "id": "2",
                 "label": {
                   "en": "High (default)",
                   "nl": "Hoog (standaard)",
