@@ -59,7 +59,61 @@ class lcdtemphumidsensor3 extends TuyaSpecificClusterDevice {
   async onNodeInit({ zclNode }) {
     this.printNode();
 
+    // Listen to both "reporting" and "response" events since different device variants use different event types
     zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processResponse(value));
+    zclNode.endpoints[1].clusters.tuya.on("response", value => this.processResponse(value));
+
+    // Handle time sync requests from the device
+    zclNode.endpoints[1].clusters.tuya.on("mcuSyncTime", value => this.handleTimeSyncRequest(zclNode, value));
+  }
+
+  /**
+   * Handle time sync request from the device.
+   * Uses the Homey timezone setting to calculate correct local time.
+   */
+  async handleTimeSyncRequest(zclNode, data) {
+    try {
+      // Extract sequence number from request (first 2 bytes)
+      const requestData = data.data || Buffer.alloc(2);
+      const seqNum = requestData.length >= 2 ? requestData.readUInt16BE(0) : 0;
+
+      // Get UTC time
+      const utcTime = Math.floor(Date.now() / 1000);
+
+      // Get timezone from Homey and calculate local time
+      const timezone = this.homey.clock.getTimezone();
+      const now = new Date();
+
+      // Use Intl API to get the timezone offset for the Homey timezone
+      const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: timezone,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      });
+
+      // Parse the formatted local time to calculate offset
+      // localDate represents the local time but parsed as if it were UTC
+      // So if local time is 16:34 and UTC is 15:34, localDate will be "16:34 UTC"
+      // offset = localDate - now = 16:34 - 15:34 = +1 hour = +3600s
+      const parts = formatter.formatToParts(now);
+      const localDateStr = `${parts.find(p => p.type === 'year').value}-${parts.find(p => p.type === 'month').value}-${parts.find(p => p.type === 'day').value}T${parts.find(p => p.type === 'hour').value}:${parts.find(p => p.type === 'minute').value}:${parts.find(p => p.type === 'second').value}`;
+      const localDate = new Date(localDateStr + 'Z');
+      const timezoneOffset = Math.floor((localDate.getTime() - now.getTime()) / 1000);
+
+      const localTime = utcTime + timezoneOffset;
+
+      this.log(`[Time Sync] Timezone: ${timezone}, UTC: ${utcTime}, Local: ${localTime}, Offset: ${timezoneOffset}s`);
+
+      // Send time sync response
+      await zclNode.endpoints[1].clusters.tuya.sendTimeSyncResponse(seqNum, localTime);
+    } catch (err) {
+      this.error('Failed to handle time sync request:', err);
+    }
   }
 
 
@@ -80,7 +134,9 @@ class lcdtemphumidsensor3 extends TuyaSpecificClusterDevice {
 
       case dataPoints.currentHumidity:
         const humidityOffset = this.getSetting('humidity_offset') || 0;
-        parsedValue = measuredValue/10;
+        // Some devices send humidity as 0-100, others as 0-1000 (value * 10)
+        // Auto-detect based on value: if > 100, divide by 10
+        parsedValue = measuredValue > 100 ? measuredValue / 10 : measuredValue;
         this.log('measure_humidity | relativeHumidity - measuredValue (humidity):', parsedValue, '+ humidity offset', humidityOffset);
 
         this.setCapabilityValue('measure_humidity', parsedValue + humidityOffset).catch(this.error);
