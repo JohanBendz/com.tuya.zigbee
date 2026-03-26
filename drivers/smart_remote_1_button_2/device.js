@@ -23,21 +23,6 @@ class smart_remote_1b_2 extends ZigBeeDevice {
         this.log("Frame JSON data:", frame.toJSON());
         this.buttonCommandParser(frame);
       }
-      else if(clusterId === 8)
-      {
-        this.log(
-          "endpointId:",
-          endpointId,
-          ", clusterId:",
-          clusterId,
-          ", frame:",
-          frame,
-          ", meta:",
-          meta
-        );
-        this.log("Frame JSON data:", frame.toJSON());
-        this.buttonCommandParserCL8(frame);
-      }
     };
 
     this._buttonPressedTriggerDevice = this.homey.flow
@@ -45,18 +30,11 @@ class smart_remote_1b_2 extends ZigBeeDevice {
       .registerRunListener(async (args, state) => {
         return null, args.action === state.action;
       });
+
   }
 
   buttonCommandParser(frame) {
-    var action = frame[2] === 1 ? "oneClick" : "twoClicks";
-    return this._buttonPressedTriggerDevice
-      .trigger(this, {}, { action: `${action}` })
-      .then(() => this.log(`Triggered 1 button Smart Remote, action=${action}`))
-      .catch((err) => this.error("Error triggering 1 button Smart Remote", err));
-  }
-
-  buttonCommandParserCL8(frame) {
-    var action = frame[2] === 0 ? "oneClick" : "twoClicks";
+    var action = frame.data[3] === 0 ? 'oneClick' : frame.data[3] === 1 ? 'twoClicks' : 'longPress';
     return this._buttonPressedTriggerDevice
       .trigger(this, {}, { action: `${action}` })
       .then(() => this.log(`Triggered 1 button Smart Remote, action=${action}`))

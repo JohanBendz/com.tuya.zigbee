@@ -49,17 +49,17 @@ class WallThermostatDevice extends TuyaSpecificClusterDevice {
         }
 
         this.registerCapabilityListener('onoff', async (onOff) => {
-            await this.writeBool(THERMOSTAT_DATA_POINTS.onOff, onOff)
+            await this.writeBool(THERMOSTAT_DATA_POINTS.onOff, onOff);
             this.log('Device on/off set', onOff)
         });
 
         this.registerCapabilityListener('thermostat_programming', async (mode) => {
-            await this.writeEnum(THERMOSTAT_DATA_POINTS.mode, mode )
+            await this.writeEnum(THERMOSTAT_DATA_POINTS.mode, mode );
             this.log('Device mode set', mode)
         });
 
         this.registerCapabilityListener('target_temperature', async (targetTemperature) => {
-            await this.writeData32(THERMOSTAT_DATA_POINTS.targetTemperature, targetTemperature)
+            await this.writeData32(THERMOSTAT_DATA_POINTS.targetTemperature, targetTemperature);
             this.log('Target temperature set', targetTemperature)
         });
 
@@ -68,7 +68,7 @@ class WallThermostatDevice extends TuyaSpecificClusterDevice {
         });
 
         this.registerCapabilityListener('child_lock', async (childlock) => {
-            await this.writeBool(THERMOSTAT_DATA_POINTS.childlock, childlock)
+            await this.writeBool(THERMOSTAT_DATA_POINTS.childlock, childlock);
             this.log('Childlock set', childlock)
         });
 

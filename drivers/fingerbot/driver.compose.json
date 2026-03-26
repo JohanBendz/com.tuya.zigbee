@@ -1,42 +1,36 @@
 {
-  "id": "finger_bot_tuya",
-  "name": {
-    "en": "Finger Bot"
-  },
-  "class": "socket",
+  "id": "FingerBot",
+  "name": { "en": "Finger Bot" },
+  "class": "button",
   "platforms": ["local"],
   "connectivity": ["zigbee"],
   "capabilities": [
     "onoff",
-    "measure_battery",
-    "finger_bot_mode"
+    "measure_battery"
   ],
   "images": {
     "large": "{{driverAssetsPath}}/images/large.png",
     "small": "{{driverAssetsPath}}/images/small.png"
   },
-  "energy": {
-    "batteries": [
-      "CR2"
-    ]
-  },
+  "energy": { "batteries": ["CR2"] },
   "zigbee": {
     "manufacturerName": [
-      "_TZ3210_j4pdtz9v"
+      "_TZ3210_j4pdtz9v",
+      "_TZ3210_dse8ogfy",
+      "_TZ3210_232nryqh",
+      "_TZ3210_okbss9dy"
     ],
-    "productId": [
-      "TS0001"
-    ],
+    "productId": ["TS0001", "TS0001_fingerbot"],
     "endpoints": {
       "1": {
         "clusters": [0, 6, 61184],
-        "bindings": [25, 10]
+        "bindings": [10]
       }
     },
     "learnmode": {
       "image": "{{driverAssetsPath}}/icon.svg",
       "instruction": {
-        "en": "Press the button on the Finger Bot to enter pairing mode."
+        "en": "Press the setup button inside the Finger Bot for approx 10 seconds to enter pairing mode."
       }
     }
   }

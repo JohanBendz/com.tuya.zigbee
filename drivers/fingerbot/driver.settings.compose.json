@@ -1,64 +1,83 @@
 [
     {
-        "id": "reverse",
-        "type": "checkbox",
-        "label": {
-            "en": "Reverse mode"
+      "id": "fingerbot_mode",
+      "type": "dropdown",
+      "label": {
+        "en": "Operating Mode (if supported)"
+      },
+      "value": "click",
+      "values": [
+        {
+          "id": "click",
+          "label": {
+            "en": "Click (push and release)"
+          }
         },
-        "hint": {
-            "en": "Enable reverse operation mode."
+        {
+          "id": "switch",
+          "label": {
+            "en": "Switch (toggle position)"
+          }
+        },
+        {
+          "id": "program",
+          "label": {
+            "en": "Program (custom sequence)"
+          }
         }
+      ]
     },
     {
-        "id": "lower_limit",
-        "type": "number",
-        "label": {
-            "en": "Lower movement limit (%)"
-        },
-        "hint": {
-            "en": "Set the lower limit of the Finger Bot's movement (in percentage)."
-        },
-        "value": 50,
-        "min": 0,
-        "max": 100,
-        "step": 1
+      "id": "lower_limit",
+      "type": "number",
+      "label": {
+        "en": "Down Movement Limit (%) (if supported)"
+      },
+      "value": 100,
+      "min": 50,
+      "max": 100,
+      "units": "%",
+      "hint": {
+        "en": "How far down the finger moves (50-100%) (Behavior depends on device firmware)"
+      }
     },
     {
-        "id": "upper_limit",
-        "type": "number",
-        "label": {
-            "en": "Upper movement limit (%)"
-        },
-        "hint": {
-            "en": "Set the upper limit of the Finger Bot's movement (in percentage)."
-        },
-        "value": 100,
-        "min": 0,
-        "max": 100,
-        "step": 1
+      "id": "upper_limit",
+      "type": "number",
+      "label": {
+        "en": "Up Movement Limit (%) (if supported)"
+      },
+      "value": 0,
+      "min": 0,
+      "max": 50,
+      "units": "%",
+      "hint": {
+        "en": "How far up the finger moves (0-50%) (Behavior depends on device firmware)"
+      }
     },
     {
-        "id": "delay",
-        "type": "number",
-        "label": {
-            "en": "Delay (seconds)"
-        },
-        "hint": {
-            "en": "Set the sustain time for the Finger Bot (in seconds)."
-        },
-        "value": 1,
-        "min": 0,
-        "max": 10,
-        "step": 1
+      "id": "sustain_time",
+      "type": "number",
+      "label": {
+        "en": "Sustain Time (seconds) (if supported)"
+      },
+      "value": 0,
+      "min": 0,
+      "max": 10,
+      "units": "s",
+      "hint": {
+        "en": "How long to hold the button (0-10s) (Behavior depends on device firmware)"
+      }
     },
     {
-        "id": "touch",
-        "type": "checkbox",
-        "label": {
-            "en": "Touch control"
-        },
-        "hint": {
-            "en": "Enable touch control for the Finger Bot."
-        }
+      "id": "reverse_direction",
+      "type": "checkbox",
+      "label": {
+        "en": "Reverse Direction (if supported)"
+      },
+      "value": false,
+      "hint": {
+        "en": "Reverse the push direction (Behavior depends on device firmware)"
+      }
     }
-]
+  ]

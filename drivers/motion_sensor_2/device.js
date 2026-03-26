@@ -1,7 +1,7 @@
 'use strict';
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
-const { CLUSTER } = require('zigbee-clusters');
+const { Cluster, CLUSTER } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
 
 Cluster.addCluster(TuyaSpecificCluster);
@@ -9,7 +9,6 @@ Cluster.addCluster(TuyaSpecificCluster);
 class motion_sensor_2 extends ZigBeeDevice {
 
 	async onNodeInit({ zclNode }) {
-
 		this.printNode();
 
 		if (this.isFirstInit()){
@@ -31,7 +30,7 @@ class motion_sensor_2 extends ZigBeeDevice {
 				},{
 					endpointId: 1,
 					cluster: CLUSTER.ILLUMINANCE_MEASUREMENT,
-					attributeName: 'IlluminanceMeasured',
+					attributeName: 'measuredValue',
                     minInterval: 60, // Minimum interval (1 minute)
                     maxInterval: 3600, // Maximum interval (1 hour)
                     minChange: 10, // Report changes above 10 lux
@@ -41,25 +40,27 @@ class motion_sensor_2 extends ZigBeeDevice {
 
         // alarm_motion handler
 		zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME]
-		.on('attr.zoneStatus', this.onZoneStatusAttributeReport.bind(this));
-
+		.onZoneStatusChangeNotification = payload => {
+		  this.onZoneStatusChangeNotification(payload);
+		};
+  
         // measure_battery and alarm_battery handler
 		zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME]
 		.on('attr.batteryPercentageRemaining', this.onBatteryPercentageRemainingAttributeReport.bind(this));
 		
         // measure_illuminance handler
 		zclNode.endpoints[1].clusters[CLUSTER.ILLUMINANCE_MEASUREMENT.NAME]
-		.on('attr.IlluminanceMeasured', this.onIlluminanceMeasuredAttributeReport.bind(this));
+		.on('attr.measuredValue', this.onIlluminanceMeasuredAttributeReport.bind(this));
 
         // Tuya specific cluster handler
 		zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processResponse(value));
 
 	}
 
-	// Handle motion status attribute reports
-	onZoneStatusAttributeReport(status) {
-		this.log("Motion status: ", status.alarm1);
-		this.setCapabilityValue('alarm_motion', status.alarm1).catch(this.error);
+	// Handle motion status alarms
+	onZoneStatusChangeNotification({ zoneStatus }) {
+		this.log("Motion status: ", zoneStatus.alarm1);
+		this.setCapabilityValue('alarm_motion', zoneStatus.alarm1).catch(this.error);
 	}
 
     // Handle battery status attribute reports
@@ -71,12 +72,12 @@ class motion_sensor_2 extends ZigBeeDevice {
         this.setCapabilityValue('alarm_battery', batteryLevel < batteryThreshold).catch(this.error);
     }
 	
-    // Handle illuminance attribute reports
-    onIlluminanceMeasuredAttributeReport(measuredValue) {
-        const luxValue = Math.round(Math.pow(10, ((measuredValue - 1) / 10000))); // Convert measured value to lux
-        this.log('measure_illuminance | Illuminance (lux):', luxValue);
-        this.setCapabilityValue('measure_illuminance', luxValue).catch(this.error);
-    }
+	// Handle illuminance attribute reports
+	onIlluminanceMeasuredAttributeReport(measuredValue) {
+		const luxValue = Math.round(Math.pow(10, ((measuredValue - 1) / 10000))); // Convert measured value to lux
+		this.log('measure_luminance | Illuminance (lux):', luxValue);
+		this.setCapabilityValue('measure_luminance', luxValue).catch(this.error);
+	}
 
     // Process Tuya-specific data
     processResponse(data) {

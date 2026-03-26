@@ -6,8 +6,7 @@
     "class": "remote",
     "platforms": ["local"],
     "connectivity": ["zigbee"],
-    "capabilities": [
-    ],
+    "capabilities": [],
     "images": {
       "large": "{{driverAssetsPath}}/images/large.png",
       "small": "{{driverAssetsPath}}/images/small.png"
@@ -19,23 +18,40 @@
     },
     "zigbee": {
       "manufacturerName": [
-        "_TZ3000_xabckq1v"
+        "_TZ3000_xabckq1v",
+        "_TZ3000_nuombroo",
+        "_TZ3000_czuyt8lz",
+        "_TZ3000_0ht8dnxj",
+        "_TZ3000_b3mgfu0d",
+        "_TZ3000_11pg3ima",
+        "_TZ3000_et7afzxz"
       ],
       "productId": [
         "TS004F"
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 1, 6, 8],
-          "bindings": [6, 8]
+          "clusters": [0, 6],
+          "bindings": [6]
+        },
+        "2": {
+          "clusters": [6],
+          "bindings": [6]
+        },
+        "3": {
+          "clusters": [6],
+          "bindings": [6]
+        },
+        "4": {
+          "clusters": [6],
+          "bindings": [6]
         }
       },
       "learnmode": {
         "image": "{{driverAssetsPath}}/icon.svg",
         "instruction": {
-          "en": "Press the lower left button for aprox 10 seconds (all LED should start blinking)."
+          "en": "Press pair button for approx 10 seconds."
         }
       }
     }
-
-}
+  }

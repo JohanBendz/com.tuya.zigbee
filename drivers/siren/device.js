@@ -97,18 +97,25 @@ class siren extends TuyaSpecificClusterDevice {
 		zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processReporting(value));
 		zclNode.endpoints[1].clusters.tuya.on("datapoint", value => this.processDatapoint(value));
 
+
 		this.log('Register action card listeners for node: ', this);
 		const actionAlarmState = this.homey.flow.getActionCard('siren_alarm_state');
 		actionAlarmState.registerRunListener(async (args, state) => {
-		  try {
-			this.log('FlowCardAction Set Alarm state (', state, ') to: ', args.siren_alarm_state);
 			const alarmStateRequested = args.siren_alarm_state !== 'off/disable';
+
+			try {
+			this.log(
+				'FlowCardAction set alarm state to:',
+				args.siren_alarm_state,
+				`(dp value: ${alarmStateRequested})`
+			);
+
 			await this.writeBool(dataPoints.TUYA_DP_ALARM, alarmStateRequested);
-		  } catch (error) {
-			this.log(error);
+			return true;
+			} catch (error) {
+			this.error('Failed to set alarm state', error);
 			return false;
-		  }
-		  return true;
+			}
 		});
 	
 		const actionSirenVolume = this.homey.flow.getActionCard('siren_volume_setting');

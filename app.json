@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.73",
+  "version": "0.2.74",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -133,6 +133,44 @@
             "filter": "driver_id=radar_sensor_2"
           }
         ]
+      },
+      {
+        "id": "fingerbot_button_pressed",
+        "title": {
+          "en": "Button pressed"
+        },
+        "hint": {
+          "en": "Triggered when the Finger Bot performs a press"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=fingerbot"
+          }
+        ],
+        "titleFormatted": {
+          "en": "Button pressed"
+        }
+      },
+      {
+        "id": "fingerbot_battery_low",
+        "title": {
+          "en": "Battery low"
+        },
+        "hint": {
+          "en": "Triggered when the reported battery level is low"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=fingerbot"
+          }
+        ],
+        "titleFormatted": {
+          "en": "Battery low"
+        }
       },
       {
         "id": "handheld_remote_4_buttons",
@@ -439,6 +477,12 @@
                 "label": {
                   "en": "2 Clicks"
                 }
+              },
+              {
+                "id": "longPress",
+                "label": {
+                  "en": "Long Press"
+                }
               }
             ]
           }
@@ -731,10 +775,10 @@
       {
         "id": "wall_remote_4_gang_buttons_2",
         "title": {
-          "en": "Button"
+          "en": "Button Action"
         },
         "titleFormatted": {
-          "en": "The [[button]]"
+          "en": "The [[action]]"
         },
         "args": [
           {
@@ -743,34 +787,82 @@
             "filter": "driver_id=wall_remote_4_gang_2"
           },
           {
-            "name": "button",
+            "name": "action",
             "type": "dropdown",
             "title": {
-              "en": "Button Pressed"
+              "en": "Button Action"
             },
             "values": [
               {
-                "id": "leftUp",
+                "id": "one-oneClick",
                 "label": {
-                  "en": "Upper Left Button Pressed"
+                  "en": "Button 1 | 1 Click"
                 }
               },
               {
-                "id": "rightUp",
+                "id": "one-twoClicks",
                 "label": {
-                  "en": "Upper Right Button Pressed"
+                  "en": "Button 1 | 2 Clicks"
                 }
               },
               {
-                "id": "leftDown",
+                "id": "one-longPress",
                 "label": {
-                  "en": "Lower Left Button Pressed"
+                  "en": "Button 1 | Long Press"
                 }
               },
               {
-                "id": "rightDown",
+                "id": "two-oneClick",
                 "label": {
-                  "en": "Lower Right Button Pressed"
+                  "en": "Button 2 | 1 Click"
+                }
+              },
+              {
+                "id": "two-twoClicks",
+                "label": {
+                  "en": "Button 2 | 2 Clicks"
+                }
+              },
+              {
+                "id": "two-longPress",
+                "label": {
+                  "en": "Button 2 | Long Press"
+                }
+              },
+              {
+                "id": "three-oneClick",
+                "label": {
+                  "en": "Button 3 | 1 Click"
+                }
+              },
+              {
+                "id": "three-twoClicks",
+                "label": {
+                  "en": "Button 3 | 2 Clicks"
+                }
+              },
+              {
+                "id": "three-longPress",
+                "label": {
+                  "en": "Button 3 | Long Press"
+                }
+              },
+              {
+                "id": "four-oneClick",
+                "label": {
+                  "en": "Button 4 | 1 Click"
+                }
+              },
+              {
+                "id": "four-twoClicks",
+                "label": {
+                  "en": "Button 4 | 2 Clicks"
+                }
+              },
+              {
+                "id": "four-longPress",
+                "label": {
+                  "en": "Button 4 | Long Press"
                 }
               }
             ]
@@ -908,6 +1000,12 @@
                 }
               },
               {
+                "id": "one-longPress",
+                "label": {
+                  "en": "Button 1 | Long Press"
+                }
+              },
+              {
                 "id": "two-oneClick",
                 "label": {
                   "en": "Button 2 | 1 Click"
@@ -917,6 +1015,12 @@
                 "id": "two-twoClicks",
                 "label": {
                   "en": "Button 2 | 2 Clicks"
+                }
+              },
+              {
+                "id": "two-longPress",
+                "label": {
+                  "en": "Button 2 | Long Press"
                 }
               },
               {
@@ -932,6 +1036,12 @@
                 }
               },
               {
+                "id": "three-longPress",
+                "label": {
+                  "en": "Button 3 | Long Press"
+                }
+              },
+              {
                 "id": "four-oneClick",
                 "label": {
                   "en": "Button 4 | 1 Click"
@@ -941,6 +1051,12 @@
                 "id": "four-twoClicks",
                 "label": {
                   "en": "Button 4 | 2 Clicks"
+                }
+              },
+              {
+                "id": "four-longPress",
+                "label": {
+                  "en": "Button 4 | Long Press"
                 }
               },
               {
@@ -956,6 +1072,12 @@
                 }
               },
               {
+                "id": "five-longPress",
+                "label": {
+                  "en": "Button 5 | Long Press"
+                }
+              },
+              {
                 "id": "six-oneClick",
                 "label": {
                   "en": "Button 6 | 1 Click"
@@ -965,6 +1087,12 @@
                 "id": "six-twoClicks",
                 "label": {
                   "en": "Button 6 | 2 Clicks"
+                }
+              },
+              {
+                "id": "six-longPress",
+                "label": {
+                  "en": "Button 6 | Long Press"
                 }
               }
             ]
@@ -1237,44 +1365,23 @@
         ]
       },
       {
-        "id": "set_finger_bot_mode",
+        "id": "fingerbot_push",
         "title": {
-          "en": "Set Finger Bot mode"
+          "en": "Push"
         },
-        "titleFormatted": {
-          "en": "Set Finger Bot mode to [[finger_bot_mode]]"
+        "hint": {
+          "en": "Activate the Finger Bot push action"
         },
         "args": [
           {
             "type": "device",
             "name": "device",
             "filter": "driver_id=fingerbot"
-          },
-          {
-            "name": "finger_bot_mode",
-            "type": "dropdown",
-            "values": [
-              {
-                "id": "click",
-                "label": {
-                  "en": "Click"
-                }
-              },
-              {
-                "id": "switch",
-                "label": {
-                  "en": "Switch"
-                }
-              },
-              {
-                "id": "program",
-                "label": {
-                  "en": "Program"
-                }
-              }
-            ]
           }
-        ]
+        ],
+        "titleFormatted": {
+          "en": "Push"
+        }
       },
       {
         "id": "siren_alarm_state",
@@ -2469,7 +2576,8 @@
           "_TZE200_yia0p3tr",
           "_TZE200_nw1r9hp6",
           "_TZE200_cf1sl3tj",
-          "_TZE200_9p5xmj5r"
+          "_TZE200_9p5xmj5r",
+          "_TZE204_xu4a5rhj"
         ],
         "productId": [
           "TS0601"
@@ -2957,11 +3065,13 @@
           "_TZ3210_wdexaypg",
           "_TZ3210_3mpwqzuu",
           "_TZ3210_pagajpog",
-          "_TZ3210_4ubylghk"
+          "_TZ3210_4ubylghk",
+          "_TZ3000_7ysdnebc"
         ],
         "productId": [
           "TS110F",
-          "TS110E"
+          "TS110E",
+          "TS1101"
         ],
         "endpoints": {
           "1": {
@@ -3171,11 +3281,13 @@
           "_TZ3000_au2o5e6q",
           "_TZ3000_v7chgqso",
           "_TZ3000_qrldbmfn",
-          "_TZ3000_gntwytxo"
+          "_TZ3000_gntwytxo",
+          "_TZ3000_n2egfsli"
         ],
         "productId": [
           "RH3001",
-          "TS0203"
+          "TS0203",
+          "SNZB-04"
         ],
         "endpoints": {
           "1": {
@@ -3619,7 +3731,7 @@
       "name": {
         "en": "Finger Bot"
       },
-      "class": "socket",
+      "class": "button",
       "platforms": [
         "local"
       ],
@@ -3628,8 +3740,7 @@
       ],
       "capabilities": [
         "onoff",
-        "measure_battery",
-        "finger_bot_mode"
+        "measure_battery"
       ],
       "images": {
         "large": "/drivers/fingerbot/assets/images/large.png",
@@ -3642,10 +3753,14 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3210_j4pdtz9v"
+          "_TZ3210_j4pdtz9v",
+          "_TZ3210_dse8ogfy",
+          "_TZ3210_232nryqh",
+          "_TZ3210_okbss9dy"
         ],
         "productId": [
-          "TS0001"
+          "TS0001",
+          "TS0001_fingerbot"
         ],
         "endpoints": {
           "1": {
@@ -3655,7 +3770,6 @@
               61184
             ],
             "bindings": [
-              25,
               10
             ]
           }
@@ -3663,71 +3777,90 @@
         "learnmode": {
           "image": "/drivers/fingerbot/assets/icon.svg",
           "instruction": {
-            "en": "Press the button on the Finger Bot to enter pairing mode."
+            "en": "Press the setup button inside the Finger Bot for approx 10 seconds to enter pairing mode."
           }
         }
       },
       "settings": [
         {
-          "id": "reverse",
-          "type": "checkbox",
+          "id": "fingerbot_mode",
+          "type": "dropdown",
           "label": {
-            "en": "Reverse mode"
+            "en": "Operating Mode (if supported)"
           },
-          "hint": {
-            "en": "Enable reverse operation mode."
-          }
+          "value": "click",
+          "values": [
+            {
+              "id": "click",
+              "label": {
+                "en": "Click (push and release)"
+              }
+            },
+            {
+              "id": "switch",
+              "label": {
+                "en": "Switch (toggle position)"
+              }
+            },
+            {
+              "id": "program",
+              "label": {
+                "en": "Program (custom sequence)"
+              }
+            }
+          ]
         },
         {
           "id": "lower_limit",
           "type": "number",
           "label": {
-            "en": "Lower movement limit (%)"
+            "en": "Down Movement Limit (%) (if supported)"
           },
-          "hint": {
-            "en": "Set the lower limit of the Finger Bot's movement (in percentage)."
-          },
-          "value": 50,
-          "min": 0,
+          "value": 100,
+          "min": 50,
           "max": 100,
-          "step": 1
+          "units": "%",
+          "hint": {
+            "en": "How far down the finger moves (50-100%) (Behavior depends on device firmware)"
+          }
         },
         {
           "id": "upper_limit",
           "type": "number",
           "label": {
-            "en": "Upper movement limit (%)"
+            "en": "Up Movement Limit (%) (if supported)"
           },
-          "hint": {
-            "en": "Set the upper limit of the Finger Bot's movement (in percentage)."
-          },
-          "value": 100,
+          "value": 0,
           "min": 0,
-          "max": 100,
-          "step": 1
+          "max": 50,
+          "units": "%",
+          "hint": {
+            "en": "How far up the finger moves (0-50%) (Behavior depends on device firmware)"
+          }
         },
         {
-          "id": "delay",
+          "id": "sustain_time",
           "type": "number",
           "label": {
-            "en": "Delay (seconds)"
+            "en": "Sustain Time (seconds) (if supported)"
           },
-          "hint": {
-            "en": "Set the sustain time for the Finger Bot (in seconds)."
-          },
-          "value": 1,
+          "value": 0,
           "min": 0,
           "max": 10,
-          "step": 1
+          "units": "s",
+          "hint": {
+            "en": "How long to hold the button (0-10s) (Behavior depends on device firmware)"
+          }
         },
         {
-          "id": "touch",
+          "id": "reverse_direction",
           "type": "checkbox",
           "label": {
-            "en": "Touch control"
+            "en": "Reverse Direction (if supported)"
           },
+          "value": false,
           "hint": {
-            "en": "Enable touch control for the Finger Bot."
+            "en": "Reverse the push direction (Behavior depends on device firmware)"
           }
         }
       ]
@@ -4806,7 +4939,13 @@
           "_TZ3040_bb6xaihh",
           "_TZ3000_nss8amz9",
           "_TZ3000_bsvqrxru",
-          "_TYZB01_dr6sduka"
+          "_TYZB01_dr6sduka",
+          "_TZ3000_o4mkahkc",
+          "_TZ3000_c8ozah8n",
+          "_TZ3040_wqmtjsyk",
+          "_TZ3000_mg4dy6z6",
+          "_TZ3000_y56pgpgs",
+          "_TYZB01_geepvxsy"
         ],
         "productId": [
           "TS0202"
@@ -5570,7 +5709,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_nuenzetq"
+          "_TZ3000_nuenzetq",
+          "_TZ3000_ruldv5dt"
         ],
         "productId": [
           "TS0002"
@@ -7250,7 +7390,8 @@
           "_TZ3000_qeuvnohg",
           "_TZ3000_cayepv1a",
           "_TZ3000_lepzuhto",
-          "_TZ3000_qystbcjg"
+          "_TZ3000_qystbcjg",
+          "_TZ3000_6l1pjfqe"
         ],
         "productId": [
           "TS0121",
@@ -7491,14 +7632,9 @@
         "endpoints": {
           "1": {
             "clusters": [
-              0,
-              4,
-              5,
               61184
             ],
             "bindings": [
-              4,
-              5,
               61184
             ]
           }
@@ -7981,7 +8117,7 @@
         "learnmode": {
           "image": "/drivers/smart_remote_1_button_2/assets/icon.svg",
           "instruction": {
-            "en": "Press the reset button for aprox 10 seconds (the LED should start blinking)."
+            "en": "Press the button for aprox 10 seconds (the LED should start blinking)."
           }
         }
       },
@@ -8166,7 +8302,12 @@
           "_TZ3000_j1v25l17",
           "_TZ3000_waho4jtj",
           "_TZ3000_3uimvkn6",
-          "_TZ3000_pjcqjtev"
+          "_TZ3000_pjcqjtev",
+          "_TZ3000_ww6drja5",
+          "_TZ3000_fukaa7nc",
+          "_TZ3000_88iqnhvd",
+          "_TZ3000_3ias4w4o",
+          "_TZ3000_wzmuk9ai"
         ],
         "productId": [
           "TS0121",
@@ -10439,7 +10580,8 @@
         "manufacturerName": [
           "_TZ3000_dowj6gyi",
           "_TZ3000_0s1izerx",
-          "TUYATEC-qun7vq14"
+          "TUYATEC-qun7vq14",
+          "_TZ3000_akqdg6g7"
         ],
         "productId": [
           "RH3052",
@@ -12027,7 +12169,13 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZ3000_xabckq1v"
+          "_TZ3000_xabckq1v",
+          "_TZ3000_nuombroo",
+          "_TZ3000_czuyt8lz",
+          "_TZ3000_0ht8dnxj",
+          "_TZ3000_b3mgfu0d",
+          "_TZ3000_11pg3ima",
+          "_TZ3000_et7afzxz"
         ],
         "productId": [
           "TS004F"
@@ -12036,20 +12184,41 @@
           "1": {
             "clusters": [
               0,
-              1,
-              6,
-              8
+              6
             ],
             "bindings": [
-              6,
-              8
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "4": {
+            "clusters": [
+              6
+            ],
+            "bindings": [
+              6
             ]
           }
         },
         "learnmode": {
           "image": "/drivers/wall_remote_4_gang_2/assets/icon.svg",
           "instruction": {
-            "en": "Press the lower left button for aprox 10 seconds (all LED should start blinking)."
+            "en": "Press pair button for approx 10 seconds."
           }
         }
       },
@@ -12251,7 +12420,8 @@
         "manufacturerName": [
           "_TZ3000_b28wrpvx",
           "_TZ3000_4ux0ondb",
-          "_TZ3000_y4ona9me"
+          "_TZ3000_y4ona9me",
+          "_TZ3000_5ct6e7ye"
         ],
         "productId": [
           "TS011F"
@@ -13662,35 +13832,6 @@
       "uiComponent": "toggle",
       "getable": true,
       "setable": true
-    },
-    "finger_bot_mode": {
-      "type": "enum",
-      "title": {
-        "en": "Finger Bot Mode"
-      },
-      "getable": true,
-      "setable": true,
-      "values": [
-        {
-          "id": "click",
-          "title": {
-            "en": "Click"
-          }
-        },
-        {
-          "id": "switch",
-          "title": {
-            "en": "Switch"
-          }
-        },
-        {
-          "id": "program",
-          "title": {
-            "en": "Program"
-          }
-        }
-      ],
-      "uiComponent": "picker"
     },
     "lidl_xmas_mode": {
       "title": {

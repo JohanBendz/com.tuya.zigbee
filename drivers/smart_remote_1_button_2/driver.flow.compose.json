@@ -21,6 +21,12 @@
               "label": {
                 "en": "2 Clicks"
               }
+            },
+            {
+              "id": "longPress",
+              "label": {
+                "en": "Long Press"
+              }
             }
           ]
         }

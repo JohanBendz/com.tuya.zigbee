@@ -111,15 +111,17 @@ class sensortemphumidsensor extends TuyaSpecificClusterDevice {
 		//===== CONTROL Binary Switch
 		// define FlowCardAction to set the Switch
 		let alarm_state_run_listener = async (args, state) => {
-			try {
-				this.log('FlowCardAction Set Alarm state (', state, ') to: ', args.alarm_state);
-				let alarm_state_requested = args.alarm_state == "off/disable" ? false : true;
-				this.writeBool(dataPoints.NEO_DP_ALARM, alarm_state_requested);
-			} catch (error) {
-				console.log(error);
-				return false;
-			}
+		try {
+			this.log('FlowCardAction Set Alarm state (', state, ') to: ', args.alarm_state);
+
+			const alarmStateRequested = args.alarm_state !== 'off/disable';
+
+			await this.writeBool(dataPoints.NEO_DP_ALARM, alarmStateRequested);
 			return true;
+		} catch (error) {
+			this.error('Failed to set alarm state', error);
+			return false;
+		}
 		};
 
 		// Register Action card card trigger

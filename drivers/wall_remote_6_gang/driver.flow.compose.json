@@ -23,6 +23,12 @@
               }
             },
             {
+              "id": "one-longPress",
+              "label": {
+                "en": "Button 1 | Long Press"
+              }
+            },
+            {
               "id": "two-oneClick",
               "label": {
                 "en": "Button 2 | 1 Click"
@@ -32,6 +38,12 @@
               "id": "two-twoClicks",
               "label": {
                 "en": "Button 2 | 2 Clicks"
+              }
+            },
+            {
+              "id": "two-longPress",
+              "label": {
+                "en": "Button 2 | Long Press"
               }
             },
             {
@@ -47,6 +59,12 @@
               }
             },
             {
+              "id": "three-longPress",
+              "label": {
+                "en": "Button 3 | Long Press"
+              }
+            },
+            {
               "id": "four-oneClick",
               "label": {
                 "en": "Button 4 | 1 Click"
@@ -56,6 +74,12 @@
               "id": "four-twoClicks",
               "label": {
                 "en": "Button 4 | 2 Clicks"
+              }
+            },
+            {
+              "id": "four-longPress",
+              "label": {
+                "en": "Button 4 | Long Press"
               }
             },
             {
@@ -71,6 +95,12 @@
               }
             },
             {
+              "id": "five-longPress",
+              "label": {
+                "en": "Button 5 | Long Press"
+              }
+            },
+            {
               "id": "six-oneClick",
               "label": {
                 "en": "Button 6 | 1 Click"
@@ -80,6 +110,12 @@
               "id": "six-twoClicks",
               "label": {
                 "en": "Button 6 | 2 Clicks"
+              }
+            },
+            {
+              "id": "six-longPress",
+              "label": {
+                "en": "Button 6 | Long Press"
               }
             }
           ]

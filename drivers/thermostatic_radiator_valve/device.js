@@ -51,8 +51,7 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
 
     setWindowOpen(state) {
         this.debug("Window open action received on '" + this.getName() + "' Value:", state);
-        this.writeBool(THERMOSTAT_DATA_POINTS.openWindow, state)
-            .catch(this.log);
+        this.writeBool(THERMOSTAT_DATA_POINTS.openWindow, state);
     }
 
     getWindowOpen() {

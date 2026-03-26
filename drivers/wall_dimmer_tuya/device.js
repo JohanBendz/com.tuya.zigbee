@@ -54,45 +54,29 @@ class wall_dimmer_tuya extends TuyaSpecificClusterDevice {
   }
 
   async _setupGang(zclNode) {
-    // Register capability listeners
-    this.registerCapabilityListener('onoff', async (value) => {
+    this.registerCapabilityListener('onoff', async value => {
       this.log('onoff:', value);
-      try {
-        await this.writeBool(V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS.onOff, value);
-      } catch (err) {
-        this.error('Error when writing onOff:', err);
-        throw err;
-      }
+      await this.writeBool(V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS.onOff, value);
     });
 
-    this.registerCapabilityListener('dim', async (value) => {
-      const brightness = Math.floor(value * 1000); // Scale to 0-1000
+    this.registerCapabilityListener('dim', async value => {
+      const brightness = Math.floor(value * 1000);
       this.log('brightness:', brightness);
-      
-      try {
-        // If dim value is greater than 0 and the device is off, turn it on
-        if (brightness > 0 && !this.getCapabilityValue('onoff')) {
-          this.log('Dim level is greater than 0, turning on device');
-          await this.writeBool(V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS.onOff, true);
-          await this.setCapabilityValue('onoff', true);
-        }
-    
-        // Set the brightness
-        await this.writeData32(V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS.brightness, brightness);
-    
-        // Turning off device if dim level is 0
-        if (brightness === 0) {
-          this.log('Dim level is 0, turning off device');
-          await this.writeBool(V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS.onOff, false);
-          await this.setCapabilityValue('onoff', false);
-        }
-      } catch (err) {
-        this.error('Error when writing brightness:', err);
-        throw err;
+
+      if (brightness > 0 && !this.getCapabilityValue('onoff')) {
+        this.log('Dim level is greater than 0, turning on device');
+        await this.writeBool(V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS.onOff, true);
+        await this.setCapabilityValue('onoff', true);
+      }
+
+      await this.writeData32(V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS.brightness, brightness);
+
+      if (brightness === 0) {
+        this.log('Dim level is 0, turning off device');
+        await this.writeBool(V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS.onOff, false);
+        await this.setCapabilityValue('onoff', false);
       }
     });
-    
-    
   }
 
   // Process DP reports and update Homey accordingly

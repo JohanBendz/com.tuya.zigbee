@@ -65,12 +65,7 @@ class wall_switch_6_gang_tuya extends TuyaSpecificClusterDevice {
     // Register capability listener for on/off for each gang
     this.registerCapabilityListener('onoff', async (value) => {
       this.log(`${gangName} on/off:`, value);
-      try {
-        await this.writeBool(dpOnOff, value);
-      } catch (err) {
-        this.error(`Error when writing onOff for ${gangName}:`, err);
-        throw err;
-      }
+      await this.writeBool(dpOnOff, value);
     });
   }
 

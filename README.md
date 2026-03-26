@@ -71,6 +71,7 @@ Supported devices:
     _TZE200_yjjdcqsq / TS0601
     _TZE200_utkemkbs / TS0601
     _TZ3000_6uzkisv2 / TS0601
+    _TZ3000_akqdg6g7 / TS0201
 
 - LCD Temperature and Humidity Sensor
     _TZ2000_a476raq2 / TS0201
@@ -123,7 +124,6 @@ Supported devices:
     _TZ3040_bb6xaihh / TS0202
     TUYATEC-b5g40alm / RH3040
     _TZ3000_nss8amz9 / TS0202
-    _TZ3000_lf56vpxj / TS0202
     TUYATEC-dxnohkpd / RH3040
     _TZ3000_bsvqrxru / TS0202
     _TYZB01_dr6sduka / TS0202 (TESLA)
@@ -191,6 +191,7 @@ Supported devices:
     _TZ3000_cqlnswn0 / TY0203 (TESLA)
     _TZ3000_qrldbmfn / TS0203
     _TZ3000_gntwytxo / TS0203
+    _TZ3000_n2egfsli / SNZB-04
 
 - Water Detector
     _TYZB01_sqmd19i1 / TS0207
@@ -316,6 +317,11 @@ Supported devices:
     _TZ3000_waho4jtj / TS011F
     _TZ3000_3uimvkn6 / TS011F
     _TZ3000_pjcqjtev / TS011F
+    _TZ3000_ww6drja5 / TS011F
+    _TZ3000_fukaa7nc / TS011F
+    _TZ3000_88iqnhvd / TS011F
+    _TZ3000_3ias4w4o / TS011F
+    _TZ3000_wzmuk9ai / TS011F
 
 - Smart Plug, without metering
     _TZ3000_kdi2o9m6 / TS011F (Silvercrest / Lidl)
@@ -360,12 +366,14 @@ Supported devices:
     _TZ3000_b28wrpvx / TS011F (BSEED)
     _TZ3000_4ux0ondb / TS011F (BSEED)
     _TZ3000_y4ona9me / TS011F (Alice)
+    _TZ3000_5ct6e7ye / TS011F
 
 - DIN-rail relay with metering
     _TZ3000_qeuvnohg / TS011F
     _TZ3000_cayepv1a / TS011F (Tongou)
     _TZ3000_lepzuhto / TS011F
     _TZ3000_qystbcjg / TS011F
+    _TZ3000_6l1pjfqe / TS011F
 
 **In-Wall**
 - 1 Gang Switch Module
@@ -446,6 +454,7 @@ Supported devices:
     _TZ3210_4ubylghk / TS110E
     _TZE200_gwkapsoq / TS0601
     _TZE200_fjjbhx9d / TS0601
+    _TZ3000_7ysdnebc / TS1101
 
 **On-Wall**
 - 1 Gang Wall Switch
@@ -655,6 +664,12 @@ Supported devices:
     _TZ3000_uaa99arv / TS0044
     _TZ3000_a4xycprs / TS0044 (MOES)
     _TZ3000_jcspr0tp / TS0044
+    _TZ3000_nuombroo / TS004F
+    _TZ3000_czuyt8lz / TS004F
+    _TZ3000_0ht8dnxj / TS004F
+    _TZ3000_b3mgfu0d / TS004F
+    _TZ3000_11pg3ima / TS004F
+    _TZ3000_et7afzxz / TS004F
 
 - 6 Gang Wall Remote
     _TZ3000_iszegwpd / TS0046
@@ -737,6 +752,7 @@ Supported devices:
     _TZE200_nw1r9hp6 / TS0601
     _TZE200_cf1sl3tj / TS0601
     _TZE200_9p5xmj5r / TS0601
+    _TZE204_xu4a5rhj / TS0601
 
 - Wall mounted Curtain Switch
     _TZ3000_dph3rpss / TS130F
@@ -799,6 +815,7 @@ Supported devices:
 
 - 2 Channel Relay Board
     _TZ3000_nuenzetq / TS0002
+    _TZ3000_ruldv5dt / TS0002
 
 - 4 Channel Relay Board
     _TZ3000_hdlpifbk / TS0004
@@ -816,6 +833,9 @@ Supported devices:
 
 - Finger Bot
     _TZ3210_j4pdtz9v / TS0001 (MOES)
+    _TZ3210_dse8ogfy / TS0001
+    _TZ3210_232nryqh / TS0001
+    _TZ3210_okbss9dy / TS0001
 
 To request additional devices, please use Github issue tracking: https://github.com/JohanBendz/com.tuya.zigbee/issues
 To get support from the community please use Athom Homey Community Forum: https://community.athom.com/t/tuya-zigbee-app/26439

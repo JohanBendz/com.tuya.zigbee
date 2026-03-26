@@ -15,7 +15,7 @@ class tuyazigbee extends Homey.App {
 			this.log("Christmas Lights Action Card Triggered");
 			await args.christmas_lights_device.StartEffect(args);
 			return true
-		})
+		});
 
 		// Register the action card for setting window open status
 		this.homey.flow.getActionCard('window_open_status_set')

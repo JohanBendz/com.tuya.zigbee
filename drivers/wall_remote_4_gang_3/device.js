@@ -8,7 +8,7 @@ class wall_remote_4_gang_3 extends ZigBeeDevice {
     async onNodeInit({ zclNode }) {
 
       var debounce = 0;
-      debug(true);
+      // debug(true);
       this.printNode();
 
       const node = await this.homey.zigbee.getNode(this);

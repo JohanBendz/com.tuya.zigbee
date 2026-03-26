@@ -1,26 +1,46 @@
 {
-  "triggers": [],
+  "triggers": [
+    {
+      "id": "fingerbot_button_pressed",
+      "title": {
+        "en": "Button pressed"
+      },
+      "hint": {
+        "en": "Triggered when the Finger Bot performs a press"
+      },
+      "args": [],
+      "titleFormatted": {
+        "en": "Button pressed"
+      }
+    },
+    {
+      "id": "fingerbot_battery_low",
+      "title": {
+        "en": "Battery low"
+      },
+      "hint": {
+        "en": "Triggered when the reported battery level is low"
+      },
+      "args": [],
+      "titleFormatted": {
+        "en": "Battery low"
+      }
+    }
+  ],
   "conditions": [],
   "actions": [
     {
-      "id": "set_finger_bot_mode",
+      "id": "fingerbot_push",
       "title": {
-        "en": "Set Finger Bot mode"
+        "en": "Push"
       },
+      "hint": {
+        "en": "Activate the Finger Bot push action"
+      },
+      "args": [],
       "titleFormatted": {
-        "en": "Set Finger Bot mode to [[finger_bot_mode]]"
-      },
-      "args": [
-        {
-          "name": "finger_bot_mode",
-          "type": "dropdown",
-          "values": [
-            { "id": "click", "label": { "en": "Click" } },
-            { "id": "switch", "label": { "en": "Switch" } },
-            { "id": "program", "label": { "en": "Program" } }
-          ]
-        }
-      ]
+        "en": "Push"
+      }
     }
   ]
 }

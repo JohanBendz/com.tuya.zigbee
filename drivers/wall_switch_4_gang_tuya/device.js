@@ -11,6 +11,10 @@ Cluster.addCluster(TuyaSpecificCluster);
 class wall_switch_4_gang_tuya extends TuyaSpecificClusterDevice {
 
   async onNodeInit({ zclNode }) {
+
+    super.onNodeInit({ zclNode });
+    this.startDpSniffer(zclNode, [], true); // log all DP's for this device. To be specific, use: [1, 2, x, x]
+
     this.printNode();
 /*     debug(true);
     this.enableDebug(); */
@@ -55,16 +59,11 @@ class wall_switch_4_gang_tuya extends TuyaSpecificClusterDevice {
 
   }
 
-  async _setupGang(zclNode, gangName, dpOnOff) {
+  async _setupGang(gangName, dpOnOff) {
     // Register capability listener for on/off for each gang
     this.registerCapabilityListener('onoff', async (value) => {
+      await this.writeBool(dpOnOff, value);
       this.log(`${gangName} on/off:`, value);
-      try {
-        await this.writeBool(dpOnOff, value);
-      } catch (err) {
-        this.error(`Error when writing onOff for ${gangName}:`, err);
-        throw err;
-      }
     });
   }
 

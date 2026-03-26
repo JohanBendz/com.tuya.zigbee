@@ -28,36 +28,44 @@ class wall_remote_6_gang extends ZigBeeDevice {
 
     buttonCommandParser(ep, frame) {
       var button = ep === 1 ? 'one' : ep === 2 ? 'two' : ep === 3 ? 'three' : ep === 4 ? 'four' : ep === 5 ? 'five' : 'six';
-      var action = frame.data[3] === 0 ? 'oneClick' : 'twoClicks';
-
-      // Debounce logic
-      if (!this.doubleClickReceived) {
-        // If it's a single click, set a timeout to allow for the possibility of a double click
-        if (action === 'oneClick') {
-          this.clickTimeout = setTimeout(() => {
-            this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-${action}` })
-              .then(() => this.log(`Triggered 6 Gang Wall Remote, action=${button}-${action}`))
-              .catch(err => this.error('Error triggering 6 Gang Wall Remote', err));
-          }, 300); // Adjust debounce time as needed
-        }
+      var action;
+      if (frame.data[3] === 0) {
+        action = 'oneClick';
+      } else if (frame.data[3] === 1) {
+        action = 'twoClicks';
+      } else if (frame.data[3] === 2) {
+        action = 'longPress';
       }
-
-      // If it's a double click, cancel the pending single-click and process the double click
+    
+      // Debounce logic for oneClick
+      if (!this.doubleClickReceived && action === 'oneClick') {
+        this.clickTimeout = setTimeout(() => {
+          this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-${action}` })
+            .then(() => this.log(`Triggered 6 Gang Wall Remote, action=${button}-${action}`))
+            .catch(err => this.error('Error triggering 6 Gang Wall Remote', err));
+        }, 300); // Adjust debounce time as needed
+      }
+    
+      // Handle twoClicks immediately, cancel pending oneClick
       if (action === 'twoClicks') {
-        clearTimeout(this.clickTimeout); // Cancel the pending single-click action
+        clearTimeout(this.clickTimeout);
         this.doubleClickReceived = true;
-
-        // Trigger the double-click action
         this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-${action}` })
           .then(() => this.log(`Triggered 6 Gang Wall Remote, action=${button}-${action}`))
           .catch(err => this.error('Error triggering 6 Gang Wall Remote', err));
-        
-        // Reset the flag after a short timeout
+    
         setTimeout(() => {
           this.doubleClickReceived = false;
         }, 500); // Adjust time as needed
       }
-    }
+    
+      // Handle long press
+      if (action === 'longPress') {
+        this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-${action}` })
+          .then(() => this.log(`Triggered 6 Gang Wall Remote, action=${button}-${action}`))
+          .catch(err => this.error('Error triggering 6 Gang Wall Remote', err));
+      }
+    }    
 
     onDeleted() {
       this.log("6 Gang Wall Remote removed");
