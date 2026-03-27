@@ -8,7 +8,6 @@
     "onoff",
     "measure_temperature",
     "measure_humidity",
-    "measure_battery",
     "alarm_battery",
     "alarm_siren"
   ],
@@ -33,7 +32,7 @@
   "zigbee": {
     "manufacturerName": [
       "_TZE200_d0yu2xgi",
-      "_TZE204_t1blo2bj"
+      "_TYST11_d0yu2xgi"
     ],
     "productId": [
       "TS0601"
@@ -55,8 +54,7 @@
     },
     "learnmode": {
       "instruction": {
-        "en": "Press and hold the button inside the battery compartment for aprox 5 seconds until the LED blinks rapidly.",
-        "it": "Tenere premuto il pulsante all'interno del vano batteria per cicrca 5 secondi finchè il LED non lampeggia rapidamente."
+        "en": "Press and hold the button inside the battery compartment for aprox 5 seconds until the siren beeps."
       }
     }
   }

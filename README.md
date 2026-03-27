@@ -829,6 +829,7 @@ Supported devices:
 
 - Siren
     _TZE200_d0yu2xgi / TS0601
+    _TYST11_d0yu2xgi / TS0601
     _TZE204_t1blo2bj / TS0601
 
 - Finger Bot
