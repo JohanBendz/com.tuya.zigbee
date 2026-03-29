@@ -2,26 +2,38 @@
   "triggers": [
     {
       "id": "wall_remote_4_gang_buttons_2",
-      "title": { "en": "Button Action" },
-      "titleFormatted": { "en": "The [[action]]" },
+      "title": {"en": "Button"},
+      "titleFormatted": {"en": "The [[button]]"},
       "args": [
         {
-          "name": "action",
+          "name": "button",
           "type": "dropdown",
-          "title": { "en": "Button Action" },
+          "title": {"en": "Button Pressed"},
           "values": [
-            { "id": "one-oneClick", "label": { "en": "Button 1 | 1 Click" } },
-            { "id": "one-twoClicks", "label": { "en": "Button 1 | 2 Clicks" } },
-            { "id": "one-longPress", "label": { "en": "Button 1 | Long Press" } },
-            { "id": "two-oneClick", "label": { "en": "Button 2 | 1 Click" } },
-            { "id": "two-twoClicks", "label": { "en": "Button 2 | 2 Clicks" } },
-            { "id": "two-longPress", "label": { "en": "Button 2 | Long Press" } },
-            { "id": "three-oneClick", "label": { "en": "Button 3 | 1 Click" } },
-            { "id": "three-twoClicks", "label": { "en": "Button 3 | 2 Clicks" } },
-            { "id": "three-longPress", "label": { "en": "Button 3 | Long Press" } },
-            { "id": "four-oneClick", "label": { "en": "Button 4 | 1 Click" } },
-            { "id": "four-twoClicks", "label": { "en": "Button 4 | 2 Clicks" } },
-            { "id": "four-longPress", "label": { "en": "Button 4 | Long Press" } }
+            {
+              "id": "leftUp",
+              "label": {
+                "en": "Upper Left Button Pressed"
+              }
+            },
+            {
+              "id": "rightUp",
+              "label": {
+                "en": "Upper Right Button Pressed"
+              }
+            },
+            {
+              "id": "leftDown",
+              "label": {
+                "en": "Lower Left Button Pressed"
+              }
+            },
+            {
+              "id": "rightDown",
+              "label": {
+                "en": "Lower Right Button Pressed"
+              }
+            }
           ]
         }
       ]

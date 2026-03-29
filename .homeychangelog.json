@@ -376,5 +376,8 @@
   },
   "0.2.73": {
     "en": "4 button wall remote fix"
+  },
+  "0.2.75": {
+    "en": "Added id's and fixed drivers"
   }
 }

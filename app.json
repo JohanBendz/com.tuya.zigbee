@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.2.75",
+  "version": "0.2.76",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -775,10 +775,10 @@
       {
         "id": "wall_remote_4_gang_buttons_2",
         "title": {
-          "en": "Button Action"
+          "en": "Button"
         },
         "titleFormatted": {
-          "en": "The [[action]]"
+          "en": "The [[button]]"
         },
         "args": [
           {
@@ -787,82 +787,34 @@
             "filter": "driver_id=wall_remote_4_gang_2"
           },
           {
-            "name": "action",
+            "name": "button",
             "type": "dropdown",
             "title": {
-              "en": "Button Action"
+              "en": "Button Pressed"
             },
             "values": [
               {
-                "id": "one-oneClick",
+                "id": "leftUp",
                 "label": {
-                  "en": "Button 1 | 1 Click"
+                  "en": "Upper Left Button Pressed"
                 }
               },
               {
-                "id": "one-twoClicks",
+                "id": "rightUp",
                 "label": {
-                  "en": "Button 1 | 2 Clicks"
+                  "en": "Upper Right Button Pressed"
                 }
               },
               {
-                "id": "one-longPress",
+                "id": "leftDown",
                 "label": {
-                  "en": "Button 1 | Long Press"
+                  "en": "Lower Left Button Pressed"
                 }
               },
               {
-                "id": "two-oneClick",
+                "id": "rightDown",
                 "label": {
-                  "en": "Button 2 | 1 Click"
-                }
-              },
-              {
-                "id": "two-twoClicks",
-                "label": {
-                  "en": "Button 2 | 2 Clicks"
-                }
-              },
-              {
-                "id": "two-longPress",
-                "label": {
-                  "en": "Button 2 | Long Press"
-                }
-              },
-              {
-                "id": "three-oneClick",
-                "label": {
-                  "en": "Button 3 | 1 Click"
-                }
-              },
-              {
-                "id": "three-twoClicks",
-                "label": {
-                  "en": "Button 3 | 2 Clicks"
-                }
-              },
-              {
-                "id": "three-longPress",
-                "label": {
-                  "en": "Button 3 | Long Press"
-                }
-              },
-              {
-                "id": "four-oneClick",
-                "label": {
-                  "en": "Button 4 | 1 Click"
-                }
-              },
-              {
-                "id": "four-twoClicks",
-                "label": {
-                  "en": "Button 4 | 2 Clicks"
-                }
-              },
-              {
-                "id": "four-longPress",
-                "label": {
-                  "en": "Button 4 | Long Press"
+                  "en": "Lower Right Button Pressed"
                 }
               }
             ]
@@ -3281,8 +3233,7 @@
           "_TZ3000_au2o5e6q",
           "_TZ3000_v7chgqso",
           "_TZ3000_qrldbmfn",
-          "_TZ3000_gntwytxo",
-          "_TZ3000_n2egfsli"
+          "_TZ3000_gntwytxo"
         ],
         "productId": [
           "RH3001",
@@ -12182,41 +12133,20 @@
           "1": {
             "clusters": [
               0,
-              6
+              1,
+              6,
+              8
             ],
             "bindings": [
-              6
-            ]
-          },
-          "2": {
-            "clusters": [
-              6
-            ],
-            "bindings": [
-              6
-            ]
-          },
-          "3": {
-            "clusters": [
-              6
-            ],
-            "bindings": [
-              6
-            ]
-          },
-          "4": {
-            "clusters": [
-              6
-            ],
-            "bindings": [
-              6
+              6,
+              8
             ]
           }
         },
         "learnmode": {
           "image": "/drivers/wall_remote_4_gang_2/assets/icon.svg",
           "instruction": {
-            "en": "Press pair button for approx 10 seconds."
+            "en": "Press the lower left button for aprox 10 seconds (all LED should start blinking)."
           }
         }
       },
