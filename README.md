@@ -137,6 +137,7 @@ Supported devices:
     _TZE200_bh3n6gk8 / TS0601
     _TZE200_1ibpyhdc / TS0601
     _TZE200_ttcovulf / TS0601
+    _TZE200_kb5noeto / TS0601
 
 - Door/Windows Sensor
     TUYATEC-g3gl6cgy / RH3001
