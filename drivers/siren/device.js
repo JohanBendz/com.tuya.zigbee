@@ -117,32 +117,32 @@ class siren extends TuyaSpecificClusterDevice {
 			return false;
 			}
 		});
-	
+
 		const actionSirenVolume = this.homey.flow.getActionCard('siren_volume_setting');
 		actionSirenVolume.registerRunListener(async (args, state) => {
-		  this.log('FlowCardAction Set Alarm volume to: ', args.siren_volume_setting);
-		  args.device.sendAlarmVolume(args.siren_volume_setting);
+		  this.log('FlowCardAction Set Alarm volume to: ', args.siren_volume);
+		  args.device.sendAlarmVolume(args.siren_volume);
 		});
-	
+
 		const actionAlarmDuration = this.homey.flow.getActionCard('siren_alarm_duration');
 		actionAlarmDuration.registerRunListener(async (args, state) => {
 		  this.log('FlowCardAction Set Alarm Duration to: ', args.duration);
 		  args.device.sendAlarmDuration(args.duration);
 		});
-	
+
 		const actionAlarmTune = this.homey.flow.getActionCard('siren_alarm_tune');
 		actionAlarmTune.registerRunListener(async (args, state) => {
 		  this.log('FlowCardAction Set Alarm Tune to: ', args.siren_alarm_tune);
 		  args.device.sendAlarmTune(args.siren_alarm_tune);
 		});
 	  }
-	
+
 	  async processResponse(data) {
 		this.log('########### Response: ', data);
 		const parsedValue = getDataValue(data);
 		this.log('Parsed value ', parsedValue);
 	  }
-	
+
 	  async processReporting(data) {
 		this.log('########### Reporting: ', data);
 		const parsedValue = getDataValue(data);
@@ -178,17 +178,17 @@ class siren extends TuyaSpecificClusterDevice {
 			this.log('DP ', data.dp, ' not handled!');
 		}
 	  }
-	
+
 	  async processDatapoint(data) {
 		this.log('########### Datapoint: ', data);
 		const parsedValue = getDataValue(data);
 		this.log('Parsed value ', parsedValue);
 	  }
-	
+
 	  onDeleted() {
 		this.log('ZigbeeSiren removed');
 	  }
-	
+
 	  async onSettings({ oldSettings, newSettings, changedKeys }) {
 		changedKeys.forEach((updatedSetting) => {
 		  this.log('########### Updated setting: ', updatedSetting, ' => ', newSettings[updatedSetting]);
@@ -208,24 +208,24 @@ class siren extends TuyaSpecificClusterDevice {
 		  }
 		});
 	  }
-	
+
 	  sendAlarmVolume(volume) { // (05) volume [ENUM] 0:high 1:mid 2:low
 		const volumeName = volumeMapping.get(Number(volume));
 		this.log('Sending alarm volume: ', volumeName, ' (', volume, ')');
 		this.writeEnum(dataPoints.TUYA_DP_VOLUME, volume);
 	  }
-	
+
 	  sendAlarmDuration(duration) {
 		this.log('Sending alarm duration: ', duration, 's');
 		this.writeData32(dataPoints.TUYA_DP_DURATION, duration);
 	  }
-	
+
 	  sendAlarmTune(tune) {
 		const tuneNr = Number(tune);
 		this.log('Sending alarm tune: ', melodiesMapping.get(tuneNr), ' (', tuneNr, ')');
 		this.writeEnum(dataPoints.TUYA_DP_MELODY, tuneNr);
 	  }
-	
+
 	}
 
 module.exports = siren;
