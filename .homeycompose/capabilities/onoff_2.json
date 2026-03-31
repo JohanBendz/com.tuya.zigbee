@@ -1,0 +1,10 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Switch 2",
+    "pl": "Przełącznik 2"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "button"
+}

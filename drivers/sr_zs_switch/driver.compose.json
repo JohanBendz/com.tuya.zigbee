@@ -1,0 +1,73 @@
+{
+  "id": "sr_zs_switch",
+  "name": {
+    "en": "SR-ZS Switch",
+    "pl": "Przełącznik SR-ZS"
+  },
+  "class": "socket",
+  "capabilities": [
+    "onoff_1",
+    "onoff_2",
+    "onoff_3"
+  ],
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "images": {
+    "large": "/drivers/sr_zs_switch/assets/images/large.png",
+    "small": "/drivers/sr_zs_switch/assets/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": ["_TZ3002_vaq2bfcu"],
+    "productId": ["TS0726"],
+    "endpoints": {
+     "1": {
+        "clusters": [
+          0, 4, 5, 6, 61184
+        ],
+        "bindings": [
+          5, 6, 61184
+        ]
+      },
+      "2": {
+        "clusters": [
+          5, 6
+        ],
+        "bindings": [
+          5, 6
+        ]
+      },
+      "3": {
+        "clusters": [
+          5, 6
+        ],
+        "bindings": [
+          5, 6
+        ]
+      },
+      "4": {
+        "clusters": [
+          6
+        ],
+        "bindings": [
+          6
+        ]
+      },
+      "5": {
+        "clusters": [
+          6
+        ],
+        "bindings": [
+          6
+        ]
+      },
+      "6": {
+        "clusters": [
+          6
+        ],
+        "bindings": [
+          6
+        ]
+      }
+    }
+  }
+}

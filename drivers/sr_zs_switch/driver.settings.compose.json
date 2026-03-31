@@ -1,0 +1,77 @@
+[
+  {
+    "id": "mode_1",
+    "type": "dropdown",
+    "label": {
+      "en": "Button 1 Mode",
+      "pl": "Tryb przycisku 1"
+    },
+    "value": "switch_1",
+    "values": [
+      {
+        "id": "switch_1",
+        "label": {
+          "en": "Switch",
+          "pl": "Przełącznik"
+        }
+      },
+      {
+        "id": "scene_1",
+        "label": {
+          "en": "Scene",
+          "pl": "Scena"
+        }
+      }
+    ]
+  },
+  {
+    "id": "mode_2",
+    "type": "dropdown",
+    "label": {
+      "en": "Button 2 Mode",
+      "pl": "Tryb przycisku 2"
+    },
+    "value": "switch_2",
+    "values": [
+      {
+        "id": "switch_2",
+        "label": {
+          "en": "Switch",
+          "pl": "Przełącznik"
+        }
+      },
+      {
+        "id": "scene_2",
+        "label": {
+          "en": "Scene",
+          "pl": "Scena"
+        }
+      }
+    ]
+  },
+  {
+    "id": "mode_3",
+    "type": "dropdown",
+    "label": {
+      "en": "Button 3 Mode",
+      "pl": "Tryb przycisku 3"
+    },
+    "value": "switch_3",
+    "values": [
+      {
+        "id": "switch_3",
+        "label": {
+          "en": "Switch",
+          "pl": "Przełącznik"
+        }
+      },
+      {
+        "id": "scene_3",
+        "label": {
+          "en": "Scene",
+          "pl": "Scena"
+        }
+      }
+    ]
+  }
+] 

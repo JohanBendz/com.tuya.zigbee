@@ -1,0 +1,470 @@
+{
+  "deviceSpecification": {
+    "device": {
+      "active_time": 1729442849,
+      "biz_type": 0,
+      "category": "cjkg",
+      "create_time": 1729442849,
+      "icon": "smart/icon/ay15327721968035jwx9/4f7134771be33b3e1e3d3239f4936061.jpg",
+      "id": "bffa6f0371f0c06b29mbae",
+      "ip": "<redacted>",
+      "lat": "<redacted>",
+      "local_key": "<redacted>",
+      "lon": "<redacted>",
+      "model": "SR-ZS",
+      "name": "6gang łazienka",
+      "node_id": "a4c1387a2f845d8b",
+      "online": true,
+      "owner_id": "<redacted>",
+      "product_id": "vaq2bfcu",
+      "product_name": "Smart switch + scene switch",
+      "status": [
+        {
+          "code": "scene_1",
+          "value": "scene"
+        },
+        {
+          "code": "scene_2",
+          "value": "scene"
+        },
+        {
+          "code": "scene_3",
+          "value": "scene"
+        },
+        {
+          "code": "scene_4",
+          "value": "scene"
+        },
+        {
+          "code": "scene_5",
+          "value": "scene"
+        },
+        {
+          "code": "scene_6",
+          "value": "scene"
+        },
+        {
+          "code": "scene_id_group_id",
+          "value": ""
+        },
+        {
+          "code": "mode_1",
+          "value": "switch_1"
+        },
+        {
+          "code": "mode_2",
+          "value": "switch_2"
+        },
+        {
+          "code": "mode_3",
+          "value": "switch_3"
+        },
+        {
+          "code": "switch_1",
+          "value": false
+        },
+        {
+          "code": "switch_2",
+          "value": false
+        },
+        {
+          "code": "switch_3",
+          "value": false
+        },
+        {
+          "code": "countdown_1",
+          "value": 0
+        },
+        {
+          "code": "countdown_2",
+          "value": 0
+        },
+        {
+          "code": "countdown_3",
+          "value": 0
+        },
+        {
+          "code": "light_mode",
+          "value": "relay"
+        },
+        {
+          "code": "relay_status",
+          "value": "power_off"
+        },
+        {
+          "code": "relay_status_1",
+          "value": "power_off"
+        },
+        {
+          "code": "relay_status_2",
+          "value": "power_off"
+        },
+        {
+          "code": "relay_status_3",
+          "value": "power_off"
+        }
+      ],
+      "sub": true,
+      "time_zone": "+02:00",
+      "uid": "<redacted>",
+      "update_time": 1729819175,
+      "uuid": "<redacted>"
+    },
+    "specifications": {
+      "category": "cjkg",
+      "functions": [
+        {
+          "code": "scene_id_group_id",
+          "type": "Raw",
+          "values": "{}"
+        },
+        {
+          "code": "mode_1",
+          "type": "Enum",
+          "values": "{\"range\":[\"switch_1\",\"scene_1\"]}"
+        },
+        {
+          "code": "mode_2",
+          "type": "Enum",
+          "values": "{\"range\":[\"switch_2\",\"scene_2\"]}"
+        },
+        {
+          "code": "mode_3",
+          "type": "Enum",
+          "values": "{\"range\":[\"switch_3\",\"scene_3\"]}"
+        },
+        {
+          "code": "switch_1",
+          "type": "Boolean",
+          "values": "{}"
+        },
+        {
+          "code": "switch_2",
+          "type": "Boolean",
+          "values": "{}"
+        },
+        {
+          "code": "switch_3",
+          "type": "Boolean",
+          "values": "{}"
+        },
+        {
+          "code": "countdown_1",
+          "type": "Integer",
+          "values": "{\"unit\":\"s\",\"min\":0,\"max\":43200,\"scale\":0,\"step\":1}"
+        },
+        {
+          "code": "countdown_2",
+          "type": "Integer",
+          "values": "{\"unit\":\"s\",\"min\":0,\"max\":43200,\"scale\":0,\"step\":1}"
+        },
+        {
+          "code": "countdown_3",
+          "type": "Integer",
+          "values": "{\"unit\":\"s\",\"min\":0,\"max\":43200,\"scale\":0,\"step\":1}"
+        },
+        {
+          "code": "light_mode",
+          "type": "Enum",
+          "values": "{\"range\":[\"none\",\"relay\",\"pos\"]}"
+        },
+        {
+          "code": "relay_status",
+          "type": "Enum",
+          "values": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+        },
+        {
+          "code": "relay_status_1",
+          "type": "Enum",
+          "values": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+        },
+        {
+          "code": "relay_status_2",
+          "type": "Enum",
+          "values": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+        },
+        {
+          "code": "relay_status_3",
+          "type": "Enum",
+          "values": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+        }
+      ],
+      "status": [
+        {
+          "code": "scene_1",
+          "type": "Enum",
+          "values": "{\"range\":[\"scene\"]}"
+        },
+        {
+          "code": "scene_2",
+          "type": "Enum",
+          "values": "{\"range\":[\"scene\"]}"
+        },
+        {
+          "code": "scene_3",
+          "type": "Enum",
+          "values": "{\"range\":[\"scene\"]}"
+        },
+        {
+          "code": "scene_4",
+          "type": "Enum",
+          "values": "{\"range\":[\"scene\"]}"
+        },
+        {
+          "code": "scene_5",
+          "type": "Enum",
+          "values": "{\"range\":[\"scene\"]}"
+        },
+        {
+          "code": "scene_6",
+          "type": "Enum",
+          "values": "{\"range\":[\"scene\"]}"
+        },
+        {
+          "code": "scene_id_group_id",
+          "type": "Raw",
+          "values": "{}"
+        },
+        {
+          "code": "mode_1",
+          "type": "Enum",
+          "values": "{\"range\":[\"switch_1\",\"scene_1\"]}"
+        },
+        {
+          "code": "mode_2",
+          "type": "Enum",
+          "values": "{\"range\":[\"switch_2\",\"scene_2\"]}"
+        },
+        {
+          "code": "mode_3",
+          "type": "Enum",
+          "values": "{\"range\":[\"switch_3\",\"scene_3\"]}"
+        },
+        {
+          "code": "switch_1",
+          "type": "Boolean",
+          "values": "{}"
+        },
+        {
+          "code": "switch_2",
+          "type": "Boolean",
+          "values": "{}"
+        },
+        {
+          "code": "switch_3",
+          "type": "Boolean",
+          "values": "{}"
+        },
+        {
+          "code": "countdown_1",
+          "type": "Integer",
+          "values": "{\"unit\":\"s\",\"min\":0,\"max\":43200,\"scale\":0,\"step\":1}"
+        },
+        {
+          "code": "countdown_2",
+          "type": "Integer",
+          "values": "{\"unit\":\"s\",\"min\":0,\"max\":43200,\"scale\":0,\"step\":1}"
+        },
+        {
+          "code": "countdown_3",
+          "type": "Integer",
+          "values": "{\"unit\":\"s\",\"min\":0,\"max\":43200,\"scale\":0,\"step\":1}"
+        },
+        {
+          "code": "light_mode",
+          "type": "Enum",
+          "values": "{\"range\":[\"none\",\"relay\",\"pos\"]}"
+        },
+        {
+          "code": "relay_status",
+          "type": "Enum",
+          "values": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+        },
+        {
+          "code": "relay_status_1",
+          "type": "Enum",
+          "values": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+        },
+        {
+          "code": "relay_status_2",
+          "type": "Enum",
+          "values": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+        },
+        {
+          "code": "relay_status_3",
+          "type": "Enum",
+          "values": "{\"range\":[\"power_off\",\"power_on\",\"last\"]}"
+        }
+      ]
+    },
+    "data_points": [
+      {
+        "code": "scene_1",
+        "custom_name": "",
+        "dp_id": 1,
+        "time": 1729442849191,
+        "type": "enum",
+        "value": "scene"
+      },
+      {
+        "code": "scene_2",
+        "custom_name": "",
+        "dp_id": 2,
+        "time": 1729442849191,
+        "type": "enum",
+        "value": "scene"
+      },
+      {
+        "code": "scene_3",
+        "custom_name": "",
+        "dp_id": 3,
+        "time": 1729442849191,
+        "type": "enum",
+        "value": "scene"
+      },
+      {
+        "code": "scene_4",
+        "custom_name": "",
+        "dp_id": 4,
+        "time": 1729442849191,
+        "type": "enum",
+        "value": "scene"
+      },
+      {
+        "code": "scene_5",
+        "custom_name": "",
+        "dp_id": 5,
+        "time": 1729442849191,
+        "type": "enum",
+        "value": "scene"
+      },
+      {
+        "code": "scene_6",
+        "custom_name": "",
+        "dp_id": 6,
+        "time": 1729442849191,
+        "type": "enum",
+        "value": "scene"
+      },
+      {
+        "code": "scene_id_group_id",
+        "custom_name": "",
+        "dp_id": 17,
+        "time": 1729442849191,
+        "type": "raw"
+      },
+      {
+        "code": "mode_1",
+        "custom_name": "",
+        "dp_id": 18,
+        "time": 1729442852611,
+        "type": "enum",
+        "value": "switch_1"
+      },
+      {
+        "code": "mode_2",
+        "custom_name": "",
+        "dp_id": 19,
+        "time": 1729442852720,
+        "type": "enum",
+        "value": "switch_2"
+      },
+      {
+        "code": "mode_3",
+        "custom_name": "",
+        "dp_id": 20,
+        "time": 1729442852816,
+        "type": "enum",
+        "value": "switch_3"
+      },
+      {
+        "code": "switch_1",
+        "custom_name": "",
+        "dp_id": 24,
+        "time": 1729856788446,
+        "type": "bool",
+        "value": false
+      },
+      {
+        "code": "switch_2",
+        "custom_name": "",
+        "dp_id": 25,
+        "time": 1729805496168,
+        "type": "bool",
+        "value": false
+      },
+      {
+        "code": "switch_3",
+        "custom_name": "",
+        "dp_id": 26,
+        "time": 1729853467229,
+        "type": "bool",
+        "value": false
+      },
+      {
+        "code": "countdown_1",
+        "custom_name": "",
+        "dp_id": 30,
+        "time": 1729442849590,
+        "type": "value",
+        "value": 0
+      },
+      {
+        "code": "countdown_2",
+        "custom_name": "",
+        "dp_id": 31,
+        "time": 1729442849659,
+        "type": "value",
+        "value": 0
+      },
+      {
+        "code": "countdown_3",
+        "custom_name": "",
+        "dp_id": 32,
+        "time": 1729442849744,
+        "type": "value",
+        "value": 0
+      },
+      {
+        "code": "light_mode",
+        "custom_name": "",
+        "dp_id": 37,
+        "time": 1729442849540,
+        "type": "enum",
+        "value": "relay"
+      },
+      {
+        "code": "relay_status",
+        "custom_name": "",
+        "dp_id": 38,
+        "time": 1729442852407,
+        "type": "enum",
+        "value": "off"
+      },
+      {
+        "code": "relay_status_1",
+        "custom_name": "",
+        "dp_id": 39,
+        "time": 1729442852611,
+        "type": "enum",
+        "value": "off"
+      },
+      {
+        "code": "relay_status_2",
+        "custom_name": "",
+        "dp_id": 40,
+        "time": 1729442852720,
+        "type": "enum",
+        "value": "off"
+      },
+      {
+        "code": "relay_status_3",
+        "custom_name": "",
+        "dp_id": 41,
+        "time": 1729442852816,
+        "type": "enum",
+        "value": "off"
+      }
+    ]
+  }
+}
