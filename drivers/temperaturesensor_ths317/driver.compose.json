@@ -1,0 +1,54 @@
+{
+  "id": "temperaturesensor_ths317",
+  "name": {
+    "en": "Temperature Sensor THS317"
+  },
+  "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "measure_temperature",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "AAA",
+      "AAA"
+    ]
+  },
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZE200_iq4ygaai"
+    ],
+    "productId": [
+      "TS0201"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          61184,
+          1026
+        ],
+        "bindings": [
+          1,
+          1026,
+          61184
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/learnmode.svg",
+      "instruction": {
+        "en": "hold button for 10 seconds to reset the device and enter learn mode"
+      }
+    }
+  }
+}

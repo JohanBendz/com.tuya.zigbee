@@ -1,0 +1,34 @@
+  [
+    {
+      "id": "temperature_offset",
+      "type": "number",
+      "label": {
+        "en": "Temperature offset (°C)"
+      },
+      "hint": {
+        "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]"
+      },
+      "value": 0,
+      "attr": {
+        "min": -10,
+        "max": 10,
+        "step": 0.1
+      }
+    },
+    {
+      "id": "batteryThreshold",
+      "type": "number",
+      "label": {
+        "en": "Battery Low Alarm Voltage Threshold (percent)"
+      },
+      "hint": {
+        "en": "This setting determines the threshold before a battery alarm is given."
+      },
+      "value": 20,
+      "attr": {
+        "step": 1,
+        "min": 10,
+        "max": 90
+      }
+    }
+  ]

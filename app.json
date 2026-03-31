@@ -10339,6 +10339,98 @@
       ]
     },
     {
+      "id": "temperaturesensor_ths317",
+      "name": {
+        "en": "Temperature Sensor THS317"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_temperature",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "small": "/drivers/temperaturesensor_ths317/assets/images/small.png",
+        "large": "/drivers/temperaturesensor_ths317/assets/images/large.png",
+        "xlarge": "/drivers/temperaturesensor_ths317/assets/images/xlarge.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_iq4ygaai"
+        ],
+        "productId": [
+          "TS0201"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              61184,
+              1026
+            ],
+            "bindings": [
+              1,
+              1026,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/temperaturesensor_ths317/assets/learnmode.svg",
+          "instruction": {
+            "en": "hold button for 10 seconds to reset the device and enter learn mode"
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "temperature_offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset (°C)"
+          },
+          "hint": {
+            "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "batteryThreshold",
+          "type": "number",
+          "label": {
+            "en": "Battery Low Alarm Voltage Threshold (percent)"
+          },
+          "hint": {
+            "en": "This setting determines the threshold before a battery alarm is given."
+          },
+          "value": 20,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 90
+          }
+        }
+      ]
+    },
+    {
       "id": "temphumidsensor",
       "name": {
         "en": "Temperature & Humidity Sensor"
