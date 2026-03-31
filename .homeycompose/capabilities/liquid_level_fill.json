@@ -1,0 +1,42 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Fill",
+        "nl": "Vulling "
+    },
+    "units": {
+        "en": "%"
+    },
+    "insights": true,
+    "desc": {
+        "en": "Fill (%)",
+        "nl": "Vulling (%)"
+    },
+    "chartType": "spline",
+    "decimals": 3,
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor",
+    "$flow": {
+        "triggers": [
+            {
+                "id": "liquid_level_fill_changed",
+                "title": {
+                    "en": "Liquid Level Fill changed",
+                    "nl": "Vloestofniveau vulling is veranderd"
+                },
+                "tokens": [
+                    {
+                        "name": "liquid_level_fill",
+                        "title": {
+                            "en": "Liquid Level Fill",
+                            "nl": "Vloeistofniveau vulling"
+                        },
+                        "type": "number",
+                        "example": "70"
+                    }
+                ]
+            }
+        ]
+    }
+}

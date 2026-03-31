@@ -1,0 +1,42 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Level",
+        "nl": "Niveau"
+    },
+    "units": {
+        "en": "cm"
+    },
+    "insights": true,
+    "desc": {
+        "en": "Level",
+        "nl": "Niveau"
+    },
+    "chartType": "spline",
+    "decimals": 3,
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor",
+    "$flow": {
+        "triggers": [
+            {
+                "id": "liquid_level_changed",
+                "title": {
+                    "en": "Liquid Level changed",
+                    "nl": "Vloestofniveau is veranderd"
+                },
+                "tokens": [
+                    {
+                        "name": "liquid_level",
+                        "title": {
+                            "en": "Liquid Level",
+                            "nl": "Vloeistofniveau"
+                        },
+                        "type": "number",
+                        "example": "230"
+                    }
+                ]
+            }
+        ]
+    }
+}

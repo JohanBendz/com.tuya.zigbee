@@ -1,0 +1,74 @@
+[
+  {
+    "id": "distance_to_bottom",
+    "type": "number",
+    "label": {
+      "en": "Distance to bottom",
+      "nl": "Afstand to bodem"
+    },
+    "hint": {
+      "en": "It is distance from sensor to tank bottom (mm).",
+      "nl": "De afstand tussen de sensor en de bodem van de tank (mm)."
+    },
+    "value": 1000,
+    "attr": {
+      "min": 100,
+      "max": 5000,
+      "step": 10
+    }
+  },
+  {
+    "id": "distance_to_top",
+    "type": "number",
+    "label": {
+      "en": "Distance to Top",
+      "nl": "Afstand tot top"
+    },
+    "hint": {
+      "en": "It is distance from sensor to top of water (max filled) (mm).",
+      "nl": "De afstand tussen de sensor en bovenkant van het water niveau (volledig gevuld) (mm)."
+    },
+    "value": 100,
+    "attr": {
+      "min": 100,
+      "max": 2500,
+      "step": 10
+    }
+  },
+  {
+    "id": "max_level",
+    "type": "number",
+    "label": {
+      "en": "Max Level",
+      "nl": "Max niveau"
+    },
+    "hint": {
+      "en": "Set Max Level (%) for full level alarm",
+      "nl": "Zet Max niveau (%) voor vol niveau alarm"
+    },
+    "value": 90,
+    "attr": {
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  },
+  {
+    "id": "min_level",
+    "type": "number",
+    "label": {
+      "en": "Min Level",
+      "nl": "Min niveau"
+    },
+    "hint": {
+      "en": "Set Min Level (%) for low level alarm",
+      "nl": "Zet Min niveau (%) voor laag niveau alarm"
+    },
+    "value": 10,
+    "attr": {
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  }
+]

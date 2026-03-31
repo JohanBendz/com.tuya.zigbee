@@ -7,6 +7,7 @@ Some of the supported White Label Brands:
 - Avatto
 - BSEED
 - Blitzwolf
+- EPT TECH
 - eWeLight
 - GiEX
 - GIRIER
@@ -274,6 +275,9 @@ Supported devices:
 
 - Rain sensor
     _TZ3210_tgvtvdoc / TS0207
+
+- Tank Level Monitor
+    _TZE200_lvkk0hdg / TS0601
 
 **Plugs, Sockets and Socket Strips**
 - Smart Plug, with metering
@@ -852,6 +856,7 @@ Major Code Contributors:
 - Thomas Ha, Thermostatic Radiator Valve
 - Julian M, Outdoor Smart Plug
 - Roelof Oomen, Rain sensor
+- Jeroen van Agt, Tank Level Monitor
 (Did you contribute with code and I forgot to name you? Give me a friendly reminder! )
 
 

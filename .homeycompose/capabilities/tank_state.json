@@ -1,0 +1,60 @@
+{
+    "type": "enum",
+    "title": {
+        "en": "Status",
+        "nl": "Status"
+    },
+    "values": [
+        {
+            "id": "low",
+            "title": {
+                "en": "Low",
+                "nl": "Laag"
+            }
+        },
+        {
+            "id": "normal",
+            "title": {
+                "en": "Normal",
+                "nl": "Normaal"
+            }
+        },
+        {
+            "id": "full",
+            "title": {
+                "en": "Full",
+                "nl": "Vol"
+            }
+        }
+    ],
+    "insights": true,
+    "desc": {
+        "en": "Level",
+        "nl": "Niveau"
+    },
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor",
+    "$flow": {
+        "triggers": [
+            {
+                "id": "tank_status_changed",
+                "title": {
+                    "en": "Tank Status changed",
+                    "nl": "Tankstatus is veranderd"
+                },
+                "tokens": [
+                    {
+                        "name": "tank_status",
+                        "title": {
+                            "en": "Tank Status",
+                            "nl": "Tankstatus"
+                        },
+                        "type": "enum",
+                        "example": "low"
+                    }
+                ]
+            }
+        ]
+    }
+}
