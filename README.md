@@ -600,6 +600,7 @@ Supported devices:
     _TZ3000_i8l0nqdu / TS0503B
     _TZ3000_ukuvyhaa / TS0504B
     _TZ3210_k1pe6ibm / TS0505B
+    _TZ3210_eejm8dcr / TS0505B
 
 - RGB Spot GU10
     _TZ3000_kdpxju99 / TS0505A (LIVARNO LUX / Lidl)
