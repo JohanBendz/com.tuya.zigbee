@@ -1,0 +1,120 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Fan Speed",
+    "nl": "Ventilatorsnelheid",
+    "da": "Ventilatorhastighed",
+    "it": "Velocità della ventola",
+    "ko": "팬 속도",
+    "no": "Viftehastighet",
+    "pl": "Prędkość wentylatora",
+    "ru": "Скорость вентилятора",
+    "sv": "Fläkthastighet",
+    "es": "Velocidad del ventilador",
+    "fr": "Vitesse de ventilation"
+  },
+  "units": {
+    "en": "%",
+    "da": "%",
+    "it": "%",
+    "ko": "%",
+    "nl": "%",
+    "no": "%",
+    "pl": "%",
+    "ru": "%",
+    "sv": "%",
+    "es": "%",
+    "fr": "%"
+  },
+  "desc": {
+    "en": "The fan speed in percentage.",
+    "nl": "De ventilatorsnelheid in procenten.",
+    "da": "Ventilatorhastigheden i procent.",
+    "it": "La velocità della ventola in percentuale.",
+    "ko": "백분율로 표현한 팬 속도입니다.",
+    "no": "Viftehastigheten i prosent.",
+    "pl": "Prędkość wentylatora w procentach.",
+    "ru": "Скорость работы вентилятора в процентах.",
+    "sv": "Fläkthastigheten i procent.",
+    "es": "La velocidad del ventilador en porcentaje.",
+    "fr": "Vitesse de ventilation en pourcentage."
+  },
+  "insights": true,
+  "chartType": "spline",
+  "min": 0,
+  "max": 100,
+  "step": 20,
+  "getable": true,
+  "setable": true,
+  "uiComponent": "slider",
+  "$flow": {
+    "triggers": [
+      {
+        "id": "fan_speed_changed",
+        "title": {
+          "en": "The fan speed changed",
+          "nl": "De ventilatorsnelheid is veranderd",
+          "da": "Ventilatorhastigheden ændrede sig",
+          "it": "La velocità della ventola è cambiata",
+          "ko": "팬 속도가 변경되면",
+          "no": "Viftehastigheten ble endret",
+          "pl": "Prędkość wentylatora zmieniła się",
+          "ru": "Скорость вентилятора изменена",
+          "sv": "Fläkthastigheten ändrades",
+          "es": "La velocidad del ventilador ha cambiado",
+          "fr": "La vitesse de ventilation a changé"
+        },
+        "tokens": [
+          {
+            "name": "fan_speed",
+            "title": {
+              "en": "Fan Speed",
+              "nl": "Ventilatorsnelheid",
+              "da": "Ventilatorhastighed",
+              "it": "Velocità della ventola",
+              "ko": "팬 속도",
+              "no": "Viftehastighet",
+              "pl": "Prędkość wentylatora",
+              "ru": "Скорость вентилятора",
+              "sv": "Fläkthastighet",
+              "es": "Velocidad del ventilador",
+              "fr": "Vitesse de ventilation"
+            },
+            "type": "number",
+            "example": 40
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "set_fan_speed",
+        "title": {
+          "en": "Set the fan speed to",
+          "nl": "De ventilatorsnelheid instellen op",
+          "da": "Indstil ventilatorhastigheden til",
+          "it": "Imposta la velocità della ventola su",
+          "ko": "팬 속도를 다음으로 설정",
+          "no": "Sett viftehastigheten til",
+          "pl": "Ustaw prędkość wentylatora na",
+          "ru": "Установить скорость вентилятора на",
+          "sv": "Ställ in fläkthastigheten på",
+          "es": "Ajustar la velocidad del ventilador a",
+          "fr": "Définir la vitesse de ventilation sur"
+        },
+        "args": [
+          {
+            "name": "fan_speed",
+            "type": "range",
+            "min": 20,
+            "max": 100,
+            "step": 20,
+            "value": 60,
+            "label": "%",
+            "labelDecimals": 0
+          }
+        ]
+      }
+    ]
+  }
+}
