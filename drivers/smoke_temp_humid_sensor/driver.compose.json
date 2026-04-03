@@ -1,0 +1,44 @@
+{
+    "id": "smoke_temp_humid",
+    "name": {
+      "en": "Smoke Temp Humid Sensor"
+    },
+    "class": "sensor",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "measure_battery",
+      "alarm_smoke",
+      "alarm_battery",
+      "measure_humidity",
+      "measure_temperature"
+    ],
+    "energy": {
+      "batteries": ["AAA","AAA"]
+    },
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TZE284_gyzlwu5q"
+      ],
+      "productId": [
+        "TS0601"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 4, 5, 61184, 60672],
+          "bindings": [4, 5, 61184]
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Press the coms-button for 5 seconds until LED blinks."
+        }
+      }
+    }
+
+}
