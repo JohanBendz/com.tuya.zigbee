@@ -1,0 +1,61 @@
+[
+  {
+    "id": "radar_sensitivity",
+    "type": "number",
+    "label": {
+      "en": "Radar sensitivity",
+      "nl": "Radar sensitiviteit"
+    },
+    "value": 12,
+    "min": 1,
+    "max": 15,
+    "step": 1
+  },
+  {
+    "id": "minimum_range",
+    "type": "number",
+    "label": {
+      "en": "Minimum range",
+      "nl": "Minimale bereik"
+    },
+    "value": 0,
+    "min": 0,
+    "max": 9.5,
+    "step": 0.5,
+    "units": {
+      "en": "meters",
+      "nl": "meters"
+    }
+  },
+  {
+    "id": "maximum_range",
+    "type": "number",
+    "label": {
+      "en": "Maximum range",
+      "nl": "Maximale bereik"
+    },
+    "value": 9.5,
+    "min": 0,
+    "max": 9.5,
+    "step": 0.5,
+    "units": {
+      "en": "meters",
+      "nl": "meters"
+    }
+  },
+  {
+    "id": "fading_time",
+    "type": "number",
+    "label": {
+      "en": "Fading time",
+      "nl": "Reset tijd"
+    },
+    "value": 30,
+    "min": 0,
+    "max": 1500,
+    "units": {
+      "en": "seconds",
+      "nl": "seconden"
+    }
+  }
+]
