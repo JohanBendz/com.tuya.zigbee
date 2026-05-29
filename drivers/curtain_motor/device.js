@@ -10,6 +10,15 @@ const dataPoints = {
   position: 2,
   arrived: 3,
   motorReverse: 4,
+  border: 16,
+}
+
+const borderValues = {
+  up: 0,
+  down: 1,
+  up_delete: 2,
+  down_delete: 3,
+  remove_top_bottom: 4,
 }
 
 const dataTypes = {
@@ -68,6 +77,13 @@ class CurtainMotor extends TuyaSpecificClusterDevice {
         this.error('Error when reading device attributes ', err);
     });
 
+    this.homey.flow.getActionCard('set_upper_limit')
+      .registerRunListener((args) => args.device.writeEnum(dataPoints.border, borderValues.up));
+    this.homey.flow.getActionCard('set_lower_limit')
+      .registerRunListener((args) => args.device.writeEnum(dataPoints.border, borderValues.down));
+    this.homey.flow.getActionCard('remove_limits')
+      .registerRunListener((args) => args.device.writeEnum(dataPoints.border, borderValues.remove_top_bottom));
+
   }
 
   async setPosition(pos) {
@@ -81,7 +97,7 @@ class CurtainMotor extends TuyaSpecificClusterDevice {
     if (pos === undefined) {
       pos = this.getCapabilityValue('pos');
     } else {
-      pos = reverse ? 1 - pos : pos;
+      pos = reverse ? pos : 1 - pos;
     }
 
     return this.writeData32(dataPoints.position, pos * 100);
@@ -109,6 +125,18 @@ class CurtainMotor extends TuyaSpecificClusterDevice {
   async onSettings({oldSettings, newSettings, changedKeys}) {
     if (changedKeys.includes('reverse')) {
       this.setCapabilityValue('windowcoverings_set', 1 - this.getCapabilityValue('windowcoverings_set')).catch(this.error);
+    }
+    if (changedKeys.includes('set_upper_limit') && newSettings.set_upper_limit) {
+      await this.writeEnum(dataPoints.border, borderValues.up);
+      this.setSettings({ set_upper_limit: false }).catch(this.error);
+    }
+    if (changedKeys.includes('set_lower_limit') && newSettings.set_lower_limit) {
+      await this.writeEnum(dataPoints.border, borderValues.down);
+      this.setSettings({ set_lower_limit: false }).catch(this.error);
+    }
+    if (changedKeys.includes('remove_limits') && newSettings.remove_limits) {
+      await this.writeEnum(dataPoints.border, borderValues.remove_top_bottom);
+      this.setSettings({ remove_limits: false }).catch(this.error);
     }
   }
 

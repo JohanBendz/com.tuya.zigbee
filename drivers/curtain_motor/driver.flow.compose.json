@@ -1,0 +1,25 @@
+{
+    "actions": [
+      {
+        "id": "set_upper_limit",
+        "title": {
+          "en": "Set upper limit at current position",
+          "nl": "Bovengrens instellen op huidige positie"
+        }
+      },
+      {
+        "id": "set_lower_limit",
+        "title": {
+          "en": "Set lower limit at current position",
+          "nl": "Ondergrens instellen op huidige positie"
+        }
+      },
+      {
+        "id": "remove_limits",
+        "title": {
+          "en": "Remove upper and lower limits",
+          "nl": "Boven- en ondergrens verwijderen"
+        }
+      }
+    ]
+  }

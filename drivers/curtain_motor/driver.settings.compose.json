@@ -25,6 +25,33 @@
     ]
   },
   {
+    "id": "set_upper_limit",
+    "type": "checkbox",
+    "label": {
+      "en": "Set upper limit at current position",
+      "nl": "Bovengrens instellen op huidige positie"
+    },
+    "value": false
+  },
+  {
+    "id": "set_lower_limit",
+    "type": "checkbox",
+    "label": {
+      "en": "Set lower limit at current position",
+      "nl": "Ondergrens instellen op huidige positie"
+    },
+    "value": false
+  },
+  {
+    "id": "remove_limits",
+    "type": "checkbox",
+    "label": {
+      "en": "Remove upper and lower limits",
+      "nl": "Boven- en ondergrens verwijderen"
+    },
+    "value": false
+  },
+  {
     "id": "max_open_percentage",
     "type": "number",
     "label": {
