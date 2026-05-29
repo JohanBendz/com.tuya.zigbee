@@ -1317,6 +1317,48 @@
         ]
       },
       {
+        "id": "set_upper_limit",
+        "title": {
+          "en": "Set upper limit at current position",
+          "nl": "Bovengrens instellen op huidige positie"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=curtain_motor"
+          }
+        ]
+      },
+      {
+        "id": "set_lower_limit",
+        "title": {
+          "en": "Set lower limit at current position",
+          "nl": "Ondergrens instellen op huidige positie"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=curtain_motor"
+          }
+        ]
+      },
+      {
+        "id": "remove_limits",
+        "title": {
+          "en": "Remove upper and lower limits",
+          "nl": "Boven- en ondergrens verwijderen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=curtain_motor"
+          }
+        ]
+      },
+      {
         "id": "fingerbot_push",
         "title": {
           "en": "Push"
@@ -2529,7 +2571,9 @@
           "_TZE200_nw1r9hp6",
           "_TZE200_cf1sl3tj",
           "_TZE200_9p5xmj5r",
-          "_TZE204_xu4a5rhj"
+          "_TZE204_xu4a5rhj",
+          "_TZE200_gubdgai2",
+          "_TZE200_vdiuwbkq"
         ],
         "productId": [
           "TS0601"
@@ -2583,6 +2627,33 @@
               }
             }
           ]
+        },
+        {
+          "id": "set_upper_limit",
+          "type": "checkbox",
+          "label": {
+            "en": "Set upper limit at current position",
+            "nl": "Bovengrens instellen op huidige positie"
+          },
+          "value": false
+        },
+        {
+          "id": "set_lower_limit",
+          "type": "checkbox",
+          "label": {
+            "en": "Set lower limit at current position",
+            "nl": "Ondergrens instellen op huidige positie"
+          },
+          "value": false
+        },
+        {
+          "id": "remove_limits",
+          "type": "checkbox",
+          "label": {
+            "en": "Remove upper and lower limits",
+            "nl": "Boven- en ondergrens verwijderen"
+          },
+          "value": false
         },
         {
           "id": "max_open_percentage",
