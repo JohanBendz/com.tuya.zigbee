@@ -1,0 +1,34 @@
+[
+  {
+    "id": "reverse",
+    "type": "radio",
+    "label": {
+      "en": "Reverse up/down direction",
+      "nl": "Op/neer richting omkeren"
+    },
+    "hint": {
+      "en": "Swap the Up and Down commands if your motor is wired the opposite way. (Position feedback inversion is handled automatically for these modules.)",
+      "nl": "Wissel de Op- en Neer-commando's als uw motor omgekeerd is bedraad. (Inversie van de positie wordt automatisch afgehandeld.)"
+    },
+    "value": "0",
+    "values": [
+      { "id": "0", "label": { "en": "Off", "nl": "Uit" } },
+      { "id": "1", "label": { "en": "On", "nl": "Aan" } }
+    ]
+  },
+  {
+    "id": "max_open_percentage",
+    "type": "number",
+    "label": {
+      "en": "Maximum open percentage",
+      "nl": "Maximale open percentage"
+    },
+    "hint": {
+      "en": "Clamp how far the covering may open (0-100).",
+      "nl": "Beperk hoever de bedekking mag openen (0-100)."
+    },
+    "value": 100,
+    "min": 0,
+    "max": 100
+  }
+]
