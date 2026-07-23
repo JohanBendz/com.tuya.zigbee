@@ -1,0 +1,47 @@
+{
+    "id": "curtain_motor_dooya",
+    "name": {
+      "en": "Dooya Curtain/Roller Motor (RJ11 Zigbee)",
+      "nl": "Dooya Gordijn/Rolmotor (RJ11 Zigbee)"
+    },
+    "class": "curtain",
+    "platforms": ["local"],
+    "connectivity": ["zigbee"],
+    "capabilities": [
+      "windowcoverings_state",
+      "windowcoverings_set"
+    ],
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.png",
+      "small": "{{driverAssetsPath}}/images/small.png"
+    },
+    "energy": {
+      "approximation": {
+        "usageOn": 0,
+        "usageOff": 0
+      }
+    },
+    "zigbee": {
+      "manufacturerName": [
+        "_TZE200_3ylew7b4",
+        "_TZE200_f91miyhj",
+        "_TZE200_ol5jlkkr"
+      ],
+      "productId": [
+        "TS0601"
+      ],
+      "endpoints": {
+        "1": {
+          "clusters": [0, 10, 4, 5, 258, 61184],
+          "bindings": [258, 61184]
+        }
+      },
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/icon.svg",
+        "instruction": {
+          "en": "Power the motor. Put the Dooya module into Zigbee pairing mode (via the paired remote/wall control programming sequence, or the module reset) until it broadcasts to join, and keep it close to Homey.",
+          "nl": "Zet de motor onder spanning. Zet de Dooya-module in Zigbee-koppelmodus (via de programmeersequentie van de afstandsbediening/wandbediening of een reset) totdat deze koppelt, en houd hem dicht bij Homey."
+        }
+      }
+    }
+}
