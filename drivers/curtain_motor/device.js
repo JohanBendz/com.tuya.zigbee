@@ -7,10 +7,17 @@ const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice')
 Cluster.addCluster(TuyaSpecificCluster);
 
 const dataPoints = {
+  state: 1,
   position: 2,
   arrived: 3,
   motorReverse: 4,
 }
+
+const stateCommand = {
+  OPEN: 0,
+  STOP: 1,
+  CLOSE: 2,
+};
 
 const dataTypes = {
   raw: 0, // [ bytes ]
@@ -63,11 +70,30 @@ class CurtainMotor extends TuyaSpecificClusterDevice {
 
     this.registerCapabilityListener('windowcoverings_set', value => this.setPosition(value));
 
+    await this._configureStateCapability(this.getSetting('has_state'));
+
     await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
     .catch(err => {
         this.error('Error when reading device attributes ', err);
     });
 
+  }
+
+  async _configureStateCapability(hasState) {
+    const key = 'windowcoverings_state';
+
+    if (hasState) {
+      if (!this.hasCapability(key)) {
+        await this.addCapability(key).catch(this.error);
+      }
+
+      this.registerCapabilityListener(key, value => {
+        const command = { up: stateCommand.OPEN, idle: stateCommand.STOP, down: stateCommand.CLOSE }[value];
+        return this.writeEnum(dataPoints.state, command);
+      });
+    } else if (this.hasCapability(key)) {
+      await this.removeCapability(key).catch(this.error);
+    }
   }
 
   async setPosition(pos) {
@@ -109,6 +135,10 @@ class CurtainMotor extends TuyaSpecificClusterDevice {
   async onSettings({oldSettings, newSettings, changedKeys}) {
     if (changedKeys.includes('reverse')) {
       this.setCapabilityValue('windowcoverings_set', 1 - this.getCapabilityValue('windowcoverings_set')).catch(this.error);
+    }
+
+    if (changedKeys.includes('has_state')) {
+      await this._configureStateCapability(newSettings.has_state);
     }
   }
 

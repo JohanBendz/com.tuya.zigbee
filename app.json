@@ -2484,7 +2484,8 @@
         "zigbee"
       ],
       "capabilities": [
-        "windowcoverings_set"
+        "windowcoverings_set",
+        "windowcoverings_state"
       ],
       "images": {
         "large": "/drivers/curtain_motor/assets/images/large.png",
@@ -2598,6 +2599,19 @@
           "value": 100,
           "min": 0,
           "max": 100
+        },
+        {
+          "id": "has_state",
+          "type": "checkbox",
+          "label": {
+            "en": "State control (Open/Stop/Close)",
+            "nl": "Statusbediening (Open/Stop/Sluit)"
+          },
+          "hint": {
+            "en": "When enabled, Open/Stop/Close controls are shown in addition to the percentage slider. Not all devices support this command, if nothing happens when using it, disable this setting again.",
+            "nl": "Indien ingeschakeld worden Open/Stop/Sluit-bedieningselementen getoond naast de percentage-schuifregelaar. Niet alle apparaten ondersteunen dit commando; als er niets gebeurt, schakel deze instelling dan weer uit."
+          },
+          "value": false
         }
       ]
     },
