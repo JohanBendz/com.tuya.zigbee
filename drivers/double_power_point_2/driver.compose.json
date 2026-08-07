@@ -24,7 +24,8 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TYZB01_hlla45kx"
+      "_TYZB01_hlla45kx",
+      "_TZ3000_k6fvknrr"
     ],
     "productId": [
       "TS011F"
