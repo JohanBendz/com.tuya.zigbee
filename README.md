@@ -191,6 +191,7 @@ Supported devices:
     _TZ3000_cqlnswn0 / TY0203 (TESLA)
     _TZ3000_qrldbmfn / TS0203
     _TZ3000_gntwytxo / TS0203
+    Wing / TS0203 (Wing)
     _TZ3000_n2egfsli / SNZB-04
 
 - Water Detector
