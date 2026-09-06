@@ -264,6 +264,7 @@ Supported devices:
     _TZE200_ikvncluo / TS0601
     _TZE204_ztqnh5cg / TS0601
     _TZE204_7gclukjs / TS0601
+    _TZE204_mtoaryre / TS0601 (MTG075-ZB-RL presence sensor with relay)
 
 - Air Detection Box
     _TZE200_yvx5lh6k / TS0601

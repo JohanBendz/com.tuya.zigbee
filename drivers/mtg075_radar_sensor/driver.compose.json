@@ -1,0 +1,42 @@
+{
+  "id": "mtg075_radar_sensor",
+  "name": {
+    "en": "MTG075 Presence Sensor with Relay",
+    "nl": "MTG075 Aanwezigheidssensor met relais"
+  },
+  "class": "sensor",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "onoff",
+    "alarm_motion",
+    "measure_luminance",
+    "target_distance"
+  ],
+  "energy": {
+    "approximation": {
+      "usageOn": 0,
+      "usageOff": 0
+    }
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZE204_mtoaryre"
+    ],
+    "productId": [
+      "TS0601"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 4, 5, 61184],
+        "bindings": [61184]
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press and hold the reset button for 6 seconds. When the indicator light flashes it is in pairing mode.",
+        "nl": "Druk 6 seconden op de resetknop. Wacht tot de led gaat knipperen."
+      }
+    }
+  }
+}

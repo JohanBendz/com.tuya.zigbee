@@ -4641,6 +4641,283 @@
       ]
     },
     {
+      "id": "mtg075_radar_sensor",
+      "name": {
+        "en": "MTG075 Presence Sensor with Relay",
+        "nl": "MTG075 Aanwezigheidssensor met relais"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "alarm_motion",
+        "measure_luminance",
+        "target_distance"
+      ],
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE204_mtoaryre"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the reset button for 6 seconds. When the indicator light flashes it is in pairing mode.",
+            "nl": "Druk 6 seconden op de resetknop. Wacht tot de led gaat knipperen."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "radar_sensitivity",
+          "type": "number",
+          "label": {
+            "en": "Radar sensitivity",
+            "nl": "Radargevoeligheid"
+          },
+          "value": 7,
+          "min": 0,
+          "max": 9
+        },
+        {
+          "id": "shield_range",
+          "type": "number",
+          "label": {
+            "en": "Minimum range",
+            "nl": "Minimaal bereik"
+          },
+          "value": 0,
+          "min": 0,
+          "max": 8,
+          "step": 0.1,
+          "units": {
+            "en": "meters",
+            "nl": "meter"
+          }
+        },
+        {
+          "id": "detection_range",
+          "type": "number",
+          "label": {
+            "en": "Detection range",
+            "nl": "Detectiebereik"
+          },
+          "value": 8,
+          "min": 0,
+          "max": 8,
+          "step": 0.1,
+          "units": {
+            "en": "meters",
+            "nl": "meter"
+          }
+        },
+        {
+          "id": "entry_sensitivity",
+          "type": "number",
+          "label": {
+            "en": "Entry sensitivity",
+            "nl": "Gevoeligheid bij binnenkomst"
+          },
+          "value": 7,
+          "min": 0,
+          "max": 9
+        },
+        {
+          "id": "entry_filter_time",
+          "type": "number",
+          "label": {
+            "en": "Entry filter time",
+            "nl": "Ingangsfiltertijd"
+          },
+          "value": 0,
+          "min": 0,
+          "max": 10,
+          "step": 0.1,
+          "units": {
+            "en": "seconds",
+            "nl": "seconden"
+          }
+        },
+        {
+          "id": "departure_delay",
+          "type": "number",
+          "label": {
+            "en": "Departure delay",
+            "nl": "Vertrekvertraging"
+          },
+          "value": 30,
+          "min": 0,
+          "max": 600,
+          "units": {
+            "en": "seconds",
+            "nl": "seconden"
+          }
+        },
+        {
+          "id": "entry_distance_indentation",
+          "type": "number",
+          "label": {
+            "en": "Entry distance indentation",
+            "nl": "Afstandsinspringing bij binnenkomst"
+          },
+          "value": 0,
+          "min": 0,
+          "max": 8,
+          "step": 0.1,
+          "units": {
+            "en": "meters",
+            "nl": "meter"
+          }
+        },
+        {
+          "id": "block_time",
+          "type": "number",
+          "label": {
+            "en": "Block time",
+            "nl": "Blokkeringstijd"
+          },
+          "value": 0,
+          "min": 0,
+          "max": 10,
+          "step": 0.1,
+          "units": {
+            "en": "seconds",
+            "nl": "seconden"
+          }
+        },
+        {
+          "id": "breaker_mode",
+          "type": "dropdown",
+          "label": {
+            "en": "Relay mode",
+            "nl": "Relaismodus"
+          },
+          "value": "standard",
+          "values": [
+            {
+              "id": "standard",
+              "label": {
+                "en": "Standard",
+                "nl": "Standaard"
+              }
+            },
+            {
+              "id": "local",
+              "label": {
+                "en": "Local",
+                "nl": "Lokaal"
+              }
+            }
+          ]
+        },
+        {
+          "id": "illuminance_threshold",
+          "type": "number",
+          "label": {
+            "en": "Illuminance threshold",
+            "nl": "Lichtdrempel"
+          },
+          "value": 0,
+          "min": 0,
+          "max": 420,
+          "step": 0.1,
+          "units": {
+            "en": "lux",
+            "nl": "lux"
+          }
+        },
+        {
+          "id": "status_indication",
+          "type": "dropdown",
+          "label": {
+            "en": "Status indication",
+            "nl": "Statusindicatie"
+          },
+          "value": "ON",
+          "values": [
+            {
+              "id": "OFF",
+              "label": {
+                "en": "Off",
+                "nl": "Uit"
+              }
+            },
+            {
+              "id": "ON",
+              "label": {
+                "en": "On",
+                "nl": "Aan"
+              }
+            }
+          ]
+        },
+        {
+          "id": "sensor",
+          "type": "dropdown",
+          "label": {
+            "en": "Sensor state",
+            "nl": "Sensorstatus"
+          },
+          "value": "on",
+          "values": [
+            {
+              "id": "on",
+              "label": {
+                "en": "On",
+                "nl": "Aan"
+              }
+            },
+            {
+              "id": "off",
+              "label": {
+                "en": "Off",
+                "nl": "Uit"
+              }
+            },
+            {
+              "id": "occupied",
+              "label": {
+                "en": "Occupied",
+                "nl": "Bezet"
+              }
+            },
+            {
+              "id": "unoccupied",
+              "label": {
+                "en": "Unoccupied",
+                "nl": "Onbezet"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "outdoor_2_socket",
       "name": {
         "en": "Outdoor Smart Socket"
