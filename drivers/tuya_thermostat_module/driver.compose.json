@@ -1,0 +1,50 @@
+{
+  "id": "tuya_thermostat_module",
+  "name": {
+    "en": "Tuya Thermostat Module",
+    "fr": "Module thermostat Tuya"
+  },
+  "class": "thermostat",
+  "capabilities": [
+    "onoff",
+    "thermostat_programming",
+    "measure_temperature",
+    "target_temperature",
+    "child_lock"
+  ],
+  "capabilitiesOptions": {
+    "target_temperature": {
+      "min": 5,
+      "max": 35,
+      "step": 0.5
+    }
+  },
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.jpg",
+    "large": "{{driverAssetsPath}}/images/large.jpg"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZE200_aoclfnxz",
+      "_TZE204_aoclfnxz",
+      "_TZE200_2ekuz3dz",
+      "_TZE204_wc2w9t1s"
+    ],
+    "productId": ["TS0601"],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 1, 2, 3, 4, 5, 6, 7, 513, 1026, 61184],
+        "bindings": [10, 25, 61184]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Put the module in pairing mode, then press Pair in Homey.",
+        "fr": "Mettez le module en mode appairage, puis appuyez sur Appairer dans Homey."
+      }
+    }
+  }
+}

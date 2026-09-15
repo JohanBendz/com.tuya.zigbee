@@ -18,6 +18,13 @@
             "title": {
                 "en": "Programming"
             }
+        },
+        {
+            "id": "2",
+            "title": {
+                "en": "Eco",
+                "fr": "Éco"
+            }
         }
     ],
     "getable": true,
