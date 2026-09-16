@@ -4,6 +4,7 @@ const assert = require('assert');
 
 const DeviceProfileRegistry = require('../lib/deviceProfiles/DeviceProfileRegistry');
 const lightProfiles = require('../lib/deviceProfiles/lightProfiles');
+const lightDriverManifest = require('../drivers/light/driver.compose.json');
 const {
     ensureProfileCapabilities,
 } = require('../lib/deviceProfiles/DeviceProfileCapabilities');
@@ -19,14 +20,87 @@ function testCase(name, fn) {
     tests.push({ name, fn });
 }
 
-testCase('loads all legacy light profiles without collisions', () => {
+testCase('loads legacy and active light profiles without collisions', () => {
     const registry = new DeviceProfileRegistry(lightProfiles);
 
-    assert.strictEqual(registry.size, 15);
-    assert.strictEqual(registry.matchCount, 45);
+    assert.strictEqual(registry.size, 16);
+    assert.strictEqual(registry.matchCount, 46);
+    assert.strictEqual(registry.list({ status: 'legacy-reference' }).length, 15);
+    assert.strictEqual(registry.list({ status: 'active' }).length, 1);
 });
 
-testCase('resolves a color light by manufacturerName and productId', () => {
+testCase('resolves the first active type-based light profile', () => {
+    const registry = new DeviceProfileRegistry(lightProfiles);
+    const profile = registry.resolve({
+        manufacturerName: '_TZ3210_bfwvfyx1',
+        productId: 'TS0505B',
+    });
+
+    assert(profile);
+    assert.strictEqual(profile.status, 'active');
+    assert.strictEqual(profile.deviceType, 'light');
+    assert.strictEqual(profile.sourceIssue, 1091);
+    assert(profile.capabilities.includes('light_hue'));
+    assert(profile.capabilities.includes('light_temperature'));
+});
+
+testCase('the Light driver manifest covers every active light profile', () => {
+    const registry = new DeviceProfileRegistry(lightProfiles);
+    const activeProfiles = registry.list({
+        deviceType: 'light',
+        status: 'active',
+    });
+
+    const manifestManufacturers = new Set(lightDriverManifest.zigbee.manufacturerName);
+    const manifestProducts = new Set(lightDriverManifest.zigbee.productId);
+    const manifestClusters = lightDriverManifest.zigbee.endpoints['1'].clusters;
+
+    for (const profile of activeProfiles) {
+        for (const matcher of profile.matchers) {
+            matcher.manufacturerName.forEach(manufacturerName => {
+                assert(
+                    manifestManufacturers.has(manufacturerName),
+                    `Light manifest is missing manufacturerName ${manufacturerName}`,
+                );
+            });
+
+            matcher.productId.forEach(productId => {
+                assert(
+                    manifestProducts.has(productId),
+                    `Light manifest is missing productId ${productId}`,
+                );
+            });
+        }
+
+        if (profile.endpointSignature && profile.endpointSignature.endpoint === 1) {
+            manifestClusters.forEach(clusterId => {
+                assert(
+                    profile.endpointSignature.inputClusters.includes(clusterId),
+                    `Profile ${profile.id} does not contain required cluster ${clusterId}`,
+                );
+            });
+        }
+    }
+});
+
+testCase('active Light profiles contain the static base capabilities', () => {
+    const registry = new DeviceProfileRegistry(lightProfiles);
+    const activeProfiles = registry.list({
+        deviceType: 'light',
+        status: 'active',
+    });
+
+    for (const profile of activeProfiles) {
+        lightDriverManifest.capabilities.forEach(capability => {
+            assert(
+                profile.capabilities.includes(capability),
+                `Profile ${profile.id} is missing base capability ${capability}`,
+            );
+        });
+    }
+});
+
+testCase('resolves a legacy color light by manufacturerName and productId', () => {
     const registry = new DeviceProfileRegistry(lightProfiles);
     const profile = registry.resolve({
         manufacturerName: '_TZ3000_dbou1ap4',
@@ -170,8 +244,8 @@ testCase('resolves a profile directly from a zclNode', async () => {
                     clusters: {
                         basic: {
                             readAttributes: async () => ({
-                                manufacturerName: '_TZ3000_49qchf10',
-                                modelId: 'TS0502A',
+                                manufacturerName: '_TZ3210_bfwvfyx1',
+                                modelId: 'TS0505B',
                             }),
                         },
                     },
@@ -181,7 +255,8 @@ testCase('resolves a profile directly from a zclNode', async () => {
     });
 
     assert(result.profile);
-    assert.strictEqual(result.profile.sourceDriver, 'tunable_bulb_E27');
+    assert.strictEqual(result.profile.status, 'active');
+    assert.strictEqual(result.profile.sourceIssue, 1091);
 });
 
 (async () => {
