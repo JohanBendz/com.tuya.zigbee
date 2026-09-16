@@ -1,8 +1,8 @@
 {
     "id": "radar_sensor",
     "name": {
-      "en": "Radar Sensor TEST",
-      "nl": "Radar Sensor TEST"
+      "en": "Radar Sensor",
+      "nl": "Radar Sensor"
     },
     "class": "sensor",
     "platforms": ["local"],
