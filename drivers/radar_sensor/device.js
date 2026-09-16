@@ -17,6 +17,16 @@ const dataPoints = {
   tshpsIlluminanceLux: 104,
 }
 
+// _TZE204_gkfbdvyx / _TZE200_gkfbdvyx (Tuya ZY-M100-24GV3) report on a different DP layout:
+// illuminance is on dp 103 (dp 104 is unused) and fading time is on dp 105 (dp 101 and 102
+// are used for an unrelated "find switch" and presence sensitivity, so detection delay has
+// no equivalent dp on this variant and must not be written).
+const alternateDpManufacturers = ['_TZE204_gkfbdvyx', '_TZE200_gkfbdvyx'];
+const alternateDataPoints = {
+  tshpsFadingTime: 105,
+  tshpsIlluminanceLux: 103,
+};
+
 const dataTypes = {
   raw: 0, // [ bytes ]
   bool: 1, // [0/1]
@@ -59,8 +69,30 @@ const getDataValue = (dpValue) => {
 }
 
 class radarSensor extends TuyaSpecificClusterDevice {
+  dp = dataPoints;
+
   async onNodeInit({zclNode}) {
+    const manufacturerName = await this.getManufacturerName(zclNode);
+    this.usesAlternateDataPoints = alternateDpManufacturers.includes(manufacturerName);
+    this.dp = this.usesAlternateDataPoints ? {...dataPoints, ...alternateDataPoints} : dataPoints;
+    this.log(`manufacturer: ${manufacturerName}, using ${this.usesAlternateDataPoints ? 'alternate' : 'default'} datapoints`);
+
     zclNode.endpoints[1].clusters.tuya.on("response", value => this.updatePosition(value));
+  }
+
+  async getManufacturerName(zclNode) {
+    const settingManufacturerName = this.getSetting('zb_manufacturer_name');
+    if (settingManufacturerName) {
+      return settingManufacturerName;
+    }
+
+    try {
+      const { manufacturerName } = await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName']);
+      return manufacturerName;
+    } catch (err) {
+      this.error('Failed to read manufacturerName attribute:', err);
+      return undefined;
+    }
   }
 
   async updatePosition(data) {
@@ -76,7 +108,7 @@ class radarSensor extends TuyaSpecificClusterDevice {
       case dataPoints.tshpscSensitivity:
         this.log("sensitivity state: "+ value)
         break;
-      case dataPoints.tshpsIlluminanceLux:
+      case this.dp.tshpsIlluminanceLux:
         this.log("lux value: "+ value)
         this.onIlluminanceMeasuredAttributeReport(value)
         break;
@@ -110,11 +142,14 @@ class radarSensor extends TuyaSpecificClusterDevice {
     }
 
     if (changedKeys.includes('detection_delay')) {
+      if (this.usesAlternateDataPoints) {
+        throw new Error('Detection delay is not supported on this device model.');
+      }
       this.writeData32(dataPoints.tshpsDetectionDelay, newSettings['detection_delay'])
     }
 
     if (changedKeys.includes('fading_time')) {
-      this.writeData32(dataPoints.tshpsFadingTime, newSettings['fading_time'])
+      this.writeData32(this.dp.tshpsFadingTime, newSettings['fading_time'])
     }
   }
 

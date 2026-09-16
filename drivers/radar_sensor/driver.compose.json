@@ -1,8 +1,8 @@
 {
     "id": "radar_sensor",
     "name": {
-      "en": "Radar Sensor",
-      "nl": "Radar Sensor"
+      "en": "Radar Sensor TEST",
+      "nl": "Radar Sensor TEST"
     },
     "class": "sensor",
     "platforms": ["local"],
@@ -39,15 +39,16 @@
         "_TZE200_lyetpprm",
         "_TZE200_ikvncluo",
         "_TZE204_ztqnh5cg",
-        "_TZE204_7gclukjs"
+        "_TZE204_7gclukjs",
+        "_TZE204_gkfbdvyx"
       ],
       "productId": [
         "TS0601"
       ],
       "endpoints": {
         "1": {
-          "clusters": [0, 4, 5, 258, 61184],
-          "bindings": [258, 61184]
+          "clusters": [0, 4, 5, 61184],
+          "bindings": [61184]
         }
       },
       "learnmode": {
