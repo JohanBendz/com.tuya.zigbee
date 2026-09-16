@@ -5,6 +5,9 @@ const assert = require('assert');
 const DeviceProfileRegistry = require('../lib/deviceProfiles/DeviceProfileRegistry');
 const lightProfiles = require('../lib/deviceProfiles/lightProfiles');
 const {
+    ensureProfileCapabilities,
+} = require('../lib/deviceProfiles/DeviceProfileCapabilities');
+const {
     findBasicCluster,
     readZigbeeIdentity,
     resolveZigbeeProfile,
@@ -85,6 +88,38 @@ testCase('rejects exact identity collisions between profiles', () => {
         () => new DeviceProfileRegistry([profile, conflictingProfile]),
         /Device profile collision/,
     );
+});
+
+testCase('adds only profile capabilities that are missing on the Homey device', async () => {
+    const capabilities = new Set(['onoff', 'dim']);
+    const added = [];
+
+    const device = {
+        hasCapability: capability => capabilities.has(capability),
+        addCapability: async capability => {
+            capabilities.add(capability);
+            added.push(capability);
+        },
+    };
+
+    const addedCapabilities = await ensureProfileCapabilities(device, {
+        capabilities: [
+            'onoff',
+            'dim',
+            'light_hue',
+            'light_saturation',
+            'light_temperature',
+            'light_mode',
+        ],
+    });
+
+    assert.deepStrictEqual(addedCapabilities, [
+        'light_hue',
+        'light_saturation',
+        'light_temperature',
+        'light_mode',
+    ]);
+    assert.deepStrictEqual(added, addedCapabilities);
 });
 
 testCase('finds the Basic cluster independently of endpoint number', () => {
