@@ -4,6 +4,7 @@
 .vscode/
 .idea/
 test/
+scripts/
 
 # Maintainer and project documentation
 README.md

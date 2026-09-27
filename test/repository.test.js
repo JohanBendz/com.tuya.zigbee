@@ -529,3 +529,15 @@ test('driver capability options only target declared capabilities', () => {
 
   assert.deepEqual(problems, []);
 });
+
+test('SUPPORTED_DEVICES.md generated identity index is current', () => {
+  const { execFileSync } = require('node:child_process');
+
+  assert.doesNotThrow(() => {
+    execFileSync(
+      process.execPath,
+      [path.join(root, 'scripts', 'generate-supported-devices.js'), '--check'],
+      { stdio: 'pipe' }
+    );
+  });
+});

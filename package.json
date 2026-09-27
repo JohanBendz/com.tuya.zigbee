@@ -7,7 +7,9 @@
     "run": "homey app run",
     "validate": "homey app validate --level publish",
     "test": "node --test test/*.test.js",
-    "check": "npm test && npm run validate"
+    "check": "npm test && npm run validate",
+    "update:supported-devices": "node scripts/generate-supported-devices.js",
+    "check:supported-devices": "node scripts/generate-supported-devices.js --check"
   },
   "keywords": [
     "Tuya",
