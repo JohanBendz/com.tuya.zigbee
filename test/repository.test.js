@@ -825,3 +825,31 @@ test('remote release code does not dump raw Zigbee frames or node descriptors', 
     assert.doesNotMatch(source, /this\.log\(["']endpointId:/, relativePath);
   }
 });
+
+test('shared Tuya light color changes preserve mode state and propagate failures', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'lib', 'TuyaZigBeeLightDevice.js'),
+    'utf8'
+  );
+
+  assert.match(
+    source,
+    /this\.hasCapability\('light_mode'\)\s*&&\s*this\.getCapabilityValue\('light_mode'\) !== 'color'/
+  );
+  assert.doesNotMatch(
+    source,
+    /this\.hasCapability\('light_mode'\s*&&/
+  );
+
+  const temperatureMethod = source.match(
+    /async changeColorTemperature\([\s\S]*?(?=\n    async changeColor\()/
+  );
+  const colorMethod = source.match(
+    /async changeColor\([\s\S]*?(?=\n    async onEndDeviceAnnounce\()/
+  );
+
+  assert.ok(temperatureMethod);
+  assert.ok(colorMethod);
+  assert.match(temperatureMethod[0], /catch \(error\)[\s\S]*throw error;/);
+  assert.match(colorMethod[0], /catch \(error\)[\s\S]*throw error;/);
+});
