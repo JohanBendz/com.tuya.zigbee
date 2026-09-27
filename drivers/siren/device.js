@@ -129,19 +129,19 @@ class siren extends TuyaSpecificClusterDevice {
 		  }
 		  case dataPoints.TUYA_DP_VOLUME: // (05) volume [ENUM] 0:high 1:mid 2:low
 			this.log('Volume updated: ', volumeMapping.get(Number(parsedValue)), ' (', parsedValue, ')');
-			this.setSettings({
+			await this.setSettings({
 			  alarmvolume: parsedValue?.toString(),
 			});
 			break;
 		  case dataPoints.TUYA_DP_DURATION: // (07) duration [VALUE] in seconds
 			this.log('Duration updated:', parsedValue, 's');
-			this.setSettings({
+			await this.setSettings({
 			  alarmsoundtime: parsedValue,
 			});
 			break;
 		  case dataPoints.TUYA_DP_MELODY: // (21) melody [enum] 0..17
 			this.log('Melody updated: ', melodiesMapping.get(parsedValue), '(', parsedValue, ')');
-			this.setSettings({
+			await this.setSettings({
 			  alarmtune: parsedValue?.toString(),
 			});
 			break;

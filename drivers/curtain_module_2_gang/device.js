@@ -138,7 +138,7 @@ class curtain_module_2_gang extends ZigBeeDevice {
         }
 
         if (attrs.motorReversal) {
-            this.setSettings({ reverse: attrs.motorReversal === "On" });
+            await this.setSettings({ reverse: attrs.motorReversal === "On" });
         }
 
     }

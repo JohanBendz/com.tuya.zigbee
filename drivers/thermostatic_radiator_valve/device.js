@@ -144,56 +144,56 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
                 break;
             case THERMOSTAT_DATA_POINTS.comfortTemperature:
                 this.debug("comfort temperature:", parsedValue / 10);
-                this.setSettings({ "comfortTemperature": parsedValue / 10 });
+                await this.setSettings({ "comfortTemperature": parsedValue / 10 });
                 break;
             case THERMOSTAT_DATA_POINTS.ecoTemperature:
                 this.debug("eco temperature:", parsedValue / 10);
-                this.setSettings({ "ecoTemperature": parsedValue / 10 });
+                await this.setSettings({ "ecoTemperature": parsedValue / 10 });
                 break;
             case THERMOSTAT_DATA_POINTS.openWindowTemperature:
                 this.debug("open window temperature:", parsedValue / 10);
-                this.setSettings({ "openWindowTemperature": parsedValue / 10 });
+                await this.setSettings({ "openWindowTemperature": parsedValue / 10 });
                 break;
             case THERMOSTAT_DATA_POINTS.localTemperatureCalibration:
                 this.debug("local temperature calibration:", parsedValue);
                 break;
             case THERMOSTAT_DATA_POINTS.holidayTemperature:
                 this.debug("holiday temperature:", parsedValue / 10);
-                this.setSettings({ "holidayTemperature": parsedValue / 10 });
+                await this.setSettings({ "holidayTemperature": parsedValue / 10 });
                 break;
             case THERMOSTAT_DATA_POINTS.frostProtection:
                 this.debug("frost protection:", parsedValue);
                 break;
             case THERMOSTAT_DATA_POINTS.workingDay:
-                this.setSettings({ "workingDay": parsedValue.toString() });
+                await this.setSettings({ "workingDay": parsedValue.toString() });
                 break;
             case THERMOSTAT_DATA_POINTS.scheduleMonday:
                 const scheduleMonday = parseSchedule(parsedValue);
-                this.setSettings({ "scheduleMonday": scheduleMonday });
+                await this.setSettings({ "scheduleMonday": scheduleMonday });
                 break;
             case THERMOSTAT_DATA_POINTS.scheduleTuesday:
                 const scheduleTuesday = parseSchedule(parsedValue);
-                this.setSettings({ "scheduleTuesday": scheduleTuesday });
+                await this.setSettings({ "scheduleTuesday": scheduleTuesday });
                 break;
             case THERMOSTAT_DATA_POINTS.scheduleWednesday:
                 const scheduleWednesday = parseSchedule(parsedValue);
-                this.setSettings({ "scheduleWednesday": scheduleWednesday });
+                await this.setSettings({ "scheduleWednesday": scheduleWednesday });
                 break;
             case THERMOSTAT_DATA_POINTS.scheduleThursday:
                 const scheduleThursday = parseSchedule(parsedValue);
-                this.setSettings({ "scheduleThursday": scheduleThursday });
+                await this.setSettings({ "scheduleThursday": scheduleThursday });
                 break;
             case THERMOSTAT_DATA_POINTS.scheduleFriday:
                 const scheduleFriday = parseSchedule(parsedValue);
-                this.setSettings({ "scheduleFriday": scheduleFriday });
+                await this.setSettings({ "scheduleFriday": scheduleFriday });
                 break;
             case THERMOSTAT_DATA_POINTS.scheduleSaturday:
                 const scheduleSaturday = parseSchedule(parsedValue);
-                this.setSettings({ "scheduleSaturday": scheduleSaturday });
+                await this.setSettings({ "scheduleSaturday": scheduleSaturday });
                 break;
             case THERMOSTAT_DATA_POINTS.scheduleSunday:
                 const scheduleSunday = parseSchedule(parsedValue);
-                this.setSettings({ "scheduleSunday": scheduleSunday });
+                await this.setSettings({ "scheduleSunday": scheduleSunday });
                 break;
             default:
                 this.debug('Data Point', dp, parsedValue)

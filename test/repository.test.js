@@ -638,3 +638,25 @@ test('known report handlers catch capability update failures', () => {
     assert.deepEqual(unsafe, [], relativePath);
   }
 });
+
+test('known async settings synchronization awaits Homey promises', () => {
+  const targets = [
+    'drivers/siren/device.js',
+    'drivers/thermostatic_radiator_valve/device.js',
+    'drivers/wall_curtain_switch/device.js',
+    'drivers/curtain_module_2_gang/device.js',
+  ];
+
+  for (const relativePath of targets) {
+    const source = fs.readFileSync(path.join(root, relativePath), 'utf8');
+    const unsafe = source
+      .split('\n')
+      .filter(line =>
+        line.includes('this.setSettings(')
+        && !line.includes('await this.setSettings(')
+        && !line.includes('.catch(')
+      );
+
+    assert.deepEqual(unsafe, [], relativePath);
+  }
+});
