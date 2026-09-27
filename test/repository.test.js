@@ -868,3 +868,40 @@ test('Tuya light_mode temperature fallback does not reference undefined values',
   assert.doesNotMatch(modeDefinition[0], /Math\.round\(value \* MAX_COLORTEMPERATURE\)/);
   assert.match(modeDefinition[0], /getCapabilityValue\('light_temperature'\)/);
 });
+
+test('TRV schedules enforce Tuya 10-minute periods and a final 24:00 segment', () => {
+  const { marshalSchedule, THERMOSTAT_DATA_POINTS } = require(
+    '../drivers/thermostatic_radiator_valve/helpers'
+  );
+
+  const valid = marshalSchedule(
+    '2',
+    THERMOSTAT_DATA_POINTS.scheduleMonday,
+    '06:00/16 22:30/20.5 24:00/16'
+  );
+  assert.equal(valid.length, 31);
+
+  assert.throws(() => marshalSchedule(
+    '2',
+    THERMOSTAT_DATA_POINTS.scheduleMonday,
+    '06:05/16 24:00/16'
+  ));
+
+  assert.throws(() => marshalSchedule(
+    '2',
+    THERMOSTAT_DATA_POINTS.scheduleMonday,
+    '08:50/16 08:10/20 24:00/16'
+  ));
+
+  assert.throws(() => marshalSchedule(
+    '2',
+    THERMOSTAT_DATA_POINTS.scheduleMonday,
+    '06:00/16 24:10/16'
+  ));
+
+  assert.throws(() => marshalSchedule(
+    '2',
+    THERMOSTAT_DATA_POINTS.scheduleMonday,
+    '06:00/16 22:30/20'
+  ));
+});

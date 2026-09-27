@@ -117,30 +117,64 @@ const marshalSchedule = (workingDay, weekDayDataPoint, scheduleString) => {
             throw new Error('Invalid "workingDay" setting:' + workingDay);
     }
 
-    // day split to 10 min segments = total 144 segments
+    // Day split to 10 minute segments = total 144 segments.
     const maxPeriodsInDay = 10;
-    // TODO check scheduleString against RegEx?!
-    const schedule = scheduleString.split(' ');
-    const schedulePeriods = schedule.length;
-    if (schedulePeriods > 10) throw new Error('There cannot be more than 10 periods in the schedule: ' + scheduleString);
-    if (schedulePeriods < 2) throw new Error('There cannot be less than 2 periods in the schedule: ' + scheduleString);
-    let prevHour;
+    if (typeof scheduleString !== 'string') {
+        throw new TypeError('Schedule must be a string');
+    }
 
-    for (const period of schedule) {
-        const timeTemp = period.split('/');
-        const hm = timeTemp[0].split(':', 2);
-        const h = parseInt(hm[0]);
-        const m = parseInt(hm[1]);
-        const temp = parseFloat(timeTemp[1]);
-        if (h < 0 || h > 24 || m < 0 || m >= 60 || m % 10 !== 0 || temp < 5 || temp > 30 || temp % 0.5 !== 0) {
-            throw new Error('Invalid hour, minute or temperature of: ' + period);
-        } else if (prevHour > h) {
-            throw new Error(`The hour of the next segment can't be less than the previous one: ${prevHour} > ${h}`);
+    const schedule = scheduleString.trim().split(/\\s+/);
+    const schedulePeriods = schedule.length;
+    if (schedulePeriods > maxPeriodsInDay) throw new Error('There cannot be more than 10 periods in the schedule: ' + scheduleString);
+    if (schedulePeriods < 2) throw new Error('There cannot be less than 2 periods in the schedule: ' + scheduleString);
+
+    let previousMinutes = -1;
+
+    schedule.forEach((period, index) => {
+        const match = period.match(/^(\\d{2}):(\\d{2})\\/(\\d+(?:\\.\\d+)?)$/);
+        if (!match) {
+            throw new Error('Invalid schedule period: ' + period);
         }
-        prevHour = h;
-        const segment = (h * 60 + m) / 10;
+
+        const h = Number(match[1]);
+        const m = Number(match[2]);
+        const temp = Number(match[3]);
+        const totalMinutes = (h * 60) + m;
+
+        const validTime = Number.isInteger(h)
+            && Number.isInteger(m)
+            && h >= 0
+            && h <= 24
+            && m >= 0
+            && m < 60
+            && m % 10 === 0
+            && (h !== 24 || m === 0);
+
+        const validTemperature = Number.isFinite(temp)
+            && temp >= 5
+            && temp <= 30
+            && Number.isInteger(temp * 2);
+
+        if (!validTime || !validTemperature) {
+            throw new Error('Invalid hour, minute or temperature of: ' + period);
+        }
+
+        if (totalMinutes < previousMinutes) {
+            throw new Error(`The time of the next segment can't be less than the previous one: ${period}`);
+        }
+
+        if (h === 24 && index !== schedule.length - 1) {
+            throw new Error('24:00 must be the final schedule period');
+        }
+
+        previousMinutes = totalMinutes;
+        const segment = totalMinutes / 10;
         const tempHexArray = convertDecimalValueTo2ByteHexArray(temp * 10);
         payload.push(segment, ...tempHexArray);
+    });
+
+    if (previousMinutes !== 24 * 60) {
+        throw new Error('The final schedule period must be 24:00');
     }
 
     // Add "technical" periods to be valid payload
