@@ -97,3 +97,55 @@ test('release JavaScript contains no active debug helpers or console.log', () =>
     assert.doesNotMatch(source, /startDpSniffer\s*\(/, relative);
   }
 });
+
+test('pairing fingerprints are not ambiguous across drivers', () => {
+  const generated = require('../app.json');
+  const fingerprints = new Map();
+
+  // Known TS110E ambiguity is being reviewed separately in PR #1350.
+  const allowed = new Set([
+    '_TZ3210_ngqk6jia\u0000TS110E',
+  ]);
+
+  for (const driver of generated.drivers || []) {
+    const zigbee = driver.zigbee;
+    if (!zigbee) continue;
+
+    const manufacturers = Array.isArray(zigbee.manufacturerName)
+      ? zigbee.manufacturerName
+      : [zigbee.manufacturerName];
+    const products = Array.isArray(zigbee.productId)
+      ? zigbee.productId
+      : [zigbee.productId];
+
+    const endpointFingerprint = JSON.stringify(zigbee.endpoints || {});
+
+    for (const manufacturer of manufacturers) {
+      for (const product of products) {
+        const identity = `${manufacturer}\u0000${product}`;
+        const key = `${identity}\u0000${endpointFingerprint}`;
+
+        if (!fingerprints.has(key)) fingerprints.set(key, []);
+        fingerprints.get(key).push(driver.id);
+      }
+    }
+  }
+
+  const ambiguous = [];
+  for (const [key, driverIds] of fingerprints.entries()) {
+    const uniqueDrivers = [...new Set(driverIds)];
+    if (uniqueDrivers.length < 2) continue;
+
+    const [manufacturer, product] = key.split('\u0000');
+    const identity = `${manufacturer}\u0000${product}`;
+    if (allowed.has(identity)) continue;
+
+    ambiguous.push({
+      manufacturer,
+      product,
+      drivers: uniqueDrivers,
+    });
+  }
+
+  assert.deepEqual(ambiguous, []);
+});
