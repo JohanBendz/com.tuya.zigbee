@@ -41,8 +41,20 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
         });
 
         // binding to 61184 / tuya
-        zclNode.endpoints[1].clusters.tuya.on("response", value => this.processResponse(value));
-        zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processReport(value));
+        zclNode.endpoints[1].clusters.tuya.on("response", async value => {
+      try {
+        await this.processResponse(value);
+      } catch (err) {
+        this.error('Failed to process Tuya response', err);
+      }
+    });
+        zclNode.endpoints[1].clusters.tuya.on("reporting", async value => {
+      try {
+        await this.processReport(value);
+      } catch (err) {
+        this.error('Failed to process Tuya reporting', err);
+      }
+    });
         zclNode.endpoints[1].clusters.tuya.on("datapoint", value => this.processDatapoint(value));
 
         this.log("Thermostatic Radiator Valve initialized:", this.getName());

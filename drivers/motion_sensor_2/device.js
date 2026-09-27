@@ -52,7 +52,13 @@ class motion_sensor_2 extends ZigBeeDevice {
 		.on('attr.measuredValue', this.onIlluminanceMeasuredAttributeReport.bind(this));
 
         // Tuya specific cluster handler
-		zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processResponse(value));
+		zclNode.endpoints[1].clusters.tuya.on("reporting", async value => {
+      try {
+        await this.processResponse(value);
+      } catch (err) {
+        this.error('Failed to process Tuya reporting', err);
+      }
+    });
 
 	}
 

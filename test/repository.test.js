@@ -919,3 +919,23 @@ test('curtain motor handles both Tuya position reports and the current Homey cap
   assert.match(source, /\.on\('response', handlePositionReport\)/);
   assert.match(source, /\.on\('reporting', handlePositionReport\)/);
 });
+
+test('Tuya report listeners do not fire async handlers without an error boundary', () => {
+  const unsafe = [];
+
+  for (const file of walk(path.join(root, 'drivers')).filter(file => file.endsWith('.js'))) {
+    const source = fs.readFileSync(file, 'utf8')
+      .replace(/\/\*[\s\S]*?\*\//g, '')
+      .replace(/^\s*\/\/.*$/gm, '');
+
+    const matches = source.match(
+      /clusters\.tuya\.on\(["'](?:response|reporting)["'],\s*value\s*=>\s*this\.[A-Za-z_$][\w$]*\(value\)\)/g
+    );
+
+    if (matches?.length) {
+      unsafe.push({ file: path.relative(root, file), matches });
+    }
+  }
+
+  assert.deepEqual(unsafe, []);
+});
