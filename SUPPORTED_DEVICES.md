@@ -42,7 +42,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | 4 Gang Switch Module with metering (`switch_4_gang_metering`) | `TS0004` | `_TZ3000_mmkbptmx` |
 | 4 Gang Wall Remote (`wall_remote_4_gang`) | `TS0044` | `_TZ3000_a4xycprs`<br>`_TZ3000_ee8nrt2l`<br>`_TZ3000_ufhtxr59`<br>`_TZ3000_vp6clf9d` |
 | 4 Gang Wall Remote (`wall_remote_4_gang_2`) | `TS004F` | `_TZ3000_0ht8dnxj`<br>`_TZ3000_11pg3ima`<br>`_TZ3000_b3mgfu0d`<br>`_TZ3000_czuyt8lz`<br>`_TZ3000_et7afzxz`<br>`_TZ3000_nuombroo`<br>`_TZ3000_xabckq1v` |
-| 4 Gang Wall Remote (`wall_remote_4_gang_3`) | `TS0044` | `_TZ3000_jcspr0tp`<br>`_TZ3000_uaa99arv`<br>`_TZ3000_wkai4ga5` |
+| 4 Gang Wall Remote (`wall_remote_4_gang_3`) | `TS0044` | `_TZ3000_jcspr0tp`<br>`_TZ3000_kfu8zapd`<br>`_TZ3000_uaa99arv`<br>`_TZ3000_wkai4ga5` |
 | 4 Gang Wall Switch (`wall_switch_4_gang_tuya`) | `TS0601` | `_TZE200_aqnazj70`<br>`_TZE200_di3tfv5b`<br>`_TZE200_mexisfik`<br>`_TZE200_shkxsgis`<br>`_TZE204_6wi2mope`<br>`_TZE204_aagrxlbd`<br>`_TZE204_iik0pquw` |
 | 5 Gang Wall Switch (`wall_switch_5_gang_tuya`) | `TS0601` | `_TZE200_jwsjbxjs` |
 | 6 Gang Wall Remote (`wall_remote_6_gang`) | `TS0046` | `_TZ3000_iszegwpd` |
@@ -84,7 +84,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | RGB Ceiling Led Light (`rgb_ceiling_led_light`) | `TS0505B` | `_TZ3210_x13bu7za` |
 | RGB Led Light Bar (`rgb_led_light_bar`) | `TS0505A`<br>`TS0505B` | `_TZ3000_gek6snaj`<br>`_TZ3210_iystcadi` |
 | RGB LED Strip (`rgb_led_strip`) | `TS0505A` | `_TZ3000_riwp3k79` |
-| RGB LED Strip Controller (`rgb_led_strip_controller`) | `TS0503A`<br>`TS0503B`<br>`TS0504B`<br>`TS0505B` | `_TZ3000_dl4pxp1r`<br>`_TZ3000_i8l0nqdu`<br>`_TZ3000_obacbukl`<br>`_TZ3000_qqjaziws`<br>`_TZ3000_ukuvyhaa`<br>`_TZ3210_k1pe6ibm` |
+| RGB LED Strip Controller (`rgb_led_strip_controller`) | `TS0503A`<br>`TS0503B`<br>`TS0504B`<br>`TS0505B` | `_TZ3000_dl4pxp1r`<br>`_TZ3000_i8l0nqdu`<br>`_TZ3000_obacbukl`<br>`_TZ3000_qqjaziws`<br>`_TZ3000_ukuvyhaa`<br>`_TZ3210_eejm8dcr`<br>`_TZ3210_k1pe6ibm` |
 | RGB Mood Light (`rgb_mood_light`) | `TS0505A`<br>`TS0505B` | `_TZ3000_9cpuaca6`<br>`_TZ3210_r0xgkft5` |
 | RGB Spot Garden light (`rgb_spot_GardenLight`) | `TS0505A` | `_TZ3000_h1jnz6l8` |
 | RGB Spot GU10 (`rgb_spot_GU10`) | `TS0505A` | `_TZ3000_kdpxju99` |
