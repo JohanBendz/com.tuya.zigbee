@@ -4810,11 +4810,6 @@
       "capabilities": [
         "onoff"
       ],
-      "capabilitiesOptions": {
-        "measure_power": {
-          "approximated": true
-        }
-      },
       "images": {
         "large": "/drivers/outdoor_plug/assets/images/large.png",
         "small": "/drivers/outdoor_plug/assets/images/small.png"
@@ -4996,11 +4991,6 @@
       "capabilities": [
         "onoff"
       ],
-      "capabilitiesOptions": {
-        "measure_power": {
-          "approximated": true
-        }
-      },
       "images": {
         "large": "/drivers/plug/assets/images/large.png",
         "small": "/drivers/plug/assets/images/small.png"
@@ -8876,11 +8866,6 @@
       "capabilities": [
         "onoff"
       ],
-      "capabilitiesOptions": {
-        "measure_power": {
-          "approximated": true
-        }
-      },
       "images": {
         "large": "/drivers/socket_power_strip/assets/images/large.png",
         "small": "/drivers/socket_power_strip/assets/images/small.png"
@@ -8984,11 +8969,6 @@
       "capabilities": [
         "onoff"
       ],
-      "capabilitiesOptions": {
-        "measure_power": {
-          "approximated": true
-        }
-      },
       "images": {
         "large": "/drivers/socket_power_strip_four/assets/images/large.png",
         "small": "/drivers/socket_power_strip_four/assets/images/small.png"
@@ -9144,11 +9124,6 @@
       "capabilities": [
         "onoff"
       ],
-      "capabilitiesOptions": {
-        "measure_power": {
-          "approximated": true
-        }
-      },
       "images": {
         "large": "/drivers/socket_power_strip_four_three/assets/images/large.png",
         "small": "/drivers/socket_power_strip_four_three/assets/images/small.png"
@@ -9273,11 +9248,6 @@
       "capabilities": [
         "onoff"
       ],
-      "capabilitiesOptions": {
-        "measure_power": {
-          "approximated": true
-        }
-      },
       "images": {
         "large": "/drivers/socket_power_strip_four_two/assets/images/large.png",
         "small": "/drivers/socket_power_strip_four_two/assets/images/small.png"

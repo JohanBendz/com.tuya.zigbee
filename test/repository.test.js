@@ -512,3 +512,20 @@ test('subdevice capability options only target declared capabilities', () => {
 
   assert.deepEqual(problems, []);
 });
+
+test('driver capability options only target declared capabilities', () => {
+  const generated = require('../app.json');
+  const problems = [];
+
+  for (const driver of generated.drivers || []) {
+    const capabilities = new Set(driver.capabilities || []);
+
+    for (const capabilityId of Object.keys(driver.capabilitiesOptions || {})) {
+      if (!capabilities.has(capabilityId)) {
+        problems.push({ driver: driver.id, capabilityId });
+      }
+    }
+  }
+
+  assert.deepEqual(problems, []);
+});

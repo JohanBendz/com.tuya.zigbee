@@ -4,16 +4,15 @@
     "en": "Outdoor Plug without metering"
   },
   "class": "socket",
-  "platforms": ["local"],
-  "connectivity": ["zigbee"],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
   "capabilities": [
     "onoff"
   ],
-  "capabilitiesOptions": {
-    "measure_power": {
-      "approximated": true
-    }
-  },
   "images": {
     "large": "{{driverAssetsPath}}/images/large.png",
     "small": "{{driverAssetsPath}}/images/small.png"
