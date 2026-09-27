@@ -16,18 +16,28 @@ class IrrigationController extends ZigBeeDevice {
 
     this.registerCapability('onoff', CLUSTER.ON_OFF);
 
-    this.registerCapabilityListener("onoff", async (value, options) => {
-      this.log("value "+value);
-      this.log("options "+options.duration);
-      if (value && options.duration != undefined ){
-        await zclNode.endpoints[1].clusters['onOff'].setOn();
-        this._onOffTimeout = this.homey.setTimeout(async () => {
-          await zclNode.endpoints[1].clusters['onOff'].setOff();
-        }, options.duration);
-      } else if(value && options.duration === undefined){
-        await zclNode.endpoints[1].clusters['onOff'].setOn();
-      } else if(!value && options.duration === undefined){
-        await zclNode.endpoints[1].clusters['onOff'].setOff();
+    this.registerCapabilityListener('onoff', async (value, options = {}) => {
+      const duration = options.duration;
+      this.log('value', value);
+      this.log('duration', duration);
+
+      if (this._onOffTimeout) {
+        this.homey.clearTimeout(this._onOffTimeout);
+        this._onOffTimeout = null;
+      }
+
+      if (value) {
+        await zclNode.endpoints[1].clusters.onOff.setOn();
+
+        if (duration !== undefined) {
+          this._onOffTimeout = this.homey.setTimeout(() => {
+            this._onOffTimeout = null;
+            zclNode.endpoints[1].clusters.onOff.setOff()
+              .catch(err => this.error('Failed to turn irrigation off after duration', err));
+          }, duration);
+        }
+      } else {
+        await zclNode.endpoints[1].clusters.onOff.setOff();
       }
     });
   
@@ -52,7 +62,7 @@ class IrrigationController extends ZigBeeDevice {
           this.error('Failed to update battery level', err);
         });
 
-        this.setCapabilityValue('alarm_battery', (batteryPercentageRemaining/2 < batteryThreshold) ? true : false).catch(this.error);
+        this.setCapabilityValue('alarm_battery', batteryPercentage < batteryThreshold).catch(this.error);
 
       }
     });
@@ -66,6 +76,7 @@ class IrrigationController extends ZigBeeDevice {
   onUninit() {
     if (this._onOffTimeout) {
       this.homey.clearTimeout(this._onOffTimeout);
+      this._onOffTimeout = null;
     }
   }
 

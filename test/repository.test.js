@@ -959,3 +959,15 @@ test('Tuya event listeners do not bind parser methods directly to EventEmitter',
 
   assert.deepEqual([...new Set(unsafe)], []);
 });
+
+test('irrigation controller uses scoped battery values and clears timed shutoff safely', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_garden_irrigation_control', 'device.js'),
+    'utf8'
+  );
+
+  assert.doesNotMatch(source, /batteryPercentageRemaining\s*\/\s*2\s*</);
+  assert.match(source, /batteryPercentage < batteryThreshold/);
+  assert.match(source, /if \(this\._onOffTimeout\)[\s\S]*clearTimeout/);
+  assert.match(source, /setOff\(\)[\s\S]*\.catch\(err => this\.error/);
+});
