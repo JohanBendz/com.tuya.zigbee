@@ -1,0 +1,25 @@
+name: Validate app
+
+on:
+  push:
+    branches: [SDK3, modernize-2026]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - name: Generate manifest and run Homey publish validation
+        run: npx --yes homey@4.5.0 app validate --level publish
+      - name: Whitespace check
+        run: git diff --check

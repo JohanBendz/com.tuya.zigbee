@@ -1,5 +1,5 @@
-Tuya provides a leading global IoT platform (Tuya Smart) that enables more than 3 000 manufacturers, brands, OEMs and retail chains to develop one-stop smart home solutions, many of the Tuya devices are found as rebranded units.
+Connect supported Tuya-manufactured Zigbee devices directly to Homey, without a Tuya gateway.
 
-Supported White Label Brands: Malmbergs, Alecto, Smart9, Blitzwolf, Zemismart, Samotech, Lonsonho, Nedis, Neo, Ejlink, Lidl, Silvercrest, Livarno LUX etc.
+The app supports a broad community-maintained range of sensors, plugs, switches, lights, remotes, curtains, thermostats, sirens and other Zigbee devices sold under many different retail brands.
 
-To request additional devices, please use the apps Github repository request functionality.
+Because Tuya hardware is frequently rebranded, compatibility is based on the Zigbee identity exposed by the device rather than the retail name alone. If your device is not yet supported, you can submit its Zigbee interview through the app's GitHub repository.

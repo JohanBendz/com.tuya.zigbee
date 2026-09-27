@@ -1,40 +1,43 @@
 ---
 name: Bug report
-about: Is something not as it should be? If so you can create a bug report and help
-  enhance the app.
-title: Bug report - [Short description]
+about: Report a reproducible problem with an already supported device
+title: "Bug - [short description]"
 labels: bug
 assignees: ''
 
 ---
 
-### Describe the bug
+## Problem
 
-> A clear and concise description of what the bug is.
+Describe what is happening and what you expected instead.
 
-### To Reproduce
+## Device identity
 
-Steps to reproduce the behavior:
+- Retail brand/model:
+- `manufacturerName`:
+- `modelId` / `productId`:
+- Driver/device type in the Tuya Zigbee app:
 
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+## Homey environment
 
-### Expected behavior
+- Homey model:
+- Homey firmware:
+- Tuya Zigbee app version:
 
-> A clear and concise description of what you expected to happen.
+## Steps to reproduce
 
-### App and Homey version
+1.
+2.
+3.
 
-> * What Homey version are you running?
-> * What version of Homey firmware do you use?
-> * What version of the Tuya Zigbee App are you using?
+## Diagnostics
 
-### Screenshots
+Paste relevant Homey logs or a Zigbee interview here when applicable.
 
-> If applicable, add screenshots to help explain your problem.
+```json
 
-### Additional context
+```
 
-> Add any other context about the problem here.
+## Additional context
+
+Did this device work correctly in an earlier app version? If so, which version?

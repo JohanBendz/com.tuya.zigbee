@@ -1,25 +1,32 @@
 ---
 name: Feature request
-about: Do you have an idea or suggestion? Something you miss or like to see added?
-  Create a feature request!
-title: Feature Request - [Short description]
+about: Suggest an improvement to existing Tuya Zigbee functionality
+title: "Feature - [short description]"
 labels: enhancement
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem or is it a nice addition? Please describe.**
+## Use case
 
-> A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+What should become possible, and why is it useful?
 
-**Describe the solution you'd like**
+## Current behaviour
 
-> A clear and concise description of what you want to happen.
+What happens today?
 
-**Describe alternatives you've considered**
+## Proposed behaviour
 
-> A clear and concise description of any alternative solutions or features you've considered.
+Describe the smallest change that would solve the use case.
 
-**Additional context**
+## Device scope
 
-> Add any other context or screenshots about the feature request here.
+If this concerns specific hardware, include:
+
+- Retail brand/model:
+- `manufacturerName`:
+- `modelId` / `productId`:
+
+## Additional context
+
+Add examples, protocol references, logs or screenshots where useful.

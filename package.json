@@ -4,9 +4,10 @@
   "description": "Adds support for Tuya Zigbee devices to Homey",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint .",
-    "start": "node app.js"
+    "run": "homey app run",
+    "validate": "homey app validate --level publish",
+    "test": "node --test test/*.test.js",
+    "check": "npm test && npm run validate"
   },
   "keywords": [
     "Tuya",

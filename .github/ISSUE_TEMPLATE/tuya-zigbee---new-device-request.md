@@ -1,43 +1,53 @@
 ---
 name: Tuya Zigbee - New Device Request
-about: If your device is not supported by the app you can request it to be added here.
-title: Device Request - [Device name] - [manufacturerName] / [modelId]
+about: Request support for a Tuya Zigbee device that is not currently supported
+title: "Device Request - [device] - [manufacturerName] / [modelId]"
 labels: New Device
 assignees: ''
 
 ---
 
-### Prerequisites:
+## Before submitting
 
-- Before requesting a device addition, please ensure there is not already a request for the device among the open issues.
-- Make sure your Homey is upgraded to firmware v5 or higher.
-- You need a physical example of the device.
+- Search open and closed issues for the same `manufacturerName` and `modelId` / `productId`.
+- You need physical access to the device so behaviour can be verified.
+- Pair the device as a generic Zigbee device when necessary and capture a full Zigbee interview.
 
-### Device Information
+## Retail device information
 
-- Device Name: `Provide the name of the device`
-- Device Model: `Provide the model number or identifier`
-- Device Description: `Describe in short the functionality of the device`
-- Link to device image: [Provide the URL to an image/photo of the device](https://www.url-to-images.com)
+- Brand:
+- Product name:
+- Model number:
+- Purchase/product link:
+- Short description:
 
-### Device Interview
+## Zigbee identity
+
+- `manufacturerName`:
+- `modelId` / `productId`:
+
+## Zigbee interview
+
+Paste the complete Homey Zigbee interview below.
 
 ```json
-{
-    ["Paste the device interview information here"]
-}
+
 ```
 
-### Additional Comments:
+## Observed behaviour
 
-> **Note:** Provide any other relevant information or requests related to the device. Link to where you bought the device can be of help
+Describe what works or does not work when paired as a generic Zigbee device, including any relevant datapoints/logs.
 
-### How to interview a device
+## Additional context
 
-- Add the device as a generic Zigbee device in Homey
-- Navigate to https://developer.athom.com/tools/zigbee.
-- Interview the device, the button for this is to the right of the device in the list of Zigbee units.
-- Click the copy button/icon to capture the device information.
-- Paste the copied information above.
+Add photos, manuals, Zigbee2MQTT/Home Assistant references or other protocol information if available.
 
-> **Note:** To be able to add more devices to the Tuya Zigbee app, we rely on community members like you to provide interviews of the devices you want to be added. Thank you for your contribution!
+### How to capture an interview
+
+1. Pair the device with Homey.
+2. Open Homey Developer Tools and select **Zigbee**.
+3. Find the device in the nodes table.
+4. Run **Interview** while the device is online/awake.
+5. Copy the resulting JSON and paste it above.
+
+For battery-powered sleepy devices, keep the device awake while interviewing when the manufacturer provides a wake-up procedure.
