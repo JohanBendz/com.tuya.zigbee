@@ -26,8 +26,20 @@ class wall_switch_1_gang_tuya extends TuyaSpecificClusterDevice {
     this.log('device on/off set', onOff);
   });
 
-    zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processResponse(value));
-    zclNode.endpoints[1].clusters.tuya.on("response", value => this.processResponse(value));
+    zclNode.endpoints[1].clusters.tuya.on("reporting", async value => {
+      try {
+        await this.processResponse(value);
+      } catch (err) {
+        this.error('Failed to process Tuya reporting', err);
+      }
+    });
+    zclNode.endpoints[1].clusters.tuya.on("response", async value => {
+      try {
+        await this.processResponse(value);
+      } catch (err) {
+        this.error('Failed to process Tuya response', err);
+      }
+    });
 
     this.log("🚀 Wall switch booted up!")
 

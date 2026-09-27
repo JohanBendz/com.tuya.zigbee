@@ -58,9 +58,21 @@ class temphumidsensor5 extends TuyaSpecificClusterDevice {
 			}
 		}
 
-		zclNode.endpoints[1].clusters.tuya.on("response", value => this.processResponse(value));
+		zclNode.endpoints[1].clusters.tuya.on("response", async value => {
+      try {
+        await this.processResponse(value);
+      } catch (err) {
+        this.error('Failed to process Tuya response', err);
+      }
+    });
 
-		zclNode.endpoints[1].clusters.tuya.on("reporting", value => this.processReporting(value));
+		zclNode.endpoints[1].clusters.tuya.on("reporting", async value => {
+      try {
+        await this.processReporting(value);
+      } catch (err) {
+        this.error('Failed to process Tuya reporting', err);
+      }
+    });
 
 		zclNode.endpoints[1].clusters.tuya.on("datapoint", value => this.processDatapoint(value));
 

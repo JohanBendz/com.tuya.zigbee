@@ -57,7 +57,13 @@ class smoke_sensor2 extends TuyaSpecificClusterDevice {
   async onNodeInit({zclNode}) {
 
 
-    zclNode.endpoints[1].clusters.tuya.on("response", value => this.updatePosition(value));
+    zclNode.endpoints[1].clusters.tuya.on("response", async value => {
+      try {
+        await this.updatePosition(value);
+      } catch (err) {
+        this.error('Failed to process Tuya response', err);
+      }
+    });
   }
 
   async updatePosition(data) {

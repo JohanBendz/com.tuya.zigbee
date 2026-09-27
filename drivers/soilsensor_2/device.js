@@ -62,7 +62,13 @@ class soilsensor2 extends TuyaSpecificClusterDevice {
 /*     debug(true);
     this.enableDebug(); */
 
-    zclNode.endpoints[1].clusters.tuya.on("response", value => this.updateData(value));
+    zclNode.endpoints[1].clusters.tuya.on("response", async value => {
+      try {
+        await this.updateData(value);
+      } catch (err) {
+        this.error('Failed to process Tuya response', err);
+      }
+    });
 
     await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
     .catch(err => {
