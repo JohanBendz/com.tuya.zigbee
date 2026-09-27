@@ -80,7 +80,7 @@ test('all JavaScript files pass Node syntax check', () => {
   }
 });
 
-test('release JavaScript contains no active debug helpers or console.log', () => {
+test('release JavaScript contains no active debug helpers', () => {
   function withoutComments(source) {
     return source
       .replace(/\/\*[\s\S]*?\*\//g, '')
@@ -93,6 +93,7 @@ test('release JavaScript contains no active debug helpers or console.log', () =>
 
     assert.doesNotMatch(source, /\bdebug\s*\(\s*true\s*\)/, relative);
     assert.doesNotMatch(source, /this\.enableDebug\s*\(\s*\)/, relative);
+    assert.doesNotMatch(source, /this\.printNode\s*\(\s*\)/, relative);
     assert.doesNotMatch(source, /\bconsole\.log\s*\(/, relative);
     assert.doesNotMatch(source, /startDpSniffer\s*\(/, relative);
   }
