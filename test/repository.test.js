@@ -708,3 +708,37 @@ test('2-gang wall remote parses the normalized frame payload', () => {
   assert.match(source, /frame\.data\[3\]/);
   assert.doesNotMatch(source, /frame\[3\]/);
 });
+
+test('4-gang wall remote Flow triggers are driver-scoped', () => {
+  const drivers = [
+    ['wall_remote_4_gang', 'wall_remote_4_gang_buttons'],
+    ['wall_remote_4_gang_2', 'wall_remote_4_gang_buttons_2'],
+    ['wall_remote_4_gang_3', 'wall_remote_4_gang_buttons_3'],
+  ];
+
+  for (const [driverId, cardId] of drivers) {
+    const driver = fs.readFileSync(
+      path.join(root, 'drivers', driverId, 'driver.js'),
+      'utf8'
+    );
+    const device = fs.readFileSync(
+      path.join(root, 'drivers', driverId, 'device.js'),
+      'utf8'
+    );
+
+    assert.match(driver, new RegExp(`getDeviceTriggerCard\\('${cardId}'\\)`));
+    assert.match(device, /this\.driver\.buttonTrigger\.trigger/);
+    assert.doesNotMatch(device, /registerRunListener/);
+  }
+});
+
+test('4-gang wall remote variant 3 parses normalized frame data', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'wall_remote_4_gang_3', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(source, /frame = frame\.toJSON\(\)/);
+  assert.match(source, /frame\.data\[3\]/);
+  assert.doesNotMatch(source, /frame\[3\]/);
+});

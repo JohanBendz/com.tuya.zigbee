@@ -28,18 +28,13 @@ class wall_remote_4_gang extends ZigBeeDevice {
           }
         }
       };
-
-      this._buttonPressedTriggerDevice = this.homey.flow.getDeviceTriggerCard('wall_remote_4_gang_buttons')
-      .registerRunListener(async (args, state) => {
-        return (null, args.action === state.action);
-      });
     
     }
 
     buttonCommandParser(ep, frame) {
       var button = ep === 1 ? 'leftDown' : ep === 2 ? 'rightDown' : ep === 3 ? 'rightUp' : 'leftUp';
       var action = frame.data[3] === 0 ? 'oneClick' : 'twoClicks';
-      return this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-${action}` })
+      return this.driver.buttonTrigger.trigger(this, {}, { action: `${button}-${action}` })
       .then(() => this.log(`Triggered 4 Gang Wall Remote, action=${button}-${action}`))
       .catch(err => this.error('Error triggering 4 Gang Wall Remote', err));
     }
