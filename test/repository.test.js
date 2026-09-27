@@ -580,3 +580,18 @@ test('TRV settings and Flow writes propagate Tuya write failures', () => {
   assert.match(source, /async updateSchedule\([^)]*\)/);
   assert.doesNotMatch(source, /(^|\n)\s*this\.write(?:Bool|Data32|Raw)\(/);
 });
+
+test('shared Tuya write helpers propagate Zigbee failures', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'lib', 'TuyaSpecificClusterDevice.js'),
+    'utf8'
+  );
+
+  for (const method of ['writeBool', 'writeData32', 'writeString', 'writeEnum', 'writeRaw']) {
+    const match = source.match(
+      new RegExp(`async ${method}\\([^)]*\\) \\{([\\s\\S]*?)(?=\\n    \\/\\*\\*|\\n})`)
+    );
+    assert.ok(match, method);
+    assert.match(match[1], /catch \(err\)[\s\S]*throw err;/, method);
+  }
+});
