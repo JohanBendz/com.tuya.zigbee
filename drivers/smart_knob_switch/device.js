@@ -10,16 +10,16 @@ class smart_knob_switch extends ZigBeeDevice {
     var debounce = 0;
     this.printNode();
 
-    this.addCapability("dim");
+    if (!this.hasCapability('dim')) {
+      await this.addCapability('dim');
+    }
+
+    this._buttonPressedTriggerDevice = this.homey.flow
+      .getDeviceTriggerCard('smart_knob_switch_button');
 
     const node = await this.homey.zigbee.getNode(this);
 
     node.handleFrame = (endpointId, clusterId, frame, meta) => {
-      this._buttonPressedTriggerDevice = this.homey.flow.getDeviceTriggerCard('smart_knob_switch_button')
-        .registerRunListener(async (args, state) => {
-          return (null, args.button === state.button);
-        });
-
       if ([8, 6, 768].includes(clusterId)) {
         frame = frame.toJSON();
         this.log("Frame JSON data:", frame);

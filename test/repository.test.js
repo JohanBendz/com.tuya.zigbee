@@ -218,3 +218,18 @@ test('Zigbee dependency versions are pinned', () => {
     );
   }
 });
+
+test('smart knob flow trigger is initialized outside raw frame handling', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_knob_switch', 'device.js'),
+    'utf8'
+  );
+
+  const triggerIndex = source.indexOf("getDeviceTriggerCard('smart_knob_switch_button')");
+  const frameHandlerIndex = source.indexOf('node.handleFrame =');
+
+  assert.ok(triggerIndex >= 0);
+  assert.ok(frameHandlerIndex >= 0);
+  assert.ok(triggerIndex < frameHandlerIndex);
+  assert.match(source, /if \(!this\.hasCapability\('dim'\)\)/);
+});
