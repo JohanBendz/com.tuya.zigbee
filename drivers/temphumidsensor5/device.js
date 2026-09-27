@@ -53,9 +53,11 @@ class temphumidsensor5 extends TuyaSpecificClusterDevice {
 
 		this.printNode();
 
-		this.addCapability("measure_temperature");
-		this.addCapability("measure_humidity");
-		this.addCapability("measure_battery");
+		for (const capabilityId of ['measure_temperature', 'measure_humidity', 'measure_battery']) {
+			if (!this.hasCapability(capabilityId)) {
+				await this.addCapability(capabilityId);
+			}
+		}
 
 		zclNode.endpoints[1].clusters.tuya.on("response", value => this.processResponse(value));
 
@@ -71,7 +73,6 @@ class temphumidsensor5 extends TuyaSpecificClusterDevice {
 		this.log('received data: ', data, ' dp: ', dp, ' measuredValue: ', measuredValue);
 		switch (dp) {
 			case 1:
-				this.warn
 				this.log('Temperature is ', (measuredValue / 10.0), ' C (', measuredValue, ')');
 				this.reportTemperatureCapacity(measuredValue);
 				break;
