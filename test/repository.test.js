@@ -971,3 +971,14 @@ test('irrigation controller uses scoped battery values and clears timed shutoff 
   assert.match(source, /if \(this\._onOffTimeout\)[\s\S]*clearTimeout/);
   assert.match(source, /setOff\(\)[\s\S]*\.catch\(err => this\.error/);
 });
+
+test('one-button smart remote ignores unknown frames and avoids raw frame logging', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_remote_1_button', 'device.js'),
+    'utf8'
+  );
+
+  assert.doesNotMatch(source, /frame:", frame/);
+  assert.match(source, /Unknown click action detected:[\s\S]*return false;/);
+  assert.doesNotMatch(source, /action = ["']unknown["']/);
+});

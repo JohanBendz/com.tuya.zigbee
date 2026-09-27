@@ -12,7 +12,6 @@ class smart_remote_1b extends ZigBeeDevice {
     // Handle the frame for button events
     zclNode.handleFrame = (endpointId, clusterId, frame, meta) => {
         if (clusterId === 6) { // OnOff cluster
-            this.log("endpointId:", endpointId, ", clusterId:", clusterId, ", frame:", frame, ", meta:", meta);
             this.buttonCommandParser(frame);
         }
     };
@@ -49,8 +48,8 @@ class smart_remote_1b extends ZigBeeDevice {
     } else if ((frame[0] === 0xfd || frame[0] === 253) && frame[1] === 1) {
         action = "twoClicks"; // Double press
     } else {
-        action = "unknown";
         this.log("Unknown click action detected:", frame[1]);
+        return false;
     }
 
     return this.driver.buttonTrigger
