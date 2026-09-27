@@ -8,7 +8,6 @@ class smart_switch extends ZigBeeDevice {
 
     async onNodeInit({zclNode}) {
 
-        this.printNode();
 
         this.registerCapability('onoff', CLUSTER.ON_OFF);
 

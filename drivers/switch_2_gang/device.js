@@ -8,7 +8,6 @@ class switch_2_gang extends ZigBeeDevice {
 
     async onNodeInit({zclNode}) {
 
-        this.printNode();
 /*     debug(true);
     this.enableDebug(); */
 
