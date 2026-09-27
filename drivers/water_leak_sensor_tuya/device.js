@@ -10,7 +10,6 @@ class TuyaWaterLeakSensor extends TuyaSpecificClusterDevice {
 
     async onNodeInit({ zclNode }) {
         
-        this.printNode();
 
         // Listen for water leaks
         this.log('Setting up listeners for endpoint 1, tuya cluster...');

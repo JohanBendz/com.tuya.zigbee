@@ -59,7 +59,6 @@ class soilsensor2 extends TuyaSpecificClusterDevice {
 
   async onNodeInit({ zclNode }) {
 
-    this.printNode();
 /*     debug(true);
     this.enableDebug(); */
 

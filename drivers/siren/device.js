@@ -84,7 +84,6 @@ class siren extends TuyaSpecificClusterDevice {
 
 	async onNodeInit({ zclNode }) {
 
-		this.printNode();
 
 		if (!this.hasCapability('measure_battery')) {
 			await this.addCapability('measure_battery');

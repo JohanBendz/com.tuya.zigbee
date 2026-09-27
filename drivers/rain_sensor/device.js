@@ -12,7 +12,6 @@ class RainSensor extends TuyaSpecificClusterDevice {
 
   async onNodeInit({ zclNode }) {
 
-    this.printNode();
 
     if (this.isFirstInit()) {
       await this.configureAttributeReporting([
