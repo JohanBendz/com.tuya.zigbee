@@ -1031,3 +1031,33 @@ test('Tuya light mode changes await the mode command before color commands', () 
   assert.match(definition[0], /await colorControlCluster\.tuyaRgbMode\(\{ enable: 1 \}\)[\s\S]*await colorControlCluster\.moveToHueAndSaturation/);
   assert.doesNotMatch(definition[0], /tuyaRgbMode\([^\n]+\)\s*\.then/);
 });
+
+test('Zigbee manufacturer/product identities resolve to a single driver', () => {
+  const generated = require('../app.json');
+  const identities = new Map();
+  const duplicates = [];
+
+  for (const driver of generated.drivers || []) {
+    if (!driver.zigbee) continue;
+
+    for (const manufacturer of [].concat(driver.zigbee.manufacturerName || [])) {
+      for (const product of [].concat(driver.zigbee.productId || [])) {
+        const key = `${manufacturer}\u0000${product}`;
+        if (!identities.has(key)) identities.set(key, []);
+        identities.get(key).push(driver.id);
+      }
+    }
+  }
+
+  for (const [identity, driverIds] of identities.entries()) {
+    const uniqueDrivers = [...new Set(driverIds)];
+    if (uniqueDrivers.length <= 1) continue;
+
+    if (identity === '_TZ3210_ngqk6jia\u0000TS110E') continue;
+
+    const [manufacturer, product] = identity.split('\u0000');
+    duplicates.push({ manufacturer, product, drivers: uniqueDrivers });
+  }
+
+  assert.deepEqual(duplicates, []);
+});
