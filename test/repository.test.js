@@ -614,3 +614,27 @@ test('device timers use Homey lifecycle-aware timer helpers', () => {
   assert.match(water, /this\.homey\.setInterval\(/);
   assert.match(water, /this\.homey\.clearInterval\(/);
 });
+
+test('known report handlers catch capability update failures', () => {
+  const targets = [
+    'drivers/temphumidsensor3/device.js',
+    'drivers/smart_air_detection_box/device.js',
+    'drivers/radar_sensor/device.js',
+    'drivers/radar_sensor_ceiling/device.js',
+    'drivers/water_leak_sensor_tuya/device.js',
+  ];
+
+  for (const relativePath of targets) {
+    const source = fs.readFileSync(path.join(root, relativePath), 'utf8');
+    const unsafe = source
+      .split('\n')
+      .filter(line =>
+        line.includes('this.setCapabilityValue(')
+        && line.trimEnd().endsWith(');')
+        && !line.includes('await ')
+        && !line.includes('.catch(')
+      );
+
+    assert.deepEqual(unsafe, [], relativePath);
+  }
+});

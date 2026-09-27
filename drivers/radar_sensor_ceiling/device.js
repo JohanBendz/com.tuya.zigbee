@@ -85,7 +85,7 @@ class radarSensorCeiling extends TuyaSpecificClusterDevice {
         break;
       case dataPoints.tshpsTargetDistance:
         if (new Date().getSeconds() % 10 === 0) {
-          this.setCapabilityValue('target_distance', value/100).catch(this.error);
+          this.setCapabilityValue('target_distance', value/100).catch(this.error).catch(this.error);
         }
 
         break;
@@ -123,12 +123,12 @@ class radarSensorCeiling extends TuyaSpecificClusterDevice {
 
   onIlluminanceMeasuredAttributeReport(measuredValue) {
     this.log('measure_luminance | Luminance - measuredValue (lux):', measuredValue);
-    this.setCapabilityValue('measure_luminance', measuredValue);
+    this.setCapabilityValue('measure_luminance', measuredValue).catch(this.error);
   }
 
   onIASZoneStatusChangeNotification({zoneStatus, extendedStatus, zoneId, delay,}) {
     this.log('IASZoneStatusChangeNotification received:', zoneStatus, extendedStatus, zoneId, delay);
-    this.setCapabilityValue('alarm_motion', zoneStatus.alarm1);
+    this.setCapabilityValue('alarm_motion', zoneStatus.alarm1).catch(this.error);
   }
 
 }
