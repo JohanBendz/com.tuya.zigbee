@@ -1014,3 +1014,20 @@ test('simple setCapabilityValue statements handle their Promise', () => {
 
   assert.deepEqual(problems, []);
 });
+
+test('Tuya light mode changes await the mode command before color commands', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'lib', 'TuyaZigBeeLightDevice.js'),
+    'utf8'
+  );
+
+  const definition = source.match(
+    /const lightModeCapabilityDefinition = \{[\s\S]*?(?=\n\nclass TuyaZigBeeLightDevice)/
+  );
+
+  assert.ok(definition);
+  assert.match(definition[0], /async setParser\(lightMode, opts = \{\}\)/);
+  assert.match(definition[0], /await colorControlCluster\.tuyaRgbMode\(\{ enable: 0 \}\)[\s\S]*await colorControlCluster\.moveToColorTemperature/);
+  assert.match(definition[0], /await colorControlCluster\.tuyaRgbMode\(\{ enable: 1 \}\)[\s\S]*await colorControlCluster\.moveToHueAndSaturation/);
+  assert.doesNotMatch(definition[0], /tuyaRgbMode\([^\n]+\)\s*\.then/);
+});
