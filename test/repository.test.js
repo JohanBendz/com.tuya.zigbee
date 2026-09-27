@@ -233,3 +233,39 @@ test('smart knob flow trigger is initialized outside raw frame handling', () => 
   assert.ok(triggerIndex < frameHandlerIndex);
   assert.match(source, /if \(!this\.hasCapability\('dim'\)\)/);
 });
+
+test('siren flow actions are registered once at driver level', () => {
+  const sirenDriver = fs.readFileSync(
+    path.join(root, 'drivers', 'siren', 'driver.js'),
+    'utf8'
+  );
+  const sirenDevice = fs.readFileSync(
+    path.join(root, 'drivers', 'siren', 'device.js'),
+    'utf8'
+  );
+  const sensorDriver = fs.readFileSync(
+    path.join(root, 'drivers', 'sirentemphumidsensor', 'driver.js'),
+    'utf8'
+  );
+
+  assert.match(sirenDriver, /\{ device, siren_volume \}/);
+  assert.doesNotMatch(sirenDevice, /registerRunListener/);
+
+  for (const id of ['alarm_state', 'siren_volume', 'alarm_duration', 'alarm_tune']) {
+    assert.match(sensorDriver, new RegExp(`getActionCard\\('${id}'\\)`));
+  }
+});
+
+test('siren alarm flow triggers are wired to device reports', () => {
+  const sirenDevice = fs.readFileSync(
+    path.join(root, 'drivers', 'siren', 'device.js'),
+    'utf8'
+  );
+  const sensorDevice = fs.readFileSync(
+    path.join(root, 'drivers', 'sirentemphumidsensor', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(sirenDevice, /getDeviceTriggerCard\('siren_alarm'\)/);
+  assert.match(sensorDevice, /getDeviceTriggerCard\('alarm_siren'\)/);
+});

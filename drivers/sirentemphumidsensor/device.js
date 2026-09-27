@@ -181,6 +181,7 @@ class sensortemphumidsensor extends TuyaSpecificClusterDevice {
     this.printNode();
 
     this._timeBoundCluster = null;
+    this._alarmTrigger = this.homey.flow.getDeviceTriggerCard('alarm_siren');
 
     await this.ensureCapability('measure_temperature');
     await this.ensureCapability('measure_humidity');
@@ -382,10 +383,19 @@ class sensortemphumidsensor extends TuyaSpecificClusterDevice {
     );
 
     switch (dp) {
-      case dataPoints.ALARM:
-        await this.safeSetCapabilityValue('onoff', !!measuredValue);
-        await this.safeSetCapabilityValue('alarm_siren', !!measuredValue);
+      case dataPoints.ALARM: {
+        const isAlarm = !!measuredValue;
+        const wasAlarm = this.getCapabilityValue('alarm_siren') === true;
+
+        await this.safeSetCapabilityValue('onoff', isAlarm);
+        await this.safeSetCapabilityValue('alarm_siren', isAlarm);
+
+        if (isAlarm && !wasAlarm) {
+          this._alarmTrigger.trigger(this, {}, {})
+            .catch(error => this.error('Failed to trigger alarm_siren Flow card', error));
+        }
         break;
+      }
 
       case dataPoints.TEMPERATURE:
         this.reportTemperatureCapacity(measuredValue);
@@ -527,6 +537,10 @@ class sensortemphumidsensor extends TuyaSpecificClusterDevice {
           break;
       }
     }
+  }
+
+  async setAlarmState(value) {
+    await this.writeBool(dataPoints.ALARM, value);
   }
 
   async sendAlarmVolume(volume) {
