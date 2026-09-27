@@ -797,3 +797,33 @@ test('smart knob Flow trigger is driver-scoped and filters by button', () => {
   assert.match(device, /this\.driver\.buttonTrigger\.trigger/);
   assert.doesNotMatch(device, /getDeviceTriggerCard/);
 });
+
+test('device trigger cards with custom arguments register driver-level filters', () => {
+  const generated = require('../app.json');
+  const problems = [];
+
+  for (const trigger of generated.flow?.triggers || []) {
+    const customArgs = (trigger.args || []).filter(arg => arg.type !== 'device');
+    if (customArgs.length === 0) continue;
+
+    const deviceArg = (trigger.args || []).find(arg => arg.type === 'device');
+    const match = deviceArg?.filter?.match(/driver_id=([^&]+)/);
+    if (!match) continue;
+
+    const driverId = match[1];
+    const driverPath = path.join(root, 'drivers', driverId, 'driver.js');
+
+    if (!fs.existsSync(driverPath)) {
+      problems.push({ trigger: trigger.id, driverId, reason: 'missing driver.js' });
+      continue;
+    }
+
+    const source = fs.readFileSync(driverPath, 'utf8');
+    if (!source.includes(`getDeviceTriggerCard('${trigger.id}')`)
+      || !source.includes('registerRunListener')) {
+      problems.push({ trigger: trigger.id, driverId, reason: 'missing run listener' });
+    }
+  }
+
+  assert.deepEqual(problems, []);
+});
