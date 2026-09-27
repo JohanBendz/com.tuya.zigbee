@@ -68,7 +68,7 @@
   ],
   "homeyCommunityTopicId": 26439,
   "source": "https://github.com/JohanBendz/com.tuya.zigbee",
-  "support": "mailto:johan_bendz@hotmail.com",
+  "support": "https://github.com/JohanBendz/com.tuya.zigbee/issues",
   "bugs": {
     "url": "https://github.com/JohanBendz/com.tuya.zigbee/issues"
   },

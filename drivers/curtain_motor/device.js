@@ -95,7 +95,7 @@ class CurtainMotor extends TuyaSpecificClusterDevice {
     switch (dp) {
       case dataPoints.arrived:
         const position = reverse ? (value & 0xFF) : 100 - (value & 0xFF);
-        console.log(reverse, 100 - (value & 0xFF), (value & 0xFF))
+        this.log('Curtain position report:', reverse, 100 - (value & 0xFF), (value & 0xFF));
 
         this.setCapabilityValue('windowcoverings_set', position / 100).catch(this.error);
         break;

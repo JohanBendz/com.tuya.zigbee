@@ -36,7 +36,7 @@ class motion_sensor extends ZigBeeDevice {
       ).catch(this.error);
       if (attrs) {
           const percent = attrs.batteryPercentageRemaining;
-          console.log('Set measure_battery: ', percent / 2);
+          this.log('Set measure_battery:', percent / 2);
           this.setCapabilityValue('measure_battery', percent / 2).catch(this.error);
       }
     }

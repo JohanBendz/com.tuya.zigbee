@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/JohanBendz/com.tuya.zigbee/issues"
   },
-  "homepage": "https://bortbytt.se/2022/02/03/tuya-zigbee/",
+  "homepage": "https://github.com/JohanBendz/com.tuya.zigbee#readme",
   "engines": {
     "node": ">=12"
   },

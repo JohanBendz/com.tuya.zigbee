@@ -11,7 +11,7 @@ class switch_4_gang_metering extends ZigBeeDevice {
   async onNodeInit({zclNode}) {
 
     this.printNode();
-    console.log(zclNode.endpoints);
+    this.log('Zigbee endpoints:', zclNode.endpoints);
 
     const { subDeviceId } = this.getData();
     this.log('Device data: ', subDeviceId);
