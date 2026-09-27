@@ -853,3 +853,18 @@ test('shared Tuya light color changes preserve mode state and propagate failures
   assert.match(temperatureMethod[0], /catch \(error\)[\s\S]*throw error;/);
   assert.match(colorMethod[0], /catch \(error\)[\s\S]*throw error;/);
 });
+
+test('Tuya light_mode temperature fallback does not reference undefined values', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'lib', 'TuyaZigBeeLightDevice.js'),
+    'utf8'
+  );
+
+  const modeDefinition = source.match(
+    /const lightModeCapabilityDefinition = \{[\s\S]*?(?=\n\nclass TuyaZigBeeLightDevice)/
+  );
+
+  assert.ok(modeDefinition);
+  assert.doesNotMatch(modeDefinition[0], /Math\.round\(value \* MAX_COLORTEMPERATURE\)/);
+  assert.match(modeDefinition[0], /getCapabilityValue\('light_temperature'\)/);
+});
