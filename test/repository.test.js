@@ -674,3 +674,37 @@ test('metering drivers do not misuse Homey capability options as Zigbee polling 
     assert.doesNotMatch(source, /setCapabilityOptions\('onoff',[\s\S]*getOpts/);
   }
 });
+
+test('wall remote trigger cards are registered once at driver level', () => {
+  const drivers = [
+    ['wall_remote_1_gang', 'wall_remote_1_gang_buttons'],
+    ['wall_remote_2_gang', 'wall_remote_2_gang_buttons'],
+    ['wall_remote_3_gang', 'wall_remote_3_gang_buttons'],
+  ];
+
+  for (const [driverId, cardId] of drivers) {
+    const driver = fs.readFileSync(
+      path.join(root, 'drivers', driverId, 'driver.js'),
+      'utf8'
+    );
+    const device = fs.readFileSync(
+      path.join(root, 'drivers', driverId, 'device.js'),
+      'utf8'
+    );
+
+    assert.match(driver, new RegExp(`getDeviceTriggerCard\\('${cardId}'\\)`));
+    assert.match(device, /this\.driver\.buttonTrigger\.trigger/);
+    assert.doesNotMatch(device, /registerRunListener/);
+  }
+});
+
+test('2-gang wall remote parses the normalized frame payload', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'wall_remote_2_gang', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(source, /frame = frame\.toJSON\(\)/);
+  assert.match(source, /frame\.data\[3\]/);
+  assert.doesNotMatch(source, /frame\[3\]/);
+});

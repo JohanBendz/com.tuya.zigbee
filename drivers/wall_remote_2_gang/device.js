@@ -16,6 +16,7 @@ class wall_remote_2_gang extends ZigBeeDevice {
           if (clusterId === 6) {
             this.log("endpointId:", endpointId,", clusterId:", clusterId,", frame:", frame, ", meta:", meta);
             this.log("Frame JSON data:", frame.toJSON());
+            frame = frame.toJSON();
             debounce = debounce+1;
             if (debounce===1){
               this.buttonCommandParser(endpointId, frame);
@@ -24,18 +25,13 @@ class wall_remote_2_gang extends ZigBeeDevice {
             }
           }
         };
-  
-        this._buttonPressedTriggerDevice = this.homey.flow.getDeviceTriggerCard('wall_remote_2_gang_buttons')
-        .registerRunListener(async (args, state) => {
-          return (null, args.action === state.action);
-        });
       
     }
 
     buttonCommandParser(ep, frame) {
       var button = ep === 1 ? 'left' : 'right';
-      var action = frame[3] === 0 ? 'oneClick' : frame[3] === 1 ? 'twoClicks' : 'longPress';
-      return this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-${action}` })
+      var action = frame.data[3] === 0 ? 'oneClick' : frame.data[3] === 1 ? 'twoClicks' : 'longPress';
+      return this.driver.buttonTrigger.trigger(this, {}, { action: `${button}-${action}` })
       .then(() => this.log(`Triggered 2 Gang Smart Switch, action=${button}-${action}`))
       .catch(err => this.error('Error triggering 2 Gang Smart Switch', err));
     }
