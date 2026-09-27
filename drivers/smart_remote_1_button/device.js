@@ -54,7 +54,7 @@ class smart_remote_1b extends ZigBeeDevice {
         this.log("Unknown click action detected:", frame[1]);
     }
 
-    return this._buttonPressedTriggerDevice
+    return this.driver.buttonTrigger
         .trigger(this, {}, { action })
         .then(() => this.log(`Triggered 1 button Smart Remote, action=${action}`))
         .catch((err) => this.error("Error triggering 1 button Smart Remote", err));

@@ -293,3 +293,18 @@ test('curtain action cards target the selected device', () => {
     assert.doesNotMatch(device, /registerRunListener/);
   }
 });
+
+test('smart_remote_1_button initializes its Flow trigger', () => {
+  const driver = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_remote_1_button', 'driver.js'),
+    'utf8'
+  );
+  const device = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_remote_1_button', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(driver, /getDeviceTriggerCard\('smart_remote_1_button'\)/);
+  assert.match(device, /this\.driver\.buttonTrigger/);
+  assert.doesNotMatch(device, /_buttonPressedTriggerDevice/);
+});
