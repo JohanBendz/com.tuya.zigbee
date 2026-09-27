@@ -781,3 +781,19 @@ test('smart and handheld remote Flow triggers are driver-scoped', () => {
     assert.doesNotMatch(device, /registerRunListener/);
   }
 });
+
+test('smart knob Flow trigger is driver-scoped and filters by button', () => {
+  const driver = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_knob_switch', 'driver.js'),
+    'utf8'
+  );
+  const device = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_knob_switch', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(driver, /getDeviceTriggerCard\('smart_knob_switch_button'\)/);
+  assert.match(driver, /args\.button === state\.button/);
+  assert.match(device, /this\.driver\.buttonTrigger\.trigger/);
+  assert.doesNotMatch(device, /getDeviceTriggerCard/);
+});

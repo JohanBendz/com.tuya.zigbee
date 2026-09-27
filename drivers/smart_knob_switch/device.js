@@ -14,9 +14,6 @@ class smart_knob_switch extends ZigBeeDevice {
       await this.addCapability('dim');
     }
 
-    this._buttonPressedTriggerDevice = this.homey.flow
-      .getDeviceTriggerCard('smart_knob_switch_button');
-
     const node = await this.homey.zigbee.getNode(this);
 
     node.handleFrame = (endpointId, clusterId, frame, meta) => {
@@ -51,7 +48,7 @@ class smart_knob_switch extends ZigBeeDevice {
       this.log('Dimming to: ', duration/500);
     }
 
-    return this._buttonPressedTriggerDevice.trigger(this, {}, { button: `${btn}` })
+    return this.driver.buttonTrigger.trigger(this, {}, { button: `${btn}` })
       .then(() => this.log(`Triggered Smart Knob Switch, button=${btn}`, duration !== false ? `duration=${duration}` : ''))
       .catch(err => this.error('Error triggering Smart Knob Switch', err));
   }
