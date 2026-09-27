@@ -101,23 +101,23 @@ class radarSensorCeiling extends TuyaSpecificClusterDevice {
 
   async onSettings({newSettings, changedKeys}) {
     if (changedKeys.includes('radar_sensitivity')) {
-      this.writeData32(dataPoints.tshpscSensitivity, newSettings['radar_sensitivity'])
+      await this.writeData32(dataPoints.tshpscSensitivity, newSettings['radar_sensitivity'])
     }
 
     if (changedKeys.includes('minimum_range')) {
-      this.writeData32(dataPoints.tshpsMinimumRange, newSettings['minimum_range']*100)
+      await this.writeData32(dataPoints.tshpsMinimumRange, newSettings['minimum_range']*100)
     }
 
     if (changedKeys.includes('maximum_range')) {
-      this.writeData32(dataPoints.tshpsMaximumRange, newSettings['maximum_range']*100)
+      await this.writeData32(dataPoints.tshpsMaximumRange, newSettings['maximum_range']*100)
     }
 
     if (changedKeys.includes('detection_delay')) {
-      this.writeData32(dataPoints.tshpsDetectionDelay, newSettings['detection_delay'])
+      await this.writeData32(dataPoints.tshpsDetectionDelay, newSettings['detection_delay'])
     }
 
     if (changedKeys.includes('fading_time')) {
-      this.writeData32(dataPoints.tshpsFadingTime, newSettings['fading_time'])
+      await this.writeData32(dataPoints.tshpsFadingTime, newSettings['fading_time'])
     }
   }
 

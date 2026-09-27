@@ -555,3 +555,15 @@ test('double power point keeps Homey polling and Zigbee reporting units separate
     );
   }
 });
+
+test('radar settings await Tuya datapoint writes', () => {
+  for (const driverId of ['radar_sensor', 'radar_sensor_ceiling']) {
+    const source = fs.readFileSync(
+      path.join(root, 'drivers', driverId, 'device.js'),
+      'utf8'
+    );
+    const onSettings = source.match(/async onSettings\([^)]*\) \{([\s\S]*?)\n  \}/);
+    assert.ok(onSettings, driverId);
+    assert.doesNotMatch(onSettings[1], /(^|\n)\s*this\.writeData32\(/, driverId);
+  }
+});
