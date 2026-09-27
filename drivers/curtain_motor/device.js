@@ -57,7 +57,6 @@ class CurtainMotor extends TuyaSpecificClusterDevice {
 
   async onNodeInit({ zclNode }) {
 
-    this.printNode();
 
     zclNode.endpoints[1].clusters.tuya.on("response", value => this.updatePosition(value));
 

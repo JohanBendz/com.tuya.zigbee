@@ -8,7 +8,6 @@ const BATTERY_UPDATE_INTERVAL = 1000 * 60 * 30;
 class motion_sensor extends ZigBeeDevice {
 
 	async onNodeInit({ zclNode }) {
-		this.printNode();
         this._powerConfiguration = zclNode.endpoints[1].clusters[CLUSTER.POWER_CONFIGURATION.NAME];
 
         const iasZone = zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME];

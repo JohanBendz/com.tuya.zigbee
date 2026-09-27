@@ -113,7 +113,6 @@ class FingerBot extends TuyaSpecificClusterDevice {
     await super.onNodeInit({ zclNode });
 
     this.log('Initializing FingerBot device...');
-    this.printNode();
 
     this._suppressUntil = 0;
     this._ignoreOnOffReportsUntil = 0;
