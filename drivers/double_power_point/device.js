@@ -113,7 +113,7 @@ class doublepowerpoint extends ZigBeeDevice {
       await zclNode.endpoints[endpoint].clusters.electricalMeasurement.configureReporting({
         attribute: 'activePower',
         minimumReportInterval: 10,
-        maximumReportInterval: this.minReportPower,
+        maximumReportInterval: this.minReportPower / 1000,
         reportableChange: 1,
       });
       this.log('Configured reporting for measure_power');
@@ -121,7 +121,7 @@ class doublepowerpoint extends ZigBeeDevice {
       await zclNode.endpoints[endpoint].clusters.electricalMeasurement.configureReporting({
         attribute: 'rmsCurrent',
         minimumReportInterval: 10,
-        maximumReportInterval: this.minReportCurrent,
+        maximumReportInterval: this.minReportCurrent / 1000,
         reportableChange: 1,
       });
       this.log('Configured reporting for measure_current');
@@ -129,7 +129,7 @@ class doublepowerpoint extends ZigBeeDevice {
       await zclNode.endpoints[endpoint].clusters.electricalMeasurement.configureReporting({
         attribute: 'rmsVoltage',
         minimumReportInterval: 10,
-        maximumReportInterval: this.minReportVoltage,
+        maximumReportInterval: this.minReportVoltage / 1000,
         reportableChange: 1,
       });
       this.log('Configured reporting for measure_voltage');

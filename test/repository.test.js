@@ -541,3 +541,17 @@ test('SUPPORTED_DEVICES.md generated identity index is current', () => {
     );
   });
 });
+
+test('double power point keeps Homey polling and Zigbee reporting units separate', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'double_power_point', 'device.js'),
+    'utf8'
+  );
+
+  for (const key of ['Power', 'Current', 'Voltage']) {
+    assert.match(
+      source,
+      new RegExp(`maximumReportInterval: this\\.minReport${key} \\/ 1000`)
+    );
+  }
+});
