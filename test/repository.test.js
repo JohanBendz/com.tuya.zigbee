@@ -567,3 +567,16 @@ test('radar settings await Tuya datapoint writes', () => {
     assert.doesNotMatch(onSettings[1], /(^|\n)\s*this\.writeData32\(/, driverId);
   }
 });
+
+test('TRV settings and Flow writes propagate Tuya write failures', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'thermostatic_radiator_valve', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(source, /async setWindowOpen\(state\)[\s\S]*await this\.writeBool/);
+  assert.match(source, /async onSettings\([^)]*\)[\s\S]*await this\.applySettings/);
+  assert.match(source, /async applySettings\([^)]*\)/);
+  assert.match(source, /async updateSchedule\([^)]*\)/);
+  assert.doesNotMatch(source, /(^|\n)\s*this\.write(?:Bool|Data32|Raw)\(/);
+});

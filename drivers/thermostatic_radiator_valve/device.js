@@ -49,9 +49,9 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
         this.log("Thermostatic Radiator Valve initialized:", this.getName());
     }
 
-    setWindowOpen(state) {
+    async setWindowOpen(state) {
         this.debug("Window open action received on '" + this.getName() + "' Value:", state);
-        this.writeBool(THERMOSTAT_DATA_POINTS.openWindow, state);
+        await this.writeBool(THERMOSTAT_DATA_POINTS.openWindow, state);
     }
 
     getWindowOpen() {
@@ -60,29 +60,29 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
     }
 
     async onSettings({ oldSettings, newSettings, changedKeys }) {
-        this.applySettings(newSettings, changedKeys);
+        await this.applySettings(newSettings, changedKeys);
     }
 
-    applySettings(settings, keys) {
+    async applySettings(settings, keys) {
         if (keys.includes('comfortTemperature')) {
-            this.writeData32(THERMOSTAT_DATA_POINTS.comfortTemperature, settings.comfortTemperature * 10);
+            await this.writeData32(THERMOSTAT_DATA_POINTS.comfortTemperature, settings.comfortTemperature * 10);
         }
         if (keys.includes('ecoTemperature')) {
-            this.writeData32(THERMOSTAT_DATA_POINTS.ecoTemperature, settings.ecoTemperature * 10);
+            await this.writeData32(THERMOSTAT_DATA_POINTS.ecoTemperature, settings.ecoTemperature * 10);
         }
         if (keys.includes('openWindowTemperature')) {
-            this.writeData32(THERMOSTAT_DATA_POINTS.openWindowTemperature, settings.openWindowTemperature * 10);
+            await this.writeData32(THERMOSTAT_DATA_POINTS.openWindowTemperature, settings.openWindowTemperature * 10);
         }
         if (keys.includes('holidayTemperature')) {
-            this.writeData32(THERMOSTAT_DATA_POINTS.holidayTemperature, settings.holidayTemperature * 10);
+            await this.writeData32(THERMOSTAT_DATA_POINTS.holidayTemperature, settings.holidayTemperature * 10);
         }
         if (keys.includes('scheduleMonday') || keys.includes('scheduleTuesday') || keys.includes('scheduleWednesday') || keys.includes('scheduleThursday')
             || keys.includes('scheduleFriday') || keys.includes('scheduleSaturday') || keys.includes('scheduleSunday') || keys.includes('workingDay')) {
-            this.updateSchedule(settings);
+            await this.updateSchedule(settings);
         }
     }
 
-    updateSchedule(settings) {
+    async updateSchedule(settings) {
         switch (settings.workingDay) {
             case '2': // separate
                 // send all days (individual schedule per day)
@@ -90,19 +90,19 @@ class ThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
                 var wednesdayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleWednesday, settings.scheduleWednesday);
                 var thursdayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleThursday, settings.scheduleThursday);
                 var fridayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleFriday, settings.scheduleFriday);
-                this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, tuesdayBytes);
-                this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, wednesdayBytes);
-                this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, thursdayBytes);
-                this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, fridayBytes);
+                await this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, tuesdayBytes);
+                await this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, wednesdayBytes);
+                await this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, thursdayBytes);
+                await this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, fridayBytes);
             case '1': // Mon-Fri, Sat+Sun
                 // send saturday, sunday & monday schedule
                 var saturdayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleSaturday, settings.scheduleSaturday);
                 var sundaybytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleSunday, settings.scheduleSunday);
-                this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, saturdayBytes);
-                this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, sundaybytes);
+                await this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, saturdayBytes);
+                await this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, sundaybytes);
             case '0': // Mon-Sun -> send monday schedule, used for all days
                 var mondayBytes = marshalSchedule(settings.workingDay, THERMOSTAT_DATA_POINTS.scheduleMonday, settings.scheduleMonday);
-                this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, mondayBytes);
+                await this.writeRaw(THERMOSTAT_DATA_POINTS.schedule, mondayBytes);
         }
     }
 
