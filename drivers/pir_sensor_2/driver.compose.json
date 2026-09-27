@@ -4,8 +4,12 @@
     "en": "Smart PIR Motion Sensor"
   },
   "class": "sensor",
-  "platforms": ["local"],
-  "connectivity": ["zigbee"],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
   "capabilities": [
     "alarm_motion",
     "alarm_battery"
@@ -59,7 +63,7 @@
       }
     },
     "learnmode": {
-      "image": "{{driverAssetsPath}}/learn.svg",
+      "image": "{{driverAssetsPath}}/icon.svg",
       "instruction": {
         "en": "Press the reset button for aprox 5 seconds until the LED blinks."
       }

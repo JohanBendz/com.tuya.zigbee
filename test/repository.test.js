@@ -327,3 +327,24 @@ test('driver manifests contain no template placeholder paths', () => {
 
   assert.doesNotMatch(serialized, /\/drivers\/my_driver\//);
 });
+
+test('all generated driver image paths exist in the repository', () => {
+  const generated = require('../app.json');
+  const missing = [];
+
+  for (const driver of generated.drivers || []) {
+    const imagePaths = [
+      ...Object.values(driver.images || {}),
+      driver.zigbee?.learnmode?.image,
+    ].filter(value => typeof value === 'string' && value.startsWith('/'));
+
+    for (const imagePath of imagePaths) {
+      const localPath = path.join(root, imagePath.replace(/^\//, ''));
+      if (!fs.existsSync(localPath)) {
+        missing.push({ driver: driver.id, imagePath });
+      }
+    }
+  }
+
+  assert.deepEqual(missing, []);
+});

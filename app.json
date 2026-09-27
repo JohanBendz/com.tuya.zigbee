@@ -4913,7 +4913,7 @@
           }
         },
         "learnmode": {
-          "image": "/drivers/pir_sensor_2/assets/learn.svg",
+          "image": "/drivers/pir_sensor_2/assets/icon.svg",
           "instruction": {
             "en": "Press the reset button for aprox 5 seconds until the LED blinks."
           }
@@ -7296,7 +7296,7 @@
           }
         },
         "learnmode": {
-          "image": "/drivers/slim_motion_sensor/assets/learn.svg",
+          "image": "/drivers/slim_motion_sensor/assets/icon.svg",
           "instruction": {
             "en": "Press the reset button for aprox 5 seconds until the LED blinks."
           }
