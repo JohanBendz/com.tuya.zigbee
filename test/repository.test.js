@@ -424,3 +424,68 @@ test('2-gang metering subdevice keeps only its declared switch capability', () =
     /if \(!this\.isSubDevice\(\)\) \{[\s\S]*addCapability\('measure_current'\)[\s\S]*addCapability\('measure_voltage'\)/
   );
 });
+
+test('registerCapability calls use the SDK3 three-argument signature', () => {
+  function countTopLevelArguments(source, startIndex) {
+    let depth = 0;
+    let commas = 0;
+    let quote = null;
+    let escaped = false;
+
+    for (let index = startIndex; index < source.length; index += 1) {
+      const char = source[index];
+
+      if (quote) {
+        if (escaped) {
+          escaped = false;
+        } else if (char === '\\') {
+          escaped = true;
+        } else if (char === quote) {
+          quote = null;
+        }
+        continue;
+      }
+
+      if (char === "'" || char === '"' || char === '`') {
+        quote = char;
+        continue;
+      }
+
+      if (char === '(' || char === '{' || char === '[') {
+        depth += 1;
+        continue;
+      }
+
+      if (char === ')' || char === '}' || char === ']') {
+        if (depth === 0) return commas + 1;
+        depth -= 1;
+        continue;
+      }
+
+      if (char === ',' && depth === 0) commas += 1;
+    }
+
+    return null;
+  }
+
+  const violations = [];
+
+  for (const file of walk(path.join(root, 'drivers')).filter(file => file.endsWith('.js'))) {
+    const source = fs.readFileSync(file, 'utf8');
+    const marker = 'registerCapability(';
+    let offset = 0;
+
+    while ((offset = source.indexOf(marker, offset)) !== -1) {
+      const argumentStart = offset + marker.length;
+      const count = countTopLevelArguments(source, argumentStart);
+
+      if (count !== null && count > 3) {
+        violations.push({ file: path.relative(root, file), count });
+      }
+
+      offset = argumentStart;
+    }
+  }
+
+  assert.deepEqual(violations, []);
+});
