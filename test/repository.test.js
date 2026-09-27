@@ -489,3 +489,26 @@ test('registerCapability calls use the SDK3 three-argument signature', () => {
 
   assert.deepEqual(violations, []);
 });
+
+test('subdevice capability options only target declared capabilities', () => {
+  const generated = require('../app.json');
+  const problems = [];
+
+  for (const driver of generated.drivers || []) {
+    for (const [subDeviceId, subDevice] of Object.entries(driver.zigbee?.devices || {})) {
+      const capabilities = new Set(subDevice.capabilities || []);
+
+      for (const capabilityId of Object.keys(subDevice.capabilitiesOptions || {})) {
+        if (!capabilities.has(capabilityId)) {
+          problems.push({
+            driver: driver.id,
+            subDeviceId,
+            capabilityId,
+          });
+        }
+      }
+    }
+  }
+
+  assert.deepEqual(problems, []);
+});

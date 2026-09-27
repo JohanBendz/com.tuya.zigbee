@@ -9932,11 +9932,6 @@
             ],
             "name": {
               "en": "2 Gang Switch Module with metering - Second Switch"
-            },
-            "capabilitiesOptions": {
-              "measure_power": {
-                "approximated": true
-              }
             }
           }
         },
@@ -10208,11 +10203,6 @@
             ],
             "name": {
               "en": "4 Gang Switch Module with metering - Second Switch"
-            },
-            "capabilitiesOptions": {
-              "measure_power": {
-                "approximated": true
-              }
             }
           },
           "thirdSwitch": {
@@ -10222,11 +10212,6 @@
             ],
             "name": {
               "en": "4 Gang Switch Module with metering - Third Switch"
-            },
-            "capabilitiesOptions": {
-              "measure_power": {
-                "approximated": true
-              }
             }
           },
           "fourthSwitch": {
@@ -10236,11 +10221,6 @@
             ],
             "name": {
               "en": "4 Gang Switch Module with metering - Fourth Switch"
-            },
-            "capabilitiesOptions": {
-              "measure_power": {
-                "approximated": true
-              }
             }
           }
         },
