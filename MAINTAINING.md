@@ -72,7 +72,7 @@ Homey's publish validation checks the generated manifest and publish assets. Sta
 ## Branches
 
 - `SDK3` is the established production code line at the start of the 2026 maintenance pass.
-- `modernize-2026` is for repository hygiene, verified correctness fixes and handover-ready maintenance without architectural rewrites.
+- `modernize-2026` is the active 2026 modernization branch for repository hygiene, verified correctness fixes and maintainability improvements without architectural rewrites.
 - `refactor/type-based-drivers` is an experimental architecture branch. It is intentionally separate and must not be assumed production-ready.
 
 ## Modernization rule

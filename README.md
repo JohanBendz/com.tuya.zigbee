@@ -1,6 +1,6 @@
 # Tuya Zigbee for Homey
 
-Community-maintained support for Tuya-manufactured Zigbee devices connected directly to Homey, without a Tuya gateway.
+Actively maintained, community-driven support for Tuya-manufactured Zigbee devices connected directly to Homey, without a Tuya gateway.
 
 Tuya hardware is sold under many different brands and model names. For that reason this app identifies compatibility primarily from the device's Zigbee identity and endpoint/cluster structure rather than from the retail name printed on the box.
 
