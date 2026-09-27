@@ -982,3 +982,35 @@ test('one-button smart remote ignores unknown frames and avoids raw frame loggin
   assert.match(source, /Unknown click action detected:[\s\S]*return false;/);
   assert.doesNotMatch(source, /action = ["']unknown["']/);
 });
+
+test('simple setCapabilityValue statements handle their Promise', () => {
+  const problems = [];
+
+  for (const file of walk(path.join(root, 'drivers')).filter(file => file.endsWith('.js'))) {
+    const source = fs.readFileSync(file, 'utf8')
+      .replace(/\/\*[\s\S]*?\*\//g, '')
+      .replace(/^\s*\/\/.*$/gm, '');
+
+    const lines = source.split('\n');
+
+    lines.forEach((line, index) => {
+      if (!line.includes('this.setCapabilityValue(')) return;
+
+      const trimmed = line.trim();
+      const safe = trimmed.includes('await this.setCapabilityValue(')
+        || trimmed.includes('return this.setCapabilityValue(')
+        || trimmed.includes('.catch(')
+        || !trimmed.endsWith(');');
+
+      if (!safe) {
+        problems.push({
+          file: path.relative(root, file),
+          line: index + 1,
+          source: trimmed,
+        });
+      }
+    });
+  }
+
+  assert.deepEqual(problems, []);
+});
