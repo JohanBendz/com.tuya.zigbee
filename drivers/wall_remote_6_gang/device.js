@@ -39,7 +39,7 @@ class wall_remote_6_gang extends ZigBeeDevice {
     
       // Debounce logic for oneClick
       if (!this.doubleClickReceived && action === 'oneClick') {
-        this.clickTimeout = setTimeout(() => {
+        this.clickTimeout = this.homey.setTimeout(() => {
           this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-${action}` })
             .then(() => this.log(`Triggered 6 Gang Wall Remote, action=${button}-${action}`))
             .catch(err => this.error('Error triggering 6 Gang Wall Remote', err));
@@ -48,13 +48,13 @@ class wall_remote_6_gang extends ZigBeeDevice {
     
       // Handle twoClicks immediately, cancel pending oneClick
       if (action === 'twoClicks') {
-        clearTimeout(this.clickTimeout);
+        this.homey.clearTimeout(this.clickTimeout);
         this.doubleClickReceived = true;
         this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-${action}` })
           .then(() => this.log(`Triggered 6 Gang Wall Remote, action=${button}-${action}`))
           .catch(err => this.error('Error triggering 6 Gang Wall Remote', err));
     
-        setTimeout(() => {
+        this.homey.setTimeout(() => {
           this.doubleClickReceived = false;
         }, 500); // Adjust time as needed
       }

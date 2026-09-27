@@ -595,3 +595,22 @@ test('shared Tuya write helpers propagate Zigbee failures', () => {
     assert.match(match[1], /catch \(err\)[\s\S]*throw err;/, method);
   }
 });
+
+test('device timers use Homey lifecycle-aware timer helpers', () => {
+  const remote = fs.readFileSync(
+    path.join(root, 'drivers', 'wall_remote_6_gang', 'device.js'),
+    'utf8'
+  );
+  const water = fs.readFileSync(
+    path.join(root, 'drivers', 'water_leak_sensor_tuya', 'device.js'),
+    'utf8'
+  );
+
+  assert.doesNotMatch(remote, /(^|[^.])setTimeout\(/);
+  assert.match(remote, /this\.homey\.setTimeout\(/);
+  assert.match(remote, /this\.homey\.clearTimeout\(/);
+
+  assert.doesNotMatch(water, /(^|[^.])setInterval\(/);
+  assert.match(water, /this\.homey\.setInterval\(/);
+  assert.match(water, /this\.homey\.clearInterval\(/);
+});

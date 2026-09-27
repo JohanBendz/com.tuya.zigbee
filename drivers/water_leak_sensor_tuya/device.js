@@ -24,7 +24,7 @@ class TuyaWaterLeakSensor extends TuyaSpecificClusterDevice {
         });
 
         // Periodically read battery status every hour
-        this.batteryInterval = setInterval(async () => {
+        this.batteryInterval = this.homey.setInterval(async () => {
             try {
                 await zclNode.endpoints[1].clusters.tuya.read({ dp: 14 });
                 await zclNode.endpoints[1].clusters.tuya.read({ dp: 15 });
@@ -41,16 +41,16 @@ class TuyaWaterLeakSensor extends TuyaSpecificClusterDevice {
 
         if (data.dp === 15) {
             // Set the value of the 'measure_battery' capability.
-            this.setCapabilityValue('measure_battery', data.data.readUInt32BE(0));
+            this.setCapabilityValue('measure_battery', data.data.readUInt32BE(0)).catch(this.error);
         } else if (data.dp === 14) {
             // Set the value of the 'alarm_battery' capability.
-            this.setCapabilityValue('alarm_battery', data.data.readUInt8(0) !== 0);
+            this.setCapabilityValue('alarm_battery', data.data.readUInt8(0) !== 0).catch(this.error);
         }
         
         if (data.dp === 101) { 
             // Set the value of the 'alarm_water' capability
             this.log('Received a response or report for dp 101, updating capability...');
-            this.setCapabilityValue('alarm_water', data.data.readUInt8(0) === 1);
+            this.setCapabilityValue('alarm_water', data.data.readUInt8(0) === 1).catch(this.error);
             this.log('Capability has been updated.');
         }
     }
@@ -60,7 +60,7 @@ class TuyaWaterLeakSensor extends TuyaSpecificClusterDevice {
     }
 
     onUninit() {
-        clearInterval(this.batteryInterval);
+        this.homey.clearInterval(this.batteryInterval);
     }
 
 }
