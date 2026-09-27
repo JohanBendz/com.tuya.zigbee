@@ -8,8 +8,6 @@ class smart_knob_switch extends ZigBeeDevice {
   async onNodeInit({ zclNode }) {
 
     var debounce = 0;
-    this.printNode();
-
     if (!this.hasCapability('dim')) {
       await this.addCapability('dim');
     }
@@ -19,11 +17,8 @@ class smart_knob_switch extends ZigBeeDevice {
     node.handleFrame = (endpointId, clusterId, frame, meta) => {
       if ([8, 6, 768].includes(clusterId)) {
         frame = frame.toJSON();
-        this.log("Frame JSON data:", frame);
         this.buttonCommandParser(clusterId, frame);
       } else {
-        this.log("[Uknown] endpointId:", endpointId, ", clusterId:", clusterId, ", frame:", frame, ", meta:", meta);
-        this.log("[--]Frame JSON data:", frame.toJSON)
       }
     };
   }

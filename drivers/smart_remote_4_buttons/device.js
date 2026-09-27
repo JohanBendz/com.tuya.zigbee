@@ -8,12 +8,9 @@ class smart_remote_4b extends ZigBeeDevice {
     async onNodeInit({zclNode}) {
 
       var debounce = 0;
-      this.printNode();
-  
       const node = await this.homey.zigbee.getNode(this);
       node.handleFrame = (endpointId, clusterId, frame, meta) => {
         if (clusterId === 1281) {
-//          this.log("Frame JSON data:", frame.toJSON());
           debounce = debounce+1;
           if (debounce===1){
             this.buttonCommandParser(frame);

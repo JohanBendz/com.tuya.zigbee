@@ -9,13 +9,9 @@ class wall_remote_4_gang_3 extends ZigBeeDevice {
 
       var debounce = 0;
       // debug(true);
-      this.printNode();
-
       const node = await this.homey.zigbee.getNode(this);
       node.handleFrame = (endpointId, clusterId, frame, meta) => {
         if (clusterId === 6) {
-          this.log("endpointId:", endpointId,", clusterId:", clusterId,", frame:", frame, ", meta:", meta);
-          this.log("Frame JSON data:", frame.toJSON());
           frame = frame.toJSON();
           debounce = debounce+1;
           if (debounce===1){

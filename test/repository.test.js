@@ -812,3 +812,15 @@ test('device trigger cards with custom arguments register driver-level filters',
 
   assert.deepEqual(problems, []);
 });
+
+test('remote release code does not dump raw Zigbee frames or node descriptors', () => {
+  const targets = ["drivers/smart_knob_switch/device.js","drivers/wall_remote_1_gang/device.js","drivers/wall_remote_2_gang/device.js","drivers/wall_remote_3_gang/device.js","drivers/wall_remote_4_gang/device.js","drivers/wall_remote_4_gang_2/device.js","drivers/wall_remote_4_gang_3/device.js","drivers/wall_remote_6_gang/device.js","drivers/smart_button_switch/device.js","drivers/smart_remote_1_button_2/device.js","drivers/smart_remote_4_buttons/device.js","drivers/handheld_remote_4_buttons/device.js"];
+
+  for (const relativePath of targets) {
+    const source = fs.readFileSync(path.join(root, relativePath), 'utf8');
+
+    assert.doesNotMatch(source, /this\.printNode\(\)/, relativePath);
+    assert.doesNotMatch(source, /Frame JSON data/, relativePath);
+    assert.doesNotMatch(source, /this\.log\(["']endpointId:/, relativePath);
+  }
+});

@@ -5,8 +5,6 @@ const { debug, CLUSTER } = require('zigbee-clusters');
 
 class smart_remote_1b_2 extends ZigBeeDevice {
   async onNodeInit({ zclNode }) {
-    this.printNode();
-
     const node = await this.homey.zigbee.getNode(this);
     node.handleFrame = (endpointId, clusterId, frame, meta) => {
       if (clusterId === 6) {
@@ -20,7 +18,6 @@ class smart_remote_1b_2 extends ZigBeeDevice {
           ", meta:",
           meta
         );
-        this.log("Frame JSON data:", frame.toJSON());
         this.buttonCommandParser(frame);
       }
     };
