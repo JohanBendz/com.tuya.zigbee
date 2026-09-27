@@ -18,18 +18,13 @@ class handheld_remote_4_buttons extends ZigBeeDevice {
            this.buttonCommandParser(endpointId, frame);
         }
       };
-
-      this._buttonPressedTriggerDevice = this.homey.flow.getDeviceTriggerCard('handheld_remote_4_buttons')
-      .registerRunListener(async (args, state) => {
-        return (null, args.button === state.button && args.action === state.action);
-      });
     
     }
 
     buttonCommandParser(ep, frame) {
       var button = ep === 1 ? 'button1' : ep === 2 ? 'button2' : ep === 3 ? 'button3' : ep === 4 ? 'button4' : 'invalid';
       var action = frame.data[3] === 0 ? 'single' : frame.data[3] === 1 ? 'double' : frame.data[3] === 2 ? 'long' : 'invalid';
-      return this._buttonPressedTriggerDevice.trigger(this, {}, { button: `${button}`, action: `${action}` })
+      return this.driver.buttonTrigger.trigger(this, {}, { button: `${button}`, action: `${action}` })
       .then(() => this.log(`Triggered 4 Button Remote, button=${button} action=${action}`))
       .catch(err => this.error('Error triggering 4 button Remote', err));
     }

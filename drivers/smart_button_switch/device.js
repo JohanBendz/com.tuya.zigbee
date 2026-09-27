@@ -17,17 +17,12 @@ class smart_button_switch extends ZigBeeDevice {
             this.buttonCommandParser(frame);
           }
         };
-  
-        this._buttonPressedTriggerDevice = this.homey.flow.getDeviceTriggerCard('smart_button_switch_buttons')
-        .registerRunListener(async (args, state) => {
-          return (null, args.action === state.action);
-        });
       
     }
   
       buttonCommandParser(frame) {
         var action = frame.data[3] === 0 ? 'oneClick' : 'twoClicks';
-        return this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${action}` })
+        return this.driver.buttonTrigger.trigger(this, {}, { action: `${action}` })
         .then(() => this.log(`Triggered Smart Button Switch, action=${action}`))
         .catch(err => this.error('Error triggering Smart Button Switch', err));
       }

@@ -25,18 +25,11 @@ class smart_remote_1b_2 extends ZigBeeDevice {
       }
     };
 
-    this._buttonPressedTriggerDevice = this.homey.flow
-      .getDeviceTriggerCard("smart_remote_1_button_2")
-      .registerRunListener(async (args, state) => {
-        return null, args.action === state.action;
-      });
-
   }
 
   buttonCommandParser(frame) {
     var action = frame.data[3] === 0 ? 'oneClick' : frame.data[3] === 1 ? 'twoClicks' : 'longPress';
-    return this._buttonPressedTriggerDevice
-      .trigger(this, {}, { action: `${action}` })
+    return this.driver.buttonTrigger.trigger(this, {}, { action: `${action}` })
       .then(() => this.log(`Triggered 1 button Smart Remote, action=${action}`))
       .catch((err) => this.error("Error triggering 1 button Smart Remote", err));
   }

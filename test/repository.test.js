@@ -757,3 +757,27 @@ test('6-gang wall remote Flow trigger is driver-scoped', () => {
   assert.match(device, /this\.driver\.buttonTrigger\.trigger/);
   assert.doesNotMatch(device, /registerRunListener/);
 });
+
+test('smart and handheld remote Flow triggers are driver-scoped', () => {
+  const drivers = [
+    ['smart_button_switch', 'smart_button_switch_buttons'],
+    ['smart_remote_1_button_2', 'smart_remote_1_button_2'],
+    ['smart_remote_4_buttons', 'smart_remote_4_buttons'],
+    ['handheld_remote_4_buttons', 'handheld_remote_4_buttons'],
+  ];
+
+  for (const [driverId, cardId] of drivers) {
+    const driver = fs.readFileSync(
+      path.join(root, 'drivers', driverId, 'driver.js'),
+      'utf8'
+    );
+    const device = fs.readFileSync(
+      path.join(root, 'drivers', driverId, 'device.js'),
+      'utf8'
+    );
+
+    assert.match(driver, new RegExp(`getDeviceTriggerCard\\('${cardId}'\\)`));
+    assert.match(device, /this\.driver\.buttonTrigger\.trigger/);
+    assert.doesNotMatch(device, /registerRunListener/);
+  }
+});
