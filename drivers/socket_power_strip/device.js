@@ -8,7 +8,6 @@ class socket_power_strip extends ZigBeeDevice {
 		
 	async onNodeInit({zclNode}) {
 
-		this.printNode();
 
 /* 		const node = await this.homey.zigbee.getNode(this);
 		node.handleFrame = (endpointId, clusterId, frame, meta) => {

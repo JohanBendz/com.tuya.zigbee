@@ -8,7 +8,6 @@ class switch_3_gang extends ZigBeeDevice {
 
     async onNodeInit({zclNode}) {
 
-        this.printNode();
 
         const { subDeviceId } = this.getData();
         this.log("Device data: ", subDeviceId);
