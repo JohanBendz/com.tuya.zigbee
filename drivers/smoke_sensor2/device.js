@@ -112,7 +112,7 @@ class smoke_sensor2 extends TuyaSpecificClusterDevice {
 
   onIASZoneStatusChangeNotification({zoneStatus, extendedStatus, zoneId, delay,}) {
     this.log('IASZoneStatusChangeNotification received:', zoneStatus, extendedStatus, zoneId, delay);
-    this.setCapabilityValue('alarm_smoke', zoneStatus.alarm1);
+    this.setCapabilityValue('alarm_smoke', zoneStatus.alarm1).catch(this.error);
   }
 
 }
