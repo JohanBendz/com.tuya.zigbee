@@ -8,7 +8,6 @@ class doorwindowsensor2 extends ZigBeeDevice {
 		
 	async onNodeInit({zclNode}) {
 
-		this.printNode();
 
 		// alarm_contact
     zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME].onZoneStatusChangeNotification = payload => {

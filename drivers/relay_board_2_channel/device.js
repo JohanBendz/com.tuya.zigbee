@@ -8,7 +8,6 @@ class relay_board_2_channel extends ZigBeeDevice {
 
     async onNodeInit({zclNode}) {
 
-        this.printNode();
 
         const { subDeviceId } = this.getData();
         this.log("Device data: ", subDeviceId);
