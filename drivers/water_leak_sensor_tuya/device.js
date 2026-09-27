@@ -13,8 +13,16 @@ class TuyaWaterLeakSensor extends TuyaSpecificClusterDevice {
 
         // Listen for water leaks
         this.log('Setting up listeners for endpoint 1, tuya cluster...');
-        zclNode.endpoints[1].clusters.tuya.on('response', this.onReport.bind(this));
-        zclNode.endpoints[1].clusters.tuya.on('reporting', this.onReport.bind(this));
+        const handleReport = data => {
+            try {
+                this.onReport(data);
+            } catch (err) {
+                this.error('Failed to process Tuya water leak report', err);
+            }
+        };
+
+        zclNode.endpoints[1].clusters.tuya.on('response', handleReport);
+        zclNode.endpoints[1].clusters.tuya.on('reporting', handleReport);
         this.log('Listeners has been set up.');
 
         await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])

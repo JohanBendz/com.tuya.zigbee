@@ -110,7 +110,13 @@ class siren extends TuyaSpecificClusterDevice {
         this.error('Failed to process Tuya reporting', err);
       }
     });
-		zclNode.endpoints[1].clusters.tuya.on("datapoint", value => this.processDatapoint(value));
+		zclNode.endpoints[1].clusters.tuya.on("datapoint", async value => {
+      try {
+        await this.processDatapoint(value);
+      } catch (err) {
+        this.error('Failed to process Tuya datapoint', err);
+      }
+    });
 
 
 	  }

@@ -36,9 +36,17 @@ class RainSensor extends TuyaSpecificClusterDevice {
       .on('attr.batteryPercentageRemaining', this.onBatteryPercentageRemainingAttributeReport.bind(this));
 
     // Attach event listeners to handle incoming data from Tuya clusters
-    zclNode.endpoints[1].clusters.tuya.on("reporting", this.processDatapoint.bind(this));
-    zclNode.endpoints[1].clusters.tuya.on("response", this.processDatapoint.bind(this));
-    zclNode.endpoints[1].clusters.tuya.on("reportingConfiguration", this.processDatapoint.bind(this));
+    const handleTuyaDatapoint = async value => {
+      try {
+        await this.processDatapoint(value);
+      } catch (err) {
+        this.error('Failed to process Tuya datapoint', err);
+      }
+    };
+
+    zclNode.endpoints[1].clusters.tuya.on('reporting', handleTuyaDatapoint);
+    zclNode.endpoints[1].clusters.tuya.on('response', handleTuyaDatapoint);
+    zclNode.endpoints[1].clusters.tuya.on('reportingConfiguration', handleTuyaDatapoint);
   }
 
   onIASZoneStatusChangeNotification({ zoneStatus, extendedStatus, zoneId, delay, }) {

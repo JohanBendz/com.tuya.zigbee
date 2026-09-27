@@ -939,3 +939,23 @@ test('Tuya report listeners do not fire async handlers without an error boundary
 
   assert.deepEqual(unsafe, []);
 });
+
+test('Tuya event listeners do not bind parser methods directly to EventEmitter', () => {
+  const unsafe = [];
+
+  for (const file of walk(path.join(root, 'drivers')).filter(file => file.endsWith('.js'))) {
+    const source = fs.readFileSync(file, 'utf8')
+      .replace(/\/\*[\s\S]*?\*\//g, '')
+      .replace(/^\s*\/\/.*$/gm, '');
+
+    if (/clusters\.tuya\.on\([^\n]+\.bind\(this\)\)/.test(source)) {
+      unsafe.push(path.relative(root, file));
+    }
+
+    if (/clusters\.tuya\.on\(["'](?:response|reporting|datapoint|reportingConfiguration)["'],\s*value\s*=>\s*this\./.test(source)) {
+      unsafe.push(path.relative(root, file));
+    }
+  }
+
+  assert.deepEqual([...new Set(unsafe)], []);
+});
