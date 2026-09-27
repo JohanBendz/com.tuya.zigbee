@@ -269,3 +269,27 @@ test('siren alarm flow triggers are wired to device reports', () => {
   assert.match(sirenDevice, /getDeviceTriggerCard\('siren_alarm'\)/);
   assert.match(sensorDevice, /getDeviceTriggerCard\('alarm_siren'\)/);
 });
+
+test('curtain action cards target the selected device', () => {
+  const families = [
+    ['curtain_module', 'move_open', 'move_close'],
+    ['curtain_module_2_gang', 'move_open_2gang', 'move_close_2gang'],
+    ['wall_curtain_switch', 'wall_move_open', 'wall_move_close'],
+  ];
+
+  for (const [driverId, openCard, closeCard] of families) {
+    const driver = fs.readFileSync(
+      path.join(root, 'drivers', driverId, 'driver.js'),
+      'utf8'
+    );
+    const device = fs.readFileSync(
+      path.join(root, 'drivers', driverId, 'device.js'),
+      'utf8'
+    );
+
+    assert.match(driver, new RegExp(`getActionCard\\('${openCard}'\\)`));
+    assert.match(driver, new RegExp(`getActionCard\\('${closeCard}'\\)`));
+    assert.match(driver, /\{ device \}/);
+    assert.doesNotMatch(device, /registerRunListener/);
+  }
+});

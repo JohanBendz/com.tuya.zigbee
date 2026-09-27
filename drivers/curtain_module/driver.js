@@ -2,18 +2,18 @@
 
 const Homey = require('homey');
 
-class CurtainModule2GangDriver extends Homey.Driver {
+class CurtainModuleDriver extends Homey.Driver {
 
   async onInit() {
     this.homey.flow
-      .getActionCard('move_open_2gang')
+      .getActionCard('move_open')
       .registerRunListener(async ({ device }) => {
         await device.moveOpen();
         return true;
       });
 
     this.homey.flow
-      .getActionCard('move_close_2gang')
+      .getActionCard('move_close')
       .registerRunListener(async ({ device }) => {
         await device.moveClose();
         return true;
@@ -22,4 +22,4 @@ class CurtainModule2GangDriver extends Homey.Driver {
 
 }
 
-module.exports = CurtainModule2GangDriver;
+module.exports = CurtainModuleDriver;
