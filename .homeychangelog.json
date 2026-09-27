@@ -379,5 +379,8 @@
   },
   "0.2.75": {
     "en": "Added id's and fixed drivers"
+  },
+  "0.2.76": {
+    "en": "Fixed device support and improved Zigbee handling"
   }
 }

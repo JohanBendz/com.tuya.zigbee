@@ -149,3 +149,72 @@ test('pairing fingerprints are not ambiguous across drivers', () => {
 
   assert.deepEqual(ambiguous, []);
 });
+
+test('manifest arrays contain no duplicate entries', () => {
+  const generated = require('../app.json');
+
+  function duplicates(values) {
+    if (!Array.isArray(values)) return [];
+    const seen = new Set();
+    const repeated = new Set();
+
+    for (const value of values) {
+      if (seen.has(value)) repeated.add(value);
+      seen.add(value);
+    }
+
+    return [...repeated];
+  }
+
+  const problems = [];
+
+  for (const driver of generated.drivers || []) {
+    const checks = {
+      capabilities: driver.capabilities,
+      manufacturerName: driver.zigbee?.manufacturerName,
+      productId: driver.zigbee?.productId,
+    };
+
+    for (const [field, values] of Object.entries(checks)) {
+      const repeated = duplicates(values);
+      if (repeated.length) problems.push({ driver: driver.id, field, repeated });
+    }
+
+    for (const [endpointId, endpoint] of Object.entries(driver.zigbee?.endpoints || {})) {
+      for (const field of ['clusters', 'bindings']) {
+        const repeated = duplicates(endpoint[field]);
+        if (repeated.length) {
+          problems.push({
+            driver: driver.id,
+            field: `endpoint ${endpointId} ${field}`,
+            repeated,
+          });
+        }
+      }
+    }
+  }
+
+  assert.deepEqual(problems, []);
+});
+
+test('current app version has a Homey changelog entry', () => {
+  const pkg = require('../package.json');
+  const changelog = require('../.homeychangelog.json');
+
+  assert.ok(
+    changelog[pkg.version],
+    `Missing .homeychangelog.json entry for ${pkg.version}`
+  );
+});
+
+test('Zigbee dependency versions are pinned', () => {
+  const pkg = require('../package.json');
+
+  for (const name of ['homey-zigbeedriver', 'zigbee-clusters']) {
+    assert.match(
+      pkg.dependencies[name],
+      /^\d+\.\d+\.\d+$/,
+      `${name} should use an exact version`
+    );
+  }
+});

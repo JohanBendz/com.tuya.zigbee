@@ -34,7 +34,7 @@
     "url": "https://www.paypal.me/johanbendz"
   },
   "dependencies": {
-    "homey-zigbeedriver": "^2.1.4",
-    "zigbee-clusters": "^2.4.1"
+    "homey-zigbeedriver": "2.1.4",
+    "zigbee-clusters": "2.4.1"
   }
 }

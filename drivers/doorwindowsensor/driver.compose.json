@@ -4,8 +4,12 @@
     "en": "Door & Window Sensor"
   },
   "class": "sensor",
-  "platforms": ["local"],
-  "connectivity": ["zigbee"],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
   "capabilities": [
     "alarm_contact",
     "alarm_battery"
@@ -50,7 +54,6 @@
       "_TZ3000_decxrtwa",
       "_TZ3000_yxqnffam",
       "_TZ3000_9eeavbk5",
-      "_TZ3000_yxqnffam",
       "_TZ3000_rcuyhwe3",
       "_TZ3000_a33rw7ou",
       "_TZ3000_6zvw8ham",
