@@ -13525,7 +13525,7 @@
           }
         },
         "learnmode": {
-          "image": "/drivers/my_driver/assets/icon.svg",
+          "image": "/drivers/wall_thermostat/assets/icon.svg",
           "instruction": {
             "en": "Press the arrow down button for 8s when the thermostat is off."
           }

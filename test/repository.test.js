@@ -320,3 +320,10 @@ test('ceiling radar exposes the target distance it reports', () => {
   assert.ok(driver.capabilities.includes('target_distance'));
   assert.match(device, /hasCapability\('target_distance'\)/);
 });
+
+test('driver manifests contain no template placeholder paths', () => {
+  const generated = require('../app.json');
+  const serialized = JSON.stringify(generated.drivers || []);
+
+  assert.doesNotMatch(serialized, /\/drivers\/my_driver\//);
+});
