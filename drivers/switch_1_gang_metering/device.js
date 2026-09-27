@@ -37,13 +37,7 @@ class switch_1_gang_metering extends ZigBeeDevice {
       });
       this.log('Configured instant reporting for onOff on endpoint 1');
     } catch (error) {
-      this.error('Failed to configure onOff reporting for endpoint 1, setting up fallback polling', error);
-      this.setCapabilityOptions('onoff', {
-        getOpts: {
-          getOnStart: true,
-          pollInterval: 60000, // Poll every 60 seconds as a fallback
-        },
-      });
+      this.error('Failed to configure onOff reporting for endpoint 1, continuing without configured reporting', error);
     }
 
     // Read basic attributes from the single endpoint

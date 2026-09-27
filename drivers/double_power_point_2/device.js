@@ -45,15 +45,8 @@ class doublepowerpoint2 extends ZigBeeDevice {
       this.log('Configured instant reporting for onOff');
     } catch (error) {
       // If reporting fails, log the error and set up fallback polling
-      this.error('Failed to configure onOff reporting, setting up fallback polling', error);
+      this.error('Failed to configure onOff reporting, continuing without configured reporting', error);
 
-      // Set fallback polling for the onOff capability
-      this.setCapabilityOptions('onoff', {
-        getOpts: {
-          getOnStart: true,
-          pollInterval: 60000, // Poll every 60 seconds as a fallback
-        },
-      });
     }
 
   }
