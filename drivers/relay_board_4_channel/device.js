@@ -40,6 +40,7 @@ class relay_board_4_channel extends ZigBeeDevice {
     }
 
     onDeleted(){
+		const { subDeviceId } = this.getData();
 		this.log("4 Channel Relay Board, channel ", subDeviceId, " removed")
 	}
 

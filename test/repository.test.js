@@ -368,3 +368,20 @@ test('metering drivers do not register fake Zigbee reset capabilities', () => {
   );
   assert.doesNotMatch(twoGang, /basic\.doCommand\(['"]0['"]\)/);
 });
+
+test('onDeleted handlers do not use out-of-scope subDeviceId values', () => {
+  for (const file of walk(path.join(root, 'drivers')).filter(file => file.endsWith('device.js'))) {
+    const source = fs.readFileSync(file, 'utf8');
+    const handlers = [...source.matchAll(/onDeleted\s*\([^)]*\)\s*\{([\s\S]*?)\n\s*\}/g)];
+
+    for (const [, body] of handlers) {
+      if (!body.includes('subDeviceId')) continue;
+
+      assert.match(
+        body,
+        /(?:const|let|var)\s*\{?\s*subDeviceId\s*\}?\s*=\s*this\.getData\(\)/,
+        path.relative(root, file)
+      );
+    }
+  }
+});

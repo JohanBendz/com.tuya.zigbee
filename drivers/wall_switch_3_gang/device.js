@@ -47,6 +47,7 @@ class wall_switch_3_gang extends ZigBeeDevice {
     } */
 
   onDeleted(){
+	  const { subDeviceId } = this.getData();
 	  this.log("3 Gang Wall Switch, channel ", subDeviceId, " removed")
 	}
 
