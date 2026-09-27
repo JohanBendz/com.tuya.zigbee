@@ -58,7 +58,11 @@ class CurtainMotor extends TuyaSpecificClusterDevice {
   async onNodeInit({ zclNode }) {
 
 
-    zclNode.endpoints[1].clusters.tuya.on("response", value => this.updatePosition(value));
+    const handlePositionReport = value => this.updatePosition(value)
+      .catch(err => this.error('Failed to process curtain position report', err));
+
+    zclNode.endpoints[1].clusters.tuya.on('response', handlePositionReport);
+    zclNode.endpoints[1].clusters.tuya.on('reporting', handlePositionReport);
 
     this.registerCapabilityListener('windowcoverings_set', value => this.setPosition(value));
 
@@ -78,7 +82,7 @@ class CurtainMotor extends TuyaSpecificClusterDevice {
     }
 
     if (pos === undefined) {
-      pos = this.getCapabilityValue('pos');
+      pos = this.getCapabilityValue('windowcoverings_set');
     } else {
       pos = reverse ? 1 - pos : pos;
     }
@@ -92,6 +96,7 @@ class CurtainMotor extends TuyaSpecificClusterDevice {
     const reverse = this.getSettings().reverse == 1;
 
     switch (dp) {
+      case dataPoints.position:
       case dataPoints.arrived:
         const position = reverse ? (value & 0xFF) : 100 - (value & 0xFF);
         this.log('Curtain position report:', reverse, 100 - (value & 0xFF), (value & 0xFF));

@@ -905,3 +905,17 @@ test('TRV schedules enforce Tuya 10-minute periods and a final 24:00 segment', (
     '06:00/16 22:30/20'
   ));
 });
+
+test('curtain motor handles both Tuya position reports and the current Homey capability', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'curtain_motor', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(source, /getCapabilityValue\('windowcoverings_set'\)/);
+  assert.doesNotMatch(source, /getCapabilityValue\('pos'\)/);
+  assert.match(source, /case dataPoints\.position:/);
+  assert.match(source, /case dataPoints\.arrived:/);
+  assert.match(source, /\.on\('response', handlePositionReport\)/);
+  assert.match(source, /\.on\('reporting', handlePositionReport\)/);
+});
