@@ -1,6 +1,6 @@
 'use strict';
 
-const { debug, Cluster } = require('zigbee-clusters');
+const { Cluster } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
 const TuyaSpecificClusterDevice = require("../../lib/TuyaSpecificClusterDevice");
 const { getDataValue } = require('../../lib/TuyaHelpers');
@@ -13,8 +13,6 @@ class wall_switch_4_gang_tuya extends TuyaSpecificClusterDevice {
   async onNodeInit({ zclNode }) {
 
     super.onNodeInit({ zclNode });
-    this.startDpSniffer(zclNode, [], true); // log all DP's for this device. To be specific, use: [1, 2, x, x]
-
     this.printNode();
 /*     debug(true);
     this.enableDebug(); */
@@ -27,18 +25,18 @@ class wall_switch_4_gang_tuya extends TuyaSpecificClusterDevice {
       // Handle each subdevice based on the subDeviceId
       switch (subDeviceId) {
         case 'secondGang':
-          await this._setupGang(zclNode, 'second gang', V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchTwo);
+          await this._setupGang('second gang', V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchTwo);
           break;
         case 'thirdGang':
-          await this._setupGang(zclNode, 'third gang', V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchThree);
+          await this._setupGang('third gang', V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchThree);
           break;
         case 'fourthGang':
-          await this._setupGang(zclNode, 'fourth gang', V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchFour);
+          await this._setupGang('fourth gang', V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchFour);
           break;
       }
     } else {
       // Main device for the first gang
-      await this._setupGang(zclNode, 'first gang', V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchOne);
+      await this._setupGang('first gang', V1_MULTI_SWITCH_DATA_POINTS.onOffSwitchOne);
     }
 
       zclNode.endpoints[1].clusters.tuya.on("reporting", async (value) => {

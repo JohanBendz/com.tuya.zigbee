@@ -46,3 +46,25 @@ test('human-readable supported device reference exists', () => {
   assert.match(readme, /SUPPORTED_DEVICES\.md/);
   assert.ok(fs.existsSync(path.join(root, 'SUPPORTED_DEVICES.md')));
 });
+
+test('release code does not enable global Zigbee debug logging', () => {
+  const app = fs.readFileSync(path.join(root, 'app.js'), 'utf8');
+  const sharedLight = fs.readFileSync(path.join(root, 'lib', 'TuyaZigBeeLightDevice.js'), 'utf8');
+
+  assert.doesNotMatch(app, /debug\(true\)/);
+  assert.doesNotMatch(sharedLight, /this\.enableDebug\(\)/);
+});
+
+test('4-gang Tuya wall switch passes datapoint to _setupGang', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'wall_switch_4_gang_tuya', 'device.js'),
+    'utf8'
+  );
+
+  assert.doesNotMatch(source, /startDpSniffer\(/);
+  assert.doesNotMatch(source, /_setupGang\(zclNode,/);
+  assert.match(
+    source,
+    /_setupGang\('first gang',\s*V1_MULTI_SWITCH_DATA_POINTS\.onOffSwitchOne\)/
+  );
+});
