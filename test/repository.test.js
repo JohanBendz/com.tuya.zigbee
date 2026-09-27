@@ -742,3 +742,18 @@ test('4-gang wall remote variant 3 parses normalized frame data', () => {
   assert.match(source, /frame\.data\[3\]/);
   assert.doesNotMatch(source, /frame\[3\]/);
 });
+
+test('6-gang wall remote Flow trigger is driver-scoped', () => {
+  const driver = fs.readFileSync(
+    path.join(root, 'drivers', 'wall_remote_6_gang', 'driver.js'),
+    'utf8'
+  );
+  const device = fs.readFileSync(
+    path.join(root, 'drivers', 'wall_remote_6_gang', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(driver, /getDeviceTriggerCard\('wall_remote_6_gang_buttons'\)/);
+  assert.match(device, /this\.driver\.buttonTrigger\.trigger/);
+  assert.doesNotMatch(device, /registerRunListener/);
+});

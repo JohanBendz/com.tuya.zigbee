@@ -18,11 +18,6 @@ class wall_remote_6_gang extends ZigBeeDevice {
            this.buttonCommandParser(endpointId, frame);
         }
       };
-
-      this._buttonPressedTriggerDevice = this.homey.flow.getDeviceTriggerCard('wall_remote_6_gang_buttons')
-      .registerRunListener(async (args, state) => {
-        return (null, args.action === state.action);
-      });
     
     }
 
@@ -40,7 +35,7 @@ class wall_remote_6_gang extends ZigBeeDevice {
       // Debounce logic for oneClick
       if (!this.doubleClickReceived && action === 'oneClick') {
         this.clickTimeout = this.homey.setTimeout(() => {
-          this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-${action}` })
+          this.driver.buttonTrigger.trigger(this, {}, { action: `${button}-${action}` })
             .then(() => this.log(`Triggered 6 Gang Wall Remote, action=${button}-${action}`))
             .catch(err => this.error('Error triggering 6 Gang Wall Remote', err));
         }, 300); // Adjust debounce time as needed
@@ -50,7 +45,7 @@ class wall_remote_6_gang extends ZigBeeDevice {
       if (action === 'twoClicks') {
         this.homey.clearTimeout(this.clickTimeout);
         this.doubleClickReceived = true;
-        this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-${action}` })
+        this.driver.buttonTrigger.trigger(this, {}, { action: `${button}-${action}` })
           .then(() => this.log(`Triggered 6 Gang Wall Remote, action=${button}-${action}`))
           .catch(err => this.error('Error triggering 6 Gang Wall Remote', err));
     
@@ -61,7 +56,7 @@ class wall_remote_6_gang extends ZigBeeDevice {
     
       // Handle long press
       if (action === 'longPress') {
-        this._buttonPressedTriggerDevice.trigger(this, {}, { action: `${button}-${action}` })
+        this.driver.buttonTrigger.trigger(this, {}, { action: `${button}-${action}` })
           .then(() => this.log(`Triggered 6 Gang Wall Remote, action=${button}-${action}`))
           .catch(err => this.error('Error triggering 6 Gang Wall Remote', err));
       }
