@@ -68,5 +68,4 @@ if (process.argv.includes('--check')) {
   }
 } else {
   fs.writeFileSync(supportedPath, next);
-  console.log('Updated SUPPORTED_DEVICES.md from app.json.');
 }
