@@ -123,7 +123,7 @@ const marshalSchedule = (workingDay, weekDayDataPoint, scheduleString) => {
         throw new TypeError('Schedule must be a string');
     }
 
-    const schedule = scheduleString.trim().split(/\\s+/);
+    const schedule = scheduleString.trim().split(/\s+/);
     const schedulePeriods = schedule.length;
     if (schedulePeriods > maxPeriodsInDay) throw new Error('There cannot be more than 10 periods in the schedule: ' + scheduleString);
     if (schedulePeriods < 2) throw new Error('There cannot be less than 2 periods in the schedule: ' + scheduleString);
@@ -131,7 +131,7 @@ const marshalSchedule = (workingDay, weekDayDataPoint, scheduleString) => {
     let previousMinutes = -1;
 
     schedule.forEach((period, index) => {
-        const match = period.match(/^(\\d{2}):(\\d{2})\\/(\\d+(?:\\.\\d+)?)$/);
+        const match = period.match(/^(\d{2}):(\d{2})\/(\d+(?:\.\d+)?)$/);
         if (!match) {
             throw new Error('Invalid schedule period: ' + period);
         }
