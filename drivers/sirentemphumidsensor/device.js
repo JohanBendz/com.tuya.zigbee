@@ -178,7 +178,6 @@ class SirenTimeBoundCluster extends BoundCluster {
 class sensortemphumidsensor extends TuyaSpecificClusterDevice {
 
   async onNodeInit({ zclNode }) {
-    this.printNode();
 
     this._timeBoundCluster = null;
     this._alarmTrigger = this.homey.flow.getDeviceTriggerCard('alarm_siren');
