@@ -11,7 +11,6 @@ class lcdtemphumidluxsensor extends ZigBeeDevice {
 /*     debug(true);
     this.enableDebug(); */
 
-		this.printNode();
 
     if (this.isFirstInit()){
 			await this.configureAttributeReporting([

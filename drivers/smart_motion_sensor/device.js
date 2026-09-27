@@ -7,7 +7,6 @@ class smart_motion_sensor extends ZigBeeDevice {
 
 	async onNodeInit({ zclNode }) {
 
-		this.printNode();
 
 		if (this.isFirstInit()){
 			await this.configureAttributeReporting([

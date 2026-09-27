@@ -23,7 +23,6 @@ class curtain_module_2_gang extends ZigBeeDevice {
     async onNodeInit({ zclNode }) {
         await super.onNodeInit({ zclNode });
 
-        this.printNode();
 
         const { subDeviceId } = this.getData();
         const endpoint = subDeviceId === "secondModule" ? 2 : 1;
