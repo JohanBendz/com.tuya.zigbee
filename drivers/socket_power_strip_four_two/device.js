@@ -8,7 +8,6 @@ class socket_power_strip_four_two extends ZigBeeDevice {
 		
 	async onNodeInit({zclNode}) {
 
-		this.printNode();
 
         const { subDeviceId } = this.getData();
         this.log("Device data: ", subDeviceId);

@@ -15,7 +15,6 @@ class outdoor2socket_2 extends ZigBeeDevice {
         this.error('Error when reading device attributes ', err);
     });
 
-    this.printNode();
     
     const { subDeviceId } = this.getData();
     this.log('Device data: ', subDeviceId);

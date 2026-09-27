@@ -5,7 +5,6 @@ const { CLUSTER } = require('zigbee-clusters');
 
 class smart_remote_1b extends ZigBeeDevice {
   async onNodeInit({ zclNode }) {
-    this.printNode();
 
     // Bind the OnOff cluster for handling button events
     await zclNode.endpoints[1].clusters[CLUSTER.ON_OFF].bind();

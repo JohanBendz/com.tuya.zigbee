@@ -11,7 +11,6 @@ class temphumidsensor2 extends ZigBeeDevice {
 /*     debug(true);
     this.enableDebug(); */
 
-		this.printNode();
 
 		// measure_temperature
 		zclNode.endpoints[1].clusters[CLUSTER.TEMPERATURE_MEASUREMENT.NAME]
