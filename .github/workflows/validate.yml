@@ -21,5 +21,7 @@ jobs:
       - run: npm test
       - name: Generate manifest and run Homey publish validation
         run: npx --yes homey@4.5.0 app validate --level publish
+      - name: Verify generated manifest is committed
+        run: git diff --exit-code -- app.json
       - name: Whitespace check
         run: git diff --check
