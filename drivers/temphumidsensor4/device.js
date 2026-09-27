@@ -1,6 +1,6 @@
 'use strict';
 
-const { Cluster, debug } = require('zigbee-clusters');
+const { Cluster } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
 const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
 
@@ -79,7 +79,13 @@ class temphumidsensor4 extends TuyaSpecificClusterDevice {
       }
     });
 
-		zclNode.endpoints[1].clusters.tuya.on("datapoint", value => this.processDatapoint(value));
+		zclNode.endpoints[1].clusters.tuya.on("datapoint", value => {
+      try {
+        this.processDatapoint(value);
+      } catch (err) {
+        this.error('Failed to process Tuya datapoint', err);
+      }
+    });
 
 	}
 
