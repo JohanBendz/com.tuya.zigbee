@@ -68,3 +68,32 @@ test('4-gang Tuya wall switch passes datapoint to _setupGang', () => {
     /_setupGang\('first gang',\s*V1_MULTI_SWITCH_DATA_POINTS\.onOffSwitchOne\)/
   );
 });
+
+test('all JavaScript files pass Node syntax check', () => {
+  const { execFileSync } = require('node:child_process');
+
+  for (const file of walk(root).filter(file => file.endsWith('.js'))) {
+    assert.doesNotThrow(
+      () => execFileSync(process.execPath, ['--check', file], { stdio: 'pipe' }),
+      path.relative(root, file)
+    );
+  }
+});
+
+test('release JavaScript contains no active debug helpers or console.log', () => {
+  function withoutComments(source) {
+    return source
+      .replace(/\/\*[\s\S]*?\*\//g, '')
+      .replace(/^\s*\/\/.*$/gm, '');
+  }
+
+  for (const file of walk(root).filter(file => file.endsWith('.js'))) {
+    const source = withoutComments(fs.readFileSync(file, 'utf8'));
+    const relative = path.relative(root, file);
+
+    assert.doesNotMatch(source, /\bdebug\s*\(\s*true\s*\)/, relative);
+    assert.doesNotMatch(source, /this\.enableDebug\s*\(\s*\)/, relative);
+    assert.doesNotMatch(source, /\bconsole\.log\s*\(/, relative);
+    assert.doesNotMatch(source, /startDpSniffer\s*\(/, relative);
+  }
+});
