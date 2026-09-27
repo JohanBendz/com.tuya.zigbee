@@ -398,3 +398,17 @@ test('Zigbee registerCapability calls do not use legacy fourth config arguments'
     assert.doesNotMatch(source, /registerCapability\([^;]*\},\s*\{/s, relativePath);
   }
 });
+
+test('double power point subdevice does not gain main-device metering capabilities', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'double_power_point', 'device.js'),
+    'utf8'
+  );
+
+  const endpointGuard = source.indexOf('if (endpoint === 1) {');
+  const ensureCapabilities = source.indexOf('await this.ensureCapabilities();');
+
+  assert.ok(endpointGuard >= 0);
+  assert.ok(ensureCapabilities > endpointGuard);
+  assert.match(source, /if \(endpoint === 1\) \{[\s\S]*await this\.ensureCapabilities\(\);/);
+});

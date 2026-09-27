@@ -18,17 +18,19 @@ class doublepowerpoint extends ZigBeeDevice {
     const endpoint = subDeviceId === 'socketTwo' ? 2 : 1;
     this.log(`Registering capabilities for endpoint ${endpoint}`);
 
-    // Initialize reporting settings from the device settings
-    this.initializeReportingSettings();
-
-    // Ensure required capabilities are added
-    await this.ensureCapabilities();
+    if (endpoint === 1) {
+      // Main device owns the metering capabilities and settings.
+      this.initializeReportingSettings();
+      await this.ensureCapabilities();
+    }
 
     // Register capabilities based on the endpoint
     try {
-      await this.readBasicAttributes(zclNode, endpoint);
+      if (endpoint === 1) {
+        await this.readBasicAttributes(zclNode, endpoint);
+      }
 
-      // Register capabilities for both endpoints
+      // Register on/off for both endpoints; metering only for endpoint 1.
       await this.registerCapabilities(zclNode, { endpoint });
 
     } catch (error) {
