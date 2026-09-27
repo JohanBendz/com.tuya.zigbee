@@ -660,3 +660,17 @@ test('known async settings synchronization awaits Homey promises', () => {
     assert.deepEqual(unsafe, [], relativePath);
   }
 });
+
+test('metering drivers do not misuse Homey capability options as Zigbee polling fallback', () => {
+  const targets = [
+    'drivers/double_power_point_2/device.js',
+    'drivers/double_power_point/device.js',
+    'drivers/switch_4_gang_metering/device.js',
+    'drivers/switch_1_gang_metering/device.js',
+  ];
+
+  for (const relativePath of targets) {
+    const source = fs.readFileSync(path.join(root, relativePath), 'utf8');
+    assert.doesNotMatch(source, /setCapabilityOptions\('onoff',[\s\S]*getOpts/);
+  }
+});
