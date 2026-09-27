@@ -5364,7 +5364,8 @@
       ],
       "capabilities": [
         "measure_luminance",
-        "alarm_motion"
+        "alarm_motion",
+        "target_distance"
       ],
       "images": {
         "large": "/drivers/radar_sensor_ceiling/assets/images/large.png",

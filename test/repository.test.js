@@ -308,3 +308,15 @@ test('smart_remote_1_button initializes its Flow trigger', () => {
   assert.match(device, /this\.driver\.buttonTrigger/);
   assert.doesNotMatch(device, /_buttonPressedTriggerDevice/);
 });
+
+test('ceiling radar exposes the target distance it reports', () => {
+  const generated = require('../app.json');
+  const driver = generated.drivers.find(item => item.id === 'radar_sensor_ceiling');
+  const device = fs.readFileSync(
+    path.join(root, 'drivers', 'radar_sensor_ceiling', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(driver.capabilities.includes('target_distance'));
+  assert.match(device, /hasCapability\('target_distance'\)/);
+});
