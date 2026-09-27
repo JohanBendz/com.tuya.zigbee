@@ -75,7 +75,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Power Strip 4 Sockets (`socket_power_strip_four_three`) | `JZ-ZB-004` | `LELLKI` |
 | Power Strip 4 Sockets (`socket_power_strip_four_two`) | `TS011F` | `_TZ3000_cfnprab5`<br>`_TZ3000_o005nuxx` |
 | Power Strip Socket 1/4 (`socket_power_strip_four`) | `TS0115` | `_TYZB01_vkwryfdr` |
-| Radar Sensor (`radar_sensor`) | `TS0601` | `_TZE200_holel4dk`<br>`_TZE200_ikvncluo`<br>`_TZE200_jva8ink8`<br>`_TZE200_lyetpprm`<br>`_TZE200_sgpeacqp`<br>`_TZE200_wukb7rhc`<br>`_TZE200_xpq2rzhq`<br>`_TZE200_ztc6ggyl`<br>`_TZE201_ztc6ggyl`<br>`_TZE202_ztc6ggyl`<br>`_TZE203_ztc6ggyl`<br>`_TZE204_7gclukjs`<br>`_TZE204_qasjif9e`<br>`_TZE204_xsm7l9xa`<br>`_TZE204_ztc6ggyl`<br>`_TZE204_ztqnh5cg` |
+| Radar Sensor (`radar_sensor`) | `TS0601` | `_TZE200_holel4dk`<br>`_TZE200_ikvncluo`<br>`_TZE200_jva8ink8`<br>`_TZE200_lyetpprm`<br>`_TZE200_sgpeacqp`<br>`_TZE200_wukb7rhc`<br>`_TZE200_xpq2rzhq`<br>`_TZE200_ztc6ggyl`<br>`_TZE201_ztc6ggyl`<br>`_TZE202_ztc6ggyl`<br>`_TZE203_ztc6ggyl`<br>`_TZE204_7gclukjs`<br>`_TZE204_gkfbdvyx`<br>`_TZE204_qasjif9e`<br>`_TZE204_xsm7l9xa`<br>`_TZE204_ztc6ggyl`<br>`_TZE204_ztqnh5cg` |
 | Radar Sensor (`radar_sensor_2`) | `TS0601` | `_TZE204_ijxvkhd0`<br>`_TZE204_sxm7l9xa` |
 | Radar Sensor ceiling (`radar_sensor_ceiling`) | `TS0225` | `_TZE200_2aaelwxk` |
 | Rain sensor (`rain_sensor`) | `TS0207` | `_TZ3210_tgvtvdoc` |

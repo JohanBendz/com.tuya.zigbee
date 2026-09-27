@@ -17,6 +17,12 @@ const dataPoints = {
   tshpsIlluminanceLux: 104,
 }
 
+const alternateDpManufacturers = new Set(['_TZE204_gkfbdvyx']);
+const alternateDataPoints = {
+  tshpsFadingTime: 105,
+  tshpsIlluminanceLux: 103,
+};
+
 const dataTypes = {
   raw: 0, // [ bytes ]
   bool: 1, // [0/1]
@@ -59,7 +65,20 @@ const getDataValue = (dpValue) => {
 }
 
 class radarSensor extends TuyaSpecificClusterDevice {
+  dp = dataPoints;
+
   async onNodeInit({zclNode}) {
+    let manufacturerName;
+    try {
+      ({manufacturerName} = await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName']));
+    } catch (err) {
+      this.error('Failed to read manufacturerName attribute:', err);
+    }
+
+    this.usesAlternateDataPoints = alternateDpManufacturers.has(manufacturerName);
+    this.dp = this.usesAlternateDataPoints ? {...dataPoints, ...alternateDataPoints} : dataPoints;
+    this.log(`manufacturer: ${manufacturerName}, using ${this.usesAlternateDataPoints ? 'alternate' : 'default'} datapoints`);
+
     zclNode.endpoints[1].clusters.tuya.on("response", async value => {
       try {
         await this.updatePosition(value);
@@ -82,7 +101,7 @@ class radarSensor extends TuyaSpecificClusterDevice {
       case dataPoints.tshpscSensitivity:
         this.log("sensitivity state: "+ value)
         break;
-      case dataPoints.tshpsIlluminanceLux:
+      case this.dp.tshpsIlluminanceLux:
         this.log("lux value: "+ value)
         this.onIlluminanceMeasuredAttributeReport(value)
         break;
@@ -116,11 +135,14 @@ class radarSensor extends TuyaSpecificClusterDevice {
     }
 
     if (changedKeys.includes('detection_delay')) {
+      if (this.usesAlternateDataPoints) {
+        throw new Error('Detection delay is not supported on this device model.');
+      }
       await this.writeData32(dataPoints.tshpsDetectionDelay, newSettings['detection_delay'])
     }
 
     if (changedKeys.includes('fading_time')) {
-      await this.writeData32(dataPoints.tshpsFadingTime, newSettings['fading_time'])
+      await this.writeData32(this.dp.tshpsFadingTime, newSettings['fading_time'])
     }
   }
 
