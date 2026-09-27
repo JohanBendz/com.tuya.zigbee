@@ -6,7 +6,6 @@ class zigbeerepeater extends ZigBeeDevice {
 		
 	async onNodeInit({zclNode}) {
 
-		this.printNode();
 
   }
 

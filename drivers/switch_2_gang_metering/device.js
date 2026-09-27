@@ -10,7 +10,6 @@ class switch_2_gang_metering extends ZigBeeDevice {
 
   async onNodeInit({zclNode}) {
 
-    this.printNode();
 
     const { subDeviceId } = this.getData();
 

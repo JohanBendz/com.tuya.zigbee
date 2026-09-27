@@ -11,7 +11,6 @@ Cluster.addCluster(TuyaSpecificCluster);
 class dimmer_1_gang_tuya extends TuyaSpecificClusterDevice {
 
   async onNodeInit({ zclNode }) {
-    this.printNode();
 /*     debug(true);
     this.enableDebug(); */
 

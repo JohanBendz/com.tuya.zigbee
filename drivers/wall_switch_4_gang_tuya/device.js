@@ -13,7 +13,6 @@ class wall_switch_4_gang_tuya extends TuyaSpecificClusterDevice {
   async onNodeInit({ zclNode }) {
 
     super.onNodeInit({ zclNode });
-    this.printNode();
 /*     debug(true);
     this.enableDebug(); */
 

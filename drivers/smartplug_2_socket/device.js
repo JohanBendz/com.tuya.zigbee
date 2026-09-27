@@ -11,7 +11,6 @@ class smartplug_2_socket extends ZigBeeDevice {
   async onNodeInit({zclNode}) {
     const { subDeviceId } = this.getData();
 
-    this.printNode();
     this.log("Device data: ", subDeviceId);
 
     // onOff

@@ -51,7 +51,6 @@ class temphumidsensor4 extends TuyaSpecificClusterDevice {
 
 	async onNodeInit({ zclNode }) {
 
-		this.printNode();
 
 		for (const capabilityId of ['measure_temperature', 'measure_humidity', 'measure_battery']) {
 			if (!this.hasCapability(capabilityId)) {

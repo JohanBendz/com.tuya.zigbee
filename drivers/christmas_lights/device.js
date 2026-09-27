@@ -10,7 +10,6 @@ class christmas_lights extends TuyaSpecificClusterDevice {
 
     async onNodeInit({ zclNode }) {
         
-        this.printNode();
 
         // Handler for on/off
         this.registerCapabilityListener('onoff', async (value) => {

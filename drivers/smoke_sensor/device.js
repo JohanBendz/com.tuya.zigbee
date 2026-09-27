@@ -7,7 +7,6 @@ class smoke_sensor extends ZigBeeDevice {
 
 	async onNodeInit({zclNode}) {
         
-      this.printNode();
 
       zclNode.endpoints[1].clusters[CLUSTER.IAS_ZONE.NAME].onZoneStatusChangeNotification = payload => {
 			  this.onIASZoneStatusChangeNotification(payload);
