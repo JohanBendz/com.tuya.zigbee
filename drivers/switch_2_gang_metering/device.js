@@ -91,26 +91,23 @@ class switch_2_gang_metering extends ZigBeeDevice {
           pollInterval: this.minReportVoltage
         }
       });
-    
-      this.registerCapability('resetEnergyMeter', 'resetEnergyMeter');
 
     }
 
   }
 
   async resetEnergyMeter() {
-    try {
-      // Endpoint: 1 Cluster: 0x00 Command: 0 Payload:
-      await this.zclNode.endpoints[1].clusters.basic.doCommand('0');
-      this.log("Energy meter reset successfully");
-    } catch (err) {
-      this.error("Failed to reset energy meter", err);
-    }
+    const error = new Error(
+      'Energy meter reset is not implemented safely for this device.'
+    );
+    this.error(error.message);
+    throw error;
   }
 
-  onDeleted(){
-  this.log("2 Gang Switch, channel ", subDeviceId, " removed")
-	}
+  onDeleted() {
+    const { subDeviceId } = this.getData();
+    this.log("2 Gang Switch, channel ", subDeviceId, " removed");
+  }
 
 }
 

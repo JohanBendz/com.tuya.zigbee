@@ -85,3 +85,15 @@ A modernization change should answer one of these questions clearly:
 - Does it improve documentation of existing behaviour?
 
 If not, it probably belongs in a separate feature/refactor effort.
+
+## Known maintenance items
+
+### Energy meter reset
+
+The historical `resetEnergyMeter` Flow definition is retained for compatibility, but it must not be wired to the old 2-gang implementation. That implementation sent Basic Cluster command `0x00`, which is a factory-reset command in Zigbee rather than an energy-meter reset.
+
+Before enabling energy reset for a driver, verify the actual manufacturer-specific reset mechanism on hardware or from a reliable protocol source. Do not infer a reset command from another Tuya device family.
+
+### TS110E routing
+
+`_TZ3210_ngqk6jia` / `TS110E` remains a documented pairing exception while the dedicated TS110E handling proposed in PR #1350 is reviewed. Do not resolve it by merging the PR blindly; its custom Level Control implementation should first be reconciled with the shared cluster architecture in this repository.

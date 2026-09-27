@@ -99,9 +99,6 @@ class switch_1_gang_metering extends ZigBeeDevice {
       }
     });
 
-    // Register resetEnergyMeter capability
-    this.registerCapability('resetEnergyMeter', 'resetEnergyMeter');
-
   }
 
   async resetEnergyMeter() {

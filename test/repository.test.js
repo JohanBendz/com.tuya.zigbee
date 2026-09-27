@@ -348,3 +348,23 @@ test('all generated driver image paths exist in the repository', () => {
 
   assert.deepEqual(missing, []);
 });
+
+test('metering drivers do not register fake Zigbee reset capabilities', () => {
+  for (const driverId of ['switch_1_gang_metering', 'switch_2_gang_metering']) {
+    const source = fs.readFileSync(
+      path.join(root, 'drivers', driverId, 'device.js'),
+      'utf8'
+    );
+
+    assert.doesNotMatch(
+      source,
+      /registerCapability\(['"]resetEnergyMeter['"]/
+    );
+  }
+
+  const twoGang = fs.readFileSync(
+    path.join(root, 'drivers', 'switch_2_gang_metering', 'device.js'),
+    'utf8'
+  );
+  assert.doesNotMatch(twoGang, /basic\.doCommand\(['"]0['"]\)/);
+});
