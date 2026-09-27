@@ -385,3 +385,16 @@ test('onDeleted handlers do not use out-of-scope subDeviceId values', () => {
     }
   }
 });
+
+test('Zigbee registerCapability calls do not use legacy fourth config arguments', () => {
+  const targets = [
+    'drivers/double_power_point/device.js',
+    'drivers/switch_4_gang_metering/device.js',
+  ];
+
+  for (const relativePath of targets) {
+    const source = fs.readFileSync(path.join(root, relativePath), 'utf8');
+
+    assert.doesNotMatch(source, /registerCapability\([^;]*\},\s*\{/s, relativePath);
+  }
+});

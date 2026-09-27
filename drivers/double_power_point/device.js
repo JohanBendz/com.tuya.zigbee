@@ -67,7 +67,8 @@ class doublepowerpoint extends ZigBeeDevice {
 
   async registerCapabilities(zclNode, { endpoint }) {
     // Register onOff capability with the correct options
-    this.registerCapability('onoff', CLUSTER.ON_OFF, { endpoint }, {
+    this.registerCapability('onoff', CLUSTER.ON_OFF, {
+      endpoint,
       getOpts: {
         getOnStart: true
       }
