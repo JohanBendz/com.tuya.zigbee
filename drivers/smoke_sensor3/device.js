@@ -7,7 +7,6 @@ class smoke_sensor extends ZigBeeDevice {
 
 	async onNodeInit({zclNode}) {
         
-      this.printNode();
 
       await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
       .catch(err => {

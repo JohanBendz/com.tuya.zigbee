@@ -24,7 +24,6 @@ class wallcurtainswitch extends ZigBeeDevice {
     async onNodeInit({ zclNode }) {
         await super.onNodeInit({ zclNode });
 
-        this.printNode();
 
         // code borrowed from here most recent version of zigbee driver to handle lift percentage + invert correctly
         // remove once the package was updated

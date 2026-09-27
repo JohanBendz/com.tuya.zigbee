@@ -10,7 +10,6 @@ class switch_1_gang_metering extends ZigBeeDevice {
 
   async onNodeInit({ zclNode }) {
 
-    this.printNode();
 
     // Initialize reporting offsets and settings
     this.meteringOffset = this.getSetting('metering_offset');

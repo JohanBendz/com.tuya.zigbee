@@ -56,7 +56,6 @@ const getDataValue = (dpValue) => {
 class smoke_sensor2 extends TuyaSpecificClusterDevice {
   async onNodeInit({zclNode}) {
 
-    this.printNode();
 
     zclNode.endpoints[1].clusters.tuya.on("response", value => this.updatePosition(value));
   }

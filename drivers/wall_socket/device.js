@@ -10,7 +10,6 @@ class wall_socket extends ZigBeeDevice {
 
   async onNodeInit({zclNode}) {
 
-    this.printNode();
 
     this.meteringOffset = this.getSetting('metering_offset');
     this.measureOffset = this.getSetting('measure_offset') * 100;
