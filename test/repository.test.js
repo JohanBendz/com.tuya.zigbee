@@ -412,3 +412,15 @@ test('double power point subdevice does not gain main-device metering capabiliti
   assert.ok(ensureCapabilities > endpointGuard);
   assert.match(source, /if \(endpoint === 1\) \{[\s\S]*await this\.ensureCapabilities\(\);/);
 });
+
+test('2-gang metering subdevice keeps only its declared switch capability', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'switch_2_gang_metering', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(
+    source,
+    /if \(!this\.isSubDevice\(\)\) \{[\s\S]*addCapability\('measure_current'\)[\s\S]*addCapability\('measure_voltage'\)/
+  );
+});

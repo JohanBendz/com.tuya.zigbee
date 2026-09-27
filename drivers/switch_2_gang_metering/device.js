@@ -12,21 +12,23 @@ class switch_2_gang_metering extends ZigBeeDevice {
 
     this.printNode();
 
-    this.meteringOffset = this.getSetting('metering_offset');
-    this.measureOffset = this.getSetting('measure_offset') * 100;
-    this.minReportPower= this.getSetting('minReportPower') * 1000;
-    this.minReportCurrent = this.getSetting('minReportCurrent') * 1000;
-    this.minReportVoltage = this.getSetting('minReportVoltage') * 1000;
-
-    if (!this.hasCapability('measure_current')) {
-      await this.addCapability('measure_current').catch(this.error);;
-    }
-
-    if (!this.hasCapability('measure_voltage')) {
-      await this.addCapability('measure_voltage').catch(this.error);;
-    }
-
     const { subDeviceId } = this.getData();
+
+    if (!this.isSubDevice()) {
+      this.meteringOffset = this.getSetting('metering_offset');
+      this.measureOffset = this.getSetting('measure_offset') * 100;
+      this.minReportPower = this.getSetting('minReportPower') * 1000;
+      this.minReportCurrent = this.getSetting('minReportCurrent') * 1000;
+      this.minReportVoltage = this.getSetting('minReportVoltage') * 1000;
+
+      if (!this.hasCapability('measure_current')) {
+        await this.addCapability('measure_current').catch(this.error);
+      }
+
+      if (!this.hasCapability('measure_voltage')) {
+        await this.addCapability('measure_voltage').catch(this.error);
+      }
+    }
     this.log("Device data: ", subDeviceId);
 
     this.registerCapability('onoff', CLUSTER.ON_OFF, {
