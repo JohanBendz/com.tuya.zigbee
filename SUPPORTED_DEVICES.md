@@ -56,6 +56,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Door & Window Sensor (`doorwindowsensor_2`) | `DoorWindow-Sensor-ZB3.0`<br>`MCT-340 E`<br>`RH3001`<br>`TS0203` | `Immax`<br>`TUYATEC-0l6xaqmi`<br>`Visonic`<br>`_TZ3000_7tbsruql`<br>`_TZ3000_8yhypbo7`<br>`_TZ3000_cqlnswn0`<br>`_TZ3000_hkcpblrs`<br>`_TZ3000_osu834un` |
 | Door & Window Sensor (`doorwindowsensor_3`) | `TS0203` | `_TZ3000_bpkijo14`<br>`_TZ3000_uvti8nkd`<br>`_TZ3000_zgrffiwg` |
 | Door & Window Sensor (`doorwindowsensor_4`) | `DS01` | `zbeacon` |
+| Dooya Curtain/Roller Motor (RJ11 Zigbee) (`curtain_motor_dooya`) | `TS0601` | `_TZE200_3ylew7b4` |
 | Double Power Point (`double_power_point_2`) | `TS011F` | `_TYZB01_hlla45kx`<br>`_TZ3000_k6fvknrr` |
 | Double Power Point - With Metering (`double_power_point`) | `TS011F` | `_TZ3210_7jnk7l3k` |
 | Double Socket Smart Plug (`smartplug_2_socket`) | `TS011F` | `_TZ3000_jak16dll` |
