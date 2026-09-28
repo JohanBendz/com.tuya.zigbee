@@ -1,0 +1,14 @@
+{
+  "triggers": [
+    {
+      "id": "doorbell_button_pressed",
+      "title": {
+        "en": "Doorbell was pressed"
+      },
+      "titleFormatted": {
+        "en": "Doorbell was pressed"
+      },
+      "args": []
+    }
+  ]
+}
