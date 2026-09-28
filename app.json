@@ -2617,8 +2617,8 @@
         "windowcoverings_set"
       ],
       "images": {
-        "large": "{{driverAssetsPath}}/images/large.png",
-        "small": "{{driverAssetsPath}}/images/small.png"
+        "large": "/drivers/curtain_motor_dooya/assets/images/large.png",
+        "small": "/drivers/curtain_motor_dooya/assets/images/small.png"
       },
       "energy": {
         "approximation": {
@@ -2650,13 +2650,59 @@
           }
         },
         "learnmode": {
-          "image": "{{driverAssetsPath}}/icon.svg",
+          "image": "/drivers/curtain_motor_dooya/assets/icon.svg",
           "instruction": {
             "en": "Power the motor. Put the Dooya module into Zigbee pairing mode (via the paired remote/wall control programming sequence, or the module reset) until it broadcasts to join, and keep it close to Homey.",
             "nl": "Zet de motor onder spanning. Zet de Dooya-module in Zigbee-koppelmodus (via de programmeersequentie van de afstandsbediening/wandbediening of een reset) totdat deze koppelt, en houd hem dicht bij Homey."
           }
         }
-      }
+      },
+      "settings": [
+        {
+          "id": "reverse",
+          "type": "radio",
+          "label": {
+            "en": "Reverse up/down direction",
+            "nl": "Op/neer richting omkeren"
+          },
+          "hint": {
+            "en": "Swap the Up and Down commands if your motor is wired the opposite way. (Position feedback inversion is handled automatically for these modules.)",
+            "nl": "Wissel de Op- en Neer-commando's als uw motor omgekeerd is bedraad. (Inversie van de positie wordt automatisch afgehandeld.)"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off",
+                "nl": "Uit"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On",
+                "nl": "Aan"
+              }
+            }
+          ]
+        },
+        {
+          "id": "max_open_percentage",
+          "type": "number",
+          "label": {
+            "en": "Maximum open percentage",
+            "nl": "Maximale open percentage"
+          },
+          "hint": {
+            "en": "Clamp how far the covering may open (0-100).",
+            "nl": "Beperk hoever de bedekking mag openen (0-100)."
+          },
+          "value": 100,
+          "min": 0,
+          "max": 100
+        }
+      ]
     },
     {
       "class": "light",
@@ -4749,13 +4795,237 @@
             "en": "Press and hold the reset button for 6 seconds. When the indicator light flashes it is in pairing mode.",
             "nl": "Druk 6 seconden op de resetknop. Wacht tot de led gaat knipperen."
           },
-          "image": "{{driverAssetsPath}}/icon.svg"
+          "image": "/drivers/mtg075_radar_sensor/assets/icon.svg"
         }
       },
       "images": {
-        "large": "{{driverAssetsPath}}/images/large.png",
-        "small": "{{driverAssetsPath}}/images/small.png"
-      }
+        "large": "/drivers/mtg075_radar_sensor/assets/images/large.png",
+        "small": "/drivers/mtg075_radar_sensor/assets/images/small.png"
+      },
+      "settings": [
+        {
+          "id": "radar_sensitivity",
+          "type": "number",
+          "label": {
+            "en": "Radar sensitivity",
+            "nl": "Radargevoeligheid"
+          },
+          "value": 7,
+          "min": 0,
+          "max": 9
+        },
+        {
+          "id": "shield_range",
+          "type": "number",
+          "label": {
+            "en": "Minimum range",
+            "nl": "Minimaal bereik"
+          },
+          "value": 0,
+          "min": 0,
+          "max": 8,
+          "step": 0.1,
+          "units": {
+            "en": "meters",
+            "nl": "meter"
+          }
+        },
+        {
+          "id": "detection_range",
+          "type": "number",
+          "label": {
+            "en": "Detection range",
+            "nl": "Detectiebereik"
+          },
+          "value": 8,
+          "min": 0,
+          "max": 8,
+          "step": 0.1,
+          "units": {
+            "en": "meters",
+            "nl": "meter"
+          }
+        },
+        {
+          "id": "entry_sensitivity",
+          "type": "number",
+          "label": {
+            "en": "Entry sensitivity",
+            "nl": "Gevoeligheid bij binnenkomst"
+          },
+          "value": 7,
+          "min": 0,
+          "max": 9
+        },
+        {
+          "id": "entry_filter_time",
+          "type": "number",
+          "label": {
+            "en": "Entry filter time",
+            "nl": "Ingangsfiltertijd"
+          },
+          "value": 0,
+          "min": 0,
+          "max": 10,
+          "step": 0.1,
+          "units": {
+            "en": "seconds",
+            "nl": "seconden"
+          }
+        },
+        {
+          "id": "departure_delay",
+          "type": "number",
+          "label": {
+            "en": "Departure delay",
+            "nl": "Vertrekvertraging"
+          },
+          "value": 30,
+          "min": 0,
+          "max": 600,
+          "units": {
+            "en": "seconds",
+            "nl": "seconden"
+          }
+        },
+        {
+          "id": "entry_distance_indentation",
+          "type": "number",
+          "label": {
+            "en": "Entry distance indentation",
+            "nl": "Afstandsinspringing bij binnenkomst"
+          },
+          "value": 0,
+          "min": 0,
+          "max": 8,
+          "step": 0.1,
+          "units": {
+            "en": "meters",
+            "nl": "meter"
+          }
+        },
+        {
+          "id": "block_time",
+          "type": "number",
+          "label": {
+            "en": "Block time",
+            "nl": "Blokkeringstijd"
+          },
+          "value": 0,
+          "min": 0,
+          "max": 10,
+          "step": 0.1,
+          "units": {
+            "en": "seconds",
+            "nl": "seconden"
+          }
+        },
+        {
+          "id": "breaker_mode",
+          "type": "dropdown",
+          "label": {
+            "en": "Relay mode",
+            "nl": "Relaismodus"
+          },
+          "value": "standard",
+          "values": [
+            {
+              "id": "standard",
+              "label": {
+                "en": "Standard",
+                "nl": "Standaard"
+              }
+            },
+            {
+              "id": "local",
+              "label": {
+                "en": "Local",
+                "nl": "Lokaal"
+              }
+            }
+          ]
+        },
+        {
+          "id": "illuminance_threshold",
+          "type": "number",
+          "label": {
+            "en": "Illuminance threshold",
+            "nl": "Lichtdrempel"
+          },
+          "value": 0,
+          "min": 0,
+          "max": 420,
+          "step": 0.1,
+          "units": {
+            "en": "lux",
+            "nl": "lux"
+          }
+        },
+        {
+          "id": "status_indication",
+          "type": "dropdown",
+          "label": {
+            "en": "Status indication",
+            "nl": "Statusindicatie"
+          },
+          "value": "ON",
+          "values": [
+            {
+              "id": "OFF",
+              "label": {
+                "en": "Off",
+                "nl": "Uit"
+              }
+            },
+            {
+              "id": "ON",
+              "label": {
+                "en": "On",
+                "nl": "Aan"
+              }
+            }
+          ]
+        },
+        {
+          "id": "sensor",
+          "type": "dropdown",
+          "label": {
+            "en": "Sensor state",
+            "nl": "Sensorstatus"
+          },
+          "value": "on",
+          "values": [
+            {
+              "id": "on",
+              "label": {
+                "en": "On",
+                "nl": "Aan"
+              }
+            },
+            {
+              "id": "off",
+              "label": {
+                "en": "Off",
+                "nl": "Uit"
+              }
+            },
+            {
+              "id": "occupied",
+              "label": {
+                "en": "Occupied",
+                "nl": "Bezet"
+              }
+            },
+            {
+              "id": "unoccupied",
+              "label": {
+                "en": "Unoccupied",
+                "nl": "Onbezet"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "outdoor_2_socket",
