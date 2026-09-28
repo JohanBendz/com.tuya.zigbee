@@ -62,6 +62,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Double Power Point (`double_power_point_2`) | `TS011F` | `_TYZB01_hlla45kx`<br>`_TZ3000_k6fvknrr` |
 | Double Power Point - With Metering (`double_power_point`) | `TS011F` | `_TZ3210_7jnk7l3k` |
 | Double Socket Smart Plug (`smartplug_2_socket`) | `TS011F` | `_TZ3000_jak16dll` |
+| Fantem 4-in-1 Multi Sensor (`fantem_zb003x`) | `TS0202` | `_TZ3210_zmy9hjay` |
 | Finger Bot (`fingerbot`) | `TS0001`<br>`TS0001_fingerbot` | `_TZ3210_232nryqh`<br>`_TZ3210_dse8ogfy`<br>`_TZ3210_j4pdtz9v`<br>`_TZ3210_okbss9dy` |
 | Flood sensor (`flood_sensor`) | `RH3001`<br>`TS0207` | `TUYATEC-3tipnsrx`<br>`_TZ3000_3dfewsk1`<br>`_TZ3000_4uvovz4r`<br>`_TZ3000_bfopm9ga`<br>`_TZ3000_wuep9zng`<br>`_TZ3000_ww9i3e0y` |
 | Flood sensor (`flood_sensor_2`) | `TS0207` | `_TZ3000_baeiitad` |
