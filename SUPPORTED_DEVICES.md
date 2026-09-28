@@ -36,13 +36,13 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | 3 Gang Wall Remote (`wall_remote_3_gang`) | `TS0043` | `_TYZB02_key8kk7r`<br>`_TZ3000_a7ouggvs`<br>`_TZ3000_gbm10jnj`<br>`_TZ3000_qzjcsmar`<br>`_TZ3000_rrjr1q0u`<br>`_TZ3000_sj7jbgks`<br>`_TZ3000_w8jwkczz`<br>`_TZ3000_yw5tvzsk` |
 | 3 Gang Wall Switch (`wall_switch_3_gang`) | `TS0003`<br>`TS0013`<br>`TS0043` | `_TYZB01_b8cr31hp`<br>`_TYZB01_mqel1whf`<br>`_TYZB01_xiuox57i`<br>`_TZ3000_2dlwlvex`<br>`_TZ3000_5e5ptb24`<br>`_TZ3000_aezbqpcu`<br>`_TZ3000_cdamjqm9`<br>`_TZ3000_hlwm8e96`<br>`_TZ3000_kl72oake`<br>`_TZ3000_lrgccsxm`<br>`_TZ3000_qcdqw8nf`<br>`_TZ3000_qewo8dlz`<br>`_TZ3000_thhxrept`<br>`_TZ3000_vvlivusi`<br>`_TZ3000_w05exif3`<br>`_TZ3000_wyhuocal` |
 | 3 Socket Power Strip (`socket_power_strip`) | `TS011F` | `_TZ3000_1obwwnmq`<br>`_TZ3000_4uf3d0ax`<br>`_TZ3000_vmpbygs5`<br>`_TZ3000_vzopcetz`<br>`_TZ3000_wzauvbcs` |
-| 4 Button Remote (`handheld_remote_4_buttons`) | `TS0044` | `_TZ3000_u3nv1jwk` |
+| 4 Button Remote (`handheld_remote_4_buttons`) | `TS0044` | `_TZ3000_mh9px7cq`<br>`_TZ3000_u3nv1jwk` |
 | 4 button Smart Remote Controller (`smart_remote_4_buttons`) | `TS0215A` | `_TYZB01_qm6djpta`<br>`_TZ3000_eo3dttwe`<br>`_TZ3000_fsiepnrh`<br>`_TZ3000_p6ju8myv` |
 | 4 Channel Relay Board (`relay_board_4_channel`) | `TS0004` | `_TZ3000_a37eix1s`<br>`_TZ3000_excgg5kb`<br>`_TZ3000_hdlpifbk`<br>`_TZ3000_imaccztn`<br>`_TZ3000_u3oupgdy`<br>`_TZ3000_wkr3jqmr` |
 | 4 Gang Switch Module with metering (`switch_4_gang_metering`) | `TS0004` | `_TZ3000_mmkbptmx` |
 | 4 Gang Wall Remote (`wall_remote_4_gang`) | `TS0044` | `_TZ3000_a4xycprs`<br>`_TZ3000_ee8nrt2l`<br>`_TZ3000_ufhtxr59`<br>`_TZ3000_vp6clf9d` |
 | 4 Gang Wall Remote (`wall_remote_4_gang_2`) | `TS004F` | `_TZ3000_0ht8dnxj`<br>`_TZ3000_11pg3ima`<br>`_TZ3000_b3mgfu0d`<br>`_TZ3000_czuyt8lz`<br>`_TZ3000_et7afzxz`<br>`_TZ3000_nuombroo`<br>`_TZ3000_xabckq1v` |
-| 4 Gang Wall Remote (`wall_remote_4_gang_3`) | `TS0044` | `_TZ3000_jcspr0tp`<br>`_TZ3000_kfu8zapd`<br>`_TZ3000_uaa99arv`<br>`_TZ3000_wkai4ga5` |
+| 4 Gang Wall Remote (`wall_remote_4_gang_3`) | `TS0044` | `_TZ3000_jcspr0tp`<br>`_TZ3000_kfu8zapd`<br>`_TZ3000_uaa99arv`<br>`_TZ3000_wkai4ga5`<br>`_TZ3000_zgyzgdua` |
 | 4 Gang Wall Switch (`wall_switch_4_gang_tuya`) | `TS0601` | `_TZE200_aqnazj70`<br>`_TZE200_di3tfv5b`<br>`_TZE200_mexisfik`<br>`_TZE200_shkxsgis`<br>`_TZE204_6wi2mope`<br>`_TZE204_aagrxlbd`<br>`_TZE204_iik0pquw` |
 | 5 Gang Wall Switch (`wall_switch_5_gang_tuya`) | `TS0601` | `_TZE200_jwsjbxjs` |
 | 6 Gang Wall Remote (`wall_remote_6_gang`) | `TS0046` | `_TZ3000_iszegwpd` |
@@ -119,7 +119,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Tunable Bulb E14 (`tunable_bulb_E14`) | `TS0502A` | `_TZ3000_oborybow` |
 | Tunable Bulb E27 (`tunable_bulb_E27`) | `TS0502A` | `_TZ3000_49qchf10` |
 | Tunable Spot GU10 (`tunable_spot_GU10`) | `TS0502A` | `_TZ3000_el5kt5im` |
-| Valve Controller (`valvecontroller`) | `TS0001`<br>`TS0111`<br>`TS011F` | `_TYZB01_4tlksk8a`<br>`_TYZB01_ymcdbl3u`<br>`_TZ3000_5ucujjts`<br>`_TZ3000_iedbgyxt`<br>`_TZ3000_j9568h44`<br>`_TZ3000_o4cjetlm`<br>`_TZ3000_tvuarksa`<br>`_TZ3000_w0ypwa1f` |
+| Valve Controller (`valvecontroller`) | `TS0001`<br>`TS0111`<br>`TS011F` | `_TYZB01_4tlksk8a`<br>`_TYZB01_ymcdbl3u`<br>`_TZ3000_5ucujjts`<br>`_TZ3000_iedbgyxt`<br>`_TZ3000_j9568h44`<br>`_TZ3000_o4cjetlm`<br>`_TZ3000_tvuarksa`<br>`_TZ3000_w0ypwa1f`<br>`_TZ3000_wpueorev` |
 | Wall Dimmer (`wall_dimmer_tuya`) | `TS0601` | `_TZE200_0nauxa0p`<br>`_TZE200_3p5ydos3`<br>`_TZE200_9cxuhakf`<br>`_TZE200_9i9dt8is`<br>`_TZE200_a0syesf5`<br>`_TZE200_ctq0k47x`<br>`_TZE200_dfxkcots`<br>`_TZE200_ebwgzdqq`<br>`_TZE200_ojzhk75b`<br>`_TZE200_p0gzbqct`<br>`_TZE200_swaamsoy`<br>`_TZE200_w4cryh2i`<br>`_TZE200_whpb9yts`<br>`_TZE204_vevc4c6g` |
 | Wall mounted Curtain Switch (`wall_curtain_switch`) | `TS130F` | `_TZ3000_8kzqqzu4`<br>`_TZ3000_ctbafvhm`<br>`_TZ3000_dbpmpco1`<br>`_TZ3000_dph3rpss`<br>`_TZ3000_fvhunhxb`<br>`_TZ3000_ltiqubue`<br>`_TZ3000_qa8s8vca`<br>`_TZ3000_qqdbccb3`<br>`_TZ3000_wptayaqr` |
 | Wall Socket with metering (`wall_socket`) | `TS011F` | `_TZ3000_4ux0ondb`<br>`_TZ3000_5ct6e7ye`<br>`_TZ3000_b28wrpvx`<br>`_TZ3000_y4ona9me` |

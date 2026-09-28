@@ -4,8 +4,12 @@
     "en": "4 Button Remote"
   },
   "class": "remote",
-  "platforms": ["local"],
-  "connectivity": ["zigbee"],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
   "capabilities": [
     "button"
   ],
@@ -20,27 +24,45 @@
   },
   "zigbee": {
     "manufacturerName": [
-      "_TZ3000_u3nv1jwk"
+      "_TZ3000_u3nv1jwk",
+      "_TZ3000_mh9px7cq"
     ],
     "productId": [
       "TS0044"
     ],
     "endpoints": {
       "1": {
-        "clusters": [0, 6],
-        "bindings": [6]
+        "clusters": [
+          0,
+          6
+        ],
+        "bindings": [
+          6
+        ]
       },
       "2": {
-        "clusters": [6],
-        "bindings": [6]
+        "clusters": [
+          6
+        ],
+        "bindings": [
+          6
+        ]
       },
       "3": {
-        "clusters": [6],
-        "bindings": [6]
+        "clusters": [
+          6
+        ],
+        "bindings": [
+          6
+        ]
       },
       "4": {
-        "clusters": [6],
-        "bindings": [6]
+        "clusters": [
+          6
+        ],
+        "bindings": [
+          6
+        ]
       }
     },
     "learnmode": {
@@ -50,5 +72,4 @@
       }
     }
   }
-
 }
