@@ -1476,18 +1476,18 @@
               {
                 "id": "2",
                 "label": {
-                  "en": "Low",
-                  "nl": "Laag",
-                  "de": "Niedrig",
-                  "sv": "Låg",
-                  "it": "Basso"
+                  "en": "High",
+                  "nl": "Hoog",
+                  "de": "Hoch",
+                  "sv": "Hög",
+                  "it": "Alto"
                 }
               },
               {
                 "id": "1",
                 "label": {
-                  "en": "Midle",
-                  "nl": "Middelmatig",
+                  "en": "Medium",
+                  "nl": "Mellan",
                   "de": "Mittel",
                   "sv": "Mellan",
                   "it": "Medio"
@@ -1496,11 +1496,11 @@
               {
                 "id": "0",
                 "label": {
-                  "en": "High (default)",
-                  "nl": "Hoog (standaard)",
-                  "de": "Hoch (Standard)",
-                  "sv": "Hög (standard)",
-                  "it": "Alto (default)"
+                  "en": "Low",
+                  "nl": "Laag",
+                  "de": "Niedrig",
+                  "sv": "Låg",
+                  "it": "Basso"
                 }
               }
             ]
@@ -7044,7 +7044,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE204_t1blo2bj"
+          "_TZE204_t1blo2bj",
+          "_TZE200_t1blo2bj"
         ],
         "productId": [
           "TS0601"
@@ -7083,7 +7084,7 @@
             "nl": "Alarm volume",
             "de": "Alarm Lautstärke"
           },
-          "value": "0",
+          "value": "2",
           "hint": {
             "en": "Set the volume of the Alarm sound",
             "nl": "Aanpassen volume van Alarm geluid",
@@ -7093,15 +7094,15 @@
             {
               "id": "2",
               "label": {
-                "en": "Low",
-                "nl": "Laag",
-                "de": "Niedrig"
+                "en": "High",
+                "nl": "Hoog",
+                "de": "Hoch"
               }
             },
             {
               "id": "1",
               "label": {
-                "en": "Midle",
+                "en": "Medium",
                 "nl": "Middelmatig",
                 "de": "Mittel"
               }
@@ -7109,9 +7110,9 @@
             {
               "id": "0",
               "label": {
-                "en": "High (default)",
-                "nl": "Hoog (standaard)",
-                "de": "Hoch (Standard)"
+                "en": "Low",
+                "nl": "Laag",
+                "de": "Niedrig"
               }
             }
           ]

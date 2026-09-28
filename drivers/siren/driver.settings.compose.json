@@ -7,7 +7,7 @@
       "nl": "Alarm volume",
       "de": "Alarm Lautstärke"
     },
-    "value": "0",
+    "value": "2",
     "hint": {
       "en": "Set the volume of the Alarm sound",
       "nl": "Aanpassen volume van Alarm geluid",
@@ -17,15 +17,15 @@
       {
         "id": "2",
         "label": {
-          "en": "Low",
-          "nl": "Laag",
-          "de": "Niedrig"
+          "en": "High",
+          "nl": "Hoog",
+          "de": "Hoch"
         }
       },
       {
         "id": "1",
         "label": {
-          "en": "Midle",
+          "en": "Medium",
           "nl": "Middelmatig",
           "de": "Mittel"
         }
@@ -33,9 +33,9 @@
       {
         "id": "0",
         "label": {
-          "en": "High (default)",
-          "nl": "Hoog (standaard)",
-          "de": "Hoch (Standard)"
+          "en": "Low",
+          "nl": "Laag",
+          "de": "Niedrig"
         }
       }
     ]

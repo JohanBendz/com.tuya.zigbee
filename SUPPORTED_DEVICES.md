@@ -90,7 +90,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | RGB Mood Light (`rgb_mood_light`) | `TS0505A`<br>`TS0505B` | `_TZ3000_9cpuaca6`<br>`_TZ3210_r0xgkft5` |
 | RGB Spot Garden light (`rgb_spot_GardenLight`) | `TS0505A` | `_TZ3000_h1jnz6l8` |
 | RGB Spot GU10 (`rgb_spot_GU10`) | `TS0505A` | `_TZ3000_kdpxju99` |
-| Siren (`siren`) | `TS0601` | `_TZE204_t1blo2bj` |
+| Siren (`siren`) | `TS0601` | `_TZE200_t1blo2bj`<br>`_TZE204_t1blo2bj` |
 | Siren, Temperature & Humidity Sensor (`sirentemphumidsensor`) | `TS0601` | `_TYST11_d0yu2xgi`<br>`_TZE200_d0yu2xgi` |
 | Slim motion sensor (`slim_motion_sensor`) | `TS0202` | `_TZ3000_lf56vpxj` |
 | Smart Air Detection Box (`smart_air_detection_box`) | `TS0601` | `_TZE200_8ygsuhe1`<br>`_TZE200_c2fmom5z`<br>`_TZE200_mja3fuja`<br>`_TZE200_ryfmq5rl`<br>`_TZE200_yvx5lh6k` |
