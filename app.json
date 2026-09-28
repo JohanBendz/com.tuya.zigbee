@@ -3972,8 +3972,7 @@
             "en": "Double-press the service button to put the sensor in pairing mode."
           }
         }
-      },
-      "settings": []
+      }
     },
     {
       "id": "fingerbot",
