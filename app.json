@@ -11494,7 +11494,13 @@
             }
           ]
         }
-      ]
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      }
     },
     {
       "name": {

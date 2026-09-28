@@ -48,5 +48,11 @@
         "en": "Insert a pin into the single hole on the side of the device and press it gently for aprox 10 seconds until the LED blinks rapidly."
       }
     }
+  },
+  "energy": {
+    "batteries": [
+      "AAA",
+      "AAA"
+    ]
   }
 }
