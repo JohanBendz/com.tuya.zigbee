@@ -32,14 +32,20 @@ const sensorStates = { on: 0, off: 1, occupied: 2, unoccupied: 3 };
 
 class Mtg075RadarSensor extends TuyaSpecificClusterDevice {
   async onNodeInit({ zclNode }) {
-    this.printNode();
-
     this.registerCapabilityListener('onoff', async value => {
       await this.writeEnum(dataPoints.breakerStatus, value ? 1 : 0);
     });
 
-    zclNode.endpoints[1].clusters.tuya.on('reporting', value => this.processDatapoint(value));
-    zclNode.endpoints[1].clusters.tuya.on('response', value => this.processDatapoint(value));
+    const handleDatapoint = async value => {
+      try {
+        await this.processDatapoint(value);
+      } catch (err) {
+        this.error('Failed to process MTG075 Tuya datapoint', err);
+      }
+    };
+
+    zclNode.endpoints[1].clusters.tuya.on('reporting', handleDatapoint);
+    zclNode.endpoints[1].clusters.tuya.on('response', handleDatapoint);
   }
 
   async processDatapoint(data) {
