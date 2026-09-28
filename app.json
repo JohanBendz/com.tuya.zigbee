@@ -4363,6 +4363,57 @@
       "settings": []
     },
     {
+      "id": "illuminance_sensor",
+      "name": {
+        "en": "Illuminance Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_luminance",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "images": {
+        "large": "/drivers/illuminance_sensor/assets/images/large.png",
+        "small": "/drivers/illuminance_sensor/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_8uxxzz4b",
+          "_TZ3000_do6txrcw",
+          "_TZ3000_hy6ncvmw"
+        ],
+        "productId": [
+          "TS0222"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1024
+            ],
+            "bindings": [
+              1,
+              1024
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/illuminance_sensor/assets/icon.svg",
+          "instruction": {
+            "en": "Press and hold the pairing button until the indicator starts blinking."
+          }
+        }
+      }
+    },
+    {
       "id": "lcdtemphumidluxsensor",
       "name": {
         "en": "LCD Temperature, Humidity and Luminance Sensor"

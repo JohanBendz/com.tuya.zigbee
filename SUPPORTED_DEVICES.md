@@ -68,6 +68,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Flood sensor (`flood_sensor_2`) | `TS0207` | `_TZ3000_baeiitad` |
 | HOBEIAN Temperature & Humidity Sensor (`temphumidsensor_hobeian`) | `ZG-227Z` | `HOBEIAN` |
 | HOBEIAN Water Leak Sensor (`hobeian_water_leak`) | `ZG-222Z` | `HOBEIAN` |
+| Illuminance Sensor (`illuminance_sensor`) | `TS0222` | `_TZ3000_8uxxzz4b`<br>`_TZ3000_do6txrcw`<br>`_TZ3000_hy6ncvmw` |
 | LCD Temperature & Humidity Sensor (`lcdtemphumidsensor`) | `TS0201`<br>`TY0201` | `_TYZB01_a476raq2`<br>`_TYZB01_hjsgdkfl`<br>`_TYZB01_iuepbmpv`<br>`_TZ2000_a476raq2`<br>`_TZ2000_avdnvykf`<br>`_TZ2000_hjsgdkfl`<br>`_TZ2000_xogb73am`<br>`_TZ3000_bjawzodf`<br>`_TZ3000_itnrsufe`<br>`_TZ3000_rusu2vzb`<br>`_TZ3000_yd2e749y`<br>`_TZ3000_ywagc4rj`<br>`_TZ3210_ncw88jfq` |
 | LCD Temperature & Humidity Sensor (`lcdtemphumidsensor_2`) | `SM0201` | `_TYZB01_cbiezpds` |
 | LCD Temperature & Humidity Sensor (`lcdtemphumidsensor_3`) | `TS0601` | `_TZE200_44af8vyi`<br>`_TZE200_bjawzodf`<br>`_TZE200_bq5c8xfe`<br>`_TZE200_locansqn`<br>`_TZE200_qyflbnbj`<br>`_TZE200_vs0skpuc`<br>`_TZE200_zl1kmjqx` |
