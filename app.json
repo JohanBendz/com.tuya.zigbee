@@ -11412,6 +11412,12 @@
           }
         }
       },
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
       "settings": [
         {
           "id": "temperature_offset",
@@ -11495,13 +11501,7 @@
             }
           ]
         }
-      ],
-      "energy": {
-        "batteries": [
-          "AAA",
-          "AAA"
-        ]
-      }
+      ]
     },
     {
       "name": {
