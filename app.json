@@ -4232,6 +4232,63 @@
       }
     },
     {
+      "id": "hobeian_water_leak",
+      "name": {
+        "en": "HOBEIAN Water Leak Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_water",
+        "alarm_tamper",
+        "alarm_battery",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/hobeian_water_leak/assets/images/large.png",
+        "small": "/drivers/hobeian_water_leak/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "HOBEIAN"
+        ],
+        "productId": [
+          "ZG-222Z"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/hobeian_water_leak/assets/icon.svg",
+          "instruction": {
+            "en": "Press and hold the pairing button until the indicator starts blinking."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "lcdtemphumidluxsensor",
       "name": {
         "en": "LCD Temperature, Humidity and Luminance Sensor"
