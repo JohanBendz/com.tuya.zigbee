@@ -63,6 +63,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Double Socket Smart Plug (`smartplug_2_socket`) | `TS011F` | `_TZ3000_jak16dll` |
 | Finger Bot (`fingerbot`) | `TS0001`<br>`TS0001_fingerbot` | `_TZ3210_232nryqh`<br>`_TZ3210_dse8ogfy`<br>`_TZ3210_j4pdtz9v`<br>`_TZ3210_okbss9dy` |
 | Flood sensor (`flood_sensor`) | `RH3001`<br>`TS0207` | `TUYATEC-3tipnsrx`<br>`_TZ3000_3dfewsk1`<br>`_TZ3000_4uvovz4r`<br>`_TZ3000_wuep9zng`<br>`_TZ3000_ww9i3e0y` |
+| Flood sensor (`flood_sensor_2`) | `TS0207` | `_TZ3000_baeiitad` |
 | HOBEIAN Temperature & Humidity Sensor (`temphumidsensor_hobeian`) | `ZG-227Z` | `HOBEIAN` |
 | LCD Temperature & Humidity Sensor (`lcdtemphumidsensor`) | `TS0201`<br>`TY0201` | `_TYZB01_a476raq2`<br>`_TYZB01_hjsgdkfl`<br>`_TYZB01_iuepbmpv`<br>`_TZ2000_a476raq2`<br>`_TZ2000_avdnvykf`<br>`_TZ2000_hjsgdkfl`<br>`_TZ2000_xogb73am`<br>`_TZ3000_bjawzodf`<br>`_TZ3000_itnrsufe`<br>`_TZ3000_rusu2vzb`<br>`_TZ3000_yd2e749y`<br>`_TZ3000_ywagc4rj`<br>`_TZ3210_ncw88jfq` |
 | LCD Temperature & Humidity Sensor (`lcdtemphumidsensor_2`) | `SM0201` | `_TYZB01_cbiezpds` |
