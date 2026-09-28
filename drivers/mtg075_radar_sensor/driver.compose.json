@@ -5,8 +5,12 @@
     "nl": "MTG075 Aanwezigheidssensor met relais"
   },
   "class": "sensor",
-  "platforms": ["local"],
-  "connectivity": ["zigbee"],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
   "capabilities": [
     "onoff",
     "alarm_motion",
@@ -28,15 +32,27 @@
     ],
     "endpoints": {
       "1": {
-        "clusters": [0, 4, 5, 61184],
-        "bindings": [61184]
+        "clusters": [
+          0,
+          4,
+          5,
+          61184
+        ],
+        "bindings": [
+          61184
+        ]
       }
     },
     "learnmode": {
       "instruction": {
         "en": "Press and hold the reset button for 6 seconds. When the indicator light flashes it is in pairing mode.",
         "nl": "Druk 6 seconden op de resetknop. Wacht tot de led gaat knipperen."
-      }
+      },
+      "image": "{{driverAssetsPath}}/icon.svg"
     }
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
   }
 }

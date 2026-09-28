@@ -4748,8 +4748,13 @@
           "instruction": {
             "en": "Press and hold the reset button for 6 seconds. When the indicator light flashes it is in pairing mode.",
             "nl": "Druk 6 seconden op de resetknop. Wacht tot de led gaat knipperen."
-          }
+          },
+          "image": "{{driverAssetsPath}}/icon.svg"
         }
+      },
+      "images": {
+        "large": "{{driverAssetsPath}}/images/large.png",
+        "small": "{{driverAssetsPath}}/images/small.png"
       }
     },
     {
