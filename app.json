@@ -265,6 +265,49 @@
         ]
       },
       {
+        "id": "motion_scene_switch_button",
+        "title": {
+          "en": "Scene button was pressed"
+        },
+        "titleFormatted": {
+          "en": "Scene button was pressed [[action]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=motion_scene_switch"
+          },
+          {
+            "name": "action",
+            "type": "dropdown",
+            "title": {
+              "en": "Action"
+            },
+            "values": [
+              {
+                "id": "single",
+                "label": {
+                  "en": "once"
+                }
+              },
+              {
+                "id": "double",
+                "label": {
+                  "en": "twice"
+                }
+              },
+              {
+                "id": "hold",
+                "label": {
+                  "en": "held"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "siren_alarm",
         "title": {
           "en": "Siren Alarm",
@@ -4746,6 +4789,64 @@
       ]
     },
     {
+      "id": "motion_scene_switch",
+      "name": {
+        "en": "Motion Sensor & Scene Switch"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_motion",
+        "measure_battery",
+        "alarm_battery",
+        "light_status"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/motion_scene_switch/assets/images/large.png",
+        "small": "/drivers/motion_scene_switch/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3210_cwamkvua"
+        ],
+        "productId": [
+          "TS0202"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1280,
+              61184
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/motion_scene_switch/assets/icon.svg",
+          "instruction": {
+            "en": "Press the reset button for approximately 5 seconds until the LED starts blinking."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
       "id": "motion_sensor",
       "name": {
         "en": "Motion Sensor"
@@ -5411,8 +5512,7 @@
           "_TZ3040_wqmtjsyk",
           "_TZ3000_mg4dy6z6",
           "_TZ3000_y56pgpgs",
-          "_TYZB01_geepvxsy",
-          "_TZ3210_cwamkvua"
+          "_TYZB01_geepvxsy"
         ],
         "productId": [
           "TS0202"
@@ -14681,6 +14781,32 @@
           }
         }
       ]
+    },
+    "light_status": {
+      "type": "enum",
+      "title": {
+        "en": "Light level"
+      },
+      "desc": {
+        "en": "Ambient light classification reported by the sensor"
+      },
+      "values": [
+        {
+          "id": "dark",
+          "title": {
+            "en": "Dark"
+          }
+        },
+        {
+          "id": "bright",
+          "title": {
+            "en": "Bright"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
     },
     "measure_formaldehyde": {
       "type": "number",

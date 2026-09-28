@@ -1,0 +1,42 @@
+{
+  "triggers": [
+    {
+      "id": "motion_scene_switch_button",
+      "title": {
+        "en": "Scene button was pressed"
+      },
+      "titleFormatted": {
+        "en": "Scene button was pressed [[action]]"
+      },
+      "args": [
+        {
+          "name": "action",
+          "type": "dropdown",
+          "title": {
+            "en": "Action"
+          },
+          "values": [
+            {
+              "id": "single",
+              "label": {
+                "en": "once"
+              }
+            },
+            {
+              "id": "double",
+              "label": {
+                "en": "twice"
+              }
+            },
+            {
+              "id": "hold",
+              "label": {
+                "en": "held"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

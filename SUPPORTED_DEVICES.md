@@ -74,6 +74,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Livarno Lux Smart LED Wall Light (`rgb_wall_led_light`) | `TS0505A` | `_TZ3000_5bsf8vaj`<br>`_TZ3000_utagpnzs` |
 | Motion Sensor (`motion_sensor`) | `RH3040` | `TUYATEC-bd5faf9p`<br>`TUYATEC-zw6hxafz` |
 | Motion Sensor (`motion_sensor_2`) | `TS0601` | `_TZE200_1ibpyhdc`<br>`_TZE200_3towulqd`<br>`_TZE200_bh3n6gk8`<br>`_TZE200_ttcovulf` |
+| Motion Sensor & Scene Switch (`motion_scene_switch`) | `TS0202` | `_TZ3210_cwamkvua` |
 | MTG075 Presence Sensor with Relay (`mtg075_radar_sensor`) | `TS0601` | `_TZE204_mtoaryre` |
 | Outdoor Plug without metering (`outdoor_plug`) | `TS0101` | `_TZ3000_br3laukf`<br>`_TZ3000_pnzfdr9y` |
 | Outdoor Smart Socket (`outdoor_2_socket`) | `TS011F` | `_TZ3000_uwkja6z1` |
@@ -103,7 +104,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Smart Garden Irrigation Controller (`smart_garden_irrigation_control`) | `TS0049`<br>`TS0101` | `_TZ3000_cjfmu5he`<br>`_TZ3000_kz1anoi8`<br>`_TZ3000_mq4wujmp`<br>`_TZ3210_eymunffl` |
 | Smart Knob Switch (`smart_knob_switch`) | `TS004F` | `_TZ3000_4fjiwweb`<br>`_TZ3000_abrsvsou`<br>`_TZ3000_ixla93vd`<br>`_TZ3000_qja6nq5z`<br>`_TZ3000_uri7ongn` |
 | Smart Motion Sensor (Lidl) (`smart_motion_sensor`) | `TY0202` | `_TZ1800_fcdjzz3s` |
-| Smart PIR Motion Sensor (`pir_sensor_2`) | `TS0202` | `_TYZB01_dl7cejts`<br>`_TYZB01_dr6sduka`<br>`_TYZB01_geepvxsy`<br>`_TYZB01_jytabjkb`<br>`_TZ3000_6ygjfyll`<br>`_TZ3000_bsvqrxru`<br>`_TZ3000_c8ozah8n`<br>`_TZ3000_kmh5qpmb`<br>`_TZ3000_mcxw5ehu`<br>`_TZ3000_mg4dy6z6`<br>`_TZ3000_mmtwjmaq`<br>`_TZ3000_msl6wxk9`<br>`_TZ3000_nss8amz9`<br>`_TZ3000_o4mkahkc`<br>`_TZ3000_otvn3lne`<br>`_TZ3000_y56pgpgs`<br>`_TZ3040_6ygjfyll`<br>`_TZ3040_bb6xaihh`<br>`_TZ3040_wqmtjsyk`<br>`_TZ3210_cwamkvua` |
+| Smart PIR Motion Sensor (`pir_sensor_2`) | `TS0202` | `_TYZB01_dl7cejts`<br>`_TYZB01_dr6sduka`<br>`_TYZB01_geepvxsy`<br>`_TYZB01_jytabjkb`<br>`_TZ3000_6ygjfyll`<br>`_TZ3000_bsvqrxru`<br>`_TZ3000_c8ozah8n`<br>`_TZ3000_kmh5qpmb`<br>`_TZ3000_mcxw5ehu`<br>`_TZ3000_mg4dy6z6`<br>`_TZ3000_mmtwjmaq`<br>`_TZ3000_msl6wxk9`<br>`_TZ3000_nss8amz9`<br>`_TZ3000_o4mkahkc`<br>`_TZ3000_otvn3lne`<br>`_TZ3000_y56pgpgs`<br>`_TZ3040_6ygjfyll`<br>`_TZ3040_bb6xaihh`<br>`_TZ3040_wqmtjsyk` |
 | Smart PIR Motion Sensor (`pir_sensor_3`) | `TS0202` | `_TZ3000_hgu1dlak` |
 | Smart PIR Motion Sensor (`pir_sensor_4`) | `TS0202` | `_TZ3040_o4mkahkc` |
 | Smart Plug DIN Rail (`smartPlug_DinRail`) | `TS011F`<br>`TS0121`<br>`TSO121` | `_TZ3000_6l1pjfqe`<br>`_TZ3000_cayepv1a`<br>`_TZ3000_lepzuhto`<br>`_TZ3000_qeuvnohg`<br>`_TZ3000_qystbcjg` |
