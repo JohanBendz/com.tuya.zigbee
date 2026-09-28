@@ -4641,6 +4641,59 @@
       ]
     },
     {
+      "id": "mtg075_radar_sensor",
+      "name": {
+        "en": "MTG075 Presence Sensor with Relay",
+        "nl": "MTG075 Aanwezigheidssensor met relais"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "alarm_motion",
+        "measure_luminance",
+        "target_distance"
+      ],
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE204_mtoaryre"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the reset button for 6 seconds. When the indicator light flashes it is in pairing mode.",
+            "nl": "Druk 6 seconden op de resetknop. Wacht tot de led gaat knipperen."
+          }
+        }
+      }
+    },
+    {
       "id": "outdoor_2_socket",
       "name": {
         "en": "Outdoor Smart Socket"
@@ -6438,75 +6491,6 @@
         }
       },
       "images": {
-        "large": "/drivers/rgb_spot_GU10/assets/images/large.png",
-        "small": "/drivers/rgb_spot_GU10/assets/images/small.png"
-      },
-      "id": "rgb_spot_GU10",
-      "name": {
-        "en": "RGB Spot GU10"
-      },
-      "energy": {
-        "approximation": {
-          "usageOn": 5,
-          "usageOff": 1
-        }
-      },
-      "zigbee": {
-        "manufacturerName": [
-          "_TZ3000_kdpxju99"
-        ],
-        "productId": [
-          "TS0505A"
-        ],
-        "endpoints": {
-          "1": {
-            "clusters": [
-              0,
-              3,
-              4,
-              5,
-              6,
-              8,
-              768
-            ],
-            "bindings": [
-              6,
-              8,
-              768
-            ]
-          }
-        },
-        "learnmode": {
-          "image": "/drivers/rgb_spot_GU10/assets/icon.svg",
-          "instruction": {
-            "en": "Power on to enter pairing mode."
-          }
-        }
-      },
-      "settings": []
-    },
-    {
-      "class": "light",
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "zigbee"
-      ],
-      "capabilities": [
-        "onoff",
-        "dim",
-        "light_hue",
-        "light_saturation",
-        "light_temperature",
-        "light_mode"
-      ],
-      "capabilitiesOptions": {
-        "onoff": {
-          "setOnDim": false
-        }
-      },
-      "images": {
         "large": "/drivers/rgb_spot_GardenLight/assets/images/large.png",
         "small": "/drivers/rgb_spot_GardenLight/assets/images/small.png"
       },
@@ -6547,6 +6531,75 @@
         },
         "learnmode": {
           "image": "/drivers/rgb_spot_GardenLight/assets/icon.svg",
+          "instruction": {
+            "en": "Power on to enter pairing mode."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation",
+        "light_temperature",
+        "light_mode"
+      ],
+      "capabilitiesOptions": {
+        "onoff": {
+          "setOnDim": false
+        }
+      },
+      "images": {
+        "large": "/drivers/rgb_spot_GU10/assets/images/large.png",
+        "small": "/drivers/rgb_spot_GU10/assets/images/small.png"
+      },
+      "id": "rgb_spot_GU10",
+      "name": {
+        "en": "RGB Spot GU10"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 5,
+          "usageOff": 1
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_kdpxju99"
+        ],
+        "productId": [
+          "TS0505A"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8,
+              768
+            ],
+            "bindings": [
+              6,
+              8,
+              768
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/rgb_spot_GU10/assets/icon.svg",
           "instruction": {
             "en": "Power on to enter pairing mode."
           }
@@ -7299,238 +7352,6 @@
         }
       },
       "settings": []
-    },
-    {
-      "id": "smartPlug_DinRail",
-      "name": {
-        "en": "Smart Plug DIN Rail"
-      },
-      "class": "socket",
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "zigbee"
-      ],
-      "capabilities": [
-        "onoff",
-        "measure_power",
-        "meter_power",
-        "measure_current",
-        "measure_voltage"
-      ],
-      "capabilitiesOptions": {
-        "measure_power": {
-          "approximated": true
-        }
-      },
-      "images": {
-        "large": "/drivers/smartPlug_DinRail/assets/images/large.png",
-        "small": "/drivers/smartPlug_DinRail/assets/images/small.png"
-      },
-      "zigbee": {
-        "manufacturerName": [
-          "_TZ3000_qeuvnohg",
-          "_TZ3000_cayepv1a",
-          "_TZ3000_lepzuhto",
-          "_TZ3000_qystbcjg",
-          "_TZ3000_6l1pjfqe"
-        ],
-        "productId": [
-          "TS0121",
-          "TSO121",
-          "TS011F"
-        ],
-        "endpoints": {
-          "1": {
-            "clusters": [
-              0,
-              3,
-              4,
-              5,
-              6,
-              1794,
-              2820,
-              1026,
-              57344,
-              57345
-            ],
-            "bindings": [
-              6,
-              1794,
-              2820,
-              1026,
-              57344,
-              57345
-            ]
-          }
-        },
-        "learnmode": {
-          "instruction": {
-            "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
-          }
-        }
-      },
-      "settings": [
-        {
-          "id": "metering_offset",
-          "type": "number",
-          "label": {
-            "en": "Metering Correction Factor"
-          },
-          "hint": {
-            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
-          },
-          "value": 1,
-          "attr": {
-            "min": 0.8,
-            "max": 1.2,
-            "step": 0.1
-          }
-        },
-        {
-          "id": "measure_offset",
-          "type": "number",
-          "label": {
-            "en": "Measure Correction Factor"
-          },
-          "hint": {
-            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
-          },
-          "value": 1,
-          "attr": {
-            "min": 0.8,
-            "max": 1.2,
-            "step": 0.1
-          }
-        },
-        {
-          "id": "minReportPower",
-          "type": "number",
-          "label": {
-            "en": "Min report interval for power (s)"
-          },
-          "hint": {
-            "en": "Min interval before a report is sent to Homey (s)"
-          },
-          "value": 60,
-          "attr": {
-            "step": 1,
-            "min": 10,
-            "max": 86400
-          }
-        },
-        {
-          "id": "minReportCurrent",
-          "type": "number",
-          "label": {
-            "en": "Min report interval for current (s)"
-          },
-          "hint": {
-            "en": "Min interval before a report is sent to Homey (s)"
-          },
-          "value": 60,
-          "attr": {
-            "step": 1,
-            "min": 10,
-            "max": 86400
-          }
-        },
-        {
-          "id": "minReportVoltage",
-          "type": "number",
-          "label": {
-            "en": "Min report interval for voltage (s)"
-          },
-          "hint": {
-            "en": "Min interval before a report is sent to Homey (s)"
-          },
-          "value": 60,
-          "attr": {
-            "step": 1,
-            "min": 10,
-            "max": 86400
-          }
-        },
-        {
-          "id": "relay_status",
-          "type": "radio",
-          "label": {
-            "en": "Relay status"
-          },
-          "value": "2",
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Off"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "On"
-              }
-            },
-            {
-              "id": "2",
-              "label": {
-                "en": "Remember last status"
-              }
-            }
-          ]
-        },
-        {
-          "id": "indicator_mode",
-          "type": "radio",
-          "label": {
-            "en": "Indicator mode"
-          },
-          "value": "1",
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Off"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Indicates status. The indicator comes on when the switch is turned on."
-              }
-            },
-            {
-              "id": "2",
-              "label": {
-                "en": "Indicates position. The indicator comes on when the switch is turned off."
-              }
-            }
-          ]
-        },
-        {
-          "id": "child_lock",
-          "type": "radio",
-          "label": {
-            "en": "Child lock"
-          },
-          "value": "0",
-          "values": [
-            {
-              "id": "0",
-              "label": {
-                "en": "Release"
-              }
-            },
-            {
-              "id": "1",
-              "label": {
-                "en": "Lock"
-              }
-            }
-          ]
-        }
-      ]
     },
     {
       "id": "smart_air_detection_box",
@@ -8515,6 +8336,238 @@
               "en": "Double Socket Smart Plug - Socket #2"
             },
             "settings": []
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold down on/off switch for aprox 5 seconds until the LED blinks rapidly."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "metering_offset",
+          "type": "number",
+          "label": {
+            "en": "Metering Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Metered Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "measure_offset",
+          "type": "number",
+          "label": {
+            "en": "Measure Correction Factor"
+          },
+          "hint": {
+            "en": "Set a value to compensate if you experience that the Measured Power is not correct.\nRange: 0.8 - 1.2, step size 0.1, \ndefault: 1"
+          },
+          "value": 1,
+          "attr": {
+            "min": 0.8,
+            "max": 1.2,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "minReportPower",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for power (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportCurrent",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for current (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "minReportVoltage",
+          "type": "number",
+          "label": {
+            "en": "Min report interval for voltage (s)"
+          },
+          "hint": {
+            "en": "Min interval before a report is sent to Homey (s)"
+          },
+          "value": 60,
+          "attr": {
+            "step": 1,
+            "min": 10,
+            "max": 86400
+          }
+        },
+        {
+          "id": "relay_status",
+          "type": "radio",
+          "label": {
+            "en": "Relay status"
+          },
+          "value": "2",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "On"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Remember last status"
+              }
+            }
+          ]
+        },
+        {
+          "id": "indicator_mode",
+          "type": "radio",
+          "label": {
+            "en": "Indicator mode"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Off"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Indicates status. The indicator comes on when the switch is turned on."
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Indicates position. The indicator comes on when the switch is turned off."
+              }
+            }
+          ]
+        },
+        {
+          "id": "child_lock",
+          "type": "radio",
+          "label": {
+            "en": "Child lock"
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Release"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Lock"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "smartPlug_DinRail",
+      "name": {
+        "en": "Smart Plug DIN Rail"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power",
+        "measure_current",
+        "measure_voltage"
+      ],
+      "capabilitiesOptions": {
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "images": {
+        "large": "/drivers/smartPlug_DinRail/assets/images/large.png",
+        "small": "/drivers/smartPlug_DinRail/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_qeuvnohg",
+          "_TZ3000_cayepv1a",
+          "_TZ3000_lepzuhto",
+          "_TZ3000_qystbcjg",
+          "_TZ3000_6l1pjfqe"
+        ],
+        "productId": [
+          "TS0121",
+          "TSO121",
+          "TS011F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              1794,
+              2820,
+              1026,
+              57344,
+              57345
+            ],
+            "bindings": [
+              6,
+              1794,
+              2820,
+              1026,
+              57344,
+              57345
+            ]
           }
         },
         "learnmode": {

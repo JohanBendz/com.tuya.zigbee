@@ -70,6 +70,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Motion Sensor (`motion_sensor`) | `RH3040` | `TUYATEC-bd5faf9p`<br>`TUYATEC-zw6hxafz` |
 | Motion Sensor (`motion_sensor_2`) | `TS0601` | `_TZE200_1ibpyhdc`<br>`_TZE200_3towulqd`<br>`_TZE200_bh3n6gk8`<br>`_TZE200_ttcovulf` |
 | Outdoor Plug without metering (`outdoor_plug`) | `TS0101` | `_TZ3000_br3laukf`<br>`_TZ3000_pnzfdr9y` |
+| MTG075 Presence Sensor with Relay (`mtg075_radar_sensor`) | `TS0601` | `_TZE204_mtoaryre` |
 | Outdoor Smart Socket (`outdoor_2_socket`) | `TS011F` | `_TZ3000_uwkja6z1` |
 | PIR Sensor (`pirsensor`) | `RH3040` | `TUYATEC-53o41joc`<br>`TUYATEC-b5g40alm`<br>`TUYATEC-deetibst`<br>`TUYATEC-dgtxmihe`<br>`TUYATEC-dxnohkpd`<br>`TUYATEC-lha8pbwd`<br>`TUYATEC-zn9wyqtr` |
 | Power Strip 4 Sockets (`socket_power_strip_four_three`) | `JZ-ZB-004` | `LELLKI` |
