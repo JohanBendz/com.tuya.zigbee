@@ -15102,8 +15102,7 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE200_qq9mpfhw",
-          "_TZE200_jthf7vb6"
+          "_TZE200_qq9mpfhw"
         ],
         "productId": [
           "TS0601"
@@ -15129,6 +15128,55 @@
         }
       },
       "settings": []
+    },
+    {
+      "id": "water_leak_sensor_jthf7vb6",
+      "name": {
+        "en": "Water Leak Sensor (WLS-100z)"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_water",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "images": {
+        "large": "/drivers/water_leak_sensor_jthf7vb6/assets/images/large.png",
+        "small": "/drivers/water_leak_sensor_jthf7vb6/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_jthf7vb6"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/water_leak_sensor_jthf7vb6/assets/icon.svg",
+          "instruction": {
+            "en": "Push the button for aprox 10 seconds until the LED blinks rapidly. If nothing happens; put two fingers against the detectors and repeat."
+          }
+        }
+      }
     },
     {
       "id": "zigbee_repeater",
