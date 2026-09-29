@@ -10562,7 +10562,6 @@
           "_TZE200_ga1maeof",
           "_TZE200_9cqcpkgb",
           "_TZE204_myd45weu",
-          "_TZE284_aao3yzhs",
           "_TZE200_2se8efxh"
         ],
         "productId": [
@@ -10622,7 +10621,8 @@
       "zigbee": {
         "manufacturerName": [
           "_TZE284_sgabhwa6",
-          "_TZE284_g2e6cpnw"
+          "_TZE284_g2e6cpnw",
+          "_TZE284_aao3yzhs"
         ],
         "productId": [
           "TS0601"
