@@ -1,118 +1,129 @@
-"use strict";
+'use strict';
 
-const { Cluster } = require("zigbee-clusters");
-const TuyaSpecificCluster = require("../../lib/TuyaSpecificCluster");
-const TuyaSpecificClusterDevice = require("../../lib/TuyaSpecificClusterDevice");
+const { Cluster } = require('zigbee-clusters');
+const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
+const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
+const { getDataValue } = require('../../lib/TuyaHelpers');
 
 Cluster.addCluster(TuyaSpecificCluster);
 
-// Data Points for TS0601 (_TZE200_yvx5lh6k)
 const dataPoints = {
-    tsCO2: 2,
-    tsTemperature: 18,
-    tsHumidity: 19,
-    tsFormaldehyde: 21,
-    tsVOC: 22
+  co2OrFormaldehyde: 2,
+  temperature: 18,
+  humidity: 19,
+  voc: 21,
+  formaldehydeOrCo2: 22,
 };
 
-const dataTypes = {
-    raw: 0,
-    bool: 1,
-    value: 2,
-    string: 3,
-    enum: 4,
-    bitmap: 5,
-};
-
-const convertMultiByteNumberPayloadToSingleDecimalNumber = (chunks) => {
-    let value = 0;
-
-    for (let i = 0; i < chunks.length; i++) {
-        value = value << 8;
-        value += chunks[i];
-    }
-
-    return value;
-};
-
-const getDataValue = (dpValue) => {
-    switch (dpValue.datatype) {
-        case dataTypes.raw:
-            return dpValue.data;
-        case dataTypes.bool:
-            return dpValue.data[0] === 1;
-        case dataTypes.value:
-            return convertMultiByteNumberPayloadToSingleDecimalNumber(
-                dpValue.data
-            );
-        case dataTypes.string:
-            let dataString = "";
-            for (let i = 0; i < dpValue.data.length; ++i) {
-                dataString += String.fromCharCode(dpValue.data[i]);
-            }
-            return dataString;
-        case dataTypes.enum:
-            return dpValue.data[0];
-        case dataTypes.bitmap:
-            return convertMultiByteNumberPayloadToSingleDecimalNumber(
-                dpValue.data
-            );
-    }
-};
+const PROFILE_DEFAULT = 'default';
+const PROFILE_FORMALDEHYDE_DP2 = 'formaldehyde-dp2';
+const PROFILE_RYFMQ5RL = 'ryfmq5rl';
 
 class SmartAirDetectionBox extends TuyaSpecificClusterDevice {
-    async onNodeInit({ zclNode }) {
 
-        zclNode.endpoints[1].clusters.tuya.on("response", async value => {
-            try {
-                await this.handleDataPoint(value);
-            } catch (err) {
-                this.error('Failed to process Tuya response', err);
-            }
-        });
+  async onNodeInit({ zclNode }) {
+    this.manufacturerName = await this.getManufacturerName(zclNode);
+    this.profile = this.getProfile(this.manufacturerName);
+
+    this.log('Smart Air Detection Box profile:', this.manufacturerName, this.profile);
+
+    const handleDatapoint = async data => {
+      try {
+        await this.handleDataPoint(data);
+      } catch (error) {
+        this.error('Failed to process Smart Air Detection Box datapoint', error);
+      }
+    };
+
+    zclNode.endpoints[1].clusters.tuya.on('reporting', handleDatapoint);
+    zclNode.endpoints[1].clusters.tuya.on('response', handleDatapoint);
+  }
+
+  async getManufacturerName(zclNode) {
+    const basicCluster = zclNode.endpoints[1].clusters.basic;
+    const cachedManufacturerName = basicCluster?.attributes?.manufacturerName;
+
+    if (cachedManufacturerName) {
+      return cachedManufacturerName;
     }
 
-    async handleDataPoint(data) {
-        const dp = data.dp;
-        const value = getDataValue(data);
+    if (!basicCluster || typeof basicCluster.readAttributes !== 'function') {
+      this.log('Basic cluster manufacturerName is unavailable; using default air-quality profile');
+      return undefined;
+    }
 
-        switch (dp) {
-            case dataPoints.tsFormaldehyde:
-                // Formaldehyde data point
-                this.log("Formaldehyde: ", value);
-                this.setCapabilityValue("measure_formaldehyde", value).catch(this.error);
-                break;
-            case dataPoints.tsVOC:
-                // VOC data point
-                this.log("VOC: ", value);
-                this.setCapabilityValue("measure_voc", value).catch(this.error);
-                break;
-            case dataPoints.tsCO2:
-                // CO2 data point
-                this.log("CO2: ", value);
-                this.setCapabilityValue("measure_co2", value).catch(this.error);
-                break;
-            case dataPoints.tsTemperature:
-                // Temperature data point
-                const temperatureValue = value / 10.0;
-                this.log("Temperature: ", temperatureValue);
-                this.setCapabilityValue("measure_temperature", temperatureValue).catch(this.error);
-                break;
-            case dataPoints.tsHumidity:
-                // Humidity data point
-                const humidityValue = value / 10.0;
-                this.log("Humidity: ", humidityValue);
-                this.setCapabilityValue("measure_humidity", humidityValue).catch(this.error);
-                break;
-            // Add additional cases as necessary
-            default:
-                this.log("Unhandled Data Point (dp, value):", dp, value);
+    try {
+      const { manufacturerName } = await basicCluster.readAttributes(['manufacturerName']);
+      return manufacturerName;
+    } catch (error) {
+      this.error('Failed to read manufacturerName; using default air-quality profile', error);
+      return undefined;
+    }
+  }
+
+  getProfile(manufacturerName) {
+    if (manufacturerName === '_TZE200_ryfmq5rl') {
+      return PROFILE_RYFMQ5RL;
+    }
+
+    if (manufacturerName === '_TZE200_mja3fuja') {
+      return PROFILE_FORMALDEHYDE_DP2;
+    }
+
+    return PROFILE_DEFAULT;
+  }
+
+  async handleDataPoint(data) {
+    const value = getDataValue(data);
+
+    if (typeof value !== 'number' || !Number.isFinite(value)) {
+      this.log('Ignoring non-numeric Smart Air Detection Box datapoint:', data.dp, value);
+      return;
+    }
+
+    switch (data.dp) {
+      case dataPoints.temperature:
+        await this.setCapabilityValue('measure_temperature', value / 10);
+        return;
+
+      case dataPoints.humidity:
+        await this.setCapabilityValue('measure_humidity', value / 10);
+        return;
+
+      case dataPoints.co2OrFormaldehyde:
+        if (this.profile === PROFILE_RYFMQ5RL) {
+          await this.setCapabilityValue('measure_formaldehyde', value / 100);
+        } else if (this.profile === PROFILE_FORMALDEHYDE_DP2) {
+          await this.setCapabilityValue('measure_formaldehyde', value);
+        } else {
+          await this.setCapabilityValue('measure_co2', value);
         }
-    }
+        return;
 
-    onDeleted() {
-        this.log("Smart Air Detection Box removed");
+      case dataPoints.voc:
+        await this.setCapabilityValue(
+          'measure_voc',
+          this.profile === PROFILE_RYFMQ5RL ? value / 10 : value
+        );
+        return;
+
+      case dataPoints.formaldehydeOrCo2:
+        if (this.profile === PROFILE_DEFAULT) {
+          await this.setCapabilityValue('measure_formaldehyde', value);
+        } else {
+          await this.setCapabilityValue('measure_co2', value);
+        }
+        return;
+
+      default:
+        this.log('Unhandled Smart Air Detection Box datapoint:', data.dp, value);
     }
+  }
+
+  onDeleted() {
+    this.log('Smart Air Detection Box removed');
+  }
+
 }
 
 module.exports = SmartAirDetectionBox;
