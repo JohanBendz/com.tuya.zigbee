@@ -1431,3 +1431,23 @@ test('_TZE200_vvmbj46n uses exact DP4 battery and 3xAAA profile', () => {
   );
   assert.match(exactSource, /require\('\.\.\/temphumidsensor4\/device'\)/);
 });
+test('Nous A1Z keeps verified stock metering scaling', () => {
+  const manifest = require('../drivers/smartplug/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smartplug', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZ3000_2putqrmw'));
+
+  // Stock A1Z reports Metering multiplier=1/divisor=100 and
+  // Electrical Measurement current multiplier=1/divisor=1000.
+  assert.match(
+    source,
+    /registerCapability\('meter_power'[\s\S]*reportParser: value => \(value \* this\.meteringOffset\)\/100\.0/
+  );
+  assert.match(
+    source,
+    /registerCapability\('measure_current'[\s\S]*return value\/1000/
+  );
+});
