@@ -1322,3 +1322,19 @@ test('NEO siren processes response frames and awaits settings writes', () => {
   assert.match(source, /await this\.sendAlarmTune\(/);
   assert.doesNotMatch(source, /changedKeys\.forEach/);
 });
+test('_TZ3000_upgcbody uses exact 2xAAA water profile', () => {
+  const legacy = require('../drivers/water_detector/driver.compose.json');
+  const exact = require('../drivers/water_detector_2aaa/driver.compose.json');
+  const runtime = fs.readFileSync(
+    path.join(root, 'drivers', 'water_detector_2aaa', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(!legacy.zigbee.manufacturerName.includes('_TZ3000_upgcbody'));
+  assert.deepEqual(exact.zigbee.manufacturerName, ['_TZ3000_upgcbody']);
+  assert.deepEqual(exact.zigbee.productId, ['TS0207', 'SNZB-05']);
+  assert.deepEqual(exact.energy.batteries, ['AAA', 'AAA']);
+  assert.deepEqual(exact.zigbee.endpoints['1'].clusters, [0, 1, 3, 1280]);
+  assert.deepEqual(exact.zigbee.endpoints['1'].bindings, [1, 1280]);
+  assert.match(runtime, /require\('\.\.\/water_detector\/device'\)/);
+});
