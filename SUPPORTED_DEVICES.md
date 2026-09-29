@@ -18,7 +18,8 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | 1 Channel Relay Board (`relay_board_1_channel`) | `TS0001` | `_TZ3000_g8n1n7lg` |
 | 1 Gang Dimmer Module (`dimmer_1_gang`) | `TS0052`<br>`TS110E`<br>`TS110F` | `_TYZB01_qezuin6k`<br>`_TZ3000_ktuoyvt5`<br>`_TZ3000_mgusv51k`<br>`_TZ3210_k1msuvg6`<br>`_TZ3210_ngqk6jia`<br>`_TZ3210_weaqkhab`<br>`_TZ3210_zxbtub8r` |
 | 1 Gang Dimmer Module (`dimmer_1_gang_2`) | `TS110E` | `_TZ3210_ngqk6jia` |
-| 1 Gang Dimmer Module (`dimmer_1_gang_tuya`) | `TS0601` | `_TZE200_1agwnems`<br>`_TZE200_4mh6tyyo`<br>`_TZE200_579lguh2`<br>`_TZE200_ip2akl4w`<br>`_TZE200_la2c2uo9`<br>`_TZE200_vucankjx`<br>`_TZE204_5cuocqty`<br>`_TZE204_9qhuzgo0`<br>`_TZE204_dcnsggvz`<br>`_TZE204_hlx9tnzb`<br>`_TZE204_n9ctkb6j` |
+| 1 Gang Dimmer Module (`dimmer_1_gang_tuya`) | `TS0601` | `_TZE200_1agwnems`<br>`_TZE200_4mh6tyyo`<br>`_TZE200_579lguh2`<br>`_TZE200_ip2akl4w`<br>`_TZE200_la2c2uo9`<br>`_TZE200_vucankjx`<br>`_TZE204_9qhuzgo0`<br>`_TZE204_dcnsggvz`<br>`_TZE204_hlx9tnzb`<br>`_TZE204_n9ctkb6j` |
+| 1 Gang Dimmer Module (AVATTO) (`dimmer_1_gang_tuya_avatto`) | `TS0601` | `_TZE204_5cuocqty` |
 | 1 Gang Switch Module (`switch_1_gang`) | `TS0001`<br>`TS0003`<br>`TS000F`<br>`TS0011`<br>`TS011F` | `_TYZB01_aneiicmq`<br>`_TYZB01_ncutbjdi`<br>`_TZ3000_46t1rvdu`<br>`_TZ3000_6axxqqi2`<br>`_TZ3000_ji4araar`<br>`_TZ3000_m9af2l6g`<br>`_TZ3000_majwnphg`<br>`_TZ3000_mx3vgyea`<br>`_TZ3000_npzfdcof`<br>`_TZ3000_pmvbt5hh`<br>`_TZ3000_qmi1cfuq`<br>`_TZ3000_rmjr4ufz`<br>`_TZ3000_sjpl9eg3`<br>`_TZ3000_tqlv4ug4`<br>`_TZ3000_zmy1waw6` |
 | 1 Gang Switch Module with metering (`switch_1_gang_metering`) | `TS0001` | `_TZ3000_prits6g4` |
 | 1 Gang Switch Module with metering (`switch_1_gang_metering_gjrubzje`) | `TS0001` | `_TZ3000_gjrubzje` |
