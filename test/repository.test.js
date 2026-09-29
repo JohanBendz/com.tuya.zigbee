@@ -1519,3 +1519,25 @@ test('_TZE204_7gclukjs uses its exact ZY-M100 24G datapoint profile', () => {
   assert.equal(settings.find(setting => setting.id === 'radar_sensitivity').max, 10);
   assert.equal(settings.find(setting => setting.id === 'maximum_range').max, 8.25);
 });
+test('_TZE200_fjjbhx9d uses the exact dual Tuya-DP dimmer profile', () => {
+  const generic = require('../drivers/dimmer_2_gang_tuya/driver.compose.json');
+  const exact = require('../drivers/dimmer_2_gang_tuya_fjjbhx9d/driver.compose.json');
+  const runtime = fs.readFileSync(
+    path.join(root, 'drivers', 'dimmer_2_gang_tuya', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(!generic.zigbee.manufacturerName.includes('_TZE200_fjjbhx9d'));
+  assert.deepEqual(exact.zigbee.manufacturerName, ['_TZE200_fjjbhx9d']);
+  assert.deepEqual(exact.zigbee.productId, ['TS0601']);
+  assert.deepEqual(exact.zigbee.endpoints['1'].clusters, [0, 4, 5, 61184]);
+  assert.deepEqual(exact.zigbee.endpoints['1'].bindings, [25, 10]);
+  assert.ok(exact.zigbee.devices.secondGang);
+
+  assert.match(runtime, /onOffGangOne/);
+  assert.match(runtime, /brightnessGangOne/);
+  assert.match(runtime, /onOffGangTwo/);
+  assert.match(runtime, /brightnessGangTwo/);
+  assert.match(runtime, /clusters\.tuya\.on\("reporting"/);
+  assert.match(runtime, /clusters\.tuya\.on\("response"/);
+});
