@@ -103,14 +103,21 @@ class temphumidsensor4 extends TuyaSpecificClusterDevice {
 				this.log('Humidity Level is ', measuredValue, ' %RH (', measuredValue, ')');
 				this.reportHumidityCapacity(measuredValue);
 				break;
-			/*
-			//9 === 0
-			//3 = 2
-						case 15:
-				this.log('received battery percentage: ', value, ' ', measuredValue);
-				this.reportBatteryPercentageCapacity(measuredValue);
+
+			case 3: {
+				const batteryByState = { 0: 25, 1: 50, 2: 100 };
+				const batteryLevel = batteryByState[measuredValue];
+
+				if (batteryLevel === undefined) {
+					this.log('Unknown battery state:', measuredValue);
+					break;
+				}
+
+				this.log('Battery state:', measuredValue, '=>', batteryLevel, '%');
+				this.reportBatteryPercentageCapacity(batteryLevel);
+				this.reportAlarmBatteryCapacity(measuredValue === 0);
 				break;
-			*/
+			}
 			default:
 				this.error(`WARN: NOT PROCESSED Tuya cmd: dp='${dp}' value='${measuredValue}' descMap.data='${JSON.stringify(data)}'`);
 				this.log('WARN: NOT PROCESSED Tuya cmd: dp=', dp, 'value=', measuredValue, 'descMap.data = ', data);
