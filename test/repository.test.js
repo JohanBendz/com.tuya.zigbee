@@ -1360,3 +1360,42 @@ test('solar rain sensor derives water alarm from DP105 intensity', () => {
     /setCapabilityValue\('alarm_water', isRaining\)/
   );
 });
+test('_TZE200_jthf7vb6 keeps its verified DP1/DP4 profile', () => {
+  const shared = require('../drivers/water_leak_sensor_tuya/driver.compose.json');
+  const exact = require('../drivers/water_leak_sensor_jthf7vb6/driver.compose.json');
+  const sharedSource = fs.readFileSync(
+    path.join(root, 'drivers', 'water_leak_sensor_tuya', 'device.js'),
+    'utf8'
+  );
+  const exactSource = fs.readFileSync(
+    path.join(root, 'drivers', 'water_leak_sensor_jthf7vb6', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(!shared.zigbee.manufacturerName.includes('_TZE200_jthf7vb6'));
+  assert.deepEqual(exact.zigbee.manufacturerName, ['_TZE200_jthf7vb6']);
+  assert.deepEqual(exact.zigbee.productId, ['TS0601']);
+  assert.equal(exact.energy, undefined);
+
+  assert.match(
+    sharedSource,
+    /manufacturerName === '_TZE200_jthf7vb6'/
+  );
+  assert.match(
+    sharedSource,
+    /data\.dp === 1[\s\S]*Number\(value\) === 0/
+  );
+  assert.match(
+    sharedSource,
+    /data\.dp === 4[\s\S]*setCapabilityValue\('measure_battery', battery\)/
+  );
+  assert.match(
+    sharedSource,
+    /setCapabilityValue\('alarm_battery', battery < 20\)/
+  );
+  assert.match(
+    sharedSource,
+    /if \(!this\.isJthf7vb6\)[\s\S]*tuya\.read\(\{ dp: 14 \}\)/
+  );
+  assert.match(exactSource, /require\('\.\.\/water_leak_sensor_tuya\/device'\)/);
+});
