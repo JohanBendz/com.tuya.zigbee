@@ -15097,21 +15097,21 @@
         "pl": "Formaldehyd"
       },
       "units": {
-        "en": "ppm",
-        "ru": "ч./млн."
+        "en": "mg/m³",
+        "ru": "мг/м³"
       },
       "insights": true,
       "desc": {
-        "en": "Formaldehyde in Parts-per-million (ppm)",
-        "nl": "Formaldehyde deeltjes per miljoen (ppm)",
-        "de": "Formaldehyd in Anteile pro Million (ppm)",
-        "fr": "Niveau de formaldéhyde en parts par million (ppm)",
-        "it": "Livello di formaldeide in parti per milione (ppm)",
-        "sv": "Formaldehyd i partiklar-per-miljon (ppm)",
-        "no": "Formaldehyd i partikler per million (ppm)",
-        "es": "Formaldehído en partes por millón (ppm)",
-        "da": "Formaldehyd i partikler-per-million (ppm)",
-        "pl": "Stężenie formaldehye w części na milion (ppm)"
+        "en": "Formaldehyde concentration in milligrams per cubic metre (mg/m³)",
+        "nl": "Formaldehydeconcentratie in milligram per kubieke meter (mg/m³)",
+        "de": "Formaldehydkonzentration in Milligramm pro Kubikmeter (mg/m³)",
+        "fr": "Concentration de formaldéhyde en milligrammes par mètre cube (mg/m³)",
+        "it": "Concentrazione di formaldeide in milligrammi per metro cubo (mg/m³)",
+        "sv": "Formaldehydkoncentration i milligram per kubikmeter (mg/m³)",
+        "no": "Formaldehydkonsentrasjon i milligram per kubikkmeter (mg/m³)",
+        "es": "Concentración de formaldehído en miligramos por metro cúbico (mg/m³)",
+        "da": "Formaldehydkoncentration i milligram pr. kubikmeter (mg/m³)",
+        "pl": "Stężenie formaldehydu w miligramach na metr sześcienny (mg/m³)"
       },
       "chartType": "spline",
       "decimals": 4,
