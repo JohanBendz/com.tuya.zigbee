@@ -1338,3 +1338,25 @@ test('_TZ3000_upgcbody uses exact 2xAAA water profile', () => {
   assert.deepEqual(exact.zigbee.endpoints['1'].bindings, [1, 1280]);
   assert.match(runtime, /require\('\.\.\/water_detector\/device'\)/);
 });
+test('solar rain sensor derives water alarm from DP105 intensity', () => {
+  const manifest = require('../drivers/rain_sensor/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'rain_sensor', 'device.js'),
+    'utf8'
+  );
+
+  assert.deepEqual(manifest.zigbee.manufacturerName, ['_TZ3210_tgvtvdoc']);
+  assert.deepEqual(manifest.zigbee.productId, ['TS0207']);
+  assert.match(
+    source,
+    /case V1_RAIN_SENSOR_DATA_POINTS\.rain_intensity:[\s\S]*const isRaining = parsedValue > 100/
+  );
+  assert.match(
+    source,
+    /setCapabilityValue\('measure_voltage\.rain', parsedValue \/ 1000\)/
+  );
+  assert.match(
+    source,
+    /setCapabilityValue\('alarm_water', isRaining\)/
+  );
+});
