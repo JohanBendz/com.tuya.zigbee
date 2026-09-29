@@ -1061,3 +1061,26 @@ test('Zigbee manufacturer/product identities resolve to a single driver', () => 
 
   assert.deepEqual(duplicates, []);
 });
+
+test('_TZE200_mgxy2d9f motion sensor keeps the verified passive Tuya profile', () => {
+  const manifest = require('../drivers/motion_sensor_3/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'motion_sensor_3', 'device.js'),
+    'utf8'
+  );
+
+  assert.deepEqual(manifest.zigbee.manufacturerName, ['_TZE200_mgxy2d9f']);
+  assert.deepEqual(manifest.zigbee.productId, ['TS0601']);
+  assert.deepEqual(manifest.capabilities, ['alarm_motion', 'alarm_tamper', 'measure_battery']);
+  assert.deepEqual(manifest.energy.batteries, ['CR123A']);
+  assert.deepEqual(manifest.zigbee.endpoints['1'].clusters, [0, 4, 5, 61184]);
+
+  assert.match(source, /const DP_MOTION = 1;/);
+  assert.match(source, /const DP_BATTERY = 4;/);
+  assert.match(source, /const DP_TAMPER = 5;/);
+  assert.match(source, /const motionActive = numericValue === 0;/);
+  assert.match(source, /Math\.max\(0, Math\.min\(100, numericValue\)\)/);
+  assert.match(source, /const tamperActive = numericValue === 1;/);
+  assert.doesNotMatch(source, /readAttributes\(/);
+  assert.doesNotMatch(source, /setInterval\(/);
+});
