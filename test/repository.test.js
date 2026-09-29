@@ -1084,3 +1084,35 @@ test('_TZE200_mgxy2d9f motion sensor keeps the verified passive Tuya profile', (
   assert.doesNotMatch(source, /readAttributes\(/);
   assert.doesNotMatch(source, /setInterval\(/);
 });
+
+test('double power point maps its declared metering capabilities to endpoint 1', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'double_power_point', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(
+    source,
+    /if \(endpoint === 1\) \{[\s\S]*this\.registerMeteringCapabilities\(\);[\s\S]*this\.configureMeteringReporting/
+  );
+
+  const mappings = [
+    ['meter_power', 'CLUSTER.METERING', 'currentSummationDelivered'],
+    ['measure_power', 'CLUSTER.ELECTRICAL_MEASUREMENT', 'activePower'],
+    ['measure_current', 'CLUSTER.ELECTRICAL_MEASUREMENT', 'rmsCurrent'],
+    ['measure_voltage', 'CLUSTER.ELECTRICAL_MEASUREMENT', 'rmsVoltage'],
+  ];
+
+  for (const [capability, cluster, attribute] of mappings) {
+    assert.match(
+      source,
+      new RegExp(
+        `registerCapability\\('${capability}', ${cluster.replace('.', '\\.')}[\\s\\S]*?endpoint: 1[\\s\\S]*?get: '${attribute}'[\\s\\S]*?report: '${attribute}'`
+      )
+    );
+  }
+
+  assert.match(source, /reportParser: value => value \/ 1000/);
+  assert.match(source, /reportParser: value => \(value \* this\.meteringOffset\) \/ 100\.0/);
+  assert.match(source, /reportParser: value => \(value \* this\.measureOffset\) \/ 100/);
+});
