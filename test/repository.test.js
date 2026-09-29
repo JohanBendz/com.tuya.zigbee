@@ -1375,7 +1375,8 @@ test('_TZE200_jthf7vb6 keeps its verified DP1/DP4 profile', () => {
   assert.ok(!shared.zigbee.manufacturerName.includes('_TZE200_jthf7vb6'));
   assert.deepEqual(exact.zigbee.manufacturerName, ['_TZE200_jthf7vb6']);
   assert.deepEqual(exact.zigbee.productId, ['TS0601']);
-  assert.equal(exact.energy, undefined);
+  assert.deepEqual(exact.energy.batteries, ['OTHER']);
+  assert.ok(!exact.capabilities.includes('alarm_battery'));
 
   assert.match(
     sharedSource,
