@@ -1491,3 +1491,31 @@ test('_TZE204_5cuocqty uses an exact Tuya-DP dimmer profile', () => {
   assert.match(sharedRuntime, /clusters\.tuya\.on\('reporting'/);
   assert.match(sharedRuntime, /clusters\.tuya\.on\('response'/);
 });
+test('_TZE204_7gclukjs uses its exact ZY-M100 24G datapoint profile', () => {
+  const generic = require('../drivers/radar_sensor/driver.compose.json');
+  const exact = require('../drivers/radar_sensor_7gclukjs/driver.compose.json');
+  const settings = require('../drivers/radar_sensor_7gclukjs/driver.settings.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'radar_sensor', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(!generic.zigbee.manufacturerName.includes('_TZE204_7gclukjs'));
+  assert.deepEqual(exact.zigbee.manufacturerName, ['_TZE204_7gclukjs']);
+  assert.deepEqual(exact.zigbee.productId, ['TS0601']);
+  assert.deepEqual(exact.zigbee.endpoints['1'].clusters, [0, 4, 5, 61184]);
+  assert.deepEqual(exact.zigbee.endpoints['1'].bindings, [25, 10]);
+
+  assert.match(source, /zyM10024GV2Manufacturers = new Set\(\['_TZE204_7gclukjs'\]\)/);
+  assert.match(source, /tshpsPresenceState: 104/);
+  assert.match(source, /tshpsState: 1/);
+  assert.match(source, /tshpsIlluminanceLux: 103/);
+  assert.match(source, /tshpsFadingTime: 105/);
+  assert.match(source, /const divisor = this\.isZyM10024GV2 \? 10 : 100/);
+  assert.match(source, /value === 1 \|\| value === 2/);
+  assert.match(source, /this\.usesAlternateDataPoints \|\| this\.isZyM10024GV2/);
+
+  assert.ok(!settings.some(setting => setting.id === 'detection_delay'));
+  assert.equal(settings.find(setting => setting.id === 'radar_sensitivity').max, 10);
+  assert.equal(settings.find(setting => setting.id === 'maximum_range').max, 8.25);
+});
