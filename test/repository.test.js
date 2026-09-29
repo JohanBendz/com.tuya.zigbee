@@ -1234,7 +1234,8 @@ test('_TZE204_qasjif9e uses an isolated exact radar profile', () => {
   );
 
   assert.ok(!generic.zigbee.manufacturerName.includes('_TZE204_qasjif9e'));
-  assert.deepEqual(exact.zigbee.manufacturerName, ['_TZE204_qasjif9e']);
+  assert.ok(!generic.zigbee.manufacturerName.includes('_TZE204_ztqnh5cg'));
+  assert.deepEqual(exact.zigbee.manufacturerName.sort(), ['_TZE204_qasjif9e', '_TZE204_ztqnh5cg'].sort());
   assert.deepEqual(exact.zigbee.productId, ['TS0601']);
   assert.deepEqual(exact.zigbee.endpoints['1'].clusters, [0, 4, 5, 61184]);
   assert.deepEqual(exact.zigbee.endpoints['1'].bindings, [10, 25]);
