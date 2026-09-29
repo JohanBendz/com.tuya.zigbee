@@ -136,7 +136,8 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Wall Socket with metering (`wall_socket`) | `TS011F` | `_TZ3000_4ux0ondb`<br>`_TZ3000_5ct6e7ye`<br>`_TZ3000_b28wrpvx`<br>`_TZ3000_y4ona9me` |
 | Wall Switch (1/4 Gang) (`wall_switch_4_gang`) | `TS0014`<br>`TS0044` | `_TYZB01_bagt1e4o`<br>`_TZ3000_dku2cfsc`<br>`_TZ3000_fjt5218m`<br>`_TZ3000_r0pmi2p3` |
 | Wall Thermostat (`wall_thermostat`) | `TS0601` | `_TZE200_2ekuz3dz`<br>`_TZE200_aoclfnxz`<br>`_TZE204_aoclfnxz` |
-| Water Detector (`water_detector`) | `TS0207`<br>`q9mpfhw` | `_TYST11_qq9mpfhw`<br>`_TYZB01_sqmd19i1`<br>`_TZ3000_0s9gukzt`<br>`_TZ3000_6oabgtzv`<br>`_TZ3000_85czd6fy`<br>`_TZ3000_awvmkayh`<br>`_TZ3000_eit7p838`<br>`_TZ3000_fxvjhdyl`<br>`_TZ3000_k4ej3ww2`<br>`_TZ3000_kstbkt6a`<br>`_TZ3000_kyb656no`<br>`_TZ3000_mugyhz0q`<br>`_TZ3000_ocjlo4ea`<br>`_TZ3000_t6jriawg`<br>`_TZ3000_upgcbody` |
+| Water Detector (`water_detector`) | `TS0207`<br>`q9mpfhw` | `_TYST11_qq9mpfhw`<br>`_TYZB01_sqmd19i1`<br>`_TZ3000_0s9gukzt`<br>`_TZ3000_6oabgtzv`<br>`_TZ3000_85czd6fy`<br>`_TZ3000_awvmkayh`<br>`_TZ3000_eit7p838`<br>`_TZ3000_fxvjhdyl`<br>`_TZ3000_k4ej3ww2`<br>`_TZ3000_kstbkt6a`<br>`_TZ3000_kyb656no`<br>`_TZ3000_mugyhz0q`<br>`_TZ3000_ocjlo4ea`<br>`_TZ3000_t6jriawg` |
+| Water Detector (2×AAA) (`water_detector_2aaa`) | `SNZB-05`<br>`TS0207` | `_TZ3000_upgcbody` |
 | Water Leak Sensor (`water_leak_sensor_tuya`) | `TS0601` | `_TZE200_jthf7vb6`<br>`_TZE200_qq9mpfhw` |
 | Zigbee Repeater (`zigbee_repeater`) | `TS0207` | `_TZ3000_5k5vh43t`<br>`_TZ3000_gszjt2xx`<br>`_TZ3000_m0vaazab`<br>`_TZ3000_misw04hq`<br>`_TZ3000_nkkl7uzv`<br>`_TZ3000_nlsszmzl`<br>`_TZ3000_ufttklsz`<br>`_TZ3000_wlquqiiz` |
 <!-- END GENERATED DEVICE INDEX -->
