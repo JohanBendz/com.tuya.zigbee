@@ -3106,8 +3106,7 @@
           "_TZE200_4mh6tyyo",
           "_TZE204_n9ctkb6j",
           "_TZE204_9qhuzgo0",
-          "_TZE204_dcnsggvz",
-          "_TZE204_5cuocqty"
+          "_TZE204_dcnsggvz"
         ],
         "productId": [
           "TS0601"
@@ -3134,6 +3133,69 @@
           "image": "/drivers/dimmer_1_gang_tuya/assets/icon.svg",
           "instruction": {
             "en": "Press the reset switch rapidly 10 times until the unit make a continously beep sound to enter pairing mode."
+          }
+        }
+      },
+      "settings": []
+    },
+    {
+      "id": "dimmer_1_gang_tuya_avatto",
+      "name": {
+        "en": "1 Gang Dimmer Module (AVATTO)"
+      },
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "capabilitiesOptions": {
+        "dim": {
+          "opts": {
+            "duration": true
+          }
+        }
+      },
+      "images": {
+        "large": "/drivers/dimmer_1_gang_tuya_avatto/assets/images/large.png",
+        "small": "/drivers/dimmer_1_gang_tuya_avatto/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE204_5cuocqty"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              25,
+              10
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/dimmer_1_gang_tuya_avatto/assets/icon.svg",
+          "instruction": {
+            "en": "Press the reset switch rapidly 10 times until the unit makes a continuous beep sound to enter pairing mode."
           }
         }
       },
