@@ -1297,3 +1297,28 @@ test('soil sensor profiles keep manufacturer-specific temperature scaling', () =
   assert.match(scaledSource, /clusters\.tuya\.on\('response', handleDatapoint\)/);
   assert.match(scaledSource, /clusters\.tuya\.on\('reporting', handleDatapoint\)/);
 });
+test('NEO siren processes response frames and awaits settings writes', () => {
+  const manifest = require('../drivers/siren/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'siren', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZE204_t1blo2bj'));
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZE200_t1blo2bj'));
+
+  assert.match(
+    source,
+    /async processResponse\(data\) \{[\s\S]*await this\.processReporting\(data\)/
+  );
+  assert.match(
+    source,
+    /async processDatapoint\(data\) \{[\s\S]*await this\.processReporting\(data\)/
+  );
+
+  assert.match(source, /for \(const updatedSetting of changedKeys\)/);
+  assert.match(source, /await this\.sendAlarmVolume\(/);
+  assert.match(source, /await this\.sendAlarmDuration\(/);
+  assert.match(source, /await this\.sendAlarmTune\(/);
+  assert.doesNotMatch(source, /changedKeys\.forEach/);
+});
