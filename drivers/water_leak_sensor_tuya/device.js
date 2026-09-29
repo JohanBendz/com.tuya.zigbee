@@ -73,7 +73,9 @@ class TuyaWaterLeakSensor extends TuyaSpecificClusterDevice {
                 if (Number.isFinite(battery)) {
                     this.log('WLS-100z battery:', battery, '%');
                     this.setCapabilityValue('measure_battery', battery).catch(this.error);
-                    this.setCapabilityValue('alarm_battery', battery < 20).catch(this.error);
+                    if (this.hasCapability('alarm_battery')) {
+                        this.setCapabilityValue('alarm_battery', battery < 20).catch(this.error);
+                    }
                 }
             } else {
                 this.log('Unhandled WLS-100z datapoint:', data.dp, 'value:', value);
