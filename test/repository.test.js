@@ -1151,3 +1151,21 @@ test('_TZ3000_dd8wwzcy uses the repaired double-power-point metering profile', (
   assert.match(source, /reportParser: value => \(value \* this\.meteringOffset\) \/ 100\.0/);
   assert.match(source, /reportParser: value => value \/ 1000/);
 });
+test('_TZ3000_mmkbptmx exposes all four switch endpoints', () => {
+  const manifest = require('../drivers/switch_4_gang_metering/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'switch_4_gang_metering', 'device.js'),
+    'utf8'
+  );
+
+  assert.deepEqual(manifest.zigbee.manufacturerName, ['_TZ3000_mmkbptmx']);
+  assert.deepEqual(manifest.zigbee.productId, ['TS0004']);
+  assert.deepEqual(manifest.zigbee.endpoints['2'].clusters, [4, 5, 6]);
+  assert.deepEqual(manifest.zigbee.endpoints['3'].clusters, [4, 5, 6]);
+  assert.deepEqual(manifest.zigbee.endpoints['4'].clusters, [4, 5, 6]);
+
+  assert.match(
+    source,
+    /subDeviceId === 'secondSwitch' \? 2 : subDeviceId === 'thirdSwitch' \? 3 : subDeviceId === 'fourthSwitch' \? 4 : 1/
+  );
+});
