@@ -1244,3 +1244,24 @@ test('_TZE204_qasjif9e uses an isolated exact radar profile', () => {
   assert.match(source, /newSettings\['fading_time'\] \* 10/);
   assert.match(source, /clusters\.tuya\.on\("reporting", handleDatapoint\)/);
 });
+test('FingerBot uses Tuya MCU send-data command for datapoint settings', () => {
+  const clusterSource = fs.readFileSync(
+    path.join(root, 'lib', 'TuyaSpecificCluster.js'),
+    'utf8'
+  );
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'fingerbot', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(clusterSource, /sendData:\s*\{\s*id:\s*0x04/);
+  assert.match(source, /clusters\.tuya\.sendData\(\{/);
+  assert.match(source, /_writeFingerBotEnum\(V1_FINGER_BOT_DATA_POINTS\.mode/);
+  assert.match(source, /_writeFingerBotData32\(V1_FINGER_BOT_DATA_POINTS\.lower/);
+  assert.match(source, /_writeFingerBotData32\(V1_FINGER_BOT_DATA_POINTS\.delay/);
+  assert.match(source, /_writeFingerBotEnum\(V1_FINGER_BOT_DATA_POINTS\.reverse/);
+  assert.match(source, /_writeFingerBotData32\(V1_FINGER_BOT_DATA_POINTS\.upper/);
+
+  assert.doesNotMatch(source, /this\.writeEnum\(/);
+  assert.doesNotMatch(source, /this\.writeData32\(/);
+});
