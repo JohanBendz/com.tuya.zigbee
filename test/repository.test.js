@@ -1116,3 +1116,19 @@ test('double power point maps its declared metering capabilities to endpoint 1',
   assert.match(source, /reportParser: value => \(value \* this\.meteringOffset\) \/ 100\.0/);
   assert.match(source, /reportParser: value => \(value \* this\.measureOffset\) \/ 100/);
 });
+test('_TZ3210_pfbzs1an uses the repaired double-power-point metering profile', () => {
+  const manifest = require('../drivers/double_power_point/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'double_power_point', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZ3210_pfbzs1an'));
+  assert.deepEqual(manifest.zigbee.productId, ['TS011F']);
+  assert.deepEqual(manifest.zigbee.endpoints['1'].clusters, [0, 4, 5, 6, 1794, 2820]);
+  assert.deepEqual(manifest.zigbee.endpoints['2'].clusters, [6]);
+
+  assert.match(source, /reportParser: value => \(value \* this\.meteringOffset\) \/ 100\.0/);
+  assert.match(source, /reportParser: value => value \/ 1000/);
+  assert.match(source, /endpoint: 1,[\s\S]*?get: 'currentSummationDelivered'/);
+});
