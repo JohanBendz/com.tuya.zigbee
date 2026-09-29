@@ -1400,3 +1400,34 @@ test('_TZE200_jthf7vb6 keeps its verified DP1/DP4 profile', () => {
   );
   assert.match(exactSource, /require\('\.\.\/water_leak_sensor_tuya\/device'\)/);
 });
+test('_TZE200_vvmbj46n uses exact DP4 battery and 3xAAA profile', () => {
+  const generic = require('../drivers/temphumidsensor4/driver.compose.json');
+  const exact = require('../drivers/temphumidsensor_vvmbj46n/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'temphumidsensor4', 'device.js'),
+    'utf8'
+  );
+  const exactSource = fs.readFileSync(
+    path.join(root, 'drivers', 'temphumidsensor_vvmbj46n', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(!generic.zigbee.manufacturerName.includes('_TZE200_vvmbj46n'));
+  assert.deepEqual(exact.zigbee.manufacturerName, ['_TZE200_vvmbj46n']);
+  assert.deepEqual(exact.energy.batteries, ['AAA', 'AAA', 'AAA']);
+  assert.deepEqual(
+    exact.capabilities,
+    ['measure_temperature', 'measure_humidity', 'measure_battery']
+  );
+
+  assert.match(source, /manufacturerName === '_TZE200_vvmbj46n'/);
+  assert.match(
+    source,
+    /case 4:[\s\S]*this\.isVvmbj46n[\s\S]*reportBatteryPercentageCapacity\(measuredValue\)/
+  );
+  assert.match(
+    source,
+    /case 3:[\s\S]*this\.isVvmbj46n[\s\S]*Ignoring DP3 battery-state mapping/
+  );
+  assert.match(exactSource, /require\('\.\.\/temphumidsensor4\/device'\)/);
+});
