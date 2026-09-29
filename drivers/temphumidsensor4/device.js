@@ -73,7 +73,7 @@ class temphumidsensor4 extends TuyaSpecificClusterDevice {
 
 		zclNode.endpoints[1].clusters.tuya.on("reporting", async value => {
       try {
-        await this.processReporting(value);
+        await this.processResponse(value);
       } catch (err) {
         this.error('Failed to process Tuya reporting', err);
       }
