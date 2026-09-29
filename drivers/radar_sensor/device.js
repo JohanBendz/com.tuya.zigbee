@@ -19,6 +19,7 @@ const dataPoints = {
 
 const alternateDpManufacturers = new Set(['_TZE204_gkfbdvyx']);
 const tenthSecondTimingManufacturers = new Set(['_TZE204_qasjif9e', '_TZE204_ztqnh5cg']);
+const zyM10024GV2Manufacturers = new Set(['_TZE204_7gclukjs']);
 const alternateDataPoints = {
   tshpsFadingTime: 105,
   tshpsIlluminanceLux: 103,
@@ -78,9 +79,22 @@ class radarSensor extends TuyaSpecificClusterDevice {
 
     this.usesAlternateDataPoints = alternateDpManufacturers.has(manufacturerName);
     this.usesTenthSecondTiming = tenthSecondTimingManufacturers.has(manufacturerName);
+    this.isZyM10024GV2 = zyM10024GV2Manufacturers.has(manufacturerName);
     this.dp = this.usesAlternateDataPoints ? {...dataPoints, ...alternateDataPoints} : dataPoints;
+
+    if (this.isZyM10024GV2) {
+      this.dp = {
+        ...dataPoints,
+        tshpsPresenceState: 104,
+        tshpsState: 1,
+        tshpsIlluminanceLux: 103,
+        tshpsTargetDistance: 9,
+        tshpsFadingTime: 105,
+      };
+    }
+
     this.log(
-      `manufacturer: ${manufacturerName}, using ${this.usesAlternateDataPoints ? 'alternate' : 'default'} datapoints`,
+      `manufacturer: ${manufacturerName}, using ${this.isZyM10024GV2 ? 'ZY-M100-24GV2' : this.usesAlternateDataPoints ? 'alternate' : 'default'} datapoints`,
       `timing scale: ${this.usesTenthSecondTiming ? '0.1s' : '1s'}`
     );
 
@@ -102,9 +116,18 @@ class radarSensor extends TuyaSpecificClusterDevice {
     const distanceUpdateInterval = this.getSetting('distance_update_interval') ?? 10;
 
     switch (dp) {
-      case dataPoints.tshpsPresenceState:
+      case this.dp.tshpsPresenceState:
         this.log("presence state: "+ value)
         await this.setCapabilityValue('alarm_motion', Boolean(value))
+        break;
+
+      case this.dp.tshpsState:
+        if (this.isZyM10024GV2) {
+          this.log('radar state:', value);
+          await this.setCapabilityValue('alarm_motion', value === 1 || value === 2);
+          break;
+        }
+        this.log('dp value', dp, value);
         break;
       case dataPoints.tshpscSensitivity:
         this.log("sensitivity state: "+ value)
@@ -113,12 +136,14 @@ class radarSensor extends TuyaSpecificClusterDevice {
         this.log("lux value: "+ value)
         this.onIlluminanceMeasuredAttributeReport(value)
         break;
-      case dataPoints.tshpsTargetDistance:
+      case this.dp.tshpsTargetDistance: {
         if (new Date().getSeconds() % distanceUpdateInterval === 0) {
-          this.setCapabilityValue('target_distance', value/100).catch(this.error);
+          const divisor = this.isZyM10024GV2 ? 10 : 100;
+          this.setCapabilityValue('target_distance', value / divisor).catch(this.error);
         }
 
         break;
+      }
 
       default:
         this.log('dp value', dp, value)
@@ -143,7 +168,7 @@ class radarSensor extends TuyaSpecificClusterDevice {
     }
 
     if (changedKeys.includes('detection_delay')) {
-      if (this.usesAlternateDataPoints) {
+      if (this.usesAlternateDataPoints || this.isZyM10024GV2) {
         throw new Error('Detection delay is not supported on this device model.');
       }
       const detectionDelay = this.usesTenthSecondTiming
