@@ -1132,3 +1132,22 @@ test('_TZ3210_pfbzs1an uses the repaired double-power-point metering profile', (
   assert.match(source, /reportParser: value => value \/ 1000/);
   assert.match(source, /endpoint: 1,[\s\S]*?get: 'currentSummationDelivered'/);
 });
+test('_TZ3000_dd8wwzcy uses the repaired double-power-point metering profile', () => {
+  const manifest = require('../drivers/double_power_point/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'double_power_point', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZ3000_dd8wwzcy'));
+  assert.deepEqual(manifest.zigbee.productId, ['TS011F']);
+  assert.deepEqual(manifest.zigbee.endpoints['1'].clusters, [0, 4, 5, 6, 1794, 2820]);
+  assert.deepEqual(manifest.zigbee.endpoints['2'].clusters, [6]);
+
+  assert.match(
+    source,
+    /readAttributes\([\s\S]*manufacturerName[\s\S]*zclVersion[\s\S]*appVersion[\s\S]*modelId[\s\S]*powerSource[\s\S]*attributeReportingStatus/
+  );
+  assert.match(source, /reportParser: value => \(value \* this\.meteringOffset\) \/ 100\.0/);
+  assert.match(source, /reportParser: value => value \/ 1000/);
+});
