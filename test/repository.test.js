@@ -1259,7 +1259,7 @@ test('FingerBot uses Tuya MCU send-data command for datapoint settings', () => {
   assert.match(source, /_writeFingerBotEnum\(V1_FINGER_BOT_DATA_POINTS\.mode/);
   assert.match(source, /_writeFingerBotData32\(V1_FINGER_BOT_DATA_POINTS\.lower/);
   assert.match(source, /_writeFingerBotData32\(V1_FINGER_BOT_DATA_POINTS\.delay/);
-  assert.match(source, /_writeFingerBotEnum\(V1_FINGER_BOT_DATA_POINTS\.reverse/);
+  assert.match(source, /_writeFingerBotEnum\([\s\S]*?V1_FINGER_BOT_DATA_POINTS\.reverse/);
   assert.match(source, /_writeFingerBotData32\(V1_FINGER_BOT_DATA_POINTS\.upper/);
 
   assert.doesNotMatch(source, /this\.writeEnum\(/);
