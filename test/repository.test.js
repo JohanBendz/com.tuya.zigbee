@@ -1451,3 +1451,19 @@ test('Nous A1Z keeps verified stock metering scaling', () => {
     /registerCapability\('measure_current'[\s\S]*return value\/1000/
   );
 });
+test('_TZE200_amp6tsvy uses the 1-gang Tuya DP1 switch profile', () => {
+  const manifest = require('../drivers/wall_switch_1_gang_tuya/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'wall_switch_1_gang_tuya', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZE200_amp6tsvy'));
+  assert.deepEqual(manifest.zigbee.productId, ['TS0601']);
+  assert.deepEqual(manifest.zigbee.endpoints['1'].clusters, [0, 4, 5, 61184]);
+
+  assert.match(source, /writeBool\(1, onOff\)/);
+  assert.match(source, /if \(dp !== 1\)/);
+  assert.match(source, /clusters\.tuya\.on\("reporting"/);
+  assert.match(source, /clusters\.tuya\.on\("response"/);
+});
