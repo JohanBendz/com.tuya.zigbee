@@ -18,6 +18,7 @@ const dataPoints = {
 }
 
 const alternateDpManufacturers = new Set(['_TZE204_gkfbdvyx']);
+const tenthSecondTimingManufacturers = new Set(['_TZE204_qasjif9e', '_TZE204_ztqnh5cg']);
 const alternateDataPoints = {
   tshpsFadingTime: 105,
   tshpsIlluminanceLux: 103,
@@ -76,16 +77,23 @@ class radarSensor extends TuyaSpecificClusterDevice {
     }
 
     this.usesAlternateDataPoints = alternateDpManufacturers.has(manufacturerName);
+    this.usesTenthSecondTiming = tenthSecondTimingManufacturers.has(manufacturerName);
     this.dp = this.usesAlternateDataPoints ? {...dataPoints, ...alternateDataPoints} : dataPoints;
-    this.log(`manufacturer: ${manufacturerName}, using ${this.usesAlternateDataPoints ? 'alternate' : 'default'} datapoints`);
+    this.log(
+      `manufacturer: ${manufacturerName}, using ${this.usesAlternateDataPoints ? 'alternate' : 'default'} datapoints`,
+      `timing scale: ${this.usesTenthSecondTiming ? '0.1s' : '1s'}`
+    );
 
-    zclNode.endpoints[1].clusters.tuya.on("response", async value => {
+    const handleDatapoint = async value => {
       try {
         await this.updatePosition(value);
       } catch (err) {
-        this.error('Failed to process Tuya response', err);
+        this.error('Failed to process Tuya radar datapoint', err);
       }
-    });
+    };
+
+    zclNode.endpoints[1].clusters.tuya.on("response", handleDatapoint);
+    zclNode.endpoints[1].clusters.tuya.on("reporting", handleDatapoint);
   }
 
   async updatePosition(data) {
@@ -96,7 +104,7 @@ class radarSensor extends TuyaSpecificClusterDevice {
     switch (dp) {
       case dataPoints.tshpsPresenceState:
         this.log("presence state: "+ value)
-        this.setCapabilityValue('alarm_motion', Boolean(value))
+        await this.setCapabilityValue('alarm_motion', Boolean(value))
         break;
       case dataPoints.tshpscSensitivity:
         this.log("sensitivity state: "+ value)
@@ -138,11 +146,17 @@ class radarSensor extends TuyaSpecificClusterDevice {
       if (this.usesAlternateDataPoints) {
         throw new Error('Detection delay is not supported on this device model.');
       }
-      await this.writeData32(dataPoints.tshpsDetectionDelay, newSettings['detection_delay'])
+      const detectionDelay = this.usesTenthSecondTiming
+        ? newSettings['detection_delay'] * 10
+        : newSettings['detection_delay'];
+      await this.writeData32(dataPoints.tshpsDetectionDelay, detectionDelay)
     }
 
     if (changedKeys.includes('fading_time')) {
-      await this.writeData32(this.dp.tshpsFadingTime, newSettings['fading_time'])
+      const fadingTime = this.usesTenthSecondTiming
+        ? newSettings['fading_time'] * 10
+        : newSettings['fading_time'];
+      await this.writeData32(this.dp.tshpsFadingTime, fadingTime)
     }
   }
 
