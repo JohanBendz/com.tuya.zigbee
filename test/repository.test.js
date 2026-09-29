@@ -1265,3 +1265,34 @@ test('FingerBot uses Tuya MCU send-data command for datapoint settings', () => {
   assert.doesNotMatch(source, /this\.writeEnum\(/);
   assert.doesNotMatch(source, /this\.writeData32\(/);
 });
+test('soil sensor profiles keep manufacturer-specific temperature scaling', () => {
+  const legacyManifest = require('../drivers/soilsensor/driver.compose.json');
+  const scaledManifest = require('../drivers/soilsensor_2/driver.compose.json');
+  const legacySource = fs.readFileSync(
+    path.join(root, 'drivers', 'soilsensor', 'device.js'),
+    'utf8'
+  );
+  const scaledSource = fs.readFileSync(
+    path.join(root, 'drivers', 'soilsensor_2', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(!legacyManifest.zigbee.manufacturerName.includes('_TZE284_aao3yzhs'));
+  assert.ok(scaledManifest.zigbee.manufacturerName.includes('_TZE284_aao3yzhs'));
+  assert.ok(scaledManifest.zigbee.manufacturerName.includes('_TZE284_sgabhwa6'));
+
+  assert.match(
+    legacySource,
+    /manufacturerName === '_TZE284_aao3yzhs' \? 10 : 1/
+  );
+  assert.match(
+    legacySource,
+    /const temperature = value \/ \(this\.temperatureDivisor \|\| 1\)/
+  );
+  assert.match(legacySource, /clusters\.tuya\.on\('response', handleDatapoint\)/);
+  assert.match(legacySource, /clusters\.tuya\.on\('reporting', handleDatapoint\)/);
+
+  assert.match(scaledSource, /setCapabilityValue\('measure_temperature', value\/10\)/);
+  assert.match(scaledSource, /clusters\.tuya\.on\('response', handleDatapoint\)/);
+  assert.match(scaledSource, /clusters\.tuya\.on\('reporting', handleDatapoint\)/);
+});
