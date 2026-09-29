@@ -1193,3 +1193,20 @@ test('smart air box keeps manufacturer-specific Tuya datapoint maps', () => {
   assert.equal(formaldehyde.units.ru, 'мг/м³');
   assert.match(formaldehyde.desc.en, /mg\/m³/);
 });
+test('_TZE200_yjjdcqsq handles Tuya battery-state reports', () => {
+  const manifest = require('../drivers/temphumidsensor4/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'temphumidsensor4', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZE200_yjjdcqsq'));
+  assert.deepEqual(manifest.energy.batteries, ['AAA', 'AAA']);
+
+  assert.match(source, /case 1:[\s\S]*reportTemperatureCapacity\(measuredValue\)/);
+  assert.match(source, /case 2:[\s\S]*reportHumidityCapacity\(measuredValue\)/);
+  assert.match(source, /case 3: \{/);
+  assert.match(source, /const batteryByState = \{ 0: 25, 1: 50, 2: 100 \}/);
+  assert.match(source, /reportAlarmBatteryCapacity\(measuredValue === 0\)/);
+  assert.match(source, /clusters\.tuya\.on\("reporting",[\s\S]*processResponse\(value\)/);
+});
