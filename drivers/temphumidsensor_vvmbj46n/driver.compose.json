@@ -1,0 +1,60 @@
+{
+  "id": "temphumidsensor_vvmbj46n",
+  "name": {
+    "en": "Temperature & Humidity Sensor (TH05Z)",
+    "sv": "Temperatur- och fuktighetssensor (TH05Z)"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "measure_temperature",
+    "measure_humidity",
+    "measure_battery"
+  ],
+  "capabilitiesOptions": {},
+  "energy": {
+    "batteries": [
+      "AAA",
+      "AAA",
+      "AAA"
+    ]
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZE200_vvmbj46n"
+    ],
+    "productId": [
+      "TS0601"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          4,
+          5,
+          61184
+        ],
+        "bindings": [
+          10,
+          25,
+          61184
+        ]
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press and hold the reset button for aprox 10 seconds until the LED blinks rapidly.",
+        "sv": "Tryck in nollnings-knappen under ca 10 sekunder tills LED-lampan binkar snabbt"
+      }
+    }
+  }
+}
