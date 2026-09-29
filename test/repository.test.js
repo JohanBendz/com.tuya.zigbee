@@ -1467,3 +1467,27 @@ test('_TZE200_amp6tsvy uses the 1-gang Tuya DP1 switch profile', () => {
   assert.match(source, /clusters\.tuya\.on\("reporting"/);
   assert.match(source, /clusters\.tuya\.on\("response"/);
 });
+test('_TZE204_5cuocqty uses an exact Tuya-DP dimmer profile', () => {
+  const generic = require('../drivers/dimmer_1_gang_tuya/driver.compose.json');
+  const exact = require('../drivers/dimmer_1_gang_tuya_avatto/driver.compose.json');
+  const exactRuntime = fs.readFileSync(
+    path.join(root, 'drivers', 'dimmer_1_gang_tuya_avatto', 'device.js'),
+    'utf8'
+  );
+  const sharedRuntime = fs.readFileSync(
+    path.join(root, 'drivers', 'dimmer_1_gang_tuya', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(!generic.zigbee.manufacturerName.includes('_TZE204_5cuocqty'));
+  assert.deepEqual(exact.zigbee.manufacturerName, ['_TZE204_5cuocqty']);
+  assert.deepEqual(exact.zigbee.productId, ['TS0601']);
+  assert.deepEqual(exact.zigbee.endpoints['1'].clusters, [0, 4, 5, 61184]);
+  assert.deepEqual(exact.zigbee.endpoints['1'].bindings, [25, 10]);
+
+  assert.match(exactRuntime, /require\('\.\.\/dimmer_1_gang_tuya\/device'\)/);
+  assert.match(sharedRuntime, /writeBool\(V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS\.onOff/);
+  assert.match(sharedRuntime, /writeData32\(V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS\.brightness/);
+  assert.match(sharedRuntime, /clusters\.tuya\.on\('reporting'/);
+  assert.match(sharedRuntime, /clusters\.tuya\.on\('response'/);
+});
