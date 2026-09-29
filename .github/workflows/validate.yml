@@ -18,10 +18,26 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci --ignore-scripts
-      - run: npm test
-      - name: Generate manifest and run Homey publish validation
-        run: npx --yes homey@4.5.0 app validate --level publish
-      - name: Verify generated manifest is committed
+
+      # app.json is generated output. Always let Homey Compose create it
+      # before any repository check is allowed to consume it.
+      - name: Generate app.json with Homey Compose
+        run: npx --yes homey@4.5.0 app build
+
+      - name: Verify generated app.json is committed
         run: git diff --exit-code -- app.json
+
+      - name: Verify generated supported-device index is committed
+        run: npm run check:supported-devices
+
+      - name: Run repository tests against generated manifest
+        run: npm test
+
+      - name: Run Homey publish validation
+        run: npx --yes homey@4.5.0 app validate --level publish
+
+      - name: Verify validation did not change generated manifest
+        run: git diff --exit-code -- app.json
+
       - name: Whitespace check
         run: git diff --check
