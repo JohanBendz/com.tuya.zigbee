@@ -123,8 +123,7 @@ class siren extends TuyaSpecificClusterDevice {
 	
 	  async processResponse(data) {
 		this.log('########### Response: ', data);
-		const parsedValue = getDataValue(data);
-		this.log('Parsed value ', parsedValue);
+		await this.processReporting(data);
 	  }
 	
 	  async processReporting(data) {
@@ -173,8 +172,7 @@ class siren extends TuyaSpecificClusterDevice {
 	
 	  async processDatapoint(data) {
 		this.log('########### Datapoint: ', data);
-		const parsedValue = getDataValue(data);
-		this.log('Parsed value ', parsedValue);
+		await this.processReporting(data);
 	  }
 	
 	  onDeleted() {
@@ -182,23 +180,23 @@ class siren extends TuyaSpecificClusterDevice {
 	  }
 	
 	  async onSettings({ oldSettings, newSettings, changedKeys }) {
-		changedKeys.forEach((updatedSetting) => {
+		for (const updatedSetting of changedKeys) {
 		  this.log('########### Updated setting: ', updatedSetting, ' => ', newSettings[updatedSetting]);
 		  switch (updatedSetting) {
 			case 'alarmvolume':
-			  this.sendAlarmVolume(newSettings[updatedSetting]);
+			  await this.sendAlarmVolume(newSettings[updatedSetting]);
 			  break;
 			case 'alarmsoundtime':
-			  this.sendAlarmDuration(newSettings[updatedSetting]);
+			  await this.sendAlarmDuration(newSettings[updatedSetting]);
 			  break;
 			case 'alarmtune':
-			  this.sendAlarmTune(newSettings[updatedSetting]);
+			  await this.sendAlarmTune(newSettings[updatedSetting]);
 			  break;
 			default:
 			  this.log('ERROR: Unknown setting: ', updatedSetting);
 			  break;
 		  }
-		});
+		}
 	  }
 	
 	  async setAlarmState(value) {
