@@ -1169,3 +1169,27 @@ test('_TZ3000_mmkbptmx exposes all four switch endpoints', () => {
     /subDeviceId === 'secondSwitch' \? 2 : subDeviceId === 'thirdSwitch' \? 3 : subDeviceId === 'fourthSwitch' \? 4 : 1/
   );
 });
+test('smart air box keeps manufacturer-specific Tuya datapoint maps', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_air_detection_box', 'device.js'),
+    'utf8'
+  );
+  const formaldehyde = require('../.homeycompose/capabilities/measure_formaldehyde.json');
+
+  assert.match(source, /zclNode\.endpoints\[1\]\.clusters\.tuya\.on\('reporting', handleDatapoint\)/);
+  assert.match(source, /zclNode\.endpoints\[1\]\.clusters\.tuya\.on\('response', handleDatapoint\)/);
+
+  assert.match(source, /manufacturerName === '_TZE200_ryfmq5rl'/);
+  assert.match(source, /manufacturerName === '_TZE200_mja3fuja'/);
+
+  assert.match(source, /case dataPoints\.co2OrFormaldehyde:[\s\S]*PROFILE_RYFMQ5RL[\s\S]*measure_formaldehyde', value \/ 100/);
+  assert.match(source, /PROFILE_FORMALDEHYDE_DP2[\s\S]*measure_formaldehyde', value/);
+  assert.match(source, /else \{[\s\S]*measure_co2', value/);
+
+  assert.match(source, /case dataPoints\.voc:[\s\S]*PROFILE_RYFMQ5RL \? value \/ 10 : value/);
+  assert.match(source, /case dataPoints\.formaldehydeOrCo2:[\s\S]*PROFILE_DEFAULT[\s\S]*measure_formaldehyde', value[\s\S]*measure_co2', value/);
+
+  assert.equal(formaldehyde.units.en, 'mg/m³');
+  assert.equal(formaldehyde.units.ru, 'мг/м³');
+  assert.match(formaldehyde.desc.en, /mg\/m³/);
+});
