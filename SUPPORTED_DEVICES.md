@@ -60,7 +60,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Doorbell Button (`doorbell_button`) | `TS0211` | `_TZ1800_ladpngdx` |
 | Dooya Curtain/Roller Motor (RJ11 Zigbee) (`curtain_motor_dooya`) | `TS0601` | `_TZE200_3ylew7b4` |
 | Double Power Point (`double_power_point_2`) | `TS011F` | `_TYZB01_hlla45kx`<br>`_TZ3000_k6fvknrr` |
-| Double Power Point - With Metering (`double_power_point`) | `TS011F` | `_TZ3210_7jnk7l3k` |
+| Double Power Point - With Metering (`double_power_point`) | `TS011F` | `_TZ3210_7jnk7l3k`<br>`_TZ3210_pfbzs1an` |
 | Double Socket Smart Plug (`smartplug_2_socket`) | `TS011F` | `_TZ3000_jak16dll` |
 | Fantem 4-in-1 Multi Sensor (`fantem_zb003x`) | `TS0202` | `_TZ3210_zmy9hjay` |
 | Finger Bot (`fingerbot`) | `TS0001`<br>`TS0001_fingerbot` | `_TZ3210_232nryqh`<br>`_TZ3210_dse8ogfy`<br>`_TZ3210_j4pdtz9v`<br>`_TZ3210_okbss9dy` |
