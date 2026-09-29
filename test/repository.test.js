@@ -1225,3 +1225,22 @@ test('_TZE200_qyflbnbj keeps its raw-percent humidity profile', () => {
   assert.match(source, /clusters\.tuya\.on\('reporting', handleDatapoint\)/);
   assert.match(source, /clusters\.tuya\.on\('response', handleDatapoint\)/);
 });
+test('_TZE204_qasjif9e uses an isolated exact radar profile', () => {
+  const generic = require('../drivers/radar_sensor/driver.compose.json');
+  const exact = require('../drivers/radar_sensor_qasjif9e/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'radar_sensor', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(!generic.zigbee.manufacturerName.includes('_TZE204_qasjif9e'));
+  assert.deepEqual(exact.zigbee.manufacturerName, ['_TZE204_qasjif9e']);
+  assert.deepEqual(exact.zigbee.productId, ['TS0601']);
+  assert.deepEqual(exact.zigbee.endpoints['1'].clusters, [0, 4, 5, 61184]);
+  assert.deepEqual(exact.zigbee.endpoints['1'].bindings, [10, 25]);
+
+  assert.match(source, /tenthSecondTimingManufacturers = new Set\(\['_TZE204_qasjif9e', '_TZE204_ztqnh5cg'\]\)/);
+  assert.match(source, /newSettings\['detection_delay'\] \* 10/);
+  assert.match(source, /newSettings\['fading_time'\] \* 10/);
+  assert.match(source, /clusters\.tuya\.on\("reporting", handleDatapoint\)/);
+});
