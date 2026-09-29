@@ -14174,7 +14174,8 @@
       },
       "zigbee": {
         "manufacturerName": [
-          "_TZE200_gbagoilo"
+          "_TZE200_gbagoilo",
+          "_TZE200_amp6tsvy"
         ],
         "productId": [
           "TS0601"
@@ -14331,6 +14332,77 @@
           ]
         }
       ]
+    },
+    {
+      "id": "wall_switch_2_gang_tuya",
+      "name": {
+        "en": "2 Gang Wall Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/wall_switch_2_gang_tuya/assets/images/large.png",
+        "small": "/drivers/wall_switch_2_gang_tuya/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_g1ib5ldv"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              25,
+              10
+            ]
+          }
+        },
+        "devices": {
+          "secondGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "2 Gang Wall Switch - Second Gang"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_switch_2_gang_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "Two tiles will be created, one for each channel. Switch the unit on and off five times and hold for 5 seconds to enter pairing mode."
+          }
+        }
+      }
     },
     {
       "id": "wall_switch_3_gang",
