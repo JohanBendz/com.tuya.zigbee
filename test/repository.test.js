@@ -1210,3 +1210,18 @@ test('_TZE200_yjjdcqsq handles Tuya battery-state reports', () => {
   assert.match(source, /reportAlarmBatteryCapacity\(measuredValue === 0\)/);
   assert.match(source, /clusters\.tuya\.on\("reporting",[\s\S]*processResponse\(value\)/);
 });
+test('_TZE200_qyflbnbj keeps its raw-percent humidity profile', () => {
+  const manifest = require('../drivers/lcdtemphumidsensor_3/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'lcdtemphumidsensor_3', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZE200_qyflbnbj'));
+  assert.match(source, /tenthPercentHumidityManufacturers = new Set\(\[[\s\S]*_TZE200_bjawzodf[\s\S]*_TZE200_zl1kmjqx/);
+  assert.match(source, /this\.humidityDivisor = tenthPercentHumidityManufacturers\.has\(this\.manufacturerName\) \? 10 : 1/);
+  assert.match(source, /const humidity = measuredValue \/ this\.humidityDivisor/);
+  assert.match(source, /const signedValue = measuredValue > 0x2000 \? measuredValue - 0xFFFF : measuredValue/);
+  assert.match(source, /clusters\.tuya\.on\('reporting', handleDatapoint\)/);
+  assert.match(source, /clusters\.tuya\.on\('response', handleDatapoint\)/);
+});
