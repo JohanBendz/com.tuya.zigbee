@@ -1185,12 +1185,12 @@ test('smart air box keeps manufacturer-specific Tuya datapoint maps', () => {
   assert.match(source, /manufacturerName === '_TZE200_ryfmq5rl'/);
   assert.match(source, /manufacturerName === '_TZE200_mja3fuja'/);
 
-  assert.match(source, /case dataPoints\.co2OrFormaldehyde:[\s\S]*PROFILE_RYFMQ5RL[\s\S]*measure_formaldehyde', value \/ 100/);
-  assert.match(source, /PROFILE_FORMALDEHYDE_DP2[\s\S]*measure_formaldehyde', value/);
+  assert.match(source, /case dataPoints\.co2OrFormaldehyde:[\s\S]*PROFILE_RYFMQ5RL[\s\S]*PROFILE_FORMALDEHYDE_DP2[\s\S]*measure_formaldehyde'[\s\S]*convertFormaldehydeToMgM3\(value\)/);
+  assert.match(source, /PROFILE_FORMALDEHYDE_DP2[\s\S]*convertFormaldehydeToMgM3\(value\)/);
   assert.match(source, /else \{[\s\S]*measure_co2', value/);
 
-  assert.match(source, /case dataPoints\.voc:[\s\S]*PROFILE_RYFMQ5RL \? value \/ 10 : value/);
-  assert.match(source, /case dataPoints\.formaldehydeOrCo2:[\s\S]*PROFILE_DEFAULT[\s\S]*measure_formaldehyde', value[\s\S]*measure_co2', value/);
+  assert.match(source, /case dataPoints\.voc:[\s\S]*measure_voc'[\s\S]*convertVocToPpm\(value\)/);
+  assert.match(source, /case dataPoints\.formaldehydeOrCo2:[\s\S]*PROFILE_DEFAULT[\s\S]*measure_formaldehyde'[\s\S]*convertFormaldehydeToMgM3\(value\)[\s\S]*measure_co2', value/);
 
   assert.equal(formaldehyde.units.en, 'mg/m³');
   assert.equal(formaldehyde.units.ru, 'мг/м³');
