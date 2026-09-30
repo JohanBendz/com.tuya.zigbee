@@ -121,7 +121,8 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Smart Plug without metering (`plug`) | `TS011F` | `_TZ3000_cymsnfvf`<br>`_TZ3000_ew31dmgx`<br>`_TZ3000_hyfvrar3`<br>`_TZ3000_kdi2o9m6`<br>`_TZ3000_plyvnuf5`<br>`_TZ3000_upjrsxh1`<br>`_TZ3000_wamqdr3f`<br>`_TZ3000_wxtp7c5y` |
 | Smart Switch (`smart_switch`) | `TS0001` | `_TYZB01_phjeraqq` |
 | Smoke Sensor (`smoke_sensor`) | `TS0205` | `_TYZB01_dsjszp0x`<br>`_TYZB01_tob46aoq`<br>`_TYZB01_wqcac7lo` |
-| Smoke Sensor (`smoke_sensor2`) | `TS0601` | `_TZE200_m9skfctm`<br>`_TZE200_ntcy3xu1`<br>`_TZE200_rccxox8p`<br>`_TZE200_t5p1vj8r`<br>`_TZE200_uebojraa`<br>`_TZE200_vzekyi4c`<br>`_TZE200_yh7aoahi`<br>`_TZE204_ntcy3xu1` |
+| Smoke Sensor (`smoke_sensor_smoke_only`) | `TS0601` | `_TZE200_m9skfctm`<br>`_TZE200_rccxox8p`<br>`_TZE200_vzekyi4c` |
+| Smoke Sensor (`smoke_sensor2`) | `TS0601` | `_TZE200_ntcy3xu1`<br>`_TZE200_t5p1vj8r`<br>`_TZE200_uebojraa`<br>`_TZE200_yh7aoahi`<br>`_TZE204_ntcy3xu1` |
 | Smoke Sensor (`smoke_sensor3`) | `TS0205` | `_TZ3210_up3pngle` |
 | Soil Sensor (`soilsensor`) | `TS0601` | `_TZE200_2se8efxh`<br>`_TZE200_9cqcpkgb`<br>`_TZE200_ga1maeof`<br>`_TZE200_myd45weu`<br>`_TZE204_myd45weu` |
 | Soil Sensor (`soilsensor_2`) | `TS0601` | `_TZE284_aao3yzhs`<br>`_TZE284_g2e6cpnw`<br>`_TZE284_sgabhwa6` |
