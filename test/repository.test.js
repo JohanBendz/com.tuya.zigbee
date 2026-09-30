@@ -1656,3 +1656,24 @@ test('Silvercrest TS004F remote uses parsed Tuya actions instead of raw frames',
   assert.match(source, /onDouble: source => this\.triggerAction\('twoClicks'/);
   assert.match(source, /attr\.batteryPercentageRemaining/);
 });
+test('_TZ3000_wkai4ga5 bypasses legacy alternating-frame debounce', () => {
+  const manifest = require('../drivers/wall_remote_4_gang_3/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'wall_remote_4_gang_3', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZ3000_wkai4ga5'));
+  assert.ok(manifest.zigbee.manufacturerName.length > 1);
+
+  assert.match(
+    source,
+    /bypassAlternatingDebounce = manufacturerName === '_TZ3000_wkai4ga5'/
+  );
+  assert.match(
+    source,
+    /if \(bypassAlternatingDebounce\) \{[\s\S]*buttonCommandParser\(endpointId, parsedFrame\)[\s\S]*return;/
+  );
+  assert.match(source, /debounce \+= 1/);
+  assert.match(source, /if \(debounce === 1\)/);
+});
