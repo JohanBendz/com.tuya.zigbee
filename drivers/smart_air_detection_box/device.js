@@ -78,6 +78,20 @@ class SmartAirDetectionBox extends TuyaSpecificClusterDevice {
     return PROFILE_DEFAULT;
   }
 
+  convertVocToPpm(value) {
+    // Tuya air-box VOC values are reported in ppb. Homey's custom
+    // measure_voc capability is expressed in ppm.
+    const divisor = this.profile === PROFILE_RYFMQ5RL ? 10000 : 1000;
+    return value / divisor;
+  }
+
+  convertFormaldehydeToMgM3(value) {
+    // Default/mja3fuja HCHO is reported in µg/m³. ryfmq5rl applies an
+    // additional /100 device scale before the same µg/m³ -> mg/m³ conversion.
+    const divisor = this.profile === PROFILE_RYFMQ5RL ? 100000 : 1000;
+    return value / divisor;
+  }
+
   async handleDataPoint(data) {
     const value = getDataValue(data);
 
@@ -96,10 +110,14 @@ class SmartAirDetectionBox extends TuyaSpecificClusterDevice {
         return;
 
       case dataPoints.co2OrFormaldehyde:
-        if (this.profile === PROFILE_RYFMQ5RL) {
-          await this.setCapabilityValue('measure_formaldehyde', value / 100);
-        } else if (this.profile === PROFILE_FORMALDEHYDE_DP2) {
-          await this.setCapabilityValue('measure_formaldehyde', value);
+        if (
+          this.profile === PROFILE_RYFMQ5RL
+          || this.profile === PROFILE_FORMALDEHYDE_DP2
+        ) {
+          await this.setCapabilityValue(
+            'measure_formaldehyde',
+            this.convertFormaldehydeToMgM3(value)
+          );
         } else {
           await this.setCapabilityValue('measure_co2', value);
         }
@@ -112,15 +130,15 @@ class SmartAirDetectionBox extends TuyaSpecificClusterDevice {
         return;
 
       case dataPoints.voc:
-        await this.setCapabilityValue(
-          'measure_voc',
-          this.profile === PROFILE_RYFMQ5RL ? value / 10 : value
-        );
+        await this.setCapabilityValue('measure_voc', this.convertVocToPpm(value));
         return;
 
       case dataPoints.formaldehydeOrCo2:
         if (this.profile === PROFILE_DEFAULT) {
-          await this.setCapabilityValue('measure_formaldehyde', value);
+          await this.setCapabilityValue(
+            'measure_formaldehyde',
+            this.convertFormaldehydeToMgM3(value)
+          );
         } else {
           await this.setCapabilityValue('measure_co2', value);
         }
