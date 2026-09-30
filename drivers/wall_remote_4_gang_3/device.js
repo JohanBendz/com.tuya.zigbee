@@ -6,19 +6,39 @@ const { debug, CLUSTER } = require('zigbee-clusters');
 class wall_remote_4_gang_3 extends ZigBeeDevice {
 
     async onNodeInit({ zclNode }) {
+      let manufacturerName = zclNode.endpoints[1].clusters.basic?.attributes?.manufacturerName;
 
-      var debounce = 0;
-      // debug(true);
+      if (!manufacturerName) {
+        try {
+          ({ manufacturerName } = await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName']));
+        } catch (error) {
+          this.error('Failed to read 4-gang remote manufacturerName', error);
+        }
+      }
+
+      let debounce = 0;
+      const bypassAlternatingDebounce = manufacturerName === '_TZ3000_wkai4ga5';
+
       const node = await this.homey.zigbee.getNode(this);
-      node.handleFrame = (endpointId, clusterId, frame, meta) => {
-        if (clusterId === 6) {
-          frame = frame.toJSON();
-          debounce = debounce+1;
-          if (debounce===1){
-            this.buttonCommandParser(endpointId, frame);
-          } else {
-            debounce=0;
-          }
+      node.handleFrame = (endpointId, clusterId, frame) => {
+        if (clusterId !== 6) return;
+
+        const parsedFrame = frame.toJSON();
+
+        // Physical Homey testing in historical PR #323 showed that
+        // _TZ3000_wkai4ga5 emits one usable frame per action on newer
+        // Homey hardware. The old every-other-frame debounce drops valid
+        // button actions for this exact fingerprint.
+        if (bypassAlternatingDebounce) {
+          this.buttonCommandParser(endpointId, parsedFrame);
+          return;
+        }
+
+        debounce += 1;
+        if (debounce === 1) {
+          this.buttonCommandParser(endpointId, parsedFrame);
+        } else {
+          debounce = 0;
         }
       };
     }
