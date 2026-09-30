@@ -8,19 +8,45 @@ class temphumidsensor3 extends ZigBeeDevice {
 
   async onNodeInit({zclNode}) {
 
+    if (this.isFirstInit()) {
+      const reportingConfigurations = [
+        {
+          endpointId: 1,
+          cluster: CLUSTER.TEMPERATURE_MEASUREMENT,
+          attributeName: 'measuredValue',
+          minInterval: 30,
+          maxInterval: 3600,
+          minChange: 10,
+        },
+        {
+          endpointId: 1,
+          cluster: CLUSTER.RELATIVE_HUMIDITY_MEASUREMENT,
+          attributeName: 'measuredValue',
+          minInterval: 30,
+          maxInterval: 3600,
+          minChange: 100,
+        },
+        {
+          endpointId: 1,
+          cluster: CLUSTER.POWER_CONFIGURATION,
+          attributeName: 'batteryPercentageRemaining',
+          minInterval: 60,
+          maxInterval: 21600,
+          minChange: 1,
+        },
+      ];
 
-		if (this.isFirstInit()){
-			await this.configureAttributeReporting([
-				{
-					endpointId: 1,
-					cluster: CLUSTER.POWER_CONFIGURATION,
-					attributeName: 'batteryPercentageRemaining',
-                    minInterval: 60, // Minimum interval (1 minute)
-                    maxInterval: 21600, // Maximum interval (6 hours)
-                    minChange: 1, // Report changes greater than 1%
-				}
-			]);
-		}
+      for (const configuration of reportingConfigurations) {
+        await this.configureAttributeReporting([configuration]).catch(err => {
+          this.error(
+            'Failed to configure attribute reporting:',
+            configuration.cluster.NAME,
+            configuration.attributeName,
+            err
+          );
+        });
+      }
+    }
 
 		// measure_temperature
 		zclNode.endpoints[1].clusters[CLUSTER.TEMPERATURE_MEASUREMENT.NAME]
