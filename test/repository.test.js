@@ -1541,3 +1541,15 @@ test('_TZE200_fjjbhx9d uses the exact dual Tuya-DP dimmer profile', () => {
   assert.match(runtime, /clusters\.tuya\.on\("reporting"/);
   assert.match(runtime, /clusters\.tuya\.on\("response"/);
 });
+test('smart air box declares Basic cluster for manufacturer-specific profiles', () => {
+  const manifest = require('../drivers/smart_air_detection_box/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_air_detection_box', 'device.js'),
+    'utf8'
+  );
+
+  assert.deepEqual(manifest.zigbee.endpoints['1'].clusters, [0, 61184]);
+  assert.match(source, /clusters\.basic/);
+  assert.match(source, /manufacturerName === '_TZE200_ryfmq5rl'/);
+  assert.match(source, /manufacturerName === '_TZE200_mja3fuja'/);
+});
