@@ -1569,3 +1569,20 @@ test('smart air box maps verified DP20 PM2.5 for default family', () => {
     /case dataPoints\.pm25:[\s\S]*PROFILE_DEFAULT[\s\S]*setCapabilityValue\('measure_pm25', value\)/
   );
 });
+test('_TZE200_a8sdabtg standard sensor configures robust reporting', () => {
+  const manifest = require('../drivers/temphumidsensor3/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'temphumidsensor3', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZE200_a8sdabtg'));
+  assert.deepEqual(manifest.zigbee.endpoints['1'].clusters, [0, 1, 1026, 1029]);
+  assert.deepEqual(manifest.zigbee.endpoints['1'].bindings, [1, 1026, 1029]);
+
+  assert.match(source, /cluster: CLUSTER\.TEMPERATURE_MEASUREMENT/);
+  assert.match(source, /cluster: CLUSTER\.RELATIVE_HUMIDITY_MEASUREMENT/);
+  assert.match(source, /cluster: CLUSTER\.POWER_CONFIGURATION/);
+  assert.match(source, /for \(const configuration of reportingConfigurations\)/);
+  assert.match(source, /configureAttributeReporting\(\[configuration\]\)\.catch/);
+});
