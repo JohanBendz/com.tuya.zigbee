@@ -11,6 +11,7 @@ const dataPoints = {
   co2OrFormaldehyde: 2,
   temperature: 18,
   humidity: 19,
+  pm25: 20,
   voc: 21,
   formaldehydeOrCo2: 22,
 };
@@ -24,6 +25,10 @@ class SmartAirDetectionBox extends TuyaSpecificClusterDevice {
   async onNodeInit({ zclNode }) {
     this.manufacturerName = await this.getManufacturerName(zclNode);
     this.profile = this.getProfile(this.manufacturerName);
+
+    if (this.profile === PROFILE_DEFAULT && !this.hasCapability('measure_pm25')) {
+      await this.addCapability('measure_pm25');
+    }
 
     this.log('Smart Air Detection Box profile:', this.manufacturerName, this.profile);
 
@@ -97,6 +102,12 @@ class SmartAirDetectionBox extends TuyaSpecificClusterDevice {
           await this.setCapabilityValue('measure_formaldehyde', value);
         } else {
           await this.setCapabilityValue('measure_co2', value);
+        }
+        return;
+
+      case dataPoints.pm25:
+        if (this.profile === PROFILE_DEFAULT && this.hasCapability('measure_pm25')) {
+          await this.setCapabilityValue('measure_pm25', value);
         }
         return;
 
