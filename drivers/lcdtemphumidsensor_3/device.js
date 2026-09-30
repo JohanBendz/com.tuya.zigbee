@@ -23,6 +23,8 @@ class lcdtemphumidsensor3 extends TuyaSpecificClusterDevice {
   async onNodeInit({ zclNode }) {
     this.manufacturerName = await this.getManufacturerName(zclNode);
     this.humidityDivisor = tenthPercentHumidityManufacturers.has(this.manufacturerName) ? 10 : 1;
+    this.requiresTuyaTimeSync = this.manufacturerName === '_TZE200_locansqn';
+    this.lastTuyaTimeSyncAt = 0;
 
     this.log(
       'LCD Temperature & Humidity profile:',
@@ -39,8 +41,16 @@ class lcdtemphumidsensor3 extends TuyaSpecificClusterDevice {
       }
     };
 
-    zclNode.endpoints[1].clusters.tuya.on('reporting', handleDatapoint);
-    zclNode.endpoints[1].clusters.tuya.on('response', handleDatapoint);
+    const tuyaCluster = zclNode.endpoints[1].clusters.tuya;
+
+    tuyaCluster.on('reporting', handleDatapoint);
+    tuyaCluster.on('response', handleDatapoint);
+
+    if (this.requiresTuyaTimeSync) {
+      tuyaCluster.on('timeSync', async () => {
+        await this.syncTuyaTime(tuyaCluster);
+      });
+    }
   }
 
   async getManufacturerName(zclNode) {
@@ -64,7 +74,34 @@ class lcdtemphumidsensor3 extends TuyaSpecificClusterDevice {
     }
   }
 
+  async syncTuyaTime(tuyaCluster) {
+    const utcTime = Math.floor(Date.now() / 1000);
+    const localTime = utcTime - new Date().getTimezoneOffset() * 60;
+    const payload = Buffer.alloc(8);
+
+    payload.writeUInt32BE(utcTime >>> 0, 0);
+    payload.writeUInt32BE(localTime >>> 0, 4);
+
+    try {
+      await tuyaCluster.timeSync({
+        payloadSize: payload.length,
+        payload,
+      });
+      this.lastTuyaTimeSyncAt = Date.now();
+      this.log('Tuya TH01Z time synchronized');
+    } catch (error) {
+      this.error('Failed to synchronize Tuya TH01Z time', error);
+    }
+  }
+
   async processResponse(data) {
+    if (
+      this.requiresTuyaTimeSync
+      && Date.now() - this.lastTuyaTimeSyncAt >= 3600000
+    ) {
+      await this.syncTuyaTime(this.zclNode.endpoints[1].clusters.tuya);
+    }
+
     const measuredValue = getDataValue(data);
 
     if (typeof measuredValue !== 'number' || !Number.isFinite(measuredValue)) {
