@@ -1712,3 +1712,26 @@ test('_TZ3000_xabckq1v keeps its physical 4-button order', () => {
   assert.match(source, /rightUp: 'leftDown'/);
   assert.match(source, /leftUp: 'rightDown'/);
 });
+test('_TZE200_m9skfctm uses smoke-only TS0601 profile', () => {
+  const generic = require('../drivers/smoke_sensor2/driver.compose.json');
+  const exact = require('../drivers/smoke_sensor_smoke_only/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smoke_sensor2', 'device.js'),
+    'utf8'
+  );
+
+  for (const manufacturer of ['_TZE200_m9skfctm', '_TZE200_rccxox8p', '_TZE200_vzekyi4c']) {
+    assert.ok(!generic.zigbee.manufacturerName.includes(manufacturer));
+    assert.ok(exact.zigbee.manufacturerName.includes(manufacturer));
+  }
+
+  assert.deepEqual(exact.capabilities, ['alarm_smoke']);
+  assert.deepEqual(exact.zigbee.productId, ['TS0601']);
+
+  assert.match(source, /clusters\.tuya\.on\("response", handleDatapoint\)/);
+  assert.match(source, /clusters\.tuya\.on\("reporting", handleDatapoint\)/);
+  assert.match(source, /if \(this\.hasCapability\('alarm_tamper'\)\)/);
+  assert.match(source, /const batteryPercentages = \{ 0: 20, 1: 50, 2: 90 \}/);
+  assert.match(source, /if \(this\.hasCapability\('alarm_battery'\)\)/);
+  assert.match(source, /setCapabilityValue\('alarm_battery', value === 0\)/);
+});
