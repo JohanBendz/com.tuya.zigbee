@@ -1553,3 +1553,19 @@ test('smart air box declares Basic cluster for manufacturer-specific profiles', 
   assert.match(source, /manufacturerName === '_TZE200_ryfmq5rl'/);
   assert.match(source, /manufacturerName === '_TZE200_mja3fuja'/);
 });
+test('smart air box maps verified DP20 PM2.5 for default family', () => {
+  const manifest = require('../drivers/smart_air_detection_box/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_air_detection_box', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.capabilities.includes('measure_pm25'));
+  assert.match(source, /pm25: 20/);
+  assert.match(source, /PROFILE_DEFAULT && !this\.hasCapability\('measure_pm25'\)/);
+  assert.match(source, /await this\.addCapability\('measure_pm25'\)/);
+  assert.match(
+    source,
+    /case dataPoints\.pm25:[\s\S]*PROFILE_DEFAULT[\s\S]*setCapabilityValue\('measure_pm25', value\)/
+  );
+});
