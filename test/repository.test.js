@@ -1604,3 +1604,23 @@ test('_TZ3000_ywagc4rj uses tenth-percent humidity scaling', () => {
   );
   assert.match(source, /measuredValue \/ 100/);
 });
+test('_TZ3000_18ejxno0 configures persistent OnOff reporting', () => {
+  const manifest = require('../drivers/wall_switch_2_gang/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'wall_switch_2_gang', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZ3000_18ejxno0'));
+  assert.deepEqual(manifest.zigbee.endpoints['1'].bindings, [6]);
+  assert.deepEqual(manifest.zigbee.endpoints['2'].bindings, [6]);
+
+  assert.match(source, /Cluster\.addCluster\(TuyaOnOffCluster\)/);
+  assert.match(source, /CLUSTER, Cluster, ZCLDataTypes/);
+  assert.match(source, /manufacturerName === '_TZ3000_18ejxno0'/);
+  assert.match(source, /getStoreValue\('onoff_reporting_configured'\) !== true/);
+  assert.match(source, /attributeName: 'onOff'/);
+  assert.match(source, /maxInterval: 300/);
+  assert.match(source, /setStoreValue\('onoff_reporting_configured', true\)/);
+  assert.match(source, /endpointId: endpoint/);
+});
