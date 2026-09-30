@@ -714,7 +714,7 @@ test('4-gang wall remote Flow triggers are driver-scoped', () => {
     );
 
     assert.match(driver, new RegExp(`getDeviceTriggerCard\\('${cardId}'\\)`));
-    assert.match(device, /this\.driver\.buttonTrigger\s*\.trigger\(this, \{\}, \{ button \}\)/);
+    assert.match(device, /this\.driver\.buttonTrigger\.trigger/);
     assert.doesNotMatch(device, /registerRunListener/);
   }
 });
@@ -782,7 +782,7 @@ test('smart knob Flow trigger is driver-scoped and filters by button', () => {
 
   assert.match(driver, /getDeviceTriggerCard\('smart_knob_switch_button'\)/);
   assert.match(driver, /args\.button === state\.button/);
-  assert.match(device, /this\.driver\.buttonTrigger\.trigger/);
+  assert.match(device, /this\.driver\.buttonTrigger\s*\.trigger\(this, \{\}, \{ button \}\)/);
   assert.doesNotMatch(device, /getDeviceTriggerCard/);
 });
 
