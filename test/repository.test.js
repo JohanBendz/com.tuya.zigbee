@@ -679,7 +679,8 @@ test('wall remote trigger cards are registered once at driver level', () => {
     );
 
     assert.match(driver, new RegExp(`getDeviceTriggerCard\\('${cardId}'\\)`));
-    assert.match(device, /this\.driver\.buttonTrigger[\s\S]*?\.trigger\(this, \{\}, \{ button \}\)/);
+    assert.match(driver, /args\.action === state\.action/);
+    assert.match(device, /this\.driver\.buttonTrigger\s*\.trigger\(this, \{\}, \{ action:/);
     assert.doesNotMatch(device, /registerRunListener/);
   }
 });
@@ -713,7 +714,7 @@ test('4-gang wall remote Flow triggers are driver-scoped', () => {
     );
 
     assert.match(driver, new RegExp(`getDeviceTriggerCard\\('${cardId}'\\)`));
-    assert.match(device, /this\.driver\.buttonTrigger\.trigger/);
+    assert.match(device, /this\.driver\.buttonTrigger\s*\.trigger\(this, \{\}, \{ button \}\)/);
     assert.doesNotMatch(device, /registerRunListener/);
   }
 });
