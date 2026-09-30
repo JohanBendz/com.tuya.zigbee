@@ -1624,3 +1624,33 @@ test('_TZ3000_18ejxno0 configures persistent OnOff reporting', () => {
   assert.match(source, /setStoreValue\('onoff_reporting_configured', true\)/);
   assert.match(source, /endpointId: endpoint/);
 });
+test('Silvercrest TS004F remote uses parsed Tuya actions instead of raw frames', () => {
+  const cluster = fs.readFileSync(
+    path.join(root, 'lib', 'TuyaOnOffCluster.js'),
+    'utf8'
+  );
+  const bound = fs.readFileSync(
+    path.join(root, 'lib', 'TuyaRemoteOnOffBoundCluster.js'),
+    'utf8'
+  );
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_remote_1_button', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(cluster, /tuyaOperationMode: \{ id: 0x8004/);
+  assert.match(cluster, /tuyaAction:[\s\S]*id: 0xFD/);
+  assert.match(cluster, /tuyaAction2:[\s\S]*id: 0xFC/);
+
+  assert.match(bound, /tuyaAction\(\{ value \}\)/);
+  assert.match(bound, /value === 0[\s\S]*_onSingle/);
+  assert.match(bound, /value === 1[\s\S]*_onDouble/);
+
+  assert.doesNotMatch(source, /handleFrame/);
+  assert.match(source, /TuyaRemoteOnOffBoundCluster/);
+  assert.match(source, /tuyaOperationMode: 1/);
+  assert.match(source, /manufacturerName === '_TZ3000_rco1yzb1'/);
+  assert.match(source, /onSingle: source => this\.triggerAction\('oneClick'/);
+  assert.match(source, /onDouble: source => this\.triggerAction\('twoClicks'/);
+  assert.match(source, /attr\.batteryPercentageRemaining/);
+});
