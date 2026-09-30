@@ -57,13 +57,16 @@ class smoke_sensor2 extends TuyaSpecificClusterDevice {
   async onNodeInit({zclNode}) {
 
 
-    zclNode.endpoints[1].clusters.tuya.on("response", async value => {
+    const handleDatapoint = async value => {
       try {
         await this.updatePosition(value);
       } catch (err) {
-        this.error('Failed to process Tuya response', err);
+        this.error('Failed to process Tuya smoke datapoint', err);
       }
-    });
+    };
+
+    zclNode.endpoints[1].clusters.tuya.on("response", handleDatapoint);
+    zclNode.endpoints[1].clusters.tuya.on("reporting", handleDatapoint);
   }
 
   async updatePosition(data) {
@@ -77,7 +80,9 @@ class smoke_sensor2 extends TuyaSpecificClusterDevice {
         break;
 
       case dataPoints.tsTamperAlert:
-        this.setCapabilityValue('alarm_tamper', Boolean(value)).catch(this.error);
+        if (this.hasCapability('alarm_tamper')) {
+          this.setCapabilityValue('alarm_tamper', Boolean(value)).catch(this.error);
+        }
         break;
 
       case dataPoints.tsBatteryState:
@@ -97,7 +102,9 @@ class smoke_sensor2 extends TuyaSpecificClusterDevice {
         break;
         }
         
-        this.setCapabilityValue('measure_battery', batteryPerc).catch(this.error);
+        if (this.hasCapability('measure_battery')) {
+          this.setCapabilityValue('measure_battery', batteryPerc).catch(this.error);
+        }
 
         break;
       
