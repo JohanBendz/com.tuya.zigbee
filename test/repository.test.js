@@ -1586,3 +1586,21 @@ test('_TZE200_a8sdabtg standard sensor configures robust reporting', () => {
   assert.match(source, /for \(const configuration of reportingConfigurations\)/);
   assert.match(source, /configureAttributeReporting\(\[configuration\]\)\.catch/);
 });
+test('_TZ3000_ywagc4rj uses tenth-percent humidity scaling', () => {
+  const manifest = require('../drivers/lcdtemphumidsensor/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'lcdtemphumidsensor', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZ3000_ywagc4rj'));
+  assert.match(
+    source,
+    /manufacturerName === '_TZ3000_ywagc4rj' \? 10 : 100/
+  );
+  assert.match(
+    source,
+    /const humidity = measuredValue \/ \(this\.humidityDivisor \|\| 100\)/
+  );
+  assert.match(source, /measuredValue \/ 100/);
+});
