@@ -1678,3 +1678,20 @@ test('_TZ3000_wkai4ga5 bypasses legacy alternating-frame debounce', () => {
   assert.match(source, /debounce \+= 1/);
   assert.match(source, /if \(debounce === 1\)/);
 });
+test('smart air box converts VOC and formaldehyde to Homey capability units', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_air_detection_box', 'device.js'),
+    'utf8'
+  );
+  const voc = require('../.homeycompose/capabilities/measure_voc.json');
+  const formaldehyde = require('../.homeycompose/capabilities/measure_formaldehyde.json');
+
+  assert.match(source, /const divisor = this\.profile === PROFILE_RYFMQ5RL \? 10000 : 1000/);
+  assert.match(source, /const divisor = this\.profile === PROFILE_RYFMQ5RL \? 100000 : 1000/);
+  assert.match(source, /convertVocToPpm\(value\)/);
+  assert.match(source, /convertFormaldehydeToMgM3\(value\)/);
+
+  assert.equal(voc.units.en, 'ppm');
+  assert.equal(voc.decimals, 3);
+  assert.equal(formaldehyde.units.en, 'mg/m³');
+});
