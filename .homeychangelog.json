@@ -382,5 +382,8 @@
   },
   "0.2.76": {
     "en": "Fixed device support and improved Zigbee handling"
+  },
+  "0.2.77": {
+    "en": "Large update with support for many additional Tuya Zigbee devices and device IDs, plus fixes and reliability improvements for remotes, sensors, switches, dimmers, sirens, FingerBot, rain/radar devices and Zigbee event handling."
   }
 }
