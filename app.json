@@ -10171,9 +10171,6 @@
       "zigbee": {
         "manufacturerName": [
           "_TZE200_ntcy3xu1",
-          "_TZE200_m9skfctm",
-          "_TZE200_rccxox8p",
-          "_TZE200_vzekyi4c",
           "_TZE204_ntcy3xu1",
           "_TZE200_t5p1vj8r",
           "_TZE200_uebojraa",
@@ -10256,6 +10253,57 @@
         },
         "learnmode": {
           "image": "/drivers/smoke_sensor3/assets/icon.svg",
+          "instruction": {
+            "en": "Press the RESET pinhole on the side of the unit for 5 seconds until LED blinks."
+          }
+        }
+      }
+    },
+    {
+      "id": "smoke_sensor_smoke_only",
+      "name": {
+        "en": "Smoke Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_smoke"
+      ],
+      "images": {
+        "large": "/drivers/smoke_sensor_smoke_only/assets/images/large.png",
+        "small": "/drivers/smoke_sensor_smoke_only/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_m9skfctm",
+          "_TZE200_rccxox8p",
+          "_TZE200_vzekyi4c"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              4,
+              5,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/smoke_sensor_smoke_only/assets/icon.svg",
           "instruction": {
             "en": "Press the RESET pinhole on the side of the unit for 5 seconds until LED blinks."
           }
