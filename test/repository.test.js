@@ -1695,3 +1695,20 @@ test('smart air box converts VOC and formaldehyde to Homey capability units', ()
   assert.equal(voc.decimals, 3);
   assert.equal(formaldehyde.units.en, 'mg/m³');
 });
+test('_TZ3000_xabckq1v keeps its physical 4-button order', () => {
+  const manifest = require('../drivers/wall_remote_4_gang_2/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'wall_remote_4_gang_2', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZ3000_xabckq1v'));
+  assert.match(
+    source,
+    /this\.useXabckq1vButtonMap = manufacturerName === '_TZ3000_xabckq1v'/
+  );
+  assert.match(source, /leftDown: 'leftUp'/);
+  assert.match(source, /rightDown: 'rightUp'/);
+  assert.match(source, /rightUp: 'leftDown'/);
+  assert.match(source, /leftUp: 'rightDown'/);
+});
