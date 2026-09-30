@@ -972,15 +972,17 @@ test('irrigation controller uses scoped battery values and clears timed shutoff 
   assert.match(source, /setOff\(\)[\s\S]*\.catch\(err => this\.error/);
 });
 
-test('one-button smart remote ignores unknown frames and avoids raw frame logging', () => {
+test('one-button smart remote avoids raw frame handling', () => {
   const source = fs.readFileSync(
     path.join(root, 'drivers', 'smart_remote_1_button', 'device.js'),
     'utf8'
   );
 
+  assert.doesNotMatch(source, /handleFrame/);
   assert.doesNotMatch(source, /frame:", frame/);
-  assert.match(source, /Unknown click action detected:[\s\S]*return false;/);
-  assert.doesNotMatch(source, /action = ["']unknown["']/);
+  assert.match(source, /TuyaRemoteOnOffBoundCluster/);
+  assert.match(source, /triggerAction\('oneClick'/);
+  assert.match(source, /triggerAction\('twoClicks'/);
 });
 
 test('simple setCapabilityValue statements handle their Promise', () => {
