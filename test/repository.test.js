@@ -1225,8 +1225,8 @@ test('_TZE200_qyflbnbj keeps its raw-percent humidity profile', () => {
   assert.match(source, /this\.humidityDivisor = tenthPercentHumidityManufacturers\.has\(this\.manufacturerName\) \? 10 : 1/);
   assert.match(source, /const humidity = measuredValue \/ this\.humidityDivisor/);
   assert.match(source, /const signedValue = measuredValue > 0x2000 \? measuredValue - 0xFFFF : measuredValue/);
-  assert.match(source, /clusters\.tuya\.on\('reporting', handleDatapoint\)/);
-  assert.match(source, /clusters\.tuya\.on\('response', handleDatapoint\)/);
+  assert.match(source, /tuyaCluster\.on\('reporting', handleDatapoint\)/);
+  assert.match(source, /tuyaCluster\.on\('response', handleDatapoint\)/);
 });
 test('_TZE204_qasjif9e uses an isolated exact radar profile', () => {
   const generic = require('../drivers/radar_sensor/driver.compose.json');
