@@ -8938,6 +8938,7 @@
         "measure_formaldehyde",
         "measure_voc",
         "measure_co2",
+        "measure_pm25",
         "measure_temperature",
         "measure_humidity"
       ],
