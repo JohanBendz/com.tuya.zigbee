@@ -15848,7 +15848,7 @@
         "pl": "Stężenie VOC w części na milion (ppm)"
       },
       "chartType": "spline",
-      "decimals": 2,
+      "decimals": 3,
       "getable": true,
       "setable": false,
       "uiVOCmponent": "sensor"
