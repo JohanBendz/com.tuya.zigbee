@@ -679,7 +679,7 @@ test('wall remote trigger cards are registered once at driver level', () => {
     );
 
     assert.match(driver, new RegExp(`getDeviceTriggerCard\\('${cardId}'\\)`));
-    assert.match(device, /this\.driver\.buttonTrigger\.trigger/);
+    assert.match(device, /this\.driver\.buttonTrigger[\s\S]*?\.trigger\(this, \{\}, \{ button \}\)/);
     assert.doesNotMatch(device, /registerRunListener/);
   }
 });
