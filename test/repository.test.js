@@ -1735,3 +1735,29 @@ test('_TZE200_m9skfctm uses smoke-only TS0601 profile', () => {
   assert.match(source, /if \(this\.hasCapability\('alarm_battery'\)\)/);
   assert.match(source, /setCapabilityValue\('alarm_battery', value === 0\)/);
 });
+test('_TZE200_locansqn receives Tuya 1970-based MCU time sync', () => {
+  const clusterSource = fs.readFileSync(
+    path.join(root, 'lib', 'TuyaSpecificCluster.js'),
+    'utf8'
+  );
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'lcdtemphumidsensor_3', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(
+    clusterSource,
+    /timeSync:[\s\S]*id: 0x24[\s\S]*payloadSize: ZCLDataTypes\.uint16[\s\S]*payload: ZCLDataTypes\.buffer/
+  );
+  assert.match(
+    source,
+    /this\.requiresTuyaTimeSync = this\.manufacturerName === '_TZE200_locansqn'/
+  );
+  assert.match(source, /tuyaCluster\.on\('timeSync'/);
+  assert.match(source, /const utcTime = Math\.floor\(Date\.now\(\) \/ 1000\)/);
+  assert.match(source, /const localTime = utcTime - new Date\(\)\.getTimezoneOffset\(\) \* 60/);
+  assert.match(source, /payload\.writeUInt32BE\(utcTime >>> 0, 0\)/);
+  assert.match(source, /payload\.writeUInt32BE\(localTime >>> 0, 4\)/);
+  assert.match(source, /payloadSize: payload\.length/);
+  assert.match(source, /Date\.now\(\) - this\.lastTuyaTimeSyncAt >= 3600000/);
+});
