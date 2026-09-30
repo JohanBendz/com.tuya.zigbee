@@ -29,7 +29,8 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | 2 Channel Relay Board (`relay_board_2_channel`) | `TS0002` | `_TZ3000_nuenzetq`<br>`_TZ3000_ruldv5dt` |
 | 2 Gang Curtain Module (`curtain_module_2_gang`) | `TS130F` | `_TZ3000_j1xl73iw`<br>`_TZ3000_l6iqph4f` |
 | 2 Gang Dimmer Module (`dimmer_2_gang`) | `TS1101`<br>`TS110E`<br>`TS110F` | `_TYZB01_v8gtiaed`<br>`_TZ3000_7ysdnebc`<br>`_TZ3000_92chsky7`<br>`_TZ3210_3mpwqzuu`<br>`_TZ3210_4ubylghk`<br>`_TZ3210_pagajpog`<br>`_TZ3210_wdexaypg` |
-| 2 Gang Dimmer Module (`dimmer_2_gang_tuya`) | `TS0601` | `_TZE200_e3oitdyu`<br>`_TZE200_fjjbhx9d`<br>`_TZE200_gwkapsoq`<br>`_TZE204_bxoo2swd`<br>`_TZE204_zenj4lxv` |
+| 2 Gang Dimmer Module (`dimmer_2_gang_tuya`) | `TS0601` | `_TZE200_e3oitdyu`<br>`_TZE200_gwkapsoq`<br>`_TZE204_bxoo2swd`<br>`_TZE204_zenj4lxv` |
+| 2 Gang Dimmer Module (MOES) (`dimmer_2_gang_tuya_fjjbhx9d`) | `TS0601` | `_TZE200_fjjbhx9d` |
 | 2 Gang Switch Module (`switch_2_gang`) | `TS0002`<br>`TS0003`<br>`TS0012`<br>`TS0013`<br>`TS011F`<br>`ZG-305Z` | `HOBEIAN`<br>`_TYZB01_digziiav`<br>`_TYZB01_zsl6z0pw`<br>`_TZ3000_4js9lo5d`<br>`_TZ3000_7ed9cqgi`<br>`_TZ3000_bvrlqyj7`<br>`_TZ3000_fisb3ajo`<br>`_TZ3000_jcfje0kb`<br>`_TZ3000_jl7qyupf`<br>`_TZ3000_llfaquvp`<br>`_TZ3000_lmlsduws`<br>`_TZ3000_pmz6mjyu`<br>`_TZ3000_qaa59zqd`<br>`_TZ3000_qcgw8qfa`<br>`_TZ3000_ruxexjfz` |
 | 2 Gang Switch Module with metering (`switch_2_gang_metering`) | `TS0002`<br>`TS011F` | `_TZ3000_zmy4lslw` |
 | 2 Gang Wall Remote (`wall_remote_2_gang`) | `TS0042` | `_TYZB02_keyjhapk`<br>`_TZ3000_5e235jpa`<br>`_TZ3000_dfgbtub0`<br>`_TZ3000_fkvaniuu`<br>`_TZ3000_h1c2eamp`<br>`_TZ3000_oikiyf3b`<br>`_TZ3000_owgcnkrh`<br>`_TZ3000_tzvbimpq`<br>`_TZ3400_keyjhapk` |
