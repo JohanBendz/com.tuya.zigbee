@@ -1761,3 +1761,34 @@ test('_TZE200_locansqn receives Tuya 1970-based MCU time sync', () => {
   assert.match(source, /payloadSize: payload\.length/);
   assert.match(source, /Date\.now\(\) - this\.lastTuyaTimeSyncAt >= 3600000/);
 });
+test('Smart Knob uses bound clusters for press and rotation', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_knob_switch', 'device.js'),
+    'utf8'
+  );
+  const levelSource = fs.readFileSync(
+    path.join(root, 'lib', 'LevelControlBoundCluster.js'),
+    'utf8'
+  );
+
+  assert.match(source, /new TuyaRemoteOnOffBoundCluster\(/);
+  assert.match(source, /CLUSTER\.ON_OFF\.NAME/);
+  assert.match(source, /new LevelControlBoundCluster\(/);
+  assert.match(source, /CLUSTER\.LEVEL_CONTROL\.NAME/);
+  assert.match(source, /onStep: payload => triggerRotation\(payload, 'step'\)/);
+  assert.match(source, /onMove: payload => triggerRotation\(payload, 'move'\)/);
+  assert.match(source, /const button = mode === 'down' \? 'left' : 'right'/);
+
+  // Raw frames are retained only for the unverified Color Control hold path.
+  assert.match(source, /if \(clusterId !== CLUSTER\.COLOR_CONTROL\.ID\) return/);
+  assert.doesNotMatch(source, /\[8, 6, 768\]\.includes\(clusterId\)/);
+  assert.doesNotMatch(source, /case 8:/);
+
+  // Duplicate suppression is intentionally press-only so rotation steps survive.
+  assert.match(source, /button === 'press'[\s\S]*now - this\._lastPressAt < 250/);
+  assert.match(source, /if \(button === 'press'\) \{[\s\S]*this\._lastPressAt = now/);
+
+  assert.match(levelSource, /class LevelControlBoundCluster extends BoundCluster/);
+  assert.match(levelSource, /step\(payload\)/);
+  assert.match(levelSource, /move\(payload\)/);
+});
