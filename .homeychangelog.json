@@ -382,5 +382,8 @@
   },
   "0.2.76": {
     "en": "Fixed device support and improved Zigbee handling"
+  },
+  "0.3.0": {
+    "en": "Major modernization release preparing Tuya Zigbee for renewed development, with project cleanup, Homey Compose alignment, validation improvements and maintenance updates."
   }
 }
