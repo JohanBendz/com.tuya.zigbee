@@ -724,7 +724,8 @@ test('4-gang wall remote variant 3 parses normalized frame data', () => {
     'utf8'
   );
 
-  assert.match(source, /frame = frame\.toJSON\(\)/);
+  assert.match(source, /const parsedFrame = frame\.toJSON\(\)/);
+  assert.match(source, /buttonCommandParser\(endpointId, parsedFrame\)/);
   assert.match(source, /frame\.data\[3\]/);
   assert.doesNotMatch(source, /frame\[3\]/);
 });
