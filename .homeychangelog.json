@@ -388,5 +388,8 @@
   },
   "0.3.1": {
     "en": "Large update with support for many additional Tuya Zigbee devices and device IDs, plus fixes and reliability improvements for remotes, sensors, switches, dimmers, sirens, FingerBot, rain/radar devices and Zigbee event handling. TH05Z battery readings now use the cached Zigbee identity to avoid failures when sleepy devices do not respond to Basic reads."
+  },
+  "0.4.0": {
+    "en": "Improved device diagnostics and added support for additional verified Zigbee temperature and humidity sensors."
   }
 }
