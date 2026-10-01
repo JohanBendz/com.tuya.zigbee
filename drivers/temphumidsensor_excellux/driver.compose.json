@@ -48,5 +48,10 @@
         "en": "Put the sensor into Zigbee pairing mode according to the device instructions."
       }
     }
+  },
+  "energy": {
+    "batteries": [
+      "OTHER"
+    ]
   }
 }

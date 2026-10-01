@@ -20,7 +20,7 @@ test('physical Excellux C3007 matches only its exact Homey Zigbee identity', () 
     'measure_temperature', 'measure_humidity', 'measure_battery', 'alarm_battery',
   ]);
   assert.equal(compose.capabilities.filter(name => name === 'measure_temperature').length, 1);
-  assert.equal(compose.energy, undefined, 'Battery cell count has not been physically verified; do not invent energy metadata');
+  assert.deepEqual(compose.energy.batteries, ['OTHER'], 'Homey requires energy.batteries for measure_battery; physical AAA cell count awaits verification');
   assert.ok(!JSON.stringify(compose.zigbee).includes('61184'), 'EF00 is OUTPUT/client only in the interview, not an input cluster');
 
   const found = manifest.drivers.filter(d =>
@@ -28,7 +28,7 @@ test('physical Excellux C3007 matches only its exact Homey Zigbee identity', () 
     && d.zigbee?.productId?.includes('Excellux')
   );
   assert.deepEqual(found.map(d => d.id), [driverId]);
-  assert.equal(found[0].energy, undefined);
+  assert.deepEqual(found[0].energy.batteries, ['OTHER']);
 });
 
 test('dedicated profile reuses the existing standard Zigbee sensor runtime only', () => {

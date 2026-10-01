@@ -12784,6 +12784,11 @@
           }
         }
       },
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
       "settings": [
         {
           "id": "temperature_offset",
