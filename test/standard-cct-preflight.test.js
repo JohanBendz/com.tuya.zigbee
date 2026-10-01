@@ -63,14 +63,14 @@ test('actual 2.4.1 cluster rejects unavailable physical attributes before any Zi
 test('isolated mapper fails closed without confirmed per-device physical CCT metadata', () => {
   assert.throws(() => requireVerifiedRange(undefined), /not confirmed/);
   assert.throws(() => requireVerifiedRange({ colorCapabilities: { colorTemperature: false } }), /not confirmed/);
-  assert.throws(() => requireVerifiedRange({ colorCapabilities: { colorTemperature: true } }), /not verified/);
+  assert.throws(() => requireVerifiedRange({ colorCapabilities: { colorTemperature: true } }), /not been verified/);
   for (const [min, max] of [[0,500], [153,153], [500,153], [153,0xffff], [-1,500], [153.5,500]]) {
     assert.throws(
       () => requireVerifiedRange({
         colorCapabilities: { colorTemperature: true },
         colorTempPhysicalMinMireds: min,
         colorTempPhysicalMaxMireds: max,
-      }), /not verified/,
+      }), /not been verified/,
       'rejected invalid physical range: ' + min + '/' + max
     );
   }
