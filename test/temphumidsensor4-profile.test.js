@@ -40,7 +40,7 @@ function loadDevice() {
   };
 
   const factory = vm.runInNewContext(
-    '(function (require, module, exports) {\\n' + source + '\\n})'
+    '(function (require, module, exports) {' + source + '})'
   );
   factory(fakeRequire, exportsModule, exportsModule.exports);
   return exportsModule.exports;
