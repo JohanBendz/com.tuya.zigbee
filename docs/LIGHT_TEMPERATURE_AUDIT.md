@@ -31,6 +31,15 @@ The pinned app dependency in `package.json` is `homey-zigbeedriver@2.1.4`. Inspe
 
 **Revised implementation gate:** test whether the exact #113/#271 physical units answer direct reads for `0x0300` Color Capabilities `0x400A`, Physical Min `0x400B` and Max `0x400C` (and confirm min <= current <= max), or establish an explicit *per-fingerprint* physically verified bounded fallback before installing a standard-only candidate driver. If a vendor command is demonstrably required for a particular device, isolate that behavior to its exact profile; do not apply it to all lights.
 
+## Fourth check: global Color Control override (exact pinned cluster library)
+
+Read the official athombv/node-zigbee-clusters tag **v2.4.1**, which matches the app's pinned dependency. Stock lib/clusters/colorControl.js includes Color Capabilities (0x400A), Physical Min (0x400B) and Max (0x400C). The app's own lib/TuyaColorControlCluster.js **overrides its static ATTRIBUTES getter without spreading super.ATTRIBUTES** and omits all three. lib/TuyaZigBeeLightDevice.js calls Cluster.addCluster(TuyaColorControlCluster) at import time. The official Cluster.addCluster() replaces the global implementation by both ID (0x0300) and name (colorControl) and builds the attribute registry from global attributes plus the replacement getter. Cluster.readAttributes() rejects unknown attribute names *before sending Zigbee frames*.
+
+**Additional implementation gate:** Athom's stock ZigBeeLightDevice expects these attributes; merely switching inheritance may throw a local TypeError even if the hardware would respond. Do not apply a global super.ATTRIBUTES / super.COMMANDS change without testing existing RGB modes/commands/reports. Do not register competing Color Control clusters as an attempted per-device solution.
+
+Executable test/standard-cct-preflight.test.js uses the installed 2.4.1 library to demonstrate this mismatch, including no outbound Zigbee frame. Standalone, currently unreferenced lib/StandardCctRange.js supplies a fail-closed pure mapping candidate: no generic 153–500 default, explicit confirmed capability plus physical min/max, normalized Homey 0 => min mired and 1 => max mired, bidirectional tests and no old driver imports. Its 153–500 test fixture is solely the different physical #178 family, not an assumption for #113/#271.
+
+This is preflight work only, not a new device or fix for already paired devices. Before implementing standard-CCT pairing, separately resolve the global cluster metadata API and require per-fingerprint physical range/command evidence.
 ## Safe implementation path — still pending
 
 - **Do not change `TuyaZigBeeLightDevice` globally as part of adding #113/#271.** In particular, don't simply replace constant 254 with 500: that leaves opposite set-parser/change paths, the report parser, `light_mode`, and `onEndDeviceAnnounce` inconsistent. Blindly deleting F0 might break existing RGB.
