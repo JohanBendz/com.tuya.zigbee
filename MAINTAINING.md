@@ -80,11 +80,17 @@ Homey's publish validation checks the generated manifest and publish assets. Sta
 - Keep project/developer detail in GitHub documentation rather than the Homey App Store changelog.
 - Regenerate/validate `app.json` through Homey Compose/CLI; do not hand-edit it.
 
-## Branches
+## Branches and release lanes (2026-10-01)
 
-- `SDK3` is the established production code line at the start of the 2026 maintenance pass.
-- `modernize-2026` is the active 2026 modernization branch for repository hygiene, verified correctness fixes and maintainability improvements without architectural rewrites.
-- `refactor/type-based-drivers` is an experimental architecture branch. It is intentionally separate and must not be assumed production-ready.
+- `SDK3`: **0.2.76 Live**, legacy production/default branch. Treat this line as the existing Live archive; do not mix new development into it.
+- `modernize-2026`: **0.3.0**, stabilized previous Test baseline. Keep it unchanged while deciding the next Live promotion.
+- `modernize-2026-issues`: **0.3.1, currently published to Test**. Frozen release line at commit `7583b4b` (successful CI275). PR #1470 targets `modernize-2026` and stays Draft/unmerged while Test feedback is evaluated. Apply further release changes here only as explicitly approved, narrowly scoped hotfixes followed by new validation.
+- `develop-0.4`: **active development branch** created directly from the verified 0.3.1 release commit `7583b4b`. New implementation and regression work goes here, independently of the published Test and Live lanes. It initially inherits `0.3.1` in the manifests; bump the version to the next release only when preparing a new release cycle, keeping `package.json`, Compose, generated `app.json` and changelog synchronized.
+- `refactor/type-based-drivers`: separate experimental architecture branch, not assumed production-ready.
+
+**Do not promote 0.3.1 to Live automatically on a calendar date.** Evaluate physical Test feedback first, and avoid initiating a large Live rollout directly ahead of a period when Athom review could delay an emergency correction. Keep release support/verification and longer-term development on separate branches.
+
+For development, branch/PR from `develop-0.4` rather than from `modernize-2026-issues`. Keep the Tuya Zigbee project distinct from the Hue project.
 
 ## Modernization rule
 
