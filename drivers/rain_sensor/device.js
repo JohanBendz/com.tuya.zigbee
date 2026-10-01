@@ -88,10 +88,13 @@ class RainSensor extends TuyaSpecificClusterDevice {
         this.setCapabilityValue('alarm_cleaning', parsedValue !== 0).catch(this.error);
         break;
 
-      case V1_RAIN_SENSOR_DATA_POINTS.rain_intensity:
-        this.log('Received rain intensity:', parsedValue);
-        this.setCapabilityValue('measure_voltage.rain', parsedValue / 1000).catch(this.error);
+      case V1_RAIN_SENSOR_DATA_POINTS.rain_intensity: {
+        const isRaining = parsedValue > 100;
+        this.log('Received rain intensity:', parsedValue, 'raining:', isRaining);
+        await this.setCapabilityValue('measure_voltage.rain', parsedValue / 1000);
+        await this.setCapabilityValue('alarm_water', isRaining);
         break;
+      }
 
       default:
         this.log('Unhandled DP:', dp, 'with value:', parsedValue);

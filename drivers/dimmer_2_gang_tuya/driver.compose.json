@@ -4,9 +4,16 @@
     "en": "2 Gang Dimmer Module"
   },
   "class": "socket",
-  "platforms": ["local"],
-  "connectivity": ["zigbee"],
-  "capabilities": ["onoff", "dim"],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [
+    "onoff",
+    "dim"
+  ],
   "capabilitiesOptions": {
     "dim": {
       "opts": {
@@ -29,22 +36,36 @@
       "_TZE200_e3oitdyu",
       "_TZE204_zenj4lxv",
       "_TZE204_bxoo2swd",
-      "_TZE200_gwkapsoq",
-      "_TZE200_fjjbhx9d"
+      "_TZE200_gwkapsoq"
     ],
     "productId": [
       "TS0601"
     ],
     "endpoints": {
       "1": {
-        "clusters": [0, 4, 5, 6, 8, 61184],
-        "bindings": [6, 8, 25, 10]
+        "clusters": [
+          0,
+          4,
+          5,
+          6,
+          8,
+          61184
+        ],
+        "bindings": [
+          6,
+          8,
+          25,
+          10
+        ]
       }
     },
     "devices": {
       "secondGang": {
         "class": "socket",
-        "capabilities": ["onoff", "dim"],
+        "capabilities": [
+          "onoff",
+          "dim"
+        ],
         "name": {
           "en": "2 Gang Switch Module - Second"
         },
@@ -64,4 +85,3 @@
     }
   }
 }
-

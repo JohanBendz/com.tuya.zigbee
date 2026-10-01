@@ -1,0 +1,56 @@
+{
+  "id": "doorbell_button",
+  "name": {
+    "en": "Doorbell Button"
+  },
+  "class": "remote",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [
+    "measure_battery",
+    "alarm_battery",
+    "alarm_tamper"
+  ],
+  "energy": {
+    "batteries": [
+      "CR2450"
+    ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ1800_ladpngdx"
+    ],
+    "productId": [
+      "TS0211"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          3,
+          1280,
+          2821
+        ],
+        "bindings": [
+          1,
+          1280
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Press the reset button on the back three times within two seconds until the blue LED starts flashing rapidly."
+      }
+    }
+  }
+}

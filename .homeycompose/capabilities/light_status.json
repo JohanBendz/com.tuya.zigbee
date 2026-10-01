@@ -1,0 +1,26 @@
+{
+    "type": "enum",
+    "title": {
+        "en": "Light level"
+    },
+    "desc": {
+        "en": "Ambient light classification reported by the sensor"
+    },
+    "values": [
+        {
+            "id": "dark",
+            "title": {
+                "en": "Dark"
+            }
+        },
+        {
+            "id": "bright",
+            "title": {
+                "en": "Bright"
+            }
+        }
+    ],
+    "getable": true,
+    "setable": false,
+    "uiComponent": "sensor"
+}

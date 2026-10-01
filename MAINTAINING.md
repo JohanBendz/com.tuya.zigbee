@@ -57,7 +57,18 @@ npm test
 npm run validate
 ```
 
-GitHub Actions runs the same baseline validation for pushes and pull requests.
+GitHub Actions deliberately generates `app.json` with Homey Compose **before** any repository test or manifest/index check consumes it. This prevents stale or hand-edited root manifests from becoming an accidental source of truth.
+
+CI order is:
+
+1. install dependencies
+2. run Homey Compose build to generate `app.json`
+3. verify the generated `app.json` is committed
+4. verify `SUPPORTED_DEVICES.md` matches the generated manifest
+5. run repository tests against that generated manifest
+6. run Homey publish validation
+7. verify publish validation did not change `app.json`
+8. run the whitespace check
 
 Homey's publish validation checks the generated manifest and publish assets. Static repository tests are intentionally conservative; they do not claim to replace real-device testing.
 

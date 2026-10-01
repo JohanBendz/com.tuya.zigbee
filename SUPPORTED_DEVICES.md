@@ -18,31 +18,35 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | 1 Channel Relay Board (`relay_board_1_channel`) | `TS0001` | `_TZ3000_g8n1n7lg` |
 | 1 Gang Dimmer Module (`dimmer_1_gang`) | `TS0052`<br>`TS110E`<br>`TS110F` | `_TYZB01_qezuin6k`<br>`_TZ3000_ktuoyvt5`<br>`_TZ3000_mgusv51k`<br>`_TZ3210_k1msuvg6`<br>`_TZ3210_ngqk6jia`<br>`_TZ3210_weaqkhab`<br>`_TZ3210_zxbtub8r` |
 | 1 Gang Dimmer Module (`dimmer_1_gang_2`) | `TS110E` | `_TZ3210_ngqk6jia` |
-| 1 Gang Dimmer Module (`dimmer_1_gang_tuya`) | `TS0601` | `_TZE200_1agwnems`<br>`_TZE200_4mh6tyyo`<br>`_TZE200_579lguh2`<br>`_TZE200_ip2akl4w`<br>`_TZE200_la2c2uo9`<br>`_TZE200_vucankjx`<br>`_TZE204_5cuocqty`<br>`_TZE204_9qhuzgo0`<br>`_TZE204_dcnsggvz`<br>`_TZE204_hlx9tnzb`<br>`_TZE204_n9ctkb6j` |
+| 1 Gang Dimmer Module (`dimmer_1_gang_tuya`) | `TS0601` | `_TZE200_1agwnems`<br>`_TZE200_4mh6tyyo`<br>`_TZE200_579lguh2`<br>`_TZE200_ip2akl4w`<br>`_TZE200_la2c2uo9`<br>`_TZE200_vucankjx`<br>`_TZE204_9qhuzgo0`<br>`_TZE204_dcnsggvz`<br>`_TZE204_hlx9tnzb`<br>`_TZE204_n9ctkb6j` |
+| 1 Gang Dimmer Module (AVATTO) (`dimmer_1_gang_tuya_avatto`) | `TS0601` | `_TZE204_5cuocqty` |
 | 1 Gang Switch Module (`switch_1_gang`) | `TS0001`<br>`TS0003`<br>`TS000F`<br>`TS0011`<br>`TS011F` | `_TYZB01_aneiicmq`<br>`_TYZB01_ncutbjdi`<br>`_TZ3000_46t1rvdu`<br>`_TZ3000_6axxqqi2`<br>`_TZ3000_ji4araar`<br>`_TZ3000_m9af2l6g`<br>`_TZ3000_majwnphg`<br>`_TZ3000_mx3vgyea`<br>`_TZ3000_npzfdcof`<br>`_TZ3000_pmvbt5hh`<br>`_TZ3000_qmi1cfuq`<br>`_TZ3000_rmjr4ufz`<br>`_TZ3000_sjpl9eg3`<br>`_TZ3000_tqlv4ug4`<br>`_TZ3000_zmy1waw6` |
 | 1 Gang Switch Module with metering (`switch_1_gang_metering`) | `TS0001` | `_TZ3000_prits6g4` |
+| 1 Gang Switch Module with metering (`switch_1_gang_metering_gjrubzje`) | `TS0001` | `_TZ3000_gjrubzje` |
 | 1 Gang Wall Remote (`wall_remote_1_gang`) | `TS0041` | `_TYZB02_keyjqthh`<br>`_TZ3000_4upl1fcj`<br>`_TZ3000_8rppvwda`<br>`_TZ3000_axpdxqgu`<br>`_TZ3000_f97vq5mn`<br>`_TZ3000_fkp5zyho`<br>`_TZ3000_itb0omhv`<br>`_TZ3000_peszejy7`<br>`_TZ3000_pzui3skt`<br>`_TZ3000_q68478x7`<br>`_TZ3000_tk3s5tyg` |
-| 1 Gang Wall Switch (`wall_switch_1_gang`) | `TS0001`<br>`TS0011` | `_TYZB01_qeqvmvti`<br>`_TYZB01_seqwasot`<br>`_TYZB01_xfpdrwvc`<br>`_TZ3000_3u4hripk`<br>`_TZ3000_3wkqni6o`<br>`_TZ3000_6eyydfyg`<br>`_TZ3000_7jx5ypra`<br>`_TZ3000_9hpxg80k`<br>`_TZ3000_f8tmviy0`<br>`_TZ3000_gidy6sjs`<br>`_TZ3000_hafsqare`<br>`_TZ3000_hhiodade`<br>`_TZ3000_hktqahrq`<br>`_TZ3000_oaq83gqc`<br>`_TZ3000_oex7egmt`<br>`_TZ3000_yl3zuyaw`<br>`_TZ3000_ysdv91bk` |
-| 1 Gang Wall Switch (`wall_switch_1_gang_tuya`) | `TS0601` | `_TZE200_gbagoilo` |
+| 1 Gang Wall Switch (`wall_switch_1_gang`) | `TS0001`<br>`TS0011` | `_TYZB01_qeqvmvti`<br>`_TYZB01_seqwasot`<br>`_TYZB01_xfpdrwvc`<br>`_TZ3000_3u4hripk`<br>`_TZ3000_3wkqni6o`<br>`_TZ3000_6eyydfyg`<br>`_TZ3000_7jx5ypra`<br>`_TZ3000_9hpxg80k`<br>`_TZ3000_f8tmviy0`<br>`_TZ3000_gidy6sjs`<br>`_TZ3000_hafsqare`<br>`_TZ3000_hhiodade`<br>`_TZ3000_hktqahrq`<br>`_TZ3000_oaq83gqc`<br>`_TZ3000_oex7egmt`<br>`_TZ3000_raytv4q5`<br>`_TZ3000_yl3zuyaw`<br>`_TZ3000_ysdv91bk` |
+| 1 Gang Wall Switch (`wall_switch_1_gang_tuya`) | `TS0601` | `_TZE200_amp6tsvy`<br>`_TZE200_gbagoilo` |
 | 2 Channel Relay Board (`relay_board_2_channel`) | `TS0002` | `_TZ3000_nuenzetq`<br>`_TZ3000_ruldv5dt` |
 | 2 Gang Curtain Module (`curtain_module_2_gang`) | `TS130F` | `_TZ3000_j1xl73iw`<br>`_TZ3000_l6iqph4f` |
 | 2 Gang Dimmer Module (`dimmer_2_gang`) | `TS1101`<br>`TS110E`<br>`TS110F` | `_TYZB01_v8gtiaed`<br>`_TZ3000_7ysdnebc`<br>`_TZ3000_92chsky7`<br>`_TZ3210_3mpwqzuu`<br>`_TZ3210_4ubylghk`<br>`_TZ3210_pagajpog`<br>`_TZ3210_wdexaypg` |
-| 2 Gang Dimmer Module (`dimmer_2_gang_tuya`) | `TS0601` | `_TZE200_e3oitdyu`<br>`_TZE200_fjjbhx9d`<br>`_TZE200_gwkapsoq`<br>`_TZE204_bxoo2swd`<br>`_TZE204_zenj4lxv` |
-| 2 Gang Switch Module (`switch_2_gang`) | `TS0002`<br>`TS0003`<br>`TS0012`<br>`TS0013`<br>`TS011F` | `_TYZB01_digziiav`<br>`_TYZB01_zsl6z0pw`<br>`_TZ3000_4js9lo5d`<br>`_TZ3000_7ed9cqgi`<br>`_TZ3000_bvrlqyj7`<br>`_TZ3000_fisb3ajo`<br>`_TZ3000_jcfje0kb`<br>`_TZ3000_jl7qyupf`<br>`_TZ3000_llfaquvp`<br>`_TZ3000_lmlsduws`<br>`_TZ3000_pmz6mjyu`<br>`_TZ3000_qaa59zqd`<br>`_TZ3000_qcgw8qfa`<br>`_TZ3000_ruxexjfz` |
+| 2 Gang Dimmer Module (`dimmer_2_gang_tuya`) | `TS0601` | `_TZE200_e3oitdyu`<br>`_TZE200_gwkapsoq`<br>`_TZE204_bxoo2swd`<br>`_TZE204_zenj4lxv` |
+| 2 Gang Dimmer Module (MOES) (`dimmer_2_gang_tuya_fjjbhx9d`) | `TS0601` | `_TZE200_fjjbhx9d` |
+| 2 Gang Switch Module (`switch_2_gang`) | `TS0002`<br>`TS0003`<br>`TS0012`<br>`TS0013`<br>`TS011F`<br>`ZG-305Z` | `HOBEIAN`<br>`_TYZB01_digziiav`<br>`_TYZB01_zsl6z0pw`<br>`_TZ3000_4js9lo5d`<br>`_TZ3000_7ed9cqgi`<br>`_TZ3000_bvrlqyj7`<br>`_TZ3000_fisb3ajo`<br>`_TZ3000_jcfje0kb`<br>`_TZ3000_jl7qyupf`<br>`_TZ3000_llfaquvp`<br>`_TZ3000_lmlsduws`<br>`_TZ3000_pmz6mjyu`<br>`_TZ3000_qaa59zqd`<br>`_TZ3000_qcgw8qfa`<br>`_TZ3000_ruxexjfz` |
 | 2 Gang Switch Module with metering (`switch_2_gang_metering`) | `TS0002`<br>`TS011F` | `_TZ3000_zmy4lslw` |
-| 2 Gang Wall Remote (`wall_remote_2_gang`) | `TS0042` | `_TYZB02_keyjhapk`<br>`_TZ3000_5e235jpa`<br>`_TZ3000_dfgbtub0`<br>`_TZ3000_fkvaniuu`<br>`_TZ3000_h1c2eamp`<br>`_TZ3000_oikiyf3b`<br>`_TZ3000_owgcnkrh`<br>`_TZ3400_keyjhapk` |
-| 2 Gang Wall Switch (`wall_switch_2_gang`) | `TS0002`<br>`TS0012`<br>`TS0042` | `TUYATEC-O6SNCwd6`<br>`TUYATEC-nzrrvgco`<br>`_TYZB01_2athzhfr`<br>`_TYZB01_6g8b7at8`<br>`_TYZB01_6sadkhcy`<br>`_TYZB01_mtlhqn48`<br>`_TYZB01_vzrytttn`<br>`_TZ3000_18ejxno0`<br>`_TZ3000_56bdyj21`<br>`_TZ3000_5vujyute`<br>`_TZ3000_atp7xmd9`<br>`_TZ3000_e98krvvk`<br>`_TZ3000_fvh3pjaz`<br>`_TZ3000_lupfd8zu`<br>`_TZ3000_mklgayek`<br>`_TZ3000_mrqea2uu`<br>`_TZ3000_nta0gb8h`<br>`_TZ3000_p8alo7qa`<br>`_TZ3000_qn8qvk9y`<br>`_TZ3000_s8r1qoyq`<br>`_TZ3000_svoqrno4`<br>`_TZ3000_yhagrqmd` |
-| 3 Gang Switch Module (`switch_3_gang`) | `TS0003` | `_TZ3000_4o16jdca`<br>`_TZ3000_lvhy15ix`<br>`_TZ3000_odzoiovu` |
-| 3 Gang Wall Remote (`wall_remote_3_gang`) | `TS0043` | `_TYZB02_key8kk7r`<br>`_TZ3000_a7ouggvs`<br>`_TZ3000_gbm10jnj`<br>`_TZ3000_qzjcsmar`<br>`_TZ3000_rrjr1q0u`<br>`_TZ3000_sj7jbgks`<br>`_TZ3000_w8jwkczz`<br>`_TZ3000_yw5tvzsk` |
-| 3 Gang Wall Switch (`wall_switch_3_gang`) | `TS0003`<br>`TS0013`<br>`TS0043` | `_TYZB01_b8cr31hp`<br>`_TYZB01_mqel1whf`<br>`_TYZB01_xiuox57i`<br>`_TZ3000_2dlwlvex`<br>`_TZ3000_5e5ptb24`<br>`_TZ3000_aezbqpcu`<br>`_TZ3000_cdamjqm9`<br>`_TZ3000_hlwm8e96`<br>`_TZ3000_lrgccsxm`<br>`_TZ3000_qcdqw8nf`<br>`_TZ3000_qewo8dlz`<br>`_TZ3000_thhxrept`<br>`_TZ3000_vvlivusi`<br>`_TZ3000_w05exif3`<br>`_TZ3000_wyhuocal` |
+| 2 Gang Wall Remote (`wall_remote_2_gang`) | `TS0042` | `_TYZB02_keyjhapk`<br>`_TZ3000_5e235jpa`<br>`_TZ3000_dfgbtub0`<br>`_TZ3000_fkvaniuu`<br>`_TZ3000_h1c2eamp`<br>`_TZ3000_oikiyf3b`<br>`_TZ3000_owgcnkrh`<br>`_TZ3000_tzvbimpq`<br>`_TZ3400_keyjhapk` |
+| 2 Gang Wall Switch (`wall_switch_2_gang`) | `TS0002`<br>`TS0012`<br>`TS0042` | `TUYATEC-O6SNCwd6`<br>`TUYATEC-nzrrvgco`<br>`_TYZB01_2athzhfr`<br>`_TYZB01_6g8b7at8`<br>`_TYZB01_6sadkhcy`<br>`_TYZB01_mtlhqn48`<br>`_TYZB01_vzrytttn`<br>`_TZ3000_18ejxno0`<br>`_TZ3000_56bdyj21`<br>`_TZ3000_5vujyute`<br>`_TZ3000_atp7xmd9`<br>`_TZ3000_e98krvvk`<br>`_TZ3000_fvh3pjaz`<br>`_TZ3000_lupfd8zu`<br>`_TZ3000_mklgayek`<br>`_TZ3000_mrqea2uu`<br>`_TZ3000_nta0gb8h`<br>`_TZ3000_p8alo7qa`<br>`_TZ3000_qn8qvk9y`<br>`_TZ3000_s8r1qoyq`<br>`_TZ3000_svoqrno4`<br>`_TZ3000_xftvfolu`<br>`_TZ3000_yhagrqmd` |
+| 2 Gang Wall Switch (`wall_switch_2_gang_tuya`) | `TS0601` | `_TZE200_g1ib5ldv` |
+| 3 Gang Switch Module (`switch_3_gang`) | `TS0003` | `_TZ3000_4o16jdca`<br>`_TZ3000_empogkya`<br>`_TZ3000_lvhy15ix`<br>`_TZ3000_odzoiovu` |
+| 3 Gang Wall Remote (`wall_remote_3_gang`) | `TS0043` | `_TYZB02_key8kk7r`<br>`_TZ3000_a7ouggvs`<br>`_TZ3000_bczr4e10`<br>`_TZ3000_bi6lpsew`<br>`_TZ3000_famkxci2`<br>`_TZ3000_gbm10jnj`<br>`_TZ3000_qzjcsmar`<br>`_TZ3000_rrjr1q0u`<br>`_TZ3000_sj7jbgks`<br>`_TZ3000_w4thianr`<br>`_TZ3000_w8jwkczz`<br>`_TZ3000_yw5tvzsk` |
+| 3 Gang Wall Switch (`wall_switch_3_gang`) | `TS0003`<br>`TS0013`<br>`TS0043` | `_TYZB01_b8cr31hp`<br>`_TYZB01_mqel1whf`<br>`_TYZB01_xiuox57i`<br>`_TZ3000_2dlwlvex`<br>`_TZ3000_5e5ptb24`<br>`_TZ3000_aezbqpcu`<br>`_TZ3000_cdamjqm9`<br>`_TZ3000_hlwm8e96`<br>`_TZ3000_kl72oake`<br>`_TZ3000_lrgccsxm`<br>`_TZ3000_qcdqw8nf`<br>`_TZ3000_qewo8dlz`<br>`_TZ3000_thhxrept`<br>`_TZ3000_vvlivusi`<br>`_TZ3000_w05exif3`<br>`_TZ3000_wyhuocal` |
 | 3 Socket Power Strip (`socket_power_strip`) | `TS011F` | `_TZ3000_1obwwnmq`<br>`_TZ3000_4uf3d0ax`<br>`_TZ3000_vmpbygs5`<br>`_TZ3000_vzopcetz`<br>`_TZ3000_wzauvbcs` |
-| 4 Button Remote (`handheld_remote_4_buttons`) | `TS0044` | `_TZ3000_u3nv1jwk` |
+| 4 Button Remote (`handheld_remote_4_buttons`) | `TS0044` | `_TZ3000_mh9px7cq`<br>`_TZ3000_u3nv1jwk` |
 | 4 button Smart Remote Controller (`smart_remote_4_buttons`) | `TS0215A` | `_TYZB01_qm6djpta`<br>`_TZ3000_eo3dttwe`<br>`_TZ3000_fsiepnrh`<br>`_TZ3000_p6ju8myv` |
-| 4 Channel Relay Board (`relay_board_4_channel`) | `TS0004` | `_TZ3000_excgg5kb`<br>`_TZ3000_hdlpifbk`<br>`_TZ3000_imaccztn`<br>`_TZ3000_u3oupgdy`<br>`_TZ3000_wkr3jqmr` |
+| 4 Channel Relay Board (`relay_board_4_channel`) | `TS0004` | `_TZ3000_a37eix1s`<br>`_TZ3000_excgg5kb`<br>`_TZ3000_hdlpifbk`<br>`_TZ3000_imaccztn`<br>`_TZ3000_u3oupgdy`<br>`_TZ3000_wkr3jqmr` |
 | 4 Gang Switch Module with metering (`switch_4_gang_metering`) | `TS0004` | `_TZ3000_mmkbptmx` |
 | 4 Gang Wall Remote (`wall_remote_4_gang`) | `TS0044` | `_TZ3000_a4xycprs`<br>`_TZ3000_ee8nrt2l`<br>`_TZ3000_ufhtxr59`<br>`_TZ3000_vp6clf9d` |
 | 4 Gang Wall Remote (`wall_remote_4_gang_2`) | `TS004F` | `_TZ3000_0ht8dnxj`<br>`_TZ3000_11pg3ima`<br>`_TZ3000_b3mgfu0d`<br>`_TZ3000_czuyt8lz`<br>`_TZ3000_et7afzxz`<br>`_TZ3000_nuombroo`<br>`_TZ3000_xabckq1v` |
-| 4 Gang Wall Remote (`wall_remote_4_gang_3`) | `TS0044` | `_TZ3000_jcspr0tp`<br>`_TZ3000_uaa99arv`<br>`_TZ3000_wkai4ga5` |
+| 4 Gang Wall Remote (`wall_remote_4_gang_3`) | `TS0044` | `_TZ3000_jcspr0tp`<br>`_TZ3000_kfu8zapd`<br>`_TZ3000_uaa99arv`<br>`_TZ3000_wkai4ga5`<br>`_TZ3000_zgyzgdua` |
 | 4 Gang Wall Switch (`wall_switch_4_gang_tuya`) | `TS0601` | `_TZE200_aqnazj70`<br>`_TZE200_di3tfv5b`<br>`_TZE200_mexisfik`<br>`_TZE200_shkxsgis`<br>`_TZE204_6wi2mope`<br>`_TZE204_aagrxlbd`<br>`_TZE204_iik0pquw` |
 | 5 Gang Wall Switch (`wall_switch_5_gang_tuya`) | `TS0601` | `_TZE200_jwsjbxjs` |
 | 6 Gang Wall Remote (`wall_remote_6_gang`) | `TS0046` | `_TZ3000_iszegwpd` |
@@ -52,15 +56,22 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Curtain Motor (`curtain_motor`) | `TS0601` | `_TZE200_3i3exuay`<br>`_TZE200_4vobcgd3`<br>`_TZE200_5zbp6j0u`<br>`_TZE200_68nvbio9`<br>`_TZE200_9p5xmj5r`<br>`_TZE200_axgvo9jh`<br>`_TZE200_bjzrowv2`<br>`_TZE200_cf1sl3tj`<br>`_TZE200_cowvfni3`<br>`_TZE200_fdtjuw7u`<br>`_TZE200_gaj531w3`<br>`_TZE200_hsgrhjpf`<br>`_TZE200_nkoabg8w`<br>`_TZE200_nogaemzt`<br>`_TZE200_nueqqe6k`<br>`_TZE200_nw1r9hp6`<br>`_TZE200_pk0sfzvr`<br>`_TZE200_pw7mji0l`<br>`_TZE200_r0jdjrvi`<br>`_TZE200_rddyvrci`<br>`_TZE200_rmymn92d`<br>`_TZE200_uj3f4wr5`<br>`_TZE200_wmcdj3aq`<br>`_TZE200_xaabybja`<br>`_TZE200_xuzcvlku`<br>`_TZE200_yia0p3tr`<br>`_TZE200_zah67ekd`<br>`_TZE200_zpzndjez`<br>`_TZE204_1fuxihti`<br>`_TZE204_xu4a5rhj` |
 | Dimmable LED Strip (`dimmable_led_strip`) | `TS0502B` | `_TZ3210_invesber` |
 | Dimmable Recessed LED (`dimmable_recessed_led`) | `TS0502B` | `_TZ3210_zdrhqmo0` |
-| Door & Window Sensor (`doorwindowsensor`) | `RH3001`<br>`SNZB-04`<br>`TS0203` | `TUYATEC-7qunn4gq`<br>`TUYATEC-Bfq2i2Sy`<br>`TUYATEC-abkehqus`<br>`TUYATEC-crr8qb0p`<br>`TUYATEC-g3gl6cgy`<br>`TUYATEC-ip9ganvw`<br>`TUYATEC-kbqf60nt`<br>`TUYATEC-r9hgssol`<br>`TUYATEC-rkqiqvcs`<br>`TUYATEC-sb6t7ett`<br>`TUYATEC-trhrga6p`<br>`_TYZB01_xph99wvr`<br>`_TZ3000_1bwpjvlz`<br>`_TZ3000_26fmupbb`<br>`_TZ3000_2mbfxlzr`<br>`_TZ3000_402jjyro`<br>`_TZ3000_4ugnzsli`<br>`_TZ3000_6jeesvrt`<br>`_TZ3000_6zvw8ham`<br>`_TZ3000_7d8yme6f`<br>`_TZ3000_9eeavbk5`<br>`_TZ3000_a33rw7ou`<br>`_TZ3000_au1rjicn`<br>`_TZ3000_au2o5e6q`<br>`_TZ3000_bmg14ax2`<br>`_TZ3000_bzxloft`<br>`_TZ3000_bzxlofth`<br>`_TZ3000_cea5xugq`<br>`_TZ3000_decxrtwa`<br>`_TZ3000_ebar6ljy`<br>`_TZ3000_gntwytxo`<br>`_TZ3000_n2egfsli`<br>`_TZ3000_oxslv1c9`<br>`_TZ3000_qrldbmfn`<br>`_TZ3000_rgchmad8`<br>`_TZ3000_v7chgqso`<br>`_TZ3000_yfekcy3n`<br>`_TZ3000_yxqnffam` |
+| Door & Window Sensor (`doorwindowsensor`) | `RH3001`<br>`SNZB-04`<br>`TS0203` | `TUYATEC-7qunn4gq`<br>`TUYATEC-Bfq2i2Sy`<br>`TUYATEC-abkehqus`<br>`TUYATEC-crr8qb0p`<br>`TUYATEC-g3gl6cgy`<br>`TUYATEC-ip9ganvw`<br>`TUYATEC-kbqf60nt`<br>`TUYATEC-r9hgssol`<br>`TUYATEC-rkqiqvcs`<br>`TUYATEC-sb6t7ett`<br>`TUYATEC-trhrga6p`<br>`Wing`<br>`_TYZB01_xph99wvr`<br>`_TZ3000_1bwpjvlz`<br>`_TZ3000_26fmupbb`<br>`_TZ3000_2mbfxlzr`<br>`_TZ3000_402jjyro`<br>`_TZ3000_4ugnzsli`<br>`_TZ3000_6jeesvrt`<br>`_TZ3000_6zvw8ham`<br>`_TZ3000_7d8yme6f`<br>`_TZ3000_996rpfy6`<br>`_TZ3000_9eeavbk5`<br>`_TZ3000_a33rw7ou`<br>`_TZ3000_au1rjicn`<br>`_TZ3000_au2o5e6q`<br>`_TZ3000_bmg14ax2`<br>`_TZ3000_bzxloft`<br>`_TZ3000_bzxlofth`<br>`_TZ3000_c8zfad4a`<br>`_TZ3000_cea5xugq`<br>`_TZ3000_decxrtwa`<br>`_TZ3000_ebar6ljy`<br>`_TZ3000_gntwytxo`<br>`_TZ3000_n2egfsli`<br>`_TZ3000_oxslv1c9`<br>`_TZ3000_qrldbmfn`<br>`_TZ3000_rgchmad8`<br>`_TZ3000_v7chgqso`<br>`_TZ3000_wut53hfm`<br>`_TZ3000_yfekcy3n`<br>`_TZ3000_yxqnffam` |
 | Door & Window Sensor (`doorwindowsensor_2`) | `DoorWindow-Sensor-ZB3.0`<br>`MCT-340 E`<br>`RH3001`<br>`TS0203` | `Immax`<br>`TUYATEC-0l6xaqmi`<br>`Visonic`<br>`_TZ3000_7tbsruql`<br>`_TZ3000_8yhypbo7`<br>`_TZ3000_cqlnswn0`<br>`_TZ3000_hkcpblrs`<br>`_TZ3000_osu834un` |
-| Door & Window Sensor (`doorwindowsensor_3`) | `TS0203` | `_TZ3000_bpkijo14`<br>`_TZ3000_uvti8nkd`<br>`_TZ3000_zgrffiwg` |
+| Door & Window Sensor (`doorwindowsensor_3`) | `TS0203` | `_TZ3000_0hkmcrza`<br>`_TZ3000_bpkijo14`<br>`_TZ3000_uvti8nkd`<br>`_TZ3000_zgrffiwg`<br>`_TZ3000_zutizvyk` |
 | Door & Window Sensor (`doorwindowsensor_4`) | `DS01` | `zbeacon` |
-| Double Power Point (`double_power_point_2`) | `TS011F` | `_TYZB01_hlla45kx` |
-| Double Power Point - With Metering (`double_power_point`) | `TS011F` | `_TZ3210_7jnk7l3k` |
+| Doorbell Button (`doorbell_button`) | `TS0211` | `_TZ1800_ladpngdx` |
+| Dooya Curtain/Roller Motor (RJ11 Zigbee) (`curtain_motor_dooya`) | `TS0601` | `_TZE200_3ylew7b4` |
+| Double Power Point (`double_power_point_2`) | `TS011F` | `_TYZB01_hlla45kx`<br>`_TZ3000_k6fvknrr` |
+| Double Power Point - With Metering (`double_power_point`) | `TS011F` | `_TZ3000_dd8wwzcy`<br>`_TZ3210_7jnk7l3k`<br>`_TZ3210_pfbzs1an` |
 | Double Socket Smart Plug (`smartplug_2_socket`) | `TS011F` | `_TZ3000_jak16dll` |
+| Fantem 4-in-1 Multi Sensor (`fantem_zb003x`) | `TS0202` | `_TZ3210_zmy9hjay` |
 | Finger Bot (`fingerbot`) | `TS0001`<br>`TS0001_fingerbot` | `_TZ3210_232nryqh`<br>`_TZ3210_dse8ogfy`<br>`_TZ3210_j4pdtz9v`<br>`_TZ3210_okbss9dy` |
-| Flood sensor (`flood_sensor`) | `RH3001`<br>`TS0207` | `TUYATEC-3tipnsrx`<br>`_TZ3000_3dfewsk1`<br>`_TZ3000_4uvovz4r`<br>`_TZ3000_wuep9zng`<br>`_TZ3000_ww9i3e0y` |
+| Flood sensor (`flood_sensor`) | `RH3001`<br>`TS0207` | `TUYATEC-3tipnsrx`<br>`_TZ3000_3dfewsk1`<br>`_TZ3000_4uvovz4r`<br>`_TZ3000_bfopm9ga`<br>`_TZ3000_wuep9zng`<br>`_TZ3000_ww9i3e0y` |
+| Flood sensor (`flood_sensor_2`) | `TS0207` | `_TZ3000_baeiitad` |
+| HOBEIAN Temperature & Humidity Sensor (`temphumidsensor_hobeian`) | `ZG-227Z` | `HOBEIAN` |
+| HOBEIAN Water Leak Sensor (`hobeian_water_leak`) | `ZG-222Z` | `HOBEIAN` |
+| Illuminance Sensor (`illuminance_sensor`) | `TS0222` | `_TZ3000_8uxxzz4b`<br>`_TZ3000_do6txrcw`<br>`_TZ3000_hy6ncvmw` |
 | LCD Temperature & Humidity Sensor (`lcdtemphumidsensor`) | `TS0201`<br>`TY0201` | `_TYZB01_a476raq2`<br>`_TYZB01_hjsgdkfl`<br>`_TYZB01_iuepbmpv`<br>`_TZ2000_a476raq2`<br>`_TZ2000_avdnvykf`<br>`_TZ2000_hjsgdkfl`<br>`_TZ2000_xogb73am`<br>`_TZ3000_bjawzodf`<br>`_TZ3000_itnrsufe`<br>`_TZ3000_rusu2vzb`<br>`_TZ3000_yd2e749y`<br>`_TZ3000_ywagc4rj`<br>`_TZ3210_ncw88jfq` |
 | LCD Temperature & Humidity Sensor (`lcdtemphumidsensor_2`) | `SM0201` | `_TYZB01_cbiezpds` |
 | LCD Temperature & Humidity Sensor (`lcdtemphumidsensor_3`) | `TS0601` | `_TZE200_44af8vyi`<br>`_TZE200_bjawzodf`<br>`_TZE200_bq5c8xfe`<br>`_TZE200_locansqn`<br>`_TZE200_qyflbnbj`<br>`_TZE200_vs0skpuc`<br>`_TZE200_zl1kmjqx` |
@@ -69,14 +80,19 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Livarno Lux Smart LED Wall Light (`rgb_wall_led_light`) | `TS0505A` | `_TZ3000_5bsf8vaj`<br>`_TZ3000_utagpnzs` |
 | Motion Sensor (`motion_sensor`) | `RH3040` | `TUYATEC-bd5faf9p`<br>`TUYATEC-zw6hxafz` |
 | Motion Sensor (`motion_sensor_2`) | `TS0601` | `_TZE200_1ibpyhdc`<br>`_TZE200_3towulqd`<br>`_TZE200_bh3n6gk8`<br>`_TZE200_ttcovulf` |
+| Motion Sensor (`motion_sensor_3`) | `TS0601` | `_TZE200_mgxy2d9f` |
+| Motion Sensor & Scene Switch (`motion_scene_switch`) | `TS0202` | `_TZ3210_cwamkvua` |
+| MTG075 Presence Sensor with Relay (`mtg075_radar_sensor`) | `TS0601` | `_TZE204_mtoaryre` |
 | Outdoor Plug without metering (`outdoor_plug`) | `TS0101` | `_TZ3000_br3laukf`<br>`_TZ3000_pnzfdr9y` |
 | Outdoor Smart Socket (`outdoor_2_socket`) | `TS011F` | `_TZ3000_uwkja6z1` |
 | PIR Sensor (`pirsensor`) | `RH3040` | `TUYATEC-53o41joc`<br>`TUYATEC-b5g40alm`<br>`TUYATEC-deetibst`<br>`TUYATEC-dgtxmihe`<br>`TUYATEC-dxnohkpd`<br>`TUYATEC-lha8pbwd`<br>`TUYATEC-zn9wyqtr` |
 | Power Strip 4 Sockets (`socket_power_strip_four_three`) | `JZ-ZB-004` | `LELLKI` |
-| Power Strip 4 Sockets (`socket_power_strip_four_two`) | `TS011F` | `_TZ3000_cfnprab5`<br>`_TZ3000_o005nuxx` |
+| Power Strip 4 Sockets (`socket_power_strip_four_two`) | `TS011F` | `_TZ3000_air9m6af`<br>`_TZ3000_cfnprab5`<br>`_TZ3000_o005nuxx` |
 | Power Strip Socket 1/4 (`socket_power_strip_four`) | `TS0115` | `_TYZB01_vkwryfdr` |
-| Radar Sensor (`radar_sensor`) | `TS0601` | `_TZE200_holel4dk`<br>`_TZE200_ikvncluo`<br>`_TZE200_jva8ink8`<br>`_TZE200_lyetpprm`<br>`_TZE200_sgpeacqp`<br>`_TZE200_wukb7rhc`<br>`_TZE200_xpq2rzhq`<br>`_TZE200_ztc6ggyl`<br>`_TZE201_ztc6ggyl`<br>`_TZE202_ztc6ggyl`<br>`_TZE203_ztc6ggyl`<br>`_TZE204_7gclukjs`<br>`_TZE204_qasjif9e`<br>`_TZE204_xsm7l9xa`<br>`_TZE204_ztc6ggyl`<br>`_TZE204_ztqnh5cg` |
+| Radar Sensor (`radar_sensor`) | `TS0601` | `_TZE200_holel4dk`<br>`_TZE200_ikvncluo`<br>`_TZE200_jva8ink8`<br>`_TZE200_lyetpprm`<br>`_TZE200_sgpeacqp`<br>`_TZE200_wukb7rhc`<br>`_TZE200_xpq2rzhq`<br>`_TZE200_ztc6ggyl`<br>`_TZE201_ztc6ggyl`<br>`_TZE202_ztc6ggyl`<br>`_TZE203_ztc6ggyl`<br>`_TZE204_gkfbdvyx`<br>`_TZE204_xsm7l9xa`<br>`_TZE204_ztc6ggyl` |
 | Radar Sensor (`radar_sensor_2`) | `TS0601` | `_TZE204_ijxvkhd0`<br>`_TZE204_sxm7l9xa` |
+| Radar Sensor (5.8 GHz) (`radar_sensor_qasjif9e`) | `TS0601` | `_TZE204_qasjif9e`<br>`_TZE204_ztqnh5cg` |
+| Radar Sensor (ZY-M100 24G) (`radar_sensor_7gclukjs`) | `TS0601` | `_TZE204_7gclukjs` |
 | Radar Sensor ceiling (`radar_sensor_ceiling`) | `TS0225` | `_TZE200_2aaelwxk` |
 | Rain sensor (`rain_sensor`) | `TS0207` | `_TZ3210_tgvtvdoc` |
 | RGB Bulb E14 (`rgb_bulb_E14`) | `TS0505A` | `_TZ3000_odygigth` |
@@ -84,11 +100,11 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | RGB Ceiling Led Light (`rgb_ceiling_led_light`) | `TS0505B` | `_TZ3210_x13bu7za` |
 | RGB Led Light Bar (`rgb_led_light_bar`) | `TS0505A`<br>`TS0505B` | `_TZ3000_gek6snaj`<br>`_TZ3210_iystcadi` |
 | RGB LED Strip (`rgb_led_strip`) | `TS0505A` | `_TZ3000_riwp3k79` |
-| RGB LED Strip Controller (`rgb_led_strip_controller`) | `TS0503A`<br>`TS0503B`<br>`TS0504B`<br>`TS0505B` | `_TZ3000_dl4pxp1r`<br>`_TZ3000_i8l0nqdu`<br>`_TZ3000_obacbukl`<br>`_TZ3000_qqjaziws`<br>`_TZ3000_ukuvyhaa`<br>`_TZ3210_k1pe6ibm` |
+| RGB LED Strip Controller (`rgb_led_strip_controller`) | `TS0503A`<br>`TS0503B`<br>`TS0504B`<br>`TS0505B` | `_TZ3000_dl4pxp1r`<br>`_TZ3000_i8l0nqdu`<br>`_TZ3000_obacbukl`<br>`_TZ3000_qqjaziws`<br>`_TZ3000_ukuvyhaa`<br>`_TZ3210_eejm8dcr`<br>`_TZ3210_k1pe6ibm` |
 | RGB Mood Light (`rgb_mood_light`) | `TS0505A`<br>`TS0505B` | `_TZ3000_9cpuaca6`<br>`_TZ3210_r0xgkft5` |
 | RGB Spot Garden light (`rgb_spot_GardenLight`) | `TS0505A` | `_TZ3000_h1jnz6l8` |
 | RGB Spot GU10 (`rgb_spot_GU10`) | `TS0505A` | `_TZ3000_kdpxju99` |
-| Siren (`siren`) | `TS0601` | `_TZE204_t1blo2bj` |
+| Siren (`siren`) | `TS0601` | `_TZE200_t1blo2bj`<br>`_TZE204_t1blo2bj` |
 | Siren, Temperature & Humidity Sensor (`sirentemphumidsensor`) | `TS0601` | `_TYST11_d0yu2xgi`<br>`_TZE200_d0yu2xgi` |
 | Slim motion sensor (`slim_motion_sensor`) | `TS0202` | `_TZ3000_lf56vpxj` |
 | Smart Air Detection Box (`smart_air_detection_box`) | `TS0601` | `_TZE200_8ygsuhe1`<br>`_TZE200_c2fmom5z`<br>`_TZE200_mja3fuja`<br>`_TZE200_ryfmq5rl`<br>`_TZE200_yvx5lh6k` |
@@ -98,32 +114,38 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Smart Knob Switch (`smart_knob_switch`) | `TS004F` | `_TZ3000_4fjiwweb`<br>`_TZ3000_abrsvsou`<br>`_TZ3000_ixla93vd`<br>`_TZ3000_qja6nq5z`<br>`_TZ3000_uri7ongn` |
 | Smart Motion Sensor (Lidl) (`smart_motion_sensor`) | `TY0202` | `_TZ1800_fcdjzz3s` |
 | Smart PIR Motion Sensor (`pir_sensor_2`) | `TS0202` | `_TYZB01_dl7cejts`<br>`_TYZB01_dr6sduka`<br>`_TYZB01_geepvxsy`<br>`_TYZB01_jytabjkb`<br>`_TZ3000_6ygjfyll`<br>`_TZ3000_bsvqrxru`<br>`_TZ3000_c8ozah8n`<br>`_TZ3000_kmh5qpmb`<br>`_TZ3000_mcxw5ehu`<br>`_TZ3000_mg4dy6z6`<br>`_TZ3000_mmtwjmaq`<br>`_TZ3000_msl6wxk9`<br>`_TZ3000_nss8amz9`<br>`_TZ3000_o4mkahkc`<br>`_TZ3000_otvn3lne`<br>`_TZ3000_y56pgpgs`<br>`_TZ3040_6ygjfyll`<br>`_TZ3040_bb6xaihh`<br>`_TZ3040_wqmtjsyk` |
+| Smart PIR Motion Sensor (`pir_sensor_3`) | `TS0202` | `_TZ3000_hgu1dlak` |
+| Smart PIR Motion Sensor (`pir_sensor_4`) | `TS0202` | `_TZ3040_o4mkahkc` |
 | Smart Plug DIN Rail (`smartPlug_DinRail`) | `TS011F`<br>`TS0121`<br>`TSO121` | `_TZ3000_6l1pjfqe`<br>`_TZ3000_cayepv1a`<br>`_TZ3000_lepzuhto`<br>`_TZ3000_qeuvnohg`<br>`_TZ3000_qystbcjg` |
-| Smart Plug with metering (`smartplug`) | `TS011F`<br>`TS0121`<br>`TSO121` | `_TYZB01_iuepbmpv`<br>`_TZ3000_0zfrhq4i`<br>`_TZ3000_1h2x4akh`<br>`_TZ3000_2putqrmw`<br>`_TZ3000_3ias4w4o`<br>`_TZ3000_3ooaz3ng`<br>`_TZ3000_3uimvkn6`<br>`_TZ3000_5f43h46b`<br>`_TZ3000_5ity3zyu`<br>`_TZ3000_88iqnhvd`<br>`_TZ3000_8nkb7mof`<br>`_TZ3000_amdymr71`<br>`_TZ3000_amdymr7l`<br>`_TZ3000_bfn1w0mm`<br>`_TZ3000_cehuw1lw`<br>`_TZ3000_cphmq0q7`<br>`_TZ3000_dksbtrzs`<br>`_TZ3000_dpo1ysak`<br>`_TZ3000_ew3ldmgx`<br>`_TZ3000_eyzb8yg3`<br>`_TZ3000_fqoynhku`<br>`_TZ3000_fukaa7nc`<br>`_TZ3000_g5xawfcq`<br>`_TZ3000_gjnozsaz`<br>`_TZ3000_gnjozsaz`<br>`_TZ3000_gvn91tmx`<br>`_TZ3000_gznh2xla`<br>`_TZ3000_hdopuwv6`<br>`_TZ3000_j1v25l17`<br>`_TZ3000_ksw8qtmt`<br>`_TZ3000_kx0pris5`<br>`_TZ3000_mraovvmm`<br>`_TZ3000_nkcobies`<br>`_TZ3000_okaz9tjs`<br>`_TZ3000_pjcqjtev`<br>`_TZ3000_r6buo8ba`<br>`_TZ3000_rdtixbnu`<br>`_TZ3000_ss98ec5d`<br>`_TZ3000_typdpbpg`<br>`_TZ3000_typdpdpg`<br>`_TZ3000_u5u4cakc`<br>`_TZ3000_vtscrpmw`<br>`_TZ3000_w0qqde0g`<br>`_TZ3000_waho4jtj`<br>`_TZ3000_ww6drja5`<br>`_TZ3000_wzmuk9ai`<br>`_TZ3000_ynmowqk2`<br>`_TZ3000_zloso4jk` |
-| Smart Plug without metering (`plug`) | `TS011F` | `_TZ3000_cymsnfvf`<br>`_TZ3000_ew31dmgx`<br>`_TZ3000_hyfvrar3`<br>`_TZ3000_kdi2o9m6`<br>`_TZ3000_plyvnuf5`<br>`_TZ3000_upjrsxh1`<br>`_TZ3000_wamqdr3f` |
+| Smart Plug with metering (`smartplug`) | `TS011F`<br>`TS0121`<br>`TSO121` | `Zbeacon`<br>`_TYZB01_iuepbmpv`<br>`_TZ3000_0zfrhq4i`<br>`_TZ3000_1h2x4akh`<br>`_TZ3000_2putqrmw`<br>`_TZ3000_3ias4w4o`<br>`_TZ3000_3ooaz3ng`<br>`_TZ3000_3uimvkn6`<br>`_TZ3000_5f43h46b`<br>`_TZ3000_5ity3zyu`<br>`_TZ3000_88iqnhvd`<br>`_TZ3000_8nkb7mof`<br>`_TZ3000_amdymr71`<br>`_TZ3000_amdymr7l`<br>`_TZ3000_bfn1w0mm`<br>`_TZ3000_cehuw1lw`<br>`_TZ3000_cjrngdr3`<br>`_TZ3000_cphmq0q7`<br>`_TZ3000_dksbtrzs`<br>`_TZ3000_dpo1ysak`<br>`_TZ3000_dvqt7qrw`<br>`_TZ3000_ew3ldmgx`<br>`_TZ3000_eyzb8yg3`<br>`_TZ3000_fqoynhku`<br>`_TZ3000_fukaa7nc`<br>`_TZ3000_g5xawfcq`<br>`_TZ3000_gjnozsaz`<br>`_TZ3000_gnjozsaz`<br>`_TZ3000_gvn91tmx`<br>`_TZ3000_gznh2xla`<br>`_TZ3000_hdopuwv6`<br>`_TZ3000_iiacqpdz`<br>`_TZ3000_j1v25l17`<br>`_TZ3000_ksw8qtmt`<br>`_TZ3000_kx0pris5`<br>`_TZ3000_mraovvmm`<br>`_TZ3000_nkcobies`<br>`_TZ3000_npg02xft`<br>`_TZ3000_okaz9tjs`<br>`_TZ3000_pjcqjtev`<br>`_TZ3000_r6buo8ba`<br>`_TZ3000_rdfh8cfs`<br>`_TZ3000_rdtixbnu`<br>`_TZ3000_ss98ec5d`<br>`_TZ3000_typdpbpg`<br>`_TZ3000_typdpdpg`<br>`_TZ3000_u5u4cakc`<br>`_TZ3000_uwaort14`<br>`_TZ3000_vtscrpmw`<br>`_TZ3000_w0qqde0g`<br>`_TZ3000_waho4jtj`<br>`_TZ3000_ww6drja5`<br>`_TZ3000_wzmuk9ai`<br>`_TZ3000_ynmowqk2`<br>`_TZ3000_zgtbi4oy`<br>`_TZ3000_zloso4jk`<br>`_TZ3210_4ux0ondb`<br>`_TZ3210_5ct6e7ye`<br>`_TZ3210_cehuw1lw`<br>`_TZ3210_ddigca5n` |
+| Smart Plug without metering (`plug`) | `TS011F` | `_TZ3000_cymsnfvf`<br>`_TZ3000_ew31dmgx`<br>`_TZ3000_hyfvrar3`<br>`_TZ3000_kdi2o9m6`<br>`_TZ3000_plyvnuf5`<br>`_TZ3000_upjrsxh1`<br>`_TZ3000_wamqdr3f`<br>`_TZ3000_wxtp7c5y` |
 | Smart Switch (`smart_switch`) | `TS0001` | `_TYZB01_phjeraqq` |
-| Smoke Sensor (`smoke_sensor`) | `TS0205` | `_TYZB01_dsjszp0x`<br>`_TYZB01_wqcac7lo` |
-| Smoke Sensor (`smoke_sensor2`) | `TS0601` | `_TZE200_m9skfctm`<br>`_TZE200_ntcy3xu1`<br>`_TZE200_rccxox8p`<br>`_TZE200_t5p1vj8r`<br>`_TZE200_uebojraa`<br>`_TZE200_vzekyi4c`<br>`_TZE200_yh7aoahi`<br>`_TZE204_ntcy3xu1` |
+| Smoke Sensor (`smoke_sensor`) | `TS0205` | `_TYZB01_dsjszp0x`<br>`_TYZB01_tob46aoq`<br>`_TYZB01_wqcac7lo` |
+| Smoke Sensor (`smoke_sensor_smoke_only`) | `TS0601` | `_TZE200_m9skfctm`<br>`_TZE200_rccxox8p`<br>`_TZE200_vzekyi4c` |
+| Smoke Sensor (`smoke_sensor2`) | `TS0601` | `_TZE200_ntcy3xu1`<br>`_TZE200_t5p1vj8r`<br>`_TZE200_uebojraa`<br>`_TZE200_yh7aoahi`<br>`_TZE204_ntcy3xu1` |
 | Smoke Sensor (`smoke_sensor3`) | `TS0205` | `_TZ3210_up3pngle` |
-| Soil Sensor (`soilsensor`) | `TS0601` | `_TZE200_2se8efxh`<br>`_TZE200_9cqcpkgb`<br>`_TZE200_ga1maeof`<br>`_TZE200_myd45weu`<br>`_TZE204_myd45weu`<br>`_TZE284_aao3yzhs` |
-| Soil Sensor (`soilsensor_2`) | `TS0601` | `_TZE284_g2e6cpnw`<br>`_TZE284_sgabhwa6` |
-| Temperature & Humidity Sensor (`temphumidsensor`) | `RH3052`<br>`TS0201` | `TUYATEC-1g3tawnp`<br>`TUYATEC-1uxx9cci`<br>`TUYATEC-Bfq2i2Sy`<br>`TUYATEC-HaoiuWzy`<br>`TUYATEC-abkehqus`<br>`TUYATEC-g3gl6cgy`<br>`TUYATEC-gqhxixyk`<br>`TUYATEC-ojmxeikg`<br>`TUYATEC-ojmxeikq`<br>`TUYATEC-prhs1rsd`<br>`TUYATEC-riuj5xzs`<br>`TUYATEC-v3uxbuxy`<br>`TUYATEC-vmgh3fxd`<br>`TUYATEC-yg5dcbfu`<br>`_TZ3000_8ybe88nf`<br>`_TZ3000_bguser20`<br>`_TZ3000_f2bw0b6k`<br>`_TZ3000_fie1dpkm`<br>`_TZ3000_i8jfiezr` |
+| Soil Sensor (`soilsensor`) | `TS0601` | `_TZE200_2se8efxh`<br>`_TZE200_9cqcpkgb`<br>`_TZE200_ga1maeof`<br>`_TZE200_myd45weu`<br>`_TZE204_myd45weu` |
+| Soil Sensor (`soilsensor_2`) | `TS0601` | `_TZE284_aao3yzhs`<br>`_TZE284_g2e6cpnw`<br>`_TZE284_sgabhwa6` |
+| Temperature & Humidity Sensor (`temphumidsensor`) | `RH3052`<br>`TS0201` | `TUYATEC-1g3tawnp`<br>`TUYATEC-1uxx9cci`<br>`TUYATEC-Bfq2i2Sy`<br>`TUYATEC-HaoiuWzy`<br>`TUYATEC-abkehqus`<br>`TUYATEC-g3gl6cgy`<br>`TUYATEC-gqhxixyk`<br>`TUYATEC-ojmxeikg`<br>`TUYATEC-ojmxeikq`<br>`TUYATEC-prhs1rsd`<br>`TUYATEC-riuj5xzs`<br>`TUYATEC-v3uxbuxy`<br>`TUYATEC-vmgh3fxd`<br>`TUYATEC-yg5dcbfu`<br>`_TZ3000_8ybe88nf`<br>`_TZ3000_bgsigers`<br>`_TZ3000_bguser20`<br>`_TZ3000_f2bw0b6k`<br>`_TZ3000_fie1dpkm`<br>`_TZ3000_i8jfiezr`<br>`_TZ3000_unw0hpdv` |
 | Temperature & Humidity Sensor (`temphumidsensor2`) | `RH3052`<br>`TS0201` | `TUYATEC-qun7vq14`<br>`_TZ3000_0s1izerx`<br>`_TZ3000_akqdg6g7`<br>`_TZ3000_dowj6gyi` |
-| Temperature & Humidity Sensor (`temphumidsensor3`) | `TS0201`<br>`TS0601` | `_TZ3000_6uzkisv2`<br>`_TZ3000_fllyghyj`<br>`_TZ3000_saiqcn0y`<br>`_TZ3000_utwgoauk`<br>`_TZ3000_xr3htd96`<br>`_TZ3000_zl1kmjqx`<br>`_TZE200_a8sdabtg` |
-| Temperature & Humidity Sensor (`temphumidsensor4`) | `TS0601` | `_TZE200_cirvgep4`<br>`_TZE200_utkemkbs`<br>`_TZE200_vvmbj46n`<br>`_TZE200_yjjdcqsq`<br>`_TZE204_9yapgbuv`<br>`_TZE204_cirvgep4`<br>`_TZE204_upagmta9`<br>`_TZE204_utkemkbs`<br>`_TZE204_yjjdcqsq` |
+| Temperature & Humidity Sensor (`temphumidsensor3`) | `TS0201`<br>`TS0601` | `Wing`<br>`Zbeacon`<br>`_TZ3000_6uzkisv2`<br>`_TZ3000_fllyghyj`<br>`_TZ3000_saiqcn0y`<br>`_TZ3000_utwgoauk`<br>`_TZ3000_v1w2k9dd`<br>`_TZ3000_xr3htd96`<br>`_TZ3000_zl1kmjqx`<br>`_TZE200_a8sdabtg` |
+| Temperature & Humidity Sensor (`temphumidsensor4`) | `TS0601` | `_TZE200_cirvgep4`<br>`_TZE200_utkemkbs`<br>`_TZE200_yjjdcqsq`<br>`_TZE204_9yapgbuv`<br>`_TZE204_cirvgep4`<br>`_TZE204_upagmta9`<br>`_TZE204_utkemkbs`<br>`_TZE204_yjjdcqsq` |
 | Temperature & Humidity Sensor (`temphumidsensor5`) | `TS0601` | `_TZE200_9yapgbuv` |
+| Temperature & Humidity Sensor (TH05Z) (`temphumidsensor_vvmbj46n`) | `TS0601` | `_TZE200_vvmbj46n` |
 | Thermostatic Radiator Valve (`thermostatic_radiator_valve`) | `TS0601` | `_TZE200_7yoranx2`<br>`_TZE200_e9ba97vf`<br>`_TZE200_hue3yfsn`<br>`_TZE200_husqqvux`<br>`_TZE200_kds0pmmv`<br>`_TZE200_kly8gjlz`<br>`_TZE200_lllliz3p`<br>`_TZE200_lnbfnyxd`<br>`_TZE200_mudxchsu`<br>`_TZE200_py4cm3he`<br>`_TZE200_sur6q7ko` |
 | Tunable Bulb E14 (`tunable_bulb_E14`) | `TS0502A` | `_TZ3000_oborybow` |
 | Tunable Bulb E27 (`tunable_bulb_E27`) | `TS0502A` | `_TZ3000_49qchf10` |
 | Tunable Spot GU10 (`tunable_spot_GU10`) | `TS0502A` | `_TZ3000_el5kt5im` |
-| Valve Controller (`valvecontroller`) | `TS0001`<br>`TS0111`<br>`TS011F` | `_TYZB01_4tlksk8a`<br>`_TYZB01_ymcdbl3u`<br>`_TZ3000_5ucujjts`<br>`_TZ3000_iedbgyxt`<br>`_TZ3000_j9568h44`<br>`_TZ3000_o4cjetlm`<br>`_TZ3000_tvuarksa`<br>`_TZ3000_w0ypwa1f` |
+| Valve Controller (`valvecontroller`) | `TS0001`<br>`TS0111`<br>`TS011F` | `_TYZB01_4tlksk8a`<br>`_TYZB01_ymcdbl3u`<br>`_TZ3000_5ucujjts`<br>`_TZ3000_iedbgyxt`<br>`_TZ3000_j9568h44`<br>`_TZ3000_o4cjetlm`<br>`_TZ3000_tvuarksa`<br>`_TZ3000_w0ypwa1f`<br>`_TZ3000_wpueorev` |
 | Wall Dimmer (`wall_dimmer_tuya`) | `TS0601` | `_TZE200_0nauxa0p`<br>`_TZE200_3p5ydos3`<br>`_TZE200_9cxuhakf`<br>`_TZE200_9i9dt8is`<br>`_TZE200_a0syesf5`<br>`_TZE200_ctq0k47x`<br>`_TZE200_dfxkcots`<br>`_TZE200_ebwgzdqq`<br>`_TZE200_ojzhk75b`<br>`_TZE200_p0gzbqct`<br>`_TZE200_swaamsoy`<br>`_TZE200_w4cryh2i`<br>`_TZE200_whpb9yts`<br>`_TZE204_vevc4c6g` |
 | Wall mounted Curtain Switch (`wall_curtain_switch`) | `TS130F` | `_TZ3000_8kzqqzu4`<br>`_TZ3000_ctbafvhm`<br>`_TZ3000_dbpmpco1`<br>`_TZ3000_dph3rpss`<br>`_TZ3000_fvhunhxb`<br>`_TZ3000_ltiqubue`<br>`_TZ3000_qa8s8vca`<br>`_TZ3000_qqdbccb3`<br>`_TZ3000_wptayaqr` |
 | Wall Socket with metering (`wall_socket`) | `TS011F` | `_TZ3000_4ux0ondb`<br>`_TZ3000_5ct6e7ye`<br>`_TZ3000_b28wrpvx`<br>`_TZ3000_y4ona9me` |
 | Wall Switch (1/4 Gang) (`wall_switch_4_gang`) | `TS0014`<br>`TS0044` | `_TYZB01_bagt1e4o`<br>`_TZ3000_dku2cfsc`<br>`_TZ3000_fjt5218m`<br>`_TZ3000_r0pmi2p3` |
 | Wall Thermostat (`wall_thermostat`) | `TS0601` | `_TZE200_2ekuz3dz`<br>`_TZE200_aoclfnxz`<br>`_TZE204_aoclfnxz` |
-| Water Detector (`water_detector`) | `TS0207`<br>`q9mpfhw` | `_TYST11_qq9mpfhw`<br>`_TYZB01_sqmd19i1`<br>`_TZ3000_0s9gukzt`<br>`_TZ3000_6oabgtzv`<br>`_TZ3000_85czd6fy`<br>`_TZ3000_awvmkayh`<br>`_TZ3000_eit7p838`<br>`_TZ3000_fxvjhdyl`<br>`_TZ3000_k4ej3ww2`<br>`_TZ3000_kstbkt6a`<br>`_TZ3000_kyb656no`<br>`_TZ3000_mugyhz0q`<br>`_TZ3000_ocjlo4ea`<br>`_TZ3000_t6jriawg`<br>`_TZ3000_upgcbody` |
-| Water Leak Sensor (`water_leak_sensor_tuya`) | `TS0601` | `_TZE200_jthf7vb6`<br>`_TZE200_qq9mpfhw` |
+| Water Detector (`water_detector`) | `TS0207`<br>`q9mpfhw` | `_TYST11_qq9mpfhw`<br>`_TYZB01_sqmd19i1`<br>`_TZ3000_0s9gukzt`<br>`_TZ3000_6oabgtzv`<br>`_TZ3000_85czd6fy`<br>`_TZ3000_awvmkayh`<br>`_TZ3000_eit7p838`<br>`_TZ3000_fxvjhdyl`<br>`_TZ3000_k4ej3ww2`<br>`_TZ3000_kstbkt6a`<br>`_TZ3000_kyb656no`<br>`_TZ3000_mugyhz0q`<br>`_TZ3000_ocjlo4ea`<br>`_TZ3000_t6jriawg` |
+| Water Detector (2×AAA) (`water_detector_2aaa`) | `SNZB-05`<br>`TS0207` | `_TZ3000_upgcbody` |
+| Water Leak Sensor (`water_leak_sensor_tuya`) | `TS0601` | `_TZE200_qq9mpfhw` |
+| Water Leak Sensor (WLS-100z) (`water_leak_sensor_jthf7vb6`) | `TS0601` | `_TZE200_jthf7vb6` |
 | Zigbee Repeater (`zigbee_repeater`) | `TS0207` | `_TZ3000_5k5vh43t`<br>`_TZ3000_gszjt2xx`<br>`_TZ3000_m0vaazab`<br>`_TZ3000_misw04hq`<br>`_TZ3000_nkkl7uzv`<br>`_TZ3000_nlsszmzl`<br>`_TZ3000_ufttklsz`<br>`_TZ3000_wlquqiiz` |
 <!-- END GENERATED DEVICE INDEX -->
 

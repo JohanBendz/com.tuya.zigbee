@@ -1,0 +1,45 @@
+{
+  "id": "switch_1_gang_metering_gjrubzje",
+  "name": {
+    "en": "1 Gang Switch Module with metering"
+  },
+  "class": "socket",
+  "platforms": ["local"],
+  "connectivity": ["zigbee"],
+  "capabilities": [
+    "onoff",
+    "measure_power",
+    "meter_power",
+    "measure_current",
+    "measure_voltage"
+  ],
+  "capabilitiesOptions": {
+    "measure_power": {
+      "approximated": true
+    }
+  },
+  "images": {
+    "large": "/drivers/switch_1_gang_metering/assets/images/large.png",
+    "small": "/drivers/switch_1_gang_metering/assets/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_gjrubzje"
+    ],
+    "productId": [
+      "TS0001"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [0, 3, 4, 5, 6, 1794, 2820],
+        "bindings": [6, 1794, 2820]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Press the setup button for 10 seconds or switch the unit on and off five times to enter pairing mode (the LED should blink green)."
+      }
+    }
+  }
+}

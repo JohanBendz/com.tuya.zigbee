@@ -4,8 +4,12 @@
     "en": "Water Detector"
   },
   "class": "sensor",
-  "platforms": ["local"],
-  "connectivity": ["zigbee"],
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
   "capabilities": [
     "alarm_contact",
     "alarm_water",
@@ -32,7 +36,6 @@
       "_TZ3000_0s9gukzt",
       "_TZ3000_kstbkt6a",
       "_TZ3000_mugyhz0q",
-      "_TZ3000_upgcbody",
       "_TZ3000_k4ej3ww2",
       "_TZ3000_6oabgtzv",
       "_TZ3000_ocjlo4ea",

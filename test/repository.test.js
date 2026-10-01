@@ -679,7 +679,8 @@ test('wall remote trigger cards are registered once at driver level', () => {
     );
 
     assert.match(driver, new RegExp(`getDeviceTriggerCard\\('${cardId}'\\)`));
-    assert.match(device, /this\.driver\.buttonTrigger\.trigger/);
+    assert.match(driver, /args\.action === state\.action/);
+    assert.match(device, /this\.driver\.buttonTrigger\s*\.trigger\(this, \{\}, \{ action:/);
     assert.doesNotMatch(device, /registerRunListener/);
   }
 });
@@ -724,7 +725,8 @@ test('4-gang wall remote variant 3 parses normalized frame data', () => {
     'utf8'
   );
 
-  assert.match(source, /frame = frame\.toJSON\(\)/);
+  assert.match(source, /const parsedFrame = frame\.toJSON\(\)/);
+  assert.match(source, /buttonCommandParser\(endpointId, parsedFrame\)/);
   assert.match(source, /frame\.data\[3\]/);
   assert.doesNotMatch(source, /frame\[3\]/);
 });
@@ -780,7 +782,7 @@ test('smart knob Flow trigger is driver-scoped and filters by button', () => {
 
   assert.match(driver, /getDeviceTriggerCard\('smart_knob_switch_button'\)/);
   assert.match(driver, /args\.button === state\.button/);
-  assert.match(device, /this\.driver\.buttonTrigger\.trigger/);
+  assert.match(device, /this\.driver\.buttonTrigger\s*\.trigger\(this, \{\}, \{ button \}\)/);
   assert.doesNotMatch(device, /getDeviceTriggerCard/);
 });
 
@@ -972,15 +974,17 @@ test('irrigation controller uses scoped battery values and clears timed shutoff 
   assert.match(source, /setOff\(\)[\s\S]*\.catch\(err => this\.error/);
 });
 
-test('one-button smart remote ignores unknown frames and avoids raw frame logging', () => {
+test('one-button smart remote avoids raw frame handling', () => {
   const source = fs.readFileSync(
     path.join(root, 'drivers', 'smart_remote_1_button', 'device.js'),
     'utf8'
   );
 
+  assert.doesNotMatch(source, /handleFrame/);
   assert.doesNotMatch(source, /frame:", frame/);
-  assert.match(source, /Unknown click action detected:[\s\S]*return false;/);
-  assert.doesNotMatch(source, /action = ["']unknown["']/);
+  assert.match(source, /TuyaRemoteOnOffBoundCluster/);
+  assert.match(source, /triggerAction\('oneClick'/);
+  assert.match(source, /triggerAction\('twoClicks'/);
 });
 
 test('simple setCapabilityValue statements handle their Promise', () => {
@@ -1060,4 +1064,732 @@ test('Zigbee manufacturer/product identities resolve to a single driver', () => 
   }
 
   assert.deepEqual(duplicates, []);
+});
+
+test('_TZE200_mgxy2d9f motion sensor keeps the verified passive Tuya profile', () => {
+  const manifest = require('../drivers/motion_sensor_3/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'motion_sensor_3', 'device.js'),
+    'utf8'
+  );
+
+  assert.deepEqual(manifest.zigbee.manufacturerName, ['_TZE200_mgxy2d9f']);
+  assert.deepEqual(manifest.zigbee.productId, ['TS0601']);
+  assert.deepEqual(manifest.capabilities, ['alarm_motion', 'alarm_tamper', 'measure_battery']);
+  assert.deepEqual(manifest.energy.batteries, ['CR123A']);
+  assert.deepEqual(manifest.zigbee.endpoints['1'].clusters, [0, 4, 5, 61184]);
+
+  assert.match(source, /const DP_MOTION = 1;/);
+  assert.match(source, /const DP_BATTERY = 4;/);
+  assert.match(source, /const DP_TAMPER = 5;/);
+  assert.match(source, /const motionActive = numericValue === 0;/);
+  assert.match(source, /Math\.max\(0, Math\.min\(100, numericValue\)\)/);
+  assert.match(source, /const tamperActive = numericValue === 1;/);
+  assert.doesNotMatch(source, /readAttributes\(/);
+  assert.doesNotMatch(source, /setInterval\(/);
+});
+
+test('double power point maps its declared metering capabilities to endpoint 1', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'double_power_point', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(
+    source,
+    /if \(endpoint === 1\) \{[\s\S]*this\.registerMeteringCapabilities\(\);[\s\S]*this\.configureMeteringReporting/
+  );
+
+  const mappings = [
+    ['meter_power', 'CLUSTER.METERING', 'currentSummationDelivered'],
+    ['measure_power', 'CLUSTER.ELECTRICAL_MEASUREMENT', 'activePower'],
+    ['measure_current', 'CLUSTER.ELECTRICAL_MEASUREMENT', 'rmsCurrent'],
+    ['measure_voltage', 'CLUSTER.ELECTRICAL_MEASUREMENT', 'rmsVoltage'],
+  ];
+
+  for (const [capability, cluster, attribute] of mappings) {
+    assert.match(
+      source,
+      new RegExp(
+        `registerCapability\\('${capability}', ${cluster.replace('.', '\\.')}[\\s\\S]*?endpoint: 1[\\s\\S]*?get: '${attribute}'[\\s\\S]*?report: '${attribute}'`
+      )
+    );
+  }
+
+  assert.match(source, /reportParser: value => value \/ 1000/);
+  assert.match(source, /reportParser: value => \(value \* this\.meteringOffset\) \/ 100\.0/);
+  assert.match(source, /reportParser: value => \(value \* this\.measureOffset\) \/ 100/);
+});
+test('_TZ3210_pfbzs1an uses the repaired double-power-point metering profile', () => {
+  const manifest = require('../drivers/double_power_point/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'double_power_point', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZ3210_pfbzs1an'));
+  assert.deepEqual(manifest.zigbee.productId, ['TS011F']);
+  assert.deepEqual(manifest.zigbee.endpoints['1'].clusters, [0, 4, 5, 6, 1794, 2820]);
+  assert.deepEqual(manifest.zigbee.endpoints['2'].clusters, [6]);
+
+  assert.match(source, /reportParser: value => \(value \* this\.meteringOffset\) \/ 100\.0/);
+  assert.match(source, /reportParser: value => value \/ 1000/);
+  assert.match(source, /endpoint: 1,[\s\S]*?get: 'currentSummationDelivered'/);
+});
+test('_TZ3000_dd8wwzcy uses the repaired double-power-point metering profile', () => {
+  const manifest = require('../drivers/double_power_point/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'double_power_point', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZ3000_dd8wwzcy'));
+  assert.deepEqual(manifest.zigbee.productId, ['TS011F']);
+  assert.deepEqual(manifest.zigbee.endpoints['1'].clusters, [0, 4, 5, 6, 1794, 2820]);
+  assert.deepEqual(manifest.zigbee.endpoints['2'].clusters, [6]);
+
+  assert.match(
+    source,
+    /readAttributes\([\s\S]*manufacturerName[\s\S]*zclVersion[\s\S]*appVersion[\s\S]*modelId[\s\S]*powerSource[\s\S]*attributeReportingStatus/
+  );
+  assert.match(source, /reportParser: value => \(value \* this\.meteringOffset\) \/ 100\.0/);
+  assert.match(source, /reportParser: value => value \/ 1000/);
+});
+test('_TZ3000_mmkbptmx exposes all four switch endpoints', () => {
+  const manifest = require('../drivers/switch_4_gang_metering/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'switch_4_gang_metering', 'device.js'),
+    'utf8'
+  );
+
+  assert.deepEqual(manifest.zigbee.manufacturerName, ['_TZ3000_mmkbptmx']);
+  assert.deepEqual(manifest.zigbee.productId, ['TS0004']);
+  assert.deepEqual(manifest.zigbee.endpoints['2'].clusters, [4, 5, 6]);
+  assert.deepEqual(manifest.zigbee.endpoints['3'].clusters, [4, 5, 6]);
+  assert.deepEqual(manifest.zigbee.endpoints['4'].clusters, [4, 5, 6]);
+
+  assert.match(
+    source,
+    /subDeviceId === 'secondSwitch' \? 2 : subDeviceId === 'thirdSwitch' \? 3 : subDeviceId === 'fourthSwitch' \? 4 : 1/
+  );
+});
+test('smart air box keeps manufacturer-specific Tuya datapoint maps', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_air_detection_box', 'device.js'),
+    'utf8'
+  );
+  const formaldehyde = require('../.homeycompose/capabilities/measure_formaldehyde.json');
+
+  assert.match(source, /zclNode\.endpoints\[1\]\.clusters\.tuya\.on\('reporting', handleDatapoint\)/);
+  assert.match(source, /zclNode\.endpoints\[1\]\.clusters\.tuya\.on\('response', handleDatapoint\)/);
+
+  assert.match(source, /manufacturerName === '_TZE200_ryfmq5rl'/);
+  assert.match(source, /manufacturerName === '_TZE200_mja3fuja'/);
+
+  assert.match(source, /case dataPoints\.co2OrFormaldehyde:[\s\S]*PROFILE_RYFMQ5RL[\s\S]*PROFILE_FORMALDEHYDE_DP2[\s\S]*measure_formaldehyde'[\s\S]*convertFormaldehydeToMgM3\(value\)/);
+  assert.match(source, /PROFILE_FORMALDEHYDE_DP2[\s\S]*convertFormaldehydeToMgM3\(value\)/);
+  assert.match(source, /else \{[\s\S]*measure_co2', value/);
+
+  assert.match(source, /case dataPoints\.voc:[\s\S]*measure_voc'[\s\S]*convertVocToPpm\(value\)/);
+  assert.match(source, /case dataPoints\.formaldehydeOrCo2:[\s\S]*PROFILE_DEFAULT[\s\S]*measure_formaldehyde'[\s\S]*convertFormaldehydeToMgM3\(value\)[\s\S]*measure_co2', value/);
+
+  assert.equal(formaldehyde.units.en, 'mg/m³');
+  assert.equal(formaldehyde.units.ru, 'мг/м³');
+  assert.match(formaldehyde.desc.en, /mg\/m³/);
+});
+test('_TZE200_yjjdcqsq handles Tuya battery-state reports', () => {
+  const manifest = require('../drivers/temphumidsensor4/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'temphumidsensor4', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZE200_yjjdcqsq'));
+  assert.deepEqual(manifest.energy.batteries, ['AAA', 'AAA']);
+
+  assert.match(source, /case 1:[\s\S]*reportTemperatureCapacity\(measuredValue\)/);
+  assert.match(source, /case 2:[\s\S]*reportHumidityCapacity\(measuredValue\)/);
+  assert.match(source, /case 3: \{/);
+  assert.match(source, /const batteryByState = \{ 0: 25, 1: 50, 2: 100 \}/);
+  assert.match(source, /reportAlarmBatteryCapacity\(measuredValue === 0\)/);
+  assert.match(source, /clusters\.tuya\.on\("reporting",[\s\S]*processResponse\(value\)/);
+});
+test('_TZE200_qyflbnbj keeps its raw-percent humidity profile', () => {
+  const manifest = require('../drivers/lcdtemphumidsensor_3/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'lcdtemphumidsensor_3', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZE200_qyflbnbj'));
+  assert.match(source, /tenthPercentHumidityManufacturers = new Set\(\[[\s\S]*_TZE200_bjawzodf[\s\S]*_TZE200_zl1kmjqx/);
+  assert.match(source, /this\.humidityDivisor = tenthPercentHumidityManufacturers\.has\(this\.manufacturerName\) \? 10 : 1/);
+  assert.match(source, /const humidity = measuredValue \/ this\.humidityDivisor/);
+  assert.match(source, /const signedValue = measuredValue > 0x2000 \? measuredValue - 0xFFFF : measuredValue/);
+  assert.match(source, /tuyaCluster\.on\('reporting', handleDatapoint\)/);
+  assert.match(source, /tuyaCluster\.on\('response', handleDatapoint\)/);
+});
+test('_TZE204_qasjif9e uses an isolated exact radar profile', () => {
+  const generic = require('../drivers/radar_sensor/driver.compose.json');
+  const exact = require('../drivers/radar_sensor_qasjif9e/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'radar_sensor', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(!generic.zigbee.manufacturerName.includes('_TZE204_qasjif9e'));
+  assert.ok(!generic.zigbee.manufacturerName.includes('_TZE204_ztqnh5cg'));
+  assert.deepEqual(exact.zigbee.manufacturerName.sort(), ['_TZE204_qasjif9e', '_TZE204_ztqnh5cg'].sort());
+  assert.deepEqual(exact.zigbee.productId, ['TS0601']);
+  assert.deepEqual(exact.zigbee.endpoints['1'].clusters, [0, 4, 5, 61184]);
+  assert.deepEqual(exact.zigbee.endpoints['1'].bindings, [10, 25]);
+
+  assert.match(source, /tenthSecondTimingManufacturers = new Set\(\['_TZE204_qasjif9e', '_TZE204_ztqnh5cg'\]\)/);
+  assert.match(source, /newSettings\['detection_delay'\] \* 10/);
+  assert.match(source, /newSettings\['fading_time'\] \* 10/);
+  assert.match(source, /clusters\.tuya\.on\("reporting", handleDatapoint\)/);
+});
+test('FingerBot uses Tuya MCU send-data command for datapoint settings', () => {
+  const clusterSource = fs.readFileSync(
+    path.join(root, 'lib', 'TuyaSpecificCluster.js'),
+    'utf8'
+  );
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'fingerbot', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(clusterSource, /sendData:\s*\{\s*id:\s*0x04/);
+  assert.match(source, /clusters\.tuya\.sendData\(\{/);
+  assert.match(source, /_writeFingerBotEnum\(V1_FINGER_BOT_DATA_POINTS\.mode/);
+  assert.match(source, /_writeFingerBotData32\(V1_FINGER_BOT_DATA_POINTS\.lower/);
+  assert.match(source, /_writeFingerBotData32\(V1_FINGER_BOT_DATA_POINTS\.delay/);
+  assert.match(source, /_writeFingerBotEnum\([\s\S]*?V1_FINGER_BOT_DATA_POINTS\.reverse/);
+  assert.match(source, /_writeFingerBotData32\(V1_FINGER_BOT_DATA_POINTS\.upper/);
+
+  assert.doesNotMatch(source, /this\.writeEnum\(/);
+  assert.doesNotMatch(source, /this\.writeData32\(/);
+});
+test('soil sensor profiles keep manufacturer-specific temperature scaling', () => {
+  const legacyManifest = require('../drivers/soilsensor/driver.compose.json');
+  const scaledManifest = require('../drivers/soilsensor_2/driver.compose.json');
+  const legacySource = fs.readFileSync(
+    path.join(root, 'drivers', 'soilsensor', 'device.js'),
+    'utf8'
+  );
+  const scaledSource = fs.readFileSync(
+    path.join(root, 'drivers', 'soilsensor_2', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(!legacyManifest.zigbee.manufacturerName.includes('_TZE284_aao3yzhs'));
+  assert.ok(scaledManifest.zigbee.manufacturerName.includes('_TZE284_aao3yzhs'));
+  assert.ok(scaledManifest.zigbee.manufacturerName.includes('_TZE284_sgabhwa6'));
+
+  assert.match(
+    legacySource,
+    /manufacturerName === '_TZE284_aao3yzhs' \? 10 : 1/
+  );
+  assert.match(
+    legacySource,
+    /const temperature = value \/ \(this\.temperatureDivisor \|\| 1\)/
+  );
+  assert.match(legacySource, /clusters\.tuya\.on\('response', handleDatapoint\)/);
+  assert.match(legacySource, /clusters\.tuya\.on\('reporting', handleDatapoint\)/);
+
+  assert.match(scaledSource, /setCapabilityValue\('measure_temperature', value\/10\)/);
+  assert.match(scaledSource, /clusters\.tuya\.on\('response', handleDatapoint\)/);
+  assert.match(scaledSource, /clusters\.tuya\.on\('reporting', handleDatapoint\)/);
+});
+test('NEO siren processes response frames and awaits settings writes', () => {
+  const manifest = require('../drivers/siren/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'siren', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZE204_t1blo2bj'));
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZE200_t1blo2bj'));
+
+  assert.match(
+    source,
+    /async processResponse\(data\) \{[\s\S]*await this\.processReporting\(data\)/
+  );
+  assert.match(
+    source,
+    /async processDatapoint\(data\) \{[\s\S]*await this\.processReporting\(data\)/
+  );
+
+  assert.match(source, /for \(const updatedSetting of changedKeys\)/);
+  assert.match(source, /await this\.sendAlarmVolume\(/);
+  assert.match(source, /await this\.sendAlarmDuration\(/);
+  assert.match(source, /await this\.sendAlarmTune\(/);
+  assert.doesNotMatch(source, /changedKeys\.forEach/);
+});
+test('_TZ3000_upgcbody uses exact 2xAAA water profile', () => {
+  const legacy = require('../drivers/water_detector/driver.compose.json');
+  const exact = require('../drivers/water_detector_2aaa/driver.compose.json');
+  const runtime = fs.readFileSync(
+    path.join(root, 'drivers', 'water_detector_2aaa', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(!legacy.zigbee.manufacturerName.includes('_TZ3000_upgcbody'));
+  assert.deepEqual(exact.zigbee.manufacturerName, ['_TZ3000_upgcbody']);
+  assert.deepEqual(exact.zigbee.productId, ['TS0207', 'SNZB-05']);
+  assert.deepEqual(exact.energy.batteries, ['AAA', 'AAA']);
+  assert.deepEqual(exact.zigbee.endpoints['1'].clusters, [0, 1, 3, 1280]);
+  assert.deepEqual(exact.zigbee.endpoints['1'].bindings, [1, 1280]);
+  assert.match(runtime, /require\('\.\.\/water_detector\/device'\)/);
+});
+test('solar rain sensor derives water alarm from DP105 intensity', () => {
+  const manifest = require('../drivers/rain_sensor/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'rain_sensor', 'device.js'),
+    'utf8'
+  );
+
+  assert.deepEqual(manifest.zigbee.manufacturerName, ['_TZ3210_tgvtvdoc']);
+  assert.deepEqual(manifest.zigbee.productId, ['TS0207']);
+  assert.match(
+    source,
+    /case V1_RAIN_SENSOR_DATA_POINTS\.rain_intensity:[\s\S]*const isRaining = parsedValue > 100/
+  );
+  assert.match(
+    source,
+    /setCapabilityValue\('measure_voltage\.rain', parsedValue \/ 1000\)/
+  );
+  assert.match(
+    source,
+    /setCapabilityValue\('alarm_water', isRaining\)/
+  );
+});
+test('_TZE200_jthf7vb6 keeps its verified DP1/DP4 profile', () => {
+  const shared = require('../drivers/water_leak_sensor_tuya/driver.compose.json');
+  const exact = require('../drivers/water_leak_sensor_jthf7vb6/driver.compose.json');
+  const sharedSource = fs.readFileSync(
+    path.join(root, 'drivers', 'water_leak_sensor_tuya', 'device.js'),
+    'utf8'
+  );
+  const exactSource = fs.readFileSync(
+    path.join(root, 'drivers', 'water_leak_sensor_jthf7vb6', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(!shared.zigbee.manufacturerName.includes('_TZE200_jthf7vb6'));
+  assert.deepEqual(exact.zigbee.manufacturerName, ['_TZE200_jthf7vb6']);
+  assert.deepEqual(exact.zigbee.productId, ['TS0601']);
+  assert.deepEqual(exact.energy.batteries, ['OTHER']);
+  assert.ok(!exact.capabilities.includes('alarm_battery'));
+
+  assert.match(
+    sharedSource,
+    /manufacturerName === '_TZE200_jthf7vb6'/
+  );
+  assert.match(
+    sharedSource,
+    /data\.dp === 1[\s\S]*Number\(value\) === 0/
+  );
+  assert.match(
+    sharedSource,
+    /data\.dp === 4[\s\S]*setCapabilityValue\('measure_battery', battery\)/
+  );
+  assert.match(
+    sharedSource,
+    /setCapabilityValue\('alarm_battery', battery < 20\)/
+  );
+  assert.match(
+    sharedSource,
+    /if \(!this\.isJthf7vb6\)[\s\S]*tuya\.read\(\{ dp: 14 \}\)/
+  );
+  assert.match(exactSource, /require\('\.\.\/water_leak_sensor_tuya\/device'\)/);
+});
+test('_TZE200_vvmbj46n uses exact DP4 battery and 3xAAA profile', () => {
+  const generic = require('../drivers/temphumidsensor4/driver.compose.json');
+  const exact = require('../drivers/temphumidsensor_vvmbj46n/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'temphumidsensor4', 'device.js'),
+    'utf8'
+  );
+  const exactSource = fs.readFileSync(
+    path.join(root, 'drivers', 'temphumidsensor_vvmbj46n', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(!generic.zigbee.manufacturerName.includes('_TZE200_vvmbj46n'));
+  assert.deepEqual(exact.zigbee.manufacturerName, ['_TZE200_vvmbj46n']);
+  assert.deepEqual(exact.energy.batteries, ['AAA', 'AAA', 'AAA']);
+  assert.deepEqual(
+    exact.capabilities,
+    ['measure_temperature', 'measure_humidity', 'measure_battery']
+  );
+
+  assert.match(source, /manufacturerName === '_TZE200_vvmbj46n'/);
+  assert.match(
+    source,
+    /case 4:[\s\S]*this\.isVvmbj46n[\s\S]*reportBatteryPercentageCapacity\(measuredValue\)/
+  );
+  assert.match(
+    source,
+    /case 3:[\s\S]*this\.isVvmbj46n[\s\S]*Ignoring DP3 battery-state mapping/
+  );
+  assert.match(exactSource, /require\('\.\.\/temphumidsensor4\/device'\)/);
+});
+test('Nous A1Z keeps verified stock metering scaling', () => {
+  const manifest = require('../drivers/smartplug/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smartplug', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZ3000_2putqrmw'));
+
+  // Stock A1Z reports Metering multiplier=1/divisor=100 and
+  // Electrical Measurement current multiplier=1/divisor=1000.
+  assert.match(
+    source,
+    /registerCapability\('meter_power'[\s\S]*reportParser: value => \(value \* this\.meteringOffset\)\/100\.0/
+  );
+  assert.match(
+    source,
+    /registerCapability\('measure_current'[\s\S]*return value\/1000/
+  );
+});
+test('_TZE200_amp6tsvy uses the 1-gang Tuya DP1 switch profile', () => {
+  const manifest = require('../drivers/wall_switch_1_gang_tuya/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'wall_switch_1_gang_tuya', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZE200_amp6tsvy'));
+  assert.deepEqual(manifest.zigbee.productId, ['TS0601']);
+  assert.deepEqual(manifest.zigbee.endpoints['1'].clusters, [0, 4, 5, 61184]);
+
+  assert.match(source, /writeBool\(1, onOff\)/);
+  assert.match(source, /if \(dp !== 1\)/);
+  assert.match(source, /clusters\.tuya\.on\("reporting"/);
+  assert.match(source, /clusters\.tuya\.on\("response"/);
+});
+test('_TZE204_5cuocqty uses an exact Tuya-DP dimmer profile', () => {
+  const generic = require('../drivers/dimmer_1_gang_tuya/driver.compose.json');
+  const exact = require('../drivers/dimmer_1_gang_tuya_avatto/driver.compose.json');
+  const exactRuntime = fs.readFileSync(
+    path.join(root, 'drivers', 'dimmer_1_gang_tuya_avatto', 'device.js'),
+    'utf8'
+  );
+  const sharedRuntime = fs.readFileSync(
+    path.join(root, 'drivers', 'dimmer_1_gang_tuya', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(!generic.zigbee.manufacturerName.includes('_TZE204_5cuocqty'));
+  assert.deepEqual(exact.zigbee.manufacturerName, ['_TZE204_5cuocqty']);
+  assert.deepEqual(exact.zigbee.productId, ['TS0601']);
+  assert.deepEqual(exact.zigbee.endpoints['1'].clusters, [0, 4, 5, 61184]);
+  assert.deepEqual(exact.zigbee.endpoints['1'].bindings, [25, 10]);
+
+  assert.match(exactRuntime, /require\('\.\.\/dimmer_1_gang_tuya\/device'\)/);
+  assert.match(sharedRuntime, /writeBool\(V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS\.onOff/);
+  assert.match(sharedRuntime, /writeData32\(V1_SINGLE_GANG_DIMMER_SWITCH_DATA_POINTS\.brightness/);
+  assert.match(sharedRuntime, /clusters\.tuya\.on\('reporting'/);
+  assert.match(sharedRuntime, /clusters\.tuya\.on\('response'/);
+});
+test('_TZE204_7gclukjs uses its exact ZY-M100 24G datapoint profile', () => {
+  const generic = require('../drivers/radar_sensor/driver.compose.json');
+  const exact = require('../drivers/radar_sensor_7gclukjs/driver.compose.json');
+  const settings = require('../drivers/radar_sensor_7gclukjs/driver.settings.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'radar_sensor', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(!generic.zigbee.manufacturerName.includes('_TZE204_7gclukjs'));
+  assert.deepEqual(exact.zigbee.manufacturerName, ['_TZE204_7gclukjs']);
+  assert.deepEqual(exact.zigbee.productId, ['TS0601']);
+  assert.deepEqual(exact.zigbee.endpoints['1'].clusters, [0, 4, 5, 61184]);
+  assert.deepEqual(exact.zigbee.endpoints['1'].bindings, [25, 10]);
+
+  assert.match(source, /zyM10024GV2Manufacturers = new Set\(\['_TZE204_7gclukjs'\]\)/);
+  assert.match(source, /tshpsPresenceState: 104/);
+  assert.match(source, /tshpsState: 1/);
+  assert.match(source, /tshpsIlluminanceLux: 103/);
+  assert.match(source, /tshpsFadingTime: 105/);
+  assert.match(source, /const divisor = this\.isZyM10024GV2 \? 10 : 100/);
+  assert.match(source, /value === 1 \|\| value === 2/);
+  assert.match(source, /this\.usesAlternateDataPoints \|\| this\.isZyM10024GV2/);
+
+  assert.ok(!settings.some(setting => setting.id === 'detection_delay'));
+  assert.equal(settings.find(setting => setting.id === 'radar_sensitivity').max, 10);
+  assert.equal(settings.find(setting => setting.id === 'maximum_range').max, 8.25);
+});
+test('_TZE200_fjjbhx9d uses the exact dual Tuya-DP dimmer profile', () => {
+  const generic = require('../drivers/dimmer_2_gang_tuya/driver.compose.json');
+  const exact = require('../drivers/dimmer_2_gang_tuya_fjjbhx9d/driver.compose.json');
+  const runtime = fs.readFileSync(
+    path.join(root, 'drivers', 'dimmer_2_gang_tuya', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(!generic.zigbee.manufacturerName.includes('_TZE200_fjjbhx9d'));
+  assert.deepEqual(exact.zigbee.manufacturerName, ['_TZE200_fjjbhx9d']);
+  assert.deepEqual(exact.zigbee.productId, ['TS0601']);
+  assert.deepEqual(exact.zigbee.endpoints['1'].clusters, [0, 4, 5, 61184]);
+  assert.deepEqual(exact.zigbee.endpoints['1'].bindings, [25, 10]);
+  assert.ok(exact.zigbee.devices.secondGang);
+
+  assert.match(runtime, /onOffGangOne/);
+  assert.match(runtime, /brightnessGangOne/);
+  assert.match(runtime, /onOffGangTwo/);
+  assert.match(runtime, /brightnessGangTwo/);
+  assert.match(runtime, /clusters\.tuya\.on\("reporting"/);
+  assert.match(runtime, /clusters\.tuya\.on\("response"/);
+});
+test('smart air box declares Basic cluster for manufacturer-specific profiles', () => {
+  const manifest = require('../drivers/smart_air_detection_box/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_air_detection_box', 'device.js'),
+    'utf8'
+  );
+
+  assert.deepEqual(manifest.zigbee.endpoints['1'].clusters, [0, 61184]);
+  assert.match(source, /clusters\.basic/);
+  assert.match(source, /manufacturerName === '_TZE200_ryfmq5rl'/);
+  assert.match(source, /manufacturerName === '_TZE200_mja3fuja'/);
+});
+test('smart air box maps verified DP20 PM2.5 for default family', () => {
+  const manifest = require('../drivers/smart_air_detection_box/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_air_detection_box', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.capabilities.includes('measure_pm25'));
+  assert.match(source, /pm25: 20/);
+  assert.match(source, /PROFILE_DEFAULT && !this\.hasCapability\('measure_pm25'\)/);
+  assert.match(source, /await this\.addCapability\('measure_pm25'\)/);
+  assert.match(
+    source,
+    /case dataPoints\.pm25:[\s\S]*PROFILE_DEFAULT[\s\S]*setCapabilityValue\('measure_pm25', value\)/
+  );
+});
+test('_TZE200_a8sdabtg standard sensor configures robust reporting', () => {
+  const manifest = require('../drivers/temphumidsensor3/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'temphumidsensor3', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZE200_a8sdabtg'));
+  assert.deepEqual(manifest.zigbee.endpoints['1'].clusters, [0, 1, 1026, 1029]);
+  assert.deepEqual(manifest.zigbee.endpoints['1'].bindings, [1, 1026, 1029]);
+
+  assert.match(source, /cluster: CLUSTER\.TEMPERATURE_MEASUREMENT/);
+  assert.match(source, /cluster: CLUSTER\.RELATIVE_HUMIDITY_MEASUREMENT/);
+  assert.match(source, /cluster: CLUSTER\.POWER_CONFIGURATION/);
+  assert.match(source, /for \(const configuration of reportingConfigurations\)/);
+  assert.match(source, /configureAttributeReporting\(\[configuration\]\)\.catch/);
+});
+test('_TZ3000_ywagc4rj uses tenth-percent humidity scaling', () => {
+  const manifest = require('../drivers/lcdtemphumidsensor/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'lcdtemphumidsensor', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZ3000_ywagc4rj'));
+  assert.match(
+    source,
+    /manufacturerName === '_TZ3000_ywagc4rj' \? 10 : 100/
+  );
+  assert.match(
+    source,
+    /const humidity = measuredValue \/ \(this\.humidityDivisor \|\| 100\)/
+  );
+  assert.match(source, /measuredValue \/ 100/);
+});
+test('_TZ3000_18ejxno0 configures persistent OnOff reporting', () => {
+  const manifest = require('../drivers/wall_switch_2_gang/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'wall_switch_2_gang', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZ3000_18ejxno0'));
+  assert.deepEqual(manifest.zigbee.endpoints['1'].bindings, [6]);
+  assert.deepEqual(manifest.zigbee.endpoints['2'].bindings, [6]);
+
+  assert.match(source, /Cluster\.addCluster\(TuyaOnOffCluster\)/);
+  assert.match(source, /CLUSTER, Cluster, ZCLDataTypes/);
+  assert.match(source, /manufacturerName === '_TZ3000_18ejxno0'/);
+  assert.match(source, /getStoreValue\('onoff_reporting_configured'\) !== true/);
+  assert.match(source, /attributeName: 'onOff'/);
+  assert.match(source, /maxInterval: 300/);
+  assert.match(source, /setStoreValue\('onoff_reporting_configured', true\)/);
+  assert.match(source, /endpointId: endpoint/);
+});
+test('Silvercrest TS004F remote uses parsed Tuya actions instead of raw frames', () => {
+  const cluster = fs.readFileSync(
+    path.join(root, 'lib', 'TuyaOnOffCluster.js'),
+    'utf8'
+  );
+  const bound = fs.readFileSync(
+    path.join(root, 'lib', 'TuyaRemoteOnOffBoundCluster.js'),
+    'utf8'
+  );
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_remote_1_button', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(cluster, /tuyaOperationMode: \{ id: 0x8004/);
+  assert.match(cluster, /tuyaAction:[\s\S]*id: 0xFD/);
+  assert.match(cluster, /tuyaAction2:[\s\S]*id: 0xFC/);
+
+  assert.match(bound, /tuyaAction\(\{ value \}\)/);
+  assert.match(bound, /value === 0[\s\S]*_onSingle/);
+  assert.match(bound, /value === 1[\s\S]*_onDouble/);
+
+  assert.doesNotMatch(source, /handleFrame/);
+  assert.match(source, /TuyaRemoteOnOffBoundCluster/);
+  assert.match(source, /tuyaOperationMode: 1/);
+  assert.match(source, /manufacturerName === '_TZ3000_rco1yzb1'/);
+  assert.match(source, /onSingle: source => this\.triggerAction\('oneClick'/);
+  assert.match(source, /onDouble: source => this\.triggerAction\('twoClicks'/);
+  assert.match(source, /attr\.batteryPercentageRemaining/);
+});
+test('_TZ3000_wkai4ga5 bypasses legacy alternating-frame debounce', () => {
+  const manifest = require('../drivers/wall_remote_4_gang_3/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'wall_remote_4_gang_3', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZ3000_wkai4ga5'));
+  assert.ok(manifest.zigbee.manufacturerName.length > 1);
+
+  assert.match(
+    source,
+    /bypassAlternatingDebounce = manufacturerName === '_TZ3000_wkai4ga5'/
+  );
+  assert.match(
+    source,
+    /if \(bypassAlternatingDebounce\) \{[\s\S]*buttonCommandParser\(endpointId, parsedFrame\)[\s\S]*return;/
+  );
+  assert.match(source, /debounce \+= 1/);
+  assert.match(source, /if \(debounce === 1\)/);
+});
+test('smart air box converts VOC and formaldehyde to Homey capability units', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_air_detection_box', 'device.js'),
+    'utf8'
+  );
+  const voc = require('../.homeycompose/capabilities/measure_voc.json');
+  const formaldehyde = require('../.homeycompose/capabilities/measure_formaldehyde.json');
+
+  assert.match(source, /const divisor = this\.profile === PROFILE_RYFMQ5RL \? 10000 : 1000/);
+  assert.match(source, /const divisor = this\.profile === PROFILE_RYFMQ5RL \? 100000 : 1000/);
+  assert.match(source, /convertVocToPpm\(value\)/);
+  assert.match(source, /convertFormaldehydeToMgM3\(value\)/);
+
+  assert.equal(voc.units.en, 'ppm');
+  assert.equal(voc.decimals, 3);
+  assert.equal(formaldehyde.units.en, 'mg/m³');
+});
+test('_TZ3000_xabckq1v keeps its physical 4-button order', () => {
+  const manifest = require('../drivers/wall_remote_4_gang_2/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'wall_remote_4_gang_2', 'device.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee.manufacturerName.includes('_TZ3000_xabckq1v'));
+  assert.match(
+    source,
+    /this\.useXabckq1vButtonMap = manufacturerName === '_TZ3000_xabckq1v'/
+  );
+  assert.match(source, /leftDown: 'leftUp'/);
+  assert.match(source, /rightDown: 'rightUp'/);
+  assert.match(source, /rightUp: 'leftDown'/);
+  assert.match(source, /leftUp: 'rightDown'/);
+});
+test('_TZE200_m9skfctm uses smoke-only TS0601 profile', () => {
+  const generic = require('../drivers/smoke_sensor2/driver.compose.json');
+  const exact = require('../drivers/smoke_sensor_smoke_only/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smoke_sensor2', 'device.js'),
+    'utf8'
+  );
+
+  for (const manufacturer of ['_TZE200_m9skfctm', '_TZE200_rccxox8p', '_TZE200_vzekyi4c']) {
+    assert.ok(!generic.zigbee.manufacturerName.includes(manufacturer));
+    assert.ok(exact.zigbee.manufacturerName.includes(manufacturer));
+  }
+
+  assert.deepEqual(exact.capabilities, ['alarm_smoke']);
+  assert.deepEqual(exact.zigbee.productId, ['TS0601']);
+
+  assert.match(source, /clusters\.tuya\.on\("response", handleDatapoint\)/);
+  assert.match(source, /clusters\.tuya\.on\("reporting", handleDatapoint\)/);
+  assert.match(source, /if \(this\.hasCapability\('alarm_tamper'\)\)/);
+  assert.match(source, /const batteryPercentages = \{ 0: 20, 1: 50, 2: 90 \}/);
+  assert.match(source, /if \(this\.hasCapability\('alarm_battery'\)\)/);
+  assert.match(source, /setCapabilityValue\('alarm_battery', value === 0\)/);
+});
+test('_TZE200_locansqn receives Tuya 1970-based MCU time sync', () => {
+  const clusterSource = fs.readFileSync(
+    path.join(root, 'lib', 'TuyaSpecificCluster.js'),
+    'utf8'
+  );
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'lcdtemphumidsensor_3', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(
+    clusterSource,
+    /timeSync:[\s\S]*id: 0x24[\s\S]*payloadSize: ZCLDataTypes\.uint16[\s\S]*payload: ZCLDataTypes\.buffer/
+  );
+  assert.match(
+    source,
+    /this\.requiresTuyaTimeSync = this\.manufacturerName === '_TZE200_locansqn'/
+  );
+  assert.match(source, /tuyaCluster\.on\('timeSync'/);
+  assert.match(source, /const utcTime = Math\.floor\(Date\.now\(\) \/ 1000\)/);
+  assert.match(source, /const localTime = utcTime - new Date\(\)\.getTimezoneOffset\(\) \* 60/);
+  assert.match(source, /payload\.writeUInt32BE\(utcTime >>> 0, 0\)/);
+  assert.match(source, /payload\.writeUInt32BE\(localTime >>> 0, 4\)/);
+  assert.match(source, /payloadSize: payload\.length/);
+  assert.match(source, /Date\.now\(\) - this\.lastTuyaTimeSyncAt >= 3600000/);
+});
+test('Smart Knob uses bound clusters for press and rotation', () => {
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'smart_knob_switch', 'device.js'),
+    'utf8'
+  );
+  const levelSource = fs.readFileSync(
+    path.join(root, 'lib', 'LevelControlBoundCluster.js'),
+    'utf8'
+  );
+
+  assert.match(source, /new TuyaRemoteOnOffBoundCluster\(/);
+  assert.match(source, /CLUSTER\.ON_OFF\.NAME/);
+  assert.match(source, /new LevelControlBoundCluster\(/);
+  assert.match(source, /CLUSTER\.LEVEL_CONTROL\.NAME/);
+  assert.match(source, /onStep: payload => triggerRotation\(payload, 'step'\)/);
+  assert.match(source, /onMove: payload => triggerRotation\(payload, 'move'\)/);
+  assert.match(source, /const button = mode === 'down' \? 'left' : 'right'/);
+
+  // Raw frames are retained only for the unverified Color Control hold path.
+  assert.match(source, /if \(clusterId !== CLUSTER\.COLOR_CONTROL\.ID\) return/);
+  assert.doesNotMatch(source, /\[8, 6, 768\]\.includes\(clusterId\)/);
+  assert.doesNotMatch(source, /case 8:/);
+
+  // Duplicate suppression is intentionally press-only so rotation steps survive.
+  assert.match(source, /button === 'press'[\s\S]*now - this\._lastPressAt < 250/);
+  assert.match(source, /if \(button === 'press'\) \{[\s\S]*this\._lastPressAt = now/);
+
+  assert.match(levelSource, /class LevelControlBoundCluster extends BoundCluster/);
+  assert.match(levelSource, /step\(payload\)/);
+  assert.match(levelSource, /move\(payload\)/);
 });

@@ -42,7 +42,7 @@
                 "de": "Ändern des Alarmstatus zu [[siren_alarm_state]]",
                 "sv": "Ändra larmstatus till [[siren_alarm_state]]",
                 "it": "Cambia lo stato di allarme in [[siren_alarm_state]]"
-              },
+            },
             "hint": {
                 "en": "Change the alarm state; sound or silence the alarm",
                 "nl": "Verander de alarm toestand; luiden of uitschakelen van het alarm",
@@ -153,18 +153,18 @@
                         {
                             "id": "2",
                             "label": {
-                                "en": "Low",
-                                "nl": "Laag",
-                                "de": "Niedrig",
-                                "sv": "Låg",
-                                "it": "Basso"  
+                                "en": "High",
+                                "nl": "Hoog",
+                                "de": "Hoch",
+                                "sv": "Hög",
+                                "it": "Alto"
                             }
                         },
                         {
                             "id": "1",
                             "label": {
-                                "en": "Midle",
-                                "nl": "Middelmatig",
+                                "en": "Medium",
+                                "nl": "Mellan",
                                 "de": "Mittel",
                                 "sv": "Mellan",
                                 "it": "Medio"
@@ -173,11 +173,11 @@
                         {
                             "id": "0",
                             "label": {
-                                "en": "High (default)",
-                                "nl": "Hoog (standaard)",
-                                "de": "Hoch (Standard)",
-                                "sv": "Hög (standard)",
-                                "it": "Alto (default)"
+                                "en": "Low",
+                                "nl": "Laag",
+                                "de": "Niedrig",
+                                "sv": "Låg",
+                                "it": "Basso"
                             }
                         }
                     ]
@@ -213,186 +213,186 @@
                     "type": "dropdown",
                     "values": [
                         {
-                          "id": "0",
-                          "label": {
-                            "en": "Doorbell Chime",
-                            "nl": "Doorbell Chime",
-                            "de": "Doorbell Chime",
-                            "sv": "Doorbell Chime",
-                            "it": "Doorbell Chime"
-                          }
+                            "id": "0",
+                            "label": {
+                                "en": "Doorbell Chime",
+                                "nl": "Doorbell Chime",
+                                "de": "Doorbell Chime",
+                                "sv": "Doorbell Chime",
+                                "it": "Doorbell Chime"
+                            }
                         },
                         {
-                          "id": "1",
-                          "label": {
-                            "en": "For Elise (default)",
-                            "nl": "Fur Elise (standaard)",
-                            "de": "Fur Elise (Standard)",
-                            "sv": "Fur Elise (standard)",
-                            "it": "Fur Elise (default)"
-                          }
+                            "id": "1",
+                            "label": {
+                                "en": "For Elise (default)",
+                                "nl": "Fur Elise (standaard)",
+                                "de": "Fur Elise (Standard)",
+                                "sv": "Fur Elise (standard)",
+                                "it": "Fur Elise (default)"
+                            }
                         },
                         {
-                          "id": "2",
-                          "label": {
-                            "en": "Westminster Chimes",
-                            "nl": "Westminster Chimes",
-                            "de": "Westminster Chimes",
-                            "sv": "Westminster Chimes",
-                            "it": "Westminster Chimes"
-                          }
+                            "id": "2",
+                            "label": {
+                                "en": "Westminster Chimes",
+                                "nl": "Westminster Chimes",
+                                "de": "Westminster Chimes",
+                                "sv": "Westminster Chimes",
+                                "it": "Westminster Chimes"
+                            }
                         },
                         {
-                          "id": "3",
-                          "label": {
-                            "en": "Fast double door bell",
-                            "nl": "Fast double door bell",
-                            "de": "Fast double door bell",
-                            "sv": "Fast double door bell",
-                            "it": "Fast double door bell"
-                          }
+                            "id": "3",
+                            "label": {
+                                "en": "Fast double door bell",
+                                "nl": "Fast double door bell",
+                                "de": "Fast double door bell",
+                                "sv": "Fast double door bell",
+                                "it": "Fast double door bell"
+                            }
                         },
                         {
-                          "id": "4",
-                          "label": {
-                            "en": "William Tell Overture",
-                            "nl": "William Tell Overture",
-                            "de": "William Tell Overture",
-                            "sv": "William Tell Overture",
-                            "it": "William Tell Overture"
-                          }
+                            "id": "4",
+                            "label": {
+                                "en": "William Tell Overture",
+                                "nl": "William Tell Overture",
+                                "de": "William Tell Overture",
+                                "sv": "William Tell Overture",
+                                "it": "William Tell Overture"
+                            }
                         },
                         {
-                          "id": "5",
-                          "label": {
-                            "en": "Turkish March",
-                            "nl": "Turkish March",
-                            "de": "Turkish March",
-                            "sv": "Turkish March",
-                            "it": "Turkish March"
-                          }
+                            "id": "5",
+                            "label": {
+                                "en": "Turkish March",
+                                "nl": "Turkish March",
+                                "de": "Turkish March",
+                                "sv": "Turkish March",
+                                "it": "Turkish March"
+                            }
                         },
                         {
-                          "id": "6",
-                          "label": {
-                            "en": "Security Alarm",
-                            "nl": "Security Alarm",
-                            "de": "Security Alarm",
-                            "sv": "Security Alarm",
-                            "it": "Security Alarm"
-                          }
+                            "id": "6",
+                            "label": {
+                                "en": "Security Alarm",
+                                "nl": "Security Alarm",
+                                "de": "Security Alarm",
+                                "sv": "Security Alarm",
+                                "it": "Security Alarm"
+                            }
                         },
                         {
-                          "id": "7",
-                          "label": {
-                            "en": "Chemical Spill Alert",
-                            "nl": "Chemical Spill Alert",
-                            "de": "Chemical Spill Alert",
-                            "sv": "Chemical Spill Alert",
-                            "it": "Chemical Spill Alert"
-                          }
+                            "id": "7",
+                            "label": {
+                                "en": "Chemical Spill Alert",
+                                "nl": "Chemical Spill Alert",
+                                "de": "Chemical Spill Alert",
+                                "sv": "Chemical Spill Alert",
+                                "it": "Chemical Spill Alert"
+                            }
                         },
                         {
-                          "id": "8",
-                          "label": {
-                            "en": "Piercing Alarm Clock",
-                            "nl": "Piercing Alarm Clock",
-                            "de": "Piercing Alarm Clock",
-                            "sv": "Piercing Alarm Clock",
-                            "it": "Piercing Alarm Clock"
-                          }
+                            "id": "8",
+                            "label": {
+                                "en": "Piercing Alarm Clock",
+                                "nl": "Piercing Alarm Clock",
+                                "de": "Piercing Alarm Clock",
+                                "sv": "Piercing Alarm Clock",
+                                "it": "Piercing Alarm Clock"
+                            }
                         },
                         {
-                          "id": "9",
-                          "label": {
-                            "en": "Smoke Alarm",
-                            "nl": "Smoke Alarm",
-                            "de": "Smoke Alarm",
-                            "sv": "Smoke Alarm",
-                            "it": "Smoke Alarm"
-                          }
+                            "id": "9",
+                            "label": {
+                                "en": "Smoke Alarm",
+                                "nl": "Smoke Alarm",
+                                "de": "Smoke Alarm",
+                                "sv": "Smoke Alarm",
+                                "it": "Smoke Alarm"
+                            }
                         },
                         {
-                          "id": "10",
-                          "label": {
-                            "en": "Dog Barking",
-                            "nl": "Dog Barking",
-                            "de": "Dog Barking",
-                            "sv": "Dog Barking",
-                            "it": "Dog Barking"
-                          }
+                            "id": "10",
+                            "label": {
+                                "en": "Dog Barking",
+                                "nl": "Dog Barking",
+                                "de": "Dog Barking",
+                                "sv": "Dog Barking",
+                                "it": "Dog Barking"
+                            }
                         },
                         {
-                          "id": "11",
-                          "label": {
-                            "en": "Police Siren",
-                            "nl": "Police Siren",
-                            "de": "Police Siren",
-                            "sv": "Police Siren",
-                            "it": "Police Siren"
-                          }
+                            "id": "11",
+                            "label": {
+                                "en": "Police Siren",
+                                "nl": "Police Siren",
+                                "de": "Police Siren",
+                                "sv": "Police Siren",
+                                "it": "Police Siren"
+                            }
                         },
                         {
-                          "id": "12",
-                          "label": {
-                            "en": "Doorbell Chime (reverb)",
-                            "nl": "Doorbell Chime (reverb)",
-                            "de": "Doorbell Chime (reverb)",
-                            "sv": "Doorbell Chime (reverb)",
-                            "it": "Doorbell Chime (reverb)"
-                          }
+                            "id": "12",
+                            "label": {
+                                "en": "Doorbell Chime (reverb)",
+                                "nl": "Doorbell Chime (reverb)",
+                                "de": "Doorbell Chime (reverb)",
+                                "sv": "Doorbell Chime (reverb)",
+                                "it": "Doorbell Chime (reverb)"
+                            }
                         },
                         {
-                          "id": "13",
-                          "label": {
-                            "en": "Mechanical Telephone",
-                            "nl": "Mechanical Telephone",
-                            "de": "Mechanical Telephone",
-                            "sv": "Mechanical Telephone",
-                            "it": "Mechanical Telephone"
-                          }
+                            "id": "13",
+                            "label": {
+                                "en": "Mechanical Telephone",
+                                "nl": "Mechanical Telephone",
+                                "de": "Mechanical Telephone",
+                                "sv": "Mechanical Telephone",
+                                "it": "Mechanical Telephone"
+                            }
                         },
                         {
-                          "id": "14",
-                          "label": {
-                            "en": "Fire/Ambulance",
-                            "nl": "Fire/Ambulance",
-                            "de": "Fire/Ambulance",
-                            "sv": "Fire/Ambulance",
-                            "it": "Fire/Ambulance"
-                          }
+                            "id": "14",
+                            "label": {
+                                "en": "Fire/Ambulance",
+                                "nl": "Fire/Ambulance",
+                                "de": "Fire/Ambulance",
+                                "sv": "Fire/Ambulance",
+                                "it": "Fire/Ambulance"
+                            }
                         },
                         {
-                          "id": "15",
-                          "label": {
-                            "en": "3/1 Elevator",
-                            "nl": "3/1 Elevator",
-                            "de": "3/1 Elevator",
-                            "sv": "3/1 Elevator",
-                            "it": "3/1 Elevator"
-                          }
+                            "id": "15",
+                            "label": {
+                                "en": "3/1 Elevator",
+                                "nl": "3/1 Elevator",
+                                "de": "3/1 Elevator",
+                                "sv": "3/1 Elevator",
+                                "it": "3/1 Elevator"
+                            }
                         },
                         {
-                          "id": "16",
-                          "label": {
-                            "en": "Buzzing Alarm Clock",
-                            "nl": "Buzzing Alarm Clock",
-                            "de": "Buzzing Alarm Clock",
-                            "sv": "Buzzing Alarm Clock",
-                            "it": "Buzzing Alarm Clock"
-                          }
+                            "id": "16",
+                            "label": {
+                                "en": "Buzzing Alarm Clock",
+                                "nl": "Buzzing Alarm Clock",
+                                "de": "Buzzing Alarm Clock",
+                                "sv": "Buzzing Alarm Clock",
+                                "it": "Buzzing Alarm Clock"
+                            }
                         },
                         {
-                          "id": "17",
-                          "label": {
-                            "en": "School Bell",
-                            "nl": "School Bell",
-                            "de": "School Bell",
-                            "sv": "School Bell",
-                            "it": "School Bell"
-                          }
+                            "id": "17",
+                            "label": {
+                                "en": "School Bell",
+                                "nl": "School Bell",
+                                "de": "School Bell",
+                                "sv": "School Bell",
+                                "it": "School Bell"
+                            }
                         }
-                      ]
+                    ]
                 }
             ]
         }

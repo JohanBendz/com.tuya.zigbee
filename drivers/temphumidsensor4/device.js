@@ -49,7 +49,7 @@ const getDataValue = (dpValue) => {
 
 class temphumidsensor4 extends TuyaSpecificClusterDevice {
 
-	async onNodeInit({ zclNode }) {
+	async onNodeInit({ zclNode, node }) {
 
 
 		for (const capabilityId of ['measure_temperature', 'measure_humidity', 'measure_battery']) {
@@ -58,10 +58,20 @@ class temphumidsensor4 extends TuyaSpecificClusterDevice {
 			}
 		}
 
-		await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
-		.catch(err => {
-			this.error('Error when reading device attributes ', err);
-		});
+		// Homey provides the Zigbee interview identity on the node. A live Basic
+		// read can time out for sleepy sensors, so do not depend on it for DP4.
+		let manufacturerName = node?.manufacturerName;
+		if (!manufacturerName) {
+			try {
+				({ manufacturerName } = await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName']));
+			} catch (err) {
+				this.error('Error reading device manufacturerName', err);
+			}
+		}
+
+		// TH05Z / _TZE200_vvmbj46n reports battery percentage on DP4.
+		// Keep this runtime branch for devices paired before the profile split.
+		this.isVvmbj46n = manufacturerName === '_TZE200_vvmbj46n';
 
 		zclNode.endpoints[1].clusters.tuya.on("response", async value => {
       try {
@@ -73,7 +83,7 @@ class temphumidsensor4 extends TuyaSpecificClusterDevice {
 
 		zclNode.endpoints[1].clusters.tuya.on("reporting", async value => {
       try {
-        await this.processReporting(value);
+        await this.processResponse(value);
       } catch (err) {
         this.error('Failed to process Tuya reporting', err);
       }
@@ -103,14 +113,39 @@ class temphumidsensor4 extends TuyaSpecificClusterDevice {
 				this.log('Humidity Level is ', measuredValue, ' %RH (', measuredValue, ')');
 				this.reportHumidityCapacity(measuredValue);
 				break;
-			/*
-			//9 === 0
-			//3 = 2
-						case 15:
-				this.log('received battery percentage: ', value, ' ', measuredValue);
-				this.reportBatteryPercentageCapacity(measuredValue);
+
+			case 3: {
+				if (this.isVvmbj46n) {
+					this.log('Ignoring DP3 battery-state mapping for TH05Z profile');
+					break;
+				}
+
+				const batteryByState = { 0: 25, 1: 50, 2: 100 };
+				const batteryLevel = batteryByState[measuredValue];
+
+				if (batteryLevel === undefined) {
+					this.log('Unknown battery state:', measuredValue);
+					break;
+				}
+
+				this.log('Battery state:', measuredValue, '=>', batteryLevel, '%');
+				this.reportBatteryPercentageCapacity(batteryLevel);
+				this.reportAlarmBatteryCapacity(measuredValue === 0);
 				break;
-			*/
+			}
+
+			case 4:
+				if (this.isVvmbj46n) {
+					this.log('TH05Z battery percentage:', measuredValue, '%');
+					this.reportBatteryPercentageCapacity(measuredValue);
+					if (this.hasCapability('alarm_battery')) {
+						this.reportAlarmBatteryCapacity(measuredValue < 20);
+					}
+					break;
+				}
+				this.log('Unhandled battery percentage DP4 for this profile:', measuredValue);
+				break;
+
 			default:
 				this.error(`WARN: NOT PROCESSED Tuya cmd: dp='${dp}' value='${measuredValue}' descMap.data='${JSON.stringify(data)}'`);
 				this.log('WARN: NOT PROCESSED Tuya cmd: dp=', dp, 'value=', measuredValue, 'descMap.data = ', data);
