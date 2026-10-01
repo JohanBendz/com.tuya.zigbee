@@ -11681,8 +11681,7 @@
             "en": "Two tiles will be created, one for each channel. Follow the device's instructions to enter Zigbee pairing mode."
           }
         }
-      },
-      "settings": []
+      }
     },
     {
       "id": "switch_3_gang",
