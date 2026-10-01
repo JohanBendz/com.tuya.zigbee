@@ -4,6 +4,7 @@ const TuyaSpecificCluster = require("../../lib/TuyaSpecificCluster");
 const TuyaOnOffCluster = require("../../lib/TuyaOnOffCluster");
 const TuyaSpecificClusterDevice = require("../../lib/TuyaSpecificClusterDevice");
 const {getDataValue} = require("./helpers");
+const UnmappedDpLogLimiter = require('./unmapped-dp-log');
 const {Cluster} = require("zigbee-clusters");
 
 Cluster.addCluster(TuyaOnOffCluster);
@@ -38,6 +39,10 @@ class WallThermostatDevice extends TuyaSpecificClusterDevice {
     async onNodeInit({zclNode}) {
 /*     debug(true);
     this.enableDebug(); */
+
+        // Preserve the first diagnostic for each unknown DP, but avoid flooding
+        // logs when a device repeats the same value at a high frequency.
+        this._unmappedDpLogLimiter = new UnmappedDpLogLimiter((...args) => this.log(...args));
 
         if (!this.hasCapability('thermostat_programming')) {
           await this.addCapability('thermostat_programming');
@@ -152,7 +157,7 @@ class WallThermostatDevice extends TuyaSpecificClusterDevice {
                 break;
 
             default:
-                this.log('processReporting', dp, parsedValue)
+                this._unmappedDpLogLimiter.record(dp, parsedValue);
         }
     }
 }
