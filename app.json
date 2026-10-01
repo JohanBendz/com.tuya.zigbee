@@ -7233,137 +7233,6 @@
       "settings": []
     },
     {
-      "id": "switch_4_gang_ts0004",
-      "name": {
-        "en": "TS0004 Four-Channel On/Off Switch"
-      },
-      "class": "socket",
-      "platforms": [
-        "local"
-      ],
-      "connectivity": [
-        "zigbee"
-      ],
-      "capabilities": [
-        "onoff"
-      ],
-      "images": {
-        "large": "/drivers/switch_4_gang_ts0004/assets/images/large.png",
-        "small": "/drivers/switch_4_gang_ts0004/assets/images/small.png"
-      },
-      "energy": {
-        "approximation": {
-          "usageOn": 0,
-          "usageOff": 0
-        }
-      },
-      "zigbee": {
-        "manufacturerName": [
-          "_TZ3000_s6ma1nh4",
-          "_TZ3000_enmfaave"
-        ],
-        "productId": [
-          "TS0004"
-        ],
-        "endpoints": {
-          "1": {
-            "clusters": [
-              0,
-              4,
-              5,
-              6
-            ],
-            "bindings": [
-              6
-            ]
-          },
-          "2": {
-            "clusters": [
-              4,
-              5,
-              6
-            ],
-            "bindings": [
-              6
-            ]
-          },
-          "3": {
-            "clusters": [
-              4,
-              5,
-              6
-            ],
-            "bindings": [
-              6
-            ]
-          },
-          "4": {
-            "clusters": [
-              4,
-              5,
-              6
-            ],
-            "bindings": [
-              6
-            ]
-          }
-        },
-        "devices": {
-          "secondSwitch": {
-            "class": "socket",
-            "capabilities": [
-              "onoff"
-            ],
-            "name": {
-              "en": "TS0004 Switch - Channel 2"
-            },
-            "energy": {
-              "approximation": {
-                "usageOn": 0,
-                "usageOff": 0
-              }
-            }
-          },
-          "thirdSwitch": {
-            "class": "socket",
-            "capabilities": [
-              "onoff"
-            ],
-            "name": {
-              "en": "TS0004 Switch - Channel 3"
-            },
-            "energy": {
-              "approximation": {
-                "usageOn": 0,
-                "usageOff": 0
-              }
-            }
-          },
-          "fourthSwitch": {
-            "class": "socket",
-            "capabilities": [
-              "onoff"
-            ],
-            "name": {
-              "en": "TS0004 Switch - Channel 4"
-            },
-            "energy": {
-              "approximation": {
-                "usageOn": 0,
-                "usageOff": 0
-              }
-            }
-          }
-        },
-        "learnmode": {
-          "image": "/drivers/switch_4_gang_ts0004/assets/icon.svg",
-          "instruction": {
-            "en": "Four Homey tiles will be created, one for each relay channel. Follow the device's own instructions to enter Zigbee pairing mode."
-          }
-        }
-      }
-    },
-    {
       "class": "light",
       "platforms": [
         "local"
@@ -12229,6 +12098,137 @@
           }
         }
       ]
+    },
+    {
+      "id": "switch_4_gang_ts0004",
+      "name": {
+        "en": "TS0004 Four-Channel On/Off Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/switch_4_gang_ts0004/assets/images/large.png",
+        "small": "/drivers/switch_4_gang_ts0004/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_s6ma1nh4",
+          "_TZ3000_enmfaave"
+        ],
+        "productId": [
+          "TS0004"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "4": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "TS0004 Switch - Channel 2"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "thirdSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "TS0004 Switch - Channel 3"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "fourthSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "TS0004 Switch - Channel 4"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_4_gang_ts0004/assets/icon.svg",
+          "instruction": {
+            "en": "Four Homey tiles will be created, one for each relay channel. Follow the device's own instructions to enter Zigbee pairing mode."
+          }
+        }
+      }
     },
     {
       "id": "temphumidsensor",
