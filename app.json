@@ -11389,6 +11389,62 @@
       ]
     },
     {
+      "id": "switch_1_gang_ts0001",
+      "name": {
+        "en": "TS0001 Single-Channel On/Off Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/switch_1_gang_ts0001/assets/images/large.png",
+        "small": "/drivers/switch_1_gang_ts0001/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_0t4zjtia",
+          "_TZ3000_p26flek3",
+          "_TZ3000_hyarhbyx",
+          "_TZ3000_y4che4dc"
+        ],
+        "productId": [
+          "TS0001"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_1_gang_ts0001/assets/icon.svg",
+          "instruction": {
+            "en": "One Homey tile will be created for this exact TS0001 one-channel switch. Follow the physical device's pairing instructions."
+          }
+        }
+      }
+    },
+    {
       "id": "switch_2_gang",
       "name": {
         "en": "2 Gang Switch Module"
