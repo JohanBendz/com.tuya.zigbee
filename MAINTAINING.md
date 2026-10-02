@@ -72,6 +72,8 @@ CI order is:
 
 Homey's publish validation checks the generated manifest and publish assets. Static repository tests are intentionally conservative; they do not claim to replace real-device testing.
 
+**0.4 hardware gate:** Consult [the exact physical acceptance matrix](docs/0.4.0_PHYSICAL_ACCEPTANCE.md) before suggesting a 0.4 Test/Live promotion. It tracks all 20 new fingerprint pairs, original physical evidence, per-gang/sensor tests and the existing plug-regression scope (#1503). CI success alone is not physical acceptance; do not silently replace frozen 0.3.1 Test.
+
 ## Releases
 
 - Keep `package.json`, `.homeycompose/app.json` and generated `app.json` on the same version.
