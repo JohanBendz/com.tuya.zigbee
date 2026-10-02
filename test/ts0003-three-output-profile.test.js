@@ -7,7 +7,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 
 const id = 'switch_3_gang_ts0003';
-const manufacturers = ['_TZ3000_lmcp6b0a', '_TZ3000_v4l4b0lp', '_TZ3000_qkixdnon'];
+const manufacturers = ['_TZ3000_lmcp6b0a', '_TZ3000_v4l4b0lp', '_TZ3000_qkixdnon', '_TZ3000_iol4bl2y'];
 const manifest = require('../app.json');
 const profile = require('../drivers/switch_3_gang_ts0003/driver.compose.json');
 
@@ -24,8 +24,8 @@ test('exact #795/#1353 non-metering three-gang TS0003 pairing without cross-prod
     '2': { clusters: [4, 5, 6], bindings: [6] },
     '3': { clusters: [4, 5, 6], bindings: [6] },
   });
-  // Both real interviews also show optional Identify3 and E000/E001 on all
-  // three EPs. Those optional clusters are not required for safe base OnOff.
+  // Physical interviews show optional Identify3 and E000/E001 variants;
+  // proprietary clusters are not required for the standard OnOff subset.
   const declared = JSON.stringify(profile.zigbee.endpoints);
   for (const forbidden of [1794, 2820, 61184, 57344, 57345]) {
     assert.ok(!declared.includes(String(forbidden)), 'no invented mandatory vendor/metering cluster: ' + forbidden);

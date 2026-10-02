@@ -138,7 +138,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Temperature & Humidity Sensor (TH05Z) (`temphumidsensor_vvmbj46n`) | `TS0601` | `_TZE200_vvmbj46n` |
 | Thermostatic Radiator Valve (`thermostatic_radiator_valve`) | `TS0601` | `_TZE200_7yoranx2`<br>`_TZE200_e9ba97vf`<br>`_TZE200_hue3yfsn`<br>`_TZE200_husqqvux`<br>`_TZE200_kds0pmmv`<br>`_TZE200_kly8gjlz`<br>`_TZE200_lllliz3p`<br>`_TZE200_lnbfnyxd`<br>`_TZE200_mudxchsu`<br>`_TZE200_py4cm3he`<br>`_TZE200_sur6q7ko` |
 | TS0002 Two-Channel On/Off Switch (`switch_2_gang_ts0002`) | `TS0002` | `_TZ3000_l9brjwau`<br>`_TZ3000_lugaswf8`<br>`_TZ3000_pgcclddi`<br>`_TZ3000_ptjcjise`<br>`_TZ3000_rmiew70n`<br>`_TZ3000_zxrfobzw` |
-| TS0003 Three-Channel Wall Switch (`switch_3_gang_ts0003`) | `TS0003` | `_TZ3000_lmcp6b0a`<br>`_TZ3000_qkixdnon`<br>`_TZ3000_v4l4b0lp` |
+| TS0003 Three-Channel Wall Switch (`switch_3_gang_ts0003`) | `TS0003` | `_TZ3000_iol4bl2y`<br>`_TZ3000_lmcp6b0a`<br>`_TZ3000_qkixdnon`<br>`_TZ3000_v4l4b0lp` |
 | TS0004 Four-Channel On/Off Switch (`switch_4_gang_ts0004`) | `TS0004` | `_TZ3000_enmfaave`<br>`_TZ3000_s6ma1nh4` |
 | Tunable Bulb E14 (`tunable_bulb_E14`) | `TS0502A` | `_TZ3000_oborybow` |
 | Tunable Bulb E27 (`tunable_bulb_E27`) | `TS0502A` | `_TZ3000_49qchf10` |
