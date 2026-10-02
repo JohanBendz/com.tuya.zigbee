@@ -7,7 +7,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 
 const id = 'switch_3_gang_ts0003';
-const manufacturers = ['_TZ3000_lmcp6b0a', '_TZ3000_v4l4b0lp'];
+const manufacturers = ['_TZ3000_lmcp6b0a', '_TZ3000_v4l4b0lp', '_TZ3000_qkixdnon'];
 const manifest = require('../app.json');
 const profile = require('../drivers/switch_3_gang_ts0003/driver.compose.json');
 

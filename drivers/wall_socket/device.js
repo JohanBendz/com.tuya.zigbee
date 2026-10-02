@@ -139,8 +139,8 @@ class wall_socket extends ZigBeeDevice {
     let parsedValue = 0;
 
     if (changedKeys.includes('relay_status')) {
-  await writeTuyaRelayStatus(this.zclNode.endpoints[1]?.clusters?.onOff, newSettings.relay_status);
-}
+      await writeTuyaRelayStatus(this.zclNode.endpoints[1]?.clusters?.onOff, newSettings.relay_status);
+    }
 
     if (changedKeys.includes('indicator_mode')) {
       parsedValue = parseInt(newSettings.indicator_mode);
