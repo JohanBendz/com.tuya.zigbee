@@ -3,6 +3,7 @@
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { CLUSTER, Cluster, ZCLDataTypes} = require('zigbee-clusters');
 const TuyaOnOffCluster = require('../../lib/TuyaOnOffCluster');
+const { syncTuyaRelayStatus, writeTuyaRelayStatus } = require('../../lib/TuyaRelayStatus');
 
 Cluster.addCluster(TuyaOnOffCluster);
 
@@ -53,20 +54,23 @@ class smartplug extends ZigBeeDevice {
       this.log("Metering Factor: ", this.meteringFactor);
     } */
  
+    const onOffCluster = this.zclNode.endpoints[1]?.clusters?.onOff;
+    await syncTuyaRelayStatus(this, onOffCluster);
+
+    // Optional settings must not suppress relayStatus when unsupported.
     try {
-      const relayStatus = await this.zclNode.endpoints[1].clusters.onOff.readAttributes(['relayStatus']);
-      const childLock = await this.zclNode.endpoints[1].clusters.onOff.readAttributes(['childLock']);
-      const indicatorMode = await this.zclNode.endpoints[1].clusters.onOff.readAttributes(['indicatorMode']);
-
-      this.log("Relay Status supported by device");
-
+      const childLock = await onOffCluster.readAttributes(['childLock']);
+      await this.setSettings({ child_lock: childLock.childLock ? '1' : '0' });
+    } catch (error) {
+      this.log('Tuya childLock not available:', error.message);
+    }
+    try {
+      const indicatorMode = await onOffCluster.readAttributes(['indicatorMode']);
       await this.setSettings({
-        relay_status : ZCLDataTypes.enum8RelayStatus.args[0][relayStatus.relayStatus].toString(),
         indicator_mode: ZCLDataTypes.enum8IndicatorMode.args[0][indicatorMode.indicatorMode].toString(),
-        child_lock: childLock.childLock ? "1" : "0",
       });
     } catch (error) {
-      this.log("This device does not support Relay Control", error);
+      this.log('Tuya indicatorMode not available:', error.message);
     }
 
     // meter_power
@@ -129,9 +133,8 @@ class smartplug extends ZigBeeDevice {
     let parsedValue = 0;
 
     if (changedKeys.includes('relay_status')) {
-      parsedValue = parseInt(newSettings.relay_status);
-      await this.zclNode.endpoints[1].clusters.onOff.writeAttributes({ relayStatus: parsedValue });
-    }
+  await writeTuyaRelayStatus(this.zclNode.endpoints[1]?.clusters?.onOff, newSettings.relay_status);
+}
 
     if (changedKeys.includes('indicator_mode')) {
       parsedValue = parseInt(newSettings.indicator_mode);
