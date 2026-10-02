@@ -76,6 +76,7 @@ test('0.4 preserves existing Flow-card contracts and custom capability definitio
       '0.3.1 custom capability contract changed: ' + id);
   }
   for (const [kind, exceptions] of Object.entries(approved)) {
+    if (!['drivers', 'flow', 'capabilities'].includes(kind)) continue; // Metadata is not an exception collection.
     for (const id of Object.keys(exceptions)) {
       const exists = kind === 'drivers' ? baseline.drivers[id]
         : kind === 'capabilities' ? baseline.capabilities[id]
