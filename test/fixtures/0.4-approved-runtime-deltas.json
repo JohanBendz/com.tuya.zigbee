@@ -1,0 +1,4 @@
+{
+  "note": "If a protected runtime must change, preserve the historical source snapshot. Add an exact new Git blob SHA and a referenced GitHub issue after explicit targeted review and physical regression planning.",
+  "files": {}
+}
