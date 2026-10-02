@@ -51,6 +51,8 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | 5 Gang Wall Switch (`wall_switch_5_gang_tuya`) | `TS0601` | `_TZE200_jwsjbxjs` |
 | 6 Gang Wall Remote (`wall_remote_6_gang`) | `TS0046` | `_TZ3000_iszegwpd` |
 | 6 Gang Wall Switch (`wall_switch_6_gang_tuya`) | `TS0601` | `_TZE200_9mahtqtg`<br>`_TZE200_r731zlxk` |
+| BSEED TS0001 Single-Channel Wall Switch (`switch_1_gang_bseed_ts0001`) | `TS0001` | `_TZ3000_blhvsaqf` |
+| BSEED TS0726 Four-Channel Wall Switch (`switch_4_gang_bseed_ts0726`) | `TS0726` | `_TZ3002_pzao9ls1` |
 | Christmas Lights (`christmas_lights`) | `TS0601` | `_TZE200_s8gkrkxk` |
 | Curtain Module (`curtain_module`) | `TS130F` | `_TZ3000_1dd0d5yi`<br>`_TZ3000_4uuaja4a`<br>`_TZ3000_e3vhyirx`<br>`_TZ3000_eafaa66e`<br>`_TZ3000_eg7awg6a`<br>`_TZ3000_fccpjz5z`<br>`_TZ3000_femsaaua`<br>`_TZ3000_jwv3cwak`<br>`_TZ3000_ke7pzj5d`<br>`_TZ3000_vd43bbfq`<br>`_TZ3000_zirycpws`<br>`_TZ3210_dwytrmda`<br>`_TZ3210_ol1uhvza` |
 | Curtain Motor (`curtain_motor`) | `TS0601` | `_TZE200_3i3exuay`<br>`_TZE200_4vobcgd3`<br>`_TZE200_5zbp6j0u`<br>`_TZE200_68nvbio9`<br>`_TZE200_9p5xmj5r`<br>`_TZE200_axgvo9jh`<br>`_TZE200_bjzrowv2`<br>`_TZE200_cf1sl3tj`<br>`_TZE200_cowvfni3`<br>`_TZE200_fdtjuw7u`<br>`_TZE200_gaj531w3`<br>`_TZE200_hsgrhjpf`<br>`_TZE200_nkoabg8w`<br>`_TZE200_nogaemzt`<br>`_TZE200_nueqqe6k`<br>`_TZE200_nw1r9hp6`<br>`_TZE200_pk0sfzvr`<br>`_TZE200_pw7mji0l`<br>`_TZE200_r0jdjrvi`<br>`_TZE200_rddyvrci`<br>`_TZE200_rmymn92d`<br>`_TZE200_uj3f4wr5`<br>`_TZE200_wmcdj3aq`<br>`_TZE200_xaabybja`<br>`_TZE200_xuzcvlku`<br>`_TZE200_yia0p3tr`<br>`_TZE200_zah67ekd`<br>`_TZE200_zpzndjez`<br>`_TZE204_1fuxihti`<br>`_TZE204_xu4a5rhj` |

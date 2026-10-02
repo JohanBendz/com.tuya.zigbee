@@ -11041,6 +11041,59 @@
       "settings": []
     },
     {
+      "id": "switch_1_gang_bseed_ts0001",
+      "name": {
+        "en": "BSEED TS0001 Single-Channel Wall Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/switch_1_gang_bseed_ts0001/assets/images/large.png",
+        "small": "/drivers/switch_1_gang_bseed_ts0001/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_blhvsaqf"
+        ],
+        "productId": [
+          "TS0001"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_1_gang_bseed_ts0001/assets/icon.svg",
+          "instruction": {
+            "en": "One Homey tile will be created for this BSEED neutral wall switch. Follow the physical device's instructions to enter Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
       "id": "switch_1_gang_metering",
       "name": {
         "en": "1 Gang Switch Module with metering"
@@ -11896,6 +11949,136 @@
           "image": "/drivers/switch_3_gang_ts0003/assets/icon.svg",
           "instruction": {
             "en": "Three separate Homey tiles will be created, one for each channel. Follow the physical switch's instructions to enable Zigbee pairing."
+          }
+        }
+      }
+    },
+    {
+      "id": "switch_4_gang_bseed_ts0726",
+      "name": {
+        "en": "BSEED TS0726 Four-Channel Wall Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/switch_4_gang_bseed_ts0726/assets/images/large.png",
+        "small": "/drivers/switch_4_gang_bseed_ts0726/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3002_pzao9ls1"
+        ],
+        "productId": [
+          "TS0726"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "4": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "BSEED TS0726 Switch - Channel 2"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "thirdSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "BSEED TS0726 Switch - Channel 3"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "fourthSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "BSEED TS0726 Switch - Channel 4"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_4_gang_bseed_ts0726/assets/icon.svg",
+          "instruction": {
+            "en": "Four independent Homey tiles will be created for this BSEED TS0726 neutral wall switch. Follow the physical device's instructions to enter Zigbee pairing mode."
           }
         }
       }
