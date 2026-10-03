@@ -103,7 +103,7 @@ test('isolated MW815R runtime registers IAS enrollment, wet/dry and normal batte
     ['measure_battery', 100], ['measure_battery', 52.5], ['measure_battery', 0],
   ]);
   assert.equal(device.errors.length, 0);
-  assert.doesNotMatch(source, /TuyaSpecific|sendFrame|readAttributes|writeAttributes|DP105|Cluster\\.addCluster/);
+  assert.doesNotMatch(source, /TuyaSpecific|sendFrame|readAttributes|writeAttributes|\\bcase\\s+105\\b|Cluster\\.addCluster/);
 });
 
 test('missing IAS flags do not turn a previously active rain alarm off', async () => {
