@@ -68,6 +68,8 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Double Power Point (`double_power_point_2`) | `TS011F` | `_TYZB01_hlla45kx`<br>`_TZ3000_k6fvknrr` |
 | Double Power Point - With Metering (`double_power_point`) | `TS011F` | `_TZ3000_dd8wwzcy`<br>`_TZ3210_7jnk7l3k`<br>`_TZ3210_pfbzs1an` |
 | Double Socket Smart Plug (`smartplug_2_socket`) | `TS011F` | `_TZ3000_jak16dll` |
+| ELIVCO Standard Door & Window Sensor (`contact_sensor_elivco_x8q36xwf`) | `TS0203` | `_TZ3000_x8q36xwf` |
+| eWeLink SNZB-04 Door & Window Sensor (`contact_sensor_ewelink_snzb04`) | `SNZB-04` | `eWeLink` |
 | eWeLink Temperature & Humidity Sensor (`temphumidsensor_ewelink`) | `CK-TLSR8656-SS5-01(7014)` | `eWeLink` |
 | Excellux External Probe Temperature & Humidity Sensor (`temphumidsensor_excellux`) | `Excellux` | `NTCHT02` |
 | Fantem 4-in-1 Multi Sensor (`fantem_zb003x`) | `TS0202` | `_TZ3210_zmy9hjay` |
@@ -147,6 +149,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | TS0004 Four-Channel On/Off Switch (`switch_4_gang_ts0004`) | `TS0004` | `_TZ3000_enmfaave`<br>`_TZ3000_s6ma1nh4` |
 | TS0201 Standard Temperature & Humidity (`temphumidsensor_tsgqxdb4`) | `TS0201` | `_TZ3000_tsgqxdb4` |
 | TS0601 Contact & Illuminance Sensor (`contact_lux_pay2byax`) | `TS0601` | `_TZE200_pay2byax` |
+| TS0601 Standard Door & Window Sensor (`contact_sensor_n8dljorx`) | `TS0601` | `_TZE200_n8dljorx` |
 | Tunable Bulb E14 (`tunable_bulb_E14`) | `TS0502A` | `_TZ3000_oborybow` |
 | Tunable Bulb E27 (`tunable_bulb_E27`) | `TS0502A` | `_TZ3000_49qchf10` |
 | Tunable Spot GU10 (`tunable_spot_GU10`) | `TS0502A` | `_TZ3000_el5kt5im` |

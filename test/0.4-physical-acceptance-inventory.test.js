@@ -19,6 +19,9 @@ const driverIds = [
   'flood_sensor_unverified_battery',
   'contact_lux_hobeian',
   'contact_lux_pay2byax',
+  'contact_sensor_elivco_x8q36xwf',
+  'contact_sensor_ewelink_snzb04',
+  'contact_sensor_n8dljorx',
   'temphumidsensor_aubess_qoy0ekbd',
   'temphumidsensor_tsgqxdb4',
 ];
@@ -42,10 +45,10 @@ function inventory() {
     });
 }
 
-test('the physical gate enumerates exactly all 28 pairing identities from fourteen new profiles', () => {
+test('the physical gate enumerates exactly all 31 pairing identities from seventeen new profiles', () => {
   const rows = inventory();
-  assert.equal(driverIds.length, 14);
-  assert.equal(rows.length, 28);
+  assert.equal(driverIds.length, 17);
+  assert.equal(rows.length, 31);
   const seen = new Set();
   for (const row of rows) {
     assert.ok(driverIds.includes(row.driver), 'Undeclared new profile ' + row.driver);

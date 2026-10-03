@@ -2344,6 +2344,173 @@
       }
     },
     {
+      "id": "contact_sensor_elivco_x8q36xwf",
+      "name": {
+        "en": "ELIVCO Standard Door & Window Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_contact",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "images": {
+        "large": "/drivers/contact_sensor_elivco_x8q36xwf/assets/images/large.png",
+        "small": "/drivers/contact_sensor_elivco_x8q36xwf/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_x8q36xwf"
+        ],
+        "productId": [
+          "TS0203"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              32,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/contact_sensor_elivco_x8q36xwf/assets/learn.svg",
+          "instruction": {
+            "en": "Follow the contact sensor's instructions to enable Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
+      "id": "contact_sensor_ewelink_snzb04",
+      "name": {
+        "en": "eWeLink SNZB-04 Door & Window Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_contact",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "images": {
+        "large": "/drivers/contact_sensor_ewelink_snzb04/assets/images/large.png",
+        "small": "/drivers/contact_sensor_ewelink_snzb04/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "eWeLink"
+        ],
+        "productId": [
+          "SNZB-04"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              32,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/contact_sensor_ewelink_snzb04/assets/learn.svg",
+          "instruction": {
+            "en": "Follow the contact sensor's instructions to enable Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
+      "id": "contact_sensor_n8dljorx",
+      "name": {
+        "en": "TS0601 Standard Door & Window Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_contact",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/contact_sensor_n8dljorx/assets/images/large.png",
+        "small": "/drivers/contact_sensor_n8dljorx/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_n8dljorx"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/contact_sensor_n8dljorx/assets/learn.svg",
+          "instruction": {
+            "en": "Follow the contact sensor's instructions to enable Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
       "id": "curtain_module",
       "name": {
         "en": "Curtain Module"
