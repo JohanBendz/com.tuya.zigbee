@@ -86,6 +86,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Motion Sensor (`motion_sensor_2`) | `TS0601` | `_TZE200_1ibpyhdc`<br>`_TZE200_3towulqd`<br>`_TZE200_bh3n6gk8`<br>`_TZE200_ttcovulf` |
 | Motion Sensor (`motion_sensor_3`) | `TS0601` | `_TZE200_mgxy2d9f` |
 | Motion Sensor & Scene Switch (`motion_scene_switch`) | `TS0202` | `_TZ3210_cwamkvua` |
+| MOWE MW815R Rain Sensor (IAS) (`rain_sensor_mowe`) | `TS0207` | `_TZ3000_o9f2zqln` |
 | MTG075 Presence Sensor with Relay (`mtg075_radar_sensor`) | `TS0601` | `_TZE204_mtoaryre` |
 | Outdoor Plug without metering (`outdoor_plug`) | `TS0101` | `_TZ3000_br3laukf`<br>`_TZ3000_pnzfdr9y` |
 | Outdoor Smart Socket (`outdoor_2_socket`) | `TS011F` | `_TZ3000_uwkja6z1` |

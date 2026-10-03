@@ -15,6 +15,7 @@ const driverIds = [
   'switch_3_gang_ts0003',
   'switch_4_gang_bseed_ts0726',
   'switch_4_gang_ts0004',
+  'rain_sensor_mowe',
 ];
 
 const document = fs.readFileSync(path.resolve(__dirname, '..', 'docs', '0.4.0_PHYSICAL_ACCEPTANCE.md'), 'utf8');
@@ -36,10 +37,10 @@ function inventory() {
     });
 }
 
-test('the physical gate enumerates exactly all 20 pairing identities from eight new profiles', () => {
+test('the physical gate enumerates exactly all 21 pairing identities from nine new profiles', () => {
   const rows = inventory();
-  assert.equal(driverIds.length, 8);
-  assert.equal(rows.length, 20);
+  assert.equal(driverIds.length, 9);
+  assert.equal(rows.length, 21);
   const seen = new Set();
   for (const row of rows) {
     assert.ok(driverIds.includes(row.driver), 'Undeclared new profile ' + row.driver);
