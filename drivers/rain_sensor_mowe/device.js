@@ -10,8 +10,10 @@ class MoweRainSensor extends ZigBeeDevice {
     const endpoint = zclNode.endpoints[1];
     const iasZone = endpoint.clusters[CLUSTER.IAS_ZONE.NAME];
 
-    // Homey sets the IAS CIE address during joining. Reply if the sensor
-    // subsequently requests enrollment; do not poll a sleepy device on init.
+    // Homey >=13.1.2 enrolls IAS Zone automatically when cluster 1280 is
+    // declared in the manifest. This callback is a compatibility fallback
+    // for older Homey firmware that still forwards Zone Enroll Requests.
+    // Never poll this sleepy end device on startup.
     iasZone.onZoneEnrollRequest = () => {
       Promise.resolve(iasZone.zoneEnrollResponse({ enrollResponseCode: 0, zoneId: 0 }))
         .catch(error => this.error('MOWE IAS enrollment response failed:', error));
