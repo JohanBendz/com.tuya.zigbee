@@ -19,6 +19,10 @@ The driver manifests under `drivers/*/driver.compose.json` are the authoritative
 
 Because Tuya products are frequently rebranded, two products that look identical can expose different Zigbee identities, while the same Zigbee device can be sold under several brands.
 
+## 0.4.0 Test candidate
+
+The [0.4.0 release preflight](docs/0.4.0_RELEASE_PREFLIGHT.md) records the Test-channel decision and rollback procedure. Its [physical acceptance matrix](docs/0.4.0_PHYSICAL_ACCEPTANCE.md) tracks 33 exact Zigbee fingerprints added in nineteen new driver profiles. These devices require feedback from the **public 0.4.0 Test release** before being described as physically verified. No physical acceptance is required to open that Test phase.
+
 ## Reporting bugs
 
 Please use GitHub Issues and include:
