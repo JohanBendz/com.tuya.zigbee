@@ -51,6 +51,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | 5 Gang Wall Switch (`wall_switch_5_gang_tuya`) | `TS0601` | `_TZE200_jwsjbxjs` |
 | 6 Gang Wall Remote (`wall_remote_6_gang`) | `TS0046` | `_TZ3000_iszegwpd` |
 | 6 Gang Wall Switch (`wall_switch_6_gang_tuya`) | `TS0601` | `_TZE200_9mahtqtg`<br>`_TZE200_r731zlxk` |
+| Aubess Standard Zigbee Temperature & Humidity (`temphumidsensor_aubess_qoy0ekbd`) | `TS0601` | `_TZE200_qoy0ekbd` |
 | BSEED TS0001 Single-Channel Wall Switch (`switch_1_gang_bseed_ts0001`) | `TS0001` | `_TZ3000_blhvsaqf` |
 | BSEED TS0726 Four-Channel Wall Switch (`switch_4_gang_bseed_ts0726`) | `TS0726` | `_TZ3002_pzao9ls1` |
 | Christmas Lights (`christmas_lights`) | `TS0601` | `_TZE200_s8gkrkxk` |
@@ -142,6 +143,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | TS0002 Two-Channel On/Off Switch (`switch_2_gang_ts0002`) | `TS0002` | `_TZ3000_l9brjwau`<br>`_TZ3000_lugaswf8`<br>`_TZ3000_pgcclddi`<br>`_TZ3000_ptjcjise`<br>`_TZ3000_rmiew70n`<br>`_TZ3000_zxrfobzw` |
 | TS0003 Three-Channel Wall Switch (`switch_3_gang_ts0003`) | `TS0003` | `_TZ3000_iol4bl2y`<br>`_TZ3000_lmcp6b0a`<br>`_TZ3000_qkixdnon`<br>`_TZ3000_v4l4b0lp` |
 | TS0004 Four-Channel On/Off Switch (`switch_4_gang_ts0004`) | `TS0004` | `_TZ3000_enmfaave`<br>`_TZ3000_s6ma1nh4` |
+| TS0201 Standard Temperature & Humidity (`temphumidsensor_tsgqxdb4`) | `TS0201` | `_TZ3000_tsgqxdb4` |
 | Tunable Bulb E14 (`tunable_bulb_E14`) | `TS0502A` | `_TZ3000_oborybow` |
 | Tunable Bulb E27 (`tunable_bulb_E27`) | `TS0502A` | `_TZ3000_49qchf10` |
 | Tunable Spot GU10 (`tunable_spot_GU10`) | `TS0502A` | `_TZ3000_el5kt5im` |
