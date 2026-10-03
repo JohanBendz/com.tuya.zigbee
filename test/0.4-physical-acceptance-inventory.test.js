@@ -22,6 +22,8 @@ const driverIds = [
   'contact_sensor_elivco_x8q36xwf',
   'contact_sensor_ewelink_snzb04',
   'contact_sensor_n8dljorx',
+  'motion_lux_hobeian_zg204zl',
+  'motion_lux_kb5noeto',
   'temphumidsensor_aubess_qoy0ekbd',
   'temphumidsensor_tsgqxdb4',
 ];
@@ -45,10 +47,10 @@ function inventory() {
     });
 }
 
-test('the physical gate enumerates exactly all 31 pairing identities from seventeen new profiles', () => {
+test('the physical gate enumerates exactly all 33 pairing identities from nineteen new profiles', () => {
   const rows = inventory();
-  assert.equal(driverIds.length, 17);
-  assert.equal(rows.length, 31);
+  assert.equal(driverIds.length, 19);
+  assert.equal(rows.length, 33);
   const seen = new Set();
   for (const row of rows) {
     assert.ok(driverIds.includes(row.driver), 'Undeclared new profile ' + row.driver);

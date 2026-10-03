@@ -77,6 +77,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Flood sensor (`flood_sensor`) | `RH3001`<br>`TS0207` | `TUYATEC-3tipnsrx`<br>`_TZ3000_3dfewsk1`<br>`_TZ3000_4uvovz4r`<br>`_TZ3000_bfopm9ga`<br>`_TZ3000_wuep9zng`<br>`_TZ3000_ww9i3e0y` |
 | Flood sensor (`flood_sensor_2`) | `TS0207` | `_TZ3000_baeiitad` |
 | HOBEIAN Contact & Illuminance Sensor (`contact_lux_hobeian`) | `ZG-102ZL` | `HOBEIAN` |
+| HOBEIAN Motion & Illuminance Sensor (`motion_lux_hobeian_zg204zl`) | `ZG-204ZL` | `HOBEIAN` |
 | HOBEIAN Temperature & Humidity Sensor (`temphumidsensor_hobeian`) | `ZG-227Z` | `HOBEIAN` |
 | HOBEIAN Water Leak Sensor (`hobeian_water_leak`) | `ZG-222Z` | `HOBEIAN` |
 | Illuminance Sensor (`illuminance_sensor`) | `TS0222` | `_TZ3000_8uxxzz4b`<br>`_TZ3000_do6txrcw`<br>`_TZ3000_hy6ncvmw` |
@@ -135,6 +136,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Smoke Sensor (`smoke_sensor3`) | `TS0205` | `_TZ3210_up3pngle` |
 | Soil Sensor (`soilsensor`) | `TS0601` | `_TZE200_2se8efxh`<br>`_TZE200_9cqcpkgb`<br>`_TZE200_ga1maeof`<br>`_TZE200_myd45weu`<br>`_TZE204_myd45weu` |
 | Soil Sensor (`soilsensor_2`) | `TS0601` | `_TZE284_aao3yzhs`<br>`_TZE284_g2e6cpnw`<br>`_TZE284_sgabhwa6` |
+| Standard Motion & Illuminance Sensor (`motion_lux_kb5noeto`) | `TS0601` | `_TZE200_kb5noeto` |
 | Standard Zigbee Water Leak Sensor (battery unverified) (`flood_sensor_unverified_battery`) | `TS0207` | `_TZ3000_4qaowtdo`<br>`_TZ3000_bzt33cyu`<br>`_TZ3000_qhozxs2b` |
 | Temperature & Humidity Sensor (`temphumidsensor`) | `RH3052`<br>`TS0201` | `TUYATEC-1g3tawnp`<br>`TUYATEC-1uxx9cci`<br>`TUYATEC-Bfq2i2Sy`<br>`TUYATEC-HaoiuWzy`<br>`TUYATEC-abkehqus`<br>`TUYATEC-g3gl6cgy`<br>`TUYATEC-gqhxixyk`<br>`TUYATEC-ojmxeikg`<br>`TUYATEC-ojmxeikq`<br>`TUYATEC-prhs1rsd`<br>`TUYATEC-riuj5xzs`<br>`TUYATEC-v3uxbuxy`<br>`TUYATEC-vmgh3fxd`<br>`TUYATEC-yg5dcbfu`<br>`_TZ3000_8ybe88nf`<br>`_TZ3000_bgsigers`<br>`_TZ3000_bguser20`<br>`_TZ3000_f2bw0b6k`<br>`_TZ3000_fie1dpkm`<br>`_TZ3000_i8jfiezr`<br>`_TZ3000_unw0hpdv` |
 | Temperature & Humidity Sensor (`temphumidsensor2`) | `RH3052`<br>`TS0201` | `TUYATEC-qun7vq14`<br>`_TZ3000_0s1izerx`<br>`_TZ3000_akqdg6g7`<br>`_TZ3000_dowj6gyi` |
