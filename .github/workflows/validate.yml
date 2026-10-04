@@ -2,7 +2,7 @@ name: Validate app
 
 on:
   push:
-    branches: [SDK3, modernize-2026, develop-0.4]
+    branches: [SDK3, modernize-2026, develop-0.4, develop-0.4.1]
   pull_request:
 
 permissions:

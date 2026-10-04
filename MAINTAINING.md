@@ -84,17 +84,20 @@ Homey's publish validation checks the generated manifest and publish assets. Sta
 - Keep project/developer detail in GitHub documentation rather than the Homey App Store changelog.
 - Regenerate/validate `app.json` through Homey Compose/CLI; do not hand-edit it.
 
-## Branches and release lanes (2026-10-01)
+## Branches and release lanes (2026-10-04)
 
 - `SDK3`: **0.2.76 Live**, legacy production/default branch. Treat this line as the existing Live archive; do not mix new development into it.
 - `modernize-2026`: **0.3.0**, stabilized previous Test baseline. Keep it unchanged while deciding the next Live promotion.
 - `modernize-2026-issues`: **0.3.1, currently published to Test**. Frozen release line at commit `7583b4b` (successful CI275). PR #1470 targets `modernize-2026` and stays Draft/unmerged while Test feedback is evaluated. Apply further release changes here only as explicitly approved, narrowly scoped hotfixes followed by new validation.
-- `develop-0.4`: **active 0.4.0 development branch**, forked from the verified 0.3.1 release commit `7583b4b`. This branch has now advanced to version `0.4.0` in `package.json`, `package-lock.json`, Compose, generated `app.json` and `.homeychangelog.json`. This is **not yet published to Homey Test or Live**; new implementation and regression work goes here independently of the frozen release lanes.
+- `develop-0.4`: **0.4.0 feature-frozen stabilization/release branch**, forked from verified 0.3.1 commit `7583b4b`. Version `0.4.0` remains consistent across package/lock/Compose/generated manifest/changelog. Scope is 154 drivers / 19 new profiles / 33 exact acceptance rows. Final feedback review, pairing-artwork review and exact-SHA sign-off remain pending; this is **not yet published to Homey Test or Live**. Only narrow release corrections and release documentation belong here.
+- `develop-0.4.1`: **next development branch**, forked from the validated 0.4.0 freeze checkpoint. All new work after the freeze belongs here. It initially inherits unchanged 0.4.0 source metadata; prepare a coordinated 0.4.1 version/changelog/preflight update with the first implementation candidate. Selectively carry reviewed fixes between lanes; do not expand frozen 0.4.0 by merging this branch wholesale.
 - `refactor/type-based-drivers`: separate experimental architecture branch, not assumed production-ready.
 
 **Do not promote 0.3.1 to Live automatically on a calendar date.** Evaluate physical Test feedback first, and avoid initiating a large Live rollout directly ahead of a period when Athom review could delay an emergency correction. Keep release support/verification and longer-term development on separate branches.
 
-For development, branch/PR from `develop-0.4` rather than from `modernize-2026-issues`. Keep the Tuya Zigbee project distinct from the Hue project.
+**Confirmed release order:** 0.3.1 Live BEFORE 0.4.0 Test (#1469 / #1470, 2026-10-04). The order is decided; actual Homey submissions/publication are pending. Confirm actual 0.3.1 Live availability before replacing Test with 0.4.0. Use exactly frozen 0.3.1 SHA `7583b4bb2fa91600c2301eb142335312a6a7cac4`; see [the review checkpoint](docs/0.3.1_LIVE_REVIEW.md).
+
+For new development, branch/PR from `develop-0.4.1`; for narrow 0.4.0 release corrections, target `develop-0.4`. Never use `modernize-2026-issues` for new development. Keep the Tuya Zigbee project distinct from the Hue project.
 
 ## Modernization rule
 
