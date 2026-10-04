@@ -33,7 +33,7 @@
     "en": "Composer fix"
   },
   "0.1.4": {
-    "en": "Added support for Smart Plug (needs testing)"
+    "en": "Added support for Smart Plug."
   },
   "0.1.5": {
     "en": "Added support for Samotech White Label Brand"
@@ -108,7 +108,7 @@
     "en": "Troubleshooting Smart Plug with metering"
   },
   "0.1.33": {
-    "en": "Test Device - Wall Remote 3 Gang"
+    "en": "Added a pairing profile for the 3-gang wall remote."
   },
   "0.1.34": {
     "en": "Fix for Christmas Lights firework effect. Fix for Smart Plug. Added some Device ID's."
@@ -126,7 +126,7 @@
     "en": "Fix for RGB and Tunable White lights."
   },
   "0.1.42": {
-    "en": "Polished code for release to app store. Already paired lights MUST be removed and paired again to get color/temperature functionality."
+    "en": "Improved light controls. Already paired lights must be removed and paired again to get colour and colour-temperature functionality."
   },
   "0.1.43": {
     "en": "Potential fix for Tunable White lights. Added some device id's to already supported devices."
@@ -135,7 +135,7 @@
     "en": "Potential fix for Tunable White lights."
   },
   "0.1.45": {
-    "en": "Fix for Tunable White lights deployed to Live version in App Store."
+    "en": "Fixed Tunable White light controls."
   },
   "0.1.46": {
     "en": "Added support for LED Mood Light and LED Bar Light by Livarno LUX/Lidl."
@@ -189,7 +189,7 @@
     "en": "Fix for Wall Remotes."
   },
   "0.2.11": {
-    "en": "New test version with a number of new deviced added."
+    "en": "Added support for additional devices."
   },
   "0.2.12": {
     "en": "Added support for a number of devices."
@@ -207,7 +207,7 @@
     "en": "Fix."
   },
   "0.2.17": {
-    "en": "Fixes for a few test devices."
+    "en": "Fixed handling for several devices."
   },
   "0.2.18": {
     "en": "Added some extra codes for already supported devices and made a few fixes."
@@ -384,12 +384,15 @@
     "en": "Fixed device support and improved Zigbee handling"
   },
   "0.3.0": {
-    "en": "Major modernization release preparing Tuya Zigbee for renewed development, with project cleanup, Homey Compose alignment, validation improvements and maintenance updates."
+    "en": "Improved app reliability and device compatibility."
   },
   "0.3.1": {
-    "en": "Large update with support for many additional Tuya Zigbee devices and device IDs, plus fixes and reliability improvements for remotes, sensors, switches, dimmers, sirens, FingerBot, rain/radar devices and Zigbee event handling. TH05Z battery readings now use the cached Zigbee identity to avoid failures when sleepy devices do not respond to Basic reads."
+    "en": "Added support for additional Tuya Zigbee devices and improved reliability for remotes, sensors, switches, dimmers, sirens, FingerBot and rain/presence sensors. Fixed TH05Z battery readings."
   },
   "0.4.0": {
-    "en": "Test release: Adds exact-identity pairing profiles for selected 1–4 channel Zigbee switches (including BSEED), four temperature/humidity sensors, MOWE standard-IAS rain, three standard-IAS water leak variants, two contact/illuminance variants, three plain IAS contacts, and two IAS motion/illuminance variants. New devices are available for public physical testing; battery metadata remains provisional where cell type/count is unknown. Also improves supported smart-plug power-on setting synchronization and reduces repetitive thermostat diagnostic messages. Report results with exact Zigbee fingerprint via GitHub Issues."
+    "en": "Added pairing profiles for additional switches, temperature/humidity sensors, rain and water-leak sensors, contact sensors, and motion sensors with illuminance. Improved power-on state settings for supported smart plugs and reduced repetitive thermostat messages."
+  },
+  "0.3.2": {
+    "en": "Added support for additional Tuya Zigbee devices and improved reliability for remotes, sensors, switches, dimmers, sirens, FingerBot and rain/presence sensors. Fixed TH05Z battery readings and clarified device compatibility information."
   }
 }

@@ -23,8 +23,10 @@ test('final 0.4 Test artifact version agrees across source, lockfile, generated 
     compose: compose.version,
     generatedManifest: app.version,
   })) assert.equal(value, '0.4.0', source + ' drifted from release candidate');
-  assert.match(changelog['0.4.0']?.en || '', /Test release/i,
-    'Homey App Store notes must describe this as an unverified public Test release');
+  assert.match(changelog['0.4.0']?.en || '', /pairing profiles/i,
+    'Homey App Store notes must describe the user-visible additions');
+  assert.doesNotMatch(changelog['0.4.0']?.en || '', /\b(?:Test|Live|beta) (?:release|version|candidate)\b/i,
+    'release-channel status belongs in maintainer documentation');
   assert.equal(app.compatibility, '>=5.0.0',
     'New devices must not silently increase the legacy Homey firmware floor');
   assert.equal(compose.compatibility, app.compatibility);
@@ -53,11 +55,11 @@ test('release instructions enumerate the actual 19 additions and 33 exact indepe
   assert.match(guidance, /33 new identities/);
   assert.match(maintaining, /33 individually testable/);
   assert.match(preflight, /0\.4\.1/);
-  assert.match(preflight, /CONFIRMED: 0\.3\.1 Live BEFORE 0\.4\.0 Test/);
-  assert.match(guidance, /0\.3\.1 Live BEFORE 0\.4\.0 Test/);
-  assert.match(maintaining, /0\.3\.1 Live BEFORE 0\.4\.0 Test/);
-  assert.match(acceptance, /0\.3\.1 Live BEFORE 0\.4\.0 Test/);
-  assert.match(preflight, /Actual 0\.3\.1 Live availability \| PENDING/);
+  assert.match(preflight, /CONFIRMED: 0\.3\.2 Live BEFORE 0\.4\.0 Test/);
+  assert.match(guidance, /0\.3\.2 Live BEFORE 0\.4\.0 Test/);
+  assert.match(maintaining, /0\.3\.2 Live BEFORE 0\.4\.0 Test/);
+  assert.match(acceptance, /0\.3\.2 Live BEFORE 0\.4\.0 Test/);
+  assert.match(preflight, /Actual 0\.3\.2 Live availability \| PENDING/);
   assert.match(maintaining, /develop-0\.4\.1/);
   assert.match(read('.github/workflows/validate.yml'), /develop-0\.4\.1/);
   assert.match(preflight, /NOT SUBMITTED/);
