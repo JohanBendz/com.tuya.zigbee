@@ -1,6 +1,6 @@
 {
   "id": "com.tuya.zigbee",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -10,7 +10,7 @@
     "en": "Tuya Zigbee"
   },
   "description": {
-    "en": "Control your white label Zigbee devices made by Tuya"
+    "en": "Make everyday devices part of a smarter home"
   },
   "tags": {
     "en": [

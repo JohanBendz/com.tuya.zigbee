@@ -1,3 +1,3 @@
-Connect supported Tuya-manufactured Zigbee devices directly to Homey, without a Tuya gateway. The app supports a broad community-maintained range of sensors, plugs, switches, lights, remotes, curtains, thermostats, sirens and other Zigbee devices sold under many different retail brands.
+Connect your Tuya Zigbee devices directly to Homey, without a Tuya gateway. Bring supported sensors, plugs, switches, lights and other devices together in Flows to automate everyday routines.
 
-Because Tuya hardware is frequently rebranded, compatibility is based on the Zigbee identity exposed by the device rather than the retail name alone. If your device is not yet supported, you can submit its Zigbee interview through the app's GitHub repository.
+Tuya devices are sold under many different brands. Compatibility depends on the Zigbee manufacturer and model identifiers reported by each device, so products that look identical may require different support.
