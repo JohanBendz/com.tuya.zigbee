@@ -82,6 +82,11 @@ Homey's publish validation checks the generated manifest and publish assets. Sta
 - Add the new version to `.homeychangelog.json`.
 - Keep Homey release notes short and user-facing.
 - Keep project/developer detail in GitHub documentation rather than the Homey App Store changelog.
+- Keep README.md, README.txt, any translated README and Homey changelog entries channel-neutral: no Test/Live/beta labels, candidate status, branch names, rollout dates, CI results or release plans. Store those in MAINTAINING.md, docs/ and GitHub release issues/PRs. Keep support claims accurate; describe added pairing profiles without claiming hardware validation that has not happened.
+- Follow Athom's README.txt guidelines: one or two short plain-text paragraphs, no headings, Markdown, URLs, changelog or contributor list. Use manifest source/support fields for links.
+- Describe user-visible changes since the previous Live version in the current changelog entry; a documentation-only re-submission still needs the cumulative functional release summary.
+- Exclude docs/ and other maintainer-only files from the shipped app using .homeyignore.
+- For a changed submission already published under another version, use a new monotonically higher version and keep package-lock.json (including its root package), package.json and Compose metadata aligned.
 - Regenerate/validate `app.json` through Homey Compose/CLI; do not hand-edit it.
 
 ## Branches and release lanes (2026-10-04)
@@ -89,13 +94,14 @@ Homey's publish validation checks the generated manifest and publish assets. Sta
 - `SDK3`: **0.2.76 Live**, legacy production/default branch. Treat this line as the existing Live archive; do not mix new development into it.
 - `modernize-2026`: **0.3.0**, stabilized previous Test baseline. Keep it unchanged while deciding the next Live promotion.
 - `modernize-2026-issues`: **0.3.1, currently published to Test**. Frozen release line at commit `7583b4b` (successful CI275). PR #1470 targets `modernize-2026` and stays Draft/unmerged while Test feedback is evaluated. Apply further release changes here only as explicitly approved, narrowly scoped hotfixes followed by new validation.
+- `release-0.3.2`: corrected 0.3.x submission candidate, based on frozen 0.3.1 runtime. Version 0.3.2 and channel-neutral publication copy only; actual submission/Live promotion pending.
 - `develop-0.4`: **0.4.0 feature-frozen stabilization/release branch**, forked from verified 0.3.1 commit `7583b4b`. Version `0.4.0` remains consistent across package/lock/Compose/generated manifest/changelog. Scope is 154 drivers / 19 new profiles / 33 exact acceptance rows. Final feedback review, pairing-artwork review and exact-SHA sign-off remain pending; this is **not yet published to Homey Test or Live**. Only narrow release corrections and release documentation belong here.
 - `develop-0.4.1`: **next development branch**, forked from the validated 0.4.0 freeze checkpoint. All new work after the freeze belongs here. It initially inherits unchanged 0.4.0 source metadata; prepare a coordinated 0.4.1 version/changelog/preflight update with the first implementation candidate. Selectively carry reviewed fixes between lanes; do not expand frozen 0.4.0 by merging this branch wholesale.
 - `refactor/type-based-drivers`: separate experimental architecture branch, not assumed production-ready.
 
 **Do not promote 0.3.1 to Live automatically on a calendar date.** Evaluate physical Test feedback first, and avoid initiating a large Live rollout directly ahead of a period when Athom review could delay an emergency correction. Keep release support/verification and longer-term development on separate branches.
 
-**Confirmed release order:** 0.3.1 Live BEFORE 0.4.0 Test (#1469 / #1470, 2026-10-04). The order is decided; actual Homey submissions/publication are pending. Confirm actual 0.3.1 Live availability before replacing Test with 0.4.0. Use exactly frozen 0.3.1 SHA `7583b4bb2fa91600c2301eb142335312a6a7cac4`; see [the review checkpoint](docs/0.3.1_LIVE_REVIEW.md).
+**Confirmed release order:** 0.3.2 Live BEFORE 0.4.0 Test. On 2026-10-04 the maintainer replaced the 0.3.1 Live candidate with a documentation-only 0.3.2 submission built from the same frozen runtime. Actual Homey submissions/publication are pending. Confirm actual 0.3.2 Live availability before replacing Test with 0.4.0. The immutable 0.3.1 manifest/runtime compatibility fixtures remain unchanged; see [the publication correction](docs/0.3.2_PUBLICATION.md).
 
 For new development, branch/PR from `develop-0.4.1`; for narrow 0.4.0 release corrections, target `develop-0.4`. Never use `modernize-2026-issues` for new development. Keep the Tuya Zigbee project distinct from the Hue project.
 
