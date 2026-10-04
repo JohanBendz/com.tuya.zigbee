@@ -59,7 +59,7 @@ test('release instructions enumerate the actual 19 additions and 33 exact indepe
   assert.match(guidance, /0\.3\.2 Live BEFORE 0\.4\.0 Test/);
   assert.match(maintaining, /0\.3\.2 Live BEFORE 0\.4\.0 Test/);
   assert.match(acceptance, /0\.3\.2 Live BEFORE 0\.4\.0 Test/);
-  assert.match(preflight, /Actual 0\.3\.2 Live availability \| PENDING/);
+  assert.match(preflight, /0\.3\.2 is already in Homey Test/);\n  assert.match(preflight, /submitted to Athom for Live review/);\n  assert.match(preflight, /Actual 0\.3\.2 Live availability \| PENDING/);
   assert.match(maintaining, /develop-0\.4\.1/);
   assert.match(read('.github/workflows/validate.yml'), /develop-0\.4\.1/);
   assert.match(preflight, /NOT SUBMITTED/);
