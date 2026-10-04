@@ -89,8 +89,56 @@ class doublepowerpoint extends ZigBeeDevice {
     }
 
     if (endpoint === 1) {
+      this.registerMeteringCapabilities();
       await this.configureMeteringReporting(zclNode, endpoint);
     }
+  }
+
+  registerMeteringCapabilities() {
+    this.registerCapability('meter_power', CLUSTER.METERING, {
+      endpoint: 1,
+      get: 'currentSummationDelivered',
+      report: 'currentSummationDelivered',
+      reportParser: value => (value * this.meteringOffset) / 100.0,
+      getParser: value => (value * this.meteringOffset) / 100.0,
+      getOpts: {
+        getOnStart: true,
+        pollInterval: 300000,
+      },
+    });
+
+    this.registerCapability('measure_power', CLUSTER.ELECTRICAL_MEASUREMENT, {
+      endpoint: 1,
+      get: 'activePower',
+      report: 'activePower',
+      reportParser: value => (value * this.measureOffset) / 100,
+      getOpts: {
+        getOnStart: true,
+        pollInterval: this.minReportPower,
+      },
+    });
+
+    this.registerCapability('measure_current', CLUSTER.ELECTRICAL_MEASUREMENT, {
+      endpoint: 1,
+      get: 'rmsCurrent',
+      report: 'rmsCurrent',
+      reportParser: value => value / 1000,
+      getOpts: {
+        getOnStart: true,
+        pollInterval: this.minReportCurrent,
+      },
+    });
+
+    this.registerCapability('measure_voltage', CLUSTER.ELECTRICAL_MEASUREMENT, {
+      endpoint: 1,
+      get: 'rmsVoltage',
+      report: 'rmsVoltage',
+      reportParser: value => value,
+      getOpts: {
+        getOnStart: true,
+        pollInterval: this.minReportVoltage,
+      },
+    });
   }
 
   async configureMeteringReporting(zclNode, endpoint) {

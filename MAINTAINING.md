@@ -57,7 +57,18 @@ npm test
 npm run validate
 ```
 
-GitHub Actions runs the same baseline validation for pushes and pull requests.
+GitHub Actions deliberately generates `app.json` with Homey Compose **before** any repository test or manifest/index check consumes it. This prevents stale or hand-edited root manifests from becoming an accidental source of truth.
+
+CI order is:
+
+1. install dependencies
+2. run Homey Compose build to generate `app.json`
+3. verify the generated `app.json` is committed
+4. verify `SUPPORTED_DEVICES.md` matches the generated manifest
+5. run repository tests against that generated manifest
+6. run Homey publish validation
+7. verify publish validation did not change `app.json`
+8. run the whitespace check
 
 Homey's publish validation checks the generated manifest and publish assets. Static repository tests are intentionally conservative; they do not claim to replace real-device testing.
 
@@ -67,7 +78,28 @@ Homey's publish validation checks the generated manifest and publish assets. Sta
 - Add the new version to `.homeychangelog.json`.
 - Keep Homey release notes short and user-facing.
 - Keep project/developer detail in GitHub documentation rather than the Homey App Store changelog.
+- Keep README.md, README.txt, any translated README and Homey changelog entries channel-neutral: no Test/Live/beta labels, candidate status, branch names, rollout dates, CI results or release plans. Store those in MAINTAINING.md, docs/ and GitHub release issues/PRs. Keep support claims accurate; describe added pairing profiles without claiming hardware validation that has not happened.
+- Follow Athom's README.txt guidelines: one or two short plain-text paragraphs, no headings, Markdown, URLs, changelog or contributor list. Use manifest source/support fields for links.
+- Describe user-visible changes since the previous Live version in the current changelog entry; a documentation-only re-submission still needs the cumulative functional release summary.
+- Exclude docs/ and other maintainer-only files from the shipped app using .homeyignore.
+- For a changed submission already published under another version, use a new monotonically higher version and keep package-lock.json (including its root package), package.json and Compose metadata aligned.
 - Regenerate/validate `app.json` through Homey Compose/CLI; do not hand-edit it.
+
+## 0.3.2 documentation-only release candidate
+
+`release-0.3.2` starts from frozen 0.3.1 SHA `7583b4bb2fa91600c2301eb142335312a6a7cac4`. Its device/runtime sources, dependencies, pairing contracts, capabilities, settings and Flow definitions remain unchanged. Only publication text, version metadata, packaging exclusions and maintenance guidance differ. Generate app.json through Homey Compose.
+
+The maintainer selected 0.3.2 as the corrected submission candidate before continuing 0.4.1 work. Publish the corrected 0.3.x candidate to Live before replacing the occupied Test channel with 0.4.0. Version metadata is preparation, not proof of an Athom submission or approval.
+
+## Development reference
+
+The app uses Homey SDK 3, Homey Compose, homey-zigbeedriver and zigbee-clusters. The source manifest lives in .homeycompose/ and driver Compose files; root app.json is generated and tracked. Keep unrelated generated changes out of normal pull requests.
+
+- drivers/: Homey drivers and pairing manifests.
+- lib/: shared Tuya/Zigbee helpers, clusters and datapoints.
+- locales/: translations.
+- README.txt: App Store description.
+- .homeychangelog.json: user-facing changes by version.
 
 ## Branches
 

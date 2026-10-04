@@ -58,20 +58,36 @@ const getDataValue = (dpValue) => {
 class soilsensor extends TuyaSpecificClusterDevice {
 
   async onNodeInit({ zclNode }) {
+    let manufacturerName;
 
+    try {
+      ({ manufacturerName } = await zclNode.endpoints[1].clusters.basic.readAttributes([
+        'manufacturerName',
+        'zclVersion',
+        'appVersion',
+        'modelId',
+        'powerSource',
+        'attributeReportingStatus',
+      ]));
+    } catch (err) {
+      this.error('Error when reading device attributes ', err);
+    }
 
-    zclNode.endpoints[1].clusters.tuya.on("response", async value => {
+    // _TZE284_aao3yzhs belongs to the newer soil-sensor family where
+    // DP5 temperature is reported in tenths of a degree. Keep this
+    // compatibility path for devices paired before the profile split.
+    this.temperatureDivisor = manufacturerName === '_TZE284_aao3yzhs' ? 10 : 1;
+
+    const handleDatapoint = async value => {
       try {
         await this.updateData(value);
       } catch (err) {
-        this.error('Failed to process Tuya response', err);
+        this.error('Failed to process Tuya soil-sensor datapoint', err);
       }
-    });
+    };
 
-    await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName', 'zclVersion', 'appVersion', 'modelId', 'powerSource', 'attributeReportingStatus'])
-    .catch(err => {
-        this.error('Error when reading device attributes ', err);
-    });
+    zclNode.endpoints[1].clusters.tuya.on('response', handleDatapoint);
+    zclNode.endpoints[1].clusters.tuya.on('reporting', handleDatapoint);
   }
 
   async updateData(data) {
@@ -84,11 +100,13 @@ class soilsensor extends TuyaSpecificClusterDevice {
 
         this.setCapabilityValue('measure_humidity', value).catch(this.error);
         break;
-      case dataPoints.temperature:
-        this.log("Temparature: " + value);
+      case dataPoints.temperature: {
+        const temperature = value / (this.temperatureDivisor || 1);
+        this.log('Temperature:', temperature);
 
-        this.setCapabilityValue('measure_temperature', value).catch(this.error);
+        this.setCapabilityValue('measure_temperature', temperature).catch(this.error);
         break;
+      }
       case dataPoints.battery:
         this.log("Battery: " + value);
 

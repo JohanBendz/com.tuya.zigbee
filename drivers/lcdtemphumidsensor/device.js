@@ -8,6 +8,18 @@ class lcdtemphumidsensor extends ZigBeeDevice {
 	
 	async onNodeInit({zclNode}) {
 
+		let manufacturerName = zclNode.endpoints[1].clusters.basic?.attributes?.manufacturerName;
+		if (!manufacturerName) {
+			try {
+				({ manufacturerName } = await zclNode.endpoints[1].clusters.basic.readAttributes(['manufacturerName']));
+			} catch (err) {
+				this.error('Failed to read manufacturerName; using standard humidity scaling', err);
+			}
+		}
+
+		this.humidityDivisor = manufacturerName === '_TZ3000_ywagc4rj' ? 10 : 100;
+		this.log('LCD temp/humidity manufacturer:', manufacturerName, 'humidity divisor:', this.humidityDivisor);
+
 
 /* 		if (this.isFirstInit()){
 			await this.configureAttributeReporting([
@@ -45,7 +57,10 @@ class lcdtemphumidsensor extends ZigBeeDevice {
 
 	onRelativeHumidityMeasuredAttributeReport(measuredValue) {
 		const humidityOffset = this.getSetting('humidity_offset') || 0;
-		const parsedValue = this.getSetting('humidity_decimals') === '2' ? Math.round((measuredValue / 100) * 100) / 100 : Math.round((measuredValue / 100) * 10) / 10;
+		const humidity = measuredValue / (this.humidityDivisor || 100);
+		const parsedValue = this.getSetting('humidity_decimals') === '2'
+			? Math.round(humidity * 100) / 100
+			: Math.round(humidity * 10) / 10;
 		this.log('measure_humidity | relativeHumidity - measuredValue (humidity):', parsedValue, '+ humidity offset', humidityOffset);
 		this.setCapabilityValue('measure_humidity', parsedValue + humidityOffset).catch(this.error);
 	}

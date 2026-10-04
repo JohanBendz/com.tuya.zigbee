@@ -58,6 +58,26 @@
         "bindings": [
           6
         ]
+      },
+      "3": {
+        "clusters": [
+          4,
+          5,
+          6
+        ],
+        "bindings": [
+          6
+        ]
+      },
+      "4": {
+        "clusters": [
+          4,
+          5,
+          6
+        ],
+        "bindings": [
+          6
+        ]
       }
     },
     "devices": {

@@ -49,12 +49,17 @@ async processResponse(data) {
   const dp = data.dp;
   const parsedValue = getDataValue(data);
 
-          this.log('Wall switch on/off received', parsedValue);
-          try {
-            await this.setCapabilityValue('onoff', parsedValue);
-          } catch (e) {
-              this.log("Failed to set on/off", e);
-          }
+  if (dp !== 1) {
+    this.log('Ignoring non-state wall switch datapoint:', dp, parsedValue);
+    return;
+  }
+
+  this.log('Wall switch on/off received', parsedValue);
+  try {
+    await this.setCapabilityValue('onoff', !!parsedValue);
+  } catch (e) {
+    this.log('Failed to set on/off', e);
+  }
   }
 
   onDeleted() {

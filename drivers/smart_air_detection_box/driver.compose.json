@@ -4,12 +4,17 @@
         "en": "Smart Air Detection Box"
     },
     "class": "sensor",
-    "platforms": ["local"],
-    "connectivity": ["zigbee"],
+    "platforms": [
+        "local"
+    ],
+    "connectivity": [
+        "zigbee"
+    ],
     "capabilities": [
         "measure_formaldehyde",
         "measure_voc",
         "measure_co2",
+        "measure_pm25",
         "measure_temperature",
         "measure_humidity"
     ],
@@ -36,8 +41,13 @@
         ],
         "endpoints": {
             "1": {
-                "clusters": [61184],
-                "bindings": [61184]
+                "clusters": [
+                    0,
+                    61184
+                ],
+                "bindings": [
+                    61184
+                ]
             }
         },
         "learnmode": {

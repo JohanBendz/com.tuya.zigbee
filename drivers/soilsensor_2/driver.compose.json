@@ -23,13 +23,16 @@
   },
   "energy": {
     "batteries": [
-      "AA", "AA", "AA"
+      "AA",
+      "AA",
+      "AA"
     ]
   },
   "zigbee": {
     "manufacturerName": [
       "_TZE284_sgabhwa6",
-      "_TZE284_g2e6cpnw"
+      "_TZE284_g2e6cpnw",
+      "_TZE284_aao3yzhs"
     ],
     "productId": [
       "TS0601"
