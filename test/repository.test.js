@@ -1793,3 +1793,16 @@ test('Smart Knob uses bound clusters for press and rotation', () => {
   assert.match(levelSource, /step\(payload\)/);
   assert.match(levelSource, /move\(payload\)/);
 });
+
+
+test('2-gang curtain subdevice requires ZigBeeDriver', () => {
+  const manifest = require('../drivers/curtain_module_2_gang/driver.compose.json');
+  const source = fs.readFileSync(
+    path.join(root, 'drivers', 'curtain_module_2_gang', 'driver.js'),
+    'utf8'
+  );
+
+  assert.ok(manifest.zigbee?.devices?.secondModule);
+  assert.match(source, /require\(['"]homey-zigbeedriver['"]\)/);
+  assert.match(source, /class\s+\w+\s+extends\s+ZigBeeDriver/);
+});
