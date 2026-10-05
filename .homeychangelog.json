@@ -391,5 +391,8 @@
   },
   "0.3.2": {
     "en": "Added support for additional Tuya Zigbee devices and improved reliability for remotes, sensors, switches, dimmers, sirens, FingerBot and rain/presence sensors. Fixed TH05Z battery readings and clarified device compatibility information."
+  },
+  "0.3.3": {
+    "en": "Fixed 2-gang curtain modules where the second channel stopped responding after the 0.3.x update."
   }
 }
