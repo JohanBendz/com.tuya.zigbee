@@ -390,7 +390,7 @@
     "en": "Added support for additional Tuya Zigbee devices and improved reliability for remotes, sensors, switches, dimmers, sirens, FingerBot and rain/presence sensors. Fixed TH05Z battery readings."
   },
   "0.4.0": {
-    "en": "Added pairing profiles for additional switches, temperature/humidity sensors, rain and water-leak sensors, contact sensors, and motion sensors with illuminance. Improved power-on state settings for supported smart plugs and reduced repetitive thermostat messages."
+    "en": "Added pairing profiles for additional switches, temperature/humidity sensors, rain and water-leak sensors, contact sensors, and motion sensors with illuminance. Improved power-on state settings for supported smart plugs and reduced repetitive thermostat messages. Reduced repetitive startup logging when powered-off Zigbee devices are unreachable."
   },
   "0.3.2": {
     "en": "Added support for additional Tuya Zigbee devices and improved reliability for remotes, sensors, switches, dimmers, sirens, FingerBot and rain/presence sensors. Fixed TH05Z battery readings and clarified device compatibility information."
