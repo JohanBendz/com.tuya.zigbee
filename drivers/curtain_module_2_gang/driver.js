@@ -1,8 +1,8 @@
 'use strict';
 
-const Homey = require('homey');
+const { ZigBeeDriver } = require('homey-zigbeedriver');
 
-class CurtainModule2GangDriver extends Homey.Driver {
+class CurtainModule2GangDriver extends ZigBeeDriver {
 
   async onInit() {
     this.homey.flow
