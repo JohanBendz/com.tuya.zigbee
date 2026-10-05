@@ -1,4 +1,9 @@
 {
   "note": "If a protected runtime must change, preserve the historical source snapshot. Add an exact new Git blob SHA and a referenced GitHub issue after explicit targeted review and physical regression planning.",
-  "files": {}
+  "files": {
+    "lib/TuyaZigBeeLightDevice.js": {
+      "sha": "adaad29c0b13de8d7f8e605517d9f24d0b41d971",
+      "reason": "#1520: startup reachability logging only; no light protocol, capability mapping or cluster behavior changes. Physical regression planned in 0.4 Test."
+    }
+  }
 }
