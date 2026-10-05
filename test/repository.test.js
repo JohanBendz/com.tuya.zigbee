@@ -579,6 +579,7 @@ test('shared Tuya write helpers propagate Zigbee failures', () => {
     );
     assert.ok(match, method);
     assert.match(match[1], /catch \(err\)[\s\S]*throw err;/, method);
+    assert.doesNotMatch(match[1], /this\.error\(/, method);
   }
 });
 
@@ -1805,4 +1806,33 @@ test('2-gang curtain subdevice requires ZigBeeDriver', () => {
   assert.ok(manifest.zigbee?.devices?.secondModule);
   assert.match(source, /require\(['"]homey-zigbeedriver['"]\)/);
   assert.match(source, /class\s+\w+\s+extends\s+ZigBeeDriver/);
+});
+
+
+test('expected Zigbee reachability errors stay compact during startup', () => {
+  const { isDeviceUnreachableError } = require('../lib/util');
+  const unreachable = new Error('Could not reach device. Is it powered on?');
+
+  assert.equal(isDeviceUnreachableError(unreachable), true);
+  assert.equal(isDeviceUnreachableError(new Error('FAILURE')), false);
+  assert.equal(isDeviceUnreachableError(new Error('Could not reach device for another reason')), false);
+
+  const light = fs.readFileSync(
+    path.join(root, 'lib', 'TuyaZigBeeLightDevice.js'),
+    'utf8'
+  );
+  const siren = fs.readFileSync(
+    path.join(root, 'drivers', 'sirentemphumidsensor', 'device.js'),
+    'utf8'
+  );
+
+  assert.match(light, /_logStartupUnreachable\(\)/);
+  assert.match(light, /skipping remaining startup reads/);
+  assert.match(light, /if \(!this\._startupDeviceUnreachable\)/);
+  assert.doesNotMatch(light, /setUnavailable\(|setAvailable\(/);
+
+  assert.match(siren, /for \(const \[label, run\] of steps\)/);
+  assert.match(siren, /isDeviceUnreachableError\(error\)/);
+  assert.match(siren, /skipping remaining bootstrap commands/);
+  assert.doesNotMatch(siren, /setUnavailable\(|setAvailable\(/);
 });
