@@ -46,13 +46,19 @@ class SmartKnobSwitch extends ZigBeeDevice {
     // We do not have enough physical frame evidence yet to replace the
     // hold-left/hold-right interpretation safely.
     const node = await this.homey.zigbee.getNode(this);
-    node.handleFrame = (endpointId, clusterId, frame) => {
-      if (clusterId !== CLUSTER.COLOR_CONTROL.ID) return;
+    const zclHandleFrame = node.handleFrame;
+
+    // ZCLNode owns node.handleFrame. Preserve it for all normal cluster
+    // processing and intercept only the legacy raw Color Control path.
+    node.handleFrame = (endpointId, clusterId, frame, meta) => {
+      if (clusterId !== CLUSTER.COLOR_CONTROL.ID) {
+        return zclHandleFrame(endpointId, clusterId, frame, meta);
+      }
 
       const parsedFrame = frame.toJSON();
       const left = parsedFrame.data?.[3] === 3;
       const button = `hold-${left ? 'left' : 'right'}`;
-      this.triggerButton(button, 'colorControlLegacy');
+      return this.triggerButton(button, 'colorControlLegacy');
     };
   }
 

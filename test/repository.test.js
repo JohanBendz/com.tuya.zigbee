@@ -1780,8 +1780,12 @@ test('Smart Knob uses bound clusters for press and rotation', () => {
   assert.match(source, /onMove: payload => triggerRotation\(payload, 'move'\)/);
   assert.match(source, /const button = mode === 'down' \? 'left' : 'right'/);
 
-  // Raw frames are retained only for the unverified Color Control hold path.
-  assert.match(source, /if \(clusterId !== CLUSTER\.COLOR_CONTROL\.ID\) return/);
+  // Raw Color Control handling must wrap, never replace, ZCLNode's frame handler.
+  assert.match(source, /const zclHandleFrame = node\.handleFrame/);
+  assert.match(
+    source,
+    /if \(clusterId !== CLUSTER\.COLOR_CONTROL\.ID\) \{[\s\S]*return zclHandleFrame\(endpointId, clusterId, frame, meta\)/
+  );
   assert.doesNotMatch(source, /\[8, 6, 768\]\.includes\(clusterId\)/);
   assert.doesNotMatch(source, /case 8:/);
 
