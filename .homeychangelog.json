@@ -394,5 +394,8 @@
   },
   "0.3.3": {
     "en": "Fixed 2-gang curtain modules where the second channel stopped responding after the 0.3.x update."
+  },
+  "0.3.4": {
+    "en": "Fixed Smart Knob Switch actions that stopped responding after the 0.3.x update."
   }
 }
