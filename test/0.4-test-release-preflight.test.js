@@ -36,8 +36,12 @@ test('release instructions enumerate the actual 19 additions and 33 exact indepe
   const prev = new Set(Object.keys(historical.drivers));
   assert.equal(prev.size, 135);
   const newer = app.drivers.filter(d => !prev.has(d.id));
-  assert.equal(app.drivers.length, 154);
-  assert.equal(newer.length, 19);
+  // develop-0.4.1 keeps the frozen 0.4.0 inventory and counts later drivers apart from it.
+  const postFreezeIds = new Set(['thermostatic_radiator_valve_avatto']);
+  const frozenNewer = newer.filter(d => !postFreezeIds.has(d.id));
+  assert.equal(frozenNewer.length, 19);
+  assert.equal(newer.length, 19 + postFreezeIds.size);
+  assert.equal(app.drivers.length, 154 + postFreezeIds.size);
 
   const acceptance = read('docs/0.4.0_PHYSICAL_ACCEPTANCE.md');
   const begin = acceptance.indexOf(matrixStart), end = acceptance.indexOf(matrixEnd);

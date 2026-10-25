@@ -52,6 +52,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | 6 Gang Wall Remote (`wall_remote_6_gang`) | `TS0046` | `_TZ3000_iszegwpd` |
 | 6 Gang Wall Switch (`wall_switch_6_gang_tuya`) | `TS0601` | `_TZE200_9mahtqtg`<br>`_TZE200_r731zlxk` |
 | Aubess Standard Zigbee Temperature & Humidity (`temphumidsensor_aubess_qoy0ekbd`) | `TS0601` | `_TZE200_qoy0ekbd` |
+| AVATTO Thermostatic Radiator Valve (`thermostatic_radiator_valve_avatto`) | `TS0601` | `_TZE204_vjpaih9f`<br>`_TZE284_vjpaih9f` |
 | BSEED TS0001 Single-Channel Wall Switch (`switch_1_gang_bseed_ts0001`) | `TS0001` | `_TZ3000_blhvsaqf` |
 | BSEED TS0726 Four-Channel Wall Switch (`switch_4_gang_bseed_ts0726`) | `TS0726` | `_TZ3002_pzao9ls1` |
 | Christmas Lights (`christmas_lights`) | `TS0601` | `_TZE200_s8gkrkxk` |

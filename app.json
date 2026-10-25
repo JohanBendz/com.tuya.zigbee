@@ -14923,7 +14923,7 @@
         "measure_temperature",
         "avatto_thermostat_preset",
         "thermostat_heating",
-        "window_open",
+        "window_open_status",
         "measure_battery",
         "alarm_battery"
       ],
@@ -15083,6 +15083,31 @@
                 "en": "Enables open-window detection on the valve. The open/closed state is reported separately.",
                 "nl": "Schakelt raamdetectie op de kraan in. Open of dicht wordt apart gemeld.",
                 "de": "Aktiviert die Fenstererkennung am Ventil. Offen oder geschlossen wird separat gemeldet."
+              },
+              "value": false
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Diagnostics",
+            "nl": "Diagnose",
+            "de": "Diagnose"
+          },
+          "children": [
+            {
+              "id": "debugLogging",
+              "type": "checkbox",
+              "label": {
+                "en": "Debug logging",
+                "nl": "Debuglogboek",
+                "de": "Debug-Protokoll"
+              },
+              "hint": {
+                "en": "Log raw datapoints and Tuya time replies. Leave this off during normal use.",
+                "nl": "Log ruwe datapunten en Tuya-tijdsantwoorden. Laat dit uit tijdens normaal gebruik.",
+                "de": "Rohdatenpunkte und Tuya-Zeitantworten protokollieren. Im normalen Betrieb aus lassen."
               },
               "value": false
             }
@@ -18139,6 +18164,22 @@
       },
       "getable": true,
       "setable": true
+    },
+    "window_open_status": {
+      "type": "boolean",
+      "title": {
+        "en": "Window open",
+        "nl": "Raam open",
+        "de": "Fenster offen"
+      },
+      "desc": {
+        "en": "The valve reports the window is open",
+        "nl": "De kraan meldt dat het raam open is",
+        "de": "Das Ventil meldet, dass das Fenster offen ist"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
     }
   }
 }

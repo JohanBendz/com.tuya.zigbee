@@ -96,5 +96,30 @@
         "value": false
       }
     ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Diagnostics",
+      "nl": "Diagnose",
+      "de": "Diagnose"
+    },
+    "children": [
+      {
+        "id": "debugLogging",
+        "type": "checkbox",
+        "label": {
+          "en": "Debug logging",
+          "nl": "Debuglogboek",
+          "de": "Debug-Protokoll"
+        },
+        "hint": {
+          "en": "Log raw datapoints and Tuya time replies. Leave this off during normal use.",
+          "nl": "Log ruwe datapunten en Tuya-tijdsantwoorden. Laat dit uit tijdens normaal gebruik.",
+          "de": "Rohdatenpunkte und Tuya-Zeitantworten protokollieren. Im normalen Betrieb aus lassen."
+        },
+        "value": false
+      }
+    ]
   }
 ]
