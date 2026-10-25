@@ -59,9 +59,11 @@ test('release instructions enumerate the actual 19 additions and 33 exact indepe
   assert.match(guidance, /0\.3\.2 Live BEFORE 0\.4\.0 Test/);
   assert.match(maintaining, /0\.3\.2 Live BEFORE 0\.4\.0 Test/);
   assert.match(acceptance, /0\.3\.2 Live BEFORE 0\.4\.0 Test/);
-  assert.match(preflight, /0\.3\.2 is already in Homey Test/);
-  assert.match(preflight, /submitted to Athom for Live review/);
-  assert.match(preflight, /Actual 0\.3\.2 Live availability \| PENDING/);
+  assert.match(preflight, /`main` = 0\.3\.3 Live; `dev` = 0\.3\.4 Test/);
+  assert.match(preflight, /BRANCHES\.md/);
+  const branchPolicy = read('docs/BRANCHES.md');
+  assert.match(branchPolicy, /130854f4c6d1b5a3537e956d941eb2e3caec9a9a/);
+  assert.match(branchPolicy, /21b60ce07d91421aeba08357960c8fc910d87593/);
   assert.match(maintaining, /develop-0\.4\.1/);
   assert.match(read('.github/workflows/validate.yml'), /develop-0\.4\.1/);
   assert.match(preflight, /NOT SUBMITTED/);
