@@ -1,6 +1,12 @@
 # Branches and Homey release channels
 
-Updated 2026-10-25. This is the current branch policy; dated release snapshots
+Updated 2026-10-25. Cleanup follow-up: the default branch is now `main`; the fifteen
+listed temporary/modernization/release branches were removed. `SDK3` still exists
+as a historical branch and can also be removed now that it is no longer default.
+The other unique legacy/experimental/archive histories remain. See [0.4.1 planning
+and the current backlog inventory](0.4.1_ROADMAP.md).
+
+This is the current branch policy; dated release snapshots
 and older GitHub comments remain historical evidence.
 
 ## Current channels and source anchors
@@ -41,9 +47,8 @@ or branch move never publishes to Homey by itself.
   to that release source. Carry reviewed fixes into the future branches
   selectively. Preserve existing saved-device/Flow contracts.
 - CI runs on `main`, `dev`, `develop-0.4`, `develop-0.4.1` and pull requests.
-- Use `main` as the GitHub default branch. At migration inspection the default
-  was still `SDK3`; changing it requires repository administration access.
-  Check the actual repository setting before deleting `SDK3`.
+- `main` is now the GitHub default branch (checked after maintainer cleanup
+  on 2026-10-25). SDK3 is an optional removable historical branch, not default.
 - `SDK3`, `modernize-*` and `release-0.3.*` are historical sources, not active
   contribution targets. Use pinned commit URLs for immutable review evidence.
 - README and Homey changelog stay user-facing and channel-neutral. Keep branch,
@@ -51,10 +56,10 @@ or branch move never publishes to Homey by itself.
 
 ## Outstanding pull requests
 
-- #1470 and #1514: historical 0.3.1/0.3.2 release proposals; their full history is
-  already retained by `main`. Close as superseded without merging them again.
-- #1525: the published 0.3.4 Test source is already retained by `dev`; close the
-  old release-source PR without implying Live promotion or physical acceptance.
+- #1470 and #1514: historical 0.3.1/0.3.2 release proposals, now CLOSED as
+  superseded without merging again; their full history is retained by `main`.
+- #1525: now CLOSED; the published 0.3.4 Test source is retained by `dev`.
+  Closure does not imply Live promotion or physical acceptance.
 - #1535: AVATTO TRV addition belongs against `develop-0.4.1`, not old `SDK3` or
   the Store-matching branches. Retargeting is routing only, not code approval;
   reconcile generated app.json through Compose and review the implementation

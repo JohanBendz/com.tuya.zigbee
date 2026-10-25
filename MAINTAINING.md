@@ -99,6 +99,7 @@ Homey's publish validation checks the generated manifest and publish assets. Sta
 - `refactor/type-based-drivers`: separate experimental architecture.
 
 See [current branch policy, Store evidence and cleanup audit](docs/BRANCHES.md).
+See [the 0.4.1 work queue and complete open-backlog inventory](docs/0.4.1_ROADMAP.md) before selecting post-freeze implementation batches.
 Prepare narrow fixes against `dev` on a dedicated branch; send new features and
 device additions to `develop-0.4.1`. `main` follows actual Live publication.
 Do not merge pending 0.4 work into the currently published 0.3.4 Test branch.
