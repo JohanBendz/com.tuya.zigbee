@@ -85,12 +85,6 @@ Homey's publish validation checks the generated manifest and publish assets. Sta
 - For a changed submission already published under another version, use a new monotonically higher version and keep package-lock.json (including its root package), package.json and Compose metadata aligned.
 - Regenerate/validate `app.json` through Homey Compose/CLI; do not hand-edit it.
 
-## 0.3.2 documentation-only release candidate
-
-`release-0.3.2` starts from frozen 0.3.1 SHA `7583b4bb2fa91600c2301eb142335312a6a7cac4`. Its device/runtime sources, dependencies, pairing contracts, capabilities, settings and Flow definitions remain unchanged. Only publication text, version metadata, packaging exclusions and maintenance guidance differ. Generate app.json through Homey Compose.
-
-The maintainer selected 0.3.2 as the corrected submission candidate before continuing 0.4.1 work. Publish the corrected 0.3.x candidate to Live before replacing the occupied Test channel with 0.4.0. Version metadata is preparation, not proof of an Athom submission or approval.
-
 ## Development reference
 
 The app uses Homey SDK 3, Homey Compose, homey-zigbeedriver and zigbee-clusters. The source manifest lives in .homeycompose/ and driver Compose files; root app.json is generated and tracked. Keep unrelated generated changes out of normal pull requests.
@@ -101,11 +95,26 @@ The app uses Homey SDK 3, Homey Compose, homey-zigbeedriver and zigbee-clusters.
 - README.txt: App Store description.
 - .homeychangelog.json: user-facing changes by version.
 
-## Branches
+## Branches and release lanes (2026-10-25)
 
-- `SDK3` is the established production code line at the start of the 2026 maintenance pass.
-- `modernize-2026` is the active 2026 modernization branch for repository hygiene, verified correctness fixes and maintainability improvements without architectural rewrites.
-- `refactor/type-based-drivers` is an experimental architecture branch. It is intentionally separate and must not be assumed production-ready.
+- `main`: actual Homey **Live 0.3.3**, published source `130854f`.
+- `dev`: actual Homey **Test 0.3.4**, published source `21b60ce`.
+- `develop-0.4`: frozen **0.4.0 next Test candidate**, not yet published.
+- `develop-0.4.1`: all new post-freeze development; it still inherits 0.4.0
+  metadata until the first coordinated 0.4.1 version/changelog update.
+- `refactor/type-based-drivers`: separate experimental architecture.
+
+See [current branch policy, Store evidence and cleanup audit](docs/BRANCHES.md).
+Prepare narrow fixes against `dev` on a dedicated branch; send new features and
+device additions to `develop-0.4.1`. `main` follows actual Live publication.
+Do not merge pending 0.4 work into the currently published 0.3.4 Test branch.
+
+The earlier prerequisite **0.3.2 Live BEFORE 0.4.0 Test** is satisfied: 0.3.2
+became Live and was then superseded by 0.3.3. Review current 0.3.4 Test feedback,
+final candidate CI and artwork before the separate 0.4.0 Test decision. Physical
+acceptance of new 0.4 profiles takes place in public Test, not before opening it.
+The immutable 0.3.1 manifest/runtime fixtures remain unchanged. Older dated
+release documents are historical snapshots and defer to docs/BRANCHES.md.
 
 ## Modernization rule
 

@@ -25,7 +25,8 @@ Please include:
 
 Keep pull requests small and focused.
 
-- Base work on the repository's current default branch unless a maintainer asks otherwise.
+- Base narrow corrections to the published Test version on `dev`; target new features and device additions at `develop-0.4.1`. Keep `develop-0.4` frozen for 0.4.0 release corrections.
+- `main` tracks Homey Live and `dev` tracks Homey Test; prepare changes on dedicated branches and coordinate runtime updates with publication. See [branch policy](docs/BRANCHES.md).
 - Prefer one device/fix per PR.
 - Explain why the change is needed and which device identities are affected.
 - Do not hand-edit root `app.json`; edit Homey Compose sources instead.
