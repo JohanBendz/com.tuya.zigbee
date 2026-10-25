@@ -1,0 +1,16 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Heating",
+    "nl": "Verwarmen",
+    "de": "Heizen"
+  },
+  "desc": {
+    "en": "The valve is heating",
+    "nl": "De kraan verwarmt",
+    "de": "Das Ventil heizt"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor"
+}
