@@ -11,7 +11,7 @@
     "measure_temperature",
     "avatto_thermostat_preset",
     "thermostat_heating",
-    "window_open",
+    "window_open_status",
     "measure_battery",
     "alarm_battery"
   ],

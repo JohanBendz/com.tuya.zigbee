@@ -1,0 +1,16 @@
+{
+  "type": "boolean",
+  "title": {
+    "en": "Window open",
+    "nl": "Raam open",
+    "de": "Fenster offen"
+  },
+  "desc": {
+    "en": "The valve reports the window is open",
+    "nl": "De kraan meldt dat het raam open is",
+    "de": "Das Ventil meldet, dass das Fenster offen ist"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor"
+}
