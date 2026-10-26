@@ -390,9 +390,15 @@
     "en": "Added support for additional Tuya Zigbee devices and improved reliability for remotes, sensors, switches, dimmers, sirens, FingerBot and rain/presence sensors. Fixed TH05Z battery readings."
   },
   "0.4.0": {
-    "en": "Added pairing profiles for additional switches, temperature/humidity sensors, rain and water-leak sensors, contact sensors, and motion sensors with illuminance. Improved power-on state settings for supported smart plugs and reduced repetitive thermostat messages. Reduced repetitive startup logging when powered-off Zigbee devices are unreachable. Restored Smart Knob Switch actions after the bound-cluster migration."
+    "en": "Added pairing profiles for additional switches, temperature/humidity sensors, rain and water-leak sensors, contact sensors, and motion sensors with illuminance. Improved power-on state settings for supported smart plugs and reduced repetitive thermostat messages. Reduced repetitive startup logging when powered-off Zigbee devices are unreachable. Improved Smart Knob Switch handling for Scene Mode rotation and Zigbee Level Control commands."
   },
   "0.3.2": {
     "en": "Added support for additional Tuya Zigbee devices and improved reliability for remotes, sensors, switches, dimmers, sirens, FingerBot and rain/presence sensors. Fixed TH05Z battery readings and clarified device compatibility information."
+  },
+  "0.3.3": {
+    "en": "Fixed 2-gang curtain modules where the second channel stopped responding after the 0.3.x update."
+  },
+  "0.3.4": {
+    "en": "Fixed Smart Knob Switch actions that stopped responding after the 0.3.x update."
   }
 }
