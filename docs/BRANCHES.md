@@ -21,7 +21,7 @@ confirmed observations on 2026-10-25; publication has not been reverified here.
 | `main` | Homey App Store Live | 0.3.3, source `130854f4c6d1b5a3537e956d941eb2e3caec9a9a` |
 | `dev` | Homey App Store Test lane | Last confirmed Store 0.3.4, source `21b60ce07d91421aeba08357960c8fc910d87593`; repository now has 0.4.0 metadata at `8706d6b` |
 | `develop-0.4` | 0.4.0 release source; feature freeze retained | Current readback `f4af3d4`; pre-migration source `3e5695667cab9d6a3296d58909b90a8dc0376e93` remains historical |
-| `develop-0.4.1` | New development after the 0.4.0 feature freeze | 0.4.1 development; code batches #1026 and #1438. [Active preflight](0.4.1_RELEASE_PREFLIGHT.md). Pre-migration source remains historical evidence at `08d85dd59177826ff35436b9802f305f372e9bc7` |
+| `develop-0.4.1` | New development after the 0.4.0 feature freeze | 0.4.1 development; code batches #1026 and #1438 plus the selectively carried PR #1537 Smart Knob correction. [Active preflight](0.4.1_RELEASE_PREFLIGHT.md). Pre-migration source remains historical evidence at `08d85dd59177826ff35436b9802f305f372e9bc7` |
 
 Observed directly on the official Store pages on 2026-10-25:
 - Live: https://homey.app/en-us/app/com.tuya.zigbee/Tuya-Zigbee/ shows 0.3.3.

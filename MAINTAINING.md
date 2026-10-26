@@ -98,7 +98,8 @@ Homey's publish validation checks the generated manifest and publish assets. Sta
 - `develop-0.4`: **0.4.0 release source**, now `f4af3d4` after separate release
   corrections. Its feature freeze remains in place.
 - `develop-0.4.1`: **0.4.1 development**, with the isolated #1026 single-button
-  correction and exact-identity #1438 FingerBot click-mode queue.
+  correction, exact-identity #1438 FingerBot click-mode queue and the reviewed
+  0.4.0 Smart Knob correction from PR #1537.
   Version/lock/Compose/manifest/changelog are aligned.
   See [the active 0.4.1 preflight](docs/0.4.1_RELEASE_PREFLIGHT.md).
 - `refactor/type-based-drivers`: separate experimental architecture.
