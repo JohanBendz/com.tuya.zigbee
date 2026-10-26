@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.tuya.zigbee",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "compatibility": ">=5.0.0",
   "platforms": [
     "local"
@@ -2227,6 +2227,290 @@
       }
     },
     {
+      "id": "contact_lux_hobeian",
+      "name": {
+        "en": "HOBEIAN Contact & Illuminance Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_contact",
+        "measure_luminance",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "images": {
+        "large": "/drivers/contact_lux_hobeian/assets/images/large.png",
+        "small": "/drivers/contact_lux_hobeian/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "HOBEIAN"
+        ],
+        "productId": [
+          "ZG-102ZL"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              1024,
+              1280,
+              61184
+            ],
+            "bindings": [
+              1,
+              1024,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/contact_lux_hobeian/assets/learn.svg",
+          "instruction": {
+            "en": "Follow the device instructions to enable Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
+      "id": "contact_lux_pay2byax",
+      "name": {
+        "en": "TS0601 Contact & Illuminance Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_contact",
+        "measure_luminance",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "images": {
+        "large": "/drivers/contact_lux_pay2byax/assets/images/large.png",
+        "small": "/drivers/contact_lux_pay2byax/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_pay2byax"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              1024,
+              1280
+            ],
+            "bindings": [
+              1,
+              1024,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/contact_lux_pay2byax/assets/learn.svg",
+          "instruction": {
+            "en": "Follow the device instructions to enable Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
+      "id": "contact_sensor_elivco_x8q36xwf",
+      "name": {
+        "en": "ELIVCO Standard Door & Window Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_contact",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "images": {
+        "large": "/drivers/contact_sensor_elivco_x8q36xwf/assets/images/large.png",
+        "small": "/drivers/contact_sensor_elivco_x8q36xwf/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_x8q36xwf"
+        ],
+        "productId": [
+          "TS0203"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              32,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/contact_sensor_elivco_x8q36xwf/assets/learn.svg",
+          "instruction": {
+            "en": "Follow the contact sensor's instructions to enable Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
+      "id": "contact_sensor_ewelink_snzb04",
+      "name": {
+        "en": "eWeLink SNZB-04 Door & Window Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_contact",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "images": {
+        "large": "/drivers/contact_sensor_ewelink_snzb04/assets/images/large.png",
+        "small": "/drivers/contact_sensor_ewelink_snzb04/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "eWeLink"
+        ],
+        "productId": [
+          "SNZB-04"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              32,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/contact_sensor_ewelink_snzb04/assets/learn.svg",
+          "instruction": {
+            "en": "Follow the contact sensor's instructions to enable Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
+      "id": "contact_sensor_n8dljorx",
+      "name": {
+        "en": "TS0601 Standard Door & Window Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_contact",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "images": {
+        "large": "/drivers/contact_sensor_n8dljorx/assets/images/large.png",
+        "small": "/drivers/contact_sensor_n8dljorx/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_n8dljorx"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/contact_sensor_n8dljorx/assets/learn.svg",
+          "instruction": {
+            "en": "Follow the contact sensor's instructions to enable Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
       "id": "curtain_module",
       "name": {
         "en": "Curtain Module"
@@ -4375,6 +4659,62 @@
       "settings": []
     },
     {
+      "id": "flood_sensor_unverified_battery",
+      "name": {
+        "en": "Standard Zigbee Water Leak Sensor (battery unverified)"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_water",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "images": {
+        "large": "/drivers/flood_sensor_unverified_battery/assets/images/large.png",
+        "small": "/drivers/flood_sensor_unverified_battery/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_bzt33cyu",
+          "_TZ3000_4qaowtdo",
+          "_TZ3000_qhozxs2b"
+        ],
+        "productId": [
+          "TS0207"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/flood_sensor_unverified_battery/assets/icon.svg",
+          "instruction": {
+            "en": "Follow the water leak sensor instructions to activate Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
       "id": "handheld_remote_4_buttons",
       "name": {
         "en": "4 Button Remote"
@@ -5118,6 +5458,122 @@
           }
         }
       ]
+    },
+    {
+      "id": "motion_lux_hobeian_zg204zl",
+      "name": {
+        "en": "HOBEIAN Motion & Illuminance Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_motion",
+        "measure_luminance",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "images": {
+        "large": "/drivers/motion_lux_hobeian_zg204zl/assets/images/large.png",
+        "small": "/drivers/motion_lux_hobeian_zg204zl/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "HOBEIAN"
+        ],
+        "productId": [
+          "ZG-204ZL"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              1024,
+              1280
+            ],
+            "bindings": [
+              1,
+              1024,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/motion_lux_hobeian_zg204zl/assets/icon.svg",
+          "instruction": {
+            "en": "Follow the sensor instructions to activate Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
+      "id": "motion_lux_kb5noeto",
+      "name": {
+        "en": "Standard Motion & Illuminance Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_motion",
+        "measure_luminance",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "images": {
+        "large": "/drivers/motion_lux_kb5noeto/assets/images/large.png",
+        "small": "/drivers/motion_lux_kb5noeto/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_kb5noeto"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              1024,
+              1280
+            ],
+            "bindings": [
+              1,
+              1024,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/motion_lux_kb5noeto/assets/icon.svg",
+          "instruction": {
+            "en": "Follow the sensor instructions to activate Zigbee pairing mode."
+          }
+        }
+      }
     },
     {
       "id": "motion_scene_switch",
@@ -6959,6 +7415,61 @@
           }
         }
       ]
+    },
+    {
+      "id": "rain_sensor_mowe",
+      "name": {
+        "en": "MOWE MW815R Rain Sensor (IAS)"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "alarm_water",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "images": {
+        "large": "/drivers/rain_sensor_mowe/assets/images/large.png",
+        "small": "/drivers/rain_sensor_mowe/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_o9f2zqln"
+        ],
+        "productId": [
+          "TS0207"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              1280
+            ],
+            "bindings": [
+              1,
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/rain_sensor_mowe/assets/icon.svg",
+          "instruction": {
+            "en": "Follow the MW815R instructions to activate Zigbee pairing mode."
+          }
+        }
+      }
     },
     {
       "id": "relay_board_1_channel",
@@ -11041,6 +11552,59 @@
       "settings": []
     },
     {
+      "id": "switch_1_gang_bseed_ts0001",
+      "name": {
+        "en": "BSEED TS0001 Single-Channel Wall Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/switch_1_gang_bseed_ts0001/assets/images/large.png",
+        "small": "/drivers/switch_1_gang_bseed_ts0001/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_blhvsaqf"
+        ],
+        "productId": [
+          "TS0001"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_1_gang_bseed_ts0001/assets/icon.svg",
+          "instruction": {
+            "en": "One Homey tile will be created for this BSEED neutral wall switch. Follow the physical device's instructions to enter Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
       "id": "switch_1_gang_metering",
       "name": {
         "en": "1 Gang Switch Module with metering"
@@ -11336,6 +11900,62 @@
       ]
     },
     {
+      "id": "switch_1_gang_ts0001",
+      "name": {
+        "en": "TS0001 Single-Channel On/Off Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/switch_1_gang_ts0001/assets/images/large.png",
+        "small": "/drivers/switch_1_gang_ts0001/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_0t4zjtia",
+          "_TZ3000_p26flek3",
+          "_TZ3000_hyarhbyx",
+          "_TZ3000_y4che4dc"
+        ],
+        "productId": [
+          "TS0001"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_1_gang_ts0001/assets/icon.svg",
+          "instruction": {
+            "en": "One Homey tile will be created for this exact TS0001 one-channel switch. Follow the physical device's pairing instructions."
+          }
+        }
+      }
+    },
+    {
       "id": "switch_2_gang",
       "name": {
         "en": "2 Gang Switch Module"
@@ -11600,6 +12220,91 @@
       ]
     },
     {
+      "id": "switch_2_gang_ts0002",
+      "name": {
+        "en": "TS0002 Two-Channel On/Off Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/switch_2_gang_ts0002/assets/images/large.png",
+        "small": "/drivers/switch_2_gang_ts0002/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_lugaswf8",
+          "_TZ3000_zxrfobzw",
+          "_TZ3000_ptjcjise",
+          "_TZ3000_rmiew70n",
+          "_TZ3000_pgcclddi",
+          "_TZ3000_l9brjwau"
+        ],
+        "productId": [
+          "TS0002"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "TS0002 Switch - Channel 2"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_2_gang_ts0002/assets/icon.svg",
+          "instruction": {
+            "en": "Two tiles will be created, one for each channel. Follow the device's instructions to enter Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
       "id": "switch_3_gang",
       "name": {
         "en": "3 Gang Switch Module"
@@ -11707,6 +12412,244 @@
         }
       },
       "settings": []
+    },
+    {
+      "id": "switch_3_gang_ts0003",
+      "name": {
+        "en": "TS0003 Three-Channel Wall Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/switch_3_gang_ts0003/assets/images/large.png",
+        "small": "/drivers/switch_3_gang_ts0003/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_lmcp6b0a",
+          "_TZ3000_v4l4b0lp",
+          "_TZ3000_qkixdnon",
+          "_TZ3000_iol4bl2y"
+        ],
+        "productId": [
+          "TS0003"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "TS0003 Switch - Channel 2"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "thirdSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "TS0003 Switch - Channel 3"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_3_gang_ts0003/assets/icon.svg",
+          "instruction": {
+            "en": "Three separate Homey tiles will be created, one for each channel. Follow the physical switch's instructions to enable Zigbee pairing."
+          }
+        }
+      }
+    },
+    {
+      "id": "switch_4_gang_bseed_ts0726",
+      "name": {
+        "en": "BSEED TS0726 Four-Channel Wall Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/switch_4_gang_bseed_ts0726/assets/images/large.png",
+        "small": "/drivers/switch_4_gang_bseed_ts0726/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3002_pzao9ls1"
+        ],
+        "productId": [
+          "TS0726"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "4": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "BSEED TS0726 Switch - Channel 2"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "thirdSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "BSEED TS0726 Switch - Channel 3"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "fourthSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "BSEED TS0726 Switch - Channel 4"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_4_gang_bseed_ts0726/assets/icon.svg",
+          "instruction": {
+            "en": "Four independent Homey tiles will be created for this BSEED TS0726 neutral wall switch. Follow the physical device's instructions to enter Zigbee pairing mode."
+          }
+        }
+      }
     },
     {
       "id": "switch_4_gang_metering",
@@ -11908,6 +12851,137 @@
           }
         }
       ]
+    },
+    {
+      "id": "switch_4_gang_ts0004",
+      "name": {
+        "en": "TS0004 Four-Channel On/Off Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/switch_4_gang_ts0004/assets/images/large.png",
+        "small": "/drivers/switch_4_gang_ts0004/assets/images/small.png"
+      },
+      "energy": {
+        "approximation": {
+          "usageOn": 0,
+          "usageOff": 0
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_s6ma1nh4",
+          "_TZ3000_enmfaave"
+        ],
+        "productId": [
+          "TS0004"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "4": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "TS0004 Switch - Channel 2"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "thirdSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "TS0004 Switch - Channel 3"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          },
+          "fourthSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "TS0004 Switch - Channel 4"
+            },
+            "energy": {
+              "approximation": {
+                "usageOn": 0,
+                "usageOff": 0
+              }
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_4_gang_ts0004/assets/icon.svg",
+          "instruction": {
+            "en": "Four Homey tiles will be created, one for each relay channel. Follow the device's own instructions to enter Zigbee pairing mode."
+          }
+        }
+      }
     },
     {
       "id": "temphumidsensor",
@@ -12592,6 +13666,430 @@
       ]
     },
     {
+      "id": "temphumidsensor_aubess_qoy0ekbd",
+      "name": {
+        "en": "Aubess Standard Zigbee Temperature & Humidity"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "images": {
+        "large": "/drivers/temphumidsensor_aubess_qoy0ekbd/assets/images/large.png",
+        "small": "/drivers/temphumidsensor_aubess_qoy0ekbd/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_qoy0ekbd"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1026,
+              1029
+            ],
+            "bindings": [
+              1,
+              1026,
+              1029
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/temphumidsensor_aubess_qoy0ekbd/assets/learn.svg",
+          "instruction": {
+            "en": "Follow your sensor's instructions to put it into Zigbee pairing mode."
+          }
+        }
+      },
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "settings": [
+        {
+          "id": "temperature_offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset (°C)"
+          },
+          "hint": {
+            "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "temperature_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Temperature reporting decimals"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report temperature value with 1 decimal (21.4 °C)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report temperature value with 2 decimals (21.37 °C)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "humidity_offset",
+          "type": "number",
+          "label": {
+            "en": "Humidity offset (%)",
+            "nl": "Luchtvochtigheids compensatie (%)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 1
+          },
+          "units": {
+            "en": "%",
+            "nl": "%"
+          }
+        },
+        {
+          "id": "humidity_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Humidity reporting"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report humidity value with 1 decimal (35.2 %)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report humidity value with 2 decimals (35.19 %)"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "temphumidsensor_ewelink",
+      "name": {
+        "en": "eWeLink Temperature & Humidity Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "images": {
+        "large": "/drivers/temphumidsensor_ewelink/assets/images/large.png",
+        "small": "/drivers/temphumidsensor_ewelink/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "eWeLink"
+        ],
+        "productId": [
+          "CK-TLSR8656-SS5-01(7014)"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1026,
+              1029
+            ],
+            "bindings": [
+              1,
+              1026,
+              1029
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/temphumidsensor_ewelink/assets/learn.svg",
+          "instruction": {
+            "en": "Follow the device's instructions to enable Zigbee pairing mode."
+          }
+        }
+      },
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "settings": [
+        {
+          "id": "temperature_offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset (°C)"
+          },
+          "hint": {
+            "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "temperature_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Temperature reporting decimals"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report temperature value with 1 decimal (21.4 °C)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report temperature value with 2 decimals (21.37 °C)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "humidity_offset",
+          "type": "number",
+          "label": {
+            "en": "Humidity offset (%)",
+            "nl": "Luchtvochtigheids compensatie (%)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 1
+          },
+          "units": {
+            "en": "%",
+            "nl": "%"
+          }
+        },
+        {
+          "id": "humidity_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Humidity reporting"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report humidity value with 1 decimal (35.2 %)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report humidity value with 2 decimals (35.19 %)"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "temphumidsensor_excellux",
+      "name": {
+        "en": "Excellux External Probe Temperature & Humidity Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "images": {
+        "large": "/drivers/temphumidsensor_excellux/assets/images/large.png",
+        "small": "/drivers/temphumidsensor_excellux/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "NTCHT02"
+        ],
+        "productId": [
+          "Excellux"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1026,
+              1029
+            ],
+            "bindings": [
+              1,
+              1026,
+              1029
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/temphumidsensor_excellux/assets/learn.svg",
+          "instruction": {
+            "en": "Put the sensor into Zigbee pairing mode according to the device instructions."
+          }
+        }
+      },
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "settings": [
+        {
+          "id": "temperature_offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset (°C)"
+          },
+          "hint": {
+            "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "temperature_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Temperature reporting decimals"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report temperature value with 1 decimal (21.4 °C)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report temperature value with 2 decimals (21.37 °C)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "humidity_offset",
+          "type": "number",
+          "label": {
+            "en": "Humidity offset (%)",
+            "nl": "Luchtvochtigheids compensatie (%)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 1
+          },
+          "units": {
+            "en": "%",
+            "nl": "%"
+          }
+        },
+        {
+          "id": "humidity_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Humidity reporting"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report humidity value with 1 decimal (35.2 %)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report humidity value with 2 decimals (35.19 %)"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "temphumidsensor_hobeian",
       "name": {
         "en": "HOBEIAN Temperature & Humidity Sensor"
@@ -12646,6 +14144,147 @@
         "batteries": [
           "AAA",
           "AAA"
+        ]
+      },
+      "settings": [
+        {
+          "id": "temperature_offset",
+          "type": "number",
+          "label": {
+            "en": "Temperature offset (°C)"
+          },
+          "hint": {
+            "en": "Set a value to compensate a temperature offset.\nRange: -10 - 10, step size 0.1, \ndefault: 0 [°C]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 0.1
+          }
+        },
+        {
+          "id": "temperature_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Temperature reporting decimals"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report temperature value with 1 decimal (21.4 °C)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report temperature value with 2 decimals (21.37 °C)"
+              }
+            }
+          ]
+        },
+        {
+          "id": "humidity_offset",
+          "type": "number",
+          "label": {
+            "en": "Humidity offset (%)",
+            "nl": "Luchtvochtigheids compensatie (%)"
+          },
+          "hint": {
+            "en": "Set a correction to compensate a humidity offset.\nRange: -10 - 10, step size 1, \ndefault: 0 [%]",
+            "nl": "Stel een correctiewaarde in om een Luchtvochtigheids verschil te compenseren.\nBereik: -10 - 10, stap grootte 1, \nstandaard: 0 [%]"
+          },
+          "value": 0,
+          "attr": {
+            "min": -10,
+            "max": 10,
+            "step": 1
+          },
+          "units": {
+            "en": "%",
+            "nl": "%"
+          }
+        },
+        {
+          "id": "humidity_decimals",
+          "type": "radio",
+          "label": {
+            "en": "Humidity reporting"
+          },
+          "value": "1",
+          "values": [
+            {
+              "id": "1",
+              "label": {
+                "en": "Report humidity value with 1 decimal (35.2 %)"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Report humidity value with 2 decimals (35.19 %)"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "temphumidsensor_tsgqxdb4",
+      "name": {
+        "en": "TS0201 Standard Temperature & Humidity"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "images": {
+        "large": "/drivers/temphumidsensor_tsgqxdb4/assets/images/large.png",
+        "small": "/drivers/temphumidsensor_tsgqxdb4/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_tsgqxdb4"
+        ],
+        "productId": [
+          "TS0201"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              1026,
+              1029
+            ],
+            "bindings": [
+              1,
+              1026,
+              1029
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/temphumidsensor_tsgqxdb4/assets/learn.svg",
+          "instruction": {
+            "en": "Follow your sensor's instructions to put it into Zigbee pairing mode."
+          }
+        }
+      },
+      "energy": {
+        "batteries": [
+          "OTHER"
         ]
       },
       "settings": [

@@ -16,7 +16,11 @@ class SmartKnobSwitch extends ZigBeeDevice {
 
     const triggerPress = source => this.triggerButton('press', source);
     const triggerRotation = (payload, source) => {
-      const mode = payload?.mode;
+      // zigbee-clusters 2.4.1 uses mode for step, moveMode for move.
+      const mode = (source === 'move' || source === 'moveWithOnOff')
+        ? payload?.moveMode : payload?.mode;
+      // Unknown/malformed frames must not be interpreted as clockwise.
+      if (mode !== 'up' && mode !== 'down') return Promise.resolve();
       const button = mode === 'down' ? 'left' : 'right';
       return this.triggerButton(button, source);
     };
@@ -51,6 +55,24 @@ class SmartKnobSwitch extends ZigBeeDevice {
     // ZCLNode owns node.handleFrame. Preserve it for all normal cluster
     // processing and intercept only the legacy raw Color Control path.
     node.handleFrame = (endpointId, clusterId, frame, meta) => {
+      // This TS004F family can emit proprietary On/Off commands in Scene Mode:
+      // 0xFC = rotation (0 right, 1 left); 0xFD = click (0/1/2).
+      // Stock OnOffCluster does not define either command. Decode only these
+      // exact legacy four-byte frames; preserve ZCL dispatch for everything else.
+      if (clusterId === CLUSTER.ON_OFF.ID) {
+        const bytes = frame.toJSON()?.data;
+        if ((Array.isArray(bytes) || Buffer.isBuffer(bytes)) && bytes.length === 4) {
+          const command = bytes[2];
+          const action = bytes[3];
+          if (command === 0xFC && (action === 0 || action === 1)) {
+            return this.triggerButton(action === 1 ? 'left' : 'right', 'tuyaSceneRotation');
+          }
+          if (command === 0xFD && (action === 0 || action === 1 || action === 2)) {
+            // Preserve the existing single press Flow contract for now.
+            return this.triggerButton('press', 'tuyaScenePress');
+          }
+        }
+      }
       if (clusterId !== CLUSTER.COLOR_CONTROL.ID) {
         return zclHandleFrame(endpointId, clusterId, frame, meta);
       }

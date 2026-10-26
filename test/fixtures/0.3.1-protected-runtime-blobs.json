@@ -1,0 +1,26 @@
+{
+  "note": "Immutable actual Git blob SHA-1 identities from frozen published Test 0.3.1; Git blobs are content change sentinels, not a security signature. Keep source snapshot unchanged even when a future specific change is approved.",
+  "sourceSha": "7583b4bb2fa91600c2301eb142335312a6a7cac4",
+  "files": {
+    "lib/TuyaZigBeeLightDevice.js": "693f70d9f3332f296a906e633ae3ac5542b12576",
+    "lib/TuyaColorControlCluster.js": "bee8a075b6c2e18b96aea9c38cf9bd13b2c0d706",
+    "lib/TuyaOnOffCluster.js": "8e8d57de27d7b4c0e43afe26cab122f837d09e5b",
+    "lib/TuyaSpecificCluster.js": "d42a03512f379f436ac1ddbbbc082bf8eab81923",
+    "lib/TuyaDataPoints.js": "3fc8f97ae93b6199a4977b01cd82dbe973969c44",
+    "drivers/dimmable_led_strip/device.js": "a7eb1554ffdac8d3a7c57ff97d4897875a219c41",
+    "drivers/dimmable_recessed_led/device.js": "86cdb45087a72d3449cbbb2e443bb3900bd0c7c9",
+    "drivers/rgb_bulb_E14/device.js": "22350be7a8c82dc9da066716165a9a49bfe1bfa2",
+    "drivers/rgb_bulb_E27/device.js": "34f188ad353281c496579e5aa4a1f4357054afea",
+    "drivers/rgb_ceiling_led_light/device.js": "a5ae03f9dee293e3518d857114484ede9b76b763",
+    "drivers/rgb_floor_led_light/device.js": "3fa998d44ad4f66f8c7e4c1e9d72260318532505",
+    "drivers/rgb_led_light_bar/device.js": "8f020b30733df0a5ac4e04564282d4145b25f450",
+    "drivers/rgb_led_strip/device.js": "cc3ec96f8de3c08557efdad8ca57a23860488d70",
+    "drivers/rgb_mood_light/device.js": "46c173c9dae10aee2323be094d8e08cbd2ec05ac",
+    "drivers/rgb_spot_GU10/device.js": "c355791b105b3f83162dba3f9fb3e2b5d655e7cb",
+    "drivers/rgb_spot_GardenLight/device.js": "ccb134b4d43dccc824f6b853cd1343a20d0adc57",
+    "drivers/rgb_wall_led_light/device.js": "4e373fc559c31ef76b280e9bb32e8d0a83b66ff1",
+    "drivers/tunable_bulb_E14/device.js": "6b297c710b38d5bc82e09ef4822341c6acecfc63",
+    "drivers/tunable_bulb_E27/device.js": "89708ca896847f854930cdb74df2d92b79f6625b",
+    "drivers/tunable_spot_GU10/device.js": "bbec19087e81c359085911d40bd070f97faf56e3"
+  }
+}
