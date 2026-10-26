@@ -92,10 +92,14 @@ Homey's publish validation checks the generated manifest and publish assets. Sta
 ## Branches and release lanes (2026-10-25)
 
 - `main`: actual Homey **Live 0.3.3**, published source `130854f`.
-- `dev`: actual Homey **Test 0.3.4**, published source `21b60ce`.
-- `develop-0.4`: frozen **0.4.0 next Test candidate**, not yet published.
-- `develop-0.4.1`: **0.4.1 development**, starting with the isolated #1026
-  single-button correction. Version/lock/Compose/manifest/changelog are aligned.
+- `dev`: Test lane; last Store check (2026-10-25) showed **0.3.4**, published
+  source `21b60ce`. Repository readback on 2026-10-26 now shows **0.4.0**
+  metadata at `8706d6b` after separate release work; publication is not reverified.
+- `develop-0.4`: **0.4.0 release source**, now `f4af3d4` after separate release
+  corrections. Its feature freeze remains in place.
+- `develop-0.4.1`: **0.4.1 development**, with the isolated #1026 single-button
+  correction and exact-identity #1438 FingerBot click-mode queue.
+  Version/lock/Compose/manifest/changelog are aligned.
   See [the active 0.4.1 preflight](docs/0.4.1_RELEASE_PREFLIGHT.md).
 - `refactor/type-based-drivers`: separate experimental architecture.
 

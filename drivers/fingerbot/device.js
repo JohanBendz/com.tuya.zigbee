@@ -23,6 +23,7 @@ const LOCAL_UI_RESET_DELAY_MS = 100;
 const REMOTE_PRESS_DEBOUNCE_MS = 800;
 const MOMENTARY_GUI_PULSE_MS = 700;
 const BATTERY_LOW_THRESHOLD = 20;
+const LAST_ON_OFF_STORE_KEY = 'lastKnownFingerBotOnOff';
 const ZIGBEE_EPOCH_MS = Date.UTC(2000, 0, 1, 0, 0, 0);
 
 const ZCL_STATUS_SUCCESS = 0x00;
@@ -110,19 +111,26 @@ class FingerBotTimeBoundCluster extends BoundCluster {
 class FingerBot extends TuyaSpecificClusterDevice {
 
   async onNodeInit({ zclNode }) {
+    this._cancelFingerBotPressQueue('FingerBot press cancelled during reinitialization');
+    await this._fingerBotPressQueue?.tail;
     await super.onNodeInit({ zclNode });
 
     this.log('Initializing FingerBot device...');
 
-    this._suppressUntil = 0;
-    this._ignoreOnOffReportsUntil = 0;
+    this._suppressUntil = this._fingerBotPressQueue ? this._suppressUntil || 0 : 0;
+    this._ignoreOnOffReportsUntil = this._fingerBotPressQueue
+      ? this._ignoreOnOffReportsUntil || 0 : 0;
     this._lastBatteryLowState = false;
     this._lastRemotePressAt = 0;
     this._guiPulseTimeout = null;
     this._timeBoundCluster = null;
+    this._fingerBotDeleted = false;
+    this._alternatingPressEnabled = false;
+    this._onOffReportVersion = 0;
+    this._lastKnownFingerBotOnOff = undefined;
 
     try {
-      await zclNode.endpoints[1].clusters.basic.readAttributes([
+      const identity = await zclNode.endpoints[1].clusters.basic.readAttributes([
         'manufacturerName',
         'zclVersion',
         'appVersion',
@@ -130,6 +138,9 @@ class FingerBot extends TuyaSpecificClusterDevice {
         'powerSource',
         'attributeReportingStatus',
       ]);
+      // #1438 physically verifies both command directions only for this pair.
+      this._alternatingPressEnabled = identity?.manufacturerName === '_TZ3210_j4pdtz9v'
+        && identity.modelId === 'TS0001';
     } catch (err) {
       this.error('Error when reading device attributes:', err);
     }
@@ -137,6 +148,21 @@ class FingerBot extends TuyaSpecificClusterDevice {
     this._registerOnOffHandling(zclNode);
     this._registerTuyaListeners(zclNode);
     this._registerTimeBoundCluster(zclNode);
+
+    if (this._alternatingPressEnabled) {
+      const stored = this.getStoreValue(LAST_ON_OFF_STORE_KEY);
+      this._lastKnownFingerBotOnOff = typeof stored === 'boolean' ? stored : undefined;
+      const reportVersion = this._onOffReportVersion;
+      try {
+        const { onOff } = await zclNode.endpoints[1].clusters.onOff
+          .readAttributes(['onOff'], { timeout: 5000 });
+        if (this._onOffReportVersion === reportVersion) {
+          await this._rememberFingerBotOnOff(onOff);
+        }
+      } catch (err) {
+        this.error('Could not refresh FingerBot OnOff state; retaining last known state', err);
+      }
+    }
 
     // Apply current settings once on init.
     await this.applyConfiguredSettings({ includeMode: true });
@@ -182,12 +208,19 @@ class FingerBot extends TuyaSpecificClusterDevice {
 
     if (zclNode?.endpoints?.[1]?.clusters?.onOff) {
       zclNode.endpoints[1].clusters.onOff.on('attr.onOff', value => {
+        // Echo reports still carry useful real state. Record it before the
+        // existing local-echo/remote-press filters decide whether to fire Flow.
+        if (this._alternatingPressEnabled && typeof value === 'boolean') {
+          this._onOffReportVersion += 1;
+          this._rememberFingerBotOnOff(value);
+        }
         const now = Date.now();
         const mode = this._getConfiguredMode();
 
         if (mode === 'click') {
           // Ignore echo reports from our own local press.
-          if (now < this._ignoreOnOffReportsUntil) {
+          if (now < this._ignoreOnOffReportsUntil
+            || this._fingerBotPressQueue?.commandPending) {
             this.log('Ignoring onOff attr report during local press window:', value);
             return;
           }
@@ -270,6 +303,10 @@ class FingerBot extends TuyaSpecificClusterDevice {
   }
 
   async triggerFingerBotPress() {
+    if (this._alternatingPressEnabled && this._getConfiguredMode() === 'click') {
+      return this._queueAlternatingFingerBotPress();
+    }
+
     if (Date.now() < this._suppressUntil) {
       this.log('FingerBot press suppressed');
       return;
@@ -300,6 +337,94 @@ class FingerBot extends TuyaSpecificClusterDevice {
       this.error('Failed to trigger FingerBot press', err);
       throw err;
     }
+  }
+
+  async _rememberFingerBotOnOff(value) {
+    if (typeof value !== 'boolean') return;
+    this._lastKnownFingerBotOnOff = value;
+    try {
+      await this.setStoreValue(LAST_ON_OFF_STORE_KEY, value);
+    } catch (err) {
+      // A storage failure must not retry a command that may already have moved.
+      this.error('Failed to store FingerBot OnOff state', err);
+    }
+  }
+
+  _queueAlternatingFingerBotPress() {
+    if (this._fingerBotDeleted) return Promise.reject(new Error('FingerBot has been removed'));
+    if (this._pendingFingerBotModeChanges) {
+      return Promise.reject(new Error('FingerBot press cancelled while mode is changing'));
+    }
+    if (!this._fingerBotPressQueue || this._fingerBotPressQueue.cancelled) {
+      this._fingerBotPressQueue = {
+        tail: this._fingerBotPressQueue?.tail || Promise.resolve(),
+        cancelled: false,
+      };
+    }
+    const queue = this._fingerBotPressQueue;
+    const checkActive = () => {
+      if (queue.cancelled) throw new Error(queue.cancelled);
+      if (this._getConfiguredMode() !== 'click') {
+        throw new Error('FingerBot queued press cancelled because mode changed');
+      }
+    };
+    const press = queue.tail.then(async () => {
+      checkActive();
+      const remaining = this._suppressUntil - Date.now();
+      if (remaining > 0) {
+        await new Promise((resolve, reject) => {
+          queue.rejectWait = reject;
+          queue.waitTimeout = this.homey.setTimeout(() => {
+            queue.waitTimeout = null;
+            queue.rejectWait = null;
+            resolve();
+          }, remaining);
+        });
+      }
+      checkActive();
+      this._suppressUntil = Date.now() + LOCAL_PRESS_SUPPRESS_MS;
+      this._ignoreOnOffReportsUntil = Date.now() + LOCAL_REPORT_IGNORE_MS;
+      const commandIsOn = typeof this._lastKnownFingerBotOnOff === 'boolean'
+        ? !this._lastKnownFingerBotOnOff : false;
+      const reportVersion = this._onOffReportVersion;
+      try {
+        queue.commandPending = true;
+        const cluster = this.zclNode.endpoints[1].clusters.onOff;
+        await (commandIsOn ? cluster.setOn() : cluster.setOff());
+        checkActive();
+        this._ignoreOnOffReportsUntil = Date.now() + LOCAL_REPORT_IGNORE_MS;
+        // Prefer a report received during the command over our assumed state.
+        if (reportVersion === this._onOffReportVersion) {
+          await this._rememberFingerBotOnOff(commandIsOn);
+        }
+        checkActive();
+        this._triggerFlowCard('fingerbot_button_pressed');
+        queue.uiResetTimeout = this.homey.setTimeout(() => {
+          queue.uiResetTimeout = null;
+          this._setCapabilitySafe('onoff', false, 'Failed to reset onoff after successful press');
+        }, LOCAL_UI_RESET_DELAY_MS);
+      } catch (err) {
+        this.error('Failed to trigger queued FingerBot press', err);
+        throw err;
+      } finally {
+        queue.commandPending = false;
+      }
+    });
+    // Each caller keeps its own result; failure must not poison the next job.
+    queue.tail = press.catch(() => {});
+    return press;
+  }
+
+  _cancelFingerBotPressQueue(reason) {
+    const queue = this._fingerBotPressQueue;
+    if (!queue) return;
+    queue.cancelled = reason;
+    if (queue.waitTimeout) this.homey.clearTimeout(queue.waitTimeout);
+    if (queue.uiResetTimeout) this.homey.clearTimeout(queue.uiResetTimeout);
+    queue.waitTimeout = null;
+    queue.uiResetTimeout = null;
+    if (queue.rejectWait) queue.rejectWait(new Error(reason));
+    queue.rejectWait = null;
   }
 
   _pulseMomentaryGui() {
@@ -434,6 +559,19 @@ class FingerBot extends TuyaSpecificClusterDevice {
   }
 
   async onSettings({ newSettings, changedKeys }) {
+    const modeChange = this._alternatingPressEnabled && changedKeys.includes('fingerbot_mode');
+    if (modeChange) {
+      this._pendingFingerBotModeChanges = (this._pendingFingerBotModeChanges || 0) + 1;
+      this._cancelFingerBotPressQueue('FingerBot queued press cancelled because mode changed');
+    }
+    try {
+      await this._applyChangedFingerBotSettings({ newSettings, changedKeys });
+    } finally {
+      if (modeChange) this._pendingFingerBotModeChanges -= 1;
+    }
+  }
+
+  async _applyChangedFingerBotSettings({ newSettings, changedKeys }) {
     this.log('FingerBot settings changed:', changedKeys);
 
     for (const key of changedKeys) {
@@ -510,11 +648,14 @@ class FingerBot extends TuyaSpecificClusterDevice {
   }
 
   onDeleted() {
+    this._fingerBotDeleted = true;
+    this._cancelFingerBotPressQueue('FingerBot queued press cancelled because device was removed');
     if (this._guiPulseTimeout) {
       this.homey.clearTimeout(this._guiPulseTimeout);
     }
 
     this.log('FingerBot device removed from Homey.');
+    return super.onDeleted();
   }
 }
 
