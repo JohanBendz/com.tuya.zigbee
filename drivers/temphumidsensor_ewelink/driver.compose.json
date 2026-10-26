@@ -1,0 +1,58 @@
+{
+  "id": "temphumidsensor_ewelink",
+  "name": {
+    "en": "eWeLink Temperature & Humidity Sensor"
+  },
+  "class": "sensor",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [
+    "measure_temperature",
+    "measure_humidity",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "eWeLink"
+    ],
+    "productId": [
+      "CK-TLSR8656-SS5-01(7014)"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          1026,
+          1029
+        ],
+        "bindings": [
+          1,
+          1026,
+          1029
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/learn.svg",
+      "instruction": {
+        "en": "Follow the device's instructions to enable Zigbee pairing mode."
+      }
+    }
+  },
+  "energy": {
+    "batteries": [
+      "AAA",
+      "AAA"
+    ]
+  }
+}

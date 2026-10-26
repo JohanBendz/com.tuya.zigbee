@@ -3,6 +3,7 @@
 const { Cluster, BoundCluster } = require('zigbee-clusters');
 const TuyaSpecificCluster = require('../../lib/TuyaSpecificCluster');
 const TuyaSpecificClusterDevice = require('../../lib/TuyaSpecificClusterDevice');
+const { isDeviceUnreachableError } = require('../../lib/util');
 
 Cluster.addCluster(TuyaSpecificCluster);
 
@@ -256,74 +257,72 @@ class sensortemphumidsensor extends TuyaSpecificClusterDevice {
   }
 
   async bootstrap() {
-    await this.bootstrapBasicRead();
-    await this.forceCelsiusMode();
-    await this.sendMcuVersionRequest();
-    await this.queryAll();
+    const steps = [
+      ['basic read', () => this.bootstrapBasicRead()],
+      ['set Celsius mode', () => this.forceCelsiusMode()],
+      ['MCU version request', () => this.sendMcuVersionRequest()],
+      ['data query', () => this.queryAll()],
+    ];
+
+    for (const [label, run] of steps) {
+      try {
+        await run();
+      } catch (error) {
+        if (isDeviceUnreachableError(error)) {
+          this.log(`Device unreachable during startup (${label}); skipping remaining bootstrap commands`);
+          return;
+        }
+        this.error(`Bootstrap ${label} failed`, error);
+      }
+    }
   }
 
   async bootstrapBasicRead() {
-    try {
-      const basicCluster = this.zclNode?.endpoints?.[1]?.clusters?.basic;
-      if (!basicCluster) return;
+    const basicCluster = this.zclNode?.endpoints?.[1]?.clusters?.basic;
+    if (!basicCluster) return;
 
-      this.log('Bootstrap read: basic cluster');
+    this.log('Bootstrap read: basic cluster');
 
-      const result = await basicCluster.readAttributes([
-        'manufacturerName',
-        'zclVersion',
-        'appVersion',
-        'modelId',
-        'powerSource',
-        'attributeReportingStatus',
-      ]);
+    const result = await basicCluster.readAttributes([
+      'manufacturerName',
+      'zclVersion',
+      'appVersion',
+      'modelId',
+      'powerSource',
+      'attributeReportingStatus',
+    ]);
 
-      this.log('Bootstrap read result:', result);
-    } catch (error) {
-      this.error('Bootstrap read failed', error);
-    }
+    this.log('Bootstrap read result:', result);
   }
 
   async forceCelsiusMode() {
-    try {
-      this.log('Setting Tuya temperature unit DP 0x70 => Celsius');
-      await this.writeBool(dataPoints.TEMP_UNIT, true);
-    } catch (error) {
-      this.error('Failed to set Celsius mode', error);
-    }
+    this.log('Setting Tuya temperature unit DP 0x70 => Celsius');
+    await this.writeBool(dataPoints.TEMP_UNIT, true);
   }
 
   async sendMcuVersionRequest() {
-    try {
-      const tuyaCluster = this.zclNode?.endpoints?.[1]?.clusters?.tuya;
-      if (!tuyaCluster || typeof tuyaCluster.mcuVersionRequest !== 'function') {
-        this.log('Tuya mcuVersionRequest not available');
-        return;
-      }
-
-      const payload = Buffer.from([0x00, this.transactionID & 0xff]);
-      this.transactionID += 1;
-
-      this.log('Sending Tuya mcuVersionRequest (0x10), payload=', payload);
-      await tuyaCluster.mcuVersionRequest({ payload });
-    } catch (error) {
-      this.error('Failed to send Tuya mcuVersionRequest', error);
+    const tuyaCluster = this.zclNode?.endpoints?.[1]?.clusters?.tuya;
+    if (!tuyaCluster || typeof tuyaCluster.mcuVersionRequest !== 'function') {
+      this.log('Tuya mcuVersionRequest not available');
+      return;
     }
+
+    const payload = Buffer.from([0x00, this.transactionID & 0xff]);
+    this.transactionID += 1;
+
+    this.log('Sending Tuya mcuVersionRequest (0x10), payload=', payload);
+    await tuyaCluster.mcuVersionRequest({ payload });
   }
 
   async queryAll() {
-    try {
-      const tuyaCluster = this.zclNode?.endpoints?.[1]?.clusters?.tuya;
-      if (!tuyaCluster || typeof tuyaCluster.dataQuery !== 'function') {
-        this.log('Tuya dataQuery not available');
-        return;
-      }
-
-      this.log('Sending Tuya dataQuery (0x03)');
-      await tuyaCluster.dataQuery({});
-    } catch (error) {
-      this.error('Failed to send Tuya dataQuery', error);
+    const tuyaCluster = this.zclNode?.endpoints?.[1]?.clusters?.tuya;
+    if (!tuyaCluster || typeof tuyaCluster.dataQuery !== 'function') {
+      this.log('Tuya dataQuery not available');
+      return;
     }
+
+    this.log('Sending Tuya dataQuery (0x03)');
+    await tuyaCluster.dataQuery({});
   }
 
   async onTuyaTimeSync(data) {

@@ -1,0 +1,55 @@
+{
+  "id": "rain_sensor_mowe",
+  "name": {
+    "en": "MOWE MW815R Rain Sensor (IAS)"
+  },
+  "class": "sensor",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [
+    "alarm_water",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "OTHER"
+    ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_o9f2zqln"
+    ],
+    "productId": [
+      "TS0207"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          3,
+          1280
+        ],
+        "bindings": [
+          1,
+          1280
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Follow the MW815R instructions to activate Zigbee pairing mode."
+      }
+    }
+  }
+}

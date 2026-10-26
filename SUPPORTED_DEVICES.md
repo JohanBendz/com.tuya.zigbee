@@ -51,6 +51,9 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | 5 Gang Wall Switch (`wall_switch_5_gang_tuya`) | `TS0601` | `_TZE200_jwsjbxjs` |
 | 6 Gang Wall Remote (`wall_remote_6_gang`) | `TS0046` | `_TZ3000_iszegwpd` |
 | 6 Gang Wall Switch (`wall_switch_6_gang_tuya`) | `TS0601` | `_TZE200_9mahtqtg`<br>`_TZE200_r731zlxk` |
+| Aubess Standard Zigbee Temperature & Humidity (`temphumidsensor_aubess_qoy0ekbd`) | `TS0601` | `_TZE200_qoy0ekbd` |
+| BSEED TS0001 Single-Channel Wall Switch (`switch_1_gang_bseed_ts0001`) | `TS0001` | `_TZ3000_blhvsaqf` |
+| BSEED TS0726 Four-Channel Wall Switch (`switch_4_gang_bseed_ts0726`) | `TS0726` | `_TZ3002_pzao9ls1` |
 | Christmas Lights (`christmas_lights`) | `TS0601` | `_TZE200_s8gkrkxk` |
 | Curtain Module (`curtain_module`) | `TS130F` | `_TZ3000_1dd0d5yi`<br>`_TZ3000_4uuaja4a`<br>`_TZ3000_e3vhyirx`<br>`_TZ3000_eafaa66e`<br>`_TZ3000_eg7awg6a`<br>`_TZ3000_fccpjz5z`<br>`_TZ3000_femsaaua`<br>`_TZ3000_jwv3cwak`<br>`_TZ3000_ke7pzj5d`<br>`_TZ3000_vd43bbfq`<br>`_TZ3000_zirycpws`<br>`_TZ3210_dwytrmda`<br>`_TZ3210_ol1uhvza` |
 | Curtain Motor (`curtain_motor`) | `TS0601` | `_TZE200_3i3exuay`<br>`_TZE200_4vobcgd3`<br>`_TZE200_5zbp6j0u`<br>`_TZE200_68nvbio9`<br>`_TZE200_9p5xmj5r`<br>`_TZE200_axgvo9jh`<br>`_TZE200_bjzrowv2`<br>`_TZE200_cf1sl3tj`<br>`_TZE200_cowvfni3`<br>`_TZE200_fdtjuw7u`<br>`_TZE200_gaj531w3`<br>`_TZE200_hsgrhjpf`<br>`_TZE200_nkoabg8w`<br>`_TZE200_nogaemzt`<br>`_TZE200_nueqqe6k`<br>`_TZE200_nw1r9hp6`<br>`_TZE200_pk0sfzvr`<br>`_TZE200_pw7mji0l`<br>`_TZE200_r0jdjrvi`<br>`_TZE200_rddyvrci`<br>`_TZE200_rmymn92d`<br>`_TZE200_uj3f4wr5`<br>`_TZE200_wmcdj3aq`<br>`_TZE200_xaabybja`<br>`_TZE200_xuzcvlku`<br>`_TZE200_yia0p3tr`<br>`_TZE200_zah67ekd`<br>`_TZE200_zpzndjez`<br>`_TZE204_1fuxihti`<br>`_TZE204_xu4a5rhj` |
@@ -65,10 +68,16 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Double Power Point (`double_power_point_2`) | `TS011F` | `_TYZB01_hlla45kx`<br>`_TZ3000_k6fvknrr` |
 | Double Power Point - With Metering (`double_power_point`) | `TS011F` | `_TZ3000_dd8wwzcy`<br>`_TZ3210_7jnk7l3k`<br>`_TZ3210_pfbzs1an` |
 | Double Socket Smart Plug (`smartplug_2_socket`) | `TS011F` | `_TZ3000_jak16dll` |
+| ELIVCO Standard Door & Window Sensor (`contact_sensor_elivco_x8q36xwf`) | `TS0203` | `_TZ3000_x8q36xwf` |
+| eWeLink SNZB-04 Door & Window Sensor (`contact_sensor_ewelink_snzb04`) | `SNZB-04` | `eWeLink` |
+| eWeLink Temperature & Humidity Sensor (`temphumidsensor_ewelink`) | `CK-TLSR8656-SS5-01(7014)` | `eWeLink` |
+| Excellux External Probe Temperature & Humidity Sensor (`temphumidsensor_excellux`) | `Excellux` | `NTCHT02` |
 | Fantem 4-in-1 Multi Sensor (`fantem_zb003x`) | `TS0202` | `_TZ3210_zmy9hjay` |
 | Finger Bot (`fingerbot`) | `TS0001`<br>`TS0001_fingerbot` | `_TZ3210_232nryqh`<br>`_TZ3210_dse8ogfy`<br>`_TZ3210_j4pdtz9v`<br>`_TZ3210_okbss9dy` |
 | Flood sensor (`flood_sensor`) | `RH3001`<br>`TS0207` | `TUYATEC-3tipnsrx`<br>`_TZ3000_3dfewsk1`<br>`_TZ3000_4uvovz4r`<br>`_TZ3000_bfopm9ga`<br>`_TZ3000_wuep9zng`<br>`_TZ3000_ww9i3e0y` |
 | Flood sensor (`flood_sensor_2`) | `TS0207` | `_TZ3000_baeiitad` |
+| HOBEIAN Contact & Illuminance Sensor (`contact_lux_hobeian`) | `ZG-102ZL` | `HOBEIAN` |
+| HOBEIAN Motion & Illuminance Sensor (`motion_lux_hobeian_zg204zl`) | `ZG-204ZL` | `HOBEIAN` |
 | HOBEIAN Temperature & Humidity Sensor (`temphumidsensor_hobeian`) | `ZG-227Z` | `HOBEIAN` |
 | HOBEIAN Water Leak Sensor (`hobeian_water_leak`) | `ZG-222Z` | `HOBEIAN` |
 | Illuminance Sensor (`illuminance_sensor`) | `TS0222` | `_TZ3000_8uxxzz4b`<br>`_TZ3000_do6txrcw`<br>`_TZ3000_hy6ncvmw` |
@@ -82,6 +91,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Motion Sensor (`motion_sensor_2`) | `TS0601` | `_TZE200_1ibpyhdc`<br>`_TZE200_3towulqd`<br>`_TZE200_bh3n6gk8`<br>`_TZE200_ttcovulf` |
 | Motion Sensor (`motion_sensor_3`) | `TS0601` | `_TZE200_mgxy2d9f` |
 | Motion Sensor & Scene Switch (`motion_scene_switch`) | `TS0202` | `_TZ3210_cwamkvua` |
+| MOWE MW815R Rain Sensor (IAS) (`rain_sensor_mowe`) | `TS0207` | `_TZ3000_o9f2zqln` |
 | MTG075 Presence Sensor with Relay (`mtg075_radar_sensor`) | `TS0601` | `_TZE204_mtoaryre` |
 | Outdoor Plug without metering (`outdoor_plug`) | `TS0101` | `_TZ3000_br3laukf`<br>`_TZ3000_pnzfdr9y` |
 | Outdoor Smart Socket (`outdoor_2_socket`) | `TS011F` | `_TZ3000_uwkja6z1` |
@@ -126,6 +136,8 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Smoke Sensor (`smoke_sensor3`) | `TS0205` | `_TZ3210_up3pngle` |
 | Soil Sensor (`soilsensor`) | `TS0601` | `_TZE200_2se8efxh`<br>`_TZE200_9cqcpkgb`<br>`_TZE200_ga1maeof`<br>`_TZE200_myd45weu`<br>`_TZE204_myd45weu` |
 | Soil Sensor (`soilsensor_2`) | `TS0601` | `_TZE284_aao3yzhs`<br>`_TZE284_g2e6cpnw`<br>`_TZE284_sgabhwa6` |
+| Standard Motion & Illuminance Sensor (`motion_lux_kb5noeto`) | `TS0601` | `_TZE200_kb5noeto` |
+| Standard Zigbee Water Leak Sensor (battery unverified) (`flood_sensor_unverified_battery`) | `TS0207` | `_TZ3000_4qaowtdo`<br>`_TZ3000_bzt33cyu`<br>`_TZ3000_qhozxs2b` |
 | Temperature & Humidity Sensor (`temphumidsensor`) | `RH3052`<br>`TS0201` | `TUYATEC-1g3tawnp`<br>`TUYATEC-1uxx9cci`<br>`TUYATEC-Bfq2i2Sy`<br>`TUYATEC-HaoiuWzy`<br>`TUYATEC-abkehqus`<br>`TUYATEC-g3gl6cgy`<br>`TUYATEC-gqhxixyk`<br>`TUYATEC-ojmxeikg`<br>`TUYATEC-ojmxeikq`<br>`TUYATEC-prhs1rsd`<br>`TUYATEC-riuj5xzs`<br>`TUYATEC-v3uxbuxy`<br>`TUYATEC-vmgh3fxd`<br>`TUYATEC-yg5dcbfu`<br>`_TZ3000_8ybe88nf`<br>`_TZ3000_bgsigers`<br>`_TZ3000_bguser20`<br>`_TZ3000_f2bw0b6k`<br>`_TZ3000_fie1dpkm`<br>`_TZ3000_i8jfiezr`<br>`_TZ3000_unw0hpdv` |
 | Temperature & Humidity Sensor (`temphumidsensor2`) | `RH3052`<br>`TS0201` | `TUYATEC-qun7vq14`<br>`_TZ3000_0s1izerx`<br>`_TZ3000_akqdg6g7`<br>`_TZ3000_dowj6gyi` |
 | Temperature & Humidity Sensor (`temphumidsensor3`) | `TS0201`<br>`TS0601` | `Wing`<br>`Zbeacon`<br>`_TZ3000_6uzkisv2`<br>`_TZ3000_fllyghyj`<br>`_TZ3000_saiqcn0y`<br>`_TZ3000_utwgoauk`<br>`_TZ3000_v1w2k9dd`<br>`_TZ3000_xr3htd96`<br>`_TZ3000_zl1kmjqx`<br>`_TZE200_a8sdabtg` |
@@ -133,6 +145,13 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Temperature & Humidity Sensor (`temphumidsensor5`) | `TS0601` | `_TZE200_9yapgbuv` |
 | Temperature & Humidity Sensor (TH05Z) (`temphumidsensor_vvmbj46n`) | `TS0601` | `_TZE200_vvmbj46n` |
 | Thermostatic Radiator Valve (`thermostatic_radiator_valve`) | `TS0601` | `_TZE200_7yoranx2`<br>`_TZE200_e9ba97vf`<br>`_TZE200_hue3yfsn`<br>`_TZE200_husqqvux`<br>`_TZE200_kds0pmmv`<br>`_TZE200_kly8gjlz`<br>`_TZE200_lllliz3p`<br>`_TZE200_lnbfnyxd`<br>`_TZE200_mudxchsu`<br>`_TZE200_py4cm3he`<br>`_TZE200_sur6q7ko` |
+| TS0001 Single-Channel On/Off Switch (`switch_1_gang_ts0001`) | `TS0001` | `_TZ3000_0t4zjtia`<br>`_TZ3000_hyarhbyx`<br>`_TZ3000_p26flek3`<br>`_TZ3000_y4che4dc` |
+| TS0002 Two-Channel On/Off Switch (`switch_2_gang_ts0002`) | `TS0002` | `_TZ3000_l9brjwau`<br>`_TZ3000_lugaswf8`<br>`_TZ3000_pgcclddi`<br>`_TZ3000_ptjcjise`<br>`_TZ3000_rmiew70n`<br>`_TZ3000_zxrfobzw` |
+| TS0003 Three-Channel Wall Switch (`switch_3_gang_ts0003`) | `TS0003` | `_TZ3000_iol4bl2y`<br>`_TZ3000_lmcp6b0a`<br>`_TZ3000_qkixdnon`<br>`_TZ3000_v4l4b0lp` |
+| TS0004 Four-Channel On/Off Switch (`switch_4_gang_ts0004`) | `TS0004` | `_TZ3000_enmfaave`<br>`_TZ3000_s6ma1nh4` |
+| TS0201 Standard Temperature & Humidity (`temphumidsensor_tsgqxdb4`) | `TS0201` | `_TZ3000_tsgqxdb4` |
+| TS0601 Contact & Illuminance Sensor (`contact_lux_pay2byax`) | `TS0601` | `_TZE200_pay2byax` |
+| TS0601 Standard Door & Window Sensor (`contact_sensor_n8dljorx`) | `TS0601` | `_TZE200_n8dljorx` |
 | Tunable Bulb E14 (`tunable_bulb_E14`) | `TS0502A` | `_TZ3000_oborybow` |
 | Tunable Bulb E27 (`tunable_bulb_E27`) | `TS0502A` | `_TZ3000_49qchf10` |
 | Tunable Spot GU10 (`tunable_spot_GU10`) | `TS0502A` | `_TZ3000_el5kt5im` |
