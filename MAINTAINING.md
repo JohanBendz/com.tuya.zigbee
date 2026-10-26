@@ -94,8 +94,9 @@ Homey's publish validation checks the generated manifest and publish assets. Sta
 - `main`: actual Homey **Live 0.3.3**, published source `130854f`.
 - `dev`: actual Homey **Test 0.3.4**, published source `21b60ce`.
 - `develop-0.4`: frozen **0.4.0 next Test candidate**, not yet published.
-- `develop-0.4.1`: all new post-freeze development; it still inherits 0.4.0
-  metadata until the first coordinated 0.4.1 version/changelog update.
+- `develop-0.4.1`: **0.4.1 development**, starting with the isolated #1026
+  single-button correction. Version/lock/Compose/manifest/changelog are aligned.
+  See [the active 0.4.1 preflight](docs/0.4.1_RELEASE_PREFLIGHT.md).
 - `refactor/type-based-drivers`: separate experimental architecture.
 
 See [current branch policy, Store evidence and cleanup audit](docs/BRANCHES.md).

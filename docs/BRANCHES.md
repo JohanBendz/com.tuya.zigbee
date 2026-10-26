@@ -16,7 +16,7 @@ and older GitHub comments remain historical evidence.
 | `main` | Homey App Store Live | 0.3.3, source `130854f4c6d1b5a3537e956d941eb2e3caec9a9a` |
 | `dev` | Homey App Store Test | 0.3.4, source `21b60ce07d91421aeba08357960c8fc910d87593` |
 | `develop-0.4` | Frozen next Test candidate; not published | 0.4.0, pre-migration source `3e5695667cab9d6a3296d58909b90a8dc0376e93` |
-| `develop-0.4.1` | New development after the 0.4.0 feature freeze | Pre-migration source `08d85dd59177826ff35436b9802f305f372e9bc7`; inherited 0.4.0 metadata until a coordinated 0.4.1 version bump |
+| `develop-0.4.1` | New development after the 0.4.0 feature freeze | 0.4.1 development; first code batch #1026. [Active preflight](0.4.1_RELEASE_PREFLIGHT.md). Pre-migration source remains historical evidence at `08d85dd59177826ff35436b9802f305f372e9bc7` |
 
 Observed directly on the official Store pages on 2026-10-25:
 - Live: https://homey.app/en-us/app/com.tuya.zigbee/Tuya-Zigbee/ shows 0.3.3.
