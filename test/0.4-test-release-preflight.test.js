@@ -15,24 +15,24 @@ const read = file => fs.readFileSync(path.resolve(__dirname, '..', file), 'utf8'
 const matrixStart = '<!-- BEGIN EXACT-IDENTITY ACCEPTANCE MATRIX -->';
 const matrixEnd = '<!-- END EXACT-IDENTITY ACCEPTANCE MATRIX -->';
 
-test('final 0.4 Test artifact version agrees across source, lockfile, generated manifest and changelog', () => {
+test('0.4.1 development artifact version agrees across source, lockfile, generated manifest and changelog', () => {
   for (const [source, value] of Object.entries({
     package: pkg.version,
     lockfile: lock.version,
     lockfileRoot: lock.packages[''].version,
     compose: compose.version,
     generatedManifest: app.version,
-  })) assert.equal(value, '0.4.0', source + ' drifted from release candidate');
-  assert.match(changelog['0.4.0']?.en || '', /pairing profiles/i,
+  })) assert.equal(value, '0.4.1', source + ' drifted from release candidate');
+  assert.match(changelog['0.4.1']?.en || '', /pairing profiles/i,
     'Homey App Store notes must describe the user-visible additions');
-  assert.doesNotMatch(changelog['0.4.0']?.en || '', /\b(?:Test|Live|beta) (?:release|version|candidate)\b/i,
+  assert.doesNotMatch(changelog['0.4.1']?.en || '', /\b(?:Test|Live|beta) (?:release|version|candidate)\b/i,
     'release-channel status belongs in maintainer documentation');
   assert.equal(app.compatibility, '>=5.0.0',
     'New devices must not silently increase the legacy Homey firmware floor');
   assert.equal(compose.compatibility, app.compatibility);
 });
 
-test('release instructions enumerate the actual 19 additions and 33 exact independently pending identities', () => {
+test('inherited 0.4.0 release instructions enumerate the actual 19 additions and 33 exact independently pending identities', () => {
   const prev = new Set(Object.keys(historical.drivers));
   assert.equal(prev.size, 135);
   const newer = app.drivers.filter(d => !prev.has(d.id));
