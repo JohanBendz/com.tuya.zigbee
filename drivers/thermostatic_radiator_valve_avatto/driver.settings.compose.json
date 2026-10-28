@@ -1,0 +1,125 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Temperature",
+      "nl": "Temperatuur",
+      "de": "Temperatur"
+    },
+    "children": [
+      {
+        "id": "temperatureCalibration",
+        "type": "number",
+        "label": {
+          "en": "Temperature calibration",
+          "nl": "Temperatuurkalibratie",
+          "de": "Temperaturkalibrierung"
+        },
+        "hint": {
+          "en": "Offset applied by the valve. Written to datapoint 47 as value × 10.",
+          "nl": "Offset die de kraan toepast. Geschreven naar datapunt 47 als waarde × 10.",
+          "de": "Vom Ventil angewendeter Offset. Wird auf Datenpunkt 47 als Wert × 10 geschrieben."
+        },
+        "value": 0,
+        "min": -9.5,
+        "max": 9.5,
+        "step": 0.5,
+        "units": {
+          "en": "°C"
+        }
+      },
+      {
+        "id": "ecoTemperature",
+        "type": "number",
+        "label": {
+          "en": "Eco temperature",
+          "nl": "Eco-temperatuur",
+          "de": "Eco-Temperatur"
+        },
+        "value": 16,
+        "min": 5,
+        "max": 35,
+        "step": 0.5,
+        "units": {
+          "en": "°C"
+        }
+      },
+      {
+        "id": "comfortTemperature",
+        "type": "number",
+        "label": {
+          "en": "Comfort temperature",
+          "nl": "Comforttemperatuur",
+          "de": "Komforttemperatur"
+        },
+        "value": 20,
+        "min": 5,
+        "max": 35,
+        "step": 0.5,
+        "units": {
+          "en": "°C"
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Protection",
+      "nl": "Beveiliging",
+      "de": "Schutz"
+    },
+    "children": [
+      {
+        "id": "childLock",
+        "type": "checkbox",
+        "label": {
+          "en": "Child lock",
+          "nl": "Kinderslot",
+          "de": "Kindersicherung"
+        },
+        "value": false
+      },
+      {
+        "id": "windowDetection",
+        "type": "checkbox",
+        "label": {
+          "en": "Window detection",
+          "nl": "Raamdetectie",
+          "de": "Fenstererkennung"
+        },
+        "hint": {
+          "en": "Enables open-window detection on the valve. The open/closed state is reported separately.",
+          "nl": "Schakelt raamdetectie op de kraan in. Open of dicht wordt apart gemeld.",
+          "de": "Aktiviert die Fenstererkennung am Ventil. Offen oder geschlossen wird separat gemeldet."
+        },
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Diagnostics",
+      "nl": "Diagnose",
+      "de": "Diagnose"
+    },
+    "children": [
+      {
+        "id": "debugLogging",
+        "type": "checkbox",
+        "label": {
+          "en": "Debug logging",
+          "nl": "Debuglogboek",
+          "de": "Debug-Protokoll"
+        },
+        "hint": {
+          "en": "Log raw datapoints and Tuya time replies. Leave this off during normal use.",
+          "nl": "Log ruwe datapunten en Tuya-tijdsantwoorden. Laat dit uit tijdens normaal gebruik.",
+          "de": "Rohdatenpunkte und Tuya-Zeitantworten protokollieren. Im normalen Betrieb aus lassen."
+        },
+        "value": false
+      }
+    ]
+  }
+]

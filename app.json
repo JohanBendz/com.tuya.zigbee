@@ -597,6 +597,56 @@
         ]
       },
       {
+        "id": "avatto_trv_window_opened",
+        "title": {
+          "en": "Window opened",
+          "nl": "Raam geopend",
+          "de": "Fenster geöffnet"
+        },
+        "titleFormatted": {
+          "en": "Window opened",
+          "nl": "Raam geopend",
+          "de": "Fenster geöffnet"
+        },
+        "hint": {
+          "en": "Triggered when the valve reports the window opened.",
+          "nl": "Wordt geactiveerd wanneer de kraan meldt dat het raam open is.",
+          "de": "Wird ausgelöst, wenn das Ventil ein geöffnetes Fenster meldet."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=thermostatic_radiator_valve_avatto"
+          }
+        ]
+      },
+      {
+        "id": "avatto_trv_window_closed",
+        "title": {
+          "en": "Window closed",
+          "nl": "Raam gesloten",
+          "de": "Fenster geschlossen"
+        },
+        "titleFormatted": {
+          "en": "Window closed",
+          "nl": "Raam gesloten",
+          "de": "Fenster geschlossen"
+        },
+        "hint": {
+          "en": "Triggered when the valve reports the window closed.",
+          "nl": "Wordt geactiveerd wanneer de kraan meldt dat het raam dicht is.",
+          "de": "Wird ausgelöst, wenn das Ventil ein geschlossenes Fenster meldet."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=thermostatic_radiator_valve_avatto"
+          }
+        ]
+      },
+      {
         "id": "wall_remote_1_gang_buttons",
         "title": {
           "en": "Button Action"
@@ -2120,6 +2170,133 @@
             "title": {
               "en": "Open"
             }
+          }
+        ]
+      },
+      {
+        "id": "avatto_trv_set_target_temperature",
+        "title": {
+          "en": "Set target temperature",
+          "nl": "Stel doeltemperatuur in",
+          "de": "Zieltemperatur einstellen"
+        },
+        "titleFormatted": {
+          "en": "Set target temperature to [[temperature]]°C",
+          "nl": "Stel doeltemperatuur in op [[temperature]]°C",
+          "de": "Zieltemperatur auf [[temperature]]°C einstellen"
+        },
+        "hint": {
+          "en": "Writes the target temperature to datapoint 4 as value × 10.",
+          "nl": "Schrijft de doeltemperatuur naar datapunt 4 als waarde × 10.",
+          "de": "Schreibt die Zieltemperatur auf Datenpunkt 4 als Wert × 10."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=thermostatic_radiator_valve_avatto"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "min": 5,
+            "max": 35,
+            "step": 0.5,
+            "placeholder": {
+              "en": "21"
+            },
+            "title": {
+              "en": "Target temperature",
+              "nl": "Doeltemperatuur",
+              "de": "Zieltemperatur"
+            }
+          }
+        ]
+      },
+      {
+        "id": "avatto_trv_set_preset",
+        "title": {
+          "en": "Set preset",
+          "nl": "Stel preset in",
+          "de": "Voreinstellung setzen"
+        },
+        "titleFormatted": {
+          "en": "Set preset to [[preset]]",
+          "nl": "Stel preset in op [[preset]]",
+          "de": "Voreinstellung auf [[preset]] setzen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=thermostatic_radiator_valve_avatto"
+          },
+          {
+            "type": "dropdown",
+            "name": "preset",
+            "title": {
+              "en": "Preset",
+              "nl": "Preset",
+              "de": "Voreinstellung"
+            },
+            "values": [
+              {
+                "id": "0",
+                "label": {
+                  "en": "Manual",
+                  "nl": "Handmatig",
+                  "de": "Manuell"
+                }
+              },
+              {
+                "id": "1",
+                "label": {
+                  "en": "Schedule",
+                  "nl": "Schema",
+                  "de": "Zeitplan"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "Eco",
+                  "nl": "Eco",
+                  "de": "Eco"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "Comfort",
+                  "nl": "Comfort",
+                  "de": "Komfort"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "Frost protection",
+                  "nl": "Vorstbescherming",
+                  "de": "Frostschutz"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "Holiday",
+                  "nl": "Vakantie",
+                  "de": "Urlaub"
+                }
+              },
+              {
+                "id": "6",
+                "label": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus"
+                }
+              }
+            ]
           }
         ]
       },
@@ -14734,6 +14911,213 @@
       ]
     },
     {
+      "id": "thermostatic_radiator_valve_avatto",
+      "name": {
+        "en": "AVATTO Thermostatic Radiator Valve",
+        "nl": "AVATTO thermostaatkraan",
+        "de": "AVATTO Thermostatventil"
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "target_temperature",
+        "measure_temperature",
+        "avatto_thermostat_preset",
+        "thermostat_heating",
+        "window_open_status",
+        "measure_battery",
+        "alarm_battery"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 5,
+          "max": 35,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "measure_temperature": {
+          "decimals": 1
+        },
+        "measure_battery": {
+          "decimals": 0
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA"
+        ]
+      },
+      "images": {
+        "small": "/drivers/thermostatic_radiator_valve_avatto/assets/images/moes_zigbee_3_small.png",
+        "large": "/drivers/thermostatic_radiator_valve_avatto/assets/images/moes_zigbee_3_large.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE204_vjpaih9f",
+          "_TZE284_vjpaih9f"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              10,
+              25,
+              61184
+            ],
+            "bindings": [
+              10,
+              25,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/thermostatic_radiator_valve_avatto/assets/images/moes_zigbee_3_pair.png",
+          "instruction": {
+            "en": "Turn the valve down to 5°C so it switches off, then hold the large rotary knob pressed for 5 seconds.",
+            "nl": "Draai de kraan naar 5°C tot hij uitschakelt, en houd de grote draaiknop 5 seconden ingedrukt.",
+            "de": "Drehe das Ventil auf 5°C, bis es ausschaltet, und halte den großen Drehknopf 5 Sekunden gedrückt."
+          }
+        }
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Temperature",
+            "nl": "Temperatuur",
+            "de": "Temperatur"
+          },
+          "children": [
+            {
+              "id": "temperatureCalibration",
+              "type": "number",
+              "label": {
+                "en": "Temperature calibration",
+                "nl": "Temperatuurkalibratie",
+                "de": "Temperaturkalibrierung"
+              },
+              "hint": {
+                "en": "Offset applied by the valve. Written to datapoint 47 as value × 10.",
+                "nl": "Offset die de kraan toepast. Geschreven naar datapunt 47 als waarde × 10.",
+                "de": "Vom Ventil angewendeter Offset. Wird auf Datenpunkt 47 als Wert × 10 geschrieben."
+              },
+              "value": 0,
+              "min": -9.5,
+              "max": 9.5,
+              "step": 0.5,
+              "units": {
+                "en": "°C"
+              }
+            },
+            {
+              "id": "ecoTemperature",
+              "type": "number",
+              "label": {
+                "en": "Eco temperature",
+                "nl": "Eco-temperatuur",
+                "de": "Eco-Temperatur"
+              },
+              "value": 16,
+              "min": 5,
+              "max": 35,
+              "step": 0.5,
+              "units": {
+                "en": "°C"
+              }
+            },
+            {
+              "id": "comfortTemperature",
+              "type": "number",
+              "label": {
+                "en": "Comfort temperature",
+                "nl": "Comforttemperatuur",
+                "de": "Komforttemperatur"
+              },
+              "value": 20,
+              "min": 5,
+              "max": 35,
+              "step": 0.5,
+              "units": {
+                "en": "°C"
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Protection",
+            "nl": "Beveiliging",
+            "de": "Schutz"
+          },
+          "children": [
+            {
+              "id": "childLock",
+              "type": "checkbox",
+              "label": {
+                "en": "Child lock",
+                "nl": "Kinderslot",
+                "de": "Kindersicherung"
+              },
+              "value": false
+            },
+            {
+              "id": "windowDetection",
+              "type": "checkbox",
+              "label": {
+                "en": "Window detection",
+                "nl": "Raamdetectie",
+                "de": "Fenstererkennung"
+              },
+              "hint": {
+                "en": "Enables open-window detection on the valve. The open/closed state is reported separately.",
+                "nl": "Schakelt raamdetectie op de kraan in. Open of dicht wordt apart gemeld.",
+                "de": "Aktiviert die Fenstererkennung am Ventil. Offen oder geschlossen wird separat gemeldet."
+              },
+              "value": false
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Diagnostics",
+            "nl": "Diagnose",
+            "de": "Diagnose"
+          },
+          "children": [
+            {
+              "id": "debugLogging",
+              "type": "checkbox",
+              "label": {
+                "en": "Debug logging",
+                "nl": "Debuglogboek",
+                "de": "Debug-Protokoll"
+              },
+              "hint": {
+                "en": "Log raw datapoints and Tuya time replies. Leave this off during normal use.",
+                "nl": "Log ruwe datapunten en Tuya-tijdsantwoorden. Laat dit uit tijdens normaal gebruik.",
+                "de": "Rohdatenpunkte und Tuya-Zeitantworten protokollieren. Im normalen Betrieb aus lassen."
+              },
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
       "class": "light",
       "platforms": [
         "local"
@@ -17392,6 +17776,80 @@
       "getable": true,
       "setable": false
     },
+    "avatto_thermostat_preset": {
+      "type": "enum",
+      "title": {
+        "en": "Preset",
+        "nl": "Preset",
+        "de": "Voreinstellung"
+      },
+      "desc": {
+        "en": "AVATTO thermostat preset",
+        "nl": "AVATTO thermostaatpreset",
+        "de": "AVATTO-Thermostatvoreinstellung"
+      },
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Manual",
+            "nl": "Handmatig",
+            "de": "Manuell"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Schedule",
+            "nl": "Schema",
+            "de": "Zeitplan"
+          }
+        },
+        {
+          "id": "2",
+          "title": {
+            "en": "Eco",
+            "nl": "Eco",
+            "de": "Eco"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "Comfort",
+            "nl": "Comfort",
+            "de": "Komfort"
+          }
+        },
+        {
+          "id": "4",
+          "title": {
+            "en": "Frost protection",
+            "nl": "Vorstbescherming",
+            "de": "Frostschutz"
+          }
+        },
+        {
+          "id": "5",
+          "title": {
+            "en": "Holiday",
+            "nl": "Vakantie",
+            "de": "Urlaub"
+          }
+        },
+        {
+          "id": "6",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
+    },
     "away_mode": {
       "type": "boolean",
       "title": {
@@ -17621,6 +18079,22 @@
       "setable": true,
       "capabilitiesOptions": {}
     },
+    "thermostat_heating": {
+      "type": "boolean",
+      "title": {
+        "en": "Heating",
+        "nl": "Verwarmen",
+        "de": "Heizen"
+      },
+      "desc": {
+        "en": "The valve is heating",
+        "nl": "De kraan verwarmt",
+        "de": "Das Ventil heizt"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
     "thermostat_preset": {
       "type": "enum",
       "title": {
@@ -17692,6 +18166,22 @@
       },
       "getable": true,
       "setable": true
+    },
+    "window_open_status": {
+      "type": "boolean",
+      "title": {
+        "en": "Window open",
+        "nl": "Raam open",
+        "de": "Fenster offen"
+      },
+      "desc": {
+        "en": "The valve reports the window is open",
+        "nl": "De kraan meldt dat het raam open is",
+        "de": "Das Ventil meldet, dass das Fenster offen ist"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
     }
   }
 }

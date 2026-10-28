@@ -1,0 +1,74 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Preset",
+    "nl": "Preset",
+    "de": "Voreinstellung"
+  },
+  "desc": {
+    "en": "AVATTO thermostat preset",
+    "nl": "AVATTO thermostaatpreset",
+    "de": "AVATTO-Thermostatvoreinstellung"
+  },
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Manual",
+        "nl": "Handmatig",
+        "de": "Manuell"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "Schedule",
+        "nl": "Schema",
+        "de": "Zeitplan"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Eco",
+        "nl": "Eco",
+        "de": "Eco"
+      }
+    },
+    {
+      "id": "3",
+      "title": {
+        "en": "Comfort",
+        "nl": "Comfort",
+        "de": "Komfort"
+      }
+    },
+    {
+      "id": "4",
+      "title": {
+        "en": "Frost protection",
+        "nl": "Vorstbescherming",
+        "de": "Frostschutz"
+      }
+    },
+    {
+      "id": "5",
+      "title": {
+        "en": "Holiday",
+        "nl": "Vakantie",
+        "de": "Urlaub"
+      }
+    },
+    {
+      "id": "6",
+      "title": {
+        "en": "Off",
+        "nl": "Uit",
+        "de": "Aus"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker"
+}

@@ -1,0 +1,82 @@
+{
+  "id": "thermostatic_radiator_valve_avatto",
+  "name": {
+    "en": "AVATTO Thermostatic Radiator Valve",
+    "nl": "AVATTO thermostaatkraan",
+    "de": "AVATTO Thermostatventil"
+  },
+  "class": "thermostat",
+  "capabilities": [
+    "target_temperature",
+    "measure_temperature",
+    "avatto_thermostat_preset",
+    "thermostat_heating",
+    "window_open_status",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "capabilitiesOptions": {
+    "target_temperature": {
+      "min": 5,
+      "max": 35,
+      "step": 0.5,
+      "decimals": 1
+    },
+    "measure_temperature": {
+      "decimals": 1
+    },
+    "measure_battery": {
+      "decimals": 0
+    }
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "energy": {
+    "batteries": [
+      "AA",
+      "AA"
+    ]
+  },
+  "images": {
+    "small": "{{driverAssetsPath}}/images/moes_zigbee_3_small.png",
+    "large": "{{driverAssetsPath}}/images/moes_zigbee_3_large.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZE204_vjpaih9f",
+      "_TZE284_vjpaih9f"
+    ],
+    "productId": [
+      "TS0601"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          4,
+          5,
+          10,
+          25,
+          61184
+        ],
+        "bindings": [
+          10,
+          25,
+          61184
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/images/moes_zigbee_3_pair.png",
+      "instruction": {
+        "en": "Turn the valve down to 5°C so it switches off, then hold the large rotary knob pressed for 5 seconds.",
+        "nl": "Draai de kraan naar 5°C tot hij uitschakelt, en houd de grote draaiknop 5 seconden ingedrukt.",
+        "de": "Drehe das Ventil auf 5°C, bis es ausschaltet, und halte den großen Drehknopf 5 Sekunden gedrückt."
+      }
+    }
+  }
+}
