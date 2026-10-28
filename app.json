@@ -14971,6 +14971,8 @@
               0,
               4,
               5,
+              10,
+              25,
               61184
             ],
             "bindings": [
@@ -14983,9 +14985,9 @@
         "learnmode": {
           "image": "/drivers/thermostatic_radiator_valve_avatto/assets/images/moes_zigbee_3_pair.png",
           "instruction": {
-            "en": "Insert the batteries. Press and hold the pairing button for about 5 seconds until the display blinks.",
-            "nl": "Plaats de batterijen. Houd de koppelknop ongeveer 5 seconden ingedrukt tot het scherm knippert.",
-            "de": "Batterien einlegen. Die Pairing-Taste etwa 5 Sekunden gedrückt halten, bis das Display blinkt."
+            "en": "Turn the valve down to 5°C so it switches off, then hold the large rotary knob pressed for 5 seconds.",
+            "nl": "Draai de kraan naar 5°C tot hij uitschakelt, en houd de grote draaiknop 5 seconden ingedrukt.",
+            "de": "Drehe das Ventil auf 5°C, bis es ausschaltet, und halte den großen Drehknopf 5 Sekunden gedrückt."
           }
         }
       },
