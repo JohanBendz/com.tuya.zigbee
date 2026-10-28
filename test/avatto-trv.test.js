@@ -350,6 +350,54 @@ test('_TZE284_vjpaih9f is an exact AVATTO TRV identity on its own', () => {
   assertManufacturer('_TZE284_vjpaih9f');
 });
 
+test('pair instructions describe the 5°C knob hold in every locale', () => {
+  const instruction = driverCompose.zigbee.learnmode.instruction;
+  assert.deepEqual(Object.keys(instruction).sort(), ['de', 'en', 'nl']);
+  assert.match(instruction.en, /5°C/);
+  assert.match(instruction.en, /large rotary knob/);
+  assert.match(instruction.en, /5 seconds/);
+  assert.doesNotMatch(instruction.en, /pairing button/);
+  assert.match(instruction.nl, /5°C/);
+  assert.match(instruction.nl, /draaiknop/);
+  assert.match(instruction.de, /5°C/);
+  assert.match(instruction.de, /Drehknopf/);
+});
+
+test('generic Zigbee match prefers the AVATTO driver for these identities', () => {
+  const interviewed = {
+    productId: 'TS0601',
+    inputClusters: [0, 4, 5, 10, 25, 61184],
+  };
+
+  for (const manufacturer of ['_TZE204_vjpaih9f', '_TZE284_vjpaih9f']) {
+    const ranked = [driverCompose, otherTrv]
+      .map(driver => ({
+        id: driver.id || 'thermostatic_radiator_valve',
+        score: zigbeeMatchScore(driver, { ...interviewed, manufacturerName: manufacturer }),
+      }))
+      .sort((a, b) => b.score - a.score);
+    assert.equal(ranked[0].id, 'thermostatic_radiator_valve_avatto');
+    assert.ok(ranked[0].score > ranked[1].score);
+  }
+
+  const moes = zigbeeMatchScore(otherTrv, {
+    manufacturerName: '_TZE200_sur6q7ko',
+    productId: 'TS0601',
+    inputClusters: [0, 4, 5, 10, 25, 61184],
+  });
+  const avattoForMoes = zigbeeMatchScore(driverCompose, {
+    manufacturerName: '_TZE200_sur6q7ko',
+    productId: 'TS0601',
+    inputClusters: [0, 4, 5, 10, 25, 61184],
+  });
+  assert.ok(moes > avattoForMoes);
+
+  assert.deepEqual(otherTrv.zigbee.endpoints['1'].clusters, [0, 4, 5, 10, 25, 61184]);
+  assert.deepEqual(driverCompose.zigbee.endpoints['1'].clusters, [0, 4, 5, 10, 25, 61184]);
+  assert.ok(!otherTrv.zigbee.manufacturerName.includes('_TZE204_vjpaih9f'));
+  assert.ok(!otherTrv.zigbee.manufacturerName.includes('_TZE284_vjpaih9f'));
+});
+
 function assertManufacturer(manufacturer) {
   assert.equal(driverCompose.zigbee.manufacturerName.includes(manufacturer), true);
   assert.equal(driverCompose.zigbee.productId.includes('TS0601'), true);
@@ -360,4 +408,23 @@ function assertManufacturer(manufacturer) {
     [].concat(driver.zigbee?.manufacturerName || []).includes(manufacturer)
     && [].concat(driver.zigbee?.productId || []).includes('TS0601'));
   assert.deepEqual(matches.map(driver => driver.id), ['thermostatic_radiator_valve_avatto']);
+}
+
+// Homey walks app.json in order. thermostatic_radiator_valve is the previous
+// TS0601 entry and lists the same client clusters a Tuya TRV interview reports.
+// Those two manufacturer IDs are not in its allow-list. The AVATTO driver lists
+// the same clusters, so a manufacturer hit outranks that earlier driver.
+// The older manifest stays pinned by the 0.3.1 contract.
+function zigbeeMatchScore(driver, node) {
+  const zigbee = driver.zigbee;
+  const products = [].concat(zigbee.productId || []);
+  const manufacturers = [].concat(zigbee.manufacturerName || []);
+  if (!products.includes(node.productId)) return -1;
+  const clusters = new Set(zigbee.endpoints?.['1']?.clusters || []);
+  let overlap = 0;
+  for (const cluster of node.inputClusters) {
+    if (clusters.has(cluster)) overlap += 1;
+  }
+  const manufacturerHit = manufacturers.includes(node.manufacturerName) ? 10 : 0;
+  return manufacturerHit + overlap;
 }
