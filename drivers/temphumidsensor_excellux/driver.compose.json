@@ -14,7 +14,8 @@
     "measure_temperature",
     "measure_humidity",
     "measure_battery",
-    "alarm_battery"
+    "alarm_battery",
+    "measure_temperature.internal"
   ],
   "images": {
     "large": "{{driverAssetsPath}}/images/large.png",
@@ -35,23 +36,31 @@
           1026,
           1029
         ],
-        "bindings": [
-          1,
-          1026,
-          1029
-        ]
+        "bindings": []
       }
     },
     "learnmode": {
       "image": "{{driverAssetsPath}}/learn.svg",
       "instruction": {
-        "en": "Put the sensor into Zigbee pairing mode according to the device instructions."
+        "en": "Press and hold the sensor button for 5 seconds until the indicator starts flashing. Release the button, then wait for Homey to finish pairing."
       }
     }
   },
   "energy": {
     "batteries": [
-      "OTHER"
+      "CR2450"
     ]
+  },
+  "capabilitiesOptions": {
+    "measure_temperature": {
+      "title": {
+        "en": "Probe temperature"
+      }
+    },
+    "measure_temperature.internal": {
+      "title": {
+        "en": "Onboard temperature"
+      }
+    }
   }
 }
