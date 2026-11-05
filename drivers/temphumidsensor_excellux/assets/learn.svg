@@ -14,7 +14,7 @@
   <path d="M211 193h18" stroke-width="1"/>
  </g>
  <g fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="111" cy="163" r="7"/>
-  <path d="M144 179l-23-12m4-1-4 1 2 5"/>
+  <ellipse cx="111" cy="201" rx="4" ry="2" fill="#000" stroke="none"/>
+  <path d="M111 229v-19m-4 5 4-5 4 5"/>
  </g>
 </svg>
