@@ -3,7 +3,7 @@
   <!-- Curved lead and right-facing probe from version 2. -->
   <path d="M126 50.5c0-21.5 14-28.5 28-22.5 15 6 21 22 20 43v11.5M174 167.5v6.5c0 14 6 22 18 22h1" stroke-width="2.2"/>
   <!-- Flat, centered round sensor face from version 3. -->
-  <circle cx="111" cy="125" r="76" fill="none" stroke-width="2.5"/>
+  <circle cx="111" cy="125" r="76" fill="none" stroke-width="4"/>
   <path d="M105 93a6 6 0 0 1 12 0v35a12 12 0 1 1-12 0z" stroke-width="1.6"/>
   <path d="M111 106v31" stroke-width="2.5"/>
   <circle cx="111" cy="138" r="6" fill="#000" stroke="none"/>
