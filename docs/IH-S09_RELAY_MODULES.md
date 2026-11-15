@@ -71,3 +71,16 @@ alone does not establish output electrical ratings or input isolation.
   Homey's driver API. The previous custom app remains installed separately.
 - No module reset, pairing or output commands issued during this preparation.
 - Physical acceptance with this app is pending user-coordinated pairing.
+
+## Pairing and naming — 2026-11-15
+
+The user paired the physical TS0003 / `_TZ3000_mhhxxjrs` to this app.
+Homey created exactly three available devices, one root and two children.
+The root initially used the driver's name, `3 Gang Relay Module`; renamed via
+Homey's device API to `Relay 1` at the user's request. Children are `Relay 2`
+and `Relay 3`. Device IDs and Zigbee token were preserved. No relay commands
+were sent. Independent switching and physical-button acceptance are still pending.
+
+Homey's built-in Zigbee pairing uses the driver display name for the root tile.
+The Add Device picker retains the descriptive module name, and pairing guidance
+now explains renaming the first tile. There is no automatic startup rename.

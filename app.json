@@ -13049,7 +13049,7 @@
         "learnmode": {
           "image": "/drivers/switch_module_2_gang_tuya/assets/icon.svg",
           "instruction": {
-            "en": "2 tiles will be created, one per relay. Follow the manufacturer’s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly."
+            "en": "2 tiles will be created, one per relay. Follow the manufacturer’s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly. The first tile uses the module name by default; rename it to Relay 1 to match Relay 2 and the other channel tiles."
           }
         }
       }
@@ -13139,7 +13139,7 @@
         "learnmode": {
           "image": "/drivers/switch_module_3_gang_tuya/assets/icon.svg",
           "instruction": {
-            "en": "3 tiles will be created, one per relay. Follow the manufacturer’s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly."
+            "en": "3 tiles will be created, one per relay. Follow the manufacturer’s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly. The first tile uses the module name by default; rename it to Relay 1 to match Relay 2 and the other channel tiles."
           }
         }
       }
@@ -13248,7 +13248,7 @@
         "learnmode": {
           "image": "/drivers/switch_module_4_gang_tuya/assets/icon.svg",
           "instruction": {
-            "en": "4 tiles will be created, one per relay. Follow the manufacturer’s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly."
+            "en": "4 tiles will be created, one per relay. Follow the manufacturer’s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly. The first tile uses the module name by default; rename it to Relay 1 to match Relay 2 and the other channel tiles."
           }
         }
       }
