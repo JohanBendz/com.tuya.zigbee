@@ -12984,6 +12984,402 @@
       }
     },
     {
+      "id": "switch_module_2_gang_tuya",
+      "name": {
+        "en": "2 Gang Relay Module — Relay 1"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "small": "/drivers/switch_module_2_gang_tuya/assets/images/small.png",
+        "large": "/drivers/switch_module_2_gang_tuya/assets/images/large.png",
+        "xlarge": "/drivers/switch_module_2_gang_tuya/assets/images/xlarge.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_criiahcg",
+          "_TZ3000_ywubfuvt",
+          "_TZ3000_wnzoyohq"
+        ],
+        "productId": [
+          "TS0002"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6,
+              57345
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "2 Gang Relay Module — Relay 2"
+            },
+            "settings": []
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_module_2_gang_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "2 tiles will be created, one per relay. Follow the manufacturer’s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly. Each tile is named for its relay number; the first tile controls Relay 1, not the whole module."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "input_mode",
+          "type": "dropdown",
+          "label": {
+            "en": "Input type (all inputs)"
+          },
+          "value": "keep",
+          "hint": {
+            "en": "Shared by all switch inputs on the module. Configure from the Relay 1 tile. Momentary mode toggles the associated relay on each press; detached input is not supported. Startup reads the current mode without changing it."
+          },
+          "values": [
+            {
+              "id": "keep",
+              "label": {
+                "en": "Keep current device setting"
+              }
+            },
+            {
+              "id": "toggle",
+              "label": {
+                "en": "Toggle switch"
+              }
+            },
+            {
+              "id": "state",
+              "label": {
+                "en": "State-following switch"
+              }
+            },
+            {
+              "id": "momentary",
+              "label": {
+                "en": "Momentary push button"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "switch_module_3_gang_tuya",
+      "name": {
+        "en": "3 Gang Relay Module — Relay 1"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "small": "/drivers/switch_module_3_gang_tuya/assets/images/small.png",
+        "large": "/drivers/switch_module_3_gang_tuya/assets/images/large.png",
+        "xlarge": "/drivers/switch_module_3_gang_tuya/assets/images/xlarge.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_mhhxxjrs",
+          "_TZ3000_hbic3ka3",
+          "_TZ3000_iv4eq7eh"
+        ],
+        "productId": [
+          "TS0003"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6,
+              57345
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "3 Gang Relay Module — Relay 2"
+            },
+            "settings": []
+          },
+          "thirdSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "3 Gang Relay Module — Relay 3"
+            },
+            "settings": []
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_module_3_gang_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "3 tiles will be created, one per relay. Follow the manufacturer’s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly. Each tile is named for its relay number; the first tile controls Relay 1, not the whole module."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "input_mode",
+          "type": "dropdown",
+          "label": {
+            "en": "Input type (all inputs)"
+          },
+          "value": "keep",
+          "hint": {
+            "en": "Shared by all switch inputs on the module. Configure from the Relay 1 tile. Momentary mode toggles the associated relay on each press; detached input is not supported. Startup reads the current mode without changing it."
+          },
+          "values": [
+            {
+              "id": "keep",
+              "label": {
+                "en": "Keep current device setting"
+              }
+            },
+            {
+              "id": "toggle",
+              "label": {
+                "en": "Toggle switch"
+              }
+            },
+            {
+              "id": "state",
+              "label": {
+                "en": "State-following switch"
+              }
+            },
+            {
+              "id": "momentary",
+              "label": {
+                "en": "Momentary push button"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "switch_module_4_gang_tuya",
+      "name": {
+        "en": "4 Gang Relay Module — Relay 1"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "small": "/drivers/switch_module_4_gang_tuya/assets/images/small.png",
+        "large": "/drivers/switch_module_4_gang_tuya/assets/images/large.png",
+        "xlarge": "/drivers/switch_module_4_gang_tuya/assets/images/xlarge.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_knoj8lpk",
+          "_TZ3000_5ajpkyq6",
+          "_TZ3000_3n2minvf"
+        ],
+        "productId": [
+          "TS0004"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6,
+              57345
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "3": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "4": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "secondSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Gang Relay Module — Relay 2"
+            },
+            "settings": []
+          },
+          "thirdSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Gang Relay Module — Relay 3"
+            },
+            "settings": []
+          },
+          "fourthSwitch": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "4 Gang Relay Module — Relay 4"
+            },
+            "settings": []
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/switch_module_4_gang_tuya/assets/icon.svg",
+          "instruction": {
+            "en": "4 tiles will be created, one per relay. Follow the manufacturer’s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly. Each tile is named for its relay number; the first tile controls Relay 1, not the whole module."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "input_mode",
+          "type": "dropdown",
+          "label": {
+            "en": "Input type (all inputs)"
+          },
+          "value": "keep",
+          "hint": {
+            "en": "Shared by all switch inputs on the module. Configure from the Relay 1 tile. Momentary mode toggles the associated relay on each press; detached input is not supported. Startup reads the current mode without changing it."
+          },
+          "values": [
+            {
+              "id": "keep",
+              "label": {
+                "en": "Keep current device setting"
+              }
+            },
+            {
+              "id": "toggle",
+              "label": {
+                "en": "Toggle switch"
+              }
+            },
+            {
+              "id": "state",
+              "label": {
+                "en": "State-following switch"
+              }
+            },
+            {
+              "id": "momentary",
+              "label": {
+                "en": "Momentary push button"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "temphumidsensor",
       "name": {
         "en": "Temperature & Humidity Sensor"

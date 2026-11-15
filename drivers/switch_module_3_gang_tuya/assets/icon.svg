@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="960" viewBox="0 0 960 960">
+  <title>IH-S09 three-channel relay module</title>
+  <desc>Chamfered enclosure, five upper terminals, six lower terminals and a simplified three-channel label. Transparent background.</desc>
+  <g fill="none" stroke="#000" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Enclosure and recessed label panel. -->
+    <path d="M204 32H756L928 204V756L756 928H204L32 756V204Z"/>
+    <rect x="170" y="220" width="620" height="520" rx="32"/>
+    <!-- Upper screw-terminal openings: NC, S3, S2, S1, COM. -->
+    <circle cx="292" cy="148" r="36"/>
+    <circle cx="386" cy="148" r="36"/>
+    <circle cx="480" cy="148" r="36"/>
+    <circle cx="574" cy="148" r="36"/>
+    <circle cx="668" cy="148" r="36"/>
+    <!-- Upper terminal recesses on the face. -->
+    <path d="M254 264H278V306H254ZM354 264H378V306H354ZM454 264H478V306H454ZM554 264H578V306H554ZM654 264H678V306H654Z" stroke-width="12"/>
+    <!-- Font-independent 3CH lettering. -->
+    <path d="M336 398H396L364 440H382Q408 440 408 468T378 496H336M510 398H480Q450 398 450 428V466Q450 496 480 496H510M556 398V496M624 398V496M556 447H624"/>
+    <!-- Simplified label lines; fine print and certification logos omitted. -->
+    <path d="M322 554H638M374 600H586" stroke-width="14"/>
+    <!-- Lower screw-terminal openings: NC, L3, L2, L1, L, N. -->
+    <circle cx="245" cy="824" r="36"/>
+    <circle cx="339" cy="824" r="36"/>
+    <circle cx="433" cy="824" r="36"/>
+    <circle cx="527" cy="824" r="36"/>
+    <circle cx="621" cy="824" r="36"/>
+    <circle cx="715" cy="824" r="36"/>
+  </g>
+</svg>

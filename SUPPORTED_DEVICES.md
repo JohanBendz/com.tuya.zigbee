@@ -31,11 +31,13 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | 2 Gang Dimmer Module (`dimmer_2_gang`) | `TS1101`<br>`TS110E`<br>`TS110F` | `_TYZB01_v8gtiaed`<br>`_TZ3000_7ysdnebc`<br>`_TZ3000_92chsky7`<br>`_TZ3210_3mpwqzuu`<br>`_TZ3210_4ubylghk`<br>`_TZ3210_pagajpog`<br>`_TZ3210_wdexaypg` |
 | 2 Gang Dimmer Module (`dimmer_2_gang_tuya`) | `TS0601` | `_TZE200_e3oitdyu`<br>`_TZE200_gwkapsoq`<br>`_TZE204_bxoo2swd`<br>`_TZE204_zenj4lxv` |
 | 2 Gang Dimmer Module (MOES) (`dimmer_2_gang_tuya_fjjbhx9d`) | `TS0601` | `_TZE200_fjjbhx9d` |
+| 2 Gang Relay Module — Relay 1 (`switch_module_2_gang_tuya`) | `TS0002` | `_TZ3000_criiahcg`<br>`_TZ3000_wnzoyohq`<br>`_TZ3000_ywubfuvt` |
 | 2 Gang Switch Module (`switch_2_gang`) | `TS0002`<br>`TS0003`<br>`TS0012`<br>`TS0013`<br>`TS011F`<br>`ZG-305Z` | `HOBEIAN`<br>`_TYZB01_digziiav`<br>`_TYZB01_zsl6z0pw`<br>`_TZ3000_4js9lo5d`<br>`_TZ3000_7ed9cqgi`<br>`_TZ3000_bvrlqyj7`<br>`_TZ3000_fisb3ajo`<br>`_TZ3000_jcfje0kb`<br>`_TZ3000_jl7qyupf`<br>`_TZ3000_llfaquvp`<br>`_TZ3000_lmlsduws`<br>`_TZ3000_pmz6mjyu`<br>`_TZ3000_qaa59zqd`<br>`_TZ3000_qcgw8qfa`<br>`_TZ3000_ruxexjfz` |
 | 2 Gang Switch Module with metering (`switch_2_gang_metering`) | `TS0002`<br>`TS011F` | `_TZ3000_zmy4lslw` |
 | 2 Gang Wall Remote (`wall_remote_2_gang`) | `TS0042` | `_TYZB02_keyjhapk`<br>`_TZ3000_5e235jpa`<br>`_TZ3000_dfgbtub0`<br>`_TZ3000_fkvaniuu`<br>`_TZ3000_h1c2eamp`<br>`_TZ3000_oikiyf3b`<br>`_TZ3000_owgcnkrh`<br>`_TZ3000_tzvbimpq`<br>`_TZ3400_keyjhapk` |
 | 2 Gang Wall Switch (`wall_switch_2_gang`) | `TS0002`<br>`TS0012`<br>`TS0042` | `TUYATEC-O6SNCwd6`<br>`TUYATEC-nzrrvgco`<br>`_TYZB01_2athzhfr`<br>`_TYZB01_6g8b7at8`<br>`_TYZB01_6sadkhcy`<br>`_TYZB01_mtlhqn48`<br>`_TYZB01_vzrytttn`<br>`_TZ3000_18ejxno0`<br>`_TZ3000_56bdyj21`<br>`_TZ3000_5vujyute`<br>`_TZ3000_atp7xmd9`<br>`_TZ3000_e98krvvk`<br>`_TZ3000_fvh3pjaz`<br>`_TZ3000_lupfd8zu`<br>`_TZ3000_mklgayek`<br>`_TZ3000_mrqea2uu`<br>`_TZ3000_nta0gb8h`<br>`_TZ3000_p8alo7qa`<br>`_TZ3000_qn8qvk9y`<br>`_TZ3000_s8r1qoyq`<br>`_TZ3000_svoqrno4`<br>`_TZ3000_xftvfolu`<br>`_TZ3000_yhagrqmd` |
 | 2 Gang Wall Switch (`wall_switch_2_gang_tuya`) | `TS0601` | `_TZE200_g1ib5ldv` |
+| 3 Gang Relay Module — Relay 1 (`switch_module_3_gang_tuya`) | `TS0003` | `_TZ3000_hbic3ka3`<br>`_TZ3000_iv4eq7eh`<br>`_TZ3000_mhhxxjrs` |
 | 3 Gang Switch Module (`switch_3_gang`) | `TS0003` | `_TZ3000_4o16jdca`<br>`_TZ3000_empogkya`<br>`_TZ3000_lvhy15ix`<br>`_TZ3000_odzoiovu` |
 | 3 Gang Wall Remote (`wall_remote_3_gang`) | `TS0043` | `_TYZB02_key8kk7r`<br>`_TZ3000_a7ouggvs`<br>`_TZ3000_bczr4e10`<br>`_TZ3000_bi6lpsew`<br>`_TZ3000_famkxci2`<br>`_TZ3000_gbm10jnj`<br>`_TZ3000_qzjcsmar`<br>`_TZ3000_rrjr1q0u`<br>`_TZ3000_sj7jbgks`<br>`_TZ3000_w4thianr`<br>`_TZ3000_w8jwkczz`<br>`_TZ3000_yw5tvzsk` |
 | 3 Gang Wall Switch (`wall_switch_3_gang`) | `TS0003`<br>`TS0013`<br>`TS0043` | `_TYZB01_b8cr31hp`<br>`_TYZB01_mqel1whf`<br>`_TYZB01_xiuox57i`<br>`_TZ3000_2dlwlvex`<br>`_TZ3000_5e5ptb24`<br>`_TZ3000_aezbqpcu`<br>`_TZ3000_cdamjqm9`<br>`_TZ3000_hlwm8e96`<br>`_TZ3000_kl72oake`<br>`_TZ3000_lrgccsxm`<br>`_TZ3000_qcdqw8nf`<br>`_TZ3000_qewo8dlz`<br>`_TZ3000_thhxrept`<br>`_TZ3000_vvlivusi`<br>`_TZ3000_w05exif3`<br>`_TZ3000_wyhuocal` |
@@ -43,6 +45,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | 4 Button Remote (`handheld_remote_4_buttons`) | `TS0044` | `_TZ3000_mh9px7cq`<br>`_TZ3000_u3nv1jwk` |
 | 4 button Smart Remote Controller (`smart_remote_4_buttons`) | `TS0215A` | `_TYZB01_qm6djpta`<br>`_TZ3000_eo3dttwe`<br>`_TZ3000_fsiepnrh`<br>`_TZ3000_p6ju8myv` |
 | 4 Channel Relay Board (`relay_board_4_channel`) | `TS0004` | `_TZ3000_a37eix1s`<br>`_TZ3000_excgg5kb`<br>`_TZ3000_hdlpifbk`<br>`_TZ3000_imaccztn`<br>`_TZ3000_u3oupgdy`<br>`_TZ3000_wkr3jqmr` |
+| 4 Gang Relay Module — Relay 1 (`switch_module_4_gang_tuya`) | `TS0004` | `_TZ3000_3n2minvf`<br>`_TZ3000_5ajpkyq6`<br>`_TZ3000_knoj8lpk` |
 | 4 Gang Switch Module with metering (`switch_4_gang_metering`) | `TS0004` | `_TZ3000_mmkbptmx` |
 | 4 Gang Wall Remote (`wall_remote_4_gang`) | `TS0044` | `_TZ3000_a4xycprs`<br>`_TZ3000_ee8nrt2l`<br>`_TZ3000_ufhtxr59`<br>`_TZ3000_vp6clf9d` |
 | 4 Gang Wall Remote (`wall_remote_4_gang_2`) | `TS004F` | `_TZ3000_0ht8dnxj`<br>`_TZ3000_11pg3ima`<br>`_TZ3000_b3mgfu0d`<br>`_TZ3000_czuyt8lz`<br>`_TZ3000_et7afzxz`<br>`_TZ3000_nuombroo`<br>`_TZ3000_xabckq1v` |
