@@ -13089,7 +13089,8 @@
               0,
               4,
               5,
-              6
+              6,
+              57345
             ],
             "bindings": [
               6
@@ -13124,7 +13125,8 @@
             ],
             "name": {
               "en": "Relay 2"
-            }
+            },
+            "settings": []
           },
           "thirdSwitch": {
             "class": "socket",
@@ -13133,7 +13135,8 @@
             ],
             "name": {
               "en": "Relay 3"
-            }
+            },
+            "settings": []
           }
         },
         "learnmode": {
@@ -13142,7 +13145,46 @@
             "en": "3 tiles will be created, one per relay. Follow the manufacturer’s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly. The first tile uses the module name by default; rename it to Relay 1 to match Relay 2 and the other channel tiles."
           }
         }
-      }
+      },
+      "settings": [
+        {
+          "id": "input_mode",
+          "type": "dropdown",
+          "label": {
+            "en": "Input type (all inputs)"
+          },
+          "value": "keep",
+          "hint": {
+            "en": "Shared by S1–S3. Configure from Relay 1. Verified only on IH-S09 TS0003 / _TZ3000_mhhxxjrs. Momentary mode toggles the associated relay on each press; detached input is not supported. Startup reads the current mode without changing it."
+          },
+          "values": [
+            {
+              "id": "keep",
+              "label": {
+                "en": "Keep current device setting"
+              }
+            },
+            {
+              "id": "toggle",
+              "label": {
+                "en": "Toggle switch"
+              }
+            },
+            {
+              "id": "state",
+              "label": {
+                "en": "State-following switch"
+              }
+            },
+            {
+              "id": "momentary",
+              "label": {
+                "en": "Momentary push button"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "switch_module_4_gang_tuya",

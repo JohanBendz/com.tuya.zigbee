@@ -7,10 +7,11 @@ not an official Store release. No upstream changes have been published.
 ## Scope and evidence
 
 Three exact standard OnOff pairing profiles, with one tile per channel. There
-is no additional master, metering, detached input, switch-mode setting or startup
-policy setting. Existing drivers and shared runtimes are unchanged. Initialization
-uses their existing read/bind/report behavior and does not impose relay states or
-write vendor settings.
+is no additional master, metering, detached input or startup policy setting.
+Only the verified three-channel identity offers a module-wide input-type setting
+on Relay 1; two- and four-channel profiles remain switching-only. Existing drivers
+and shared runtimes are unchanged. Initialization reads current device state and
+does not impose relay states or write vendor settings.
 
 | Channels | Product | Manufacturers | Evidence |
 | --- | --- | --- | --- |
@@ -84,3 +85,29 @@ were sent. Independent switching and physical-button acceptance are still pendin
 Homey's built-in Zigbee pairing uses the driver display name for the root tile.
 The Add Device picker retains the descriptive module name, and pairing guidance
 now explains renaming the first tile. There is no automatic startup rename.
+
+## Input type setting — local implementation, physical acceptance pending
+
+Relay 1 exposes `Input type (all inputs)`. Children explicitly have no settings.
+Only a fresh Basic identity read confirming `_TZ3000_mhhxxjrs` / TS0003 permits
+configuration. Other identities retain OnOff and cannot write this setting.
+Endpoint 1, cluster 0xE001, attribute 0xD030, enum8: toggle=0, state=1,
+momentary=2. These wire values were established in the earlier IH-S09 bench
+investigation; momentary behavior was physically verified there. This is shared
+across S1–S3, not a per-channel setting. No detached mode is advertised.
+
+Startup reads and synchronizes the mode to Homey with no write. The default
+`Keep current device setting` performs no write. Changes read the previous value,
+write the requested enum and confirm readback. A failed change attempts to restore
+and confirm the previous mode; restoration failures are reported explicitly.
+Unknown/unsupported values or unavailable identity/cluster cause rejection before
+configuration writes. Optional read failures do not block inherited OnOff setup.
+
+The new E001 cluster requires re-pairing an existing module to obtain its new
+endpoint contract. The user plans to delete/re-pair when ready. No reset, deletion
+or input-mode change was performed during implementation.
+
+Checks: 215 tests total, 212 passed, zero failed, three inherited TODOs. Includes
+actual pinned zigbee-clusters 2.4.1 wire encoding/decoding for all three enum8
+values, startup reads without writes, identity/child/invalid-mode guards, readback
+rollback and failure reporting. Publish validation and supported-device index pass.
