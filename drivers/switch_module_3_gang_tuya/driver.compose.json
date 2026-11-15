@@ -99,7 +99,7 @@
       },
       "value": "keep",
       "hint": {
-        "en": "Shared by S1\u2013S3. Configure from the Relay 1 tile. Verified only on IH-S09 TS0003 / _TZ3000_mhhxxjrs. Momentary mode toggles the associated relay on each press; detached input is not supported. Startup reads the current mode without changing it."
+        "en": "Shared by all switch inputs on the module. Configure from the Relay 1 tile. Momentary mode toggles the associated relay on each press; detached input is not supported. Startup reads the current mode without changing it."
       },
       "values": [
         {

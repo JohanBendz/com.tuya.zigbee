@@ -24,10 +24,10 @@ for (const family of families) {
     assert.deepEqual(generated.zigbee.productId, [`TS000${family.channels}`]);
     assert.deepEqual(generated.zigbee.manufacturerName, family.manufacturers);
     assert.deepEqual(generated.capabilities, ['onoff']);
-    if (family.channels === 3) {
+    {
       assert.equal(generated.settings[0].id, 'input_mode');
       for (const child of Object.values(generated.zigbee.devices)) assert.deepEqual(child.settings, []);
-    } else assert.equal(generated.settings, undefined);
+    }
     assert.equal(Object.keys(generated.zigbee.devices).length + 1, family.channels);
     for (let ep = 1; ep <= family.channels; ep++) {
       assert.ok(generated.zigbee.endpoints[ep].clusters.includes(6));

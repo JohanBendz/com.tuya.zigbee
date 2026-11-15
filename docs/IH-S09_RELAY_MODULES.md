@@ -8,8 +8,9 @@ not an official Store release. No upstream changes have been published.
 
 Three exact standard OnOff pairing profiles, with one tile per channel. There
 is no additional master, metering, detached input or startup policy setting.
-Only the verified three-channel identity offers a module-wide input-type setting
-on Relay 1; two- and four-channel profiles remain switching-only. Existing drivers
+All three dedicated relay-module profiles offer the same module-wide input-type
+setting on Relay 1; the three-channel module has user-confirmed setting acceptance,
+while two- and four-channel hardware verification remains pending. Existing drivers
 and shared runtimes are unchanged. Initialization reads current device state and
 does not impose relay states or write vendor settings.
 
@@ -123,3 +124,27 @@ without broad API permissions or a startup rename that could overwrite user name
 The user's freshly paired default-named tiles were renamed through Homey's device
 API to match. Existing custom names are preserved. App rebuilt, publish validation
 passed and updated build installed; no re-pair or relay commands are required.
+
+## Shared input-type setting across all three layouts — 2026-11-15
+
+The user confirmed the switch-type setting works on the freshly paired physical
+three-channel module and requested the same setting for 2/3/4-channel variants.
+All three dedicated `switch_module_<N>_gang_tuya` profiles now use the same
+`TuyaRelayModuleInputType` wrapper, preserving their original OnOff runtimes.
+The module-wide setting is declared only on Relay 1; children have empty settings.
+Each profile declares E001 on endpoint 1. The existing upstream
+`switch_2_gang_ts0002` profile (including `_TZ3000_zxrfobzw`) is unchanged.
+
+The wrapper checks the actual manufacturer against its driver's exact allowlist
+and checks TS0002/TS0003/TS0004 against the channel count. All supported identities
+use E001/D030 enum8 with the same toggle/state/momentary options. The prior
+restriction to the single verified manufacturer is superseded; the read-before-write,
+readback, serialized change, rollback and no-startup-write rules remain. Unsupported
+attributes are rejected before any configuration write. No setting was changed
+remotely as part of deployment.
+
+Validation: 218 tests total, 215 passed, zero failed, three inherited TODOs;
+publish-level validation passed. Added wrapper coverage for every allowlisted
+identity in all three layouts, including unsupported-attribute rejection. Physical
+2/4-channel acceptance is still pending; shared implementation is not a claim
+that those devices have been bench-tested.

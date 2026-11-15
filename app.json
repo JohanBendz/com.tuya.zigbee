@@ -13018,7 +13018,8 @@
               0,
               4,
               5,
-              6
+              6,
+              57345
             ],
             "bindings": [
               6
@@ -13043,7 +13044,8 @@
             ],
             "name": {
               "en": "2 Gang Relay Module — Relay 2"
-            }
+            },
+            "settings": []
           }
         },
         "learnmode": {
@@ -13052,7 +13054,46 @@
             "en": "2 tiles will be created, one per relay. Follow the manufacturer’s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly. Each tile is named for its relay number; the first tile controls Relay 1, not the whole module."
           }
         }
-      }
+      },
+      "settings": [
+        {
+          "id": "input_mode",
+          "type": "dropdown",
+          "label": {
+            "en": "Input type (all inputs)"
+          },
+          "value": "keep",
+          "hint": {
+            "en": "Shared by all switch inputs on the module. Configure from the Relay 1 tile. Momentary mode toggles the associated relay on each press; detached input is not supported. Startup reads the current mode without changing it."
+          },
+          "values": [
+            {
+              "id": "keep",
+              "label": {
+                "en": "Keep current device setting"
+              }
+            },
+            {
+              "id": "toggle",
+              "label": {
+                "en": "Toggle switch"
+              }
+            },
+            {
+              "id": "state",
+              "label": {
+                "en": "State-following switch"
+              }
+            },
+            {
+              "id": "momentary",
+              "label": {
+                "en": "Momentary push button"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "switch_module_3_gang_tuya",
@@ -13155,7 +13196,7 @@
           },
           "value": "keep",
           "hint": {
-            "en": "Shared by S1–S3. Configure from the Relay 1 tile. Verified only on IH-S09 TS0003 / _TZ3000_mhhxxjrs. Momentary mode toggles the associated relay on each press; detached input is not supported. Startup reads the current mode without changing it."
+            "en": "Shared by all switch inputs on the module. Configure from the Relay 1 tile. Momentary mode toggles the associated relay on each press; detached input is not supported. Startup reads the current mode without changing it."
           },
           "values": [
             {
@@ -13221,7 +13262,8 @@
               0,
               4,
               5,
-              6
+              6,
+              57345
             ],
             "bindings": [
               6
@@ -13266,7 +13308,8 @@
             ],
             "name": {
               "en": "4 Gang Relay Module — Relay 2"
-            }
+            },
+            "settings": []
           },
           "thirdSwitch": {
             "class": "socket",
@@ -13275,7 +13318,8 @@
             ],
             "name": {
               "en": "4 Gang Relay Module — Relay 3"
-            }
+            },
+            "settings": []
           },
           "fourthSwitch": {
             "class": "socket",
@@ -13284,7 +13328,8 @@
             ],
             "name": {
               "en": "4 Gang Relay Module — Relay 4"
-            }
+            },
+            "settings": []
           }
         },
         "learnmode": {
@@ -13293,7 +13338,46 @@
             "en": "4 tiles will be created, one per relay. Follow the manufacturer’s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly. Each tile is named for its relay number; the first tile controls Relay 1, not the whole module."
           }
         }
-      }
+      },
+      "settings": [
+        {
+          "id": "input_mode",
+          "type": "dropdown",
+          "label": {
+            "en": "Input type (all inputs)"
+          },
+          "value": "keep",
+          "hint": {
+            "en": "Shared by all switch inputs on the module. Configure from the Relay 1 tile. Momentary mode toggles the associated relay on each press; detached input is not supported. Startup reads the current mode without changing it."
+          },
+          "values": [
+            {
+              "id": "keep",
+              "label": {
+                "en": "Keep current device setting"
+              }
+            },
+            {
+              "id": "toggle",
+              "label": {
+                "en": "Toggle switch"
+              }
+            },
+            {
+              "id": "state",
+              "label": {
+                "en": "State-following switch"
+              }
+            },
+            {
+              "id": "momentary",
+              "label": {
+                "en": "Momentary push button"
+              }
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "temphumidsensor",

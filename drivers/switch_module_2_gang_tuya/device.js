@@ -1,4 +1,6 @@
 'use strict';
 
-// Standard OnOff only; no vendor configuration or metering writes.
-module.exports = require('../switch_2_gang/device');
+const BaseDevice = require('../switch_2_gang/device');
+const withInputType = require('../../lib/TuyaRelayModuleInputType');
+
+module.exports = withInputType(BaseDevice, 2);

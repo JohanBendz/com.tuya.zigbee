@@ -4,11 +4,14 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
+const withInputType = require('../lib/TuyaRelayModuleInputType');
 const { Cluster, ZCLNode } = require('zigbee-clusters');
 const InputCluster = require('../lib/TuyaRelayInputCluster');
 Cluster.addCluster(InputCluster);
 
-function fixture({ manufacturer = '_TZ3000_mhhxxjrs', sub = false, unsupported = false } = {}) {
+function fixture({ channels = 3, manufacturer, sub = false, unsupported = false } = {}) {
+  const profile = require(`../drivers/switch_module_${channels}_gang_tuya/driver.compose.json`);
+  manufacturer = manufacturer || profile.zigbee.manufacturerName[0];
   let mode = 'momentary';
   const writes = [], saved = [];
   const cluster = {
@@ -16,22 +19,24 @@ function fixture({ manufacturer = '_TZ3000_mhhxxjrs', sub = false, unsupported =
     async writeAttributes(value) { writes.push(value.switchType); mode = value.switchType; },
   };
   class Base {
+    constructor() { this.driver = { manifest: profile }; }
     async onNodeInit() { this.baseInitialized = true; }
     isSubDevice() { return sub; }
     log() {}
     async setSettings(settings) { saved.push(settings.input_mode); }
   }
   const mod = { exports: {} };
-  const source = fs.readFileSync(path.join(__dirname, '..', 'drivers/switch_module_3_gang_tuya/device.js'), 'utf8');
+  const source = fs.readFileSync(path.join(__dirname, '..', `drivers/switch_module_${channels}_gang_tuya/device.js`), 'utf8');
   vm.runInNewContext('(function(require,module,exports){' + source + '\n})')((name) => {
     if (name === 'zigbee-clusters') return { Cluster };
     if (name === '../../lib/TuyaRelayInputCluster') return InputCluster;
-    if (name === '../switch_3_gang/device') return Base;
+    if (name.endsWith('/device')) return Base;
+    if (name === '../../lib/TuyaRelayModuleInputType') return withInputType;
     throw new Error(name);
   }, mod, mod.exports);
   const device = new mod.exports();
   const args = { zclNode: { endpoints: { 1: { clusters: {
-    basic: { readAttributes: async () => ({ manufacturerName: manufacturer, modelId: 'TS0003' }) },
+    basic: { readAttributes: async () => ({ manufacturerName: manufacturer, modelId: `TS000${channels}` }) },
     tuyaRelayInput: cluster,
   } } } } };
   const change = input_mode => device.onSettings({ newSettings: { input_mode }, changedKeys: ['input_mode'] });
@@ -48,8 +53,8 @@ test('IH-S09 startup reads actual shared mode without changing device configurat
   assert.deepEqual(f.writes, ['toggle', 'state', 'momentary']);
 });
 
-test('unverified identities, child tiles and unknown modes cannot issue configuration writes', async () => {
-  for (const opts of [{ manufacturer: '_TZ3000_hbic3ka3' }, { sub: true }, { unsupported: true }]) {
+test('unmatched identities, child tiles and unknown modes cannot issue configuration writes', async () => {
+  for (const opts of [{ manufacturer: '_TZ3000_unknown' }, { sub: true }, { unsupported: true }]) {
     const f = fixture(opts); await f.device.onNodeInit(f.args);
     assert.deepEqual(f.saved, []);
     await assert.rejects(f.change('toggle'));
@@ -99,3 +104,21 @@ test('actual pinned Zigbee library encodes D030 as enum8 and decodes all three n
   }
   assert.ok(sent.every(s => s.ep === 1 && s.id === 0xe001 && (s.frame[0] & 1) === 0));
 });
+
+for (const channels of [2, 3, 4]) {
+  test(`${channels}-channel wrapper reads and updates the shared input mode for every exact identity`, async () => {
+    const profile = require(`../drivers/switch_module_${channels}_gang_tuya/driver.compose.json`);
+    for (const manufacturer of profile.zigbee.manufacturerName) {
+      const f = fixture({ channels, manufacturer });
+      await f.device.onNodeInit(f.args);
+      assert.deepEqual(f.saved, ['momentary']);
+      assert.deepEqual(f.writes, []);
+      await f.change('state');
+      assert.deepEqual(f.writes, ['state']);
+    }
+    const unsupported = fixture({ channels, unsupported: true });
+    await unsupported.device.onNodeInit(unsupported.args);
+    await assert.rejects(unsupported.change('state'));
+    assert.deepEqual(unsupported.writes, []);
+  });
+}
