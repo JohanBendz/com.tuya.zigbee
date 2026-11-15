@@ -1,0 +1,90 @@
+{
+  "id": "switch_module_3_gang_tuya",
+  "name": {
+    "en": "3 Gang Relay Module"
+  },
+  "class": "socket",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [
+    "onoff"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_mhhxxjrs",
+      "_TZ3000_hbic3ka3",
+      "_TZ3000_iv4eq7eh"
+    ],
+    "productId": [
+      "TS0003"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          4,
+          5,
+          6
+        ],
+        "bindings": [
+          6
+        ]
+      },
+      "2": {
+        "clusters": [
+          4,
+          5,
+          6
+        ],
+        "bindings": [
+          6
+        ]
+      },
+      "3": {
+        "clusters": [
+          4,
+          5,
+          6
+        ],
+        "bindings": [
+          6
+        ]
+      }
+    },
+    "devices": {
+      "secondSwitch": {
+        "class": "socket",
+        "capabilities": [
+          "onoff"
+        ],
+        "name": {
+          "en": "Relay 2"
+        }
+      },
+      "thirdSwitch": {
+        "class": "socket",
+        "capabilities": [
+          "onoff"
+        ],
+        "name": {
+          "en": "Relay 3"
+        }
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "3 tiles will be created, one per relay. Follow the manufacturer\u2019s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly."
+      }
+    }
+  }
+}

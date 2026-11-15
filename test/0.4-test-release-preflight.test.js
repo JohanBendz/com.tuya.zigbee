@@ -35,8 +35,10 @@ test('0.4.1 development artifact version agrees across source, lockfile, generat
 test('inherited 0.4.0 release instructions enumerate the actual 19 additions and 33 exact independently pending identities', () => {
   const prev = new Set(Object.keys(historical.drivers));
   assert.equal(prev.size, 135);
-  const newer = app.drivers.filter(d => !prev.has(d.id));
-  assert.equal(app.drivers.length, 154);
+  // These three relay profiles are tracked separately in ih-s09-relay-profiles.test.js.
+  const relayAdditions = new Set([2, 3, 4].map(n => `switch_module_${n}_gang_tuya`));
+  const newer = app.drivers.filter(d => !prev.has(d.id) && !relayAdditions.has(d.id));
+  assert.equal(app.drivers.length, 157);
   assert.equal(newer.length, 19);
 
   const acceptance = read('docs/0.4.0_PHYSICAL_ACCEPTANCE.md');
