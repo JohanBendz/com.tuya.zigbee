@@ -36,8 +36,13 @@ test('inherited 0.4.0 release instructions enumerate the actual 19 additions and
   const prev = new Set(Object.keys(historical.drivers));
   assert.equal(prev.size, 135);
   const newer = app.drivers.filter(d => !prev.has(d.id));
-  assert.equal(app.drivers.length, 154);
-  assert.equal(newer.length, 19);
+  // The frozen 0.4.0 inventory stays 154 drivers / 19 additions.
+  // Later 0.4.1 profiles are counted apart from that acceptance matrix.
+  const postFreezeIds = new Set(['wall_thermostat_beok_tgm50']);
+  const frozenNewer = newer.filter(d => !postFreezeIds.has(d.id));
+  assert.equal(frozenNewer.length, 19);
+  assert.equal(newer.length, 19 + postFreezeIds.size);
+  assert.equal(app.drivers.length, 154 + postFreezeIds.size);
 
   const acceptance = read('docs/0.4.0_PHYSICAL_ACCEPTANCE.md');
   const begin = acceptance.indexOf(matrixStart), end = acceptance.indexOf(matrixEnd);

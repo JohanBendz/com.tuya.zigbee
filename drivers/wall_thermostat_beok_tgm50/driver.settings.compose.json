@@ -1,0 +1,142 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Floor heating"
+    },
+    "children": [
+      {
+        "id": "sensorSelect",
+        "type": "dropdown",
+        "label": {
+          "en": "Temperature sensor"
+        },
+        "hint": {
+          "en": "Datapoint 106. Internal is the room sensor, external is the floor probe, and both uses both. Floor-probe temperature, window detection, power-loss memory and the weekly schedule have no confirmed datapoint; those reports are logged for a hardware test and are not written."
+        },
+        "value": "0",
+        "values": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Internal"
+            }
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "External"
+            }
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Internal and external"
+            }
+          }
+        ]
+      },
+      {
+        "id": "hysteresis",
+        "type": "number",
+        "label": {
+          "en": "Hysteresis"
+        },
+        "hint": {
+          "en": "Datapoint 107, written as °C × 10. Heating starts when the room is this far below the setpoint."
+        },
+        "value": 1,
+        "min": 0.5,
+        "max": 10,
+        "step": 0.5,
+        "units": {
+          "en": "°C"
+        }
+      },
+      {
+        "id": "maxTemperature",
+        "type": "number",
+        "label": {
+          "en": "Maximum temperature"
+        },
+        "hint": {
+          "en": "Datapoint 15, written as °C × 10. Zigbee2MQTT range is 15–90 °C."
+        },
+        "value": 60,
+        "min": 15,
+        "max": 90,
+        "step": 0.5,
+        "units": {
+          "en": "°C"
+        }
+      },
+      {
+        "id": "frostProtection",
+        "type": "checkbox",
+        "label": {
+          "en": "Frost protection"
+        },
+        "hint": {
+          "en": "Datapoint 102. Antifreeze function."
+        },
+        "value": false
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Display"
+    },
+    "children": [
+      {
+        "id": "backlightMode",
+        "type": "dropdown",
+        "label": {
+          "en": "Backlight"
+        },
+        "hint": {
+          "en": "Datapoint 110."
+        },
+        "value": "1",
+        "values": [
+          {
+            "id": "0",
+            "label": {
+              "en": "Off"
+            }
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "Always low"
+            }
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "Always medium"
+            }
+          },
+          {
+            "id": "3",
+            "label": {
+              "en": "Always high"
+            }
+          }
+        ]
+      },
+      {
+        "id": "soundEnabled",
+        "type": "checkbox",
+        "label": {
+          "en": "Button sound"
+        },
+        "hint": {
+          "en": "Datapoint 105. ZHA maps this for _TZE204_cvub6xbb. Zigbee2MQTT does not list it, so treat a change as unverified until a hardware test confirms the beep."
+        },
+        "value": false
+      }
+    ]
+  }
+]

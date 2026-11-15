@@ -17081,6 +17081,224 @@
       "settings": []
     },
     {
+      "id": "wall_thermostat_beok_tgm50",
+      "name": {
+        "en": "BEOK TGM50 Floor Heating Thermostat",
+        "nl": "BEOK TGM50 vloerverwarmingsthermostaat",
+        "de": "BEOK TGM50 Fußbodenheizungsthermostat"
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "onoff",
+        "target_temperature",
+        "measure_temperature",
+        "beok_tgm50_preset",
+        "thermostat_heating",
+        "child_lock",
+        "temp_calibration"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "min": 5,
+          "max": 35,
+          "step": 0.5,
+          "decimals": 1
+        },
+        "measure_temperature": {
+          "decimals": 1
+        },
+        "temp_calibration": {
+          "min": -9.9,
+          "max": 9.9,
+          "step": 0.1,
+          "decimals": 1
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/wall_thermostat_beok_tgm50/assets/images/small.jpg",
+        "large": "/drivers/wall_thermostat_beok_tgm50/assets/images/large.jpg"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE204_cvub6xbb"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": [
+              10,
+              25,
+              61184
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_thermostat_beok_tgm50/assets/icon.svg",
+          "instruction": {
+            "en": "Power the thermostat on, then press and hold the ^ key at the bottom right for 5–8 seconds until the Wi-Fi icon flashes.",
+            "nl": "Zet de thermostaat aan en houd de ^-toets rechtsonder 5–8 seconden ingedrukt tot het wifi-pictogram knippert.",
+            "de": "Schalte den Thermostat ein und halte die ^-Taste unten rechts 5–8 Sekunden gedrückt, bis das WLAN-Symbol blinkt."
+          }
+        }
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Floor heating"
+          },
+          "children": [
+            {
+              "id": "sensorSelect",
+              "type": "dropdown",
+              "label": {
+                "en": "Temperature sensor"
+              },
+              "hint": {
+                "en": "Datapoint 106. Internal is the room sensor, external is the floor probe, and both uses both. Floor-probe temperature, window detection, power-loss memory and the weekly schedule have no confirmed datapoint; those reports are logged for a hardware test and are not written."
+              },
+              "value": "0",
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Internal"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "External"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "Internal and external"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "hysteresis",
+              "type": "number",
+              "label": {
+                "en": "Hysteresis"
+              },
+              "hint": {
+                "en": "Datapoint 107, written as °C × 10. Heating starts when the room is this far below the setpoint."
+              },
+              "value": 1,
+              "min": 0.5,
+              "max": 10,
+              "step": 0.5,
+              "units": {
+                "en": "°C"
+              }
+            },
+            {
+              "id": "maxTemperature",
+              "type": "number",
+              "label": {
+                "en": "Maximum temperature"
+              },
+              "hint": {
+                "en": "Datapoint 15, written as °C × 10. Zigbee2MQTT range is 15–90 °C."
+              },
+              "value": 60,
+              "min": 15,
+              "max": 90,
+              "step": 0.5,
+              "units": {
+                "en": "°C"
+              }
+            },
+            {
+              "id": "frostProtection",
+              "type": "checkbox",
+              "label": {
+                "en": "Frost protection"
+              },
+              "hint": {
+                "en": "Datapoint 102. Antifreeze function."
+              },
+              "value": false
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Display"
+          },
+          "children": [
+            {
+              "id": "backlightMode",
+              "type": "dropdown",
+              "label": {
+                "en": "Backlight"
+              },
+              "hint": {
+                "en": "Datapoint 110."
+              },
+              "value": "1",
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Off"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "Always low"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "Always medium"
+                  }
+                },
+                {
+                  "id": "3",
+                  "label": {
+                    "en": "Always high"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "soundEnabled",
+              "type": "checkbox",
+              "label": {
+                "en": "Button sound"
+              },
+              "hint": {
+                "en": "Datapoint 105. ZHA maps this for _TZE204_cvub6xbb. Zigbee2MQTT does not list it, so treat a change as unverified until a hardware test confirms the beep."
+              },
+              "value": false
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "water_detector",
       "name": {
         "en": "Water Detector"
@@ -17401,6 +17619,48 @@
       "getable": true,
       "setable": true
     },
+    "beok_tgm50_preset": {
+      "type": "enum",
+      "title": {
+        "en": "Preset",
+        "nl": "Preset",
+        "de": "Voreinstellung"
+      },
+      "desc": {
+        "en": "BEOK TGM50 operating preset",
+        "nl": "BEOK TGM50-bedieningspreset",
+        "de": "BEOK TGM50-Betriebsvoreinstellung"
+      },
+      "values": [
+        {
+          "id": "0",
+          "title": {
+            "en": "Manual",
+            "nl": "Handmatig",
+            "de": "Manuell"
+          }
+        },
+        {
+          "id": "1",
+          "title": {
+            "en": "Auto",
+            "nl": "Auto",
+            "de": "Auto"
+          }
+        },
+        {
+          "id": "3",
+          "title": {
+            "en": "Eco",
+            "nl": "Eco",
+            "de": "Eco"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
+    },
     "child_lock": {
       "type": "boolean",
       "title": {
@@ -17620,6 +17880,22 @@
       "getable": true,
       "setable": true,
       "capabilitiesOptions": {}
+    },
+    "thermostat_heating": {
+      "type": "boolean",
+      "title": {
+        "en": "Heating",
+        "nl": "Verwarmen",
+        "de": "Heizen"
+      },
+      "desc": {
+        "en": "The valve is heating",
+        "nl": "De kraan verwarmt",
+        "de": "Das Ventil heizt"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
     },
     "thermostat_preset": {
       "type": "enum",
