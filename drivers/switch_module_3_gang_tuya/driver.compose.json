@@ -1,7 +1,7 @@
 {
   "id": "switch_module_3_gang_tuya",
   "name": {
-    "en": "3 Gang Relay Module"
+    "en": "3 Gang Relay Module \u2014 Relay 1"
   },
   "class": "socket",
   "platforms": [
@@ -68,7 +68,7 @@
           "onoff"
         ],
         "name": {
-          "en": "Relay 2"
+          "en": "3 Gang Relay Module \u2014 Relay 2"
         },
         "settings": []
       },
@@ -78,7 +78,7 @@
           "onoff"
         ],
         "name": {
-          "en": "Relay 3"
+          "en": "3 Gang Relay Module \u2014 Relay 3"
         },
         "settings": []
       }
@@ -86,7 +86,7 @@
     "learnmode": {
       "image": "{{driverAssetsPath}}/icon.svg",
       "instruction": {
-        "en": "3 tiles will be created, one per relay. Follow the manufacturer\u2019s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly. The first tile uses the module name by default; rename it to Relay 1 to match Relay 2 and the other channel tiles."
+        "en": "3 tiles will be created, one per relay. Follow the manufacturer\u2019s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly. Each tile is named for its relay number; the first tile controls Relay 1, not the whole module."
       }
     }
   },
@@ -99,7 +99,7 @@
       },
       "value": "keep",
       "hint": {
-        "en": "Shared by S1\u2013S3. Configure from Relay 1. Verified only on IH-S09 TS0003 / _TZ3000_mhhxxjrs. Momentary mode toggles the associated relay on each press; detached input is not supported. Startup reads the current mode without changing it."
+        "en": "Shared by S1\u2013S3. Configure from the Relay 1 tile. Verified only on IH-S09 TS0003 / _TZ3000_mhhxxjrs. Momentary mode toggles the associated relay on each press; detached input is not supported. Startup reads the current mode without changing it."
       },
       "values": [
         {

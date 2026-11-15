@@ -1,7 +1,7 @@
 {
   "id": "switch_module_4_gang_tuya",
   "name": {
-    "en": "4 Gang Relay Module"
+    "en": "4 Gang Relay Module \u2014 Relay 1"
   },
   "class": "socket",
   "platforms": [
@@ -77,7 +77,7 @@
           "onoff"
         ],
         "name": {
-          "en": "Relay 2"
+          "en": "4 Gang Relay Module \u2014 Relay 2"
         }
       },
       "thirdSwitch": {
@@ -86,7 +86,7 @@
           "onoff"
         ],
         "name": {
-          "en": "Relay 3"
+          "en": "4 Gang Relay Module \u2014 Relay 3"
         }
       },
       "fourthSwitch": {
@@ -95,14 +95,14 @@
           "onoff"
         ],
         "name": {
-          "en": "Relay 4"
+          "en": "4 Gang Relay Module \u2014 Relay 4"
         }
       }
     },
     "learnmode": {
       "image": "{{driverAssetsPath}}/icon.svg",
       "instruction": {
-        "en": "4 tiles will be created, one per relay. Follow the manufacturer\u2019s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly. The first tile uses the module name by default; rename it to Relay 1 to match Relay 2 and the other channel tiles."
+        "en": "4 tiles will be created, one per relay. Follow the manufacturer\u2019s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly. Each tile is named for its relay number; the first tile controls Relay 1, not the whole module."
       }
     }
   }

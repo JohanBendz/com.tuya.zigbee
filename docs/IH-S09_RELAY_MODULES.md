@@ -83,8 +83,9 @@ and `Relay 3`. Device IDs and Zigbee token were preserved. No relay commands
 were sent. Independent switching and physical-button acceptance are still pending.
 
 Homey's built-in Zigbee pairing uses the driver display name for the root tile.
-The Add Device picker retains the descriptive module name, and pairing guidance
-now explains renaming the first tile. There is no automatic startup rename.
+Initially, the Add Device picker retained the module name and the first tile
+needed a manual rename. This has been superseded by the numbered defaults below.
+There is no automatic startup rename.
 
 ## Input type setting — local implementation, physical acceptance pending
 
@@ -111,3 +112,14 @@ Checks: 215 tests total, 212 passed, zero failed, three inherited TODOs. Include
 actual pinned zigbee-clusters 2.4.1 wire encoding/decoding for all three enum8
 values, startup reads without writes, identity/child/invalid-mode guards, readback
 rollback and failure reporting. Publish validation and supported-device index pass.
+
+## Consistent fresh-pair defaults — 2026-11-15
+
+A fresh pairing confirmed the prior manual rename did not change root defaults.
+The three new profiles now name every tile `<N> Gang Relay Module — Relay <i>`,
+including the root/Relay 1. The Add Device picker consequently includes `Relay 1`
+in the driver display name. This follows Homey's built-in Zigbee naming behavior
+without broad API permissions or a startup rename that could overwrite user names.
+The user's freshly paired default-named tiles were renamed through Homey's device
+API to match. Existing custom names are preserved. App rebuilt, publish validation
+passed and updated build installed; no re-pair or relay commands are required.
