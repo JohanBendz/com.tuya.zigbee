@@ -1,0 +1,76 @@
+{
+  "id": "wall_thermostat_beok_tgm50",
+  "name": {
+    "en": "BEOK TGM50 Floor Heating Thermostat",
+    "nl": "BEOK TGM50 vloerverwarmingsthermostaat",
+    "de": "BEOK TGM50 Fußbodenheizungsthermostat"
+  },
+  "class": "thermostat",
+  "capabilities": [
+    "onoff",
+    "target_temperature",
+    "measure_temperature",
+    "beok_tgm50_preset",
+    "thermostat_heating",
+    "child_lock",
+    "temp_calibration"
+  ],
+  "capabilitiesOptions": {
+    "target_temperature": {
+      "min": 5,
+      "max": 35,
+      "step": 0.5,
+      "decimals": 1
+    },
+    "measure_temperature": {
+      "decimals": 1
+    },
+    "temp_calibration": {
+      "min": -9.9,
+      "max": 9.9,
+      "step": 0.1,
+      "decimals": 1
+    }
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.jpg",
+    "large": "{{driverAssetsPath}}/images/large.jpg"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZE204_cvub6xbb"
+    ],
+    "productId": [
+      "TS0601"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          4,
+          5,
+          61184
+        ],
+        "bindings": [
+          10,
+          25,
+          61184
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Power the thermostat on, then press and hold the ^ key at the bottom right for 5–8 seconds until the Wi-Fi icon flashes.",
+        "nl": "Zet de thermostaat aan en houd de ^-toets rechtsonder 5–8 seconden ingedrukt tot het wifi-pictogram knippert.",
+        "de": "Schalte den Thermostat ein und halte die ^-Taste unten rechts 5–8 Sekunden gedrückt, bis das WLAN-Symbol blinkt."
+      }
+    }
+  }
+}
