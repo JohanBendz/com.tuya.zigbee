@@ -13964,7 +13964,8 @@
         "measure_temperature",
         "measure_humidity",
         "measure_battery",
-        "alarm_battery"
+        "alarm_battery",
+        "measure_temperature.internal"
       ],
       "images": {
         "large": "/drivers/temphumidsensor_excellux/assets/images/large.png",
@@ -13985,24 +13986,32 @@
               1026,
               1029
             ],
-            "bindings": [
-              1,
-              1026,
-              1029
-            ]
+            "bindings": []
           }
         },
         "learnmode": {
           "image": "/drivers/temphumidsensor_excellux/assets/learn.svg",
           "instruction": {
-            "en": "Put the sensor into Zigbee pairing mode according to the device instructions."
+            "en": "Press and hold the sensor button for 5 seconds until the indicator starts flashing. Release the button, then wait for Homey to finish pairing."
           }
         }
       },
       "energy": {
         "batteries": [
-          "OTHER"
+          "CR2450"
         ]
+      },
+      "capabilitiesOptions": {
+        "measure_temperature": {
+          "title": {
+            "en": "Probe temperature"
+          }
+        },
+        "measure_temperature.internal": {
+          "title": {
+            "en": "Onboard temperature"
+          }
+        }
       },
       "settings": [
         {
@@ -14086,6 +14095,33 @@
               }
             }
           ]
+        },
+        {
+          "id": "sampling_interval",
+          "type": "number",
+          "label": {
+            "en": "Sampling interval"
+          },
+          "value": 60,
+          "units": {
+            "en": "seconds"
+          },
+          "attr": {
+            "min": 5,
+            "max": 1200,
+            "step": 5
+          },
+          "hint": {
+            "en": "Wake the sensor before saving. Applied only when this setting changes; the default is not sent during pairing. 5 seconds is useful for testing; longer intervals conserve battery. Sampling does not guarantee a report each interval."
+          }
+        },
+        {
+          "id": "sampling_confirmation",
+          "type": "label",
+          "label": {
+            "en": "Last sampling interval reported by sensor"
+          },
+          "value": "Not yet reported"
         }
       ]
     },
