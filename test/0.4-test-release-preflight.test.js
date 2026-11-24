@@ -15,17 +15,17 @@ const read = file => fs.readFileSync(path.resolve(__dirname, '..', file), 'utf8'
 const matrixStart = '<!-- BEGIN EXACT-IDENTITY ACCEPTANCE MATRIX -->';
 const matrixEnd = '<!-- END EXACT-IDENTITY ACCEPTANCE MATRIX -->';
 
-test('0.4.1 development artifact version agrees across source, lockfile, generated manifest and changelog', () => {
+test('0.4.2 development artifact version agrees across source, lockfile, generated manifest and changelog', () => {
   for (const [source, value] of Object.entries({
     package: pkg.version,
     lockfile: lock.version,
     lockfileRoot: lock.packages[''].version,
     compose: compose.version,
     generatedManifest: app.version,
-  })) assert.equal(value, '0.4.1', source + ' drifted from release candidate');
-  assert.match(changelog['0.4.1']?.en || '', /pairing profiles/i,
+  })) assert.equal(value, '0.4.2', source + ' drifted from release candidate');
+  assert.match(changelog['0.4.2']?.en || '', /pairing profiles/i,
     'Homey App Store notes must describe the user-visible additions');
-  assert.doesNotMatch(changelog['0.4.1']?.en || '', /\b(?:Test|Live|beta) (?:release|version|candidate)\b/i,
+  assert.doesNotMatch(changelog['0.4.2']?.en || '', /\b(?:Test|Live|beta) (?:release|version|candidate)\b/i,
     'release-channel status belongs in maintainer documentation');
   assert.equal(app.compatibility, '>=5.0.0',
     'New devices must not silently increase the legacy Homey firmware floor');
@@ -62,15 +62,25 @@ test('inherited 0.4.0 release instructions enumerate the actual 19 additions and
   assert.match(preflight, /0\.4\.1/);
   assert.match(preflight, /CONFIRMED: 0\.3\.2 Live BEFORE 0\.4\.0 Test/);
   assert.match(guidance, /0\.3\.2 Live BEFORE 0\.4\.0 Test/);
-  assert.match(maintaining, /0\.3\.2 Live BEFORE 0\.4\.0 Test/);
   assert.match(acceptance, /0\.3\.2 Live BEFORE 0\.4\.0 Test/);
   assert.match(preflight, /`main` = 0\.3\.3 Live; `dev` = 0\.3\.4 Test/);
   assert.match(preflight, /BRANCHES\.md/);
-  const branchPolicy = read('docs/BRANCHES.md');
-  assert.match(branchPolicy, /130854f4c6d1b5a3537e956d941eb2e3caec9a9a/);
-  assert.match(branchPolicy, /21b60ce07d91421aeba08357960c8fc910d87593/);
-  assert.match(maintaining, /develop-0\.4\.1/);
-  assert.match(read('.github/workflows/validate.yml'), /develop-0\.4\.1/);
   assert.match(preflight, /NOT SUBMITTED/);
   assert.match(preflight, /public\s+0\.4 Test/i);
+});
+
+// Current release routing is checked separately from the immutable 0.4.0
+// acceptance snapshot. Update these assertions only on a real channel change.
+test('current release policy distinguishes Live, published Test and active development', () => {
+  const branchPolicy = read('docs/BRANCHES.md');
+  const maintaining = read('MAINTAINING.md');
+  assert.match(branchPolicy, /130854f4c6d1b5a3537e956d941eb2e3caec9a9a/);
+  assert.match(branchPolicy, /21b60ce07d91421aeba08357960c8fc910d87593/);
+  assert.match(branchPolicy, /\| `main` \| Live 0\.3\.3 \|/);
+  assert.match(branchPolicy, /\| `dev` \| Test 0\.4\.1 \| `46a4a6b8ac8806d65530667e7c8341d57ca7491c`/);
+  assert.match(branchPolicy, /\| `develop-0\.4\.2` \| Active development 0\.4\.2 \|/);
+  assert.match(maintaining, /main = 0\.3\.3 Live and dev = 0\.4\.1 Test/);
+  assert.match(maintaining, /develop-0\.4\.2/);
+  assert.match(read('.github/workflows/validate.yml'), /develop-0\.4\.2/);
+  assert.match(maintaining, /Physical checks take place through the published 0\.4 Test version/);
 });

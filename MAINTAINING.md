@@ -92,7 +92,7 @@ Homey's publish validation checks the generated manifest and publish assets. Sta
 ## Branches and release lanes (2026-11-24)
 
 - `main` follows actual Live 0.3.3; `dev` follows actual Test 0.4.1 at `46a4a6b`.
-- `develop-0.4.2` is the active development target; #1562 tracks work.
+- `develop-0.4.2` is the active development target (version 0.4.2); #1562 tracks work.
 - `develop-0.4.1` and `develop-0.4` are frozen historical sources. SDK3 is retained for history.
 - See [current branch policy](docs/BRANCHES.md), [0.4.2 roadmap](docs/0.4.2_ROADMAP.md) and #1557 for physical acceptance. Prepare narrow fixes on dedicated branches. Do not edit published runtimes directly.
 
