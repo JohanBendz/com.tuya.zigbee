@@ -74,7 +74,7 @@ Homey's publish validation checks the generated manifest and publish assets. Sta
 
 **0.4 release contract:** Preserve the generated [0.3.1 Test manifest baseline](test/fixtures/0.3.1-manifest-contract.json) using `test/0.4-legacy-manifest-contract.test.js`; record any consciously approved existing-contract change with issue-linked target signatures in `test/fixtures/0.4-approved-manifest-deltas.json`. See [0.4 Test readiness](docs/0.4.0_TEST_READINESS.md). Never rewrite the immutable source baseline to silence a regression. Separately pin and verify the [20 sensitive legacy source Git blobs](test/fixtures/0.3.1-protected-runtime-blobs.json) with `test/0.4-protected-runtime-contract.test.js`; any reviewed, issue-linked exception belongs in `test/fixtures/0.4-approved-runtime-deltas.json`, not in the original snapshot.
 
-**0.4 hardware gate:** Consult [the release-candidate preflight](docs/0.4.0_RELEASE_PREFLIGHT.md) and [the exact physical acceptance matrix](docs/0.4.0_PHYSICAL_ACCEPTANCE.md) before suggesting a 0.4 Test/Live promotion. It tracks the current 33 individually testable manufacturer/product fingerprints across nineteen NEW 0.4 drivers, original physical evidence, per-gang/sensor tests and the existing plug-regression scope (#1503). CI success alone is not physical acceptance. **Physical checks take place through the published 0.4 Test version, not as an entry requirement before publishing Test.** Before moving from Test to Live, use reported physical evidence and evaluate or defer unverified fingerprints. **Current channels are main = 0.3.3 Live and dev = 0.4.1 Test** (maintainer confirmed 2026-11-24). Track physical acceptance in #1557 before Live promotion.
+**0.4 hardware gate:** Consult [the release-candidate preflight](docs/0.4.0_RELEASE_PREFLIGHT.md) and [the exact physical acceptance matrix](docs/0.4.0_PHYSICAL_ACCEPTANCE.md) before suggesting a 0.4 Test/Live promotion. It tracks the current 33 individually testable manufacturer/product fingerprints across nineteen NEW 0.4 drivers, original physical evidence, per-gang/sensor tests and the existing plug-regression scope (#1503). CI success alone is not physical acceptance. **Physical checks take place through the published 0.4 Test version, not as an entry requirement before publishing Test.** Before moving from Test to Live, use reported physical evidence and evaluate or defer unverified fingerprints. **Current channels are main = 0.3.3 Live and dev = 0.4.1 Test** (maintainer confirmed 2026-11-24). 0.4.1 has been submitted for Live review. The maintainer confirms each publication before channel branches move (#1557).
 
 ## Releases
 
@@ -92,7 +92,7 @@ Homey's publish validation checks the generated manifest and publish assets. Sta
 ## Branches and release lanes (2026-11-24)
 
 - `main` follows actual Live 0.3.3; `dev` follows actual Test 0.4.1 at `46a4a6b`.
-- `develop-0.4.2` is the active development target (version 0.4.2); #1562 tracks work.
+- `develop-0.4.3` is the active development target. The 0.4.2 Test candidate is frozen at `6a720be` (#1562).
 - `develop-0.4.1` and `develop-0.4` are frozen historical sources. SDK3 is retained for history.
 - See [current branch policy](docs/BRANCHES.md), [0.4.2 roadmap](docs/0.4.2_ROADMAP.md) and #1557 for physical acceptance. Prepare narrow fixes on dedicated branches. Do not edit published runtimes directly.
 
