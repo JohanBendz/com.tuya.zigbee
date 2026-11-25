@@ -23,19 +23,34 @@ Cluster.addCluster(TuyaSpecificCluster);
  * and value*10 on write. JS bitwise shifts in getDataValue already yield a
  * signed 32-bit number, which is what negative calibration needs.
  *
- * Time: Tuya command 0x24 is answered like drivers/lcdtemphumidsensor_3
- * (Unix epoch, timeStart "1970", with payloadSize). The Zigbee Time cluster
- * responder uses the 2000 epoch. This valve asks for time in a burst.
- * At most one 0x24 reply is sent every 20 seconds (TIME_ANSWER_COOLDOWN_MS).
- * A dataQuery is sent at most once per hour. A reply on every request was
- * stacking writes on the sleepy MCU so a target-temperature datapoint never
- * got on the air.
+ * Time: Tuya command 0x24 is Unix epoch (timeStart "1970"), 4 byte UTC plus
+ * 4 byte local. The Zigbee Time cluster uses the 2000 epoch. Those epochs
+ * stay distinct. Homey SDK v3 runs the app with process timezone UTC, so
+ * Date.getTimezoneOffset() is 0 even when Homey is set to Europe/Stockholm.
+ * Local offset comes from homey.clock.getTimezone() and Intl.DateTimeFormat
+ * for the actual instant. The Time bound cluster gets that provider from
+ * this driver only.
+ *
+ * This valve asks for time in a burst. At most one 0x24 reply is sent every 20 seconds
+ * (TIME_ANSWER_COOLDOWN_MS). A dataQuery is sent at most once per hour.
+ *
+ * DP 4: the last reported setpoint is the device value. The capability can
+ * show an optimistic target before a report arrives. A failed or timed-out
+ * request rolls back to the last reported value, not to an earlier
+ * unconfirmed optimistic write. A Promise.race timeout does not cancel the
+ * Zigbee write. The next DP 4 command waits until that write settles. A
+ * late transport result does not retry the write and does not turn a failed
+ * request into a success. A later physical report still updates the
+ * displayed value.
  *
  * DP 15 is a reported window status. It uses the read-only capability
  * window_open_status. The shared window_open capability stays setable for
  * the other thermostat drivers.
  *
  * Weekly schedule DPs 28-34 are left out of this version.
+ *
+ * This is the same SDK timezone issue as #1545. It does not change the
+ * other device.
  */
 
 const DP = {
@@ -66,6 +81,10 @@ const PRESET_LABELS = {
   6: 'off',
 };
 
+const DATA_TYPE_BOOL = 1;
+const DATA_TYPE_VALUE = 2;
+const DATA_TYPE_ENUM = 4;
+
 const ZIGBEE_EPOCH_MS = Date.UTC(2000, 0, 1, 0, 0, 0);
 const ZCL_STATUS_SUCCESS = 0x00;
 const ZCL_STATUS_UNSUPPORTED_ATTRIBUTE = 0x86;
@@ -75,20 +94,70 @@ const ZCL_TYPE_INT32 = 0x2B;
 const TIME_UPDATE_INTERVAL_MS = 3600 * 1000;
 const TIME_ANSWER_COOLDOWN_MS = 20 * 1000;
 const SETPOINT_WRITE_TIMEOUT_MS = 10 * 1000;
+const CONFIRM_EXPIRY_MS = 30 * 1000;
 const SUPERSEDED_SETPOINT = 'Superseded by a newer target temperature';
+
+/**
+ * Seconds east of UTC for Homey's configured zone at this instant.
+ * Positive east of UTC. Independent of the process TZ, which SDK v3 forces
+ * to UTC.
+ */
+function localOffsetSeconds(timeZone, instant) {
+  const date = instant instanceof Date ? instant : new Date(instant);
+  if (typeof timeZone !== 'string' || timeZone.length === 0) {
+    throw new Error('Homey timezone is required');
+  }
+  const formatter = new Intl.DateTimeFormat('en-GB', {
+    timeZone,
+    hourCycle: 'h23',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  });
+  const parts = Object.fromEntries(
+    formatter.formatToParts(date).map(({ type, value }) => [type, value]),
+  );
+  let hour = Number(parts.hour);
+  if (hour === 24) hour = 0;
+  const localUnix = Date.UTC(
+    Number(parts.year),
+    Number(parts.month) - 1,
+    Number(parts.day),
+    hour,
+    Number(parts.minute),
+    Number(parts.second),
+  ) / 1000;
+  const utcUnix = Math.floor(date.getTime() / 1000);
+  return localUnix - utcUnix;
+}
 
 class AvattoTimeBoundCluster extends BoundCluster {
 
+  constructor(provider) {
+    super();
+    this._provider = provider;
+  }
+
+  _offsetSeconds(instant) {
+    return this._provider.offsetSeconds(instant || new Date());
+  }
+
   async readAttributes({ attributes }) {
+    if (!this._provider || this._provider.alive() !== true) {
+      return { attributes: Buffer.alloc(0) };
+    }
+
     const chunks = [];
+    const instant = new Date(Date.now());
+    const utcZigbee = Math.floor((instant.getTime() - ZIGBEE_EPOCH_MS) / 1000);
 
     for (const attributeId of attributes) {
       switch (attributeId) {
-        case 0x0007: { // localTime, Zigbee epoch 2000
-          const localTime =
-            Math.floor((Date.now() - ZIGBEE_EPOCH_MS) / 1000) +
-            (-new Date().getTimezoneOffset() * 60);
-
+        case 0x0007: { // localTime, Zigbee epoch 2000 plus the Homey offset
+          const localTime = utcZigbee + this._offsetSeconds(instant);
           const buf = Buffer.alloc(8);
           buf.writeUInt16LE(0x0007, 0);
           buf.writeUInt8(ZCL_STATUS_SUCCESS, 2);
@@ -98,14 +167,12 @@ class AvattoTimeBoundCluster extends BoundCluster {
           break;
         }
 
-        case 0x0000: { // time
-          const utcTime = Math.floor((Date.now() - ZIGBEE_EPOCH_MS) / 1000);
-
+        case 0x0000: { // time, Zigbee epoch 2000, UTC, no local offset
           const buf = Buffer.alloc(8);
           buf.writeUInt16LE(0x0000, 0);
           buf.writeUInt8(ZCL_STATUS_SUCCESS, 2);
           buf.writeUInt8(ZCL_TYPE_UTC_TIME, 3);
-          buf.writeUInt32LE(utcTime >>> 0, 4);
+          buf.writeUInt32LE(utcZigbee >>> 0, 4);
           chunks.push(buf);
           break;
         }
@@ -120,9 +187,8 @@ class AvattoTimeBoundCluster extends BoundCluster {
           break;
         }
 
-        case 0x0002: { // timeZone
-          const timeZone = -new Date().getTimezoneOffset() * 60;
-
+        case 0x0002: { // timeZone, seconds east of UTC
+          const timeZone = this._offsetSeconds(instant);
           const buf = Buffer.alloc(8);
           buf.writeUInt16LE(0x0002, 0);
           buf.writeUInt8(ZCL_STATUS_SUCCESS, 2);
@@ -151,8 +217,11 @@ class AvattoTimeBoundCluster extends BoundCluster {
 class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
 
   async onNodeInit({ zclNode }) {
+    this._stopWork('reinitialized');
+    this._alive = true;
+
     await this._ensureCapabilities();
-    this._lastStableTarget = this.getCapabilityValue('target_temperature');
+    this._ensureDeviceTarget();
 
     this.registerCapabilityListener('target_temperature', async value => {
       await this.setTargetTemperature(value);
@@ -169,6 +238,10 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
     this._scheduleQueryOnce(3000);
 
     this.log('AVATTO thermostatic radiator valve initialized:', this.getName());
+  }
+
+  async onUninit() {
+    this._stopWork('uninitialized');
   }
 
   async _ensureCapabilities() {
@@ -189,11 +262,24 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
     }
   }
 
+  _timezoneProvider(generation) {
+    return {
+      alive: () => this._alive === true && this._generation === generation,
+      offsetSeconds: instant => localOffsetSeconds(
+        this.homey.clock.getTimezone(),
+        instant || new Date(),
+      ),
+    };
+  }
+
   _registerTimeBoundCluster(zclNode) {
     try {
-      if (typeof zclNode?.endpoints?.[1]?.bind === 'function') {
-        this._timeBoundCluster = new AvattoTimeBoundCluster();
-        zclNode.endpoints[1].bind('time', this._timeBoundCluster);
+      const endpoint = zclNode?.endpoints?.[1];
+      if (typeof endpoint?.bind === 'function') {
+        const generation = this._generation;
+        this._timeEndpoint = endpoint;
+        this._timeBoundCluster = new AvattoTimeBoundCluster(this._timezoneProvider(generation));
+        endpoint.bind('time', this._timeBoundCluster);
         this.log('Registered Time bound cluster (0x000A), Zigbee epoch 2000');
       }
     } catch (err) {
@@ -202,26 +288,66 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
   }
 
   _registerTuyaListeners(zclNode) {
+    this._detachOwnedListeners();
     const tuyaCluster = zclNode?.endpoints?.[1]?.clusters?.tuya;
-    if (!tuyaCluster) {
+    if (!tuyaCluster || typeof tuyaCluster.on !== 'function') {
       this.error('Tuya cluster not available on endpoint 1');
       return;
     }
 
+    const generation = this._generation;
     const onData = (source, data) => {
+      if (generation !== this._generation || this._alive !== true) return;
       this.processDatapoint(source, data).catch(err => this.error(`Failed to process ${source}`, err));
     };
 
-    tuyaCluster.on('reporting', data => onData('reporting', data));
-    tuyaCluster.on('response', data => onData('response', data));
-    tuyaCluster.on('datapoint', data => onData('datapoint', data));
-    tuyaCluster.on('reportingConfiguration', data => onData('reportingConfiguration', data));
-    tuyaCluster.on('timeSync', data => {
+    this._listenerCluster = tuyaCluster;
+    this._ownedListeners = [];
+    const add = (event, fn) => {
+      tuyaCluster.on(event, fn);
+      this._ownedListeners.push([event, fn]);
+    };
+
+    add('reporting', data => onData('reporting', data));
+    add('response', data => onData('response', data));
+    add('datapoint', data => onData('datapoint', data));
+    add('reportingConfiguration', data => onData('reportingConfiguration', data));
+    add('timeSync', data => {
+      if (generation !== this._generation || this._alive !== true) return;
       this.onTuyaTimeSync(data).catch(err => this.error('Tuya timeSync failed', err));
     });
   }
 
+  _detachOwnedListeners() {
+    if (this._listenerCluster && this._ownedListeners) {
+      for (const [event, fn] of this._ownedListeners) {
+        if (typeof this._listenerCluster.removeListener === 'function') {
+          this._listenerCluster.removeListener(event, fn);
+        } else if (typeof this._listenerCluster.off === 'function') {
+          this._listenerCluster.off(event, fn);
+        }
+      }
+    }
+    this._ownedListeners = null;
+    this._listenerCluster = null;
+
+    if (
+      this._timeEndpoint
+      && this._timeBoundCluster
+      && typeof this._timeEndpoint.unbind === 'function'
+    ) {
+      try {
+        this._timeEndpoint.unbind('time', this._timeBoundCluster);
+      } catch (err) {
+        this.error('Failed to unbind Time cluster', err);
+      }
+    }
+    this._timeBoundCluster = null;
+    this._timeEndpoint = null;
+  }
+
   async onTuyaTimeSync(data) {
+    if (this._alive === false) return;
     this._trace('[Tuya timeSync request]', data);
 
     if (this._timeSyncInFlight) {
@@ -245,18 +371,22 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
 
   /**
    * Tuya MCU time, Unix epoch (timeStart "1970").
-   * 4 byte UTC + 4 byte local, big-endian. payloadSize is required by
-   * TuyaSpecificCluster: without it zigbee-clusters writes a length of 0.
+   * 4 byte UTC + 4 byte local wall clock, big-endian. payloadSize is required
+   * by TuyaSpecificCluster: without it zigbee-clusters writes a length of 0.
+   * The Zigbee Time cluster answers with the 2000 epoch instead.
    */
   async sendTuyaTime(reason) {
+    if (this._alive === false) return;
     const tuyaCluster = this.zclNode?.endpoints?.[1]?.clusters?.tuya;
     if (!tuyaCluster || typeof tuyaCluster.timeSync !== 'function') {
       this.error('Tuya timeSync command not available');
       return;
     }
 
-    const utcSeconds = Math.floor(Date.now() / 1000);
-    const localSeconds = utcSeconds - (new Date().getTimezoneOffset() * 60);
+    const instant = new Date(Date.now());
+    const utcSeconds = Math.floor(instant.getTime() / 1000);
+    const offset = localOffsetSeconds(this.homey.clock.getTimezone(), instant);
+    const localSeconds = utcSeconds + offset;
     const payload = Buffer.alloc(8);
     payload.writeUInt32BE(utcSeconds >>> 0, 0);
     payload.writeUInt32BE(localSeconds >>> 0, 4);
@@ -268,12 +398,15 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
       utcSeconds,
       'local=',
       localSeconds,
+      'offset=',
+      offset,
     );
 
     await tuyaCluster.timeSync({
       payloadSize: payload.length,
       payload,
     });
+    if (this._alive === false) return;
     this._lastTimeAnswerAt = Date.now();
     this._nextLocalTimeUpdate = this._lastTimeAnswerAt + TIME_UPDATE_INTERVAL_MS;
     this._trace('Tuya timeSync response sent, reason=', reason);
@@ -285,17 +418,21 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
    * One query per hour is enough. Extra queries were crowding out DP 4 writes.
    */
   _scheduleQueryOnce(delayMs) {
+    if (this._alive === false) return;
     if (this._queryTimer) return;
     if (this._nextQueryAt != null && Date.now() < this._nextQueryAt) return;
 
+    const generation = this._generation;
     this._queryTimer = this._delay(delayMs, () => {
       this._queryTimer = null;
+      if (generation !== this._generation || this._alive !== true) return;
       this._nextQueryAt = Date.now() + TIME_UPDATE_INTERVAL_MS;
       this.queryAll().catch(err => this.error('queryAll failed', err));
-    });
+    }, 'query');
   }
 
   async queryAll() {
+    if (this._alive === false) return;
     const tuyaCluster = this.zclNode?.endpoints?.[1]?.clusters?.tuya;
     if (!tuyaCluster || typeof tuyaCluster.dataQuery !== 'function') {
       this._trace('Tuya dataQuery not available');
@@ -309,14 +446,25 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
   /**
    * pending: the DP 4 write is in flight, or the radio accepted it and the
    * valve has not yet reported the same value.
-   * acknowledged: a DP 4 report arrived with the same raw value.
-   * failed: the write was rejected or timed out. target_temperature is put
-   * back to the previous value and the caller gets the error.
+   * acknowledged: a DP 4 report arrived with the same raw value while the
+   * request was still open.
+   * failed: the write was rejected or timed out. The caller is rejected.
+   * The UI returns to the last reported setpoint, not to an unconfirmed
+   * optimistic value. A late report may move the UI again without turning
+   * the failed request into a success.
+   * expired: the radio accepted the write and no matching report arrived
+   * before CONFIRM_EXPIRY_MS. The caller already succeeded. A later report
+   * updates the device value and does not acknowledge the expired request.
    *
-   * Only the latest requested setpoint is written. An older request that has
-   * not reached the radio is rejected as superseded.
+   * Only the latest requested setpoint is written, and only after any
+   * earlier Zigbee write has settled. The timeout does not cancel that
+   * write, and this driver does not retry it.
    */
   async setTargetTemperature(celsius) {
+    if (this._alive === false) {
+      throw new Error('AVATTO TRV stopped');
+    }
+    this._ensureDeviceTarget();
     const clamped = this._clampStep(celsius, 5, 35, 0.5);
     const raw = Math.round(clamped * 10);
     const job = this._createSetpointJob(clamped, raw);
@@ -326,6 +474,12 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
 
   get setpointState() {
     return this._setpointState || null;
+  }
+
+  _ensureDeviceTarget() {
+    if (this._deviceTarget !== undefined) return;
+    const current = this.getCapabilityValue('target_temperature');
+    this._deviceTarget = typeof current === 'number' && Number.isFinite(current) ? current : null;
   }
 
   _createSetpointJob(celsius, raw) {
@@ -340,6 +494,8 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
       raw,
       previous: undefined,
       state: 'pending',
+      terminal: false,
+      generation: this._generation,
       promise,
       resolve,
       reject,
@@ -348,7 +504,13 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
   }
 
   _enqueueSetpoint(job) {
+    if (this._alive === false) {
+      this._rejectSetpoint(job, new Error('AVATTO TRV stopped'));
+      return;
+    }
     if (this._queuedSetpoint) {
+      this._queuedSetpoint.state = 'superseded';
+      this._queuedSetpoint.terminal = true;
       this._rejectSetpoint(this._queuedSetpoint, new Error(SUPERSEDED_SETPOINT));
     }
     this._queuedSetpoint = job;
@@ -361,9 +523,8 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
 
     const step = () => {
       const job = this._queuedSetpoint;
-      if (!job) {
+      if (!job || this._alive === false) {
         this._setpointDraining = false;
-        if (this._queuedSetpoint) this._drainSetpoints();
         return;
       }
       this._queuedSetpoint = null;
@@ -378,100 +539,130 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
 
   async _runSetpoint(job) {
     if (job.settled) return;
-    if (job.previous === undefined) {
-      job.previous = this._stableTargetTemperature(job.celsius);
+    if (job.generation !== this._generation || this._alive === false) {
+      this._rejectSetpoint(job, new Error('AVATTO TRV stopped'));
+      return;
     }
 
+    this._ensureDeviceTarget();
+    job.previous = this._deviceTarget;
     this._activeSetpoint = job;
     job.state = 'pending';
     this._setpointState = 'pending';
+    this._optimisticTarget = job.celsius;
     this._trace('Writing DP 4 target temperature raw=', job.raw, 'celsius=', job.celsius);
 
     try {
       await this._setTargetCapability(job.celsius);
-      if (job.settled) return;
-      if (this._queuedSetpoint) {
-        this._rejectSetpoint(job, new Error(SUPERSEDED_SETPOINT));
-        return;
-      }
-
-      await this._writeTargetTemperature(job);
-      if (job.settled) return;
-      if (job.state !== 'acknowledged') {
-        job.state = 'pending';
-        this._setpointState = 'pending';
-      }
-      this._resolveSetpoint(job);
     } catch (err) {
-      if (job.settled) return;
       job.state = 'failed';
+      job.terminal = true;
+      this._setpointState = 'failed';
+      this._rejectSetpoint(job, err);
+      return;
+    }
+
+    if (job.settled || job.generation !== this._generation || this._alive === false) {
+      if (!job.settled) this._rejectSetpoint(job, new Error('AVATTO TRV stopped'));
+      return;
+    }
+
+    // Not on the air yet. A newer request replaces this one.
+    if (this._queuedSetpoint) {
+      job.state = 'superseded';
+      job.terminal = true;
+      if (this._activeSetpoint === job) this._activeSetpoint = null;
+      this._rejectSetpoint(job, new Error(SUPERSEDED_SETPOINT));
+      return;
+    }
+
+    const generation = this._generation;
+    const writePromise = this._sendTargetDatapoint(job);
+    // The timeout below cannot cancel writePromise. _runSetpoint does not
+    // return, and the queue does not send another DP 4, until writePromise
+    // settles. A late resolve or reject is not a retry.
+    this._unresolvedWrite = writePromise;
+    const timeoutMs = this.setpointWriteTimeoutMs ?? SETPOINT_WRITE_TIMEOUT_MS;
+    let timer;
+    try {
+      await Promise.race([
+        writePromise,
+        new Promise((_, reject) => {
+          timer = this._delay(timeoutMs, () => {
+            reject(new Error(`DP 4 target temperature write timed out after ${timeoutMs} ms`));
+          }, 'setpoint-timeout');
+        }),
+      ]);
+      if (job.settled || generation !== this._generation || this._alive === false) return;
+      if (this._deviceRaw === job.raw) this._acknowledge(job);
+      this._resolveSetpoint(job);
+      this._armConfirmationExpiry(job, generation);
+    } catch (err) {
+      if (job.settled || generation !== this._generation || this._alive === false) return;
+      job.state = 'failed';
+      job.terminal = true;
       this._setpointState = 'failed';
       this.error('DP 4 target temperature write failed raw=', job.raw, err);
-
-      if (this._queuedSetpoint) {
-        if (this._queuedSetpoint.previous === undefined) {
-          this._queuedSetpoint.previous = job.previous;
+      if (!this._queuedSetpoint) {
+        try {
+          await this._setTargetCapability(this._deviceTarget);
+        } catch (restoreErr) {
+          this.error('Failed to restore target_temperature', restoreErr);
         }
-        this._rejectSetpoint(job, err);
-        return;
-      }
-
-      try {
-        await this._setTargetCapability(job.previous);
-        this._lastStableTarget = job.previous;
-      } catch (restoreErr) {
-        this.error('Failed to restore target_temperature', restoreErr);
+      } else if (this._queuedSetpoint.previous === undefined) {
+        this._queuedSetpoint.previous = this._deviceTarget;
       }
       this._rejectSetpoint(job, err);
+    } finally {
+      if (timer) this._cancelDelay(timer);
+      try {
+        await writePromise;
+      } catch (transportErr) {
+        this._trace(
+          'DP 4 transport settled after the caller finished; not retried',
+          transportErr && transportErr.message,
+        );
+      }
+      if (this._unresolvedWrite === writePromise) this._unresolvedWrite = null;
+      if (
+        !job.terminal
+        && job.settled
+        && job.state === 'pending'
+        && this._deviceRaw === job.raw
+        && generation === this._generation
+        && this._alive !== false
+      ) {
+        this._acknowledge(job);
+      }
     }
   }
 
-  _stableTargetTemperature(requested) {
-    const current = this.getCapabilityValue('target_temperature');
-    if (current !== requested) return current;
-    if (this._lastStableTarget !== undefined && this._lastStableTarget !== requested) {
-      return this._lastStableTarget;
-    }
-    return current;
-  }
-
-  async _writeTargetTemperature(job) {
-    const timeoutMs = this.setpointWriteTimeoutMs ?? SETPOINT_WRITE_TIMEOUT_MS;
+  _sendTargetDatapoint(job) {
     const data = Buffer.alloc(4);
     data.writeUInt32BE(job.raw, 0);
     if (typeof this._transactionID !== 'number' || Number.isNaN(this._transactionID)) {
       this._transactionID = 0;
     }
-
-    let timedOut = false;
-    const writePromise = this.zclNode.endpoints[1].clusters.tuya.datapoint({
+    return this.zclNode.endpoints[1].clusters.tuya.datapoint({
       status: 0,
       transid: this.transactionID++,
       dp: DP.targetTemperature,
-      datatype: 2,
+      datatype: DATA_TYPE_VALUE,
       length: 4,
       data,
-    }).then(result => {
-      if (timedOut || job.state === 'failed' || job.state === 'acknowledged') return undefined;
-      return result;
-    }, err => {
-      if (timedOut || job.state === 'failed') return undefined;
-      throw err;
     });
+  }
 
-    let timer;
-    const timeoutPromise = new Promise((_, reject) => {
-      timer = this._delay(timeoutMs, () => {
-        timedOut = true;
-        reject(new Error(`DP 4 target temperature write timed out after ${timeoutMs} ms`));
-      });
-    });
-
-    try {
-      await Promise.race([writePromise, timeoutPromise]);
-    } finally {
-      if (timer) this._cancelDelay(timer);
-    }
+  _armConfirmationExpiry(job, generation) {
+    if (job.terminal || job.state === 'acknowledged') return;
+    const timeoutMs = this.confirmationExpiryMs ?? CONFIRM_EXPIRY_MS;
+    this._confirmTimer = this._delay(timeoutMs, () => {
+      if (generation !== this._generation || this._alive === false) return;
+      if (job.terminal || job.state !== 'pending') return;
+      job.state = 'expired';
+      job.terminal = true;
+      if (this._activeSetpoint === job) this._setpointState = 'expired';
+    }, 'confirm-expiry');
   }
 
   _resolveSetpoint(job) {
@@ -481,19 +672,41 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
   }
 
   _rejectSetpoint(job, err) {
-    if (job.settled) return;
+    if (!job || job.settled) return;
     job.settled = true;
+    job.terminal = true;
     job.reject(err);
   }
 
-  _noteTargetReport(raw) {
-    if (!this._activeSetpoint || this._activeSetpoint.raw !== raw) return;
-    this._activeSetpoint.state = 'acknowledged';
+  _acknowledge(job) {
+    if (!job || job.terminal) return;
+    if (job.state === 'failed' || job.state === 'superseded' || job.state === 'expired') return;
+    job.state = 'acknowledged';
+    job.terminal = true;
     this._setpointState = 'acknowledged';
-    this._lastStableTarget = this._activeSetpoint.celsius;
+    if (this._confirmTimer) this._cancelDelay(this._confirmTimer);
+    this._confirmTimer = null;
+  }
+
+  /**
+   * A matching report acknowledges only an open request. Failed, superseded
+   * and expired requests stay terminal. The reported value itself is stored
+   * by processDatapoint before this runs.
+   */
+  _noteTargetReport(raw) {
+    const job = this._activeSetpoint;
+    if (!job || job.raw !== raw) return;
+    if (job.terminal || job.state === 'failed' || job.state === 'superseded' || job.state === 'expired') {
+      return;
+    }
+    // The write is still unresolved. Remember the report and reconcile when
+    // the transport settles, including when that settlement is a rejection.
+    if (this._unresolvedWrite) return;
+    if (job.settled && job.state === 'pending') this._acknowledge(job);
   }
 
   async setPreset(preset) {
+    if (this._alive === false) throw new Error('AVATTO TRV stopped');
     const numeric = Number(preset);
     if (!Number.isInteger(numeric) || PRESET_LABELS[numeric] === undefined) {
       throw new Error(`Invalid AVATTO preset: ${preset}`);
@@ -501,10 +714,12 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
 
     this._trace('Writing DP 2 preset raw=', numeric, 'label=', PRESET_LABELS[numeric]);
     await this.writeEnum(DP.preset, numeric);
+    if (this._alive === false) return;
     await this._setCapability('avatto_thermostat_preset', String(numeric));
   }
 
   async onSettings({ newSettings, changedKeys }) {
+    if (this._alive === false) return;
     if (changedKeys.includes('temperatureCalibration')) {
       const celsius = this._clampStep(newSettings.temperatureCalibration, -9.5, 9.5, 0.5);
       const raw = Math.round(celsius * 10);
@@ -540,128 +755,214 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
   }
 
   async processDatapoint(source, data) {
+    if (this._alive === false) return;
     const dp = data?.dp;
-    let parsedValue;
-    try {
-      parsedValue = getDataValue(data);
-    } catch (err) {
-      this.error(`[Tuya ${source}] dp=${dp} parse failed`, err);
-      return;
-    }
+    const generation = this._generation;
 
-    this._trace(`[Tuya ${source}] dp=${dp} datatype=${data?.datatype} value=`, parsedValue);
+    this._trace(`[Tuya ${source}] dp=${dp} datatype=${data?.datatype}`);
 
     switch (dp) {
       case DP.preset: {
-        const label = PRESET_LABELS[parsedValue];
-        this._trace('DP 2 preset raw=', parsedValue, 'label=', label || 'unknown');
-        if (label) await this._setCapability('avatto_thermostat_preset', String(parsedValue));
+        const numeric = this._enumByte(data, 0, 6);
+        if (numeric === null) return;
+        const label = PRESET_LABELS[numeric];
+        this._trace('DP 2 preset raw=', numeric, 'label=', label || 'unknown');
+        if (label) await this._setCapability('avatto_thermostat_preset', String(numeric));
         break;
       }
 
       case DP.runningState: {
-        const heating = parsedValue === 1;
-        this._trace('DP 3 running_state raw=', parsedValue, 'heating=', heating);
+        const numeric = this._bit(data);
+        if (numeric === null) return;
+        const heating = numeric === 1;
+        this._trace('DP 3 running_state raw=', numeric, 'heating=', heating);
         await this._setCapability('thermostat_heating', heating);
         break;
       }
 
       case DP.targetTemperature: {
-        const celsius = parsedValue / 10;
-        this._trace('DP 4 target temperature raw=', parsedValue, 'celsius=', celsius);
-        this._noteTargetReport(parsedValue);
+        const raw = this._setpointRaw(data);
+        if (raw === null) {
+          this._trace('DP 4 ignored, not a valid 4-byte setpoint');
+          return;
+        }
+        const celsius = raw / 10;
+        this._deviceTarget = celsius;
+        this._deviceRaw = raw;
+        this._trace('DP 4 target temperature raw=', raw, 'celsius=', celsius);
+        this._noteTargetReport(raw);
         await this._setCapability('target_temperature', celsius);
         break;
       }
 
       case DP.currentTemperature: {
-        const celsius = parsedValue / 10;
-        this._trace('DP 5 measured temperature raw=', parsedValue, 'celsius=', celsius);
+        const raw = this._valueRaw(data, -400, 800, null);
+        if (raw === null) return;
+        const celsius = raw / 10;
+        this._trace('DP 5 measured temperature raw=', raw, 'celsius=', celsius);
         await this._setCapability('measure_temperature', celsius);
         break;
       }
 
       case DP.battery: {
-        const percent = this._batteryPercent(parsedValue);
-        this._trace('DP 6 battery raw=', parsedValue, 'percent=', percent);
+        const raw = this._valueRaw(data, 0, 100, null);
+        if (raw === null) return;
+        const percent = this._batteryPercent(raw);
+        this._trace('DP 6 battery raw=', raw, 'percent=', percent);
         if (percent !== null) await this._setCapability('measure_battery', percent);
         break;
       }
 
-      case DP.childLock:
-        this._trace('DP 7 child lock=', parsedValue);
-        await this._setSetting('childLock', !!parsedValue);
+      case DP.childLock: {
+        const numeric = this._bit(data);
+        if (numeric === null) return;
+        this._trace('DP 7 child lock=', numeric);
+        await this._setSetting('childLock', numeric === 1);
         break;
+      }
 
-      case DP.windowDetection:
-        this._trace('DP 14 window detection=', parsedValue);
-        await this._setSetting('windowDetection', !!parsedValue);
+      case DP.windowDetection: {
+        const numeric = this._bit(data);
+        if (numeric === null) return;
+        this._trace('DP 14 window detection=', numeric);
+        await this._setSetting('windowDetection', numeric === 1);
         break;
+      }
 
-      case DP.windowOpen:
-        await this._onWindowOpen(parsedValue === 1 || parsedValue === true);
+      case DP.windowOpen: {
+        const isOpen = this._windowOpenBit(data);
+        if (isOpen === null) {
+          this._trace('DP 15 ignored, not an explicit open or close');
+          return;
+        }
+        await this._onWindowOpen(isOpen);
         break;
+      }
 
       case DP.holidayTemperature:
-        this._trace('DP 21 holiday temperature raw=', parsedValue, 'celsius=', parsedValue / 10);
+        this._trace('DP 21 holiday temperature');
         break;
 
       case DP.batteryLow: {
-        // Zigbee2MQTT errorOrBatteryLow: numeric 1 means battery low.
-        // The other TRV driver treats its own DP 35 as low when the value is 0.
-        const low = parsedValue === 1 || parsedValue === true;
-        this._trace('DP 35 battery_low raw=', parsedValue, 'alarm_battery=', low);
+        const numeric = this._bit(data);
+        if (numeric === null) return;
+        const low = numeric === 1;
+        this._trace('DP 35 battery_low raw=', numeric, 'alarm_battery=', low);
         await this._setCapability('alarm_battery', low);
         break;
       }
 
       case DP.frostProtection:
-        this._trace('DP 36 frost protection=', parsedValue);
+        this._trace('DP 36 frost protection');
         break;
 
       case DP.temperatureCalibration: {
-        const celsius = parsedValue / 10;
-        this._trace('DP 47 temperature calibration raw=', parsedValue, 'celsius=', celsius);
+        const raw = this._valueRaw(data, -95, 95, 5);
+        if (raw === null) return;
+        const celsius = raw / 10;
+        this._trace('DP 47 temperature calibration raw=', raw, 'celsius=', celsius);
         await this._setSetting('temperatureCalibration', this._clampStep(celsius, -9.5, 9.5, 0.5));
         break;
       }
 
       case DP.ecoTemperature: {
-        const celsius = parsedValue / 10;
-        this._trace('DP 103 eco temperature raw=', parsedValue, 'celsius=', celsius);
+        const raw = this._setpointRaw(data);
+        if (raw === null) return;
+        const celsius = raw / 10;
+        this._trace('DP 103 eco temperature raw=', raw, 'celsius=', celsius);
         await this._setSetting('ecoTemperature', this._clampStep(celsius, 5, 35, 0.5));
         break;
       }
 
       case DP.comfortTemperature: {
-        const celsius = parsedValue / 10;
-        this._trace('DP 104 comfort temperature raw=', parsedValue, 'celsius=', celsius);
+        const raw = this._setpointRaw(data);
+        if (raw === null) return;
+        const celsius = raw / 10;
+        this._trace('DP 104 comfort temperature raw=', raw, 'celsius=', celsius);
         await this._setSetting('comfortTemperature', this._clampStep(celsius, 5, 35, 0.5));
         break;
       }
 
       case DP.frostProtectionTemperature:
-        this._trace('DP 105 frost protection temperature raw=', parsedValue, 'celsius=', parsedValue / 10);
+        this._trace('DP 105 frost protection temperature');
         break;
 
       case 101:
-        // Bool on this valve. Not in the TS0601_thermostat_14 map and not a temperature.
-        this._trace('DP 101 unmapped bool=', parsedValue);
+        this._trace('DP 101 unmapped');
         break;
 
       default:
         if (dp >= 28 && dp <= 34) {
           this._trace(`DP ${dp} weekly schedule ignored in this version`);
         } else {
-          this._trace('Unhandled datapoint', dp, parsedValue);
+          this._trace('Unhandled datapoint', dp);
         }
     }
+
+    if (generation !== this._generation) return undefined;
+    return undefined;
+  }
+
+  _buffer(data) {
+    if (!data || data.data == null) return null;
+    if (Buffer.isBuffer(data.data)) return data.data;
+    if (Array.isArray(data.data) || ArrayBuffer.isView(data.data)) return Buffer.from(data.data);
+    return null;
+  }
+
+  _lengthMatches(data, length) {
+    if (data.length == null) return true;
+    return data.length === length;
+  }
+
+  _valueRaw(data, min, max, step) {
+    const buf = this._buffer(data);
+    if (!buf || data.datatype !== DATA_TYPE_VALUE || buf.length !== 4) return null;
+    if (!this._lengthMatches(data, 4)) return null;
+    let raw;
+    try {
+      raw = getDataValue(data);
+    } catch (err) {
+      return null;
+    }
+    if (!Number.isInteger(raw) || raw < min || raw > max) return null;
+    if (step != null && raw % step !== 0) return null;
+    return raw;
+  }
+
+  _setpointRaw(data) {
+    return this._valueRaw(data, 50, 350, 5);
+  }
+
+  _enumByte(data, min, max) {
+    const buf = this._buffer(data);
+    if (!buf || buf.length !== 1 || data.datatype !== DATA_TYPE_ENUM) return null;
+    if (!this._lengthMatches(data, 1)) return null;
+    const numeric = buf[0];
+    if (numeric < min || numeric > max) return null;
+    return numeric;
+  }
+
+  _bit(data) {
+    const buf = this._buffer(data);
+    if (!buf || buf.length !== 1) return null;
+    if (data.datatype !== DATA_TYPE_BOOL && data.datatype !== DATA_TYPE_ENUM) return null;
+    if (!this._lengthMatches(data, 1)) return null;
+    if (buf[0] !== 0 && buf[0] !== 1) return null;
+    return buf[0];
+  }
+
+  _windowOpenBit(data) {
+    const bit = this._bit(data);
+    if (bit === null) return null;
+    return bit === 1;
   }
 
   async _onWindowOpen(isOpen) {
     const previous = this.getCapabilityValue('window_open_status');
     this._trace('DP 15 window open raw=', isOpen ? 1 : 0, 'previous=', previous);
     await this._setCapability('window_open_status', isOpen);
+    if (this._alive === false) return;
 
     if (typeof previous !== 'boolean' || previous === isOpen) return;
 
@@ -694,6 +995,7 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
   }
 
   async _setCapability(capabilityId, value) {
+    if (this._alive === false) return;
     const current = this.getCapabilityValue(capabilityId);
     if (current === value) return;
     try {
@@ -704,11 +1006,13 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
   }
 
   async _setTargetCapability(value) {
+    if (this._alive === false) return;
     if (this.getCapabilityValue('target_temperature') === value) return;
     await this.setCapabilityValue('target_temperature', value);
   }
 
   async _setSetting(id, value) {
+    if (this._alive === false) return;
     try {
       const current = this.getSetting(id);
       if (current === value) return;
@@ -728,25 +1032,80 @@ class AvattoThermostaticRadiatorValve extends TuyaSpecificClusterDevice {
     if (enabled) this.log(...args);
   }
 
-  _delay(ms, fn) {
-    if (this.homey && typeof this.homey.setTimeout === 'function') {
-      return this.homey.setTimeout(fn, ms);
-    }
-    return setTimeout(fn, ms);
+  _delay(ms, fn, kind) {
+    const generation = this._generation;
+    const record = {
+      cancelled: false,
+      kind: kind || 'timer',
+      generation,
+      fn: null,
+      handle: null,
+    };
+    const wrapped = () => {
+      if (record.cancelled) return;
+      if (generation !== this._generation) return;
+      if (this._alive === false && kind !== 'setpoint-timeout') return;
+      fn();
+    };
+    record.fn = wrapped;
+    const handle = (this.homey && typeof this.homey.setTimeout === 'function')
+      ? this.homey.setTimeout(wrapped, ms)
+      : setTimeout(wrapped, ms);
+    record.handle = handle;
+    if (!this._timers) this._timers = [];
+    this._timers.push(record);
+    return record;
   }
 
   _cancelDelay(timer) {
+    if (!timer) return;
+    if (typeof timer === 'object') timer.cancelled = true;
+    const handle = timer && timer.handle ? timer.handle : timer;
     if (this.homey && typeof this.homey.clearTimeout === 'function') {
-      this.homey.clearTimeout(timer);
+      this.homey.clearTimeout(handle);
       return;
     }
-    clearTimeout(timer);
+    clearTimeout(handle);
+  }
+
+  _clearTimers() {
+    for (const timer of this._timers || []) this._cancelDelay(timer);
+    this._timers = [];
+    this._queryTimer = null;
+    this._confirmTimer = null;
+  }
+
+  _stopWork(reason) {
+    this._alive = false;
+    this._generation = (this._generation || 0) + 1;
+    this._clearTimers();
+    this._detachOwnedListeners();
+    const err = new Error(`AVATTO TRV ${reason}`);
+    const jobs = [];
+    if (this._queuedSetpoint) jobs.push(this._queuedSetpoint);
+    if (this._activeSetpoint && this._activeSetpoint !== this._queuedSetpoint) {
+      jobs.push(this._activeSetpoint);
+    }
+    this._queuedSetpoint = null;
+    this._activeSetpoint = null;
+    for (const job of jobs) {
+      job.state = 'failed';
+      job.terminal = true;
+      this._rejectSetpoint(job, err);
+    }
+    if (jobs.length) this._setpointState = 'failed';
+    this._timeSyncInFlight = false;
   }
 
   onDeleted() {
-    if (this._queryTimer) this._cancelDelay(this._queryTimer);
+    this._stopWork('removed');
     this.log('AVATTO thermostatic radiator valve removed:', this.getName());
   }
 }
+
+AvattoThermostaticRadiatorValve.localOffsetSeconds = localOffsetSeconds;
+AvattoThermostaticRadiatorValve.ZIGBEE_EPOCH_MS = ZIGBEE_EPOCH_MS;
+AvattoThermostaticRadiatorValve.AvattoTimeBoundCluster = AvattoTimeBoundCluster;
+AvattoThermostaticRadiatorValve.CONFIRM_EXPIRY_MS = CONFIRM_EXPIRY_MS;
 
 module.exports = AvattoThermostaticRadiatorValve;
