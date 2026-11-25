@@ -1,0 +1,17 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Liquid depth",
+    "sv": "Vätskedjup"
+  },
+  "units": {
+    "en": "cm"
+  },
+  "min": 0,
+  "max": 400,
+  "decimals": 0,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "insights": true
+}

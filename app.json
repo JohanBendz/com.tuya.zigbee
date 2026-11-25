@@ -13159,6 +13159,53 @@
       }
     },
     {
+      "id": "tank_monitor_epttech_tlc2206",
+      "name": {
+        "en": "EPTTECH TLC2206-ZB Tank Monitor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "liquid_level",
+        "liquid_level_fill",
+        "tank_state"
+      ],
+      "images": {
+        "small": "/drivers/tank_monitor_epttech_tlc2206/assets/images/small.png",
+        "large": "/drivers/tank_monitor_epttech_tlc2206/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_lvkk0hdg"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": []
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/tank_monitor_epttech_tlc2206/assets/icon.svg",
+          "instruction": {
+            "en": "Follow the monitor instructions to enter Zigbee pairing mode. This model can send around 200,000 Zigbee frames per day."
+          }
+        }
+      }
+    },
+    {
       "id": "temperature_probe_owon_ths317",
       "name": {
         "en": "OWON THS317-ET Temperature Probe"
@@ -18108,6 +18155,40 @@
       "setable": false,
       "uiComponent": "sensor"
     },
+    "liquid_level": {
+      "type": "number",
+      "title": {
+        "en": "Liquid depth",
+        "sv": "Vätskedjup"
+      },
+      "units": {
+        "en": "cm"
+      },
+      "min": 0,
+      "max": 400,
+      "decimals": 0,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insights": true
+    },
+    "liquid_level_fill": {
+      "type": "number",
+      "title": {
+        "en": "Tank fill",
+        "sv": "Fyllnadsgrad"
+      },
+      "units": {
+        "en": "%"
+      },
+      "min": 0,
+      "max": 100,
+      "decimals": 0,
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor",
+      "insights": true
+    },
     "measure_formaldehyde": {
       "type": "number",
       "title": {
@@ -18206,6 +18287,39 @@
           "nl": "Droog"
         }
       }
+    },
+    "tank_state": {
+      "type": "enum",
+      "title": {
+        "en": "Tank level state",
+        "sv": "Nivåstatus"
+      },
+      "values": [
+        {
+          "id": "normal",
+          "title": {
+            "en": "Normal",
+            "sv": "Normal"
+          }
+        },
+        {
+          "id": "low",
+          "title": {
+            "en": "Low",
+            "sv": "Låg"
+          }
+        },
+        {
+          "id": "high",
+          "title": {
+            "en": "High",
+            "sv": "Hög"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
     },
     "target_distance": {
       "type": "number",
