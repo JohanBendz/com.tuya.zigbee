@@ -14,6 +14,7 @@ const expectedManufacturers = [
   '_TZ3000_rmiew70n',
   '_TZ3000_pgcclddi',
   '_TZ3000_l9brjwau',
+  '_TZ3000_i9w5mehz',
 ];
 const profile = require('../drivers/switch_2_gang_ts0002/driver.compose.json');
 const manifest = require('../app.json');

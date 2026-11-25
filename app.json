@@ -3756,6 +3756,56 @@
       "settings": []
     },
     {
+      "id": "dimmer_aipin_mc101z",
+      "name": {
+        "en": "Aipin MC101Z PWM Dimmer"
+      },
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "images": {
+        "small": "/drivers/dimmer_aipin_mc101z/assets/images/small.png",
+        "large": "/drivers/dimmer_aipin_mc101z/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE28C1000000_sinxpbrl"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              57344,
+              60160,
+              60672,
+              4,
+              5,
+              3,
+              61184
+            ],
+            "bindings": []
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/dimmer_aipin_mc101z/assets/icon.svg",
+          "instruction": {
+            "en": "Follow the device instructions to enable Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
       "id": "doorbell_button",
       "name": {
         "en": "Doorbell Button"
@@ -11929,7 +11979,11 @@
           "_TZ3000_0t4zjtia",
           "_TZ3000_p26flek3",
           "_TZ3000_hyarhbyx",
-          "_TZ3000_y4che4dc"
+          "_TZ3000_y4che4dc",
+          "_TZ3000_skueekg3",
+          "_TZ3000_bzzgvet0",
+          "Zbeacon",
+          "_TZ3000_gbshwgag"
         ],
         "productId": [
           "TS0001"
@@ -12251,7 +12305,8 @@
           "_TZ3000_ptjcjise",
           "_TZ3000_rmiew70n",
           "_TZ3000_pgcclddi",
-          "_TZ3000_l9brjwau"
+          "_TZ3000_l9brjwau",
+          "_TZ3000_i9w5mehz"
         ],
         "productId": [
           "TS0002"
@@ -12979,6 +13034,61 @@
           "image": "/drivers/switch_4_gang_ts0004/assets/icon.svg",
           "instruction": {
             "en": "Four Homey tiles will be created, one for each relay channel. Follow the device's own instructions to enter Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
+      "id": "temperature_probe_owon_ths317",
+      "name": {
+        "en": "OWON THS317-ET Temperature Probe"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_temperature",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "images": {
+        "small": "/drivers/temperature_probe_owon_ths317/assets/images/small.png",
+        "large": "/drivers/temperature_probe_owon_ths317/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "OWON"
+        ],
+        "productId": [
+          "THS317-ET"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              1,
+              32,
+              0,
+              3,
+              1026
+            ],
+            "bindings": [
+              1,
+              1026
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/temperature_probe_owon_ths317/assets/icon.svg",
+          "instruction": {
+            "en": "Follow the device instructions to enable Zigbee pairing mode."
           }
         }
       }
@@ -13805,6 +13915,58 @@
           ]
         }
       ]
+    },
+    {
+      "id": "temphumidsensor_avatto_eink",
+      "name": {
+        "en": "AVATTO E-ink Temperature and Humidity Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "images": {
+        "small": "/drivers/temphumidsensor_avatto_eink/assets/images/small.png",
+        "large": "/drivers/temphumidsensor_avatto_eink/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE204_s139roas"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": []
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/temphumidsensor_avatto_eink/assets/icon.svg",
+          "instruction": {
+            "en": "Follow the device instructions to enable Zigbee pairing mode."
+          }
+        }
+      }
     },
     {
       "id": "temphumidsensor_ewelink",

@@ -14,9 +14,13 @@ const physical = [
   ['_TZ3000_p26flek3', 1172],
   ['_TZ3000_hyarhbyx', 1395],
   ['_TZ3000_y4che4dc', 674],
+  ['_TZ3000_skueekg3', 963],
+  ['_TZ3000_bzzgvet0', 1265],
+  ['Zbeacon', 1394],
+  ['_TZ3000_gbshwgag', 1527],
 ];
 
-test('four physically interviewed single-output TS0001 identifiers have unique exact pairing', () => {
+test('physically interviewed single-output TS0001 identifiers have unique exact pairing', () => {
   assert.equal(profile.id, id);
   assert.deepEqual(profile.zigbee.manufacturerName, physical.map(x => x[0]));
   assert.deepEqual(profile.zigbee.productId, ['TS0001']);
@@ -41,10 +45,13 @@ test('four physically interviewed single-output TS0001 identifiers have unique e
 
 test('metered, un-interviewed and separate BSEED TS0001 identities are excluded', () => {
   for (const excluded of [
+    'zbeacon',
+    '_TZ3000_mvvw8wnx',
     '_TZ3000_fdxihpp7', // #963: EP1 includes 0x0702/0x0B04
     '_TZ3000_e8cquwdk', // #160: no Homey Zigbee interview yet
     '_TZ3000_blhvsaqf', // #1339: own isolated BSEED profile
   ]) assert.ok(!profile.zigbee.manufacturerName.includes(excluded), excluded);
+  assert.ok(!profile.zigbee.productId.includes('TS000F'), 'skueekg3 on TS000F is a distinct pair');
   assert.deepEqual(app.drivers.find(d=>d.id==='switch_1_gang_bseed_ts0001').zigbee.manufacturerName,
     ['_TZ3000_blhvsaqf'], 'Do not widen the BSEED-only profile');
   assert.doesNotMatch(JSON.stringify(profile), /1794|2820|57344|57345|meter_power|relay_status/);

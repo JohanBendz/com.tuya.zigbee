@@ -1,0 +1,55 @@
+{
+  "id": "temperature_probe_owon_ths317",
+  "name": {
+    "en": "OWON THS317-ET Temperature Probe"
+  },
+  "class": "sensor",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [
+    "measure_temperature",
+    "measure_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "OTHER"
+    ]
+  },
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "OWON"
+    ],
+    "productId": [
+      "THS317-ET"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          1,
+          32,
+          0,
+          3,
+          1026
+        ],
+        "bindings": [
+          1,
+          1026
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Follow the device instructions to enable Zigbee pairing mode."
+      }
+    }
+  }
+}
