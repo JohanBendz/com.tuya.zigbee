@@ -1,0 +1,33 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Battery level",
+    "sv": "Batterinivå"
+  },
+  "values": [
+    {
+      "id": "low",
+      "title": {
+        "en": "Low",
+        "sv": "Låg"
+      }
+    },
+    {
+      "id": "medium",
+      "title": {
+        "en": "Medium",
+        "sv": "Medel"
+      }
+    },
+    {
+      "id": "high",
+      "title": {
+        "en": "High",
+        "sv": "Hög"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor"
+}

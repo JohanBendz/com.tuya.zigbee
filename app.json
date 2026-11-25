@@ -8575,6 +8575,126 @@
       "settings": []
     },
     {
+      "id": "sensor_bed_pressure",
+      "name": {
+        "en": "Bed Occupancy Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/sensor_bed_pressure/assets/images/small.png",
+        "large": "/drivers/sensor_bed_pressure/assets/images/large.png"
+      },
+      "capabilities": [
+        "alarm_generic",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_seq9cm6u"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              61184
+            ],
+            "bindings": []
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/sensor_bed_pressure/assets/icon.svg",
+          "instruction": {
+            "en": "Follow the device instructions to enable Zigbee pairing mode."
+          }
+        }
+      },
+      "capabilitiesOptions": {
+        "alarm_generic": {
+          "title": {
+            "en": "Bed occupied",
+            "sv": "Sängen är upptagen"
+          }
+        }
+      }
+    },
+    {
+      "id": "sensor_zt01_probe",
+      "name": {
+        "en": "ZT01 Temperature and Humidity Sensor with Probe"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/sensor_zt01_probe/assets/images/small.png",
+        "large": "/drivers/sensor_zt01_probe/assets/images/large.png"
+      },
+      "capabilities": [
+        "measure_temperature",
+        "measure_temperature.probe",
+        "measure_humidity",
+        "battery_level_state"
+      ],
+      "energy": {
+        "batteries": [
+          "AAA",
+          "AAA"
+        ]
+      },
+      "capabilitiesOptions": {
+        "measure_temperature.probe": {
+          "title": {
+            "en": "Probe temperature",
+            "sv": "Probtemperatur"
+          }
+        }
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE284_8se38w3c"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              4,
+              5,
+              61184,
+              0,
+              60672
+            ],
+            "bindings": []
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/sensor_zt01_probe/assets/icon.svg",
+          "instruction": {
+            "en": "Follow the device instructions to enable Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
       "id": "siren",
       "name": {
         "en": "Siren"
@@ -17186,6 +17306,71 @@
       "settings": []
     },
     {
+      "id": "wall_switch_moes_star_3",
+      "name": {
+        "en": "MOES Star EU Three-Gang Switch"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/wall_switch_moes_star_3/assets/images/small.png",
+        "large": "/drivers/wall_switch_moes_star_3/assets/images/large.png"
+      },
+      "capabilities": [
+        "onoff"
+      ],
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE200_zo0cfekv"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              4,
+              5,
+              61184,
+              0
+            ],
+            "bindings": []
+          }
+        },
+        "devices": {
+          "secondGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "MOES Star - Channel 2"
+            }
+          },
+          "thirdGang": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "MOES Star - Channel 3"
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/wall_switch_moes_star_3/assets/icon.svg",
+          "instruction": {
+            "en": "Follow the switch instructions to enter pairing mode. Homey creates one tile per channel."
+          }
+        }
+      }
+    },
+    {
       "name": {
         "en": "Wall Thermostat"
       },
@@ -17780,6 +17965,39 @@
       "uiComponent": "toggle",
       "getable": true,
       "setable": true
+    },
+    "battery_level_state": {
+      "type": "enum",
+      "title": {
+        "en": "Battery level",
+        "sv": "Batterinivå"
+      },
+      "values": [
+        {
+          "id": "low",
+          "title": {
+            "en": "Low",
+            "sv": "Låg"
+          }
+        },
+        {
+          "id": "medium",
+          "title": {
+            "en": "Medium",
+            "sv": "Medel"
+          }
+        },
+        {
+          "id": "high",
+          "title": {
+            "en": "High",
+            "sv": "Hög"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
     },
     "beok_tgm50_preset": {
       "type": "enum",

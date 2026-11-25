@@ -43,6 +43,9 @@ test('inherited 0.4.0 release instructions enumerate the actual 19 additions and
     'temperature_probe_owon_ths317',
     'temphumidsensor_avatto_eink',
     'dimmer_aipin_mc101z',
+    'wall_switch_moes_star_3',
+    'sensor_zt01_probe',
+    'sensor_bed_pressure',
   ]);
   const frozenNewer = newer.filter(d => !postFreezeIds.has(d.id));
   assert.equal(frozenNewer.length, 19);

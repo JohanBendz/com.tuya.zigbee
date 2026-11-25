@@ -54,6 +54,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Aipin MC101Z PWM Dimmer (`dimmer_aipin_mc101z`) | `TS0601` | `_TZE28C1000000_sinxpbrl` |
 | Aubess Standard Zigbee Temperature & Humidity (`temphumidsensor_aubess_qoy0ekbd`) | `TS0601` | `_TZE200_qoy0ekbd` |
 | AVATTO E-ink Temperature and Humidity Sensor (`temphumidsensor_avatto_eink`) | `TS0601` | `_TZE204_s139roas` |
+| Bed Occupancy Sensor (`sensor_bed_pressure`) | `TS0601` | `_TZE200_seq9cm6u` |
 | BEOK TGM50 Floor Heating Thermostat (`wall_thermostat_beok_tgm50`) | `TS0601` | `_TZE204_cvub6xbb` |
 | BSEED TS0001 Single-Channel Wall Switch (`switch_1_gang_bseed_ts0001`) | `TS0001` | `_TZ3000_blhvsaqf` |
 | BSEED TS0726 Four-Channel Wall Switch (`switch_4_gang_bseed_ts0726`) | `TS0726` | `_TZ3002_pzao9ls1` |
@@ -90,6 +91,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | LCD Temperature, Humidity and Luminance Sensor (`lcdtemphumidluxsensor`) | `TS0201`<br>`TS0222` | `_TYZB01_ftdkanlj`<br>`_TYZB01_kvwjujy9`<br>`_TZ3000_qaaysllp`<br>`_TZ3210_huzkzqyk` |
 | Livarno Lux Atmosphere Floor LED Light (`rgb_floor_led_light`) | `TS0502A` | `_TZ3000_8uaoilu9` |
 | Livarno Lux Smart LED Wall Light (`rgb_wall_led_light`) | `TS0505A` | `_TZ3000_5bsf8vaj`<br>`_TZ3000_utagpnzs` |
+| MOES Star EU Three-Gang Switch (`wall_switch_moes_star_3`) | `TS0601` | `_TZE200_zo0cfekv` |
 | Motion Sensor (`motion_sensor`) | `RH3040` | `TUYATEC-bd5faf9p`<br>`TUYATEC-zw6hxafz` |
 | Motion Sensor (`motion_sensor_2`) | `TS0601` | `_TZE200_1ibpyhdc`<br>`_TZE200_3towulqd`<br>`_TZE200_bh3n6gk8`<br>`_TZE200_ttcovulf` |
 | Motion Sensor (`motion_sensor_3`) | `TS0601` | `_TZE200_mgxy2d9f` |
@@ -170,6 +172,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Water Leak Sensor (`water_leak_sensor_tuya`) | `TS0601` | `_TZE200_qq9mpfhw` |
 | Water Leak Sensor (WLS-100z) (`water_leak_sensor_jthf7vb6`) | `TS0601` | `_TZE200_jthf7vb6` |
 | Zigbee Repeater (`zigbee_repeater`) | `TS0207` | `_TZ3000_5k5vh43t`<br>`_TZ3000_gszjt2xx`<br>`_TZ3000_m0vaazab`<br>`_TZ3000_misw04hq`<br>`_TZ3000_nkkl7uzv`<br>`_TZ3000_nlsszmzl`<br>`_TZ3000_ufttklsz`<br>`_TZ3000_wlquqiiz` |
+| ZT01 Temperature and Humidity Sensor with Probe (`sensor_zt01_probe`) | `TS0601` | `_TZE284_8se38w3c` |
 <!-- END GENERATED DEVICE INDEX -->
 
 ## White-label brands seen in supported devices
