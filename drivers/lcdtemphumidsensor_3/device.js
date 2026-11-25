@@ -184,14 +184,22 @@ class lcdtemphumidsensor3 extends TuyaSpecificClusterDevice {
   }
 
   async syncTuyaTime(tuyaCluster) {
-    const utcTime = Math.floor(Date.now() / 1000);
-    const localTime = utcTime - new Date().getTimezoneOffset() * 60;
-    const payload = Buffer.alloc(8);
-
-    payload.writeUInt32BE(utcTime >>> 0, 0);
-    payload.writeUInt32BE(localTime >>> 0, 4);
-
     try {
+      const utcTime = Math.floor(Date.now() / 1000);
+      // Encode the local wall clock in the second word using Homey's configured zone.
+      const formatter = new Intl.DateTimeFormat('en-GB', {
+        timeZone: this.homey.clock.getTimezone(), hourCycle: 'h23',
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+      });
+      const parts = Object.fromEntries(formatter.formatToParts(utcTime * 1000)
+        .map(({ type, value }) => [type, value]));
+      const localTime = Date.UTC(parts.year, parts.month - 1, parts.day,
+        parts.hour, parts.minute, parts.second) / 1000;
+      const payload = Buffer.alloc(8);
+      payload.writeUInt32BE(utcTime >>> 0, 0);
+      payload.writeUInt32BE(localTime >>> 0, 4);
+
       await tuyaCluster.timeSync({
         payloadSize: payload.length,
         payload,
