@@ -1,0 +1,68 @@
+{
+  "id": "radiator_nedis_zbhtr20wt",
+  "name": {
+    "en": "Nedis ZBHTR20WT Radiator Valve"
+  },
+  "class": "thermostat",
+  "capabilities": [
+    "onoff",
+    "target_temperature",
+    "measure_temperature",
+    "thermostat_heating",
+    "alarm_battery"
+  ],
+  "capabilitiesOptions": {
+    "onoff": {
+      "title": {
+        "en": "Heating enabled",
+        "sv": "Värme aktiverad"
+      }
+    },
+    "target_temperature": {
+      "min": 5,
+      "max": 30,
+      "step": 0.5
+    }
+  },
+  "energy": {
+    "batteries": [
+      "OTHER"
+    ]
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZE284_ne4pikwm"
+    ],
+    "productId": [
+      "TS0601"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          4,
+          5,
+          61184,
+          0,
+          60672
+        ],
+        "bindings": []
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Turn the valve to OFF. Press and hold the dial for five seconds to enter pairing mode."
+      }
+    }
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png"
+  }
+}

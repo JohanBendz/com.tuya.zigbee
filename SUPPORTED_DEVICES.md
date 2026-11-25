@@ -101,6 +101,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Motion Sensor & Scene Switch (`motion_scene_switch`) | `TS0202` | `_TZ3210_cwamkvua` |
 | MOWE MW815R Rain Sensor (IAS) (`rain_sensor_mowe`) | `TS0207` | `_TZ3000_o9f2zqln` |
 | MTG075 Presence Sensor with Relay (`mtg075_radar_sensor`) | `TS0601` | `_TZE204_mtoaryre` |
+| Nedis ZBHTR20WT Radiator Valve (`radiator_nedis_zbhtr20wt`) | `TS0601` | `_TZE284_ne4pikwm` |
 | Outdoor Plug without metering (`outdoor_plug`) | `TS0101` | `_TZ3000_br3laukf`<br>`_TZ3000_pnzfdr9y` |
 | Outdoor Smart Socket (`outdoor_2_socket`) | `TS011F` | `_TZ3000_uwkja6z1` |
 | OWON THS317-ET Temperature Probe (`temperature_probe_owon_ths317`) | `THS317-ET` | `OWON` |
