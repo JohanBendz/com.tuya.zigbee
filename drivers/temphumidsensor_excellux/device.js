@@ -2,12 +2,14 @@
 
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { CLUSTER } = require('zigbee-clusters');
+const updateReportedValue = require('../../lib/updateReportedValue');
 const StandardSensor = require('../temphumidsensor3/device');
 const { inspect, measurements, samplingFrame } = require('./protocol');
 
 class ExcelluxSensor extends StandardSensor {
   async onNodeInit({ zclNode, node = this.node }) {
     this._detachExcellux();
+    this._usesDp1Probe ||= this.getStoreValue('usesDp1Probe') === true;
     this._excelluxListeners = [];
     if (!this.hasCapability('measure_temperature.internal')) {
       await this.addCapability('measure_temperature.internal');
@@ -35,7 +37,15 @@ class ExcelluxSensor extends StandardSensor {
       const decoded = inspect(frame);
       if (decoded.error) { this.error('Invalid Excellux datapoint frame:', decoded.error); return; }
       const values = measurements(decoded);
-      if (values.probe !== undefined) this.onTemperatureMeasuredAttributeReport(Math.round(values.probe * 100));
+      if (values.probe !== undefined) {
+        this._usesDp1Probe = true;
+        this._updateProbe(values.probe);
+        if (!this._savingProbeSource && this.getStoreValue('usesDp1Probe') !== true) {
+          this._savingProbeSource = this.setStoreValue('usesDp1Probe', true)
+            .catch(error => this.error('Could not save probe source:', error))
+            .finally(() => { this._savingProbeSource = null; });
+        }
+      }
       if (values.humidity !== undefined) this.onRelativeHumidityMeasuredAttributeReport(Math.round(values.humidity * 100));
       if (values.battery !== undefined) this.onBatteryPercentageRemainingAttributeReport(values.battery * 2);
       if (values.internal !== undefined) {
@@ -54,9 +64,15 @@ class ExcelluxSensor extends StandardSensor {
   // Preserve the existing shared formatting, offsets and low-battery behavior,
   // while rejecting ZCL unknown values before they reach capabilities.
   onTemperatureMeasuredAttributeReport(value) {
-    if (Number.isInteger(value) && value >= -4000 && value <= 12000) {
-      super.onTemperatureMeasuredAttributeReport(value);
+    if (!this._usesDp1Probe && Number.isInteger(value) && value >= -4000 && value <= 12000) {
+      this._updateProbe(value / 100);
     }
+  }
+
+  _updateProbe(celsius) {
+    const precision = this.getSetting('temperature_decimals') === '2' ? 100 : 10;
+    const offset = this.getSetting('temperature_offset') || 0;
+    updateReportedValue(this, 'measure_temperature', Math.round(celsius * precision) / precision + offset);
   }
 
   onRelativeHumidityMeasuredAttributeReport(value) {

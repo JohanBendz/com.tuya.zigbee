@@ -16,6 +16,9 @@ function fixture() {
     constructor() { this.values = new Map(); this.settings = {}; this.store = {}; this.capabilities = new Set(compose.capabilities); }
     hasCapability(id) { return this.capabilities.has(id); }
     async addCapability(id) { this.capabilities.add(id); }
+    getStoreValue(id) { return this.store[id]; }
+    async setStoreValue(id, value) { this.store[id] = value; }
+    getCapabilityValue(id) { return this.values.get(id); }
     getSetting(id) { return this.settings[id]; }
     async setSettings(value) { assert.equal(Boolean(this._samplingPending), false); Object.assign(this.settings, value); }
     async setEnergy(value) { this.energy = value; }
@@ -34,6 +37,7 @@ function fixture() {
     if (id === 'homey') return {};
     if (id === 'homey-zigbeedriver') return { ZigBeeDevice: MockBase };
     if (id === 'zigbee-clusters') return { CLUSTER };
+    if (id === '../../lib/updateReportedValue') return require('../lib/updateReportedValue');
     if (id === './protocol') return protocol;
     if (id === '../temphumidsensor3/device') return Standard;
     throw Error('Unexpected dependency: ' + id);
@@ -142,6 +146,59 @@ test('interleaved standard and Tuya reports keep the external probe and onboard 
   await f.node.handleFrame(1, 61184, report(1), {});
   assert.equal(f.device.values.get('measure_temperature'), 25.5);
   await f.node.handleFrame(1, 1026, Buffer.from('18020a00002938ff', 'hex'), {});
-  assert.equal(f.device.values.get('measure_temperature'), -1);
+  assert.equal(f.device.values.get('measure_temperature'), 25.5);
   assert.equal(f.device.values.get('measure_temperature.internal'), 23.36);
+});
+
+test('NTCHT02 mixed-scale standard reports cannot replace a verified DP1 after restart', async () => {
+  const f = fixture();
+  await f.device.onNodeInit(f);
+  const standard = (unit, raw) => {
+    const frame = Buffer.from('18010a0000290000', 'hex');
+    frame.writeInt16LE(raw, 6);
+    return unit.node.handleFrame(1, 1026, frame, {});
+  };
+  const dp1 = (unit, raw) => {
+    const frame = Buffer.from(fixtures.frames.find(row => row.datapoint === 1).frame, 'hex');
+    frame.writeInt32BE(raw, frame.length - 4);
+    return unit.node.handleFrame(1, 61184, frame, {});
+  };
+  await dp1(f, 99999);
+  await standard(f, 1440);
+  assert.equal(f.device.values.get('measure_temperature'), 14.4);
+  await dp1(f, 144);
+  await standard(f, 144);
+  assert.equal(f.device.values.get('measure_temperature'), 14.4);
+
+  const restart = fixture();
+  restart.device.store = { ...f.device.store };
+  restart.device.values = new Map(f.device.values);
+  await restart.device.onNodeInit(restart);
+  await standard(restart, 144);
+  assert.equal(restart.device.values.get('measure_temperature'), 14.4);
+  await dp1(restart, -12);
+  assert.equal(restart.device.values.get('measure_temperature'), -1.2);
+  await dp1(restart, 0);
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(restart.device.values.get('measure_temperature'), 0);
+});
+
+test('a slow Homey write for the standard probe finishes before a newer DP1 write', async () => {
+  const f = fixture();
+  await f.device.onNodeInit(f);
+  const writes = [];
+  let release;
+  f.device.setCapabilityValue = async (id, value) => {
+    writes.push(value);
+    if (writes.length === 1) await new Promise(resolve => { release = resolve; });
+    f.device.values.set(id, value);
+  };
+  await f.node.handleFrame(1, 1026, Buffer.from('18010a0000299000', 'hex'), {});
+  const probe = fixtures.frames.find(row => row.datapoint === 1);
+  await f.node.handleFrame(1, 61184, Buffer.from(probe.frame, 'hex'), {});
+  assert.deepEqual(writes, [1.4]);
+  release();
+  await new Promise(resolve => setImmediate(resolve));
+  assert.deepEqual(writes, [1.4, 24.5]);
+  assert.equal(f.device.getCapabilityValue('measure_temperature'), 24.5);
 });
