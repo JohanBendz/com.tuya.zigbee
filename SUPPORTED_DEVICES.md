@@ -73,6 +73,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Double Power Point - With Metering (`double_power_point`) | `TS011F` | `_TZ3000_dd8wwzcy`<br>`_TZ3210_7jnk7l3k`<br>`_TZ3210_pfbzs1an` |
 | Double Socket Smart Plug (`smartplug_2_socket`) | `TS011F` | `_TZ3000_jak16dll` |
 | ELIVCO Standard Door & Window Sensor (`contact_sensor_elivco_x8q36xwf`) | `TS0203` | `_TZ3000_x8q36xwf` |
+| EPTTECH TLC2206-ZB Tank Monitor (`tank_monitor_epttech_tlc2206`) | `TS0601` | `_TZE200_lvkk0hdg` |
 | eWeLink SNZB-04 Door & Window Sensor (`contact_sensor_ewelink_snzb04`) | `SNZB-04` | `eWeLink` |
 | eWeLink Temperature & Humidity Sensor (`temphumidsensor_ewelink`) | `CK-TLSR8656-SS5-01(7014)` | `eWeLink` |
 | Excellux External Probe Temperature & Humidity Sensor (`temphumidsensor_excellux`) | `Excellux` | `NTCHT02` |

@@ -1,0 +1,33 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Tank level state",
+    "sv": "Nivåstatus"
+  },
+  "values": [
+    {
+      "id": "normal",
+      "title": {
+        "en": "Normal",
+        "sv": "Normal"
+      }
+    },
+    {
+      "id": "low",
+      "title": {
+        "en": "Low",
+        "sv": "Låg"
+      }
+    },
+    {
+      "id": "high",
+      "title": {
+        "en": "High",
+        "sv": "Hög"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor"
+}

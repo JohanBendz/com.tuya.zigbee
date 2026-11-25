@@ -1,0 +1,17 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Tank fill",
+    "sv": "Fyllnadsgrad"
+  },
+  "units": {
+    "en": "%"
+  },
+  "min": 0,
+  "max": 100,
+  "decimals": 0,
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "insights": true
+}
