@@ -63,3 +63,34 @@ test('TRV602Z exposes a writable setpoint and independently reported heat, openi
   emit('04020004000000b9', 'response');
   assert.equal(values.get('target_temperature'), 18.5);
 });
+
+test('Nedis heat enable, relay activity, low battery and target use distinct DPs', async () => {
+  const driver = exactProfile('_TZE284_ne4pikwm', 'radiator_nedis_zbhtr20wt');
+  assert.deepEqual(driver.capabilities, ['onoff', 'target_temperature', 'measure_temperature',
+    'thermostat_heating', 'alarm_battery']);
+  const { handlers, values, sent, emit, tuya } = await pairValve(require('../drivers/radiator_nedis_zbhtr20wt/device'));
+  await handlers.onoff(true);
+  await handlers.onoff(false);
+  for (const value of [5, 20.5, 30]) await handlers.target_temperature(value);
+  assert.deepEqual(sent, ['00006501000101', '00016501000100', '00026702000400000032',
+    '000367020004000000cd', '0004670200040000012c']);
+  await assert.rejects(handlers.onoff('off'));
+  for (const value of [4.5, 30.5, 20.25]) await assert.rejects(handlers.target_temperature(value));
+  assert.equal(values.size, 0);
+  emit('6501000101030400010066020004000000c367020004000000cd6905000101');
+  assert.deepEqual([...values], [['onoff', true], ['thermostat_heating', false], ['measure_temperature', 19.5],
+    ['target_temperature', 20.5], ['alarm_battery', true]]);
+  emit('6905000180');
+  emit('6902000400000064');
+  emit('0304000102');
+  emit('6504000100');
+  assert.equal(values.get('alarm_battery'), true);
+  assert.equal(values.get('onoff'), true);
+  assert.equal(values.get('thermostat_heating'), false);
+  emit('6901000100', 'response');
+  assert.equal(values.get('alarm_battery'), false);
+  tuya.datapoint = async () => { throw new Error('offline'); };
+  await assert.rejects(handlers.target_temperature(25), /offline/);
+  emit('67020004000000b4');
+  assert.equal(values.get('target_temperature'), 18);
+});
