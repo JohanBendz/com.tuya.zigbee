@@ -1,16 +1,27 @@
 # Branches and Homey release channels
 
-Updated 2026-10-25. This is the current branch policy; dated release snapshots
+Updated 2026-10-26. Cleanup follow-up: the default branch is now `main`; the fifteen
+listed temporary/modernization/release branches were removed. `SDK3` still exists
+as a historical branch at the cleanup snapshot and can also be removed now that it is no longer default.
+The other unique legacy/experimental/archive histories remain. See [0.4.1 planning
+and the current backlog inventory](0.4.1_ROADMAP.md).
+
+This is the current branch policy; dated release snapshots
 and older GitHub comments remain historical evidence.
 
-## Current channels and source anchors
+Repository readback on 2026-10-26 shows separate release work has moved `dev`
+to `8706d6b` (0.4.0 metadata) and `develop-0.4` to `f4af3d4` (0.4.0 metadata).
+This 0.4.1 batch does not modify either branch. Store versions below are the last
+confirmed observations on 2026-10-25; publication has not been reverified here.
+
+## Last confirmed Store versions and source anchors
 
 | Branch | Role | Version / published source |
 | --- | --- | --- |
 | `main` | Homey App Store Live | 0.3.3, source `130854f4c6d1b5a3537e956d941eb2e3caec9a9a` |
-| `dev` | Homey App Store Test | 0.3.4, source `21b60ce07d91421aeba08357960c8fc910d87593` |
-| `develop-0.4` | Frozen next Test candidate; not published | 0.4.0, pre-migration source `3e5695667cab9d6a3296d58909b90a8dc0376e93` |
-| `develop-0.4.1` | New development after the 0.4.0 feature freeze | Pre-migration source `08d85dd59177826ff35436b9802f305f372e9bc7`; inherited 0.4.0 metadata until a coordinated 0.4.1 version bump |
+| `dev` | Homey App Store Test lane | Last confirmed Store 0.3.4, source `21b60ce07d91421aeba08357960c8fc910d87593`; repository now has 0.4.0 metadata at `8706d6b` |
+| `develop-0.4` | 0.4.0 release source; feature freeze retained | Current readback `f4af3d4`; pre-migration source `3e5695667cab9d6a3296d58909b90a8dc0376e93` remains historical |
+| `develop-0.4.1` | New development after the 0.4.0 feature freeze | 0.4.1 development; code batches #1026 and #1438 plus the selectively carried PR #1537 Smart Knob correction. [Active preflight](0.4.1_RELEASE_PREFLIGHT.md). Pre-migration source remains historical evidence at `08d85dd59177826ff35436b9802f305f372e9bc7` |
 
 Observed directly on the official Store pages on 2026-10-25:
 - Live: https://homey.app/en-us/app/com.tuya.zigbee/Tuya-Zigbee/ shows 0.3.3.
@@ -41,9 +52,8 @@ or branch move never publishes to Homey by itself.
   to that release source. Carry reviewed fixes into the future branches
   selectively. Preserve existing saved-device/Flow contracts.
 - CI runs on `main`, `dev`, `develop-0.4`, `develop-0.4.1` and pull requests.
-- Use `main` as the GitHub default branch. At migration inspection the default
-  was still `SDK3`; changing it requires repository administration access.
-  Check the actual repository setting before deleting `SDK3`.
+- `main` is now the GitHub default branch (checked after maintainer cleanup
+  on 2026-10-25). SDK3 is an optional removable historical branch, not default.
 - `SDK3`, `modernize-*` and `release-0.3.*` are historical sources, not active
   contribution targets. Use pinned commit URLs for immutable review evidence.
 - README and Homey changelog stay user-facing and channel-neutral. Keep branch,
@@ -51,10 +61,10 @@ or branch move never publishes to Homey by itself.
 
 ## Outstanding pull requests
 
-- #1470 and #1514: historical 0.3.1/0.3.2 release proposals; their full history is
-  already retained by `main`. Close as superseded without merging them again.
-- #1525: the published 0.3.4 Test source is already retained by `dev`; close the
-  old release-source PR without implying Live promotion or physical acceptance.
+- #1470 and #1514: historical 0.3.1/0.3.2 release proposals, now CLOSED as
+  superseded without merging again; their full history is retained by `main`.
+- #1525: now CLOSED; the published 0.3.4 Test source is retained by `dev`.
+  Closure does not imply Live promotion or physical acceptance.
 - #1535: AVATTO TRV addition belongs against `develop-0.4.1`, not old `SDK3` or
   the Store-matching branches. Retargeting is routing only, not code approval;
   reconcile generated app.json through Compose and review the implementation
