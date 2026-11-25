@@ -54,6 +54,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Aipin MC101Z PWM Dimmer (`dimmer_aipin_mc101z`) | `TS0601` | `_TZE28C1000000_sinxpbrl` |
 | Aubess Standard Zigbee Temperature & Humidity (`temphumidsensor_aubess_qoy0ekbd`) | `TS0601` | `_TZE200_qoy0ekbd` |
 | AVATTO E-ink Temperature and Humidity Sensor (`temphumidsensor_avatto_eink`) | `TS0601` | `_TZE204_s139roas` |
+| AVATTO ZDMS16 Two-Channel Dimmer (`dimmer_avatto_zdms16_2`) | `TS0601` | `_TZE204_jtbgusdc`<br>`_TZE204_o9gyszw2`<br>`_TZE28C1000000_jtbgusdc` |
 | Bed Occupancy Sensor (`sensor_bed_pressure`) | `TS0601` | `_TZE200_seq9cm6u` |
 | BEOK TGM50 Floor Heating Thermostat (`wall_thermostat_beok_tgm50`) | `TS0601` | `_TZE204_cvub6xbb` |
 | BSEED TS0001 Single-Channel Wall Switch (`switch_1_gang_bseed_ts0001`) | `TS0001` | `_TZ3000_blhvsaqf` |

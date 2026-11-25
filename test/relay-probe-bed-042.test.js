@@ -118,3 +118,52 @@ test('bed sensor reports occupied and vacant once per change and accepts zero ba
   assert.deepEqual(updates, [['alarm_generic', true], ['measure_battery', 0], ['alarm_generic', false]]);
   assert.deepEqual(commands, {});
 });
+
+test('AVATTO dual dimmer matches only the three verified model pairs and creates two dimmable lights', () => {
+  const [driver] = app.drivers.filter(d => d.id === 'dimmer_avatto_zdms16_2');
+  const names = ['_TZE204_jtbgusdc', '_TZE204_o9gyszw2', '_TZE28C1000000_jtbgusdc'];
+  assert.deepEqual(driver.zigbee.manufacturerName, names);
+  assert.deepEqual(driver.zigbee.productId, ['TS0601']);
+  for (const name of names) {
+    const owners = app.drivers.filter(d => [].concat(d.zigbee?.manufacturerName || []).includes(name)
+      && [].concat(d.zigbee?.productId || []).includes('TS0601'));
+    assert.deepEqual(owners.map(d => d.id), [driver.id]);
+  }
+  assert.deepEqual(Object.keys(driver.zigbee.devices), ['secondGang']);
+  assert.deepEqual(driver.capabilities, ['onoff', 'dim']);
+  assert.deepEqual(driver.zigbee.devices.secondGang.capabilities, driver.capabilities);
+  assert.equal(driver.settings, undefined);
+});
+
+test('AVATTO local and Flow changes route only to their channel and propagate radio failures', async () => {
+  const Dimmer = require('../drivers/dimmer_avatto_zdms16_2/device');
+  const tuya = new EventEmitter();
+  const sharedNode = { endpoints: { 1: { clusters: { tuya } } } };
+  const first = await pair(Dimmer, tuya, undefined, sharedNode);
+  const second = await pair(Dimmer, tuya, 'secondGang', sharedNode);
+  const sent = [];
+  tuya.datapoint = async frame => { sent.push(new Frame(frame).toBuffer().toString('hex')); };
+  await first.commands.onoff(true);
+  await second.commands.onoff(false);
+  await first.commands.dim(0);
+  await second.commands.dim(0.5);
+  await first.commands.dim(1);
+  assert.deepEqual(sent, ['00000101000101', '00010701000100', '00020202000400000000',
+    '000308020004000001f4', '000402020004000003e8']);
+  emit(tuya, '0101000101070100010002020004000003e808020004000001f4', 'response');
+  assert.deepEqual(first.updates, [['onoff', true], ['dim', 1]]);
+  assert.deepEqual(second.updates, [['onoff', false], ['dim', 0.5]]);
+  emit(tuya, '08020004000003e9');
+  emit(tuya, '0201000101');
+  emit(tuya, '0302000400000003');
+  assert.equal(first.updates.length + second.updates.length, 4);
+  second.device.onDeleted();
+  emit(tuya, '08020004000000000202000400000000');
+  assert.equal(second.updates.length, 2);
+  assert.equal(first.values.get('dim'), 0);
+  assert.equal(sent.length, 5);
+  await assert.rejects(first.commands.dim(-0.1));
+  await assert.rejects(second.commands.onoff(1));
+  tuya.datapoint = async () => { throw new Error('radio offline'); };
+  await assert.rejects(first.commands.dim(0.5), /radio offline/);
+});
