@@ -1,0 +1,17 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Valve opening",
+    "sv": "Ventilöppning"
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": "sensor",
+  "units": {
+    "en": "%"
+  },
+  "min": 0,
+  "max": 100,
+  "decimals": 1,
+  "insights": true
+}
