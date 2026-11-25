@@ -1,0 +1,54 @@
+{
+  "id": "rain_lux_hobeian_zg223z",
+  "name": {
+    "en": "HOBEIAN ZG-223Z Rain and Light Sensor"
+  },
+  "class": "sensor",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [
+    "alarm_water",
+    "measure_luminance",
+    "measure_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "OTHER"
+    ]
+  },
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "HOBEIAN"
+    ],
+    "productId": [
+      "ZG-223Z"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          3,
+          1280,
+          61184,
+          1,
+          1024
+        ],
+        "bindings": []
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Follow the device instructions to enable Zigbee pairing mode."
+      }
+    }
+  }
+}

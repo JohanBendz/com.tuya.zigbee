@@ -1,0 +1,55 @@
+{
+  "id": "presence_wenzhi_ts0225",
+  "name": {
+    "en": "Wenzhi TS0225 Presence Sensor"
+  },
+  "class": "sensor",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [
+    "alarm_generic"
+  ],
+  "capabilitiesOptions": {
+    "alarm_generic": {
+      "title": {
+        "en": "Presence detected",
+        "sv": "Närvaro upptäckt"
+      }
+    }
+  },
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ321C_fkzihax8"
+    ],
+    "productId": [
+      "TS0225"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          4,
+          5,
+          1280
+        ],
+        "bindings": [
+          1280
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Follow the device instructions to enable Zigbee pairing mode."
+      }
+    }
+  }
+}
