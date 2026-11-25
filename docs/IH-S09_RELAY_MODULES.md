@@ -69,7 +69,7 @@ new endpoint contract. This is unrelated to changing an input-mode value.
 
 The physical 3-channel unit was freshly paired to the modified app. Exactly three
 available tiles were created. The user confirmed the input-type setting works.
-All tiles use `<N> Gang Relay Module â€” Relay <i>` defaults; Relay 1 controls the
+All tiles use `<N> Gang Relay Module — Relay <i>` defaults; Relay 1 controls the
 first output, not the whole module. There is no automatic startup rename.
 
 Earlier tests with a separate app verified independent OnOff endpoints, momentary
