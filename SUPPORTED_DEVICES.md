@@ -51,7 +51,9 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | 5 Gang Wall Switch (`wall_switch_5_gang_tuya`) | `TS0601` | `_TZE200_jwsjbxjs` |
 | 6 Gang Wall Remote (`wall_remote_6_gang`) | `TS0046` | `_TZ3000_iszegwpd` |
 | 6 Gang Wall Switch (`wall_switch_6_gang_tuya`) | `TS0601` | `_TZE200_9mahtqtg`<br>`_TZE200_r731zlxk` |
+| Aipin MC101Z PWM Dimmer (`dimmer_aipin_mc101z`) | `TS0601` | `_TZE28C1000000_sinxpbrl` |
 | Aubess Standard Zigbee Temperature & Humidity (`temphumidsensor_aubess_qoy0ekbd`) | `TS0601` | `_TZE200_qoy0ekbd` |
+| AVATTO E-ink Temperature and Humidity Sensor (`temphumidsensor_avatto_eink`) | `TS0601` | `_TZE204_s139roas` |
 | BEOK TGM50 Floor Heating Thermostat (`wall_thermostat_beok_tgm50`) | `TS0601` | `_TZE204_cvub6xbb` |
 | BSEED TS0001 Single-Channel Wall Switch (`switch_1_gang_bseed_ts0001`) | `TS0001` | `_TZ3000_blhvsaqf` |
 | BSEED TS0726 Four-Channel Wall Switch (`switch_4_gang_bseed_ts0726`) | `TS0726` | `_TZ3002_pzao9ls1` |
@@ -96,6 +98,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | MTG075 Presence Sensor with Relay (`mtg075_radar_sensor`) | `TS0601` | `_TZE204_mtoaryre` |
 | Outdoor Plug without metering (`outdoor_plug`) | `TS0101` | `_TZ3000_br3laukf`<br>`_TZ3000_pnzfdr9y` |
 | Outdoor Smart Socket (`outdoor_2_socket`) | `TS011F` | `_TZ3000_uwkja6z1` |
+| OWON THS317-ET Temperature Probe (`temperature_probe_owon_ths317`) | `THS317-ET` | `OWON` |
 | PIR Sensor (`pirsensor`) | `RH3040` | `TUYATEC-53o41joc`<br>`TUYATEC-b5g40alm`<br>`TUYATEC-deetibst`<br>`TUYATEC-dgtxmihe`<br>`TUYATEC-dxnohkpd`<br>`TUYATEC-lha8pbwd`<br>`TUYATEC-zn9wyqtr` |
 | Power Strip 4 Sockets (`socket_power_strip_four_three`) | `JZ-ZB-004` | `LELLKI` |
 | Power Strip 4 Sockets (`socket_power_strip_four_two`) | `TS011F` | `_TZ3000_air9m6af`<br>`_TZ3000_cfnprab5`<br>`_TZ3000_o005nuxx` |
@@ -146,8 +149,8 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Temperature & Humidity Sensor (`temphumidsensor5`) | `TS0601` | `_TZE200_9yapgbuv` |
 | Temperature & Humidity Sensor (TH05Z) (`temphumidsensor_vvmbj46n`) | `TS0601` | `_TZE200_vvmbj46n` |
 | Thermostatic Radiator Valve (`thermostatic_radiator_valve`) | `TS0601` | `_TZE200_7yoranx2`<br>`_TZE200_e9ba97vf`<br>`_TZE200_hue3yfsn`<br>`_TZE200_husqqvux`<br>`_TZE200_kds0pmmv`<br>`_TZE200_kly8gjlz`<br>`_TZE200_lllliz3p`<br>`_TZE200_lnbfnyxd`<br>`_TZE200_mudxchsu`<br>`_TZE200_py4cm3he`<br>`_TZE200_sur6q7ko` |
-| TS0001 Single-Channel On/Off Switch (`switch_1_gang_ts0001`) | `TS0001` | `_TZ3000_0t4zjtia`<br>`_TZ3000_hyarhbyx`<br>`_TZ3000_p26flek3`<br>`_TZ3000_y4che4dc` |
-| TS0002 Two-Channel On/Off Switch (`switch_2_gang_ts0002`) | `TS0002` | `_TZ3000_l9brjwau`<br>`_TZ3000_lugaswf8`<br>`_TZ3000_pgcclddi`<br>`_TZ3000_ptjcjise`<br>`_TZ3000_rmiew70n`<br>`_TZ3000_zxrfobzw` |
+| TS0001 Single-Channel On/Off Switch (`switch_1_gang_ts0001`) | `TS0001` | `Zbeacon`<br>`_TZ3000_0t4zjtia`<br>`_TZ3000_bzzgvet0`<br>`_TZ3000_gbshwgag`<br>`_TZ3000_hyarhbyx`<br>`_TZ3000_p26flek3`<br>`_TZ3000_skueekg3`<br>`_TZ3000_y4che4dc` |
+| TS0002 Two-Channel On/Off Switch (`switch_2_gang_ts0002`) | `TS0002` | `_TZ3000_i9w5mehz`<br>`_TZ3000_l9brjwau`<br>`_TZ3000_lugaswf8`<br>`_TZ3000_pgcclddi`<br>`_TZ3000_ptjcjise`<br>`_TZ3000_rmiew70n`<br>`_TZ3000_zxrfobzw` |
 | TS0003 Three-Channel Wall Switch (`switch_3_gang_ts0003`) | `TS0003` | `_TZ3000_iol4bl2y`<br>`_TZ3000_lmcp6b0a`<br>`_TZ3000_qkixdnon`<br>`_TZ3000_v4l4b0lp` |
 | TS0004 Four-Channel On/Off Switch (`switch_4_gang_ts0004`) | `TS0004` | `_TZ3000_enmfaave`<br>`_TZ3000_s6ma1nh4` |
 | TS0201 Standard Temperature & Humidity (`temphumidsensor_tsgqxdb4`) | `TS0201` | `_TZ3000_tsgqxdb4` |

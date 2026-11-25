@@ -1757,7 +1757,7 @@ test('_TZE200_locansqn receives Tuya 1970-based MCU time sync', () => {
   );
   assert.match(source, /tuyaCluster\.on\('timeSync'/);
   assert.match(source, /const utcTime = Math\.floor\(Date\.now\(\) \/ 1000\)/);
-  assert.match(source, /const localTime = utcTime - new Date\(\)\.getTimezoneOffset\(\) \* 60/);
+  assert.match(source, /this\.homey\.clock\.getTimezone\(\)/);
   assert.match(source, /payload\.writeUInt32BE\(utcTime >>> 0, 0\)/);
   assert.match(source, /payload\.writeUInt32BE\(localTime >>> 0, 4\)/);
   assert.match(source, /payloadSize: payload\.length/);

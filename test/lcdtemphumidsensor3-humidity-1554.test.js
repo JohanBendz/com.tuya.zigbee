@@ -24,9 +24,10 @@ const PROFILES = [
   ['_TZE200_44af8vyi', 1],
 ];
 
-function loadDevice() {
+function loadDevice(Clock = Date) {
   class MockDevice {
     constructor() {
+      this.homey = { clock: { getTimezone: () => 'UTC' } };
       this.values = new Map();
       this.errors = [];
     }
@@ -50,7 +51,7 @@ function loadDevice() {
     throw new Error('Unexpected dependency: ' + name);
   };
 
-  const sandbox = { Buffer, console };
+  const sandbox = { Buffer, console, Date: Clock };
   vm.createContext(sandbox);
   const factory = vm.runInContext(
     '(function (require, module, exports) {' + source + '\n})',
@@ -445,4 +446,27 @@ test('_TZE200_locansqn time sync follows the same stored-name fallback', async (
 
   await report(later.tuya, 2, 41);
   assert.equal(later.device.values.get('measure_humidity'), 41);
+});
+
+test('#1545 sends UTC and configured local wall time as two big-endian words', async () => {
+  for (const [zone, instant, offset] of [
+    ['UTC', '2026-01-01T00:00:00Z', 0],
+    ['Europe/Stockholm', '2026-01-14T23:30:00Z', 3600],
+    ['Europe/Stockholm', '2026-06-15T12:00:00Z', 7200],
+    ['Europe/Stockholm', '2026-03-29T00:59:59Z', 3600],
+    ['Europe/Stockholm', '2026-03-29T01:00:00Z', 7200],
+    ['Asia/Kathmandu', '2026-06-15T23:00:00Z', 20700],
+    ['America/St_Johns', '2026-01-01T00:10:00Z', -12600],
+  ]) {
+    const now = Date.parse(instant);
+    const DeviceAtInstant = loadDevice(class extends Date { static now() { return now; } });
+    const device = new DeviceAtInstant();
+    device.homey.clock.getTimezone = () => zone;
+    let frame;
+    await device.syncTuyaTime({ timeSync: async value => { frame = value; } });
+    assert.equal(frame.payloadSize, 8);
+    assert.equal(frame.payload.length, 8);
+    assert.equal(frame.payload.readUInt32BE(0), now / 1000);
+    assert.equal(frame.payload.readUInt32BE(4), now / 1000 + offset, zone + ' ' + instant);
+  }
 });
