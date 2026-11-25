@@ -68,6 +68,13 @@ test('the physical gate enumerates exactly all 33 pairing identities from ninete
     assert.ok(d, 'New driver must exist in generated Homey manifest: ' + id);
     return d.zigbee.manufacturerName.flatMap(m => d.zigbee.productId.map(p => m + '/' + p));
   });
+  // Additional 0.4.2 identities have separate public Test rows in #991.
+  for (const later of [
+    '_TZ3000_i9w5mehz/TS0002',
+  ]) {
+    assert.ok(!seen.has(later));
+    seen.add(later);
+  }
   assert.deepEqual([...seen].sort(), generated.sort(),
     'An addition or removal of a 0.4 manufacturer/model pairing REQUIRES acceptance inventory update');
 });
