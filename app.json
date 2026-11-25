@@ -3756,6 +3756,56 @@
       "settings": []
     },
     {
+      "id": "dimmer_aipin_mc101z",
+      "name": {
+        "en": "Aipin MC101Z PWM Dimmer"
+      },
+      "class": "light",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "images": {
+        "small": "/drivers/dimmer_aipin_mc101z/assets/images/small.png",
+        "large": "/drivers/dimmer_aipin_mc101z/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE28C1000000_sinxpbrl"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              57344,
+              60160,
+              60672,
+              4,
+              5,
+              3,
+              61184
+            ],
+            "bindings": []
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/dimmer_aipin_mc101z/assets/icon.svg",
+          "instruction": {
+            "en": "Follow the device instructions to enable Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
       "id": "doorbell_button",
       "name": {
         "en": "Doorbell Button"
