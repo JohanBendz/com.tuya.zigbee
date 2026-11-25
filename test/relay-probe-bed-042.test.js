@@ -96,9 +96,11 @@ test('ZT01 reports ambient and probe independently, including sub-zero and out-o
   emit(tuya, '2604000100');
   assert.equal(updates.length, 3);
   emit(tuya, '2602000400000000', 'response');
+  await new Promise(resolve => setImmediate(resolve));
   assert.equal(values.get('measure_temperature.probe'), 0);
   for (const [raw, state] of [['00', 'low'], ['01', 'medium'], ['02', 'high']]) {
     emit(tuya, '03040001' + raw);
+    await new Promise(resolve => setImmediate(resolve));
     assert.equal(values.get('battery_level_state'), state);
   }
   emit(tuya, '03040001ff');
@@ -115,6 +117,7 @@ test('bed sensor reports occupied and vacant once per change and accepts zero ba
   emit(tuya, '0101000100');
   emit(tuya, '0402000400000065');
   emit(tuya, '0c02000400000064');
+  await new Promise(resolve => setImmediate(resolve));
   assert.deepEqual(updates, [['alarm_generic', true], ['measure_battery', 0], ['alarm_generic', false]]);
   assert.deepEqual(commands, {});
 });

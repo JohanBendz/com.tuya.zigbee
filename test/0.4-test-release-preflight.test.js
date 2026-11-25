@@ -40,6 +40,12 @@ test('inherited 0.4.0 release instructions enumerate the actual 19 additions and
   // Later 0.4.1 profiles are counted apart from that acceptance matrix.
   const postFreezeIds = new Set([
     'wall_thermostat_beok_tgm50',
+    'motion_conecto_cozigpms',
+    'presence_wenzhi_ts0225',
+    'temperature_ts0201_e002',
+    'presence_neo_nas_ps09b2',
+    'rain_lux_hobeian_zg223z',
+    'rain_lux_tuya_u6x1zyv2',
     'radiator_nedis_zbhtr20wt',
     'radiator_trv602z',
     'blind_motor_gm25teq',
