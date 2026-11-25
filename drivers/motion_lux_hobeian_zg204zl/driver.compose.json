@@ -1,0 +1,58 @@
+{
+  "id": "motion_lux_hobeian_zg204zl",
+  "name": {
+    "en": "HOBEIAN Motion & Illuminance Sensor"
+  },
+  "class": "sensor",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [
+    "alarm_motion",
+    "measure_luminance",
+    "measure_battery",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "OTHER"
+    ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "HOBEIAN"
+    ],
+    "productId": [
+      "ZG-204ZL"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          3,
+          1024,
+          1280
+        ],
+        "bindings": [
+          1,
+          1024,
+          1280
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Follow the sensor instructions to activate Zigbee pairing mode."
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Preset",
+    "nl": "Preset",
+    "de": "Voreinstellung"
+  },
+  "desc": {
+    "en": "BEOK TGM50 operating preset",
+    "nl": "BEOK TGM50-bedieningspreset",
+    "de": "BEOK TGM50-Betriebsvoreinstellung"
+  },
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Manual",
+        "nl": "Handmatig",
+        "de": "Manuell"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "Auto",
+        "nl": "Auto",
+        "de": "Auto"
+      }
+    },
+    {
+      "id": "3",
+      "title": {
+        "en": "Eco",
+        "nl": "Eco",
+        "de": "Eco"
+      }
+    }
+  ],
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker"
+}

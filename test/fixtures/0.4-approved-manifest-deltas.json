@@ -1,0 +1,6 @@
+{
+  "note": "Intentional differences from the immutable 0.3.1 baseline must pin the exact changed release-manifest contract and reference a GitHub issue. Empty by default.",
+  "drivers": {},
+  "flow": {},
+  "capabilities": {}
+}

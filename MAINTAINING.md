@@ -72,6 +72,10 @@ CI order is:
 
 Homey's publish validation checks the generated manifest and publish assets. Static repository tests are intentionally conservative; they do not claim to replace real-device testing.
 
+**0.4 release contract:** Preserve the generated [0.3.1 Test manifest baseline](test/fixtures/0.3.1-manifest-contract.json) using `test/0.4-legacy-manifest-contract.test.js`; record any consciously approved existing-contract change with issue-linked target signatures in `test/fixtures/0.4-approved-manifest-deltas.json`. See [0.4 Test readiness](docs/0.4.0_TEST_READINESS.md). Never rewrite the immutable source baseline to silence a regression. Separately pin and verify the [20 sensitive legacy source Git blobs](test/fixtures/0.3.1-protected-runtime-blobs.json) with `test/0.4-protected-runtime-contract.test.js`; any reviewed, issue-linked exception belongs in `test/fixtures/0.4-approved-runtime-deltas.json`, not in the original snapshot.
+
+**0.4 hardware gate:** Consult [the release-candidate preflight](docs/0.4.0_RELEASE_PREFLIGHT.md) and [the exact physical acceptance matrix](docs/0.4.0_PHYSICAL_ACCEPTANCE.md) before suggesting a 0.4 Test/Live promotion. It tracks the current 33 individually testable manufacturer/product fingerprints across nineteen NEW 0.4 drivers, original physical evidence, per-gang/sensor tests and the existing plug-regression scope (#1503). CI success alone is not physical acceptance. **Physical checks take place through the published 0.4 Test version, not as an entry requirement before publishing Test.** Before moving from Test to Live, use reported physical evidence and evaluate or defer unverified fingerprints. **Current channels are main = 0.3.3 Live and dev = 0.3.4 Test** (Store checked 2026-10-25). The prior 0.3.2-Live-first prerequisite is satisfied; review current Test feedback and final candidate sign-off before publishing 0.4.0 Test.
+
 ## Releases
 
 - Keep `package.json`, `.homeycompose/app.json` and generated `app.json` on the same version.
@@ -85,26 +89,23 @@ Homey's publish validation checks the generated manifest and publish assets. Sta
 - For a changed submission already published under another version, use a new monotonically higher version and keep package-lock.json (including its root package), package.json and Compose metadata aligned.
 - Regenerate/validate `app.json` through Homey Compose/CLI; do not hand-edit it.
 
-## Development reference
-
-The app uses Homey SDK 3, Homey Compose, homey-zigbeedriver and zigbee-clusters. The source manifest lives in .homeycompose/ and driver Compose files; root app.json is generated and tracked. Keep unrelated generated changes out of normal pull requests.
-
-- drivers/: Homey drivers and pairing manifests.
-- lib/: shared Tuya/Zigbee helpers, clusters and datapoints.
-- locales/: translations.
-- README.txt: App Store description.
-- .homeychangelog.json: user-facing changes by version.
-
 ## Branches and release lanes (2026-10-25)
 
 - `main`: actual Homey **Live 0.3.3**, published source `130854f`.
-- `dev`: actual Homey **Test 0.3.4**, published source `21b60ce`.
-- `develop-0.4`: frozen **0.4.0 next Test candidate**, not yet published.
-- `develop-0.4.1`: all new post-freeze development; it still inherits 0.4.0
-  metadata until the first coordinated 0.4.1 version/changelog update.
+- `dev`: Test lane; last Store check (2026-10-25) showed **0.3.4**, published
+  source `21b60ce`. Repository readback on 2026-10-26 now shows **0.4.0**
+  metadata at `8706d6b` after separate release work; publication is not reverified.
+- `develop-0.4`: **0.4.0 release source**, now `f4af3d4` after separate release
+  corrections. Its feature freeze remains in place.
+- `develop-0.4.1`: **0.4.1 development**, with the isolated #1026 single-button
+  correction, exact-identity #1438 FingerBot click-mode queue and the reviewed
+  0.4.0 Smart Knob correction from PR #1537.
+  Version/lock/Compose/manifest/changelog are aligned.
+  See [the active 0.4.1 preflight](docs/0.4.1_RELEASE_PREFLIGHT.md).
 - `refactor/type-based-drivers`: separate experimental architecture.
 
 See [current branch policy, Store evidence and cleanup audit](docs/BRANCHES.md).
+See [the 0.4.1 work queue and complete open-backlog inventory](docs/0.4.1_ROADMAP.md) before selecting post-freeze implementation batches.
 Prepare narrow fixes against `dev` on a dedicated branch; send new features and
 device additions to `develop-0.4.1`. `main` follows actual Live publication.
 Do not merge pending 0.4 work into the currently published 0.3.4 Test branch.
