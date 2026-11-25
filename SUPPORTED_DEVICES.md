@@ -82,6 +82,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | Finger Bot (`fingerbot`) | `TS0001`<br>`TS0001_fingerbot` | `_TZ3210_232nryqh`<br>`_TZ3210_dse8ogfy`<br>`_TZ3210_j4pdtz9v`<br>`_TZ3210_okbss9dy` |
 | Flood sensor (`flood_sensor`) | `RH3001`<br>`TS0207` | `TUYATEC-3tipnsrx`<br>`_TZ3000_3dfewsk1`<br>`_TZ3000_4uvovz4r`<br>`_TZ3000_bfopm9ga`<br>`_TZ3000_wuep9zng`<br>`_TZ3000_ww9i3e0y` |
 | Flood sensor (`flood_sensor_2`) | `TS0207` | `_TZ3000_baeiitad` |
+| GM25TEQ Tubular Blind Motor (`blind_motor_gm25teq`) | `TS0601` | `_TZE204_xtrnjaoz` |
 | HOBEIAN Contact & Illuminance Sensor (`contact_lux_hobeian`) | `ZG-102ZL` | `HOBEIAN` |
 | HOBEIAN Motion & Illuminance Sensor (`motion_lux_hobeian_zg204zl`) | `ZG-204ZL` | `HOBEIAN` |
 | HOBEIAN Temperature & Humidity Sensor (`temphumidsensor_hobeian`) | `ZG-227Z` | `HOBEIAN` |
