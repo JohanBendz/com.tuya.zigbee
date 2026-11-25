@@ -13807,6 +13807,58 @@
       ]
     },
     {
+      "id": "temphumidsensor_avatto_eink",
+      "name": {
+        "en": "AVATTO E-ink Temperature and Humidity Sensor"
+      },
+      "class": "sensor",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "measure_temperature",
+        "measure_humidity",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER"
+        ]
+      },
+      "images": {
+        "small": "/drivers/temphumidsensor_avatto_eink/assets/images/small.png",
+        "large": "/drivers/temphumidsensor_avatto_eink/assets/images/large.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE204_s139roas"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              61184
+            ],
+            "bindings": []
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/temphumidsensor_avatto_eink/assets/icon.svg",
+          "instruction": {
+            "en": "Follow the device instructions to enable Zigbee pairing mode."
+          }
+        }
+      }
+    },
+    {
       "id": "temphumidsensor_ewelink",
       "name": {
         "en": "eWeLink Temperature & Humidity Sensor"

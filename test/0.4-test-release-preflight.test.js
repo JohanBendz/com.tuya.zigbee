@@ -38,7 +38,7 @@ test('inherited 0.4.0 release instructions enumerate the actual 19 additions and
   const newer = app.drivers.filter(d => !prev.has(d.id));
   // The frozen 0.4.0 inventory stays 154 drivers / 19 additions.
   // Later 0.4.1 profiles are counted apart from that acceptance matrix.
-  const postFreezeIds = new Set(['wall_thermostat_beok_tgm50']);
+  const postFreezeIds = new Set(['wall_thermostat_beok_tgm50', 'temphumidsensor_avatto_eink']);
   const frozenNewer = newer.filter(d => !postFreezeIds.has(d.id));
   assert.equal(frozenNewer.length, 19);
   assert.equal(newer.length, 19 + postFreezeIds.size);

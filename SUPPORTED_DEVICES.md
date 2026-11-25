@@ -52,6 +52,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | 6 Gang Wall Remote (`wall_remote_6_gang`) | `TS0046` | `_TZ3000_iszegwpd` |
 | 6 Gang Wall Switch (`wall_switch_6_gang_tuya`) | `TS0601` | `_TZE200_9mahtqtg`<br>`_TZE200_r731zlxk` |
 | Aubess Standard Zigbee Temperature & Humidity (`temphumidsensor_aubess_qoy0ekbd`) | `TS0601` | `_TZE200_qoy0ekbd` |
+| AVATTO E-ink Temperature and Humidity Sensor (`temphumidsensor_avatto_eink`) | `TS0601` | `_TZE204_s139roas` |
 | BEOK TGM50 Floor Heating Thermostat (`wall_thermostat_beok_tgm50`) | `TS0601` | `_TZE204_cvub6xbb` |
 | BSEED TS0001 Single-Channel Wall Switch (`switch_1_gang_bseed_ts0001`) | `TS0001` | `_TZ3000_blhvsaqf` |
 | BSEED TS0726 Four-Channel Wall Switch (`switch_4_gang_bseed_ts0726`) | `TS0726` | `_TZ3002_pzao9ls1` |
