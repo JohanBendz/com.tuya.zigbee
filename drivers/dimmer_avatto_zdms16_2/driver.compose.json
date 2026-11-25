@@ -1,0 +1,60 @@
+{
+  "id": "dimmer_avatto_zdms16_2",
+  "name": {
+    "en": "AVATTO ZDMS16 Two-Channel Dimmer"
+  },
+  "class": "light",
+  "capabilities": [
+    "onoff",
+    "dim"
+  ],
+  "zigbee": {
+    "manufacturerName": [
+      "_TZE204_jtbgusdc",
+      "_TZE204_o9gyszw2",
+      "_TZE28C1000000_jtbgusdc"
+    ],
+    "productId": [
+      "TS0601"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          4,
+          5,
+          61184
+        ],
+        "bindings": []
+      }
+    },
+    "devices": {
+      "secondGang": {
+        "name": {
+          "en": "AVATTO ZDMS16 - Channel 2"
+        },
+        "class": "light",
+        "capabilities": [
+          "onoff",
+          "dim"
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Follow the dimmer instructions to enable pairing. Each dimming channel gets a separate Homey tile."
+      }
+    }
+  },
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png"
+  }
+}
