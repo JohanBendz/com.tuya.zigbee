@@ -1,0 +1,57 @@
+{
+  "id": "sensor_bed_pressure",
+  "name": {
+    "en": "Bed Occupancy Sensor"
+  },
+  "class": "sensor",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png"
+  },
+  "capabilities": [
+    "alarm_generic",
+    "measure_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "OTHER"
+    ]
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZE200_seq9cm6u"
+    ],
+    "productId": [
+      "TS0601"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          61184
+        ],
+        "bindings": []
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Follow the device instructions to enable Zigbee pairing mode."
+      }
+    }
+  },
+  "capabilitiesOptions": {
+    "alarm_generic": {
+      "title": {
+        "en": "Bed occupied",
+        "sv": "Sängen är upptagen"
+      }
+    }
+  }
+}

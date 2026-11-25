@@ -1,0 +1,65 @@
+{
+  "id": "wall_switch_moes_star_3",
+  "name": {
+    "en": "MOES Star EU Three-Gang Switch"
+  },
+  "class": "socket",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png"
+  },
+  "capabilities": [
+    "onoff"
+  ],
+  "zigbee": {
+    "manufacturerName": [
+      "_TZE200_zo0cfekv"
+    ],
+    "productId": [
+      "TS0601"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          4,
+          5,
+          61184,
+          0
+        ],
+        "bindings": []
+      }
+    },
+    "devices": {
+      "secondGang": {
+        "class": "socket",
+        "capabilities": [
+          "onoff"
+        ],
+        "name": {
+          "en": "MOES Star - Channel 2"
+        }
+      },
+      "thirdGang": {
+        "class": "socket",
+        "capabilities": [
+          "onoff"
+        ],
+        "name": {
+          "en": "MOES Star - Channel 3"
+        }
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Follow the switch instructions to enter pairing mode. Homey creates one tile per channel."
+      }
+    }
+  }
+}
