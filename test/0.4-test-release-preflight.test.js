@@ -40,6 +40,7 @@ test('inherited 0.4.0 release instructions enumerate the actual 19 additions and
   // Later 0.4.1 profiles are counted apart from that acceptance matrix.
   const postFreezeIds = new Set([
     'wall_thermostat_beok_tgm50',
+    'blind_motor_gm25teq',
     'dimmer_avatto_zdms16_2',
     'temperature_probe_owon_ths317',
     'temphumidsensor_avatto_eink',

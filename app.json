@@ -2170,6 +2170,52 @@
   },
   "drivers": [
     {
+      "id": "blind_motor_gm25teq",
+      "name": {
+        "en": "GM25TEQ Tubular Blind Motor"
+      },
+      "class": "blinds",
+      "capabilities": [
+        "windowcoverings_set",
+        "windowcoverings_state"
+      ],
+      "zigbee": {
+        "manufacturerName": [
+          "_TZE204_xtrnjaoz"
+        ],
+        "productId": [
+          "TS0601"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              4,
+              5,
+              61184,
+              0
+            ],
+            "bindings": []
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/blind_motor_gm25teq/assets/icon.svg",
+          "instruction": {
+            "en": "Follow the motor instructions to enter Zigbee pairing mode."
+          }
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "images": {
+        "small": "/drivers/blind_motor_gm25teq/assets/images/small.png",
+        "large": "/drivers/blind_motor_gm25teq/assets/images/large.png"
+      }
+    },
+    {
       "id": "christmas_lights",
       "name": {
         "en": "Christmas Lights"
