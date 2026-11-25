@@ -57,6 +57,9 @@ test('inherited 0.4.0 release instructions enumerate the actual 19 additions and
     'sensor_zt01_probe',
     'sensor_bed_pressure',
     'tank_monitor_epttech_tlc2206',
+    'switch_module_2_gang_tuya',
+    'switch_module_3_gang_tuya',
+    'switch_module_4_gang_tuya',
   ]);
   const frozenNewer = newer.filter(d => !postFreezeIds.has(d.id));
   assert.equal(frozenNewer.length, 19);
