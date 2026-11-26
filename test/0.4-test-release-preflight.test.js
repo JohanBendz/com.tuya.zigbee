@@ -98,16 +98,16 @@ test('inherited 0.4.0 release instructions enumerate the actual 19 additions and
 
 // Current release routing is checked separately from the immutable 0.4.0
 // acceptance snapshot. Update these assertions only on a real channel change.
-test('current release policy distinguishes Live, published Test and active development', () => {
+test('current release policy distinguishes Live, published Test and frozen candidates', () => {
   const branchPolicy = read('docs/BRANCHES.md');
   const maintaining = read('MAINTAINING.md');
   assert.match(branchPolicy, /130854f4c6d1b5a3537e956d941eb2e3caec9a9a/);
   assert.match(branchPolicy, /21b60ce07d91421aeba08357960c8fc910d87593/);
   assert.match(branchPolicy, /\| `main` \| Live 0\.3\.3 \|/);
   assert.match(branchPolicy, /\| `dev` \| Test 0\.4\.1 \| `46a4a6b8ac8806d65530667e7c8341d57ca7491c`/);
-  assert.match(branchPolicy, /\| `develop-0\.4\.3` \| Active development 0\.4\.3 \|/);
+  assert.match(branchPolicy, /\| `develop-0\.4\.3` \| Frozen candidate for Test 0\.4\.3 \|/);
   assert.match(maintaining, /main = 0\.3\.3 Live and dev = 0\.4\.1 Test/);
-  assert.match(maintaining, /develop-0\.4\.3/);
+  assert.match(maintaining, /develop-0\.4\.3` is feature-frozen for Test/);
   assert.match(read('.github/workflows/validate.yml'), /develop-0\.4\.3/);
   assert.match(maintaining, /Physical checks take place through the published 0\.4 Test version/);
 });
