@@ -1,0 +1,50 @@
+{
+  "id": "switch_1_gang_ts0011",
+  "name": {
+    "en": "TS0011 Single-Channel Switch"
+  },
+  "class": "socket",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [
+    "onoff"
+  ],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_prd023wy",
+      "_TZ3000_5ftkaulg",
+      "_TZ3000_aetquff4",
+      "_TYZB01_gr6rozze"
+    ],
+    "productId": [
+      "TS0011"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          4,
+          5,
+          6
+        ],
+        "bindings": [
+          6
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Follow the device instructions to enable Zigbee pairing mode."
+      }
+    }
+  }
+}

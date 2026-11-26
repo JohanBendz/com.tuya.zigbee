@@ -37,8 +37,9 @@ test('inherited 0.4.0 release instructions enumerate the actual 19 additions and
   assert.equal(prev.size, 135);
   const newer = app.drivers.filter(d => !prev.has(d.id));
   // The frozen 0.4.0 inventory stays 154 drivers / 19 additions.
-  // Later 0.4.1 profiles are counted apart from that acceptance matrix.
+  // Later profiles are counted apart from that acceptance matrix.
   const postFreezeIds = new Set([
+    'thermostatic_radiator_valve_avatto',
     'wall_thermostat_beok_tgm50',
     'motion_conecto_cozigpms',
     'presence_wenzhi_ts0225',
@@ -57,6 +58,13 @@ test('inherited 0.4.0 release instructions enumerate the actual 19 additions and
     'sensor_zt01_probe',
     'sensor_bed_pressure',
     'tank_monitor_epttech_tlc2206',
+    'temphumid_th01',
+    'socket_moes_ts011f_dual',
+    'switch_1_gang_ts000f',
+    'switch_1_gang_ts0011',
+    'switch_module_2_gang_tuya',
+    'switch_module_3_gang_tuya',
+    'switch_module_4_gang_tuya',
   ]);
   const frozenNewer = newer.filter(d => !postFreezeIds.has(d.id));
   assert.equal(frozenNewer.length, 19);
@@ -90,16 +98,16 @@ test('inherited 0.4.0 release instructions enumerate the actual 19 additions and
 
 // Current release routing is checked separately from the immutable 0.4.0
 // acceptance snapshot. Update these assertions only on a real channel change.
-test('current release policy distinguishes Live, published Test and active development', () => {
+test('current release policy distinguishes Live, published Test and frozen candidates', () => {
   const branchPolicy = read('docs/BRANCHES.md');
   const maintaining = read('MAINTAINING.md');
   assert.match(branchPolicy, /130854f4c6d1b5a3537e956d941eb2e3caec9a9a/);
   assert.match(branchPolicy, /21b60ce07d91421aeba08357960c8fc910d87593/);
   assert.match(branchPolicy, /\| `main` \| Live 0\.3\.3 \|/);
   assert.match(branchPolicy, /\| `dev` \| Test 0\.4\.1 \| `46a4a6b8ac8806d65530667e7c8341d57ca7491c`/);
-  assert.match(branchPolicy, /\| `develop-0\.4\.3` \| Active development 0\.4\.3 \|/);
+  assert.match(branchPolicy, /\| `develop-0\.4\.3` \| Frozen candidate for Test 0\.4\.3 \|/);
   assert.match(maintaining, /main = 0\.3\.3 Live and dev = 0\.4\.1 Test/);
-  assert.match(maintaining, /develop-0\.4\.3/);
+  assert.match(maintaining, /develop-0\.4\.3` is feature-frozen for Test/);
   assert.match(read('.github/workflows/validate.yml'), /develop-0\.4\.3/);
   assert.match(maintaining, /Physical checks take place through the published 0\.4 Test version/);
 });

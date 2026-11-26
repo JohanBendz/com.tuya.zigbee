@@ -1,0 +1,45 @@
+{
+  "fingerprint": {
+    "manufacturerName": "NTCHT02",
+    "modelId": "Excellux",
+    "swBuildId": "2026062212"
+  },
+  "source": "Physical NTCHT02 test on Homey Pro, 2026-11-04. Raw RX frames with no network identifiers.",
+  "frames": [
+    {
+      "datapoint": 1,
+      "frame": "0d0100860204a601020004000000f5",
+      "expected": {
+        "probe": 24.5
+      }
+    },
+    {
+      "datapoint": 4,
+      "frame": "0d0100870204a7040200040000005a",
+      "expected": {
+        "battery": 90
+      }
+    },
+    {
+      "datapoint": 5,
+      "frame": "0d01008c0204ab0502000400000920",
+      "expected": {
+        "internal": 23.36
+      }
+    },
+    {
+      "datapoint": 118,
+      "frame": "0d0100870205737602000400001153",
+      "expected": {
+        "humidity": 44.35
+      }
+    },
+    {
+      "datapoint": 101,
+      "frame": "0d0100e10205bb6502000400000005",
+      "expected": {
+        "sampling": 5
+      }
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": "socket_moes_ts011f_dual",
+  "name": {
+    "en": "MOES Dual Output Plug - Output 1",
+    "sv": "MOES dubbeluttag - Utg\u00e5ng 1"
+  },
+  "class": "socket",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [
+    "onoff"
+  ],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_2xlvlnez"
+    ],
+    "productId": [
+      "TS011F"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          4,
+          5,
+          6
+        ],
+        "bindings": [
+          6
+        ]
+      },
+      "2": {
+        "clusters": [
+          4,
+          5,
+          6
+        ],
+        "bindings": [
+          6
+        ]
+      }
+    },
+    "devices": {
+      "socketTwo": {
+        "class": "socket",
+        "capabilities": [
+          "onoff"
+        ],
+        "name": {
+          "en": "MOES Dual Output Plug - Output 2",
+          "sv": "MOES dubbeluttag - Utg\u00e5ng 2"
+        }
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Put the plug in Zigbee pairing mode. Homey creates one tile for each output.",
+        "sv": "S\u00e4tt uttaget i parningsl\u00e4ge f\u00f6r Zigbee. Homey skapar en enhet f\u00f6r varje utg\u00e5ng."
+      }
+    }
+  }
+}

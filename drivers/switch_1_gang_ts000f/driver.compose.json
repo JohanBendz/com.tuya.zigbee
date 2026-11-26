@@ -1,0 +1,48 @@
+{
+  "id": "switch_1_gang_ts000f",
+  "name": {
+    "en": "TS000F Single-Channel Switch"
+  },
+  "class": "socket",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [
+    "onoff"
+  ],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_hdc8bbha",
+      "_TZ3000_skueekg3"
+    ],
+    "productId": [
+      "TS000F"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          4,
+          5,
+          6
+        ],
+        "bindings": [
+          6
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "Follow the device instructions to enable Zigbee pairing mode."
+      }
+    }
+  }
+}
