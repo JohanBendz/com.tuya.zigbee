@@ -37,8 +37,9 @@ test('inherited 0.4.0 release instructions enumerate the actual 19 additions and
   assert.equal(prev.size, 135);
   const newer = app.drivers.filter(d => !prev.has(d.id));
   // The frozen 0.4.0 inventory stays 154 drivers / 19 additions.
-  // Later 0.4.1 profiles are counted apart from that acceptance matrix.
+  // Later profiles are counted apart from that acceptance matrix.
   const postFreezeIds = new Set([
+    'thermostatic_radiator_valve_avatto',
     'wall_thermostat_beok_tgm50',
     'motion_conecto_cozigpms',
     'presence_wenzhi_ts0225',
@@ -57,6 +58,12 @@ test('inherited 0.4.0 release instructions enumerate the actual 19 additions and
     'sensor_zt01_probe',
     'sensor_bed_pressure',
     'tank_monitor_epttech_tlc2206',
+    'temphumid_th01',
+    'switch_1_gang_ts000f',
+    'switch_1_gang_ts0011',
+    'switch_module_2_gang_tuya',
+    'switch_module_3_gang_tuya',
+    'switch_module_4_gang_tuya',
   ]);
   const frozenNewer = newer.filter(d => !postFreezeIds.has(d.id));
   assert.equal(frozenNewer.length, 19);

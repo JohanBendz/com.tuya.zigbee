@@ -1,0 +1,112 @@
+{
+  "id": "switch_module_2_gang_tuya",
+  "name": {
+    "en": "2 Gang Relay Module \u2014 Relay 1"
+  },
+  "class": "socket",
+  "platforms": [
+    "local"
+  ],
+  "connectivity": [
+    "zigbee"
+  ],
+  "capabilities": [
+    "onoff"
+  ],
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "xlarge": "{{driverAssetsPath}}/images/xlarge.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "_TZ3000_criiahcg",
+      "_TZ3000_ywubfuvt",
+      "_TZ3000_wnzoyohq"
+    ],
+    "productId": [
+      "TS0002"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          4,
+          5,
+          6,
+          57345
+        ],
+        "bindings": [
+          6
+        ]
+      },
+      "2": {
+        "clusters": [
+          4,
+          5,
+          6
+        ],
+        "bindings": [
+          6
+        ]
+      }
+    },
+    "devices": {
+      "secondSwitch": {
+        "class": "socket",
+        "capabilities": [
+          "onoff"
+        ],
+        "name": {
+          "en": "2 Gang Relay Module \u2014 Relay 2"
+        },
+        "settings": []
+      }
+    },
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/icon.svg",
+      "instruction": {
+        "en": "2 tiles will be created, one per relay. Follow the manufacturer\u2019s pairing instructions. For the IH-S09, hold the safely accessible reset button for about 8 seconds until the indicator flashes rapidly. Each tile is named for its relay number; the first tile controls Relay 1, not the whole module."
+      }
+    }
+  },
+  "settings": [
+    {
+      "id": "input_mode",
+      "type": "dropdown",
+      "label": {
+        "en": "Input type (all inputs)"
+      },
+      "value": "keep",
+      "hint": {
+        "en": "Shared by all switch inputs on the module. Configure from the Relay 1 tile. Momentary mode toggles the associated relay on each press; detached input is not supported. Startup reads the current mode without changing it."
+      },
+      "values": [
+        {
+          "id": "keep",
+          "label": {
+            "en": "Keep current device setting"
+          }
+        },
+        {
+          "id": "toggle",
+          "label": {
+            "en": "Toggle switch"
+          }
+        },
+        {
+          "id": "state",
+          "label": {
+            "en": "State-following switch"
+          }
+        },
+        {
+          "id": "momentary",
+          "label": {
+            "en": "Momentary push button"
+          }
+        }
+      ]
+    }
+  ]
+}

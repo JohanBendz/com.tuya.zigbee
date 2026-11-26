@@ -1,0 +1,160 @@
+{
+  "triggers": [
+    {
+      "id": "avatto_trv_window_opened",
+      "title": {
+        "en": "Window opened",
+        "nl": "Raam geopend",
+        "de": "Fenster geöffnet"
+      },
+      "titleFormatted": {
+        "en": "Window opened",
+        "nl": "Raam geopend",
+        "de": "Fenster geöffnet"
+      },
+      "hint": {
+        "en": "Triggered when the valve reports the window opened.",
+        "nl": "Wordt geactiveerd wanneer de kraan meldt dat het raam open is.",
+        "de": "Wird ausgelöst, wenn das Ventil ein geöffnetes Fenster meldet."
+      }
+    },
+    {
+      "id": "avatto_trv_window_closed",
+      "title": {
+        "en": "Window closed",
+        "nl": "Raam gesloten",
+        "de": "Fenster geschlossen"
+      },
+      "titleFormatted": {
+        "en": "Window closed",
+        "nl": "Raam gesloten",
+        "de": "Fenster geschlossen"
+      },
+      "hint": {
+        "en": "Triggered when the valve reports the window closed.",
+        "nl": "Wordt geactiveerd wanneer de kraan meldt dat het raam dicht is.",
+        "de": "Wird ausgelöst, wenn das Ventil ein geschlossenes Fenster meldet."
+      }
+    }
+  ],
+  "conditions": [],
+  "actions": [
+    {
+      "id": "avatto_trv_set_target_temperature",
+      "title": {
+        "en": "Set target temperature",
+        "nl": "Stel doeltemperatuur in",
+        "de": "Zieltemperatur einstellen"
+      },
+      "titleFormatted": {
+        "en": "Set target temperature to [[temperature]]°C",
+        "nl": "Stel doeltemperatuur in op [[temperature]]°C",
+        "de": "Zieltemperatur auf [[temperature]]°C einstellen"
+      },
+      "hint": {
+        "en": "Writes the target temperature to datapoint 4 as value × 10.",
+        "nl": "Schrijft de doeltemperatuur naar datapunt 4 als waarde × 10.",
+        "de": "Schreibt die Zieltemperatur auf Datenpunkt 4 als Wert × 10."
+      },
+      "args": [
+        {
+          "type": "number",
+          "name": "temperature",
+          "min": 5,
+          "max": 35,
+          "step": 0.5,
+          "placeholder": {
+            "en": "21"
+          },
+          "title": {
+            "en": "Target temperature",
+            "nl": "Doeltemperatuur",
+            "de": "Zieltemperatur"
+          }
+        }
+      ]
+    },
+    {
+      "id": "avatto_trv_set_preset",
+      "title": {
+        "en": "Set preset",
+        "nl": "Stel preset in",
+        "de": "Voreinstellung setzen"
+      },
+      "titleFormatted": {
+        "en": "Set preset to [[preset]]",
+        "nl": "Stel preset in op [[preset]]",
+        "de": "Voreinstellung auf [[preset]] setzen"
+      },
+      "args": [
+        {
+          "type": "dropdown",
+          "name": "preset",
+          "title": {
+            "en": "Preset",
+            "nl": "Preset",
+            "de": "Voreinstellung"
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Manual",
+                "nl": "Handmatig",
+                "de": "Manuell"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Schedule",
+                "nl": "Schema",
+                "de": "Zeitplan"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Eco",
+                "nl": "Eco",
+                "de": "Eco"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Comfort",
+                "nl": "Comfort",
+                "de": "Komfort"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "Frost protection",
+                "nl": "Vorstbescherming",
+                "de": "Frostschutz"
+              }
+            },
+            {
+              "id": "5",
+              "label": {
+                "en": "Holiday",
+                "nl": "Vakantie",
+                "de": "Urlaub"
+              }
+            },
+            {
+              "id": "6",
+              "label": {
+                "en": "Off",
+                "nl": "Uit",
+                "de": "Aus"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
