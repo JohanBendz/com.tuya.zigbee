@@ -100,6 +100,7 @@ This section is generated from the Homey manifest. It is the easiest place to ch
 | LCD Temperature, Humidity and Luminance Sensor (`lcdtemphumidluxsensor`) | `TS0201`<br>`TS0222` | `_TYZB01_ftdkanlj`<br>`_TYZB01_kvwjujy9`<br>`_TZ3000_qaaysllp`<br>`_TZ3210_huzkzqyk` |
 | Livarno Lux Atmosphere Floor LED Light (`rgb_floor_led_light`) | `TS0502A` | `_TZ3000_8uaoilu9` |
 | Livarno Lux Smart LED Wall Light (`rgb_wall_led_light`) | `TS0505A` | `_TZ3000_5bsf8vaj`<br>`_TZ3000_utagpnzs` |
+| MOES Dual Output Plug - Output 1 (`socket_moes_ts011f_dual`) | `TS011F` | `_TZ3000_2xlvlnez` |
 | MOES Star EU Three-Gang Switch (`wall_switch_moes_star_3`) | `TS0601` | `_TZE200_zo0cfekv` |
 | Motion Sensor (`motion_sensor`) | `RH3040` | `TUYATEC-bd5faf9p`<br>`TUYATEC-zw6hxafz` |
 | Motion Sensor (`motion_sensor_2`) | `TS0601` | `_TZE200_1ibpyhdc`<br>`_TZE200_3towulqd`<br>`_TZE200_bh3n6gk8`<br>`_TZE200_ttcovulf` |

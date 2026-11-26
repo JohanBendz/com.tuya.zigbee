@@ -59,6 +59,7 @@ test('inherited 0.4.0 release instructions enumerate the actual 19 additions and
     'sensor_bed_pressure',
     'tank_monitor_epttech_tlc2206',
     'temphumid_th01',
+    'socket_moes_ts011f_dual',
     'switch_1_gang_ts000f',
     'switch_1_gang_ts0011',
     'switch_module_2_gang_tuya',

@@ -11671,6 +11671,77 @@
       }
     },
     {
+      "id": "socket_moes_ts011f_dual",
+      "name": {
+        "en": "MOES Dual Output Plug - Output 1",
+        "sv": "MOES dubbeluttag - Utgång 1"
+      },
+      "class": "socket",
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "zigbee"
+      ],
+      "capabilities": [
+        "onoff"
+      ],
+      "images": {
+        "large": "/drivers/socket_moes_ts011f_dual/assets/images/large.png",
+        "small": "/drivers/socket_moes_ts011f_dual/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "_TZ3000_2xlvlnez"
+        ],
+        "productId": [
+          "TS011F"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          },
+          "2": {
+            "clusters": [
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "devices": {
+          "socketTwo": {
+            "class": "socket",
+            "capabilities": [
+              "onoff"
+            ],
+            "name": {
+              "en": "MOES Dual Output Plug - Output 2",
+              "sv": "MOES dubbeluttag - Utgång 2"
+            }
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/socket_moes_ts011f_dual/assets/icon.svg",
+          "instruction": {
+            "en": "Put the plug in Zigbee pairing mode. Homey creates one tile for each output.",
+            "sv": "Sätt uttaget i parningsläge för Zigbee. Homey skapar en enhet för varje utgång."
+          }
+        }
+      }
+    },
+    {
       "id": "socket_power_strip",
       "name": {
         "en": "3 Socket Power Strip"
